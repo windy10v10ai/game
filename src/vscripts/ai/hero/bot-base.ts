@@ -110,6 +110,7 @@ export class BotBaseAIModifier extends BaseModifier {
   private lastTraceKey: string = '';
   // 交战中团队大脑给的集合点，撤退时退向这里
   private retreatPoint: Point | undefined;
+  private brain: TeamBrain | undefined;
 
   protected getNeutralItemConfig(): Record<number, NeutralTierConfig> {
     return NeutralItemManager.GetDefaultConfig();
@@ -212,6 +213,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return;
     }
 
+    this.brain = brain;
     this.UpdateRecoverNeed(brain);
     const task = brain.GetTask(this.hero);
     this.stance = this.DecideStance(brain, task);
@@ -425,7 +427,7 @@ export class BotBaseAIModifier extends BaseModifier {
     return ActionAttack.MoveToAttack(this.hero, target, range);
   }
 
-  /** 优先团队指定的集火目标，否则挑血最少的；站在不能进的敌方塔下的目标不追。 */
+  /** 优先团队指定的集火目标，否则挑血最少的；站在不能进的敌方塔下、或躲到还没推掉的塔后面的目标不追。 */
   private PickFightTarget(focusId: number | undefined): CDOTA_BaseNPC | undefined {
     let best: CDOTA_BaseNPC | undefined;
     for (const enemy of this.aroundEnemyHeroes) {
@@ -433,7 +435,7 @@ export class BotBaseAIModifier extends BaseModifier {
       if (!isFocus && this.hero.GetRangeToUnit(enemy) > this.ChaseRange) {
         continue;
       }
-      if (this.IsProtectedByTower(enemy)) {
+      if (this.IsProtectedByTower(enemy) || this.brain?.IsPastFront(enemy.GetAbsOrigin())) {
         continue;
       }
       if (isFocus) {

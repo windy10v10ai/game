@@ -7,10 +7,11 @@ import {
 } from './lane-geometry';
 import { combatPower, decayThreat, threatMultiplier } from './power';
 import { pushLevelFor, shouldTakeOver, takeoverFallbackSeconds } from './takeover';
-import { PlanInput, PushLane, planTasks, pickStrategy } from './team-plan';
+import { PlanInput, PushLane, planTasks, pickStrategy, requiredPushLevel } from './team-plan';
 
 const lane = (name: PushLane['lane'], x: number, enemyPower = 0): PushLane => ({
   lane: name,
+  minLevel: 0,
   targetId: 100 + x,
   stagingPos: { x, y: 0 },
   targetHpRatio: 1,
@@ -26,6 +27,7 @@ const bots = (count: number) =>
     needsRecover: false,
     // 编号越大普攻输出越高，4、5 号是推塔手
     attackDps: (i + 1) * 10,
+    level: 10,
   }));
 
 const baseInput = (overrides: Partial<PlanInput>): PlanInput => ({
@@ -33,6 +35,7 @@ const baseInput = (overrides: Partial<PlanInput>): PlanInput => ({
   fountain: { x: -1000, y: -1000 },
   defend: [],
   fights: [],
+  farms: [{ x: -4000, y: -4000 }],
   lanes: [lane('top', -3000), lane('mid', 0), lane('bot', 3000)],
   ourPower: 500,
   enemyPower: 500,
@@ -165,6 +168,39 @@ describe('planTasks', () => {
     allyPower,
     focusId: 99,
     rally: { x: -2000, y: 0 },
+    pastFront: false,
+  });
+
+  it('does not send bots to fight behind a standing tower', () => {
+    const tasks = planTasks(baseInput({ fights: [{ ...spot(250), pastFront: true }] })).tasks;
+    expect([...tasks.values()].some((task) => task.kind === 'fight')).toBe(false);
+  });
+
+  it('sends bots below every lane level gate to farm and keeps the rest pushing', () => {
+    const input = baseInput({
+      lanes: [
+        { ...lane('top', -3000), minLevel: 12 },
+        { ...lane('mid', 0), minLevel: 8 },
+      ],
+    });
+    input.bots[0].level = 6;
+    input.bots[1].level = 9;
+    const tasks = planTasks(input).tasks;
+    expect(tasks.get(1)).toEqual({ kind: 'farm', pos: { x: -4000, y: -4000 } });
+    expect(tasks.get(2)?.lane).toBe('mid');
+    expect(requiredPushLevel(1, 12)).toBe(0);
+    expect(requiredPushLevel(2, 12)).toBe(8);
+    expect(requiredPushLevel(4, 12)).toBe(12);
+  });
+
+  it('keeps pushing the current lane instead of teleporting across the map', () => {
+    const input = baseInput({
+      ourPower: 1000,
+      enemyPower: 300,
+      lanes: [lane('top', -9000), { ...lane('bot', 9000), waveAtTarget: true }],
+    });
+    input.bots.forEach((bot) => (bot.pos = { x: -8000, y: 0 }));
+    expect(planTasks(input).mainLane).toBe('top');
   });
 
   it('sends just enough nearby bots to a winnable fight and leaves pushers pushing', () => {

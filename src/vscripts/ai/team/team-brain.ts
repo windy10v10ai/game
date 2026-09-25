@@ -29,6 +29,7 @@ import {
   FightSpot,
   planTasks,
   PushLane,
+  requiredPushLevel,
   Task,
 } from './team-plan';
 
@@ -42,6 +43,10 @@ const BUILDING_THREAT_RADIUS = 1200;
 const FIGHT_CLUSTER_RADIUS = 1200;
 // 敌人离自家塔这么近时，塔也算进对面的战力
 const FIGHT_TOWER_RADIUS = 900;
+// 超过敌方最前面那座塔这么远，就算越过了还没推掉的塔
+const FRONT_MARGIN = 400;
+// 同一片野区的野怪合成一个发育点
+const FARM_CAMP_RADIUS = 800;
 // 集合点允许与交战点差不多深入，推塔的队友往往就站在交战点旁边
 const RALLY_FORWARD_SLACK = 1000;
 // 兵线进到目标建筑这个距离内，才算可以开始推塔
@@ -86,10 +91,13 @@ export class TeamBrain {
   private tasks = new Map<number, Task>();
   private mainLane: Lane | undefined;
   private fights: FightView[] = [];
+  // 每路敌方最前面还没推掉的建筑，按己方视角的前进距离记
+  private readonly fronts = new Map<Lane, number>();
 
   constructor(
     public readonly team: DotaTeam,
     private readonly lanes: LanePath[],
+    private readonly pushLevel: number,
   ) {
     this.enemyTeam = team === DotaTeam.GOODGUYS ? DotaTeam.BADGUYS : DotaTeam.GOODGUYS;
   }
@@ -163,11 +171,14 @@ export class TeamBrain {
       this.fights = [];
       return;
     }
+    const buildings = CollectBuildings();
+    const lanePower = this.EnemyPowerByLane(enemies, now);
+    // 推进目标同时决定了每路的前线，交战点要按前线判断，先算推进
+    const lanes = this.FindPushLanes(buildings, lanePower);
     this.fights = this.BuildFights(visibleEnemies, allies);
 
     const ourPower = allies.reduce((sum, hero) => sum + UnitPower(hero), 0);
     const enemyPower = enemies.reduce((sum, hero) => sum + this.PowerOf(hero), 0);
-    const buildings = CollectBuildings();
     const fountain = HeroUtil.GetTeamFountainPosition(this.team) ?? Vector(0, 0, 0);
     const bots = [...this.members.values()]
       .filter((hero) => hero.IsAlive())
@@ -177,6 +188,7 @@ export class TeamBrain {
         power: UnitPower(hero),
         needsRecover: this.recoverRequests.has(hero.GetEntityIndex()),
         attackDps: hero.GetAverageTrueAttackDamage(undefined) * hero.GetAttacksPerSecond(false),
+        level: hero.GetLevel(),
         previous: this.tasks.get(hero.GetEntityIndex()),
       }));
 
@@ -185,7 +197,8 @@ export class TeamBrain {
       fountain,
       defend: this.FindDefendTargets(buildings, visibleEnemies),
       fights: this.fights,
-      lanes: this.FindPushLanes(buildings, enemies, now),
+      lanes,
+      farms: this.FindFarmSpots(lanePower, observer),
       ourPower,
       enemyPower,
       mainLane: this.mainLane,
@@ -281,6 +294,7 @@ export class TeamBrain {
       ourPower,
       ourNames,
       withTower: tower !== undefined,
+      pastFront: this.IsPastFront(pos),
     };
   }
 
@@ -406,21 +420,32 @@ export class TeamBrain {
     return targets;
   }
 
-  private FindPushLanes(
-    buildings: BuildingInfo[],
-    enemies: CDOTA_BaseNPC_Hero[],
-    now: number,
-  ): PushLane[] {
+  /** 这个位置是否在某一路敌方还没推掉的塔后面，bot 不越过它追人或打架。 */
+  IsPastFront(pos: Point): boolean {
+    const hit = nearestLane(this.lanes, pos, Infinity);
+    if (!hit) {
+      return false;
+    }
+    const front = this.fronts.get(hit.path.lane) ?? Infinity;
+    const forward = forwardProgress(
+      hit.path,
+      hit.projection.progress,
+      this.team === DotaTeam.GOODGUYS,
+    );
+    return forward > front + FRONT_MARGIN;
+  }
+
+  private FindPushLanes(buildings: BuildingInfo[], lanePower: Map<Lane, number>): PushLane[] {
     const isRadiant = this.team === DotaTeam.GOODGUYS;
     const enemyTargets = buildings.filter(
       (building) =>
         building.unit.GetTeamNumber() === this.enemyTeam && !building.unit.IsInvulnerable(),
     );
+    this.fronts.clear();
     if (enemyTargets.length === 0) {
       return [];
     }
     const creepFront = this.FindCreepFronts(isRadiant);
-    const lanePower = this.EnemyPowerByLane(enemies, now);
     const lanes: PushLane[] = [];
     for (const path of this.lanes) {
       // 本路的建筑推完了就打基地里离这一路最近的目标
@@ -444,6 +469,7 @@ export class TeamBrain {
       if (!target) {
         continue;
       }
+      this.fronts.set(path.lane, targetForward);
       const front = creepFront.get(path.lane);
       const waveAtTarget = front !== undefined && front >= targetForward - WAVE_AT_TARGET_DISTANCE;
       let stagingPos: Point = target.unit.GetAbsOrigin();
@@ -461,9 +487,57 @@ export class TeamBrain {
         targetHpRatio: target.unit.GetHealth() / target.unit.GetMaxHealth(),
         waveAtTarget,
         enemyPower: lanePower.get(path.lane) ?? 0,
+        minLevel: requiredPushLevel(target.tier, this.pushLevel),
       });
     }
     return lanes;
+  }
+
+  /**
+   * 等级不够推进时的发育点：没有敌方英雄的路上看得到的敌方兵线，以及己方半场的野怪。
+   * 野怪在己方野区，按位置直接读，不要求视野。
+   */
+  private FindFarmSpots(lanePower: Map<Lane, number>, observer: CDOTA_BaseNPC): Point[] {
+    const spots: Point[] = [];
+    const ownFountain = HeroUtil.GetTeamFountainPosition(this.team);
+    const enemyFountain = HeroUtil.GetTeamFountainPosition(this.enemyTeam);
+    if (!ownFountain || !enemyFountain) {
+      return spots;
+    }
+    const units = FindUnitsInRadius(
+      this.team,
+      Vector(0, 0, 0),
+      undefined,
+      FIND_UNITS_EVERYWHERE,
+      UnitTargetTeam.ENEMY,
+      UnitTargetType.CREEP,
+      UnitTargetFlags.NONE,
+      FindOrder.ANY,
+      false,
+    );
+    for (const unit of units) {
+      const pos = unit.GetAbsOrigin();
+      if (unit.GetTeamNumber() === DotaTeam.NEUTRALS) {
+        const ownSide = distance(pos, ownFountain) < distance(pos, enemyFountain);
+        if (ownSide && spots.every((spot) => distance(spot, pos) > FARM_CAMP_RADIUS)) {
+          spots.push(pos);
+        }
+        continue;
+      }
+      if (!IsLaneCreep(unit) || !observer.CanEntityBeSeenByMyTeam(unit)) {
+        continue;
+      }
+      const hit = nearestLane(this.lanes, pos, LANE_CREEP_MAX_OFFSET);
+      if (
+        hit &&
+        (lanePower.get(hit.path.lane) ?? 0) === 0 &&
+        !this.IsPastFront(pos) &&
+        spots.every((spot) => distance(spot, pos) > FARM_CAMP_RADIUS)
+      ) {
+        spots.push(pos);
+      }
+    }
+    return spots;
   }
 
   /** 每路己方兵线最靠前的位置，用「朝敌方高地前进了多少」表示。 */
