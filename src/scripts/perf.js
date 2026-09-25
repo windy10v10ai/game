@@ -25,6 +25,8 @@ function parseArgs() {
     mode: 'steps',
     soakMinutes: 40,
     soakTimescale: 8,
+    // bot 英雄池的起始偏移，换一批英雄观察
+    botOffset: 0,
     // 先跑 minGames 局；有条件各局结果不一致就逐局追加，最多 maxGames 局
     // 逗号分隔的条件名，只复测其中几项时用
     conditions: 'all',

@@ -4,6 +4,7 @@ import { GA4 } from '../../api/analytics/ga4/ga4';
 import { Game } from '../../api/game';
 import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { GameConfig } from '../GameConfig';
+import { BotOrderProbe } from '../debug/bot-order-probe';
 import { PerfAuto } from '../debug/perf-auto';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
@@ -131,7 +132,10 @@ export class EventGameStateChange {
     GA4.RecordGameStartTime();
     // 初始化Bot团队策略，挂载到 GameRules.AI 供 FSA 层访问
     GameRules.AI.BotTeam = new BotTeam();
-    if (IsInToolsMode()) PerfAuto.onGameInProgress();
+    if (IsInToolsMode()) {
+      PerfAuto.onGameInProgress();
+      BotOrderProbe.install();
+    }
     // 初始化Bot出装系统
     InitializeItemReplaceMap();
   }
