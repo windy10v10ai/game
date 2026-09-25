@@ -218,11 +218,11 @@ export class PropertyController {
 
     // 如果英雄死亡，不更新属性 (死亡时无法添加modifier)
     if (!hero.IsAlive()) {
-      print(`[PropertyController] LevelupHeroProperty hero is dead ${name} ${activeLevel}`);
+      // print(`[PropertyController] LevelupHeroProperty hero is dead ${name} ${activeLevel}`);
       return;
     }
 
-    print(`[PropertyController] LevelupHeroProperty ${name} ${activeLevel}`);
+    // print(`[PropertyController] LevelupHeroProperty ${name} ${activeLevel}`);
     // 设置属性
     const propertyValuePerLevel = PropertyController.propertyLuaModiferMap.get(property.name);
     if (propertyValuePerLevel) {
@@ -232,12 +232,10 @@ export class PropertyController {
         return;
       }
       hero.RemoveModifierByName(property.name);
-      const addedModifier = hero.AddNewModifier(hero, undefined, property.name, {
+      hero.AddNewModifier(hero, undefined, property.name, {
         value,
       });
-      print(
-        `[PropertyController] UpgradeHeroProperty ${property.name} ${addedModifier.GetName()} ${value}`,
-      );
+      // print(`[PropertyController] UpgradeHeroProperty ${property.name} ${value}`);
     } else {
       const dataDrivenModifierName = PropertyController.propertyDataDrivenModifierMap.get(
         property.name,
@@ -264,7 +262,7 @@ export class PropertyController {
     if (deltaSP <= 0) {
       return;
     }
-    print(`[PropertyController] setBonusSkillPoints ${shoudAddSP} ${deltaSP}`);
+    // print(`[PropertyController] setBonusSkillPoints ${shoudAddSP} ${deltaSP}`);
     hero.SetAbilityPoints(hero.GetAbilityPoints() + deltaSP);
     PropertyController.bnusSkillPointsAdded.set(steamId, shoudAddSP);
   }
