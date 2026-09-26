@@ -14,7 +14,7 @@ import { Point } from '../team/lane-geometry';
 import { HeroShortName, TeamBrain } from '../team/team-brain';
 import { Task, TaskKind } from '../team/team-plan';
 import { WardPlacement } from '../ward/ward-placement';
-import { canEscape, decideStance, Stance } from './engagement';
+import { decideStance, Stance } from './engagement';
 import { HeroUtil } from './hero-util';
 
 // 性能排查只在工具模式生效，发布版每次思考只多一次常量判断
@@ -301,8 +301,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
     const fight = brain.AssessFight(this.hero, enemies);
     this.retreatPoint = fight.rally;
-    // 在敌方塔下死战必死，一律当作能跑；逃跑判定要扫塔，只有打起来才用得到
-    const escape = !engaged || this.IsUnderEnemyTower() || this.CanEscape(enemies);
+    const escape = !engaged || !this.hero.IsRooted();
     if (IS_TOOLS_MODE) {
       this.traceInfo =
         `engaged=${engaged ? 1 : 0} escape=${escape ? 1 : 0} spent=${this.spentActions}` +
@@ -327,27 +326,6 @@ export class BotBaseAIModifier extends BaseModifier {
       return stance;
     }
     return 'task';
-  }
-
-  private IsUnderEnemyTower(): boolean {
-    const tower = this.FindNearestEnemyTowerInvulnerable();
-    return (
-      tower !== undefined &&
-      HeroUtil.GetDistanceToAttackRange(tower, this.hero) <= this.TowerDangerBuffer
-    );
-  }
-
-  private CanEscape(enemies: CDOTA_BaseNPC[]): boolean {
-    let fastest = 0;
-    for (const enemy of enemies) {
-      fastest = Math.max(fastest, enemy.GetIdealSpeed());
-    }
-    return canEscape({
-      rooted: this.hero.IsRooted(),
-      ourSpeed: this.hero.GetIdealSpeed(),
-      fastestEnemySpeed: fastest,
-      distanceToSafety: this.hero.GetAbsOrigin().__sub(this.FindSafePoint()).Length2D(),
-    });
   }
 
   /** 撤退的落脚点：交战中退向团队大脑给的集合点；否则退向身后最近的己方塔，没有就回泉水。 */

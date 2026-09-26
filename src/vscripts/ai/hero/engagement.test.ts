@@ -1,4 +1,4 @@
-import { canEscape, decideStance } from './engagement';
+import { decideStance } from './engagement';
 
 const input = {
   engaged: false,
@@ -27,16 +27,5 @@ describe('decideStance', () => {
     expect(decideStance(losing)).toBe('spend');
     expect(decideStance({ ...losing, spentActions: 2 })).toBe('retreat');
     expect(decideStance({ ...losing, canEscape: false })).toBe('lastStand');
-  });
-});
-
-describe('canEscape', () => {
-  const escape = { rooted: false, ourSpeed: 300, fastestEnemySpeed: 300, distanceToSafety: 3000 };
-
-  it('cannot escape while rooted or when a faster enemy is far from safety', () => {
-    expect(canEscape(escape)).toBe(true);
-    expect(canEscape({ ...escape, rooted: true })).toBe(false);
-    expect(canEscape({ ...escape, fastestEnemySpeed: 400 })).toBe(false);
-    expect(canEscape({ ...escape, fastestEnemySpeed: 400, distanceToSafety: 1000 })).toBe(true);
   });
 });

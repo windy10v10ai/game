@@ -1,6 +1,6 @@
 /**
- * 英雄层交战判断：没打起来时只在明显打不过时避开；已经打起来就先把技能物品交出去再撤，跑不掉就打到底。
- * 目的是让 bot 有对抗性，不送的门槛放低。
+ * 英雄层交战判断：没打起来时只在明显打不过时避开；已经打起来就先把技能物品交出去再撤，动不了才打到底。
+ * 目的是让 bot 有对抗性，不送的门槛放低；撤向队友或塔总比原地硬打多一线生机，所以不按移速预判跑不掉。
  */
 
 import { AVOID_POWER_RATIO } from '../team/power';
@@ -34,25 +34,4 @@ export function decideStance(input: EngagementInput): Stance {
     return 'lastStand';
   }
   return input.spentActions < SPEND_BUDGET ? 'spend' : 'retreat';
-}
-
-export interface EscapeInput {
-  rooted: boolean;
-  ourSpeed: number;
-  fastestEnemySpeed: number;
-  distanceToSafety: number;
-}
-
-// 敌方移速快出这么多时，离安全点稍远就追得上
-const SPEED_GAP = 30;
-const SAFE_DISTANCE_WHEN_SLOWER = 1500;
-
-export function canEscape(input: EscapeInput): boolean {
-  if (input.rooted) {
-    return false;
-  }
-  if (input.fastestEnemySpeed > input.ourSpeed + SPEED_GAP) {
-    return input.distanceToSafety <= SAFE_DISTANCE_WHEN_SLOWER;
-  }
-  return true;
 }
