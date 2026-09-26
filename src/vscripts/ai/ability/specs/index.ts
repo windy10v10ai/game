@@ -5,6 +5,8 @@ import { SPECS as ancientApparitionChillingTouch } from './ancient_apparition_ch
 import { SPECS as axeBattleHunger } from './axe_battle_hunger';
 import { SPECS as axeBerserkerSCall } from './axe_berserkers_call';
 import { SPECS as axeCullingBlade } from './axe_culling_blade';
+import { SPECS as baneFiendsGrip } from './bane_fiends_grip';
+import { SPECS as baneNightmare } from './bane_nightmare';
 import { SPECS as chibiHit } from './chibi_hit';
 import { SPECS as chibiMonster } from './chibi_monster';
 import { SPECS as doomBringerInfernalBlade } from './doom_bringer_infernal_blade';
@@ -105,6 +107,10 @@ import { SPECS as zuusThundergodsWrath } from './zuus_thundergods_wrath';
  * 当未来 spec 之间出现真正需要"全局优先级"的取舍时，再扩展机制。当前保持简单。
  */
 export function registerAbilitySpecs(): void {
+  // Bane 痛苦之源
+  AbilityRegistry.registerAll(baneFiendsGrip);
+  AbilityRegistry.registerAll(baneNightmare);
+
   // Dragon Knight 龙骑士
   AbilityRegistry.registerAll(dragonKnightBreatheFire);
   AbilityRegistry.registerAll(dragonKnightDragonTail);

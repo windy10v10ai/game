@@ -77,6 +77,16 @@ export interface CastCoindition {
      */
     enemyHeroInRange?: number;
     /**
+     * 要求 self 周围该距离内存在存活的己方英雄（不含自己与幻象）才施法。
+     * 用于控制技能：有队友跟进输出时才有价值。
+     */
+    allyHeroInRange?: number;
+    /**
+     * 若 self 周围该距离内存在存活的己方英雄（不含自己与幻象），则跳过施法。
+     * 用于受到伤害就会解除的控制，避免队友的输出把它打断。
+     */
+    noAllyHeroInRange?: number;
+    /**
      * 若 self 周围该距离内存在存活的敌方建筑（塔/兵营等），则跳过施法。
      * 由 dispatcher 在 tryCast 层检查（依赖 ai.aroundEnemyBuildings 缓存）。
      */

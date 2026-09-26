@@ -45,6 +45,18 @@ export function TryCastBySpec(
   if (CheckEnemyHeroInRangeFailure(ai, condition?.self?.enemyHeroInRange)) {
     return false;
   }
+  if (
+    condition?.self?.allyHeroInRange !== undefined &&
+    !HasAllyHeroInRange(ai, condition.self.allyHeroInRange)
+  ) {
+    return false;
+  }
+  if (
+    condition?.self?.noAllyHeroInRange !== undefined &&
+    HasAllyHeroInRange(ai, condition.self.noAllyHeroInRange)
+  ) {
+    return false;
+  }
   if (CheckNoEnemyBuildingInRangeFailure(ai, condition?.self?.noEnemyBuildingInRange)) {
     return false;
   }
@@ -87,6 +99,21 @@ function HasEnemyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
   const hero = ai.GetHero();
   for (const enemy of ai.aroundEnemyHeroes) {
     if (enemy.IsAlive() && hero.GetRangeToUnit(enemy) <= range) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function HasAllyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
+  const hero = ai.GetHero();
+  for (const ally of ai.aroundFriendlyHeroes) {
+    if (
+      ally !== hero &&
+      ally.IsAlive() &&
+      ally.IsRealHero() &&
+      hero.GetRangeToUnit(ally) <= range
+    ) {
       return true;
     }
   }
