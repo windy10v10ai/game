@@ -26,7 +26,7 @@ export const SPECS: AbilitySpec[] = [
           noModifier: ['modifier_earthshaker_enchant_totem'],
         },
       },
-      target: { range: { gte: 300 } },
+      target: { range: { gte: 300 }, castMode: 'targetPosition' },
     },
   },
 ];

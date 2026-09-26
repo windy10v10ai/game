@@ -149,7 +149,8 @@ function TraceCast(
 
 /**
  * 计算 POINT 技能的释放位置。
- * - castMode 未设或 'targetPosition' → 返回 undefined（CastAbilityOnTargetByBehavior 默认用 target 位置）
+ * - castMode 未设 → 返回 undefined（CastAbilityOnTargetByBehavior 默认用 target 位置）
+ * - 'targetPosition' → 目标位置，并让派发优先点地而不是指向单位
  * - 'projectedOnCastRange'：
  *     - 目标距离 ≤ cast range → 直接用目标位置（精准命中）
  *     - 目标距离 > cast range → 沿"施法者→目标"方向投影到 cast range 边缘
@@ -353,6 +354,9 @@ function resolveCastPosition(
   target: CDOTA_BaseNPC,
   condition: CastCoindition | undefined,
 ): Vector | undefined {
+  if (condition?.target?.castMode === 'targetPosition') {
+    return target.GetAbsOrigin();
+  }
   if (condition?.target?.castMode !== 'projectedOnCastRange') {
     return undefined;
   }

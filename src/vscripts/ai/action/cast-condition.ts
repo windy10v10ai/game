@@ -42,7 +42,9 @@ export interface CastCoindition {
     attackRangeOffset?: number;
     /**
      * 决定 POINT 技能的释放位置：
-     * - 'targetPosition'（默认）：释放点 = 目标位置
+     * - 不设（默认）：释放点 = 目标位置；技能同时能指向单位时优先指向单位
+     * - 'targetPosition'：强制对目标位置点地施放，用于既能指向友方单位又能点地的技能
+     *   （如撼地者有 A 杖的强化图腾），对敌人指向会被引擎拒绝
      * - 'projectedOnCastRange'：
      *     - 目标距离 ≤ cast range → 释放点 = 目标位置（精准命中）
      *     - 目标距离 > cast range → 释放点 = 沿"施法者→目标"方向投影到 cast range 边缘
