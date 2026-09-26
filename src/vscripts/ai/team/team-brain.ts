@@ -639,27 +639,28 @@ function ComputePower(unit: CDOTA_BaseNPC): number {
 
 /** 已学的主动技能与身上的主动物品里，现在能放的比例；不区分技能强弱。 */
 function SpellReadiness(unit: CDOTA_BaseNPC): number {
+  if (HeroUtil.NotActionable(unit)) {
+    return 0;
+  }
   let total = 0;
   let ready = 0;
-  const silenced = unit.IsSilenced();
   for (let i = 0; i < unit.GetAbilityCount(); i++) {
     const ability = unit.GetAbilityByIndex(i);
     if (!ability || ability.GetLevel() < 1 || ability.IsHidden() || ability.IsPassive()) {
       continue;
     }
     total++;
-    if (!silenced && ability.IsFullyCastable()) {
+    if (ability.IsFullyCastable()) {
       ready++;
     }
   }
-  const muted = unit.IsMuted();
   for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
     const item = unit.GetItemInSlot(slot);
     if (!item || item.IsPassive()) {
       continue;
     }
     total++;
-    if (!muted && item.IsFullyCastable()) {
+    if (item.IsFullyCastable()) {
       ready++;
     }
   }
