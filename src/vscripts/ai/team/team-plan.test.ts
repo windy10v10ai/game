@@ -182,21 +182,21 @@ describe('planTasks', () => {
     expect([...tasks.values()].some((task) => task.kind === 'fight')).toBe(false);
   });
 
-  it('farms instead of pushing a tower the team cannot beat', () => {
+  it('farms instead of pushing a tower the team cannot even chip', () => {
     const tasks = planTasks(
       baseInput({
         ourPower: 1000,
         enemyPower: 300,
         lanes: [
-          { ...lane('top', -3000), towerPower: 600 },
-          { ...lane('mid', 0), towerPower: 400 },
+          { ...lane('top', -3000), towerPower: 1200 },
+          { ...lane('mid', 0), towerPower: 800 },
         ],
       }),
     ).tasks;
     expect([...tasks.values()].every((task) => task.lane === 'mid')).toBe(true);
 
     const blocked = planTasks(
-      baseInput({ lanes: [{ ...lane('top', -3000), towerPower: 600 }] }),
+      baseInput({ lanes: [{ ...lane('top', -3000), towerPower: 1200 }] }),
     ).tasks;
     expect(blocked.get(1)).toEqual({ kind: 'farm', pos: { x: -4000, y: -4000 } });
   });
@@ -206,7 +206,7 @@ describe('planTasks', () => {
       bots: bots(8),
       ourPower: 300,
       enemyPower: 1000,
-      lanes: [{ ...lane('top', -3000), towerPower: 450 }, lane('bot', 3000)],
+      lanes: [{ ...lane('top', -3000), towerPower: 900 }, lane('bot', 3000)],
     });
     const kinds = [...planTasks(input).tasks.values()].map((task) => task.lane ?? task.kind);
     expect(kinds.filter((kind) => kind === 'bot')).toHaveLength(4);
@@ -291,12 +291,12 @@ describe('planTasks', () => {
     expect([...counts.values()].sort()).toEqual([4, 5]);
   });
 
-  it('pushes the weakest lane only when it can overpower the defenders', () => {
+  it('pushes the weakest lane unless the defenders are more than twice as strong', () => {
     const weak = planTasks(
       baseInput({
         ourPower: 300,
         enemyPower: 1000,
-        lanes: [lane('top', -3000, 300), lane('mid', 0, 250), lane('bot', 3000, 200)],
+        lanes: [lane('top', -3000, 1100), lane('mid', 0, 1050), lane('bot', 3000, 900)],
       }),
     );
     expect([...weak.tasks.values()].every((task) => task.lane === 'bot')).toBe(true);
@@ -305,7 +305,7 @@ describe('planTasks', () => {
       baseInput({
         ourPower: 300,
         enemyPower: 1000,
-        lanes: [lane('top', -3000, 900), lane('mid', 0, 800), lane('bot', 3000, 700)],
+        lanes: [lane('top', -3000, 1300), lane('mid', 0, 1200), lane('bot', 3000, 1100)],
       }),
     );
     expect([...strong.tasks.values()].every((task) => task.kind === 'farm')).toBe(true);

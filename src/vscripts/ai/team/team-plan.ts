@@ -104,7 +104,9 @@ const LANE_TRAVEL_SCALE = 4000;
 const LANE_PRESENCE_RATIO = 0.3;
 // 一路人太少时玩家到哪杀到哪，毫无反抗力，还会被牵着满图跑
 const MIN_LANE_GROUP = 4;
-// 有敌方英雄守塔时要明显压过守方才上，否则推塔的人会被守方加塔一起打死
+// 不要求这一波推掉塔，能把塔血磨下去一些就值得上，只避开上去毫无作用的塔
+const TOWER_PUSH_RATIO = 0.5;
+// 守塔的敌方英雄不超过我方这么多倍就尽量去推，而不是一直发育
 const DEFENDED_PUSH_RATIO = 2;
 
 export function pickStrategy(ourPower: number, enemyPower: number): Strategy {
@@ -237,11 +239,10 @@ function assignFights(input: PlanInput, free: PlanBot[], tasks: Map<number, Task
   return remaining;
 }
 
-/** 这些战力能不能推这一路：打得过塔才上；有敌方英雄守时还要明显压过守方。 */
+/** 这些战力能不能推这一路：能磨掉塔血，且守塔的敌方英雄没有强出太多。 */
 function canPushWith(power: number, lane: PushLane): boolean {
   return (
-    power >= lane.towerPower &&
-    (lane.enemyPower <= 0 || power >= lane.enemyPower * DEFENDED_PUSH_RATIO)
+    power >= lane.towerPower * TOWER_PUSH_RATIO && lane.enemyPower <= power * DEFENDED_PUSH_RATIO
   );
 }
 
@@ -348,7 +349,7 @@ function spread(bots: PlanBot[], lanes: PushLane[], tasks: Map<number, Task>): v
   }
 }
 
-/** 分完之后某一路的人推不动那座塔或压不过守方，这一组改去发育，不上去送。 */
+/** 分完之后某一路的人磨不动那座塔或守方强出太多，这一组改去发育，不上去送。 */
 function dropWeakGroups(bots: PlanBot[], lanes: PushLane[], tasks: Map<number, Task>): PlanBot[] {
   const dropped: PlanBot[] = [];
   for (const lane of lanes) {
