@@ -77,6 +77,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly TaskTeleportSaving: number = 3000;
   protected readonly TeleportLandingOffset: number = 400;
   protected readonly PushAttackRange: number = 1000;
+  // 攻击距离外再多这么远的敌方小兵也顺手打掉，近战英雄也能照顾到身边一整波兵
+  protected readonly CreepClearExtraRange: number = 400;
 
   // 同一目的地不重复下指令；单位停下或太久没更新时才重下
   protected readonly ArriveRadius: number = 300;
@@ -493,6 +495,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (task.kind === 'push' && this.AttackPushTarget(task)) {
       return true;
     }
+    if (this.AttackNearbyCreep(task.kind === 'farm')) {
+      return true;
+    }
     if (this.MoveTo(this.ToWorld(task.pos), UnitOrder.ATTACK_MOVE)) {
       return true;
     }
@@ -624,6 +629,36 @@ export class BotBaseAIModifier extends BaseModifier {
       Queue: false,
     });
     return true;
+  }
+
+  /**
+   * 身边有敌方小兵就先打掉。攻击移动到了目的地就停手，而目的地常在兵线附近，
+   * 只靠它会站在敌方兵线旁不出手。塔下打不得的小兵、在前线后面的小兵不打；
+   * 野怪只在去打野时打，路过野区不停下。
+   */
+  private AttackNearbyCreep(includeNeutrals: boolean): boolean {
+    const current = this.hero.GetAttackTarget();
+    if (this.hero.IsAttacking() && current && this.aroundEnemyCreeps.includes(current)) {
+      this.traceTarget = `creep:${current.GetUnitName()}`;
+      return true;
+    }
+    const reach = this.hero.Script_GetAttackRange() + this.CreepClearExtraRange;
+    for (const creep of this.aroundEnemyCreeps) {
+      if (this.hero.GetRangeToUnit(creep) > reach) {
+        break;
+      }
+      if (
+        !creep.IsAlive() ||
+        (!includeNeutrals && creep.GetTeamNumber() === DotaTeam.NEUTRALS) ||
+        this.IsProtectedByTower(creep) ||
+        this.brain?.IsPastFront(creep.GetAbsOrigin())
+      ) {
+        continue;
+      }
+      this.traceTarget = `creep:${creep.GetUnitName()}`;
+      return ActionAttack.MoveToAttack(this.hero, creep, reach);
+    }
+    return false;
   }
 
   /** 朝目的地移动，目的地没变且单位还在走或在打时不重复下指令。 */
