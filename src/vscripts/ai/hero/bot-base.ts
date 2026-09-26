@@ -7,8 +7,10 @@ import { getHeroBuildConfig } from '../build-item/bot-build-config';
 import { HeroBuildManager } from '../build-item/bot-build-manager';
 import { HeroBuildState, InitializeHeroBuild } from '../build-item/bot-build-state';
 import { SellItem } from '../build-item/sell-item';
+import { EMPTY_SLOT, planSlotSwaps } from '../item/arrange-items';
 import { ConsumeItem } from '../item/consume-item';
 import { ItemDispatcher } from '../item/item-dispatcher';
+import { ItemRegistry } from '../item/item-registry';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { Point } from '../team/lane-geometry';
@@ -859,7 +861,7 @@ export class BotBaseAIModifier extends BaseModifier {
     }
     this.buildItemNextTime = this.gameTime + this.buildItemInterval;
 
-    this.FillMainSlots();
+    this.ArrangeItems();
     // 使用消耗品
     ConsumeItem.ConsumeKnownItems(this.hero);
     // SellItem.SellExtraItems 内部已包含智能出售系统
@@ -878,21 +880,29 @@ export class BotBaseAIModifier extends BaseModifier {
     return false;
   }
 
-  /** 主物品栏有空位时把备用栏的物品挪上来，否则卖装或用掉消耗品后空出的格子一直闲着。 */
-  private FillMainSlots(): void {
+  /**
+   * 主物品栏有空位时把备用栏的物品挪上来，否则卖装或用掉消耗品后空出的格子一直闲着；
+   * 再按施放档位排好主物品栏，施放时按格子顺序检查，重要的先放。
+   */
+  private ArrangeItems(): void {
     let backpack = InventorySlot.SLOT_7;
+    const priorities: number[] = [];
     for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
-      if (this.hero.GetItemInSlot(slot)) {
-        continue;
+      let item = this.hero.GetItemInSlot(slot);
+      if (!item) {
+        while (backpack <= InventorySlot.SLOT_9 && !this.hero.GetItemInSlot(backpack)) {
+          backpack++;
+        }
+        if (backpack <= InventorySlot.SLOT_9) {
+          this.hero.SwapItems(backpack, slot);
+          backpack++;
+          item = this.hero.GetItemInSlot(slot);
+        }
       }
-      while (backpack <= InventorySlot.SLOT_9 && !this.hero.GetItemInSlot(backpack)) {
-        backpack++;
-      }
-      if (backpack > InventorySlot.SLOT_9) {
-        return;
-      }
-      this.hero.SwapItems(backpack, slot);
-      backpack++;
+      priorities.push(item ? ItemRegistry.priorityOf(item.GetName()) : EMPTY_SLOT);
+    }
+    for (const [from, to] of planSlotSwaps(priorities)) {
+      this.hero.SwapItems(from, to);
     }
   }
 
