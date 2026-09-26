@@ -1,7 +1,7 @@
 import { TargetSide } from '../../ability/ability-spec';
 import { ItemPriority, ItemSpec } from '../item-spec';
 
-/** 天神杖：激进（贴身有敌直接开）+ 保守（远处有敌且残血）两条 spec 实现 OR。 */
+/** 黑皇杖 / 天神杖（升级链）：激进（贴身有敌直接开）+ 保守（远处有敌且残血）两条 spec 实现 OR。 */
 export const SPECS: ItemSpec[] = [
   {
     itemName: 'item_black_king_bar_2',
@@ -13,6 +13,23 @@ export const SPECS: ItemSpec[] = [
   },
   {
     itemName: 'item_black_king_bar_2',
+    priority: ItemPriority.Survival,
+    targetSide: TargetSide.EnemyHero,
+    condition: {
+      target: { range: { lte: 1800 }, ignoresMagicImmune: true },
+      self: { unitCondition: { healthPercent: { lte: 90 } } },
+    },
+  },
+  {
+    itemName: 'item_black_king_bar',
+    priority: ItemPriority.Survival,
+    targetSide: TargetSide.EnemyHero,
+    condition: {
+      target: { range: { lte: 900 }, ignoresMagicImmune: true },
+    },
+  },
+  {
+    itemName: 'item_black_king_bar',
     priority: ItemPriority.Survival,
     targetSide: TargetSide.EnemyHero,
     condition: {

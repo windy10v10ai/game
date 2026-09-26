@@ -1,5 +1,6 @@
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 import { AbilityDispatcher } from '../ability/ability-dispatcher';
+import { GetFullCastRange } from '../ability/ability-cast';
 import { AbilityRegistry } from '../ability/ability-registry';
 import { ActionAttack } from '../action/action-attack';
 import { ActionFind, FRIENDLY_CREEP_SEARCH_RADIUS } from '../action/action-find';
@@ -11,6 +12,7 @@ import { EMPTY_SLOT, planSlotSwaps } from '../item/arrange-items';
 import { ConsumeItem } from '../item/consume-item';
 import { ItemDispatcher } from '../item/item-dispatcher';
 import { ItemRegistry } from '../item/item-registry';
+import { BLINK_ITEM_NAMES } from '../item/specs/item_jump_jump_jump';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { Point } from '../team/lane-geometry';
@@ -481,7 +483,11 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.TryTeleport()) {
       return true;
     }
-    this.MoveTo(this.FindSafePoint(), UnitOrder.MOVE_TO_POSITION);
+    const safePoint = this.FindSafePoint();
+    if (this.TryBlinkToward(safePoint)) {
+      return true;
+    }
+    this.MoveTo(safePoint, UnitOrder.MOVE_TO_POSITION);
     return true;
   }
 
@@ -668,10 +674,49 @@ export class BotBaseAIModifier extends BaseModifier {
     return true;
   }
 
+  /** 朝目的地闪烁；剩下的路不够闪一次满距离时不交，留给切入或逃跑。 */
+  protected TryBlinkToward(position: Vector): boolean {
+    if (this.hero.IsMuted() || this.hero.IsRooted()) {
+      return false;
+    }
+    const blink = this.FindBlinkItem();
+    if (!blink || !blink.IsFullyCastable()) {
+      return false;
+    }
+    const here = this.hero.GetAbsOrigin();
+    const offset = position.__sub(here);
+    const distance = offset.Length2D();
+    const range = GetFullCastRange(this.hero, blink);
+    if (range <= 0 || distance < range) {
+      return false;
+    }
+    this.hero.CastAbilityOnPosition(
+      here.__add(offset.__mul(range / distance)),
+      blink,
+      this.hero.GetPlayerOwnerID(),
+    );
+    return true;
+  }
+
+  /** 主物品栏里闪烁匕首升级链上的任意一件。 */
+  protected FindBlinkItem(): CDOTA_Item | undefined {
+    for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
+      const item = this.hero.GetItemInSlot(slot);
+      if (item && BLINK_ITEM_NAMES.includes(item.GetName())) {
+        return item;
+      }
+    }
+    return undefined;
+  }
+
   /** 朝目的地移动，目的地没变且单位还在走或在打时不重复下指令。 */
   private MoveTo(position: Vector, order: UnitOrder): boolean {
     if (this.hero.GetAbsOrigin().__sub(position).Length2D() <= this.ArriveRadius) {
       return false;
+    }
+    // 赶路时附近没有敌方英雄才闪烁，有敌人时留着切入或逃跑
+    if (this.aroundEnemyHeroes.length === 0 && this.TryBlinkToward(position)) {
+      return true;
     }
     const busy = this.hero.IsMoving() || this.hero.IsAttacking();
     if (
