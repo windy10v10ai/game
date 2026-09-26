@@ -2,7 +2,6 @@ import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 import { AbilityDispatcher } from '../ability/ability-dispatcher';
 import { ActionAttack } from '../action/action-attack';
 import { ActionFind, FRIENDLY_CREEP_SEARCH_RADIUS } from '../action/action-find';
-import { ActionMove } from '../action/action-move';
 import { getHeroBuildConfig } from '../build-item/bot-build-config';
 import { HeroBuildManager } from '../build-item/bot-build-manager';
 import { HeroBuildState, InitializeHeroBuild } from '../build-item/bot-build-state';
@@ -11,20 +10,27 @@ import { ConsumeItem } from '../item/consume-item';
 import { ItemDispatcher } from '../item/item-dispatcher';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
-import { ModeEnum } from '../mode/mode-enum';
+import { Point } from '../team/lane-geometry';
+import { HeroShortName, TeamBrain } from '../team/team-brain';
+import { Task, TaskKind } from '../team/team-plan';
 import { WardPlacement } from '../ward/ward-placement';
+import { canEscape, decideStance, Stance } from './engagement';
 import { HeroUtil } from './hero-util';
 
 // 性能排查只在工具模式生效，发布版每次思考只多一次常量判断
 const IS_TOOLS_MODE = IsInToolsMode();
+
+/** 英雄当前在做什么：对线期交给原生时是 laning，接管后是交战状态或团队任务。 */
+export type BotMode = 'laning' | 'fight' | 'retreat' | TaskKind;
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
   protected readonly ThinkInterval: number = 0.5;
   protected readonly ThinkIntervalTool: number = 0.5;
 
-  // 持续动作结束时间
-  protected readonly continueActionTime: number = 8;
+  // 原生期间躲塔要和原生抢控制，在这段时间内持续下移动指令
+  protected readonly towerEscapeTime: number = 3;
+  protected readonly towerEscapeTick: number = 0.03;
   protected continueActionEndTime: number = -60;
 
   // 中立槽修复节奏：间隔与下次校验时间（gameTime）
@@ -44,19 +50,41 @@ export class BotBaseAIModifier extends BaseModifier {
 
   protected readonly FindRadius: number = 1800;
   protected readonly CastRange: number = 900;
+  protected readonly LocalFightRadius: number = 1500;
+  protected readonly ChaseRange: number = 1200;
+  // 智力英雄靠技能输出，追着普攻跑会脱离队伍
+  protected readonly IntChaseExtra: number = 300;
+  // 挨打或出手后这段时间内仍算交战中
+  protected readonly EngageMemory: number = 3;
 
-  protected readonly AttackRangeLaning: number = 300;
-  protected readonly AttackRangeAttack: number = 1200;
-  // 推塔时贴上去的最小距离：近战在此距离内才走过去A，远程则用自身攻击范围
-  protected readonly MinPushTowerRange: number = 300;
-  protected readonly AttackRangePushHero: number = 900;
+  protected readonly RecoverHealthPercent: number = 35;
+  protected readonly RecoverManaPercent: number = 15;
+  protected readonly RecoverDoneHealthPercent: number = 90;
+  protected readonly RecoverDoneManaPercent: number = 70;
+  protected readonly FountainArriveRadius: number = 600;
+
+  // 进塔攻击范围前留的余量，以及能扛塔的人数、血量、塔下兵数
+  protected readonly TowerDangerBuffer: number = 150;
+  protected readonly DiveMinHeroes: number = 3;
+  protected readonly DiveMinHealthPercent: number = 50;
+  protected readonly DiveMinCreeps: number = 2;
+  protected readonly DiveCheckRadius: number = 900;
+
+  // 任务目的地很远、而己方建筑离目的地近得多时，用 TP 过去
+  protected readonly TaskTeleportDistance: number = 6000;
+  protected readonly TaskTeleportSaving: number = 3000;
+  protected readonly TeleportLandingOffset: number = 400;
+  protected readonly PushAttackRange: number = 1000;
+
+  // 同一目的地不重复下指令；单位停下或太久没更新时才重下
+  protected readonly ArriveRadius: number = 300;
+  protected readonly OrderRepeatDistance: number = 400;
+  protected readonly OrderRefreshTime: number = 10;
 
   // 撤退回泉水的血量上限：高于此值多半只是躲塔或让位，不值得消耗卷轴
   protected readonly RetreatTeleportMaxHealthPercent: number = 30;
   // 传送引导约 3 秒，塔攻击距离 700 之外再留一段缓冲，避免刚起手就被塔火力打断
   protected readonly RetreatTeleportTowerSafeRange: number = 1200;
-
-  public PushLevel: number = 10;
 
   protected hero: CDOTA_BaseNPC_Hero;
   public GetHero(): CDOTA_BaseNPC_Hero {
@@ -65,19 +93,28 @@ export class BotBaseAIModifier extends BaseModifier {
 
   // 当前状态
   public gameTime: number = 0;
-  public mode: ModeEnum = ModeEnum.LANING;
+  public mode: BotMode = 'laning';
+  protected stance: Stance = 'task';
+
+  private engagedUntil: number = -60;
+  private spentActions: number = 0;
+  private lastHealth: number = 0;
+  private needsRecover: boolean = false;
+  private lastOrderPos: Vector | undefined;
+  private lastOrderType: UnitOrder | undefined;
+  private lastOrderTime: number = -60;
+
+  // 开发模式决策日志：本轮交战判断的依据、选中的目标、上一次打印的内容
+  private traceInfo: string = '';
+  private traceTarget: string = '';
+  private lastTraceKey: string = '';
+  // 交战中团队大脑给的集合点，撤退时退向这里
+  private retreatPoint: Point | undefined;
+  private brain: TeamBrain | undefined;
 
   protected getNeutralItemConfig(): Record<number, NeutralTierConfig> {
     return NeutralItemManager.GetDefaultConfig();
   }
-
-  protected heroState = {
-    currentHealth: 0,
-    maxHealth: 0,
-    currentMana: 0,
-    maxMana: 0,
-    currentLevel: 0,
-  };
 
   // 出装状态
   public buildState: HeroBuildState | undefined;
@@ -94,11 +131,6 @@ export class BotBaseAIModifier extends BaseModifier {
 
   Init() {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
-    // print(`[AI] HeroBase OnCreated ${this.hero.GetUnitName()}`);
-
-    if (GameRules.AI.BotTeam) {
-      this.PushLevel = GameRules.AI.BotTeam.botPushLevel;
-    }
 
     this.isIntHero = this.hero.GetPrimaryAttribute() === Attributes.INTELLECT;
 
@@ -132,118 +164,374 @@ export class BotBaseAIModifier extends BaseModifier {
     }
 
     this.FindAround();
-    // update state
-    this.mode = GameRules.AI.FSA.GetMode(this);
-    if (this.mode === ModeEnum.RETREAT) {
-      GameRules.AI.BotTeam?.cancelJungleRecoveryMovement(this.hero);
-      GameRules.AI.BotTeam?.suppressLaneRecoveryForRetreat(this.hero);
-    } else if (GameRules.AI.BotTeam?.isJungleRecoveryMovementActive(this.hero)) {
+    const botTeam = GameRules.AI.BotTeam;
+    const brain = botTeam?.GetBrain(this.hero);
+    brain?.Join(this.hero);
+    if (!botTeam || !brain || botTeam.IsNativeActive()) {
+      this.ThinkNative();
+      return;
+    }
+    this.ThinkCustom(brain);
+  }
+
+  /** 对线期：移动交给原生，只负责施法、躲塔、插眼与出装。 */
+  private ThinkNative(): void {
+    this.mode = 'laning';
+    this.stance = 'task';
+    const botTeam = GameRules.AI.BotTeam;
+    // 残血时让原生自己决定去留，不再被回线任务拖着走
+    if (this.hero.GetHealthPercent() < this.RecoverHealthPercent) {
+      botTeam?.cancelJungleRecoveryMovement(this.hero);
+      botTeam?.suppressLaneRecoveryForRetreat(this.hero);
+    } else if (botTeam?.isJungleRecoveryMovementActive(this.hero)) {
       return;
     }
     if (this.gameTime < this.continueActionEndTime) {
-      // print(`[AI] HeroBase Think break 持续动作中 ${this.hero.GetUnitName()}`);
       return;
     }
     if (this.IsInAbilityPhase()) {
-      // print(`[AI] HeroBase Think break 正在施法中 ${this.hero.GetUnitName()}`);
       return;
     }
-    if (this.ActionMode()) {
+    if (this.AvoidTowerDive()) {
       return;
     }
-    // 战斗与推进优先，脱战后才考虑插眼
+    if (this.ActionLaning()) {
+      return;
+    }
     if (WardPlacement.Run(this)) {
       return;
     }
+    this.BuildItem();
+  }
 
-    if (this.BuildItem()) {
+  /** 接管后：先判断交战，没打起来就执行团队任务。 */
+  private ThinkCustom(brain: TeamBrain): void {
+    if (this.gameTime < this.continueActionEndTime) {
       return;
     }
+    if (this.IsInAbilityPhase()) {
+      return;
+    }
+
+    this.brain = brain;
+    this.UpdateRecoverNeed(brain);
+    const task = brain.GetTask(this.hero);
+    this.stance = this.DecideStance(brain, task);
+    this.traceTarget = '';
+    const acted = this.ActionStance(task);
+    if (IS_TOOLS_MODE) {
+      this.TraceDecision(task);
+    }
+    if (acted) {
+      return;
+    }
+    if (WardPlacement.Run(this)) {
+      return;
+    }
+    this.BuildItem();
   }
 
-  // ---------------------------------------------------------
-  // Action Mode
-  // ---------------------------------------------------------
-  ActionMode(): boolean {
-    switch (this.mode) {
-      case ModeEnum.ATTACK:
-        return this.ActionAttack();
-      case ModeEnum.LANING:
-        return this.ActionLaning();
-      case ModeEnum.PUSH:
-        return this.ActionPush();
-      case ModeEnum.RETREAT:
+  private ActionStance(task: Task | undefined): boolean {
+    switch (this.stance) {
+      case 'fight':
+      case 'lastStand':
+        this.mode = 'fight';
+        return this.ActionAttack(task) || this.ActionTask(task);
+      case 'spend':
+        this.mode = 'fight';
+        if (this.SpendBeforeRetreat()) {
+          return true;
+        }
+        this.mode = 'retreat';
+        return this.ActionRetreat();
+      case 'avoid':
+      case 'retreat':
+        this.mode = 'retreat';
         return this.ActionRetreat();
       default:
-        // print(`[AI] HeroBase ThinkMode ${this.hero.GetUnitName()} mode ${this.mode} not found`);
-        return false;
+        this.mode = task?.kind ?? 'hold';
+        return this.ActionTask(task);
     }
   }
 
+  // ---------------------------------------------------------
+  // Engagement
+  // ---------------------------------------------------------
+  private UpdateRecoverNeed(brain: TeamBrain): void {
+    const health = this.hero.GetHealthPercent();
+    const mana = this.hero.GetManaPercent();
+    if (this.needsRecover) {
+      this.needsRecover =
+        health < this.RecoverDoneHealthPercent || mana < this.RecoverDoneManaPercent;
+    } else {
+      // 力量敏捷英雄没蓝也能靠普攻打，只有智力英雄因缺蓝回家
+      this.needsRecover =
+        health < this.RecoverHealthPercent || (this.isIntHero && mana < this.RecoverManaPercent);
+    }
+    brain.SetNeedsRecover(this.hero, this.needsRecover);
+  }
+
+  /**
+   * 打不打、往哪撤由团队大脑按交战点统一判断，队友之间口径一致；
+   * 英雄层只处理自己被打之后的反应：先交技能再撤，跑不掉就打到底。
+   */
+  private DecideStance(brain: TeamBrain, task: Task | undefined): Stance {
+    const enemies = this.aroundEnemyHeroes.filter(
+      (enemy) => this.hero.GetRangeToUnit(enemy) <= this.LocalFightRadius,
+    );
+    const health = this.hero.GetHealth();
+    const tookDamage = health < this.lastHealth;
+    this.lastHealth = health;
+    const attackTarget = this.hero.GetAttackTarget();
+    if (
+      enemies.length > 0 &&
+      (tookDamage || (attackTarget !== undefined && attackTarget.IsHero()))
+    ) {
+      this.engagedUntil = this.gameTime + this.EngageMemory;
+    }
+    const engaged = enemies.length > 0 && this.gameTime < this.engagedUntil;
+    this.traceInfo = '';
+    this.retreatPoint = undefined;
+    if (!engaged) {
+      this.spentActions = 0;
+    }
+    if (enemies.length === 0) {
+      return 'task';
+    }
+
+    const fight = brain.AssessFight(this.hero, enemies);
+    this.retreatPoint = fight.rally;
+    // 在敌方塔下死战必死，一律当作能跑；逃跑判定要扫塔，只有打起来才用得到
+    const escape = !engaged || this.IsUnderEnemyTower() || this.CanEscape(enemies);
+    if (IS_TOOLS_MODE) {
+      this.traceInfo =
+        `engaged=${engaged ? 1 : 0} escape=${escape ? 1 : 0} spent=${this.spentActions}` +
+        ` our=${Math.floor(fight.ourPower)}(${fight.ourNames.join(',')})` +
+        ` enemy=${Math.floor(fight.enemyPower)}(${fight.enemyNames.join(',')}${fight.withTower ? ',tower' : ''})`;
+    }
+    const stance = decideStance({
+      engaged,
+      ourPower: fight.ourPower,
+      enemyPower: fight.enemyPower,
+      canEscape: escape,
+      spentActions: this.spentActions,
+    });
+    if (engaged) {
+      return stance;
+    }
+    if (this.needsRecover || task?.kind === 'regroup') {
+      return 'avoid';
+    }
+    // 没被派去打的 bot 继续手上的任务，只在明显打不过时避开
+    if (stance === 'avoid' || task?.kind === 'fight') {
+      return stance;
+    }
+    return 'task';
+  }
+
+  private IsUnderEnemyTower(): boolean {
+    const tower = this.FindNearestEnemyTowerInvulnerable();
+    return (
+      tower !== undefined &&
+      HeroUtil.GetDistanceToAttackRange(tower, this.hero) <= this.TowerDangerBuffer
+    );
+  }
+
+  private CanEscape(enemies: CDOTA_BaseNPC[]): boolean {
+    let fastest = 0;
+    for (const enemy of enemies) {
+      fastest = Math.max(fastest, enemy.GetIdealSpeed());
+    }
+    return canEscape({
+      rooted: this.hero.IsRooted(),
+      ourSpeed: this.hero.GetIdealSpeed(),
+      fastestEnemySpeed: fastest,
+      distanceToSafety: this.hero.GetAbsOrigin().__sub(this.FindSafePoint()).Length2D(),
+    });
+  }
+
+  /** 撤退的落脚点：交战中退向团队大脑给的集合点；否则退向身后最近的己方塔，没有就回泉水。 */
+  protected FindSafePoint(): Vector {
+    if (this.retreatPoint) {
+      return this.ToWorld(this.retreatPoint);
+    }
+    const team = this.hero.GetTeamNumber();
+    const fountain = HeroUtil.GetTeamFountainPosition(team) ?? this.hero.GetAbsOrigin();
+    const here = this.hero.GetAbsOrigin();
+    const ownDistance = here.__sub(fountain).Length2D();
+    let best: Vector = fountain;
+    let bestDistance = ownDistance;
+    for (const tower of Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[]) {
+      if (tower.IsNull() || !tower.IsAlive() || tower.GetTeamNumber() !== team) {
+        continue;
+      }
+      const pos = tower.GetAbsOrigin();
+      const distance = here.__sub(pos).Length2D();
+      if (pos.__sub(fountain).Length2D() < ownDistance && distance < bestDistance) {
+        best = pos;
+        bestDistance = distance;
+      }
+    }
+    return best;
+  }
+
+  /** 开发模式：判断结果、任务或目标变化时打一行日志，便于对照实机表现排查。 */
+  private TraceDecision(task: Task | undefined): void {
+    const taskText = task ? `${task.kind}${task.lane ? ':' + task.lane : ''}` : 'none';
+    const key = `${this.stance}|${this.mode}|${taskText}|${this.traceTarget}`;
+    if (key === this.lastTraceKey) {
+      return;
+    }
+    this.lastTraceKey = key;
+    const time = Math.max(0, Math.floor(this.gameTime));
+    const seconds = time % 60;
+    const clock = `${Math.floor(time / 60)}:${seconds < 10 ? '0' : ''}${seconds}`;
+    print(
+      `[bot-ai] t=${clock} ${HeroShortName(this.hero)} hp=${Math.floor(this.hero.GetHealthPercent())}%` +
+        ` stance=${this.stance} mode=${this.mode} task=${taskText}` +
+        ` target=${this.traceTarget === '' ? '-' : this.traceTarget} ${this.traceInfo}`,
+    );
+  }
+
+  // ---------------------------------------------------------
+  // Action
+  // ---------------------------------------------------------
+  /** 对线期只施法，移动与补刀交给原生。 */
   ActionLaning(): boolean {
+    if (ItemDispatcher.Run(this)) {
+      return true;
+    }
+    return AbilityDispatcher.Run(this);
+  }
+
+  ActionAttack(task: Task | undefined): boolean {
     if (ItemDispatcher.Run(this)) {
       return true;
     }
     if (AbilityDispatcher.Run(this)) {
       return true;
     }
-    if (this.aroundFriendlyCreeps.length > 0) {
-      const enemy = this.FindNearestEnemyHero();
-      if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeLaning)) {
+    const focusId = task?.kind === 'fight' ? task.targetId : undefined;
+    const target = this.PickFightTarget(focusId);
+    if (!target) {
+      return false;
+    }
+    this.traceTarget = HeroShortName(target);
+    // 被派去集火的 bot 走过去打；自发迎战的智力英雄靠技能输出，不追着普攻跑
+    let range = this.ChaseRange;
+    if (target.GetEntityIndex() === focusId) {
+      range = this.FindRadius;
+    } else if (this.isIntHero) {
+      range = this.hero.GetBaseAttackRange() + this.IntChaseExtra;
+    }
+    return ActionAttack.MoveToAttack(this.hero, target, range);
+  }
+
+  /** 优先团队指定的集火目标，否则挑血最少的；站在不能进的敌方塔下、或躲到还没推掉的塔后面的目标不追。 */
+  private PickFightTarget(focusId: number | undefined): CDOTA_BaseNPC | undefined {
+    let best: CDOTA_BaseNPC | undefined;
+    for (const enemy of this.aroundEnemyHeroes) {
+      const isFocus = enemy.GetEntityIndex() === focusId;
+      if (!isFocus && this.hero.GetRangeToUnit(enemy) > this.ChaseRange) {
+        continue;
+      }
+      if (this.IsProtectedByTower(enemy) || this.brain?.IsPastFront(enemy.GetAbsOrigin())) {
+        continue;
+      }
+      if (isFocus) {
+        return enemy;
+      }
+      if (!best || enemy.GetHealth() < best.GetHealth()) {
+        best = enemy;
+      }
+    }
+    return best;
+  }
+
+  private IsProtectedByTower(enemy: CDOTA_BaseNPC): boolean {
+    for (const building of this.aroundEnemyBuildingsInvulnerable) {
+      if (
+        IsTowerLike(building) &&
+        HeroUtil.GetDistanceToAttackRange(building, enemy) <= this.TowerDangerBuffer &&
+        !this.CanDive(building)
+      ) {
         return true;
       }
     }
     return false;
   }
 
-  ActionAttack(): boolean {
-    if (ItemDispatcher.Run(this)) {
+  /** 打不过但还跑得掉时，先把技能物品交出去再撤。 */
+  private SpendBeforeRetreat(): boolean {
+    if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
+      this.spentActions++;
       return true;
-    }
-    if (AbilityDispatcher.Run(this)) {
-      return true;
-    }
-    if (!this.isIntHero) {
-      const enemy = this.FindNearestEnemyHero();
-      if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeAttack)) {
-        return true;
-      }
     }
     return false;
   }
 
   ActionRetreat(): boolean {
+    if (this.TryTeleport()) {
+      return true;
+    }
+    this.MoveTo(this.FindSafePoint(), UnitOrder.MOVE_TO_POSITION);
+    return true;
+  }
+
+  ActionTask(task: Task | undefined): boolean {
+    if (!task) {
+      return false;
+    }
+    if (task.kind === 'recover') {
+      return this.ActionRecover();
+    }
+    if (task.kind === 'regroup') {
+      return this.MoveTo(this.ToWorld(task.pos), UnitOrder.MOVE_TO_POSITION);
+    }
     if (ItemDispatcher.Run(this)) {
       return true;
     }
     if (AbilityDispatcher.Run(this)) {
       return true;
     }
+    if (this.AvoidTowerDive()) {
+      return true;
+    }
+    if (this.TryTeleportToTask(task.pos)) {
+      return true;
+    }
+    if (task.kind === 'push' && this.AttackPushTarget(task)) {
+      return true;
+    }
+    return this.MoveTo(this.ToWorld(task.pos), UnitOrder.ATTACK_MOVE);
+  }
 
+  private ActionRecover(): boolean {
+    const fountain = HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber());
+    if (!fountain) {
+      return false;
+    }
+    if (this.hero.GetAbsOrigin().__sub(fountain).Length2D() <= this.FountainArriveRadius) {
+      return false;
+    }
     if (this.TryTeleport()) {
       return true;
     }
-
-    // 撤离动作持续
-    const enemyTower = this.FindNearestEnemyTowerInvulnerable();
-    if (enemyTower) {
-      this.continueActionEndTime = this.gameTime + this.continueActionTime;
-      this.ThinkRetreatGetAwayFromTower();
-      return true;
-    }
-
-    return false;
+    return this.MoveTo(fountain, UnitOrder.MOVE_TO_POSITION);
   }
 
   /**
-   * 撤退且四下无追兵时，是否该直接传送回泉水而不是一路走回家。
+   * 撤退或回家补给且四下无追兵时，是否该直接传送回泉水而不是一路走回家。
    */
   protected ShouldRetreatTeleportToFountain(): boolean {
-    if (this.mode !== ModeEnum.RETREAT) {
+    if (this.mode !== 'retreat' && this.mode !== 'recover') {
+      return false;
+    }
+    if (this.hero.IsMuted()) {
       return false;
     }
     if (
-      this.hero.IsMuted() ||
+      this.mode === 'retreat' &&
       this.hero.GetHealthPercent() >= this.RetreatTeleportMaxHealthPercent
     ) {
       return false;
@@ -266,91 +554,196 @@ export class BotBaseAIModifier extends BaseModifier {
     if (!this.ShouldRetreatTeleportToFountain()) {
       return false;
     }
+    const fountain = HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber());
+    if (!fountain) {
+      return false;
+    }
+    return this.CastTeleportScroll(fountain);
+  }
+
+  private CastTeleportScroll(position: Vector): boolean {
+    if (this.hero.IsMuted()) {
+      return false;
+    }
     const scroll = this.hero.FindItemInInventory('item_tpscroll');
     if (!scroll || !scroll.IsFullyCastable()) {
+      return false;
+    }
+    this.hero.CastAbilityOnPosition(position, scroll, this.hero.GetPlayerOwnerID());
+    return true;
+  }
+
+  /** 任务目的地在半张地图外时，TP 到离目的地最近的己方建筑。 */
+  private TryTeleportToTask(destination: Point): boolean {
+    const here = this.hero.GetAbsOrigin();
+    const target = this.ToWorld(destination);
+    const distance = here.__sub(target).Length2D();
+    if (distance < this.TaskTeleportDistance || this.aroundEnemyHeroes.length > 0) {
+      return false;
+    }
+    const team = this.hero.GetTeamNumber();
+    let landing: Vector | undefined;
+    let landingDistance = distance - this.TaskTeleportSaving;
+    for (const tower of Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[]) {
+      if (tower.IsNull() || !tower.IsAlive() || tower.GetTeamNumber() !== team) {
+        continue;
+      }
+      const towerDistance = tower.GetAbsOrigin().__sub(target).Length2D();
+      if (towerDistance < landingDistance) {
+        landing = tower.GetAbsOrigin();
+        landingDistance = towerDistance;
+      }
+    }
+    if (!landing) {
+      return false;
+    }
+    const offset = target.__sub(landing).Normalized().__mul(this.TeleportLandingOffset);
+    return this.CastTeleportScroll(landing.__add(offset));
+  }
+
+  /** 兵线已到目标建筑时直接点建筑，偷塔保护、塔在打人或附近有敌方英雄时交给普通移动。 */
+  private AttackPushTarget(task: Task): boolean {
+    if (task.targetId === undefined) {
+      return false;
+    }
+    const building = EntIndexToHScript(task.targetId as EntityIndex) as CDOTA_BaseNPC | undefined;
+    if (!building || building.IsNull() || !building.IsAlive() || building.IsInvulnerable()) {
+      return false;
+    }
+    if (this.hero.GetRangeToUnit(building) > this.PushAttackRange) {
+      return false;
+    }
+    if (building.HasModifier('modifier_backdoor_protection_active')) {
+      return false;
+    }
+    const enemy = this.FindNearestEnemyHero();
+    if (enemy && this.hero.GetRangeToUnit(enemy) <= this.CastRange) {
+      return false;
+    }
+    if (building.GetUnitName().includes('tower') && !this.CanDive(building)) {
+      return false;
+    }
+    this.traceTarget = building.GetUnitName();
+    if (this.hero.IsAttacking() && this.hero.GetAttackTarget() === building) {
+      return true;
+    }
+    ExecuteOrderFromTable({
+      OrderType: UnitOrder.ATTACK_TARGET,
+      UnitIndex: this.hero.GetEntityIndex(),
+      TargetIndex: building.GetEntityIndex(),
+      Queue: false,
+    });
+    return true;
+  }
+
+  /** 朝目的地移动，目的地没变且单位还在走或在打时不重复下指令。 */
+  private MoveTo(position: Vector, order: UnitOrder): boolean {
+    if (this.hero.GetAbsOrigin().__sub(position).Length2D() <= this.ArriveRadius) {
+      return false;
+    }
+    const busy = this.hero.IsMoving() || this.hero.IsAttacking();
+    if (
+      busy &&
+      this.lastOrderPos !== undefined &&
+      this.lastOrderType === order &&
+      this.lastOrderPos.__sub(position).Length2D() < this.OrderRepeatDistance &&
+      this.gameTime - this.lastOrderTime < this.OrderRefreshTime
+    ) {
+      return false;
+    }
+    ExecuteOrderFromTable({
+      OrderType: order,
+      UnitIndex: this.hero.GetEntityIndex(),
+      Position: position,
+      Queue: false,
+    });
+    this.lastOrderPos = position;
+    this.lastOrderType = order;
+    this.lastOrderTime = this.gameTime;
+    return true;
+  }
+
+  private ToWorld(point: Point): Vector {
+    return GetGroundPosition(Vector(point.x, point.y, 0), this.hero);
+  }
+
+  // ---------------------------------------------------------
+  // Tower dive
+  // ---------------------------------------------------------
+  /** 不进敌方塔的攻击范围，除非塔在打小兵、塔下人多血厚，或者已经在打到底。 */
+  protected CanDive(tower: CDOTA_BaseNPC): boolean {
+    // 基地塔与基地伤害高，打到底也不进，要小兵扛着且人多血厚才进
+    const isBase = IsBaseTower(tower);
+    if (this.stance === 'lastStand' && !isBase) {
+      return true;
+    }
+    const towerTarget = tower.GetAttackTarget();
+    const towerOnHero = towerTarget !== undefined && towerTarget.IsHero();
+    const creepsTanking =
+      !towerOnHero && this.CountFriendlyNear(tower, UnitTargetType.CREEP) >= this.DiveMinCreeps;
+    const heroesTanking =
+      this.hero.GetHealthPercent() >= this.DiveMinHealthPercent &&
+      this.CountFriendlyNear(tower, UnitTargetType.HERO) >= this.DiveMinHeroes;
+    return isBase ? creepsTanking && heroesTanking : creepsTanking || heroesTanking;
+  }
+
+  private CountFriendlyNear(unit: CDOTA_BaseNPC, type: UnitTargetType): number {
+    return FindUnitsInRadius(
+      this.hero.GetTeamNumber(),
+      unit.GetAbsOrigin(),
+      undefined,
+      this.DiveCheckRadius,
+      UnitTargetTeam.FRIENDLY,
+      type,
+      UnitTargetFlags.NOT_ILLUSIONS,
+      FindOrder.ANY,
+      false,
+    ).length;
+  }
+
+  protected AvoidTowerDive(): boolean {
+    const tower = this.FindNearestEnemyTowerInvulnerable();
+    if (!tower) {
+      return false;
+    }
+    if (HeroUtil.GetDistanceToAttackRange(tower, this.hero) > this.TowerDangerBuffer) {
+      return false;
+    }
+    if (this.CanDive(tower)) {
       return false;
     }
     const fountain = HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber());
     if (!fountain) {
       return false;
     }
-    // print(`[AI] HeroBase Retreat TryTeleport ${this.hero.GetUnitName()} 回泉水`);
-    this.hero.CastAbilityOnPosition(fountain, scroll, this.hero.GetPlayerOwnerID());
+    if (GameRules.AI.BotTeam?.IsNativeActive() === false) {
+      this.MoveTo(fountain, UnitOrder.MOVE_TO_POSITION);
+      return true;
+    }
+    this.continueActionEndTime = this.gameTime + this.towerEscapeTime;
+    this.EscapeFromTower(tower, fountain);
     return true;
   }
 
-  ThinkRetreatGetAwayFromTower(): void {
-    const enemyTower = this.FindNearestEnemyTowerInvulnerable();
-    if (!enemyTower) {
-      // end
-      this.continueActionEndTime = this.gameTime;
+  private EscapeFromTower(tower: CDOTA_BaseNPC, fountain: Vector): void {
+    const now = GameRules.GetDOTATime(false, true);
+    if (
+      now > this.continueActionEndTime ||
+      !IsValidEntity(tower) ||
+      !tower.IsAlive() ||
+      !this.hero.IsAlive() ||
+      HeroUtil.GetDistanceToAttackRange(tower, this.hero) > this.TowerDangerBuffer
+    ) {
+      this.continueActionEndTime = now;
       return;
     }
-    if (ActionMove.GetAwayFromTower(this.hero, enemyTower)) {
-      // print(`[AI] HeroBase ThinkRetreatGetAwayFromTower ${this.hero.GetUnitName()} 撤退`);
-      if (this.gameTime > this.continueActionEndTime) {
-        return;
-      }
-      Timers.CreateTimer(0.03, () => {
-        this.ThinkRetreatGetAwayFromTower();
-      });
-      return;
-    } else {
-      // end
-      this.continueActionEndTime = this.gameTime;
-    }
-  }
-
-  ActionPush(): boolean {
-    if (ItemDispatcher.Run(this)) {
-      return true;
-    }
-    if (AbilityDispatcher.Run(this)) {
-      return true;
-    }
-    // INT 英雄不强制推塔，攻击
-    if (this.isIntHero) {
-      return false;
-    }
-    // 推塔
-    if (this.ForceAttackTower()) {
-      return true;
-    }
-    // 攻击附近敌方英雄
-    const enemy = this.FindNearestEnemyHero();
-    if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangePushHero)) {
-      return true;
-    }
-    return false;
-  }
-
-  // 强制A塔
-  ForceAttackTower(): boolean {
-    const enemyBuild = this.FindNearestEnemyBuildings();
-    if (!enemyBuild) {
-      return false;
-    }
-    if (enemyBuild.HasModifier('modifier_backdoor_protection_active')) {
-      // print(`[AI] HeroBase ThinkPush ${this.hero.GetUnitName()} 偷塔保护，不攻击`);
-      return false;
-    }
-
-    if (this.hero.IsAttacking()) {
-      // print(`[AI] HeroBase Think break 正在攻击中 ${this.hero.GetUnitName()}`);
-      return false;
-    }
-    // 敌方英雄进入施法范围则不优先A塔
-    const enemyHero = this.FindNearestEnemyHero();
-    if (enemyHero && HeroUtil.GetDistanceToHero(this.hero, enemyHero) <= this.CastRange) {
-      return false;
-    }
-
-    // 近战只在300内走过去A，远程在自身攻击范围内继续A，超出则放弃（允许离开）
-    const pushRange = Math.max(this.MinPushTowerRange, this.hero.GetBaseAttackRange());
-    if (ActionAttack.MoveToAttack(this.hero, enemyBuild, pushRange)) {
-      return true;
-    }
-    return false;
+    ExecuteOrderFromTable({
+      OrderType: UnitOrder.MOVE_TO_POSITION,
+      UnitIndex: this.hero.GetEntityIndex(),
+      Position: fountain,
+      Queue: false,
+    });
+    Timers.CreateTimer(this.towerEscapeTick, () => this.EscapeFromTower(tower, fountain));
   }
 
   StopAction(): boolean {
@@ -545,33 +938,6 @@ export class BotBaseAIModifier extends BaseModifier {
     return target;
   }
 
-  public FindNearestEnemyCreep(): CDOTA_BaseNPC | undefined {
-    if (this.aroundEnemyCreeps.length === 0) {
-      return undefined;
-    }
-
-    const target = this.aroundEnemyCreeps[0];
-    return target;
-  }
-
-  public FindNearestEnemyBuildings(): CDOTA_BaseNPC | undefined {
-    if (this.aroundEnemyBuildings.length === 0) {
-      return undefined;
-    }
-
-    // return 1st name contains tower
-    for (const building of this.aroundEnemyBuildingsInvulnerable) {
-      if (
-        building.GetUnitName().includes('tower') ||
-        building.GetUnitName().includes('rax') ||
-        building.GetUnitName().includes('fort')
-      ) {
-        return building;
-      }
-    }
-    return undefined;
-  }
-
   public FindNearestEnemyTowerInvulnerable(): CDOTA_BaseNPC | undefined {
     if (this.aroundEnemyBuildingsInvulnerable.length === 0) {
       return undefined;
@@ -613,4 +979,14 @@ export class BotBaseAIModifier extends BaseModifier {
   IsHidden(): boolean {
     return true;
   }
+}
+
+function IsTowerLike(building: CDOTA_BaseNPC): boolean {
+  const name = building.GetUnitName();
+  return name.includes('tower') || name.includes('fort');
+}
+
+function IsBaseTower(building: CDOTA_BaseNPC): boolean {
+  const name = building.GetUnitName();
+  return name.includes('tower4') || name.includes('fort');
 }

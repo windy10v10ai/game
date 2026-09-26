@@ -61,6 +61,8 @@ async function ensureThumbnailCachePlaceholders() {
       const args = [
         '-novid',
         '-tools',
+        // 控制台输出落盘到 game/dota/console.log，便于事后排查
+        '-condebug',
         '-addon',
         addonName,
         '+dota_launch_custom_game',

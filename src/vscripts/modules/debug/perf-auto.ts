@@ -182,7 +182,19 @@ function restoreMagicResist() {
 }
 
 function setBotThinking(enabled: boolean) {
-  GameRules.GetGameModeEntity().SetBotThinkingEnabled(enabled);
+  GameRules.AI.BotTeam?.SetNativeThinking(enabled);
+}
+
+// 过了切换点原生本来就是关的，收尾只回到进入条件前的状态
+let nativeBeforeCondition = true;
+
+function disableBotThinking() {
+  nativeBeforeCondition = GameRules.AI.BotTeam?.IsNativeActive() ?? true;
+  setBotThinking(false);
+}
+
+function restoreBotThinking() {
+  setBotThinking(nativeBeforeCondition);
 }
 
 type Condition = Omit<PerfStep, 'name' | 'ref'> & { name: string };
@@ -191,8 +203,8 @@ const CONDITIONS: Condition[] = [
   { name: 'profile', profile: true },
   {
     name: 'botoff',
-    setup: () => setBotThinking(false),
-    teardown: () => setBotThinking(true),
+    setup: disableBotThinking,
+    teardown: restoreBotThinking,
   },
   {
     name: 'aioff',
@@ -202,11 +214,11 @@ const CONDITIONS: Condition[] = [
   {
     name: 'alloff',
     setup: () => {
-      setBotThinking(false);
+      disableBotThinking();
       PerfSampler.aiThinkDisabled = true;
     },
     teardown: () => {
-      setBotThinking(true);
+      restoreBotThinking();
       PerfSampler.aiThinkDisabled = false;
     },
   },
