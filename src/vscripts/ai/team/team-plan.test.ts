@@ -71,16 +71,23 @@ describe('power', () => {
   const stats = {
     health: 2000,
     armor: 10,
+    magicResist: 0.25,
     attackDamage: 100,
     attacksPerSecond: 1,
     level: 10,
     spellAmp: 0,
+    spellReady: 1,
   };
 
   it('grows with health and damage and is zero when dead', () => {
     expect(combatPower({ ...stats, health: 4000 })).toBeGreaterThan(combatPower(stats));
     expect(combatPower({ ...stats, attackDamage: 300 })).toBeGreaterThan(combatPower(stats));
     expect(combatPower({ ...stats, health: 0 })).toBe(0);
+  });
+
+  it('counts magic resist and drops when skills and items are on cooldown', () => {
+    expect(combatPower({ ...stats, magicResist: 0.5 })).toBeGreaterThan(combatPower(stats));
+    expect(combatPower({ ...stats, spellReady: 0 })).toBeLessThan(combatPower(stats));
   });
 
   it('decays threat and caps the multiplier', () => {

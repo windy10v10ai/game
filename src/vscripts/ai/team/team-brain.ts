@@ -36,6 +36,8 @@ import {
 // 看不到之后，前 5 秒按原位置用，15 秒内按移速扩大可能范围，再往后只记得这个英雄存在
 const LAST_SEEN_EXACT = 5;
 const LAST_SEEN_FORGET = 15;
+// 与团队大脑的思考间隔一致
+const POWER_CACHE_SECONDS = 1;
 const LANE_MAX_OFFSET = 2000;
 const LANE_CREEP_MAX_OFFSET = 1200;
 const BUILDING_THREAT_RADIUS = 1200;
@@ -597,18 +599,71 @@ export function HeroShortName(unit: CDOTA_BaseNPC): string {
   return unit.GetUnitName().replace('npc_dota_hero_', '');
 }
 
+const powerCache = new Map<EntityIndex, number>();
+let powerCacheTime = -Infinity;
+
+/** 单位战力。两队的团队大脑与所有英雄共用一份，每秒每个单位只算一次。 */
 export function UnitPower(unit: CDOTA_BaseNPC): number {
+  const now = GameRules.GetGameTime();
+  if (now - powerCacheTime >= POWER_CACHE_SECONDS) {
+    powerCache.clear();
+    powerCacheTime = now;
+  }
+  const index = unit.GetEntityIndex();
+  const cached = powerCache.get(index);
+  if (cached !== undefined) {
+    return cached;
+  }
+  const power = ComputePower(unit);
+  powerCache.set(index, power);
+  return power;
+}
+
+function ComputePower(unit: CDOTA_BaseNPC): number {
   if (!unit.IsAlive()) {
     return 0;
   }
+  const isHero = unit.IsHero();
   return combatPower({
     health: unit.GetHealth(),
     armor: unit.GetPhysicalArmorValue(false),
+    // 引擎允许不传伤害来源，类型声明把它标成了必填
+    magicResist: unit.Script_GetMagicalArmorValue(undefined as unknown as object),
     attackDamage: unit.GetAverageTrueAttackDamage(undefined),
     attacksPerSecond: unit.GetAttacksPerSecond(false),
-    level: unit.IsHero() ? unit.GetLevel() : 0,
-    spellAmp: unit.IsHero() ? unit.GetSpellAmplification(false) : 0,
+    level: isHero ? unit.GetLevel() : 0,
+    spellAmp: isHero ? unit.GetSpellAmplification(false) : 0,
+    spellReady: isHero ? SpellReadiness(unit) : 1,
   });
+}
+
+/** 已学的主动技能与身上的主动物品里，现在能放的比例；不区分技能强弱。 */
+function SpellReadiness(unit: CDOTA_BaseNPC): number {
+  let total = 0;
+  let ready = 0;
+  const silenced = unit.IsSilenced();
+  for (let i = 0; i < unit.GetAbilityCount(); i++) {
+    const ability = unit.GetAbilityByIndex(i);
+    if (!ability || ability.GetLevel() < 1 || ability.IsHidden() || ability.IsPassive()) {
+      continue;
+    }
+    total++;
+    if (!silenced && ability.IsFullyCastable()) {
+      ready++;
+    }
+  }
+  const muted = unit.IsMuted();
+  for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
+    const item = unit.GetItemInSlot(slot);
+    if (!item || item.IsPassive()) {
+      continue;
+    }
+    total++;
+    if (!muted && item.IsFullyCastable()) {
+      ready++;
+    }
+  }
+  return total === 0 ? 1 : ready / total;
 }
 
 function IsLaneCreep(creep: CDOTA_BaseNPC): boolean {
