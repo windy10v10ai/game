@@ -947,20 +947,8 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
 
   private FindAround(): void {
-    PerfSampler.measureSection('findShared', () => this.FindAroundShared());
-    PerfSampler.measureSection('findCreeps', () => this.FindAroundCreeps());
-  }
-
-  private FindAroundCreeps(): void {
-    this.aroundEnemyCreeps = ActionFind.FindEnemyCreeps(this.hero, this.FindRadius);
-    this.aroundFriendlyCreeps = ActionFind.FindFriendlyCreeps(
-      this.hero,
-      FRIENDLY_CREEP_SEARCH_RADIUS,
-    );
-  }
-
-  private FindAroundShared(): void {
     this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindRadius);
+    this.aroundEnemyCreeps = ActionFind.FindEnemyCreeps(this.hero, this.FindRadius);
     this.aroundEnemyBuildingsInvulnerable = ActionFind.FindEnemyBuildingsInvulnerable(
       this.hero,
       this.FindRadius,
@@ -973,6 +961,10 @@ export class BotBaseAIModifier extends BaseModifier {
     }
     this.aroundEnemyBuildings = vulnerableBuildings;
     this.aroundFriendlyHeroes = ActionFind.FindFriendlyHeroes(this.hero, this.FindRadius);
+    this.aroundFriendlyCreeps = ActionFind.FindFriendlyCreeps(
+      this.hero,
+      FRIENDLY_CREEP_SEARCH_RADIUS,
+    );
     this.aroundFriendlyBuildings = ActionFind.FindFriendlyBuildings(this.hero, this.FindRadius);
   }
 
