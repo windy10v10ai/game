@@ -1,5 +1,6 @@
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 import { AbilityDispatcher } from '../ability/ability-dispatcher';
+import { AbilityRegistry } from '../ability/ability-registry';
 import { ActionAttack } from '../action/action-attack';
 import { ActionFind, FRIENDLY_CREEP_SEARCH_RADIUS } from '../action/action-find';
 import { getHeroBuildConfig } from '../build-item/bot-build-config';
@@ -76,6 +77,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly TaskTeleportSaving: number = 3000;
   protected readonly TeleportLandingOffset: number = 400;
   protected readonly PushAttackRange: number = 1000;
+  // 攻击距离外再多这么远的敌方小兵也顺手打掉，近战英雄也能照顾到身边一整波兵
+  protected readonly CreepClearExtraRange: number = 400;
 
   // 同一目的地不重复下指令；单位停下或太久没更新时才重下
   protected readonly ArriveRadius: number = 300;
@@ -111,6 +114,8 @@ export class BotBaseAIModifier extends BaseModifier {
   // 交战中团队大脑给的集合点，撤退时退向这里
   private retreatPoint: Point | undefined;
   private brain: TeamBrain | undefined;
+  // 引导中最后一次看到范围内敌方英雄的时间，用来判断敌人离开了多久
+  private channelEnemySeenTime = 0;
 
   protected getNeutralItemConfig(): Record<number, NeutralTierConfig> {
     return NeutralItemManager.GetDefaultConfig();
@@ -492,6 +497,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (task.kind === 'push' && this.AttackPushTarget(task)) {
       return true;
     }
+    if (this.AttackNearbyCreep(task.kind === 'farm')) {
+      return true;
+    }
     if (this.MoveTo(this.ToWorld(task.pos), UnitOrder.ATTACK_MOVE)) {
       return true;
     }
@@ -622,6 +630,28 @@ export class BotBaseAIModifier extends BaseModifier {
       TargetIndex: building.GetEntityIndex(),
       Queue: false,
     });
+    return true;
+  }
+
+  /**
+   * 攻击移动到了目的地就停手，目的地常在兵线旁，站着不出手时去打最近的敌方小兵。
+   * 塔下打不得的不去；野怪只在打野任务时打，路过野区不停下。
+   */
+  private AttackNearbyCreep(includeNeutrals: boolean): boolean {
+    const creep = this.aroundEnemyCreeps[0];
+    const reach = this.hero.Script_GetAttackRange() + this.CreepClearExtraRange;
+    if (
+      this.hero.IsAttacking() ||
+      !creep ||
+      (!includeNeutrals && creep.GetTeamNumber() === DotaTeam.NEUTRALS) ||
+      this.IsProtectedByTower(creep)
+    ) {
+      return false;
+    }
+    if (!ActionAttack.MoveToAttack(this.hero, creep, reach)) {
+      return false;
+    }
+    this.traceTarget = 'creep';
     return true;
   }
 
@@ -887,8 +917,53 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   // Check
   // ---------------------------------------------------------
+  private ShouldStopChannel(): boolean {
+    const ability = this.hero.GetCurrentActiveAbility();
+    const specs = ability ? AbilityRegistry.get(ability.GetName()) : undefined;
+    if (!ability || !specs) {
+      return false;
+    }
+    for (const spec of specs) {
+      const stop = spec.stopChannel;
+      if (!stop) {
+        continue;
+      }
+      if (
+        stop.afterSeconds !== undefined &&
+        GameRules.GetGameTime() - ability.GetChannelStartTime() >= stop.afterSeconds
+      ) {
+        return true;
+      }
+      if (stop.noEnemyHeroInRange !== undefined) {
+        const now = GameRules.GetGameTime();
+        const range = stop.noEnemyHeroInRange;
+        if (
+          this.aroundEnemyHeroes.some(
+            (enemy) => enemy.IsAlive() && this.hero.GetRangeToUnit(enemy) <= range,
+          )
+        ) {
+          this.channelEnemySeenTime = now;
+        } else if (
+          now - Math.max(this.channelEnemySeenTime, ability.GetChannelStartTime()) >=
+          (stop.graceSeconds ?? 0)
+        ) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
   IsInAbilityPhase(): boolean {
     if (this.hero.IsChanneling()) {
+      if (this.ShouldStopChannel()) {
+        if (IS_TOOLS_MODE) {
+          print(
+            `[bot-cast] ${HeroShortName(this.hero)} stop_channel ${this.hero.GetCurrentActiveAbility()?.GetAbilityName()}`,
+          );
+        }
+        this.hero.Stop();
+      }
       return true;
     }
 

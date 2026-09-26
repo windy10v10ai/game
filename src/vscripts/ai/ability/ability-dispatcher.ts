@@ -51,6 +51,10 @@ function GetCreepCondition(spec: AbilitySpec): CastCoindition {
 export class AbilityDispatcher {
   static Run(ai: BotBaseAIModifier): boolean {
     const hero = ai.GetHero();
+    // 沉默时下的施法命令都会被拒绝，每 tick 重试还会挡住后面的移动和攻击
+    if (hero.IsSilenced()) {
+      return false;
+    }
 
     const abilityCount = hero.GetAbilityCount();
     for (let i = 0; i < abilityCount; i++) {

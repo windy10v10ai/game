@@ -3,7 +3,7 @@
  * 目的是让 bot 有对抗性，不送的门槛放低；撤向队友或塔总比原地硬打多一线生机，所以跑不掉的门槛定得很高。
  */
 
-import { AVOID_POWER_RATIO } from '../team/power';
+import { AVOID_POWER_RATIO, KEEP_FIGHTING_RATIO } from '../team/power';
 
 export type Stance = 'task' | 'fight' | 'avoid' | 'retreat' | 'lastStand';
 
@@ -14,15 +14,17 @@ export interface EngagementInput {
   canEscape: boolean;
 }
 
-// 已经交战时，敌方略强也继续打，打团本来就有来回
-const KEEP_FIGHTING_RATIO = 2;
+/** 还没打起来时，这波敌人是否值得主动上去打：走上去交战与先手跳进敌人身边都用这一个口径。 */
+export function canEngage(ourPower: number, enemyPower: number): boolean {
+  return enemyPower <= ourPower * AVOID_POWER_RATIO;
+}
 
 export function decideStance(input: EngagementInput): Stance {
   if (input.enemyPower <= 0) {
     return 'task';
   }
   if (!input.engaged) {
-    return input.enemyPower > input.ourPower * AVOID_POWER_RATIO ? 'avoid' : 'fight';
+    return canEngage(input.ourPower, input.enemyPower) ? 'fight' : 'avoid';
   }
   if (input.enemyPower <= input.ourPower * KEEP_FIGHTING_RATIO) {
     return 'fight';

@@ -35,6 +35,11 @@ export function CastAbilityOnTargetByBehavior(
   // const abilityName = ability.GetName();
   const behavior = GetAbilityBehaviorBits(ability);
 
+  // spec 指定了释放点时点地优先，兼顾既能指向单位又能点地的技能
+  if (castPosition && HasAbilityBehavior(behavior, AbilityBehavior.POINT)) {
+    hero.CastAbilityOnPosition(castPosition, ability, playerId);
+    return true;
+  }
   if (HasAbilityBehavior(behavior, AbilityBehavior.UNIT_TARGET)) {
     // print(`[AI] CastByBehavior ${abilityName} on target`);
     hero.CastAbilityOnTarget(target, ability, playerId);

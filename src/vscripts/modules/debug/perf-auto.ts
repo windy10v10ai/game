@@ -26,6 +26,8 @@ export interface PerfAutoConfig {
   // 天辉人数与金钱经验倍率，模拟少量玩家对满编 bot 的真实对局；0 为沿用对局选项
   radiantPlayers: number;
   radiantMultiplier: number;
+  // 逗号分隔的英雄名（不带 npc_dota_hero_ 前缀），排到 bot 英雄池最前面，用于让指定英雄出场验证
+  botHeroes: string;
 }
 
 interface PerfStep {
@@ -61,6 +63,13 @@ if (bootConfig && bootConfig.botOffset > 0) {
   const offset = bootConfig.botOffset % pool.length;
   HeroPick.BotNameList = [...pool.slice(offset), ...pool.slice(0, offset)];
   print(`[perf-auto] botOffset=${offset} first=${HeroPick.BotNameList[0]}`);
+}
+
+if (bootConfig && bootConfig.botHeroes !== '') {
+  const wanted = bootConfig.botHeroes.split(',').map((name) => `npc_dota_hero_${name}`);
+  const rest = HeroPick.BotNameList.filter((name) => !wanted.includes(name));
+  HeroPick.BotNameList = [...wanted, ...rest];
+  print(`[perf-auto] botHeroes=${bootConfig.botHeroes}`);
 }
 
 // 界面在选英雄阶段仍会重新下发对局选项，只有在补 bot 的前一刻覆盖才不会被冲掉
@@ -341,11 +350,31 @@ export class PerfAuto {
 
   private static finished = false;
 
+  // 结束时各英雄的等级、净值和击杀，用来确认对比的几局局势相近，没有一方碾压
+  private static printHeroSummary() {
+    for (const hero of HeroList.GetAllHeroes()) {
+      if (!hero.IsRealHero()) continue;
+      const playerId = hero.GetPlayerOwnerID();
+      print(
+        `[perf-heroes] team=${hero.GetTeamNumber()} ${hero.GetUnitName().replace('npc_dota_hero_', '')}` +
+          ` level=${hero.GetLevel()} networth=${PlayerResource.GetNetWorth(playerId)}` +
+          ` kills=${PlayerResource.GetKills(playerId)} deaths=${PlayerResource.GetDeaths(playerId)}`,
+      );
+    }
+    for (const team of [DotaTeam.GOODGUYS, DotaTeam.BADGUYS]) {
+      const towers = (Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[]).filter(
+        (tower) => tower.GetTeamNumber() === team && tower.IsAlive(),
+      ).length;
+      print(`[perf-heroes] team=${team} towers_alive=${towers}`);
+    }
+  }
+
   private static finish(gameOver: boolean, quitOnDone: boolean) {
     if (this.finished) return;
     this.finished = true;
     this.running = false;
     SendToServerConsole('host_timescale 1');
+    this.printHeroSummary();
     PerfSampler.setPhase('done');
     print(gameOver ? `[perf-auto] aborted reason=game_over` : `[perf-auto] done`);
     // 结算阶段按游戏时间计的计时器可能不触发，退出不能依赖它
