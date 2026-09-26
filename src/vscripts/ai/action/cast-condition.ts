@@ -133,6 +133,10 @@ export interface CastCoindition {
      * 满足条件后，开启自动施法
      */
     autoCastOn?: boolean;
+    /**
+     * 有符合条件的目标就开启开关，没有就关闭。用于持续耗血耗蓝、只该在有目标时开着的开关技能。
+     */
+    toggleByTarget?: boolean;
   };
   debug?: boolean;
 }

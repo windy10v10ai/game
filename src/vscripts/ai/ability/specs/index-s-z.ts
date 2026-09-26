@@ -39,6 +39,7 @@ import { SPECS as windrunnerWhirlwindCustom } from './windrunner_whirlwind_custo
 import { SPECS as windrunnerWindrun } from './windrunner_windrun';
 import { SPECS as winterWyvernArcticBurn } from './winter_wyvern_arctic_burn';
 import { SPECS as witchDoctorDeathWard } from './witch_doctor_death_ward';
+import { SPECS as witchDoctorVoodooRestoration } from './witch_doctor_voodoo_restoration';
 import { SPECS as witchDoctorVoodooSwitcheroo } from './witch_doctor_voodoo_switcheroo';
 import { SPECS as zuusArcLightning } from './zuus_arc_lightning';
 import { SPECS as zuusCloud } from './zuus_cloud';
@@ -87,6 +88,7 @@ export function registerAbilitySpecsSToZ(): void {
   AbilityRegistry.registerAll(windrunnerWindrun);
   AbilityRegistry.registerAll(winterWyvernArcticBurn);
   AbilityRegistry.registerAll(witchDoctorDeathWard);
+  AbilityRegistry.registerAll(witchDoctorVoodooRestoration);
   AbilityRegistry.registerAll(witchDoctorVoodooSwitcheroo);
   AbilityRegistry.registerAll(zuusArcLightning);
   AbilityRegistry.registerAll(zuusCloud);

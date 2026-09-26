@@ -71,6 +71,9 @@ export function TryCastBySpec(
   }
 
   const target = pickTarget(ai, castable, targetSide, condition);
+  if (condition?.action?.toggleByTarget) {
+    return ApplyAbilityAction(castable, { toggleOn: !!target, toggleOff: !target });
+  }
   if (!target) {
     return false;
   }

@@ -32,6 +32,7 @@ import { SPECS as phantomAssassinBlur } from './phantom_assassin_blur';
 import { SPECS as phantomAssassinFanOfKnives } from './phantom_assassin_fan_of_knives';
 import { SPECS as pudgeDismember } from './pudge_dismember';
 import { SPECS as pudgeFleshHeap } from './pudge_flesh_heap';
+import { SPECS as pudgeRot } from './pudge_rot';
 import { SPECS as rikiSmokeScreen } from './riki_smoke_screen';
 import { SPECS as rikiTricksOfTheTrade } from './riki_tricks_of_the_trade';
 
@@ -69,6 +70,7 @@ export function registerAbilitySpecsMToR(): void {
   AbilityRegistry.registerAll(phantomAssassinFanOfKnives);
   AbilityRegistry.registerAll(pudgeDismember);
   AbilityRegistry.registerAll(pudgeFleshHeap);
+  AbilityRegistry.registerAll(pudgeRot);
   AbilityRegistry.registerAll(rikiSmokeScreen);
   AbilityRegistry.registerAll(rikiTricksOfTheTrade);
 }
