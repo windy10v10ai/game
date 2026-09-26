@@ -14,6 +14,7 @@ import {
   CheckNumberRangeFailure,
   CheckUnitConditionFailure,
   FilterTargetWithCondition,
+  GetAbilityBehaviorBits,
   NumberRange,
 } from './cast-condition';
 
@@ -97,8 +98,12 @@ export function TryCastBySpec(
 
   // 开关/法球类：找到目标（= 满足开启条件）后只切换状态，不走正常施法派发。
   if (condition?.action) {
+    const autoCastBefore = castable.GetAutoCastState();
     const applied = ApplyAbilityAction(castable, condition.action);
-    if (applied) TraceCast(hero, castable, targetSide, target, 'action');
+    // 开自动施法不占用本 tick，返回 false，按状态变化判断是否真的切换了
+    if (applied || castable.GetAutoCastState() !== autoCastBefore) {
+      TraceCast(hero, castable, targetSide, target, 'action');
+    }
     return applied;
   }
 
@@ -137,7 +142,8 @@ function TraceCast(
   }
   print(
     `[bot-cast] t=${clock} ${hero.GetUnitName().replace('npc_dota_hero_', '')}` +
-      ` hp=${Math.floor(hero.GetHealthPercent())}% ${castable.GetAbilityName()} ${kind} side=${side}${targetText}`,
+      ` hp=${Math.floor(hero.GetHealthPercent())}% ${castable.GetAbilityName()} ${kind} side=${side}${targetText}` +
+      ` beh=${GetAbilityBehaviorBits(castable)} cd=${string.format('%.1f', castable.GetCooldownTimeRemaining())}`,
   );
 }
 

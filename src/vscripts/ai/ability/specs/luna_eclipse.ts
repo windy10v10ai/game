@@ -1,23 +1,28 @@
 import { AbilitySpec, TargetSide } from '../ability-spec';
 
 /**
- * 露娜 - 月蚀：NO_TARGET，有 A 杖时变为点目标。
+ * 露娜 - 月蚀：NO_TARGET，有 A 杖时可以对友方单位或地面施放。
  *
- * 有 A 杖时对施法距离内的敌人位置放；没有时只在敌人进入身边范围时放。
+ * 以自己为中心放：敌人进入身边范围就放。有 A 杖时再对身边有敌人的队友放，让月光砸向队友所在的交战。
+ * 不对敌人本身施放：A 杖形态只接受友方单位或地面为目标。
  */
 export const SPECS: AbilitySpec[] = [
   {
     abilityName: 'luna_eclipse',
-    targetSide: TargetSide.EnemyHero,
+    targetSide: TargetSide.Self,
     condition: {
-      self: { unitCondition: { hasScepter: true } },
+      self: { enemyHeroInRange: 675 },
     },
   },
   {
     abilityName: 'luna_eclipse',
-    targetSide: TargetSide.EnemyHero,
+    targetSide: TargetSide.FriendlyHero,
     condition: {
-      target: { rangeFromAbilityValue: 'radius' },
+      self: { unitCondition: { hasScepter: true } },
+      target: {
+        excludeSelf: true,
+        enemiesNearby: { range: 675, count: 2 },
+      },
     },
   },
 ];

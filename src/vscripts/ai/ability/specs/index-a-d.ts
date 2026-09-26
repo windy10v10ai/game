@@ -20,6 +20,7 @@ import { SPECS as crystalMaidenFreezingField } from './crystal_maiden_freezing_f
 import { SPECS as dazzleShadowWave } from './dazzle_shadow_wave';
 import { SPECS as dazzleShallowGrave } from './dazzle_shallow_grave';
 import { SPECS as deathProphetExorcism } from './death_prophet_exorcism';
+import { SPECS as deathProphetSpiritSiphon } from './death_prophet_spirit_siphon';
 import { SPECS as doomBringerInfernalBlade } from './doom_bringer_infernal_blade';
 import { SPECS as dragonKnightBreatheFire } from './dragon_knight_breathe_fire';
 import { SPECS as dragonKnightDragonTail } from './dragon_knight_dragon_tail';
@@ -52,6 +53,7 @@ export function registerAbilitySpecsAToD(): void {
   AbilityRegistry.registerAll(dazzleShadowWave);
   AbilityRegistry.registerAll(dazzleShallowGrave);
   AbilityRegistry.registerAll(deathProphetExorcism);
+  AbilityRegistry.registerAll(deathProphetSpiritSiphon);
   AbilityRegistry.registerAll(doomBringerInfernalBlade);
   AbilityRegistry.registerAll(dragonKnightBreatheFire);
   AbilityRegistry.registerAll(dragonKnightDragonTail);
