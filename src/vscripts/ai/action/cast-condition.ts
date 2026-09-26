@@ -68,6 +68,11 @@ export interface CastCoindition {
      * 距离与半径按键名读技能数值。
      */
     aheadCircle?: { distanceValue: string; radiusValue: string };
+    /**
+     * 只选身边至少有 count 个敌方单位（英雄与小兵一起数）的目标，
+     * 用于对友方施放、顺带伤害其周围敌人的技能。
+     */
+    enemiesNearby?: { range: number; count: number };
   };
   self?: {
     unitCondition?: UnitCondition;
@@ -150,6 +155,8 @@ export interface UnitCondition {
   hasScepter?: boolean;
   hasShard?: boolean;
   noModifier?: string[];
+  /** 带有其中任一 modifier 才选，用于接在别的技能效果之后施放 */
+  hasModifier?: string[];
   notActionable?: boolean;
   /**
    * 只选行动受限的单位，给需要目标站着不动才打得满的技能接控制用。
@@ -171,6 +178,8 @@ export interface UnitCondition {
     lte?: boolean;
     gte?: boolean;
     includeSpellAmp?: boolean;
+    /** 阈值乘以该倍数，用于冷却短、预计能连放几次的技能 */
+    multiplier?: number;
   };
 }
 
@@ -202,6 +211,7 @@ export function FilterTargetWithCondition(
   const unitCondition = targetCondition?.unitCondition;
   const facing = targetCondition?.facing;
   const aheadCircle = ability ? targetCondition?.aheadCircle : undefined;
+  const enemiesNearby = targetCondition?.enemiesNearby;
   const aheadDistance = aheadCircle ? ability!.GetSpecialValueFor(aheadCircle.distanceValue) : 0;
   const aheadRadius = aheadCircle ? ability!.GetSpecialValueFor(aheadCircle.radiusValue) : 0;
 
@@ -214,6 +224,7 @@ export function FilterTargetWithCondition(
     healthThreshold = healthCondition.includeSpellAmp
       ? baseValue * (1 + self.GetSpellAmplification(false))
       : baseValue;
+    healthThreshold *= healthCondition.multiplier ?? 1;
   }
 
   for (const unit of units) {
@@ -252,6 +263,13 @@ export function FilterTargetWithCondition(
       if (healthCondition.gte && unit.GetHealth() < healthThreshold) {
         continue;
       }
+    }
+
+    if (
+      enemiesNearby &&
+      CountEnemiesAround(self, unit, enemiesNearby.range) < enemiesNearby.count
+    ) {
+      continue;
     }
 
     if (
@@ -312,6 +330,20 @@ function CountUnitsInRange(
  * @param toTarget - 施法者指向目标的向量
  * @returns 不满足要求时返回 `true`
  */
+function CountEnemiesAround(self: CDOTA_BaseNPC_Hero, unit: CDOTA_BaseNPC, range: number): number {
+  return FindUnitsInRadius(
+    self.GetTeamNumber(),
+    unit.GetAbsOrigin(),
+    undefined,
+    range,
+    UnitTargetTeam.ENEMY,
+    UnitTargetType.HERO + UnitTargetType.BASIC,
+    UnitTargetFlags.NONE,
+    FindOrder.ANY,
+    false,
+  ).length;
+}
+
 /**
  * 目标是否落在施法者身前 distance 处、半径 radius 的圆外。forward 须为单位向量。
  */
@@ -372,6 +404,10 @@ export function CheckUnitConditionFailure(
   }
   const noModifiers = unitCondition.noModifier;
   if (noModifiers && noModifiers.some((modifier) => unit.HasModifier(modifier))) {
+    return true;
+  }
+  const hasModifiers = unitCondition.hasModifier;
+  if (hasModifiers && !hasModifiers.some((modifier) => unit.HasModifier(modifier))) {
     return true;
   }
   if (unitCondition.notActionable && HeroUtil.NotActionable(unit)) {

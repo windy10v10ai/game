@@ -74,7 +74,10 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 13. **身前固定位置的圆形区域**：`target.aheadCircle: { distanceValue, radiusValue }`，只选落在施法者身前固定距离处圆内的目标，距离与半径按键名读技能数值。用于朝面前固定位置生效的无目标技能（如毁灭阴影），比 `facing` 准；无目标技能 cast range 为 0，还要显式写 `range.lte`。
 14. **大招没好才放**：`self.ultimateNotReady: true`，大招已学会且能放时跳过。用于放完会被引导锁住的技能（如剧变），让大招先交出去。
 15. **提前结束持续施法**：spec 顶层 `stopChannel: { noEnemyHeroInRange?, afterSeconds? }`，由英雄执行器在引导中检查。不写就引导到底；只给确实需要的技能加，如剧变在敌人离开后停下、气运之末放出即结束引导让它立刻生效。
-16. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+16. **目标身边敌人多才选**：`target.enemiesNearby: { range, count }`，只选身边至少 count 个敌方单位（英雄与小兵一起数）的目标。用于对友方施放、顺带伤害其周围敌人的技能（如暗影波对队友或己方小兵放）。
+17. **目标带某状态才选**：`target.unitCondition.hasModifier: [...]`，带其中任一 modifier 才选，是 `noModifier` 的反面。用于接在别的技能效果之后放（如涤罪之焰只对身上有命运敕令或虚妄之诺的队友放）。
+18. **斩杀阈值倍数**：`healthAbilityValue.multiplier`，阈值乘以倍数，用于冷却短、预计能连放几次的伤害技能（如涤罪之焰取两倍伤害）。
+19. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
 
 ### 是否补一条对小兵的清兵规则
 
@@ -137,15 +140,14 @@ export const SPECS: AbilitySpec[] = [
 
 ---
 
-## 第六步：在 index.ts 中注册
+## 第六步：注册
 
-修改 [src/vscripts/ai/ability/specs/index.ts](src/vscripts/ai/ability/specs/index.ts)：
+按技能名首字母找到 `src/vscripts/ai/ability/specs/index-<起>-<止>.ts`（如 `index-a-d.ts`），在该文件里：
 
-1. 顶部加 `import { SPECS as <camelName> } from './<abilityName>';`（按字母序）
-2. 在 `registerAbilitySpecs()` 内对应的分组段落调用 `AbilityRegistry.registerAll(<camelName>);`
-   - 治疗 / 护盾类（friendly target） → 友方组
-   - 高伤大招（enemy hero） → 敌方组
-   - 其他根据技能性质判断；段落不够时新加注释段落
+1. 按字母序加 `import { SPECS as <camelName> } from './<abilityName>';`
+2. 在注册函数里按字母序加 `AbilityRegistry.registerAll(<camelName>);`
+
+不要把 import 加回 `index.ts`：每个 import 在 Lua 里是顶层局部变量，单文件超过 200 个会报 `main function has more than 200 local variables`，整个技能 AI 加载失败。某个分组文件接近上限（约 90 个 import）时再按字母细分。
 
 > dispatcher 按 `hero.GetAbilityByIndex` 槽位顺序遍历，所以多个技能间的优先级由"技能挂在英雄第几槽"决定；同名多条 spec 的优先级才由 SPECS 数组顺序决定。
 
