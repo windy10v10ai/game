@@ -350,11 +350,31 @@ export class PerfAuto {
 
   private static finished = false;
 
+  // 结束时各英雄的等级、净值和击杀，用来确认对比的几局局势相近，没有一方碾压
+  private static printHeroSummary() {
+    for (const hero of HeroList.GetAllHeroes()) {
+      if (!hero.IsRealHero()) continue;
+      const playerId = hero.GetPlayerOwnerID();
+      print(
+        `[perf-heroes] team=${hero.GetTeamNumber()} ${hero.GetUnitName().replace('npc_dota_hero_', '')}` +
+          ` level=${hero.GetLevel()} networth=${PlayerResource.GetNetWorth(playerId)}` +
+          ` kills=${PlayerResource.GetKills(playerId)} deaths=${PlayerResource.GetDeaths(playerId)}`,
+      );
+    }
+    for (const team of [DotaTeam.GOODGUYS, DotaTeam.BADGUYS]) {
+      const towers = (Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[]).filter(
+        (tower) => tower.GetTeamNumber() === team && tower.IsAlive(),
+      ).length;
+      print(`[perf-heroes] team=${team} towers_alive=${towers}`);
+    }
+  }
+
   private static finish(gameOver: boolean, quitOnDone: boolean) {
     if (this.finished) return;
     this.finished = true;
     this.running = false;
     SendToServerConsole('host_timescale 1');
+    this.printHeroSummary();
     PerfSampler.setPhase('done');
     print(gameOver ? `[perf-auto] aborted reason=game_over` : `[perf-auto] done`);
     // 结算阶段按游戏时间计的计时器可能不触发，退出不能依赖它
