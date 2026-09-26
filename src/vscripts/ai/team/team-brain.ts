@@ -319,40 +319,29 @@ export class TeamBrain {
     }
   }
 
-  /** 集合点：交战范围外、不比交战点更深入敌方的最近 bot；没有就是这样的己方塔，再没有就回泉水。 */
+  /** 集合点：交战范围外、不比交战点更深入敌方的最近 bot 或己方塔，都没有就回泉水。 */
   private FindRally(pos: Vector): Vector {
     const fountain = HeroUtil.GetTeamFountainPosition(this.team) ?? pos;
     const depth = distance(pos, fountain) + RALLY_FORWARD_SLACK;
+    const candidates: CDOTA_BaseNPC[] = [...this.members.values()];
+    for (const tower of Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[]) {
+      if (tower.GetTeamNumber() === this.team) {
+        candidates.push(tower);
+      }
+    }
     let best: Vector | undefined;
     let bestDistance = Infinity;
-    for (const bot of this.members.values()) {
-      if (!IsValidEntity(bot) || !bot.IsAlive()) {
+    for (const unit of candidates) {
+      if (!IsValidEntity(unit) || !unit.IsAlive()) {
         continue;
       }
-      const gap = distance(bot.GetAbsOrigin(), pos);
+      const gap = distance(unit.GetAbsOrigin(), pos);
       if (
         gap > FIGHT_DANGER_RADIUS &&
         gap < bestDistance &&
-        distance(bot.GetAbsOrigin(), fountain) <= depth
+        distance(unit.GetAbsOrigin(), fountain) <= depth
       ) {
-        best = bot.GetAbsOrigin();
-        bestDistance = gap;
-      }
-    }
-    if (best) {
-      return best;
-    }
-    for (const tower of Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[]) {
-      if (tower.IsNull() || !tower.IsAlive() || tower.GetTeamNumber() !== this.team) {
-        continue;
-      }
-      const gap = distance(tower.GetAbsOrigin(), pos);
-      if (
-        gap > FIGHT_DANGER_RADIUS &&
-        gap < bestDistance &&
-        distance(tower.GetAbsOrigin(), fountain) <= depth
-      ) {
-        best = tower.GetAbsOrigin();
+        best = unit.GetAbsOrigin();
         bestDistance = gap;
       }
     }
