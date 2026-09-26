@@ -31,8 +31,8 @@ export type BotMode = 'laning' | 'fight' | 'retreat' | TaskKind;
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
-  protected readonly ThinkInterval: number = 0.4;
-  protected readonly ThinkIntervalTool: number = 0.4;
+  protected readonly ThinkInterval: number = 0.5;
+  protected readonly ThinkIntervalTool: number = 0.5;
 
   // 原生期间躲塔要和原生抢控制，在这段时间内持续下移动指令
   protected readonly towerEscapeTime: number = 3;
