@@ -5,7 +5,7 @@ import {
   GetFullCastRange,
 } from '../ability/ability-cast';
 import { TargetSide } from '../ability/ability-spec';
-import { canKeepFighting } from '../hero/engagement';
+import { canEngage } from '../hero/engagement';
 import { HeroUtil } from '../hero/hero-util';
 import { FRIENDLY_CREEP_SEARCH_RADIUS } from './action-find';
 import {
@@ -72,7 +72,7 @@ export function TryCastBySpec(
   if (condition?.self?.ultimateNotReady && IsUltimateReady(hero)) {
     return false;
   }
-  if (condition?.self?.canWinFight && !CanWinFight(ai)) {
+  if (condition?.self?.canEngage && !CanEngage(ai)) {
     return false;
   }
 
@@ -168,14 +168,14 @@ function HasEnemyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
   return false;
 }
 
-function CanWinFight(ai: BotBaseAIModifier): boolean {
+function CanEngage(ai: BotBaseAIModifier): boolean {
   const hero = ai.GetHero();
   const brain = GameRules.AI.BotTeam?.GetBrain(hero);
   if (!brain || ai.aroundEnemyHeroes.length === 0) {
     return false;
   }
   const fight = brain.AssessFight(hero, ai.aroundEnemyHeroes);
-  return canKeepFighting(fight.ourPower, fight.enemyPower);
+  return canEngage(fight.ourPower, fight.enemyPower);
 }
 
 // 施法距离很短，允许走几步去抓稍远的树

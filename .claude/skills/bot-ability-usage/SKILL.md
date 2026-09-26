@@ -77,7 +77,7 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 16. **目标身边敌人多才选**：`target.enemiesNearby: { range, count }`，只选身边至少 count 个敌方单位（英雄与小兵一起数）的目标。用于对友方施放、顺带伤害其周围敌人的技能（如暗影波对队友或己方小兵放）。
 17. **目标带某状态才选**：`target.unitCondition.hasModifier: [...]`，带其中任一 modifier 才选，是 `noModifier` 的反面。用于接在别的技能效果之后放（如涤罪之焰只对身上有命运敕令或虚妄之诺的队友放）。
 18. **斩杀阈值倍数**：`healthAbilityValue.multiplier`，阈值乘以倍数，用于冷却短、预计能连放几次的伤害技能（如涤罪之焰取两倍伤害）。
-19. **这波打得过才放**：`self.canWinFight: true`，按团队大脑对当前交战的战力判断（与英雄执行器「打起来后继续打」同一口径）。用于跳进敌人身边、放了就难退的技能（如幻影突袭、闪烁突袭）。
+19. **值得主动上去打才放**：`self.canEngage: true`，按团队大脑对当前交战的战力判断，与英雄层「没打起来时要不要走上去打」同一口径（`power.ts` 的 `AVOID_POWER_RATIO`，调这一个数就能整体调激进程度）。用于跳进敌人身边、放了就难退的先手技能（如幻影突袭、闪烁突袭、A 杖强化图腾跳跃、移形换位拉敌人）。
 20. **以树为目标**：`targetSide: TargetSide.Tree`，对施法者附近最近的一棵树施放（如抓树），目标条件不适用，只看施法者条件。
 21. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
 

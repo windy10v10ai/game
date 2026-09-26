@@ -17,8 +17,14 @@ export interface CombatStats {
   spellReady: number;
 }
 
-/** 没打起来时，敌方战力超过我方这么多倍才算「上去就是白送」，团队层与英雄层共用。 */
+/**
+ * 没打起来时，敌方战力超过我方这么多倍才算「上去就是白送」，团队层与英雄层共用。
+ * 跳进敌人身边的先手技能也按它判断：会主动上去打的局面就允许先手，调这一个数就能整体调激进程度。
+ */
 export const AVOID_POWER_RATIO = 3;
+
+/** 已经交战时，敌方战力不超过我方这么多倍就继续打；打团本来就有来回，敌方略强也不退。 */
+export const KEEP_FIGHTING_RATIO = 2;
 
 // 攻击输出算不到技能伤害，按等级补一项，否则法系英雄会被严重低估
 const SPELL_DPS_PER_LEVEL = 12;

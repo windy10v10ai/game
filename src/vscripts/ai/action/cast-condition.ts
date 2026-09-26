@@ -121,9 +121,10 @@ export interface CastCoindition {
      */
     ultimateNotReady?: boolean;
     /**
-     * 要求团队大脑判断这波交战打得过才施法，用于跳进敌人身边、放了就难退的技能。
+     * 要求团队大脑判断这波敌人值得主动上去打才施法，与英雄层「走上去交战」同一口径，
+     * 用于跳进敌人身边、放了就难退的先手技能。
      */
-    canWinFight?: boolean;
+    canEngage?: boolean;
   };
   ability?: AbilityCoindition;
   action?: {

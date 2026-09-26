@@ -21,7 +21,7 @@ export const SPECS: AbilitySpec[] = [
     abilityName: 'vengefulspirit_nether_swap',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      self: { allyHeroInRange: 600 },
+      self: { allyHeroInRange: 600, canEngage: true },
       target: {
         range: { gte: 600 },
         unitCondition: { healthPercent: { lte: 50 } },
