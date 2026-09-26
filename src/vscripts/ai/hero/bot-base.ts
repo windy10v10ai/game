@@ -265,7 +265,6 @@ export class BotBaseAIModifier extends BaseModifier {
         this.mode = 'fight';
         return this.ActionAttack(task) || this.ActionTask(task);
       case 'retreat':
-      case 'avoid':
         this.mode = 'retreat';
         // 边撤边放技能物品，让追击或靠近有代价；不停下来普攻
         if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
@@ -344,10 +343,10 @@ export class BotBaseAIModifier extends BaseModifier {
       return stance;
     }
     if (this.needsRecover || task?.kind === 'regroup') {
-      return 'avoid';
+      return 'retreat';
     }
-    // 没被派去打的 bot 继续手上的任务，只在明显打不过时避开
-    if (stance === 'avoid' || task?.kind === 'fight') {
+    // 没被派去打的 bot 继续手上的任务，只在明显打不过时撤开
+    if (stance === 'retreat' || task?.kind === 'fight') {
       return stance;
     }
     return 'task';
