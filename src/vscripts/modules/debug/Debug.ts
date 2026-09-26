@@ -6,6 +6,7 @@ import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { CMD } from './debug-cmd';
 import { handleGlobalItemDebugCommand } from './debug-item-helper';
+import { handlePerfDebugCommand } from './perf-cmd';
 
 @reloadable
 export class Debug {
@@ -152,11 +153,13 @@ export class Debug {
     }
 
     if (cmd === CMD.BOT_THINKING_ENABLE) {
-      GameRules.GetGameModeEntity().SetBotThinkingEnabled(true);
+      GameRules.AI.BotTeam?.SetNativeThinking(true);
     }
     if (cmd === CMD.BOT_THINKING_DISABLE) {
-      GameRules.GetGameModeEntity().SetBotThinkingEnabled(false);
+      GameRules.AI.BotTeam?.SetNativeThinking(false);
     }
+
+    handlePerfDebugCommand(cmd, args);
 
     // ---- item 替换装备命令 ----
     handleGlobalItemDebugCommand(cmd);

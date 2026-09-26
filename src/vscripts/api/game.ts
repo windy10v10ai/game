@@ -128,12 +128,13 @@ export class Game {
       status: 1,
     });
 
+    const isLocalhost = ApiClient.IsLocalhost();
     const apiParameter = {
       method: HttpMethod.POST,
-      path: ApiClient.IsLocalhost() ? Game.LOCAL_GAME_END_URL : Game.GAME_END_URL,
+      path: isLocalhost ? Game.LOCAL_GAME_END_URL : Game.GAME_END_URL,
       body: gameEndDto,
-      // 结算是累加写入，重试会让积分与战绩翻倍
-      retryTimes: 1,
+      // 结算是累加写入。本地结算后端有冷却，已记上的那次会挡住重发；正式结算没有，重发会让积分与战绩翻倍
+      retryTimes: isLocalhost ? 3 : 1,
       successFunc: (data: string) => {
         // CustomNetTables.SetTableValue('ending_status', 'ending_status', {
         //   status: 2,

@@ -19,7 +19,7 @@ export class GenericAbilityFallback {
   }
 
   private static CanCast(ability: CDOTABaseAbility): boolean {
-    if (ability.GetLevel() < 2 || !ability.IsFullyCastable() || ability.IsHidden()) {
+    if (ability.GetLevel() < 1 || !ability.IsFullyCastable() || ability.IsHidden()) {
       return false;
     }
     if (ability.GetAbilityType() === AbilityTypes.ULTIMATE) {

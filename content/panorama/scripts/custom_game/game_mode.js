@@ -187,12 +187,26 @@ function InitCustomSetting() {
 
   // 开发模式
   if (Game.IsInToolsMode()) {
-    $('#player_gold_xp_multiplier_dropdown').SetSelected('2');
-    $('#bot_gold_xp_multiplier_dropdown').SetSelected('2');
-    $('#radiant_player_number_dropdown').SetSelected('5');
-    $('#dire_player_number_dropdown').SetSelected('5');
+    // 天辉 bot 也要出齐 T5 才能复现真实后期的负载
+    SelectToolsOnlyOption('player_gold_xp_multiplier_dropdown', '10', '10');
+    $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
+    $('#radiant_player_number_dropdown').SetSelected('10');
+    $('#dire_player_number_dropdown').SetSelected('10');
     $('#starting_gold_bot_dropdown').SetSelected('5000');
+    // 高倍经济下 500% 防御塔仍会在测完前被推平
+    SelectToolsOnlyOption('tower_power_dropdown', '700', '700%');
   }
+}
+
+// 界面上没有的档位只在工具模式下临时加进下拉框，发布版的选项不变
+function SelectToolsOnlyOption(dropdownId, id, text) {
+  var dropdown = $('#' + dropdownId);
+  if (!dropdown.FindDropDownMenuChild(id)) {
+    var option = $.CreatePanel('Label', dropdown, id);
+    option.text = text;
+    dropdown.AddOption(option);
+  }
+  dropdown.SetSelected(id);
 }
 
 // -------- Difficulty Setting --------

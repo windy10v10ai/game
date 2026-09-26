@@ -69,7 +69,17 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 8. **附近需要足够友方小兵**：`self.friendlyCreepNearby: { count: { gte: 3 } }`，常用于推塔场景（对 `EnemyBuilding` 施法时确认有推线波）。`range` 不填默认 900。此字段也直接挂在 `self` 下，dispatcher inline `FindUnitsInRadius` 检查。
 9. **排除施法者自己**：`target.excludeSelf: true`。友方候选天然包含施法者且距离 0 排在首位，以自身生命为代价的技能（如亚巴顿迷雾缠绕）必须排掉；纯增益给自己用通常合理，不要随手加。
 10. **目标相对朝向**：`target.facing: 'front' | 'back'`，只保留位于施法者正面 / 背面半区的目标（水平面点积取符号，正侧方两者都不满足）。用于带位移的技能区分追击（朝目标跳）与撤退（背对目标跳），如宙斯神圣一跳。
-11. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+11. **附近有 / 没有队友**：`self.allyHeroInRange: 1200` / `self.noAllyHeroInRange: 900`，只算真英雄、不含自己。控制与持续施法大招要队友跟进输出或护住引导时用前者（如魔爪、极寒领域）；受到伤害就解除的控制用后者（如噩梦）。与 `noEnemyHeroInRange` 同样直接挂在 `self` 下。
+12. **只选行动受限的目标**：`target.unitCondition.disabled: 'hard' | 'movement'`，是 `notActionable`（被控就跳过）的反面。`hard` 只认眩晕、变羊等硬控；`movement` 还认缠绕和被减速到跑不出范围。用于接控制才打得满的技能（如神秘之耀、魂之挽歌）。
+13. **身前固定位置的圆形区域**：`target.aheadCircle: { distanceValue, radiusValue }`，只选落在施法者身前固定距离处圆内的目标，距离与半径按键名读技能数值。用于朝面前固定位置生效的无目标技能（如毁灭阴影），比 `facing` 准；无目标技能 cast range 为 0，还要显式写 `range.lte`。
+14. **大招没好才放**：`self.ultimateNotReady: true`，大招已学会且能放时跳过。用于放完会被引导锁住的技能（如剧变），让大招先交出去。
+15. **提前结束持续施法**：spec 顶层 `stopChannel: { noEnemyHeroInRange?, graceSeconds?, afterSeconds? }`，`graceSeconds` 让敌人离开范围后再等几秒才停（如初音跳舞，敌人短暂走开不交掉长引导），由英雄执行器在引导中检查。不写就引导到底；只给确实需要的技能加，如剧变在敌人离开后停下、气运之末放出即结束引导让它立刻生效。
+16. **目标身边敌人多才选**：`target.enemiesNearby: { range, count }`，只选身边至少 count 个敌方单位（英雄与小兵一起数）的目标。用于对友方施放、顺带伤害其周围敌人的技能（如暗影波对队友或己方小兵放）。
+17. **目标带某状态才选**：`target.unitCondition.hasModifier: [...]`，带其中任一 modifier 才选，是 `noModifier` 的反面。用于接在别的技能效果之后放（如涤罪之焰只对身上有命运敕令或虚妄之诺的队友放）。
+18. **斩杀阈值倍数**：`healthAbilityValue.multiplier`，阈值乘以倍数，用于冷却短、预计能连放几次的伤害技能（如涤罪之焰取两倍伤害）。
+19. **值得主动上去打才放**：`self.canEngage: true`，按团队大脑对当前交战的战力判断，与英雄层「没打起来时要不要走上去打」同一口径（`power.ts` 的 `AVOID_POWER_RATIO`，调这一个数就能整体调激进程度）。用于跳进敌人身边、放了就难退的先手技能（如幻影突袭、闪烁突袭、A 杖强化图腾跳跃、移形换位拉敌人）。
+20. **以树为目标**：`targetSide: TargetSide.Tree`，对施法者附近最近的一棵树施放（如抓树），目标条件不适用，只看施法者条件。
+21. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
 
 ### 是否补一条对小兵的清兵规则
 
@@ -132,15 +142,14 @@ export const SPECS: AbilitySpec[] = [
 
 ---
 
-## 第六步：在 index.ts 中注册
+## 第六步：注册
 
-修改 [src/vscripts/ai/ability/specs/index.ts](src/vscripts/ai/ability/specs/index.ts)：
+按技能名首字母找到 `src/vscripts/ai/ability/specs/index-<起>-<止>.ts`（如 `index-a-d.ts`），在该文件里：
 
-1. 顶部加 `import { SPECS as <camelName> } from './<abilityName>';`（按字母序）
-2. 在 `registerAbilitySpecs()` 内对应的分组段落调用 `AbilityRegistry.registerAll(<camelName>);`
-   - 治疗 / 护盾类（friendly target） → 友方组
-   - 高伤大招（enemy hero） → 敌方组
-   - 其他根据技能性质判断；段落不够时新加注释段落
+1. 按字母序加 `import { SPECS as <camelName> } from './<abilityName>';`
+2. 在注册函数里按字母序加 `AbilityRegistry.registerAll(<camelName>);`
+
+不要把 import 加回 `index.ts`：每个 import 在 Lua 里是顶层局部变量，单文件超过 200 个会报 `main function has more than 200 local variables`，整个技能 AI 加载失败。某个分组文件接近上限（约 90 个 import）时再按字母细分。
 
 > dispatcher 按 `hero.GetAbilityByIndex` 槽位顺序遍历，所以多个技能间的优先级由"技能挂在英雄第几槽"决定；同名多条 spec 的优先级才由 SPECS 数组顺序决定。
 
@@ -162,6 +171,8 @@ export const SPECS: AbilitySpec[] = [
 - **不要为 spec 加新的字段类型**：spec 字段只能是 `ability-spec.ts` 中已定义的；新需求先扩展 `cast-condition.ts` 与 dispatcher，再消费。
 - **不要往英雄文件 `UseAbilityXxx` 加新技能**：新技能一律走 spec。遇到已有手写规则时，将有效条件迁入 spec，并在确认行为等价后删除对应英雄覆盖，不能把英雄专属施法保留为长期第二执行层。
 - **toggle / autoCast 类技能**：通过 `condition.action.toggleOn / toggleOff / autoCastOn` 表达。dispatcher 命中 action 条件后只切换到目标状态，不走正常施法派发；已经处于目标状态时返回 false，继续尝试后续规则。
+- **有目标才开着的开关**：`action.toggleByTarget: true`，找到符合条件的目标就开、找不到就关，一条 spec 同时管开和关（如腐烂、巫毒回复术）。`toggleOff` 只能在「找到目标」时关，表达不了「没有目标就关」。
+- **既能指向单位又能点地的技能**：dispatcher 按运行时 behavior 派发，带 UNIT_TARGET 位就指向单位。有些技能运行时同时带 UNIT_TARGET 与 POINT（如有 A 杖的强化图腾、剧变、投掷），指向敌人会被引擎拒绝、每 tick 重试。这类写 `target.castMode: 'targetPosition'` 强制点地。开发模式的 `[bot-cast]` 日志带 `beh=`（运行时 behavior 位），同一技能短时间内反复出现就是命令没执行成功。
 - **TSTL 对象 spread 陷阱**：见 `src/vscripts/CLAUDE.md`「常见陷阱」末条；spec 文件本身用不到 spread，但若需要扩展 dispatcher / cast-condition，**绝对**不能写 `{ ...maybeUndefined }`。
 - **KV 数值字段术语**：Dota 2 现行 KV 中数值字段块名为 `AbilityValues`（旧版 `AbilitySpecial` 已废弃）。在注释、字段命名、文档中统一使用 `AbilityValue` 表述；引擎 API `GetSpecialValueFor(key)` 仍可调用，但变量名和注释应写 `abilityValue` / `rangeFromAbilityValue`，不用 `specialValue`。
 - **spec 文件头部注释不要复述 condition 里的字段/数值**：注释只写意图（"范围内有敌人即用"），不要带上 `range.lte` 等字段的具体值（"900 范围内"）。同一个数值出现两处，后续只改其中一处就会自相矛盾，且无法判断哪个是真相源。此规则同样适用于 ItemSpec（`ai/item/specs/`）文件。发现注释数值与代码不一致时，**不要默认注释代表设计意图、代码是笔误就去改代码**——应先查 git blame / 实机测试确认谁是真相源，再决定改代码还是改注释。

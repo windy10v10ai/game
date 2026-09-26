@@ -3,259 +3,152 @@ import { TowerPushStatus } from '../../modules/event/event-entity-killed';
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { reloadable } from '../../utils/tstl-utils';
 import { BotLaneRecovery } from './bot-lane-recovery';
+import { LanePath } from './lane-geometry';
+import { pushLevelFor, shouldTakeOver } from './takeover';
+import { BuildLanePaths, TeamBrain } from './team-brain';
 
 /**
- * Bot推进策略管理器
- * 负责管理电脑的推进策略
+ * bot 的全局调度：对线期交给原生 bot，到切换点后关掉原生、由各队的团队大脑接管。
+ * 原生开关是全局的，一关两队的 bot 都关，所以每支有 AI 英雄的队伍都建一个团队大脑。
  */
 @reloadable
 export class BotTeam {
-  private botPushMin: number = 15; // 电脑开始推进的分钟数（动态，随游戏进度可能调整）
-  botPushLevel: number = 10; // 电脑推进等级（供 BotBase 初始化读取）
-  private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
-  private earlyGameMin: number = 3; // 对线期时间
-  private pushStarted: boolean = false; // 是否已进入推进阶段
-  private addAmount: number = 0; // Bot发钱的基础金额
+  private addAmount: number = 0;
+  private earlyGameMin: number = 3;
+  private nativeActive: boolean = true;
+  private readonly pushLevel: number;
+  private readonly lanes: LanePath[];
+  private readonly brains = new Map<DotaTeam, TeamBrain>();
 
-  private readonly addAmountBase: number = 2; // Bot发钱的基础金额
-  private readonly addAmountPlayerNumberBonus: number = 0.15; // 每个玩家增加的金额
-  private readonly addAmountNeedLevel: number = 0.02; // 每玩家等级增加的金额
-  private readonly refreshInterval: number = 1; // 刷新策略间隔
+  private readonly addAmountBase: number = 2;
+  private readonly addAmountPlayerNumberBonus: number = 0.15;
+  private readonly addAmountNeedLevel: number = 0.02;
+  private readonly refreshInterval: number = 1;
   private readonly laneRecovery = new BotLaneRecovery();
 
-  /**
-   * 初始化Bot团队策略
-   */
   constructor() {
-    // 计算电脑推进时间
-    this.initBotPushTime();
-    // 计算Bot发钱的基础金额
+    this.pushLevel = pushLevelFor(GameRules.Option.towerPower, GameRules.Option.midOnlyMode);
+    this.lanes = BuildLanePaths();
+    this.initEarlyGame();
     this.initAddAmount();
-    // 每1秒刷新一次团队策略和给Bot发钱
+    ListenToGameEvent('entity_killed', (keys) => this.onEntityKilled(keys), this);
     Timers.CreateTimer(this.refreshInterval, () => {
-      this.refreshTeamStrategy();
-      this.addMoneyForBots();
-      this.laneRecovery.Run();
+      this.refresh();
       return this.refreshInterval;
     });
   }
 
-  /**
-   * 根据难度计算基础推进时间
-   */
-  private initBotPushTime(): void {
-    const botGoldXpMultiplier = GameRules.Option.direGoldXpMultiplier || 1;
-
-    if (botGoldXpMultiplier <= 3) {
-      this.baseBotPushMin = RandomInt(16, 20);
-    } else if (botGoldXpMultiplier <= 5) {
-      this.baseBotPushMin = RandomInt(13, 16);
-    } else if (botGoldXpMultiplier <= 8) {
-      this.baseBotPushMin = RandomInt(11, 13);
-    } else if (botGoldXpMultiplier <= 10) {
-      this.baseBotPushMin = RandomInt(9, 11);
-    } else if (botGoldXpMultiplier <= 12) {
-      this.baseBotPushMin = RandomInt(7, 9);
-    } else if (botGoldXpMultiplier <= 15) {
-      this.baseBotPushMin = RandomInt(6, 8);
-    } else if (botGoldXpMultiplier <= 20) {
-      this.baseBotPushMin = RandomInt(5, 7);
-    } else {
-      this.baseBotPushMin = RandomInt(4, 5);
+  private refresh(): void {
+    if (this.nativeActive) {
+      this.refreshNativeStrategy();
+      if (this.shouldTakeOver()) {
+        this.SetNativeThinking(false);
+      }
     }
+    for (const brain of this.brains.values()) {
+      brain.Think(!this.nativeActive);
+    }
+    this.addMoneyForBots();
+    if (this.nativeActive) {
+      this.laneRecovery.Run();
+    }
+  }
 
-    if (botGoldXpMultiplier <= 5) {
+  /** 英雄所在队伍的团队大脑，没有时新建。 */
+  GetBrain(hero: CDOTA_BaseNPC_Hero): TeamBrain {
+    const team = hero.GetTeamNumber();
+    let brain = this.brains.get(team);
+    if (!brain) {
+      brain = new TeamBrain(team, this.lanes, this.pushLevel);
+      this.brains.set(team, brain);
+    }
+    return brain;
+  }
+
+  IsNativeActive(): boolean {
+    return this.nativeActive;
+  }
+
+  /** 开关原生 bot 思考；关闭即由团队大脑接管移动，回线也随之停用。 */
+  SetNativeThinking(enabled: boolean): void {
+    this.nativeActive = enabled;
+    GameRules.GetGameModeEntity().SetBotThinkingEnabled(enabled);
+    print(
+      `[BotTeam] native bot thinking ${enabled ? 'on' : 'off'} at ${GameRules.GetDOTATime(false, false)}`,
+    );
+  }
+
+  private shouldTakeOver(): boolean {
+    return shouldTakeOver({
+      gameTime: GameRules.GetDOTATime(false, false),
+      towersLost: Math.max(this.towersLost(true), this.towersLost(false)),
+      midOnly: GameRules.Option.midOnlyMode,
+      averageBotLevel: this.getBotAverageLevel(),
+      pushLevel: this.pushLevel,
+      direMultiplier: GameRules.Option.direGoldXpMultiplier || 1,
+    });
+  }
+
+  // Good 是天辉摧毁的，即夜魇掉的塔
+  private towersLost(byRadiant: boolean): number {
+    const s = TowerPushStatus;
+    return byRadiant
+      ? s.tower1PushedGood + s.tower2PushedGood + s.tower3PushedGood + s.tower4PushedGood
+      : s.tower1PushedBad + s.tower2PushedBad + s.tower3PushedBad + s.tower4PushedBad;
+  }
+
+  private getBotAverageLevel(): number {
+    let totalLevel = 0;
+    let botCount = 0;
+    PlayerHelper.ForEachPlayer((playerId) => {
+      if (!PlayerHelper.IsBotPlayerByPlayerId(playerId)) return;
+      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+      if (hero) {
+        totalLevel += hero.GetLevel();
+        botCount++;
+      }
+    });
+    return botCount > 0 ? totalLevel / botCount : 1;
+  }
+
+  private initEarlyGame(): void {
+    const multiplier = GameRules.Option.direGoldXpMultiplier || 1;
+    if (multiplier <= 5) {
       this.earlyGameMin = 4;
-    } else if (botGoldXpMultiplier <= 10) {
+    } else if (multiplier <= 10) {
       this.earlyGameMin = 3;
     } else {
       this.earlyGameMin = 2;
     }
-
-    // 初始化时，动态推进时间等于基础推进时间
-    this.botPushMin = this.baseBotPushMin;
-
-    // print(`[BotTeam] Base bot push min: ${this.baseBotPushMin}`);
-
-    // 根据难度计算电脑推进等级
-    const randomLevel = RandomInt(0, 2); // 随机额外增等级
-    const requiredLevel = this.getTowerRequiredLevel();
-    // 中路模式：推进所需等级缩短（更早推进）
-    if (GameRules.Option.midOnlyMode) {
-      this.botPushLevel = Math.floor(requiredLevel / 3) + randomLevel;
-    } else {
-      this.botPushLevel = requiredLevel + randomLevel;
-    }
-    // print(`[BotTeam] Bot push level: ${this.botPushLevel}`);
   }
 
-  /**
-   * 获取Bot团队平均等级
-   */
-  private getBotTeamAverageLevel(): number {
-    let totalLevel = 0;
-    let botCount = 0;
-
-    // 遍历所有玩家，找出Bot玩家
-    for (let playerId = 0; playerId < 24; playerId++) {
-      if (!PlayerResource.IsValidPlayerID(playerId)) continue;
-
-      // Bot玩家在夜魇阵营且是假玩家
-      const playerTeam = PlayerResource.GetTeam(playerId);
-      const isBot = PlayerResource.IsFakeClient(playerId);
-
-      if (playerTeam === DotaTeam.BADGUYS && isBot) {
-        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-        if (hero && hero.IsAlive()) {
-          totalLevel += hero.GetLevel();
-          botCount++;
-        }
-      }
-    }
-
-    // 返回平均等级，如果没有bot则返回1
-    return botCount > 0 ? totalLevel / botCount : 1;
-  }
-
-  /**
-   * 根据防御塔强度 需要的平均等级
-   */
-  private getTowerRequiredLevel(): number {
-    const towerPower = GameRules.Option.towerPower;
-    if (towerPower <= 200) {
-      return 12;
-    } else if (towerPower <= 300) {
-      return 13;
-    } else if (towerPower <= 400) {
-      return 14;
-    } else {
-      return 15;
-    }
-  }
-
-  /**
-   * 根据防御塔状态计算推进层级
-   * 中路模式与普通模式阈值不同，分开处理
-   */
-  private calculatePushTierByTowerStatus(): number {
-    if (GameRules.Option.midOnlyMode) {
-      return this.calculatePushTierMidOnly();
-    }
-    return this.calculatePushTierNormal();
-  }
-
-  /**
-   * 普通模式推进层级计算
-   * 每队每层有3座塔（上中下），阈值>=2表示超过一半路被推
-   */
-  private calculatePushTierNormal(): number {
-    // 优先检查兵营状态
-    if (TowerPushStatus.barrackPushedGood > 5 || TowerPushStatus.barrackPushedBad > 5) {
-      return -1; // 无限制推进
-    } else if (TowerPushStatus.barrackPushedGood > 2 || TowerPushStatus.barrackPushedBad > 2) {
-      return 5;
-    }
-
-    if (TowerPushStatus.tower3PushedGood >= 2 || TowerPushStatus.tower3PushedBad >= 2) {
-      return 4;
-    }
-    if (TowerPushStatus.tower2PushedGood >= 2 || TowerPushStatus.tower2PushedBad >= 2) {
-      return 3;
-    }
-    if (TowerPushStatus.tower1PushedGood >= 2 || TowerPushStatus.tower1PushedBad >= 2) {
-      return 2;
-    }
-
-    return 1;
-  }
-
-  /**
-   * 中路模式推进层级计算
-   * 每队每层只有1座塔（mid），阈值>=1即升层
-   */
-  private calculatePushTierMidOnly(): number {
-    // 优先检查兵营状态
-    if (TowerPushStatus.barrackPushedGood >= 1 || TowerPushStatus.barrackPushedBad >= 1) {
-      return -1; // 无限制推进
-    }
-
-    if (TowerPushStatus.tower3PushedGood >= 1 || TowerPushStatus.tower3PushedBad >= 1) {
-      return 4;
-    }
-    if (TowerPushStatus.tower2PushedGood >= 1 || TowerPushStatus.tower2PushedBad >= 1) {
-      return 3;
-    }
-    if (TowerPushStatus.tower1PushedGood >= 1 || TowerPushStatus.tower1PushedBad >= 1) {
-      return 2;
-    }
-
-    return 1;
-  }
-
-  /**
-   * 刷新团队策略
-   */
-  private refreshTeamStrategy(): void {
-    // 动态计算推进时间
-    // 获取Bot团队平均等级
-    const avgLevel = this.getBotTeamAverageLevel();
-    const isStartPushForce = avgLevel >= this.botPushLevel;
-
-    const gameTime = GameRules.GetDOTATime(false, false);
+  /** 对线期原生 bot 的推进策略：开局不推，之后只允许抱团推外塔，其余交给切换后的团队大脑。 */
+  private refreshNativeStrategy(): void {
     const gameModeEntity = GameRules.GetGameModeEntity();
+    const inLateGame = GameRules.GetDOTATime(false, false) >= this.earlyGameMin * 60;
+    gameModeEntity.SetBotsInLateGame(inLateGame);
+    gameModeEntity.SetBotsAlwaysPushWithHuman(false);
+    gameModeEntity.SetBotsMaxPushTier(1);
+  }
 
-    if (gameTime >= this.botPushMin * 4 * 60) {
-      // LATEGAME - 无限制推进
-      this.pushStarted = true;
-      gameModeEntity.SetBotsMaxPushTier(-1);
-    } else if (gameTime >= this.botPushMin * 60 || isStartPushForce) {
-      // MIDGAME - 开始推进 根据防御塔状态计算推进策略
-      this.pushStarted = true;
-      const pushTier = this.calculatePushTierByTowerStatus();
-      gameModeEntity.SetBotsMaxPushTier(pushTier);
-      gameModeEntity.SetBotsInLateGame(true);
-      gameModeEntity.SetBotsAlwaysPushWithHuman(true);
-    } else if (gameTime >= this.earlyGameMin * 60) {
-      // MIDGAME - 抱团可能推1塔
-      gameModeEntity.SetBotsInLateGame(true);
-      gameModeEntity.SetBotsAlwaysPushWithHuman(false);
-      gameModeEntity.SetBotsMaxPushTier(1);
+  private onEntityKilled(keys: GameEventProvidedProperties & EntityKilledEvent): void {
+    const killed = EntIndexToHScript(keys.entindex_killed) as CDOTA_BaseNPC | undefined;
+    if (!killed || !killed.IsBaseNPC() || !killed.IsRealHero() || killed.IsReincarnating()) {
+      return;
+    }
+    const attacker =
+      keys.entindex_attacker !== undefined ? EntIndexToHScript(keys.entindex_attacker) : undefined;
+    let killerHero: CDOTA_BaseNPC_Hero | undefined;
+    if (attacker === undefined || !attacker.IsBaseNPC()) {
+      killerHero = undefined;
+    } else if (attacker.IsRealHero()) {
+      killerHero = attacker;
     } else {
-      // EARLYGAME - 不推进
-      gameModeEntity.SetBotsInLateGame(false);
-      gameModeEntity.SetBotsAlwaysPushWithHuman(false);
-      gameModeEntity.SetBotsMaxPushTier(1);
+      killerHero = attacker.GetPlayerOwner()?.GetAssignedHero();
     }
-  }
-
-  /**
-   * 初始化Bot发钱的基础金额
-   * 根据玩家等级（seasonLevel + memberLevel）增加
-   */
-  private initAddAmount(): void {
-    const playerNumberBonus = Player.GetPlayerCount() * this.addAmountPlayerNumberBonus;
-
-    // 遍历所有玩家，计算总等级
-    let totalLevel = 0;
-    for (const player of Player.playerInfoMap.values()) {
-      const seasonLevel = player.seasonLevel || 0;
-      const memberLevel = player.memberLevel || 0;
-      totalLevel += seasonLevel + memberLevel;
+    for (const brain of this.brains.values()) {
+      brain.OnHeroKilled(killed, killerHero);
     }
-
-    const levelBonus = totalLevel * this.addAmountNeedLevel;
-
-    this.addAmount = Math.floor(this.addAmountBase + levelBonus + playerNumberBonus);
-    // print(
-    //   `[BotTeam] Add amount: ${this.addAmount} (playerNumber: ${playerNumberBonus}, levelBonus: ${levelBonus})`,
-    // );
-  }
-
-  /**
-   * FSA 侧查询：是否已进入集体推进阶段（由 refreshTeamStrategy 每秒更新）
-   */
-  isAfterPhaseStart(): boolean {
-    return this.pushStarted;
   }
 
   /** Returns whether jungle recovery currently owns this hero's movement. */
@@ -271,6 +164,25 @@ export class BotTeam {
   /** 撤退中的英雄改由自身 AI 决定去泉水还是继续走，暂时退出团队回线。 */
   suppressLaneRecoveryForRetreat(hero: CDOTA_BaseNPC_Hero): void {
     this.laneRecovery.SuppressForRetreat(hero);
+  }
+
+  /**
+   * 初始化Bot发钱的基础金额
+   * 根据玩家等级（seasonLevel + memberLevel）增加
+   */
+  private initAddAmount(): void {
+    const playerNumberBonus = Player.GetPlayerCount() * this.addAmountPlayerNumberBonus;
+
+    let totalLevel = 0;
+    for (const player of Player.playerInfoMap.values()) {
+      const seasonLevel = player.seasonLevel || 0;
+      const memberLevel = player.memberLevel || 0;
+      totalLevel += seasonLevel + memberLevel;
+    }
+
+    const levelBonus = totalLevel * this.addAmountNeedLevel;
+
+    this.addAmount = Math.floor(this.addAmountBase + levelBonus + playerNumberBonus);
   }
 
   /**

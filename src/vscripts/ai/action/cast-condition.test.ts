@@ -1,4 +1,9 @@
-import { CastCoindition, CheckFacingFailure, DeepMerge } from './cast-condition';
+import {
+  CastCoindition,
+  CheckAheadCircleFailure,
+  CheckFacingFailure,
+  DeepMerge,
+} from './cast-condition';
 
 describe('DeepMerge', () => {
   it('should return the target if source is undefined', () => {
@@ -152,5 +157,21 @@ describe('CheckFacingFailure', () => {
   it('should judge by the horizontal plane regardless of forward vector length', () => {
     expect(CheckFacingFailure('front', { x: 0.3, y: -0.4 }, { x: 30, y: -40 })).toBe(false);
     expect(CheckFacingFailure('front', { x: 0.3, y: -0.4 }, { x: -30, y: 40 })).toBe(true);
+  });
+});
+
+describe('CheckAheadCircleFailure', () => {
+  // 施法者朝向 +X，圆心在身前 450 处，半径 250
+  const forward = { x: 1, y: 0 };
+
+  it('should accept a target inside the circle ahead', () => {
+    expect(CheckAheadCircleFailure(forward, { x: 450, y: 0 }, 450, 250)).toBe(false);
+    expect(CheckAheadCircleFailure(forward, { x: 300, y: 150 }, 450, 250)).toBe(false);
+  });
+
+  it('should reject a target beside or behind the circle', () => {
+    expect(CheckAheadCircleFailure(forward, { x: 450, y: 300 }, 450, 250)).toBe(true);
+    expect(CheckAheadCircleFailure(forward, { x: 100, y: 0 }, 450, 250)).toBe(true);
+    expect(CheckAheadCircleFailure(forward, { x: -450, y: 0 }, 450, 250)).toBe(true);
   });
 });

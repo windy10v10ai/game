@@ -2859,7 +2859,6 @@
 	// 守护天使
 	"omniknight_guardian_angel"
 	{
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"MaxLevel" "4"
 		"AbilityManaCost"				"125 175 225 275"	// 125 175 225
 
@@ -5074,7 +5073,6 @@
 	"bounty_hunter_track"
 	{
 		"MaxLevel" "4"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityCooldown"				"6 5 4 3"
 		"AbilityCastPoint"				"0.1"	// 0.3
 		"AbilityValues"
@@ -8923,7 +8921,6 @@
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"900"		// 600 625 650 675 增强
 		"AbilityManaCost"				"80 90 100 110 120"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"	// SPELL_DISPELLABLE_YES
 		"AbilityValues"
 		{
 				"stun_duration"

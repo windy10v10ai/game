@@ -38,6 +38,13 @@ const RECOVERY_TARGETS: Record<
   bot: { position: Vector(5614, -5562, 128), tier1Duration: 15, tier2Duration: 25 },
 };
 
+// 翻转后夜魇的上路对应天辉的下路
+const MIRROR_LANE: Record<BotLane, BotLane> = { top: 'bot', mid: 'mid', bot: 'top' };
+
+function mirrorForTeam(position: Vector, team: DotaTeam): Vector {
+  return team === DotaTeam.GOODGUYS ? Vector(-position.x, -position.y, position.z) : position;
+}
+
 interface JungleRecoveryTask {
   hero: CDOTA_BaseNPC_Hero;
   heroName: string;
@@ -69,17 +76,22 @@ export class BotLaneRecovery {
   private taskExecutorRunning = false;
 
   public Run(): void {
-    const towers = this.FindFriendlyTowers();
-    if (towers.length === 0) {
-      return;
-    }
-
-    const hasFrontTower = towers.some((tower) => tower.tier <= FRONT_TOWER_MAX_TIER);
+    const towersByTeam = new Map<DotaTeam, BotLaneRecoveryTower<CDOTA_BaseNPC>[]>();
     PlayerHelper.ForEachPlayer((playerId) => {
       const candidate = this.GetBotCandidate(playerId);
       if (!candidate) {
         return;
       }
+      const team = candidate.hero.GetTeamNumber();
+      let towers = towersByTeam.get(team);
+      if (!towers) {
+        towers = this.FindFriendlyTowers(team);
+        towersByTeam.set(team, towers);
+      }
+      if (towers.length === 0) {
+        return;
+      }
+      const hasFrontTower = towers.some((tower) => tower.tier <= FRONT_TOWER_MAX_TIER);
       if (this.TryEvictFromFountain(candidate, towers, hasFrontTower)) {
         return;
       }
@@ -90,10 +102,7 @@ export class BotLaneRecovery {
   }
 
   private GetBotCandidate(playerId: PlayerID): RecoveryCandidate | undefined {
-    if (
-      !PlayerHelper.IsBotPlayerByPlayerId(playerId) ||
-      PlayerResource.GetTeam(playerId) !== DotaTeam.BADGUYS
-    ) {
+    if (!PlayerHelper.IsBotPlayerByPlayerId(playerId)) {
       return undefined;
     }
 
@@ -154,7 +163,8 @@ export class BotLaneRecovery {
     const laneTowers = getRecoveryTowerCandidates(towers, lane);
     const nearestLaneTowerDistance = this.GetNearestTowerDistance(hero, laneTowers);
     const nearestTowerDistance = this.GetNearestTowerDistance(hero, towers);
-    const heroPosition = hero.GetAbsOrigin();
+    // 判定按夜魇视角写，天辉的坐标关于地图中心翻转后复用
+    const heroPosition = mirrorForTeam(hero.GetAbsOrigin(), hero.GetTeamNumber());
     const decision = resolveBotLaneRecovery({
       enemyLane: lane,
       hasFriendlyLaneCreep: friendlyLaneCreeps.length > 0,
@@ -217,7 +227,7 @@ export class BotLaneRecovery {
   }
 
   private IsAtFountain(hero: CDOTA_BaseNPC_Hero): boolean {
-    const fountainPosition = HeroUtil.GetTeamFountainPosition(DotaTeam.BADGUYS);
+    const fountainPosition = HeroUtil.GetTeamFountainPosition(hero.GetTeamNumber());
     if (!fountainPosition) {
       return false;
     }
@@ -270,13 +280,14 @@ export class BotLaneRecovery {
     tier: number,
     source: TeleportReason,
   ): void {
-    const target = RECOVERY_TARGETS[lane];
+    const target =
+      RECOVERY_TARGETS[hero.GetTeamNumber() === DotaTeam.GOODGUYS ? MIRROR_LANE[lane] : lane];
     const duration = tier >= 2 ? target.tier2Duration : target.tier1Duration;
     this.jungleRecoveryTasks.set(hero.GetEntityIndex(), {
       hero,
       heroName: hero.GetUnitName(),
       source,
-      targetPosition: target.position,
+      targetPosition: mirrorForTeam(target.position, hero.GetTeamNumber()),
       expiresAt: GameRules.GetDOTATime(false, true) + duration,
       phase: 'waiting_for_tp',
     });
@@ -381,7 +392,7 @@ export class BotLaneRecovery {
     return creeps.some((creep) => creep.GetTeamNumber() === DotaTeam.NEUTRALS);
   }
 
-  private FindFriendlyTowers(): BotLaneRecoveryTower<CDOTA_BaseNPC>[] {
+  private FindFriendlyTowers(team: DotaTeam): BotLaneRecoveryTower<CDOTA_BaseNPC>[] {
     const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
     const result: BotLaneRecoveryTower<CDOTA_BaseNPC>[] = [];
     for (const tower of towers) {
@@ -390,7 +401,7 @@ export class BotLaneRecovery {
         tower.IsNull() ||
         !tower.IsAlive() ||
         tower.IsInvulnerable() ||
-        tower.GetTeamNumber() !== DotaTeam.BADGUYS
+        tower.GetTeamNumber() !== team
       ) {
         continue;
       }
