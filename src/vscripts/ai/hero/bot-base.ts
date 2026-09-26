@@ -181,6 +181,7 @@ export class BotBaseAIModifier extends BaseModifier {
       this.ThinkNative();
       return;
     }
+    this.FillMainSlots();
     this.ThinkCustom(brain);
   }
 
@@ -875,6 +876,24 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
     return false;
+  }
+
+  /** 主物品栏有空位时把备用栏的物品挪上来，否则卖装后空出的格子一直闲着。原生思考开着时由原生自己挪。 */
+  private FillMainSlots(): void {
+    let backpack = InventorySlot.SLOT_7;
+    for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
+      if (this.hero.GetItemInSlot(slot)) {
+        continue;
+      }
+      while (backpack <= InventorySlot.SLOT_9 && !this.hero.GetItemInSlot(backpack)) {
+        backpack++;
+      }
+      if (backpack > InventorySlot.SLOT_9) {
+        return;
+      }
+      this.hero.SwapItems(backpack, slot);
+      backpack++;
+    }
   }
 
   PurchaseItem(): boolean {
