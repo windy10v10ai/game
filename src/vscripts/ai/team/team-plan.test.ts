@@ -226,7 +226,7 @@ describe('planTasks', () => {
   });
 
   it('pulls nearby bots back to the rally point when clearly outmatched', () => {
-    const input = baseInput({ fights: [spot(1000)] });
+    const input = baseInput({ fights: [spot(1500)] });
     input.bots[4].pos = { x: 5000, y: 0 };
     const tasks = planTasks(input).tasks;
     expect(tasks.get(1)).toEqual({ kind: 'regroup', pos: { x: -2000, y: 0 } });

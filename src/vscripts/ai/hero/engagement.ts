@@ -15,7 +15,7 @@ export interface EngagementInput {
 }
 
 // 已经交战时，敌方略强也继续打，打团本来就有来回
-const KEEP_FIGHTING_RATIO = 1.3;
+const KEEP_FIGHTING_RATIO = 2;
 
 export function decideStance(input: EngagementInput): Stance {
   if (input.enemyPower <= 0) {
