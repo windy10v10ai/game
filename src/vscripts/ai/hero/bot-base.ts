@@ -272,7 +272,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   /**
    * 打不打、往哪撤由团队大脑按交战点统一判断，队友之间口径一致；
-   * 英雄层只处理自己被打之后的反应：先交技能再撤，跑不掉就打到底。
+   * 英雄层只处理自己被打之后的反应：打不过就边撤边放技能物品，跑不掉才打到底。
    */
   private DecideStance(brain: TeamBrain, task: Task | undefined): Stance {
     const enemies = this.aroundEnemyHeroes.filter(
