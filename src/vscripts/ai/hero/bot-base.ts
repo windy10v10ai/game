@@ -69,6 +69,7 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly DiveMinHealthPercent: number = 50;
   protected readonly DiveMinCreeps: number = 2;
   protected readonly DiveCheckRadius: number = 900;
+  protected readonly DiveGatherRange: number = 400;
 
   // 任务目的地很远、而己方建筑离目的地近得多时，用 TP 过去
   protected readonly TaskTeleportDistance: number = 6000;
@@ -479,7 +480,11 @@ export class BotBaseAIModifier extends BaseModifier {
     if (task.kind === 'push' && this.AttackPushTarget(task)) {
       return true;
     }
-    return this.MoveTo(this.ToWorld(task.pos), UnitOrder.ATTACK_MOVE);
+    if (this.MoveTo(this.ToWorld(task.pos), UnitOrder.ATTACK_MOVE)) {
+      return true;
+    }
+    this.traceTarget = 'arrived';
+    return false;
   }
 
   private ActionRecover(): boolean {
@@ -592,11 +597,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (building.HasModifier('modifier_backdoor_protection_active')) {
       return false;
     }
-    const enemy = this.FindNearestEnemyHero();
-    if (enemy && this.hero.GetRangeToUnit(enemy) <= this.CastRange) {
-      return false;
-    }
-    if (building.GetUnitName().includes('tower') && !this.CanDive(building)) {
+    if (IsTowerLike(building) && !this.CanDive(building)) {
       return false;
     }
     this.traceTarget = building.GetUnitName();
@@ -648,33 +649,49 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   /** 不进敌方塔的攻击范围，除非塔在打小兵、塔下人多血厚，或者已经在打到底。 */
   protected CanDive(tower: CDOTA_BaseNPC): boolean {
-    // 基地塔与基地伤害高，打到底也不进，要小兵扛着且人多血厚才进
-    const isBase = IsBaseTower(tower);
-    if (this.stance === 'lastStand' && !isBase) {
+    // 基地塔与基地伤害高，打到底也不进
+    if (this.stance === 'lastStand' && !IsBaseTower(tower)) {
       return true;
     }
     const towerTarget = tower.GetAttackTarget();
     const towerOnHero = towerTarget !== undefined && towerTarget.IsHero();
-    const creepsTanking =
-      !towerOnHero && this.CountFriendlyNear(tower, UnitTargetType.CREEP) >= this.DiveMinCreeps;
-    const heroesTanking =
+    if (!towerOnHero && this.CountCreepsNear(tower) >= this.DiveMinCreeps) {
+      return true;
+    }
+    return (
       this.hero.GetHealthPercent() >= this.DiveMinHealthPercent &&
-      this.CountFriendlyNear(tower, UnitTargetType.HERO) >= this.DiveMinHeroes;
-    return isBase ? creepsTanking && heroesTanking : creepsTanking || heroesTanking;
+      this.CountHeroesAtTower(tower) >= this.DiveMinHeroes
+    );
   }
 
-  private CountFriendlyNear(unit: CDOTA_BaseNPC, type: UnitTargetType): number {
+  private CountCreepsNear(tower: CDOTA_BaseNPC): number {
     return FindUnitsInRadius(
       this.hero.GetTeamNumber(),
-      unit.GetAbsOrigin(),
+      tower.GetAbsOrigin(),
       undefined,
       this.DiveCheckRadius,
       UnitTargetTeam.FRIENDLY,
-      type,
+      UnitTargetType.CREEP,
       UnitTargetFlags.NOT_ILLUSIONS,
       FindOrder.ANY,
       false,
     ).length;
+  }
+
+  /** 已进塔或在射程边缘的健康队友都算，否则先到的人数不够又退出来，大家一直凑不齐。 */
+  private CountHeroesAtTower(tower: CDOTA_BaseNPC): number {
+    let count = 0;
+    for (const ally of this.aroundFriendlyHeroes) {
+      if (
+        ally.IsAlive() &&
+        ally.IsRealHero() &&
+        ally.GetHealthPercent() >= this.DiveMinHealthPercent &&
+        HeroUtil.GetDistanceToAttackRange(tower, ally) <= this.DiveGatherRange
+      ) {
+        count++;
+      }
+    }
+    return count;
   }
 
   protected AvoidTowerDive(): boolean {
@@ -692,6 +709,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (!fountain) {
       return false;
     }
+    this.traceTarget = `avoid:${tower.GetUnitName()}`;
     if (GameRules.AI.BotTeam?.IsNativeActive() === false) {
       this.MoveTo(fountain, UnitOrder.MOVE_TO_POSITION);
       return true;
