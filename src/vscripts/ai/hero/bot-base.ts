@@ -363,7 +363,19 @@ export class BotBaseAIModifier extends BaseModifier {
 
   /** 开发模式：判断结果、任务或目标变化时打一行日志，便于对照实机表现排查。 */
   private TraceDecision(task: Task | undefined): void {
-    const taskText = task ? `${task.kind}${task.lane ? ':' + task.lane : ''}` : 'none';
+    let taskText = task ? `${task.kind}${task.lane ? ':' + task.lane : ''}` : 'none';
+    // 推进目标建筑与到目标的距离，用来区分「没选中基地」和「选中了但停在外面等」
+    let goalText = '';
+    if (task && task.targetId !== undefined && task.kind !== 'fight') {
+      const goal = EntIndexToHScript(task.targetId as EntityIndex) as CDOTA_BaseNPC | undefined;
+      if (goal && goal.IsBaseNPC()) {
+        taskText += `>${goal.GetUnitName().replace('npc_dota_', '')}`;
+        const stageGap = this.hero.GetAbsOrigin().__sub(this.ToWorld(task.pos)).Length2D();
+        goalText =
+          ` goal_dist=${Math.floor(this.hero.GetRangeToUnit(goal))}` +
+          ` stage_dist=${Math.floor(stageGap)}`;
+      }
+    }
     const key = `${this.stance}|${this.mode}|${taskText}|${this.traceTarget}`;
     if (key === this.lastTraceKey) {
       return;
@@ -375,7 +387,7 @@ export class BotBaseAIModifier extends BaseModifier {
     print(
       `[bot-ai] t=${clock} ${HeroShortName(this.hero)} hp=${Math.floor(this.hero.GetHealthPercent())}%` +
         ` stance=${this.stance} mode=${this.mode} task=${taskText}` +
-        ` target=${this.traceTarget === '' ? '-' : this.traceTarget} ${this.traceInfo}`,
+        ` target=${this.traceTarget === '' ? '-' : this.traceTarget}${goalText} ${this.traceInfo}`,
     );
   }
 
