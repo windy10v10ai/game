@@ -1,6 +1,5 @@
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 import { AbilityDispatcher } from '../ability/ability-dispatcher';
-import { GetFullCastRange } from '../ability/ability-cast';
 import { AbilityRegistry } from '../ability/ability-registry';
 import { ActionAttack } from '../action/action-attack';
 import { ActionFind, FRIENDLY_CREEP_SEARCH_RADIUS } from '../action/action-find';
@@ -106,6 +105,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly BlinkEngageMinHealthPercent: number = 20;
   protected readonly RangedBlinkStandOff: number = 600;
   protected readonly BlinkEngageMinGap: number = 500;
+  // 算出来的闪烁距离比这还短时多半没读到真实距离，不闪
+  protected readonly BlinkMinRange: number = 600;
   // 推进路过时这个距离内的野怪可以顺手清
   protected readonly NeutralClearRange: number = 800;
 
@@ -741,11 +742,11 @@ export class BotBaseAIModifier extends BaseModifier {
     if (!blink) {
       return false;
     }
-    const range = GetFullCastRange(this.hero, blink);
+    const range = this.BlinkRange(blink);
     const here = this.hero.GetAbsOrigin();
     const offset = position.__sub(here);
     const distance = offset.Length2D();
-    if (range <= 0 || distance < range) {
+    if (range < this.BlinkMinRange || distance < range) {
       return false;
     }
     return this.CastBlink(blink, here.__add(offset.__mul(range / distance)), 'move');
@@ -763,7 +764,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (!blink) {
       return false;
     }
-    const range = GetFullCastRange(this.hero, blink);
+    const range = this.BlinkRange(blink);
     const here = this.hero.GetAbsOrigin();
     const offset = target.GetAbsOrigin().__sub(here);
     const distance = offset.Length2D();
@@ -775,6 +776,15 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     return this.CastBlink(blink, here.__add(offset.__mul(gap / distance)), 'engage');
+  }
+
+  /** 闪烁距离：各件跳刀的施法距离读数不一定可靠，与闪烁距离数值取大。 */
+  private BlinkRange(blink: CDOTA_Item): number {
+    const base = Math.max(
+      blink.GetCastRange(this.hero.GetAbsOrigin(), undefined),
+      blink.GetSpecialValueFor('blink_range'),
+    );
+    return base + this.hero.GetCastRangeBonus();
   }
 
   private CastBlink(blink: CDOTA_Item, landing: Vector, reason: string): boolean {
