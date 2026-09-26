@@ -143,6 +143,11 @@ export interface UnitCondition {
   noModifier?: string[];
   notActionable?: boolean;
   /**
+   * 只选行动受限的单位，给需要目标站着不动才打得满的技能接控制用。
+   * hard：眩晕、变羊等无法行动；movement：无法行动、缠绕或被减速到跑不出范围。
+   */
+  disabled?: 'hard' | 'movement';
+  /**
    * 排除远古野（大龙/小龙等）。
    */
   excludeAncient?: boolean;
@@ -334,11 +339,26 @@ export function CheckUnitConditionFailure(
   if (unitCondition.notActionable && HeroUtil.NotActionable(unit)) {
     return true;
   }
+  if (unitCondition.disabled === 'hard' && !HeroUtil.NotActionable(unit)) {
+    return true;
+  }
+  if (unitCondition.disabled === 'movement' && !IsMovementImpaired(unit)) {
+    return true;
+  }
   if (unitCondition.excludeAncient && unit.IsAncient()) {
     return true;
   }
 
   return false;
+}
+
+// 后期玩家正常移速远高于此，降到这以下基本跑不出范围技能
+const IMPAIRED_MOVE_SPEED = 300;
+
+function IsMovementImpaired(unit: CDOTA_BaseNPC): boolean {
+  return (
+    HeroUtil.NotActionable(unit) || unit.IsRooted() || unit.GetIdealSpeed() < IMPAIRED_MOVE_SPEED
+  );
 }
 
 /**

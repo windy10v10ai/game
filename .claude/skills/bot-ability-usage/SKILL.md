@@ -69,7 +69,9 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 8. **附近需要足够友方小兵**：`self.friendlyCreepNearby: { count: { gte: 3 } }`，常用于推塔场景（对 `EnemyBuilding` 施法时确认有推线波）。`range` 不填默认 900。此字段也直接挂在 `self` 下，dispatcher inline `FindUnitsInRadius` 检查。
 9. **排除施法者自己**：`target.excludeSelf: true`。友方候选天然包含施法者且距离 0 排在首位，以自身生命为代价的技能（如亚巴顿迷雾缠绕）必须排掉；纯增益给自己用通常合理，不要随手加。
 10. **目标相对朝向**：`target.facing: 'front' | 'back'`，只保留位于施法者正面 / 背面半区的目标（水平面点积取符号，正侧方两者都不满足）。用于带位移的技能区分追击（朝目标跳）与撤退（背对目标跳），如宙斯神圣一跳。
-11. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+11. **附近有 / 没有队友**：`self.allyHeroInRange: 1200` / `self.noAllyHeroInRange: 900`，只算真英雄、不含自己。控制与持续施法大招要队友跟进输出或护住引导时用前者（如魔爪、极寒领域）；受到伤害就解除的控制用后者（如噩梦）。与 `noEnemyHeroInRange` 同样直接挂在 `self` 下。
+12. **只选行动受限的目标**：`target.unitCondition.disabled: 'hard' | 'movement'`，是 `notActionable`（被控就跳过）的反面。`hard` 只认眩晕、变羊等硬控；`movement` 还认缠绕和被减速到跑不出范围。用于接控制才打得满的技能（如神秘之耀、魂之挽歌）。
+13. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
 
 ### 是否补一条对小兵的清兵规则
 
