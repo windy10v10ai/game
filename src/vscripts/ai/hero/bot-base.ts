@@ -265,14 +265,12 @@ export class BotBaseAIModifier extends BaseModifier {
         this.mode = 'fight';
         return this.ActionAttack(task) || this.ActionTask(task);
       case 'retreat':
+      case 'avoid':
         this.mode = 'retreat';
-        // 边撤边放技能物品，让追击有代价；不停下来普攻
+        // 边撤边放技能物品，让追击或靠近有代价；不停下来普攻
         if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
           return true;
         }
-        return this.ActionRetreat();
-      case 'avoid':
-        this.mode = 'retreat';
         return this.ActionRetreat();
       default:
         this.mode = task?.kind ?? 'hold';
