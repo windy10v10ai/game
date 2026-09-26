@@ -114,6 +114,8 @@ export class BotBaseAIModifier extends BaseModifier {
   // 交战中团队大脑给的集合点，撤退时退向这里
   private retreatPoint: Point | undefined;
   private brain: TeamBrain | undefined;
+  // 引导中最后一次看到范围内敌方英雄的时间，用来判断敌人离开了多久
+  private channelEnemySeenTime = 0;
 
   protected getNeutralItemConfig(): Record<number, NeutralTierConfig> {
     return NeutralItemManager.GetDefaultConfig();
@@ -932,13 +934,21 @@ export class BotBaseAIModifier extends BaseModifier {
       ) {
         return true;
       }
-      if (
-        stop.noEnemyHeroInRange !== undefined &&
-        !this.aroundEnemyHeroes.some(
-          (enemy) => enemy.IsAlive() && this.hero.GetRangeToUnit(enemy) <= stop.noEnemyHeroInRange!,
-        )
-      ) {
-        return true;
+      if (stop.noEnemyHeroInRange !== undefined) {
+        const now = GameRules.GetGameTime();
+        const range = stop.noEnemyHeroInRange;
+        if (
+          this.aroundEnemyHeroes.some(
+            (enemy) => enemy.IsAlive() && this.hero.GetRangeToUnit(enemy) <= range,
+          )
+        ) {
+          this.channelEnemySeenTime = now;
+        } else if (
+          now - Math.max(this.channelEnemySeenTime, ability.GetChannelStartTime()) >=
+          (stop.graceSeconds ?? 0)
+        ) {
+          return true;
+        }
       }
     }
     return false;
