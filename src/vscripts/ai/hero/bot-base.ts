@@ -30,8 +30,8 @@ export type BotMode = 'laning' | 'fight' | 'retreat' | TaskKind;
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
-  protected readonly ThinkInterval: number = 0.5;
-  protected readonly ThinkIntervalTool: number = 0.5;
+  protected readonly ThinkInterval: number = 0.4;
+  protected readonly ThinkIntervalTool: number = 0.4;
 
   // 原生期间躲塔要和原生抢控制，在这段时间内持续下移动指令
   protected readonly towerEscapeTime: number = 3;
@@ -312,6 +312,10 @@ export class BotBaseAIModifier extends BaseModifier {
     this.traceInfo = '';
     this.retreatPoint = undefined;
     if (enemies.length === 0) {
+      // 追兵刚跑出视野多半还在附近，撤退要撤完，不因一时看不见就掉头
+      if (this.stance === 'retreat' && this.gameTime < this.engagedUntil) {
+        return 'retreat';
+      }
       return 'task';
     }
 
