@@ -5,6 +5,7 @@ import {
   GetFullCastRange,
 } from '../ability/ability-cast';
 import { TargetSide } from '../ability/ability-spec';
+import { canKeepFighting } from '../hero/engagement';
 import { FRIENDLY_CREEP_SEARCH_RADIUS } from './action-find';
 import {
   CastCoindition,
@@ -69,6 +70,13 @@ export function TryCastBySpec(
   if (condition?.self?.ultimateNotReady && IsUltimateReady(hero)) {
     return false;
   }
+  if (condition?.self?.canWinFight && !CanWinFight(ai)) {
+    return false;
+  }
+
+  if (targetSide === TargetSide.Tree) {
+    return CastOnNearestTree(hero, castable);
+  }
 
   const target = pickTarget(ai, castable, targetSide, condition);
   if (condition?.action?.toggleByTarget) {
@@ -109,6 +117,47 @@ function HasEnemyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
     }
   }
   return false;
+}
+
+function CanWinFight(ai: BotBaseAIModifier): boolean {
+  const hero = ai.GetHero();
+  const brain = GameRules.AI.BotTeam?.GetBrain(hero);
+  if (!brain || ai.aroundEnemyHeroes.length === 0) {
+    return false;
+  }
+  const fight = brain.AssessFight(hero, ai.aroundEnemyHeroes);
+  return canKeepFighting(fight.ourPower, fight.enemyPower);
+}
+
+// 施法距离很短，允许走几步去抓稍远的树
+const TREE_SEARCH_EXTRA = 300;
+
+function CastOnNearestTree(hero: CDOTA_BaseNPC_Hero, castable: CDOTABaseAbility): boolean {
+  const origin = hero.GetAbsOrigin();
+  const trees = GridNav.GetAllTreesAroundPoint(
+    origin,
+    GetFullCastRange(hero, castable) + TREE_SEARCH_EXTRA,
+    false,
+  );
+  let nearest: CDOTA_MapTree | undefined;
+  let nearestDistance = Infinity;
+  for (const tree of trees) {
+    const distance = tree.GetAbsOrigin().__sub(origin).Length2D();
+    if (distance < nearestDistance) {
+      nearest = tree;
+      nearestDistance = distance;
+    }
+  }
+  if (!nearest) {
+    return false;
+  }
+  ExecuteOrderFromTable({
+    UnitIndex: hero.entindex(),
+    OrderType: UnitOrder.CAST_TARGET_TREE,
+    TargetIndex: GetTreeIdForEntityIndex(nearest.entindex()) as EntityIndex,
+    AbilityIndex: castable.entindex(),
+  });
+  return true;
 }
 
 function IsUltimateReady(hero: CDOTA_BaseNPC_Hero): boolean {

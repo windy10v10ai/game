@@ -8,6 +8,7 @@ import { CastCoindition } from '../action/cast-condition';
  *  - FriendlyCreep:            复用 bot-base 预搜的 aroundFriendlyCreeps（900 范围）
  *  - FriendlyBuilding:         复用 bot-base 预搜的 aroundFriendlyBuildings（防御塔/兵营等）
  *  - Self:                     直接以施法者为目标
+ *  - Tree:                     施法者附近最近的一棵树
  *
  * 使用 const object + 字面量联合，TSTL 编译为零开销字符串常量。
  */
@@ -19,6 +20,7 @@ export const TargetSide = {
   FriendlyCreep: 'friendlyCreep',
   FriendlyBuilding: 'friendlyBuilding',
   Self: 'self',
+  Tree: 'tree',
 } as const;
 export type TargetSide = (typeof TargetSide)[keyof typeof TargetSide];
 

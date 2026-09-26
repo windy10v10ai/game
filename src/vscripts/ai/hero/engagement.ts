@@ -17,6 +17,11 @@ export interface EngagementInput {
 // 已经交战时，敌方略强也继续打，打团本来就有来回
 const KEEP_FIGHTING_RATIO = 2;
 
+/** 这波交战我方是否打得过：已经打起来时继续打、主动跳进敌人堆，都用这一个口径。 */
+export function canKeepFighting(ourPower: number, enemyPower: number): boolean {
+  return enemyPower <= ourPower * KEEP_FIGHTING_RATIO;
+}
+
 export function decideStance(input: EngagementInput): Stance {
   if (input.enemyPower <= 0) {
     return 'task';
@@ -24,7 +29,7 @@ export function decideStance(input: EngagementInput): Stance {
   if (!input.engaged) {
     return input.enemyPower > input.ourPower * AVOID_POWER_RATIO ? 'avoid' : 'fight';
   }
-  if (input.enemyPower <= input.ourPower * KEEP_FIGHTING_RATIO) {
+  if (canKeepFighting(input.ourPower, input.enemyPower)) {
     return 'fight';
   }
   return input.canEscape ? 'retreat' : 'lastStand';

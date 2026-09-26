@@ -25,6 +25,8 @@ import { SPECS as tinkerLaser } from './tinker_laser';
 import { SPECS as tinkerMarchOfTheMachines } from './tinker_march_of_the_machines';
 import { SPECS as tinkerRearmLua } from './tinker_rearm_lua';
 import { SPECS as tinkerWarpGrenade } from './tinker_warp_grenade';
+import { SPECS as tinyToss } from './tiny_toss';
+import { SPECS as tinyTreeGrab } from './tiny_tree_grab';
 import { SPECS as tuskWalrusPunch } from './tusk_walrus_punch';
 import { SPECS as vengefulspiritNetherSwap } from './vengefulspirit_nether_swap';
 import { SPECS as viperNethertoxin } from './viper_nethertoxin';
@@ -74,6 +76,8 @@ export function registerAbilitySpecsSToZ(): void {
   AbilityRegistry.registerAll(tinkerMarchOfTheMachines);
   AbilityRegistry.registerAll(tinkerRearmLua);
   AbilityRegistry.registerAll(tinkerWarpGrenade);
+  AbilityRegistry.registerAll(tinyToss);
+  AbilityRegistry.registerAll(tinyTreeGrab);
   AbilityRegistry.registerAll(tuskWalrusPunch);
   AbilityRegistry.registerAll(vengefulspiritNetherSwap);
   AbilityRegistry.registerAll(viperNethertoxin);

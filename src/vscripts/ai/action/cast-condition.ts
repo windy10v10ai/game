@@ -118,6 +118,10 @@ export interface CastCoindition {
      * 大招已学会且能放时跳过，用于放完会被引导锁住的技能：先把大招交出去再放它。
      */
     ultimateNotReady?: boolean;
+    /**
+     * 要求团队大脑判断这波交战打得过才施法，用于跳进敌人身边、放了就难退的技能。
+     */
+    canWinFight?: boolean;
   };
   ability?: AbilityCoindition;
   action?: {
