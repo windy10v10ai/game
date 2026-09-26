@@ -1,7 +1,7 @@
 import { TargetSide } from '../../ability/ability-spec';
 import { ItemPriority, ItemSpec } from '../item-spec';
 
-/** 天堂之戟 / 无锋战戟（升级链）：缴械，身边敌人多时才值得交。 */
+/** 天堂之戟 / 无锋战戟（升级链）：缴械。无锋战戟是群体缴械，身边敌人多时才值得交。 */
 export const SPECS: ItemSpec[] = [
   {
     itemName: 'item_heavens_halberd_v2',
@@ -11,12 +11,10 @@ export const SPECS: ItemSpec[] = [
       target: { range: { lte: 1200 }, count: { gte: 2 }, ignoresMagicImmune: true },
     },
   },
+  // 天堂之戟是单体缴械，范围内有敌人就交
   {
     itemName: 'item_heavens_halberd',
     priority: ItemPriority.Control,
     targetSide: TargetSide.EnemyHero,
-    condition: {
-      target: { range: { lte: 1200 }, count: { gte: 2 }, ignoresMagicImmune: true },
-    },
   },
 ];
