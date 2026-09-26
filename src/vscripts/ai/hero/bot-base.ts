@@ -632,33 +632,25 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   /**
-   * 身边有敌方小兵就先打掉。攻击移动到了目的地就停手，而目的地常在兵线附近，
-   * 只靠它会站在敌方兵线旁不出手。塔下打不得的小兵、在前线后面的小兵不打；
-   * 野怪只在去打野时打，路过野区不停下。
+   * 攻击移动到了目的地就停手，目的地常在兵线旁，站着不出手时去打最近的敌方小兵。
+   * 塔下打不得的不去；野怪只在打野任务时打，路过野区不停下。
    */
   private AttackNearbyCreep(includeNeutrals: boolean): boolean {
-    const current = this.hero.GetAttackTarget();
-    if (this.hero.IsAttacking() && current && this.aroundEnemyCreeps.includes(current)) {
-      this.traceTarget = `creep:${current.GetUnitName()}`;
-      return true;
-    }
+    const creep = this.aroundEnemyCreeps[0];
     const reach = this.hero.Script_GetAttackRange() + this.CreepClearExtraRange;
-    for (const creep of this.aroundEnemyCreeps) {
-      if (this.hero.GetRangeToUnit(creep) > reach) {
-        break;
-      }
-      if (
-        !creep.IsAlive() ||
-        (!includeNeutrals && creep.GetTeamNumber() === DotaTeam.NEUTRALS) ||
-        this.IsProtectedByTower(creep) ||
-        this.brain?.IsPastFront(creep.GetAbsOrigin())
-      ) {
-        continue;
-      }
-      this.traceTarget = `creep:${creep.GetUnitName()}`;
-      return ActionAttack.MoveToAttack(this.hero, creep, reach);
+    if (
+      this.hero.IsAttacking() ||
+      !creep ||
+      (!includeNeutrals && creep.GetTeamNumber() === DotaTeam.NEUTRALS) ||
+      this.IsProtectedByTower(creep)
+    ) {
+      return false;
     }
-    return false;
+    if (!ActionAttack.MoveToAttack(this.hero, creep, reach)) {
+      return false;
+    }
+    this.traceTarget = 'creep';
+    return true;
   }
 
   /** 朝目的地移动，目的地没变且单位还在走或在打时不重复下指令。 */
