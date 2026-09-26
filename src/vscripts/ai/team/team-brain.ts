@@ -508,7 +508,7 @@ export class TeamBrain {
 
   /**
    * 推不动塔时的发育点：离自己近的野怪营地（两边野区都算），以及没有敌方英雄的路上看得到的敌方兵线。
-   * 野怪营地位置固定、玩家都知道，按位置直接读，不要求视野；远古野打不过，不算。
+   * 野怪营地位置固定、玩家都知道，按位置直接读，不要求视野。
    */
   private FindFarmSpots(lanePower: Map<Lane, number>, observer: CDOTA_BaseNPC): FarmSpot[] {
     const spots: FarmSpot[] = [];
@@ -519,7 +519,7 @@ export class TeamBrain {
       FIND_UNITS_EVERYWHERE,
       UnitTargetTeam.ENEMY,
       UnitTargetType.CREEP,
-      UnitTargetFlags.NOT_ANCIENTS,
+      UnitTargetFlags.NONE,
       FindOrder.ANY,
       false,
     );
@@ -535,10 +535,11 @@ export class TeamBrain {
         }
       }
       const spot = spots.find((other) => distance(other.pos, pos) <= FARM_CAMP_RADIUS);
+      const ancient = unit.IsAncient();
       if (spot) {
-        spot.power += UnitPower(unit);
+        spot.ancient = spot.ancient || ancient;
       } else {
-        spots.push({ pos, power: UnitPower(unit) });
+        spots.push({ pos, ancient });
       }
     }
     return spots;

@@ -1,6 +1,6 @@
 /** 团队任务分派：按回复 → 防守 → 交战 → 推进 → 发育的顺序把每个 bot 分到一个带目的地的任务。 */
 import { distance, Lane, Point } from './lane-geometry';
-import { AVOID_POWER_RATIO } from './power';
+import { ANCIENT_FARM_POWER, AVOID_POWER_RATIO } from './power';
 
 export type TaskKind = 'recover' | 'defend' | 'fight' | 'regroup' | 'push' | 'farm' | 'hold';
 
@@ -50,8 +50,7 @@ export interface FightSpot {
 /** 一处发育点：一个野怪营地或一段没人守的兵线。 */
 export interface FarmSpot {
   pos: Point;
-  /** 这一处野怪或小兵的战力合计 */
-  power: number;
+  ancient: boolean;
 }
 
 export interface PushLane {
@@ -372,12 +371,12 @@ function dropWeakGroups(bots: PlanBot[], lanes: PushLane[], tasks: Map<number, T
   return dropped;
 }
 
-/** 推不动塔的 bot 去最近的、自己打得过的发育点。 */
+/** 推不动塔的 bot 去最近的发育点，远古野只有够强的 bot 才去。 */
 function assignFarm(input: PlanInput, bots: PlanBot[], tasks: Map<number, Task>): void {
   for (const bot of bots) {
     let best: Point | undefined;
     for (const spot of input.farms) {
-      if (spot.power > bot.power) {
+      if (spot.ancient && bot.power < ANCIENT_FARM_POWER) {
         continue;
       }
       if (!best || distance(bot.pos, spot.pos) < distance(bot.pos, best)) {

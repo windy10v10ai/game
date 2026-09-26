@@ -34,7 +34,7 @@ const baseInput = (overrides: Partial<PlanInput>): PlanInput => ({
   fountain: { x: -1000, y: -1000 },
   defend: [],
   fights: [],
-  farms: [{ pos: { x: -4000, y: -4000 }, power: 50 }],
+  farms: [{ pos: { x: -4000, y: -4000 }, ancient: false }],
   lanes: [lane('top', -3000), lane('mid', 0), lane('bot', 3000)],
   ourPower: 500,
   enemyPower: 500,
@@ -201,15 +201,18 @@ describe('planTasks', () => {
     expect(blocked.get(1)).toEqual({ kind: 'farm', pos: { x: -4000, y: -4000 } });
   });
 
-  it('farms only spots the bot can beat', () => {
+  it('farms ancients only when strong enough', () => {
     const input = baseInput({
-      lanes: [{ ...lane('top', -3000), towerPower: 1200 }],
+      lanes: [{ ...lane('top', -3000), towerPower: 20000 }],
       farms: [
-        { pos: { x: 100, y: 0 }, power: 500 },
-        { pos: { x: 2000, y: 0 }, power: 80 },
+        { pos: { x: 100, y: 0 }, ancient: true },
+        { pos: { x: 2000, y: 0 }, ancient: false },
       ],
     });
-    expect(planTasks(input).tasks.get(1)).toEqual({ kind: 'farm', pos: { x: 2000, y: 0 } });
+    input.bots[1].power = 5000;
+    const tasks = planTasks(input).tasks;
+    expect(tasks.get(1)).toEqual({ kind: 'farm', pos: { x: 2000, y: 0 } });
+    expect(tasks.get(2)).toEqual({ kind: 'farm', pos: { x: 100, y: 0 } });
   });
 
   it('farms a split group too weak for its tower', () => {

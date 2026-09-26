@@ -16,6 +16,7 @@ import { BLINK_ITEM_NAMES } from '../item/specs/item_jump_jump_jump';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { Point } from '../team/lane-geometry';
+import { QUICK_CLEAR_POWER } from '../team/power';
 import { HeroShortName, TeamBrain, UnitPower } from '../team/team-brain';
 import { Task, TaskKind } from '../team/team-plan';
 import { WardPlacement } from '../ward/ward-placement';
@@ -90,6 +91,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly CreepClearExtraRange: number = 400;
   // 远程野怪的攻击距离
   protected readonly NeutralThreatRadius: number = 800;
+  // 推进路过时这个距离内的野怪可以顺手清
+  protected readonly NeutralClearRange: number = 800;
 
   // 同一目的地不重复下指令；单位停下或太久没更新时才重下
   protected readonly ArriveRadius: number = 300;
@@ -415,6 +418,7 @@ export class BotBaseAIModifier extends BaseModifier {
     const clock = `${Math.floor(time / 60)}:${seconds < 10 ? '0' : ''}${seconds}`;
     print(
       `[bot-ai] t=${clock} ${HeroShortName(this.hero)} hp=${Math.floor(this.hero.GetHealthPercent())}%` +
+        ` pw=${Math.floor(UnitPower(this.hero))}` +
         ` stance=${this.stance} mode=${this.mode} task=${taskText}` +
         ` target=${this.traceTarget === '' ? '-' : this.traceTarget}${goalText} ${this.traceInfo}`,
     );
@@ -528,7 +532,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (task.kind === 'push' && this.AttackPushTarget(task)) {
       return true;
     }
-    if (this.AttackNearbyCreep(task.kind === 'farm')) {
+    if (this.AttackNearbyCreep(task.kind)) {
       return true;
     }
     if (this.MoveTo(this.ToWorld(task.pos), UnitOrder.ATTACK_MOVE)) {
@@ -696,16 +700,18 @@ export class BotBaseAIModifier extends BaseModifier {
     return power > UnitPower(this.hero);
   }
 
-  private AttackNearbyCreep(includeNeutrals: boolean): boolean {
+  /** 顺手打身边最近的敌方小兵；野怪只在发育时打，或推进路过、自己够强时顺手打。远古野靠发育任务的攻击移动去打。 */
+  private AttackNearbyCreep(kind: TaskKind): boolean {
     const creep = this.aroundEnemyCreeps[0];
-    const reach = this.hero.Script_GetAttackRange() + this.CreepClearExtraRange;
-    if (
-      this.hero.IsAttacking() ||
-      !creep ||
-      (!includeNeutrals && creep.GetTeamNumber() === DotaTeam.NEUTRALS) ||
-      this.IsProtectedByTower(creep)
-    ) {
+    if (this.hero.IsAttacking() || !creep || this.IsProtectedByTower(creep)) {
       return false;
+    }
+    let reach = this.hero.Script_GetAttackRange() + this.CreepClearExtraRange;
+    if (creep.GetTeamNumber() === DotaTeam.NEUTRALS) {
+      if (kind !== 'farm' && (kind !== 'push' || UnitPower(this.hero) < QUICK_CLEAR_POWER)) {
+        return false;
+      }
+      reach = Math.max(reach, this.NeutralClearRange);
     }
     if (!ActionAttack.MoveToAttack(this.hero, creep, reach)) {
       return false;
