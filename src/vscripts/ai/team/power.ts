@@ -6,20 +6,24 @@
 export interface CombatStats {
   health: number;
   armor: number;
+  /** 魔抗，0.25 表示 25% */
+  magicResist: number;
   attackDamage: number;
   attacksPerSecond: number;
   level: number;
   /** 技能增强，0.1 表示 +10% */
   spellAmp: number;
+  /** 主动技能与物品中当前能放的比例，0–1 */
+  spellReady: number;
 }
 
 /** 没打起来时，敌方战力超过我方这么多倍才算「上去就是白送」，团队层与英雄层共用。 */
-export const AVOID_POWER_RATIO = 2;
+export const AVOID_POWER_RATIO = 3;
 
 // 攻击输出算不到技能伤害，按等级补一项，否则法系英雄会被严重低估
 const SPELL_DPS_PER_LEVEL = 12;
-// 魔法伤害按基础魔抗估算，物理与魔法伤害各占一半
-const BASE_MAGIC_RESIST = 0.25;
+// 技能物品全在冷却时仍保留的技能输出比例，普攻之外还有被动与下一轮冷却
+const SPELL_READY_FLOOR = 0.3;
 
 // 威胁值按半衰期衰减，一波团战的影响大约持续两三分钟
 const THREAT_HALF_LIFE = 90;
@@ -35,11 +39,15 @@ export function combatPower(stats: CombatStats): number {
     return 0;
   }
   const armorFactor = (0.06 * stats.armor) / (1 + 0.06 * Math.abs(stats.armor));
-  const damageTaken = Math.max(0.1, 1 - 0.5 * armorFactor - 0.5 * BASE_MAGIC_RESIST);
+  // 承受的伤害按物理与魔法各占一半估算
+  const damageTaken = Math.max(0.1, 1 - 0.5 * armorFactor - 0.5 * stats.magicResist);
   const effectiveHealth = stats.health / damageTaken;
   const dps =
     stats.attackDamage * stats.attacksPerSecond +
-    stats.level * SPELL_DPS_PER_LEVEL * (1 + stats.spellAmp);
+    stats.level *
+      SPELL_DPS_PER_LEVEL *
+      (1 + stats.spellAmp) *
+      (SPELL_READY_FLOOR + (1 - SPELL_READY_FLOOR) * stats.spellReady);
   return Math.sqrt(effectiveHealth * Math.max(dps, 0));
 }
 

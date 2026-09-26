@@ -1,24 +1,21 @@
 /**
- * 英雄层交战判断：没打起来时只在明显打不过时避开；已经打起来就先把技能物品交出去再撤，跑不掉就打到底。
- * 目的是让 bot 有对抗性，不送的门槛放低。
+ * 英雄层交战判断：没打起来时只在明显打不过时避开；已经打起来打不过就边撤边放技能物品，跑不掉才打到底。
+ * 目的是让 bot 有对抗性，不送的门槛放低；撤向队友或塔总比原地硬打多一线生机，所以跑不掉的门槛定得很高。
  */
 
 import { AVOID_POWER_RATIO } from '../team/power';
 
-export type Stance = 'task' | 'fight' | 'avoid' | 'spend' | 'retreat' | 'lastStand';
+export type Stance = 'task' | 'fight' | 'avoid' | 'retreat' | 'lastStand';
 
 export interface EngagementInput {
   engaged: boolean;
   ourPower: number;
   enemyPower: number;
   canEscape: boolean;
-  /** 本次交战里打不过之后已经交出去的技能与物品次数 */
-  spentActions: number;
 }
 
 // 已经交战时，敌方略强也继续打，打团本来就有来回
-const KEEP_FIGHTING_RATIO = 1.3;
-const SPEND_BUDGET = 2;
+const KEEP_FIGHTING_RATIO = 2;
 
 export function decideStance(input: EngagementInput): Stance {
   if (input.enemyPower <= 0) {
@@ -30,10 +27,7 @@ export function decideStance(input: EngagementInput): Stance {
   if (input.enemyPower <= input.ourPower * KEEP_FIGHTING_RATIO) {
     return 'fight';
   }
-  if (!input.canEscape) {
-    return 'lastStand';
-  }
-  return input.spentActions < SPEND_BUDGET ? 'spend' : 'retreat';
+  return input.canEscape ? 'retreat' : 'lastStand';
 }
 
 export interface EscapeInput {
@@ -43,16 +37,17 @@ export interface EscapeInput {
   distanceToSafety: number;
 }
 
-// 敌方移速快出这么多时，离安全点稍远就追得上
-const SPEED_GAP = 30;
-const SAFE_DISTANCE_WHEN_SLOWER = 1500;
+// 敌方快这么多倍、且要跑这么多秒才到撤退点，才算肯定被追上
+const HOPELESS_SPEED_RATIO = 1.5;
+const HOPELESS_ESCAPE_SECONDS = 6;
 
 export function canEscape(input: EscapeInput): boolean {
   if (input.rooted) {
     return false;
   }
-  if (input.fastestEnemySpeed > input.ourSpeed + SPEED_GAP) {
-    return input.distanceToSafety <= SAFE_DISTANCE_WHEN_SLOWER;
-  }
-  return true;
+  const escapeSeconds = input.distanceToSafety / Math.max(input.ourSpeed, 1);
+  return !(
+    input.fastestEnemySpeed >= input.ourSpeed * HOPELESS_SPEED_RATIO &&
+    escapeSeconds > HOPELESS_ESCAPE_SECONDS
+  );
 }
