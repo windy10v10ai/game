@@ -56,6 +56,8 @@ const RALLY_FORWARD_SLACK = 1000;
 const WAVE_AT_TARGET_DISTANCE = 900;
 // 兵线没到时在塔攻击范围外等
 const WAIT_OUTSIDE_TOWER = 1100;
+// 兵线在 bot 赶路途中还会往前走，落脚点放在兵线前沿再往前一段
+const STAGING_AHEAD = 800;
 
 export interface EnemyMemory {
   pos: Vector;
@@ -487,7 +489,7 @@ export class TeamBrain {
         const waitForward =
           front === undefined
             ? targetForward - WAIT_OUTSIDE_TOWER
-            : Math.min(front, targetForward - WAIT_OUTSIDE_TOWER);
+            : Math.min(front + STAGING_AHEAD, targetForward - WAIT_OUTSIDE_TOWER);
         stagingPos = pointAtProgress(path, progressFromForward(path, waitForward, isRadiant));
       }
       lanes.push({

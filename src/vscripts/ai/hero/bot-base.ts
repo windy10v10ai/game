@@ -82,7 +82,8 @@ export class BotBaseAIModifier extends BaseModifier {
 
   // 任务目的地很远、而己方建筑离目的地近得多时，用 TP 过去
   protected readonly TaskTeleportDistance: number = 6000;
-  protected readonly TaskTeleportSaving: number = 3000;
+  // 传送要引导，落地后还得追着往前走的兵线，省下的时间不够多就直接走过去
+  protected readonly TaskTeleportSavingSeconds: number = 5;
   protected readonly TeleportLandingOffset: number = 400;
   protected readonly PushAttackRange: number = 1000;
   // 攻击距离外再多这么远的敌方小兵也顺手打掉，近战英雄也能照顾到身边一整波兵
@@ -605,9 +606,16 @@ export class BotBaseAIModifier extends BaseModifier {
     if (distance < this.TaskTeleportDistance || this.aroundEnemyHeroes.length > 0) {
       return false;
     }
+    const scroll = this.hero.FindItemInInventory('item_tpscroll');
+    if (!scroll || !scroll.IsFullyCastable()) {
+      return false;
+    }
+    const speed = Math.max(this.hero.GetIdealSpeed(), 1);
     const team = this.hero.GetTeamNumber();
     let landing: Vector | undefined;
-    let landingDistance = distance - this.TaskTeleportSaving;
+    // 落点离目的地要比现在近出「引导时间 + 省下的时间」能走的路程
+    let landingDistance =
+      distance - (scroll.GetChannelTime() + this.TaskTeleportSavingSeconds) * speed;
     for (const tower of Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[]) {
       if (tower.IsNull() || !tower.IsAlive() || tower.GetTeamNumber() !== team) {
         continue;
