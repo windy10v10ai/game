@@ -920,6 +920,11 @@ export class BotBaseAIModifier extends BaseModifier {
   IsInAbilityPhase(): boolean {
     if (this.hero.IsChanneling()) {
       if (this.ShouldStopChannel()) {
+        if (IS_TOOLS_MODE) {
+          print(
+            `[bot-cast] ${HeroShortName(this.hero)} stop_channel ${this.hero.GetCurrentActiveAbility()?.GetAbilityName()}`,
+          );
+        }
         this.hero.Stop();
       }
       return true;

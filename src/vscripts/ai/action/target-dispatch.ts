@@ -6,6 +6,7 @@ import {
 } from '../ability/ability-cast';
 import { TargetSide } from '../ability/ability-spec';
 import { canKeepFighting } from '../hero/engagement';
+import { HeroUtil } from '../hero/hero-util';
 import { FRIENDLY_CREEP_SEARCH_RADIUS } from './action-find';
 import {
   CastCoindition,
@@ -75,12 +76,16 @@ export function TryCastBySpec(
   }
 
   if (targetSide === TargetSide.Tree) {
-    return CastOnNearestTree(hero, castable);
+    const cast = CastOnNearestTree(hero, castable);
+    if (cast) TraceCast(hero, castable, targetSide, undefined, 'tree');
+    return cast;
   }
 
   const target = pickTarget(ai, castable, targetSide, condition);
   if (condition?.action?.toggleByTarget) {
-    return ApplyAbilityAction(castable, { toggleOn: !!target, toggleOff: !target });
+    const toggled = ApplyAbilityAction(castable, { toggleOn: !!target, toggleOff: !target });
+    if (toggled) TraceCast(hero, castable, targetSide, target, target ? 'toggle_on' : 'toggle_off');
+    return toggled;
   }
   if (!target) {
     return false;
@@ -92,11 +97,48 @@ export function TryCastBySpec(
 
   // 开关/法球类：找到目标（= 满足开启条件）后只切换状态，不走正常施法派发。
   if (condition?.action) {
-    return ApplyAbilityAction(castable, condition.action);
+    const applied = ApplyAbilityAction(castable, condition.action);
+    if (applied) TraceCast(hero, castable, targetSide, target, 'action');
+    return applied;
   }
 
   const castPosition = resolveCastPosition(hero, castable, target, condition);
-  return CastAbilityOnTargetByBehavior(hero, castable, target, castPosition);
+  const cast = CastAbilityOnTargetByBehavior(hero, castable, target, castPosition);
+  if (cast) TraceCast(hero, castable, targetSide, target, 'cast');
+  return cast;
+}
+
+const IS_TOOLS_MODE = IsInToolsMode();
+
+/** 开发模式下每次下达施法打一行，事后按日志核对施放时机是否符合 spec。 */
+function TraceCast(
+  hero: CDOTA_BaseNPC_Hero,
+  castable: CDOTABaseAbility,
+  side: TargetSide,
+  target: CDOTA_BaseNPC | undefined,
+  kind: string,
+): void {
+  if (!IS_TOOLS_MODE) {
+    return;
+  }
+  const time = GameRules.GetDOTATime(false, false);
+  const clock = `${Math.floor(time / 60)}:${string.format('%02d', Math.floor(time % 60))}`;
+  let targetText = '';
+  if (target) {
+    const state = HeroUtil.NotActionable(target)
+      ? 'hard'
+      : target.IsRooted()
+        ? 'root'
+        : `ms${Math.floor(target.GetIdealSpeed())}`;
+    targetText =
+      ` target=${target.GetUnitName().replace('npc_dota_', '')}` +
+      ` dist=${Math.floor(hero.GetRangeToUnit(target))}` +
+      ` hp=${Math.floor(target.GetHealthPercent())}% state=${state}`;
+  }
+  print(
+    `[bot-cast] t=${clock} ${hero.GetUnitName().replace('npc_dota_hero_', '')}` +
+      ` hp=${Math.floor(hero.GetHealthPercent())}% ${castable.GetAbilityName()} ${kind} side=${side}${targetText}`,
+  );
 }
 
 /**

@@ -30,6 +30,8 @@ function parseArgs() {
     // 天辉人数与金钱经验倍率，0 为沿用对局选项；--radiantPlayers 1 模拟 1v10
     radiantPlayers: 0,
     radiantMultiplier: 0,
+    // 逗号分隔的英雄名，排到 bot 英雄池最前面，用于让指定英雄出场验证
+    botHeroes: '',
     // 先跑 minGames 局；有条件各局结果不一致就逐局追加，最多 maxGames 局
     // 逗号分隔的条件名，只复测其中几项时用
     conditions: 'all',
@@ -43,7 +45,7 @@ function parseArgs() {
     if (!(key in options)) throw new Error(`unknown option --${key}`);
     const value = argv[i + 1];
     if (key === 'quitOnDone') options[key] = value !== 'false';
-    else if (key === 'mode' || key === 'conditions') options[key] = value;
+    else if (key === 'mode' || key === 'conditions' || key === 'botHeroes') options[key] = value;
     else options[key] = Number(value);
   }
   return options;

@@ -26,6 +26,8 @@ export interface PerfAutoConfig {
   // 天辉人数与金钱经验倍率，模拟少量玩家对满编 bot 的真实对局；0 为沿用对局选项
   radiantPlayers: number;
   radiantMultiplier: number;
+  // 逗号分隔的英雄名（不带 npc_dota_hero_ 前缀），排到 bot 英雄池最前面，用于让指定英雄出场验证
+  botHeroes: string;
 }
 
 interface PerfStep {
@@ -61,6 +63,13 @@ if (bootConfig && bootConfig.botOffset > 0) {
   const offset = bootConfig.botOffset % pool.length;
   HeroPick.BotNameList = [...pool.slice(offset), ...pool.slice(0, offset)];
   print(`[perf-auto] botOffset=${offset} first=${HeroPick.BotNameList[0]}`);
+}
+
+if (bootConfig && bootConfig.botHeroes !== '') {
+  const wanted = bootConfig.botHeroes.split(',').map((name) => `npc_dota_hero_${name}`);
+  const rest = HeroPick.BotNameList.filter((name) => !wanted.includes(name));
+  HeroPick.BotNameList = [...wanted, ...rest];
+  print(`[perf-auto] botHeroes=${bootConfig.botHeroes}`);
 }
 
 // 界面在选英雄阶段仍会重新下发对局选项，只有在补 bot 的前一刻覆盖才不会被冲掉
