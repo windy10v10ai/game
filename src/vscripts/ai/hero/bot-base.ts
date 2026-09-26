@@ -12,7 +12,6 @@ import { EMPTY_SLOT, planSlotSwaps } from '../item/arrange-items';
 import { ConsumeItem } from '../item/consume-item';
 import { ItemDispatcher } from '../item/item-dispatcher';
 import { ItemRegistry } from '../item/item-registry';
-import { BLINK_ITEM_NAMES } from '../item/specs/item_jump_jump_jump';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { Point } from '../team/lane-geometry';
@@ -28,6 +27,18 @@ const IS_TOOLS_MODE = IsInToolsMode();
 
 /** 英雄当前在做什么：对线期交给原生时是 laning，接管后是交战状态或团队任务。 */
 export type BotMode = 'laning' | 'fight' | 'retreat' | TaskKind;
+
+// 闪烁匕首升级链上的各件，切入、撤退与赶路都按这份名单找
+const BLINK_ITEM_NAMES = [
+  'item_blink',
+  'item_arcane_blink',
+  'item_arcane_blink_2',
+  'item_overwhelming_blink',
+  'item_overwhelming_blink_2',
+  'item_swift_blink',
+  'item_swift_blink_2',
+  'item_jump_jump_jump',
+];
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
@@ -91,6 +102,10 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly CreepClearExtraRange: number = 400;
   // 远程野怪的攻击距离
   protected readonly NeutralThreatRadius: number = 800;
+  // 切入的跳刀：濒死时不往里跳；远程落在离敌人这么远的地方；跳的距离太短不值得交
+  protected readonly BlinkEngageMinHealthPercent: number = 20;
+  protected readonly RangedBlinkStandOff: number = 600;
+  protected readonly BlinkEngageMinGap: number = 500;
   // 推进路过时这个距离内的野怪可以顺手清
   protected readonly NeutralClearRange: number = 800;
 
@@ -452,6 +467,9 @@ export class BotBaseAIModifier extends BaseModifier {
     } else if (this.isIntHero) {
       range = this.hero.GetBaseAttackRange() + this.IntChaseExtra;
     }
+    if (this.TryBlinkEngage(target)) {
+      return true;
+    }
     return ActionAttack.MoveToAttack(this.hero, target, range);
   }
 
@@ -717,28 +735,65 @@ export class BotBaseAIModifier extends BaseModifier {
     return true;
   }
 
-  /** 朝目的地闪烁；剩下的路不够闪一次满距离时不交，留给切入或逃跑。 */
+  /** 朝目的地闪烁满距离，赶路与撤退用；剩下的路不够闪一次满距离时不交，留给切入或逃跑。 */
   protected TryBlinkToward(position: Vector): boolean {
-    if (this.hero.IsMuted() || this.hero.IsRooted()) {
+    const blink = this.FindReadyBlink();
+    if (!blink) {
       return false;
     }
-    const blink = this.FindBlinkItem();
-    if (!blink || !blink.IsFullyCastable()) {
-      return false;
-    }
+    const range = GetFullCastRange(this.hero, blink);
     const here = this.hero.GetAbsOrigin();
     const offset = position.__sub(here);
     const distance = offset.Length2D();
-    const range = GetFullCastRange(this.hero, blink);
     if (range <= 0 || distance < range) {
       return false;
     }
-    this.hero.CastAbilityOnPosition(
-      here.__add(offset.__mul(range / distance)),
-      blink,
-      this.hero.GetPlayerOwnerID(),
-    );
+    return this.CastBlink(blink, here.__add(offset.__mul(range / distance)), 'move');
+  }
+
+  /**
+   * 切入：近战跳到敌人身上，远程跳到自己攻击距离的边缘，不贴脸送；
+   * 跳完还差得远就不交，贴得够近也不交，免得原地跳一下浪费跳刀。
+   */
+  private TryBlinkEngage(target: CDOTA_BaseNPC): boolean {
+    if (this.hero.GetHealthPercent() < this.BlinkEngageMinHealthPercent) {
+      return false;
+    }
+    const blink = this.FindReadyBlink();
+    if (!blink) {
+      return false;
+    }
+    const range = GetFullCastRange(this.hero, blink);
+    const here = this.hero.GetAbsOrigin();
+    const offset = target.GetAbsOrigin().__sub(here);
+    const distance = offset.Length2D();
+    const standOff = this.hero.IsRangedAttacker()
+      ? Math.min(this.hero.Script_GetAttackRange(), this.RangedBlinkStandOff)
+      : 0;
+    const gap = distance - standOff;
+    if (gap < this.BlinkEngageMinGap || gap > range) {
+      return false;
+    }
+    return this.CastBlink(blink, here.__add(offset.__mul(gap / distance)), 'engage');
+  }
+
+  private CastBlink(blink: CDOTA_Item, landing: Vector, reason: string): boolean {
+    if (IS_TOOLS_MODE) {
+      const distance = Math.floor(landing.__sub(this.hero.GetAbsOrigin()).Length2D());
+      print(
+        `[bot-ai] ${HeroShortName(this.hero)} blink=${reason} dist=${distance} stance=${this.stance}`,
+      );
+    }
+    this.hero.CastAbilityOnPosition(landing, blink, this.hero.GetPlayerOwnerID());
     return true;
+  }
+
+  private FindReadyBlink(): CDOTA_Item | undefined {
+    if (this.hero.IsMuted() || this.hero.IsRooted()) {
+      return undefined;
+    }
+    const blink = this.FindBlinkItem();
+    return blink && blink.IsFullyCastable() ? blink : undefined;
   }
 
   /** 主物品栏里闪烁匕首升级链上的任意一件。 */
