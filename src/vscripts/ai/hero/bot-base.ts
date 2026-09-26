@@ -97,7 +97,6 @@ export class BotBaseAIModifier extends BaseModifier {
   protected stance: Stance = 'task';
 
   private engagedUntil: number = -60;
-  private spentActions: number = 0;
   private lastHealth: number = 0;
   private needsRecover: boolean = false;
   private lastOrderPos: Vector | undefined;
@@ -237,15 +236,14 @@ export class BotBaseAIModifier extends BaseModifier {
       case 'lastStand':
         this.mode = 'fight';
         return this.ActionAttack(task) || this.ActionTask(task);
-      case 'spend':
-        this.mode = 'fight';
-        if (this.SpendBeforeRetreat()) {
+      case 'retreat':
+        this.mode = 'retreat';
+        // 边撤边放技能物品，让追击有代价；不停下来普攻
+        if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
           return true;
         }
-        this.mode = 'retreat';
         return this.ActionRetreat();
       case 'avoid':
-      case 'retreat':
         this.mode = 'retreat';
         return this.ActionRetreat();
       default:
@@ -292,9 +290,6 @@ export class BotBaseAIModifier extends BaseModifier {
     const engaged = enemies.length > 0 && this.gameTime < this.engagedUntil;
     this.traceInfo = '';
     this.retreatPoint = undefined;
-    if (!engaged) {
-      this.spentActions = 0;
-    }
     if (enemies.length === 0) {
       return 'task';
     }
@@ -304,7 +299,7 @@ export class BotBaseAIModifier extends BaseModifier {
     const escape = !engaged || !this.hero.IsRooted();
     if (IS_TOOLS_MODE) {
       this.traceInfo =
-        `engaged=${engaged ? 1 : 0} escape=${escape ? 1 : 0} spent=${this.spentActions}` +
+        `engaged=${engaged ? 1 : 0} escape=${escape ? 1 : 0}` +
         ` our=${Math.floor(fight.ourPower)}(${fight.ourNames.join(',')})` +
         ` enemy=${Math.floor(fight.enemyPower)}(${fight.enemyNames.join(',')}${fight.withTower ? ',tower' : ''})`;
     }
@@ -313,7 +308,6 @@ export class BotBaseAIModifier extends BaseModifier {
       ourPower: fight.ourPower,
       enemyPower: fight.enemyPower,
       canEscape: escape,
-      spentActions: this.spentActions,
     });
     if (engaged) {
       return stance;
@@ -435,15 +429,6 @@ export class BotBaseAIModifier extends BaseModifier {
       ) {
         return true;
       }
-    }
-    return false;
-  }
-
-  /** 打不过但还跑得掉时，先把技能物品交出去再撤。 */
-  private SpendBeforeRetreat(): boolean {
-    if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
-      this.spentActions++;
-      return true;
     }
     return false;
   }

@@ -5,7 +5,6 @@ const input = {
   ourPower: 100,
   enemyPower: 100,
   canEscape: true,
-  spentActions: 0,
 };
 
 describe('decideStance', () => {
@@ -22,10 +21,9 @@ describe('decideStance', () => {
     expect(decideStance({ ...input, engaged: true, enemyPower: 120 })).toBe('fight');
   });
 
-  it('spends skills before retreating from a lost fight', () => {
+  it('retreats from a lost fight unless it cannot move', () => {
     const losing = { ...input, engaged: true, enemyPower: 300 };
-    expect(decideStance(losing)).toBe('spend');
-    expect(decideStance({ ...losing, spentActions: 2 })).toBe('retreat');
+    expect(decideStance(losing)).toBe('retreat');
     expect(decideStance({ ...losing, canEscape: false })).toBe('lastStand');
   });
 });
