@@ -47,6 +47,13 @@ export interface FightSpot {
   pastFront: boolean;
 }
 
+/** 一处发育点：一个野怪营地或一段没人守的兵线。 */
+export interface FarmSpot {
+  pos: Point;
+  /** 这一处野怪或小兵的战力合计 */
+  power: number;
+}
+
 export interface PushLane {
   lane: Lane;
   targetId: number;
@@ -67,7 +74,7 @@ export interface PlanInput {
   fights: FightSpot[];
   lanes: PushLane[];
   /** 推不动塔时去的发育点 */
-  farms: Point[];
+  farms: FarmSpot[];
   ourPower: number;
   enemyPower: number;
   /** 上一轮集中推进的那一路，带惯性避免来回换路 */
@@ -365,13 +372,16 @@ function dropWeakGroups(bots: PlanBot[], lanes: PushLane[], tasks: Map<number, T
   return dropped;
 }
 
-/** 推不动塔的 bot 去最近的发育点：没人守的兵线或己方野区。 */
+/** 推不动塔的 bot 去最近的、自己打得过的发育点。 */
 function assignFarm(input: PlanInput, bots: PlanBot[], tasks: Map<number, Task>): void {
   for (const bot of bots) {
     let best: Point | undefined;
-    for (const pos of input.farms) {
-      if (!best || distance(bot.pos, pos) < distance(bot.pos, best)) {
-        best = pos;
+    for (const spot of input.farms) {
+      if (spot.power > bot.power) {
+        continue;
+      }
+      if (!best || distance(bot.pos, spot.pos) < distance(bot.pos, best)) {
+        best = spot.pos;
       }
     }
     if (best) {

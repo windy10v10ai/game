@@ -16,7 +16,7 @@ import { BLINK_ITEM_NAMES } from '../item/specs/item_jump_jump_jump';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { Point } from '../team/lane-geometry';
-import { HeroShortName, TeamBrain } from '../team/team-brain';
+import { HeroShortName, TeamBrain, UnitPower } from '../team/team-brain';
 import { Task, TaskKind } from '../team/team-plan';
 import { WardPlacement } from '../ward/ward-placement';
 import { canEscape, decideStance, Stance } from './engagement';
@@ -88,6 +88,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly PushAttackRange: number = 1000;
   // 攻击距离外再多这么远的敌方小兵也顺手打掉，近战英雄也能照顾到身边一整波兵
   protected readonly CreepClearExtraRange: number = 400;
+  // 远程野怪的攻击距离
+  protected readonly NeutralThreatRadius: number = 800;
 
   // 同一目的地不重复下指令；单位停下或太久没更新时才重下
   protected readonly ArriveRadius: number = 300;
@@ -111,6 +113,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   private engagedUntil: number = -60;
   private lastHealth: number = 0;
+  private tookDamage: boolean = false;
   private needsRecover: boolean = false;
   private lastOrderPos: Vector | undefined;
   private lastOrderType: UnitOrder | undefined;
@@ -301,6 +304,7 @@ export class BotBaseAIModifier extends BaseModifier {
     );
     const health = this.hero.GetHealth();
     const tookDamage = health < this.lastHealth;
+    this.tookDamage = tookDamage;
     this.lastHealth = health;
     const attackTarget = this.hero.GetAttackTarget();
     if (
@@ -506,6 +510,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (task.kind === 'regroup') {
       return this.MoveTo(this.ToWorld(task.pos), UnitOrder.MOVE_TO_POSITION);
     }
+    if (this.tookDamage && this.LosingToNeutrals()) {
+      return this.ActionRetreat();
+    }
     if (ItemDispatcher.Run(this)) {
       return true;
     }
@@ -668,6 +675,27 @@ export class BotBaseAIModifier extends BaseModifier {
    * 攻击移动到了目的地就停手，目的地常在兵线旁，站着不出手时去打最近的敌方小兵。
    * 塔下打不得的不去；野怪只在打野任务时打，路过野区不停下。
    */
+  /** 正在打自己的野怪（含远古）战力合计超过自己时先撤，野怪追一段就回营地。 */
+  private LosingToNeutrals(): boolean {
+    let power = 0;
+    for (const unit of FindUnitsInRadius(
+      this.hero.GetTeamNumber(),
+      this.hero.GetAbsOrigin(),
+      undefined,
+      this.NeutralThreatRadius,
+      UnitTargetTeam.ENEMY,
+      UnitTargetType.CREEP,
+      UnitTargetFlags.NONE,
+      FindOrder.ANY,
+      false,
+    )) {
+      if (unit.GetTeamNumber() === DotaTeam.NEUTRALS && unit.GetAttackTarget() === this.hero) {
+        power += UnitPower(unit);
+      }
+    }
+    return power > UnitPower(this.hero);
+  }
+
   private AttackNearbyCreep(includeNeutrals: boolean): boolean {
     const creep = this.aroundEnemyCreeps[0];
     const reach = this.hero.Script_GetAttackRange() + this.CreepClearExtraRange;

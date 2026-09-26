@@ -26,6 +26,7 @@ import {
   DefendTarget,
   FIGHT_DANGER_RADIUS,
   FIGHT_JOIN_RADIUS,
+  FarmSpot,
   FightSpot,
   planTasks,
   PushLane,
@@ -506,16 +507,11 @@ export class TeamBrain {
   }
 
   /**
-   * 等级不够推进时的发育点：没有敌方英雄的路上看得到的敌方兵线，以及己方半场的野怪。
-   * 野怪在己方野区，按位置直接读，不要求视野。
+   * 推不动塔时的发育点：离自己近的野怪营地（两边野区都算），以及没有敌方英雄的路上看得到的敌方兵线。
+   * 野怪营地位置固定、玩家都知道，按位置直接读，不要求视野；远古野打不过，不算。
    */
-  private FindFarmSpots(lanePower: Map<Lane, number>, observer: CDOTA_BaseNPC): Point[] {
-    const spots: Point[] = [];
-    const ownFountain = HeroUtil.GetTeamFountainPosition(this.team);
-    const enemyFountain = HeroUtil.GetTeamFountainPosition(this.enemyTeam);
-    if (!ownFountain || !enemyFountain) {
-      return spots;
-    }
+  private FindFarmSpots(lanePower: Map<Lane, number>, observer: CDOTA_BaseNPC): FarmSpot[] {
+    const spots: FarmSpot[] = [];
     const units = FindUnitsInRadius(
       this.team,
       Vector(0, 0, 0),
@@ -523,30 +519,26 @@ export class TeamBrain {
       FIND_UNITS_EVERYWHERE,
       UnitTargetTeam.ENEMY,
       UnitTargetType.CREEP,
-      UnitTargetFlags.NONE,
+      UnitTargetFlags.NOT_ANCIENTS,
       FindOrder.ANY,
       false,
     );
     for (const unit of units) {
       const pos = unit.GetAbsOrigin();
-      if (unit.GetTeamNumber() === DotaTeam.NEUTRALS) {
-        const ownSide = distance(pos, ownFountain) < distance(pos, enemyFountain);
-        if (ownSide && spots.every((spot) => distance(spot, pos) > FARM_CAMP_RADIUS)) {
-          spots.push(pos);
+      if (unit.GetTeamNumber() !== DotaTeam.NEUTRALS) {
+        if (!IsLaneCreep(unit) || !observer.CanEntityBeSeenByMyTeam(unit)) {
+          continue;
         }
-        continue;
+        const hit = nearestLane(this.lanes, pos, LANE_CREEP_MAX_OFFSET);
+        if (!hit || (lanePower.get(hit.path.lane) ?? 0) > 0 || this.IsPastFront(pos)) {
+          continue;
+        }
       }
-      if (!IsLaneCreep(unit) || !observer.CanEntityBeSeenByMyTeam(unit)) {
-        continue;
-      }
-      const hit = nearestLane(this.lanes, pos, LANE_CREEP_MAX_OFFSET);
-      if (
-        hit &&
-        (lanePower.get(hit.path.lane) ?? 0) === 0 &&
-        !this.IsPastFront(pos) &&
-        spots.every((spot) => distance(spot, pos) > FARM_CAMP_RADIUS)
-      ) {
-        spots.push(pos);
+      const spot = spots.find((other) => distance(other.pos, pos) <= FARM_CAMP_RADIUS);
+      if (spot) {
+        spot.power += UnitPower(unit);
+      } else {
+        spots.push({ pos, power: UnitPower(unit) });
       }
     }
     return spots;
