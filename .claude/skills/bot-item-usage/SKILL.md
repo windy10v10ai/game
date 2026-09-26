@@ -98,6 +98,7 @@ bot 每 2 秒整理一次主物品栏：备用栏物品补进空位，再按 `It
 - 不填即 `Default`，没有 spec 的纯属性装也在这一档
 - 升级链合并在一个文件时，每条 entry 都要写同一个档位；`ItemRegistry.priorityOf` 只读该物品的第一条 spec
 - 新物品只有明确属于保命、控制、增益、输出或刷新时才标档位
+- 同一升级链（`item-tier-config.ts` 的 `baseItems` 上下位）的物品用同一档位，即使分在不同 spec 文件
 
 ## 第五步：备用栏可用性（`usableFromBackpack`）
 
