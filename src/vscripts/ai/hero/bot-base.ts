@@ -1,5 +1,6 @@
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 import { AbilityDispatcher } from '../ability/ability-dispatcher';
+import { AbilityRegistry } from '../ability/ability-registry';
 import { ActionAttack } from '../action/action-attack';
 import { ActionFind, FRIENDLY_CREEP_SEARCH_RADIUS } from '../action/action-find';
 import { getHeroBuildConfig } from '../build-item/bot-build-config';
@@ -887,8 +888,40 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   // Check
   // ---------------------------------------------------------
+  private ShouldStopChannel(): boolean {
+    const ability = this.hero.GetCurrentActiveAbility();
+    const specs = ability ? AbilityRegistry.get(ability.GetName()) : undefined;
+    if (!ability || !specs) {
+      return false;
+    }
+    for (const spec of specs) {
+      const stop = spec.stopChannel;
+      if (!stop) {
+        continue;
+      }
+      if (
+        stop.afterSeconds !== undefined &&
+        GameRules.GetGameTime() - ability.GetChannelStartTime() >= stop.afterSeconds
+      ) {
+        return true;
+      }
+      if (
+        stop.noEnemyHeroInRange !== undefined &&
+        !this.aroundEnemyHeroes.some(
+          (enemy) => enemy.IsAlive() && this.hero.GetRangeToUnit(enemy) <= stop.noEnemyHeroInRange!,
+        )
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   IsInAbilityPhase(): boolean {
     if (this.hero.IsChanneling()) {
+      if (this.ShouldStopChannel()) {
+        this.hero.Stop();
+      }
       return true;
     }
 
@@ -914,8 +947,20 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
 
   private FindAround(): void {
-    this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindRadius);
+    PerfSampler.measureSection('findShared', () => this.FindAroundShared());
+    PerfSampler.measureSection('findCreeps', () => this.FindAroundCreeps());
+  }
+
+  private FindAroundCreeps(): void {
     this.aroundEnemyCreeps = ActionFind.FindEnemyCreeps(this.hero, this.FindRadius);
+    this.aroundFriendlyCreeps = ActionFind.FindFriendlyCreeps(
+      this.hero,
+      FRIENDLY_CREEP_SEARCH_RADIUS,
+    );
+  }
+
+  private FindAroundShared(): void {
+    this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindRadius);
     this.aroundEnemyBuildingsInvulnerable = ActionFind.FindEnemyBuildingsInvulnerable(
       this.hero,
       this.FindRadius,
@@ -928,10 +973,6 @@ export class BotBaseAIModifier extends BaseModifier {
     }
     this.aroundEnemyBuildings = vulnerableBuildings;
     this.aroundFriendlyHeroes = ActionFind.FindFriendlyHeroes(this.hero, this.FindRadius);
-    this.aroundFriendlyCreeps = ActionFind.FindFriendlyCreeps(
-      this.hero,
-      FRIENDLY_CREEP_SEARCH_RADIUS,
-    );
     this.aroundFriendlyBuildings = ActionFind.FindFriendlyBuildings(this.hero, this.FindRadius);
   }
 

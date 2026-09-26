@@ -32,4 +32,11 @@ export interface AbilitySpec {
   abilityName: string;
   targetSide: TargetSide;
   condition?: CastCoindition;
+  /** 持续施法中提前结束的条件，不写则引导到底。 */
+  stopChannel?: {
+    /** 该距离内没有敌方英雄时停下，避免对着空地一直引导 */
+    noEnemyHeroInRange?: number;
+    /** 引导满这么多秒就停下，用于提前结束即生效的蓄力技能 */
+    afterSeconds?: number;
+  };
 }

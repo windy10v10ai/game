@@ -66,6 +66,9 @@ export function TryCastBySpec(
   if (CheckCooldownTotalFailure(hero, castable, condition?.self?.cooldownTotal)) {
     return false;
   }
+  if (condition?.self?.ultimateNotReady && IsUltimateReady(hero)) {
+    return false;
+  }
 
   const target = pickTarget(ai, castable, targetSide, condition);
   if (!target) {
@@ -100,6 +103,17 @@ function HasEnemyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
   for (const enemy of ai.aroundEnemyHeroes) {
     if (enemy.IsAlive() && hero.GetRangeToUnit(enemy) <= range) {
       return true;
+    }
+  }
+  return false;
+}
+
+function IsUltimateReady(hero: CDOTA_BaseNPC_Hero): boolean {
+  const abilityCount = hero.GetAbilityCount();
+  for (let i = 0; i < abilityCount; i++) {
+    const ability = hero.GetAbilityByIndex(i);
+    if (ability && ability.GetAbilityType() === AbilityTypes.ULTIMATE && ability.GetLevel() > 0) {
+      return ability.IsFullyCastable();
     }
   }
   return false;
@@ -307,6 +321,7 @@ function resolveTargetCondition(
     castMode: existingTarget?.castMode,
     excludeSelf: existingTarget?.excludeSelf,
     facing: existingTarget?.facing,
+    aheadCircle: existingTarget?.aheadCircle,
     range: range ?? existingTarget?.range,
     count: count ?? existingTarget?.count,
   };

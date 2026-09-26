@@ -1,24 +1,24 @@
 import { AbilitySpec, TargetSide } from '../ability-spec';
 
 /**
- * 死亡先知 - 驱使恶灵：NO_TARGET。
+ * 影魔 - 灵魂盛宴：NO_TARGET 自身增益。
  *
- * 恶灵也会攻击建筑，打架与推塔都放。
+ * 打架与推塔都开。
  */
 export const SPECS: AbilitySpec[] = [
   {
-    abilityName: 'death_prophet_exorcism',
+    abilityName: 'nevermore_frenzy',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      target: { rangeFromAbilityValue: 'radius' },
+      target: { range: { lte: 1200 } },
     },
   },
   {
-    abilityName: 'death_prophet_exorcism',
+    abilityName: 'nevermore_frenzy',
     targetSide: TargetSide.EnemyBuilding,
     condition: {
       self: { friendlyCreepNearby: { count: { gte: 1 } } },
-      target: { rangeFromAbilityValue: 'radius' },
+      target: { range: { lte: 800 } },
     },
   },
 ];

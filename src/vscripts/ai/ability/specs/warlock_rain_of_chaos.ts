@@ -14,10 +14,7 @@ export const SPECS: AbilitySpec[] = [
     abilityName: 'warlock_rain_of_chaos',
     targetSide: TargetSide.EnemyBuilding,
     condition: {
-      self: {
-        noEnemyHeroInRange: 1200,
-        friendlyCreepNearby: { count: { gte: 3 } },
-      },
+      self: { friendlyCreepNearby: { count: { gte: 1 } } },
     },
   },
 ];

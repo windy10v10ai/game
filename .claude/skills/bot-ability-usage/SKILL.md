@@ -71,7 +71,10 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 10. **目标相对朝向**：`target.facing: 'front' | 'back'`，只保留位于施法者正面 / 背面半区的目标（水平面点积取符号，正侧方两者都不满足）。用于带位移的技能区分追击（朝目标跳）与撤退（背对目标跳），如宙斯神圣一跳。
 11. **附近有 / 没有队友**：`self.allyHeroInRange: 1200` / `self.noAllyHeroInRange: 900`，只算真英雄、不含自己。控制与持续施法大招要队友跟进输出或护住引导时用前者（如魔爪、极寒领域）；受到伤害就解除的控制用后者（如噩梦）。与 `noEnemyHeroInRange` 同样直接挂在 `self` 下。
 12. **只选行动受限的目标**：`target.unitCondition.disabled: 'hard' | 'movement'`，是 `notActionable`（被控就跳过）的反面。`hard` 只认眩晕、变羊等硬控；`movement` 还认缠绕和被减速到跑不出范围。用于接控制才打得满的技能（如神秘之耀、魂之挽歌）。
-13. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+13. **身前固定位置的圆形区域**：`target.aheadCircle: { distanceValue, radiusValue }`，只选落在施法者身前固定距离处圆内的目标，距离与半径按键名读技能数值。用于朝面前固定位置生效的无目标技能（如毁灭阴影），比 `facing` 准；无目标技能 cast range 为 0，还要显式写 `range.lte`。
+14. **大招没好才放**：`self.ultimateNotReady: true`，大招已学会且能放时跳过。用于放完会被引导锁住的技能（如剧变），让大招先交出去。
+15. **提前结束持续施法**：spec 顶层 `stopChannel: { noEnemyHeroInRange?, afterSeconds? }`，由英雄执行器在引导中检查。不写就引导到底；只给确实需要的技能加，如剧变在敌人离开后停下、气运之末放出即结束引导让它立刻生效。
+16. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
 
 ### 是否补一条对小兵的清兵规则
 

@@ -63,6 +63,11 @@ export interface CastCoindition {
      * 用于带位移的技能区分追击与撤退两种用法。
      */
     facing?: 'front' | 'back';
+    /**
+     * 只选落在施法者身前固定距离处圆形区域内的目标，用于朝面前固定位置生效的无目标技能。
+     * 距离与半径按键名读技能数值。
+     */
+    aheadCircle?: { distanceValue: string; radiusValue: string };
   };
   self?: {
     unitCondition?: UnitCondition;
@@ -104,6 +109,10 @@ export interface CastCoindition {
      * （如刷新球，只在冷却压力大时使用）。
      */
     cooldownTotal?: NumberRange;
+    /**
+     * 大招已学会且能放时跳过，用于放完会被引导锁住的技能：先把大招交出去再放它。
+     */
+    ultimateNotReady?: boolean;
   };
   ability?: AbilityCoindition;
   action?: {
@@ -192,6 +201,9 @@ export function FilterTargetWithCondition(
   const excludeSelf = targetCondition?.excludeSelf;
   const unitCondition = targetCondition?.unitCondition;
   const facing = targetCondition?.facing;
+  const aheadCircle = ability ? targetCondition?.aheadCircle : undefined;
+  const aheadDistance = aheadCircle ? ability!.GetSpecialValueFor(aheadCircle.distanceValue) : 0;
+  const aheadRadius = aheadCircle ? ability!.GetSpecialValueFor(aheadCircle.radiusValue) : 0;
 
   const selfEntityIndex = excludeSelf ? self.GetEntityIndex() : -1;
   const healthCondition = ability ? unitCondition?.healthAbilityValue : undefined;
@@ -243,6 +255,18 @@ export function FilterTargetWithCondition(
     }
 
     if (
+      aheadCircle &&
+      CheckAheadCircleFailure(
+        self.GetForwardVector(),
+        unit.GetAbsOrigin().__sub(self.GetAbsOrigin()),
+        aheadDistance,
+        aheadRadius,
+      )
+    ) {
+      continue;
+    }
+
+    if (
       facing &&
       CheckFacingFailure(
         facing,
@@ -288,6 +312,20 @@ function CountUnitsInRange(
  * @param toTarget - 施法者指向目标的向量
  * @returns 不满足要求时返回 `true`
  */
+/**
+ * 目标是否落在施法者身前 distance 处、半径 radius 的圆外。forward 须为单位向量。
+ */
+export function CheckAheadCircleFailure(
+  forward: HorizontalVector,
+  toTarget: HorizontalVector,
+  distance: number,
+  radius: number,
+): boolean {
+  const dx = toTarget.x - forward.x * distance;
+  const dy = toTarget.y - forward.y * distance;
+  return dx * dx + dy * dy > radius * radius;
+}
+
 export function CheckFacingFailure(
   facing: 'front' | 'back' | undefined,
   forward: HorizontalVector,

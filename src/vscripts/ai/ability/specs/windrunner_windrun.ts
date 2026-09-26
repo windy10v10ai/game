@@ -1,23 +1,22 @@
 import { AbilitySpec, TargetSide } from '../ability-spec';
 
 /**
- * 龙骑士 - 古龙形态：NO_TARGET。
+ * 风行者 - 风行：NO_TARGET，闪避普攻。
  *
- * 变身增加射程与溅射，打架与推塔都开。
+ * 附近有敌方英雄，或靠近敌方建筑会挨塔打时开。
  */
 export const SPECS: AbilitySpec[] = [
   {
-    abilityName: 'dragon_knight_elder_dragon_form',
+    abilityName: 'windrunner_windrun',
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 1200 } },
     },
   },
   {
-    abilityName: 'dragon_knight_elder_dragon_form',
+    abilityName: 'windrunner_windrun',
     targetSide: TargetSide.EnemyBuilding,
     condition: {
-      self: { friendlyCreepNearby: { count: { gte: 1 } } },
       target: { range: { lte: 800 } },
     },
   },
