@@ -140,7 +140,7 @@ function modifier_item_necronomicon_staff_debuff:AllowIllusionDuplicate()
 end
 
 function modifier_item_necronomicon_staff_debuff:OnCreated(params)
-	-- 物品被卖掉或拆掉后仍可能补挂减益，此时技能句柄已失效，按原版妖术的移速处理
+	-- 物品被卖掉或拆掉后仍可能补挂减益，此时技能句柄已失效，按妖术常用的移速处理
 	local ability = self:GetAbility()
 	self.sheep_movement_speed = ability and ability:GetSpecialValueFor("sheep_movement_speed") or 100
 	self.blast_magic_resist = ability and ability:GetSpecialValueFor("blast_magic_resist") or 0
