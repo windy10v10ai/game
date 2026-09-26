@@ -26,16 +26,18 @@ import {
   DefendTarget,
   FIGHT_DANGER_RADIUS,
   FIGHT_JOIN_RADIUS,
+  FarmSpot,
   FightSpot,
   planTasks,
   PushLane,
-  requiredPushLevel,
   Task,
 } from './team-plan';
 
 // 看不到之后，前 5 秒按原位置用，15 秒内按移速扩大可能范围，再往后只记得这个英雄存在
 const LAST_SEEN_EXACT = 5;
 const LAST_SEEN_FORGET = 15;
+// 交战与防守记住刚消失的敌人这么久：追人追到消失的位置，逃跑也不因敌人一消失就掉头
+const FIGHT_MEMORY = 3;
 // 与团队大脑的思考间隔一致
 const POWER_CACHE_SECONDS = 1;
 const LANE_MAX_OFFSET = 2000;
@@ -55,6 +57,8 @@ const RALLY_FORWARD_SLACK = 1000;
 const WAVE_AT_TARGET_DISTANCE = 900;
 // 兵线没到时在塔攻击范围外等
 const WAIT_OUTSIDE_TOWER = 1100;
+// 兵线在 bot 赶路途中还会往前走，落脚点放在兵线前沿再往前一段
+const STAGING_AHEAD = 800;
 
 export interface EnemyMemory {
   pos: Vector;
@@ -89,6 +93,7 @@ export class TeamBrain {
   private readonly members = new Map<EntityIndex, CDOTA_BaseNPC_Hero>();
   private readonly recoverRequests = new Set<EntityIndex>();
   private readonly lastSeen = new Map<EntityIndex, EnemyMemory>();
+  private visible = new Set<EntityIndex>();
   private readonly threats = new Map<EntityIndex, ThreatRecord>();
   private tasks = new Map<number, Task>();
   private mainLane: Lane | undefined;
@@ -99,7 +104,6 @@ export class TeamBrain {
   constructor(
     public readonly team: DotaTeam,
     private readonly lanes: LanePath[],
-    private readonly pushLevel: number,
   ) {
     this.enemyTeam = team === DotaTeam.GOODGUYS ? DotaTeam.BADGUYS : DotaTeam.GOODGUYS;
   }
@@ -161,11 +165,20 @@ export class TeamBrain {
     const enemies = heroes.filter((hero) => hero.GetTeamNumber() === this.enemyTeam);
     const observer = allies[0];
     const now = GameRules.GetGameTime();
-    const visibleEnemies: CDOTA_BaseNPC_Hero[] = [];
+    this.visible = new Set<EntityIndex>();
+    const recentEnemies: CDOTA_BaseNPC_Hero[] = [];
     for (const enemy of enemies) {
-      if (enemy.IsAlive() && observer && observer.CanEntityBeSeenByMyTeam(enemy)) {
-        visibleEnemies.push(enemy);
-        this.lastSeen.set(enemy.GetEntityIndex(), { pos: enemy.GetAbsOrigin(), time: now });
+      if (!enemy.IsAlive()) {
+        continue;
+      }
+      const index = enemy.GetEntityIndex();
+      if (observer && observer.CanEntityBeSeenByMyTeam(enemy)) {
+        this.visible.add(index);
+        this.lastSeen.set(index, { pos: enemy.GetAbsOrigin(), time: now });
+      }
+      const memory = this.lastSeen.get(index);
+      if (memory && now - memory.time <= FIGHT_MEMORY) {
+        recentEnemies.push(enemy);
       }
     }
     if (!assign || this.members.size === 0) {
@@ -177,7 +190,7 @@ export class TeamBrain {
     const lanePower = this.EnemyPowerByLane(enemies, now);
     // 推进目标同时决定了每路的前线，交战点要按前线判断，先算推进
     const lanes = this.FindPushLanes(buildings, lanePower);
-    this.fights = this.BuildFights(visibleEnemies, allies);
+    this.fights = this.BuildFights(recentEnemies, allies);
 
     const ourPower = allies.reduce((sum, hero) => sum + UnitPower(hero), 0);
     const enemyPower = enemies.reduce((sum, hero) => sum + this.PowerOf(hero), 0);
@@ -190,14 +203,13 @@ export class TeamBrain {
         power: UnitPower(hero),
         needsRecover: this.recoverRequests.has(hero.GetEntityIndex()),
         attackDps: hero.GetAverageTrueAttackDamage(undefined) * hero.GetAttacksPerSecond(false),
-        level: hero.GetLevel(),
         previous: this.tasks.get(hero.GetEntityIndex()),
       }));
 
     const result = planTasks({
       bots,
       fountain,
-      defend: this.FindDefendTargets(buildings, visibleEnemies),
+      defend: this.FindDefendTargets(buildings, recentEnemies),
       fights: this.fights,
       lanes,
       farms: this.FindFarmSpots(lanePower, observer),
@@ -232,7 +244,8 @@ export class TeamBrain {
       }
       const group = enemies.filter(
         (other) =>
-          !used.has(other.GetEntityIndex()) && enemy.GetRangeToUnit(other) <= FIGHT_CLUSTER_RADIUS,
+          !used.has(other.GetEntityIndex()) &&
+          distance(this.PositionOf(enemy), this.PositionOf(other)) <= FIGHT_CLUSTER_RADIUS,
       );
       for (const member of group) {
         used.add(member.GetEntityIndex());
@@ -256,7 +269,7 @@ export class TeamBrain {
     let enemyPower = 0;
     let focus = enemies[0];
     for (const enemy of enemies) {
-      const pos = enemy.GetAbsOrigin();
+      const pos = this.PositionOf(enemy);
       x += pos.x / enemies.length;
       y += pos.y / enemies.length;
       enemyPower += this.PowerOf(enemy);
@@ -371,6 +384,15 @@ export class TeamBrain {
     }
   }
 
+  /** 看得见的敌人取当前位置；看不见的只用最后看到的位置，不读真实位置。 */
+  private PositionOf(enemy: CDOTA_BaseNPC): Vector {
+    const memory = this.lastSeen.get(enemy.GetEntityIndex());
+    if (memory && !this.visible.has(enemy.GetEntityIndex())) {
+      return memory.pos;
+    }
+    return enemy.GetAbsOrigin();
+  }
+
   /** 最近一次看到的位置，太久没看到时返回 undefined。 */
   RecallEnemy(index: EntityIndex): EnemyMemory | undefined {
     const memory = this.lastSeen.get(index);
@@ -382,7 +404,7 @@ export class TeamBrain {
 
   private FindDefendTargets(
     buildings: BuildingInfo[],
-    visibleEnemies: CDOTA_BaseNPC_Hero[],
+    recentEnemies: CDOTA_BaseNPC_Hero[],
   ): DefendTarget[] {
     const targets: DefendTarget[] = [];
     for (const building of buildings) {
@@ -391,8 +413,8 @@ export class TeamBrain {
         continue;
       }
       let attackerPower = 0;
-      for (const enemy of visibleEnemies) {
-        if (unit.GetRangeToUnit(enemy) <= BUILDING_THREAT_RADIUS) {
+      for (const enemy of recentEnemies) {
+        if (distance(unit.GetAbsOrigin(), this.PositionOf(enemy)) <= BUILDING_THREAT_RADIUS) {
           attackerPower += this.PowerOf(enemy);
         }
       }
@@ -468,7 +490,7 @@ export class TeamBrain {
         const waitForward =
           front === undefined
             ? targetForward - WAIT_OUTSIDE_TOWER
-            : Math.min(front, targetForward - WAIT_OUTSIDE_TOWER);
+            : Math.min(front + STAGING_AHEAD, targetForward - WAIT_OUTSIDE_TOWER);
         stagingPos = pointAtProgress(path, progressFromForward(path, waitForward, isRadiant));
       }
       lanes.push({
@@ -478,23 +500,18 @@ export class TeamBrain {
         targetHpRatio: target.unit.GetHealth() / target.unit.GetMaxHealth(),
         waveAtTarget,
         enemyPower: lanePower.get(path.lane) ?? 0,
-        minLevel: requiredPushLevel(target.tier, this.pushLevel),
+        towerPower: UnitPower(target.unit),
       });
     }
     return lanes;
   }
 
   /**
-   * 等级不够推进时的发育点：没有敌方英雄的路上看得到的敌方兵线，以及己方半场的野怪。
-   * 野怪在己方野区，按位置直接读，不要求视野。
+   * 推不动塔时的发育点：离自己近的野怪营地（两边野区都算），以及没有敌方英雄的路上看得到的敌方兵线。
+   * 野怪营地位置固定、玩家都知道，按位置直接读，不要求视野。
    */
-  private FindFarmSpots(lanePower: Map<Lane, number>, observer: CDOTA_BaseNPC): Point[] {
-    const spots: Point[] = [];
-    const ownFountain = HeroUtil.GetTeamFountainPosition(this.team);
-    const enemyFountain = HeroUtil.GetTeamFountainPosition(this.enemyTeam);
-    if (!ownFountain || !enemyFountain) {
-      return spots;
-    }
+  private FindFarmSpots(lanePower: Map<Lane, number>, observer: CDOTA_BaseNPC): FarmSpot[] {
+    const spots: FarmSpot[] = [];
     const units = FindUnitsInRadius(
       this.team,
       Vector(0, 0, 0),
@@ -508,24 +525,21 @@ export class TeamBrain {
     );
     for (const unit of units) {
       const pos = unit.GetAbsOrigin();
-      if (unit.GetTeamNumber() === DotaTeam.NEUTRALS) {
-        const ownSide = distance(pos, ownFountain) < distance(pos, enemyFountain);
-        if (ownSide && spots.every((spot) => distance(spot, pos) > FARM_CAMP_RADIUS)) {
-          spots.push(pos);
+      if (unit.GetTeamNumber() !== DotaTeam.NEUTRALS) {
+        if (!IsLaneCreep(unit) || !observer.CanEntityBeSeenByMyTeam(unit)) {
+          continue;
         }
-        continue;
+        const hit = nearestLane(this.lanes, pos, LANE_CREEP_MAX_OFFSET);
+        if (!hit || (lanePower.get(hit.path.lane) ?? 0) > 0 || this.IsPastFront(pos)) {
+          continue;
+        }
       }
-      if (!IsLaneCreep(unit) || !observer.CanEntityBeSeenByMyTeam(unit)) {
-        continue;
-      }
-      const hit = nearestLane(this.lanes, pos, LANE_CREEP_MAX_OFFSET);
-      if (
-        hit &&
-        (lanePower.get(hit.path.lane) ?? 0) === 0 &&
-        !this.IsPastFront(pos) &&
-        spots.every((spot) => distance(spot, pos) > FARM_CAMP_RADIUS)
-      ) {
-        spots.push(pos);
+      const spot = spots.find((other) => distance(other.pos, pos) <= FARM_CAMP_RADIUS);
+      const ancient = unit.IsAncient();
+      if (spot) {
+        spot.ancient = spot.ancient || ancient;
+      } else {
+        spots.push({ pos, ancient });
       }
     }
     return spots;

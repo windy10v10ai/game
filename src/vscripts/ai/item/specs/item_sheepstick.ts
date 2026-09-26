@@ -1,15 +1,17 @@
 import { TargetSide } from '../../ability/ability-spec';
-import { ItemSpec } from '../item-spec';
+import { ItemPriority, ItemSpec } from '../item-spec';
 
 /** 邪恶镰刀 / 死灵法杖（升级链）：跳过已被控目标，避免浪费在无法再控的敌人身上。 */
 export const SPECS: ItemSpec[] = [
   {
     itemName: 'item_sheepstick',
+    priority: ItemPriority.Control,
     targetSide: TargetSide.EnemyHero,
     condition: { target: { unitCondition: { notActionable: true } } },
   },
   {
     itemName: 'item_necronomicon_staff',
+    priority: ItemPriority.Control,
     targetSide: TargetSide.EnemyHero,
     condition: { target: { unitCondition: { notActionable: true } } },
   },

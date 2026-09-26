@@ -21,7 +21,6 @@ import { SPECS as heavensHalberdV2 } from './item_heavens_halberd_v2';
 import { SPECS as holyLocket } from './item_holy_locket';
 import { SPECS as hurricanePike2 } from './item_hurricane_pike_2';
 import { SPECS as insightArmor } from './item_insight_armor';
-import { SPECS as jumpJumpJump } from './item_jump_jump_jump';
 import { SPECS as magicScepter } from './item_magic_scepter';
 import { SPECS as magicSword } from './item_magic_sword';
 import { SPECS as refresher } from './item_refresher';
@@ -98,7 +97,6 @@ export function registerItemSpecs(): void {
   // F：POINT 施法
   ItemRegistry.registerAll(forbiddenStaff);
   ItemRegistry.registerAll(gungir2);
-  ItemRegistry.registerAll(jumpJumpJump);
 
   // G：刷新类
   ItemRegistry.registerAll(refresher);

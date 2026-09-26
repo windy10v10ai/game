@@ -14,7 +14,7 @@ describe('decideStance', () => {
 
   it('only avoids a fight when clearly outmatched', () => {
     expect(decideStance({ ...input, enemyPower: 280 })).toBe('fight');
-    expect(decideStance({ ...input, enemyPower: 350 })).toBe('avoid');
+    expect(decideStance({ ...input, enemyPower: 350 })).toBe('retreat');
   });
 
   it('keeps fighting a close fight once engaged', () => {

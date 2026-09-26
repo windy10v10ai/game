@@ -7,14 +7,6 @@ import { HeroUtil } from './hero-util';
 
 /** 修补匠专属 AI：跳刀切入与脱离、传送回泉水与归队，落点都要先算出来，AbilitySpec 表达不了。 */
 
-// 升级链上任意一件都能用，按拥有情况取第一件
-const BLINK_ITEM_NAMES = [
-  'item_blink',
-  'item_arcane_blink',
-  'item_overwhelming_blink',
-  'item_swift_blink',
-  'item_arcane_blink_2',
-];
 // 落点与敌人的距离取常见主动装备的施法距离，跳完即可直接接装备
 const BLINK_LANDING_RANGE = 900;
 const BLINK_ENEMY_SEARCH_RADIUS = 3500;
@@ -90,7 +82,7 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
       return false;
     }
 
-    const blink = this.FindBlinkItem(hero);
+    const blink = this.FindBlinkItem();
     if (!blink || !blink.IsFullyCastable()) {
       return false;
     }
@@ -138,7 +130,7 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
       return false;
     }
 
-    const blink = this.FindBlinkItem(hero);
+    const blink = this.FindBlinkItem();
     if (!blink || !blink.IsFullyCastable()) {
       return false;
     }
@@ -181,7 +173,7 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
         return false;
       }
       // 引导会被控制打断，先跳开一段再传；跳刀冷却随后会被热机重置刷掉
-      if (this.TryBlinkToward(hero, fountain)) {
+      if (this.TryBlinkTo(hero, fountain)) {
         return true;
       }
       hero.CastAbilityOnPosition(fountain, teleport, hero.GetPlayerOwnerID());
@@ -203,12 +195,12 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
    *
    * 落点直接给目的地，超出跳刀距离时引擎按最大距离释放。
    */
-  private TryBlinkToward(hero: CDOTA_BaseNPC_Hero, destination: Vector): boolean {
+  private TryBlinkTo(hero: CDOTA_BaseNPC_Hero, destination: Vector): boolean {
     if (hero.IsMuted()) {
       return false;
     }
 
-    const blink = this.FindBlinkItem(hero);
+    const blink = this.FindBlinkItem();
     if (!blink || !blink.IsFullyCastable()) {
       return false;
     }
@@ -239,16 +231,6 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
 
     hero.CastAbilityOnPosition(ally.GetAbsOrigin(), teleport, hero.GetPlayerOwnerID());
     return true;
-  }
-
-  private FindBlinkItem(hero: CDOTA_BaseNPC_Hero): CDOTA_Item | undefined {
-    for (const itemName of BLINK_ITEM_NAMES) {
-      const item = hero.FindItemInInventory(itemName);
-      if (item) {
-        return item;
-      }
-    }
-    return undefined;
   }
 
   private FindNearestAllyNear(

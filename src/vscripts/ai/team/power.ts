@@ -26,6 +26,12 @@ export const AVOID_POWER_RATIO = 3;
 /** 已经交战时，敌方战力不超过我方这么多倍就继续打；打团本来就有来回，敌方略强也不退。 */
 export const KEEP_FIGHTING_RATIO = 2;
 
+/** 推进路过时顺手清野需要的自身战力，太弱的英雄停下来打野会耽误推进。 */
+export const QUICK_CLEAR_POWER = 1500;
+
+/** 打远古野需要的自身战力，不读野怪战力，调这一个数即可。 */
+export const ANCIENT_FARM_POWER = 3000;
+
 // 攻击输出算不到技能伤害，按等级补一项，否则法系英雄会被严重低估
 const SPELL_DPS_PER_LEVEL = 12;
 // 技能物品全在冷却时仍保留的技能输出比例，普攻之外还有被动与下一轮冷却
