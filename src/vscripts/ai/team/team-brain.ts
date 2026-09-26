@@ -29,7 +29,6 @@ import {
   FightSpot,
   planTasks,
   PushLane,
-  requiredPushLevel,
   Task,
 } from './team-plan';
 
@@ -99,7 +98,6 @@ export class TeamBrain {
   constructor(
     public readonly team: DotaTeam,
     private readonly lanes: LanePath[],
-    private readonly pushLevel: number,
   ) {
     this.enemyTeam = team === DotaTeam.GOODGUYS ? DotaTeam.BADGUYS : DotaTeam.GOODGUYS;
   }
@@ -190,7 +188,6 @@ export class TeamBrain {
         power: UnitPower(hero),
         needsRecover: this.recoverRequests.has(hero.GetEntityIndex()),
         attackDps: hero.GetAverageTrueAttackDamage(undefined) * hero.GetAttacksPerSecond(false),
-        level: hero.GetLevel(),
         previous: this.tasks.get(hero.GetEntityIndex()),
       }));
 
@@ -478,7 +475,7 @@ export class TeamBrain {
         targetHpRatio: target.unit.GetHealth() / target.unit.GetMaxHealth(),
         waveAtTarget,
         enemyPower: lanePower.get(path.lane) ?? 0,
-        minLevel: requiredPushLevel(target.tier, this.pushLevel),
+        towerPower: UnitPower(target.unit),
       });
     }
     return lanes;

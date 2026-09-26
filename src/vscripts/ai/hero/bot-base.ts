@@ -71,6 +71,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly DiveMinCreeps: number = 2;
   protected readonly DiveCheckRadius: number = 900;
   protected readonly DiveGatherRange: number = 400;
+  // 血厚时让自己扛塔，否则人人一挨打就转移，塔下来回倒仇恨谁都不扛
+  protected readonly DeaggroHealthPercent: number = 60;
   // 转移仇恨后塔若很快又打回自己，说明身边没有别的目标可换，这段时间内直接退出射程
   protected readonly DeaggroCooldown: number = 3;
 
@@ -705,8 +707,8 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
     const towerTarget = tower.GetAttackTarget();
-    // 转移仇恨也没甩掉塔时，等血量掉到门槛再走已经走不出射程
-    if (towerTarget === this.hero) {
+    // 转移仇恨也没甩掉塔时，等血量掉到扛塔门槛再走已经走不出射程
+    if (towerTarget === this.hero && this.hero.GetHealthPercent() < this.DeaggroHealthPercent) {
       return false;
     }
     const towerOnHero = towerTarget !== undefined && towerTarget.IsHero();
@@ -749,9 +751,12 @@ export class BotBaseAIModifier extends BaseModifier {
     return count;
   }
 
-  /** 被敌方塔攻击时对塔下的友方单位下一次攻击指令，让塔换目标。 */
+  /** 被敌方塔攻击到血量不多时，对塔下的友方单位下一次攻击指令，让塔换目标。 */
   protected DropTowerAggro(): boolean {
-    if (this.gameTime - this.lastDeaggroTime < this.DeaggroCooldown) {
+    if (
+      this.hero.GetHealthPercent() >= this.DeaggroHealthPercent ||
+      this.gameTime - this.lastDeaggroTime < this.DeaggroCooldown
+    ) {
       return false;
     }
     const tower = this.FindNearestEnemyTowerInvulnerable();

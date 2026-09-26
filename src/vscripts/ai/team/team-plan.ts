@@ -19,7 +19,6 @@ export interface PlanBot {
   needsRecover: boolean;
   /** 普攻输出，高的留下推塔，其余优先去打架 */
   attackDps: number;
-  level: number;
   previous?: Task;
 }
 
@@ -57,8 +56,8 @@ export interface PushLane {
   waveAtTarget: boolean;
   /** 最近出现在这一路的敌方英雄战力 */
   enemyPower: number;
-  /** 推目标建筑需要的英雄等级 */
-  minLevel: number;
+  /** 目标建筑自身的战力，不会攻击的建筑为 0 */
+  towerPower: number;
 }
 
 export interface PlanInput {
@@ -67,7 +66,7 @@ export interface PlanInput {
   defend: DefendTarget[];
   fights: FightSpot[];
   lanes: PushLane[];
-  /** 等级不够推进时去的发育点 */
+  /** 推不动塔时去的发育点 */
   farms: Point[];
   ourPower: number;
   enemyPower: number;
@@ -101,10 +100,12 @@ const EVEN_MAIN_SHARE = 0.6;
 const MAIN_LANE_INERTIA = 0.3;
 // 赶路每这么远，进攻机会分扣 1
 const LANE_TRAVEL_SCALE = 4000;
-// 二塔比高地门槛低这么多级
-const TIER2_LEVEL_DISCOUNT = 4;
 // 敌方英雄战力超过这一路我方人数战力时才算「玩家在这一路」
 const LANE_PRESENCE_RATIO = 0.3;
+// 一路人太少时玩家到哪杀到哪，毫无反抗力，还会被牵着满图跑
+const MIN_LANE_GROUP = 4;
+// 有敌方英雄守塔时要明显压过守方才上，否则推塔的人会被守方加塔一起打死
+const DEFENDED_PUSH_RATIO = 2;
 
 export function pickStrategy(ourPower: number, enemyPower: number): Strategy {
   if (enemyPower <= 0) {
@@ -236,19 +237,12 @@ function assignFights(input: PlanInput, free: PlanBot[], tasks: Map<number, Task
   return remaining;
 }
 
-/** 推这一层建筑需要的英雄等级：外塔不限，越往里越高，等级不够的先去发育。 */
-export function requiredPushLevel(tier: number, pushLevel: number): number {
-  if (tier <= 1) {
-    return 0;
-  }
-  if (tier === 2) {
-    return Math.max(0, pushLevel - TIER2_LEVEL_DISCOUNT);
-  }
-  return pushLevel;
-}
-
-function canPush(bot: PlanBot, lane: PushLane): boolean {
-  return bot.level >= lane.minLevel;
+/** 这些战力能不能推这一路：打得过塔才上；有敌方英雄守时还要明显压过守方。 */
+function canPushWith(power: number, lane: PushLane): boolean {
+  return (
+    power >= lane.towerPower &&
+    (lane.enemyPower <= 0 || power >= lane.enemyPower * DEFENDED_PUSH_RATIO)
+  );
 }
 
 /** 这一路的进攻机会，扣掉 bot 赶过去的路程，顺着原路推下一座塔比 TP 去别的路划算。 */
@@ -263,84 +257,76 @@ function laneScore(
   if (lane.lane === mainLane) {
     score += MAIN_LANE_INERTIA;
   }
-  const able = bots.filter((bot) => canPush(bot, lane));
-  if (able.length > 0) {
-    const travel = able.reduce((sum, bot) => sum + distance(bot.pos, lane.stagingPos), 0);
-    score -= travel / able.length / LANE_TRAVEL_SCALE;
-  }
+  const travel = bots.reduce((sum, bot) => sum + distance(bot.pos, lane.stagingPos), 0);
+  score -= travel / bots.length / LANE_TRAVEL_SCALE;
   return score;
 }
 
-/** 返回本轮集中推进的一路，以及等级不够推任何一路、需要去发育的 bot。 */
+/** 返回本轮集中推进的一路，以及推不动任何一路、需要去发育的 bot。 */
 function assignPush(
   input: PlanInput,
   free: PlanBot[],
   tasks: Map<number, Task>,
 ): { mainLane: Lane | undefined; unassigned: PlanBot[] } {
-  const pushers = free.filter((bot) => input.lanes.some((lane) => canPush(bot, lane)));
-  const unassigned = free.filter((bot) => !pushers.includes(bot));
-  if (pushers.length === 0) {
-    return { mainLane: input.mainLane, unassigned };
+  if (free.length === 0) {
+    return { mainLane: input.mainLane, unassigned: [] };
   }
-  const pushPower = pushers.reduce((sum, bot) => sum + bot.power, 0);
+  const pushPower = free.reduce((sum, bot) => sum + bot.power, 0);
   const ranked = input.lanes
-    .filter((lane) => pushers.some((bot) => canPush(bot, lane)))
-    .map((lane) => ({ lane, score: laneScore(lane, pushers, pushPower, input.mainLane) }))
+    .filter((lane) => canPushWith(pushPower, lane))
+    .map((lane) => ({ lane, score: laneScore(lane, free, pushPower, input.mainLane) }))
     .sort((a, b) => b.score - a.score)
     .map((entry) => entry.lane);
-  // 分到的路自己等级不够时，退到排名最高的、自己推得动的一路
-  const fallback = (bot: PlanBot): PushLane => ranked.find((lane) => canPush(bot, lane))!;
+  if (ranked.length === 0) {
+    return { mainLane: input.mainLane, unassigned: free };
+  }
   const strategy = pickStrategy(input.ourPower, input.enemyPower);
+  let mainLane: Lane | undefined;
 
   if (strategy === 'advantage' || ranked.length === 1) {
-    for (const bot of pushers) {
-      tasks.set(bot.id, pushTask(fallback(bot)));
+    mainLane = ranked[0].lane;
+    for (const bot of free) {
+      tasks.set(bot.id, pushTask(ranked[0]));
     }
-    return { mainLane: ranked[0].lane, unassigned };
-  }
-
-  if (strategy === 'even') {
+  } else if (strategy === 'even') {
     const main = ranked[0];
-    const mainCount = Math.ceil(pushers.length * EVEN_MAIN_SHARE);
-    const toMain = byDistance(
-      pushers.filter((bot) => canPush(bot, main)),
-      main.stagingPos,
-    ).slice(0, mainCount);
+    mainLane = main.lane;
+    const toMain = byDistance(free, main.stagingPos).slice(
+      0,
+      Math.ceil(free.length * EVEN_MAIN_SHARE),
+    );
     const mainIds = new Set(toMain.map((bot) => bot.id));
     for (const bot of toMain) {
       tasks.set(bot.id, pushTask(main));
     }
     spread(
-      pushers.filter((bot) => !mainIds.has(bot.id)),
+      free.filter((bot) => !mainIds.has(bot.id)),
       ranked.slice(1),
       tasks,
-      fallback,
     );
-    return { mainLane: main.lane, unassigned };
+  } else {
+    // 劣势时去玩家不在的几路分推，逼玩家来回跑；每路都有玩家时退而求其次挑敌方最弱的一路
+    const perLanePower = pushPower / ranked.length;
+    let empty = ranked.filter((lane) => lane.enemyPower <= perLanePower * LANE_PRESENCE_RATIO);
+    if (empty.length === 0) {
+      empty = [[...ranked].sort((a, b) => a.enemyPower - b.enemyPower)[0]];
+    }
+    spread(free, empty, tasks);
   }
-
-  // 劣势时去玩家不在的几路分推，逼玩家来回跑；每路都有玩家时退而求其次挑敌方最弱的一路
-  const perLanePower = pushPower / ranked.length;
-  let empty = ranked.filter((lane) => lane.enemyPower <= perLanePower * LANE_PRESENCE_RATIO);
-  if (empty.length === 0) {
-    empty = [[...ranked].sort((a, b) => a.enemyPower - b.enemyPower)[0]];
-  }
-  spread(pushers, empty, tasks, fallback);
-  return { mainLane: undefined, unassigned };
+  return { mainLane, unassigned: dropWeakGroups(free, ranked, tasks) };
 }
 
-/** 平均分到几路，已经在某一路推进的 bot 优先留在原路。 */
-function spread(
-  bots: PlanBot[],
-  lanes: PushLane[],
-  tasks: Map<number, Task>,
-  fallback: (bot: PlanBot) => PushLane,
-): void {
-  const capacity = Math.ceil(bots.length / Math.max(lanes.length, 1));
+/**
+ * 按人数分到排名靠前的几路，每路凑够一组人，人少时合成一路；
+ * 已经在某一路推进的 bot 优先留在原路。
+ */
+function spread(bots: PlanBot[], lanes: PushLane[], tasks: Map<number, Task>): void {
+  const used = lanes.slice(0, Math.max(1, Math.floor(bots.length / MIN_LANE_GROUP)));
+  const capacity = Math.ceil(bots.length / used.length);
   const counts = new Map<Lane, number>();
   const pending: PlanBot[] = [];
   for (const bot of bots) {
-    const stay = lanes.find((lane) => lane.lane === bot.previous?.lane && canPush(bot, lane));
+    const stay = used.find((lane) => lane.lane === bot.previous?.lane);
     if (bot.previous?.kind === 'push' && stay && (counts.get(stay.lane) ?? 0) < capacity) {
       counts.set(stay.lane, (counts.get(stay.lane) ?? 0) + 1);
       tasks.set(bot.id, pushTask(stay));
@@ -349,13 +335,8 @@ function spread(
     }
   }
   for (const bot of pending) {
-    const able = lanes.filter((lane) => canPush(bot, lane));
-    const open = able.filter((lane) => (counts.get(lane.lane) ?? 0) < capacity);
-    const choices = open.length > 0 ? open : able;
-    if (choices.length === 0) {
-      tasks.set(bot.id, pushTask(fallback(bot)));
-      continue;
-    }
+    const open = used.filter((lane) => (counts.get(lane.lane) ?? 0) < capacity);
+    const choices = open.length > 0 ? open : used;
     let best = choices[0];
     for (const lane of choices) {
       if (distance(bot.pos, lane.stagingPos) < distance(bot.pos, best.stagingPos)) {
@@ -367,7 +348,23 @@ function spread(
   }
 }
 
-/** 等级不够推进的 bot 去最近的发育点：没人守的兵线或己方野区。 */
+/** 分完之后某一路的人推不动那座塔或压不过守方，这一组改去发育，不上去送。 */
+function dropWeakGroups(bots: PlanBot[], lanes: PushLane[], tasks: Map<number, Task>): PlanBot[] {
+  const dropped: PlanBot[] = [];
+  for (const lane of lanes) {
+    const group = bots.filter((bot) => tasks.get(bot.id)?.lane === lane.lane);
+    const power = group.reduce((sum, bot) => sum + bot.power, 0);
+    if (group.length > 0 && !canPushWith(power, lane)) {
+      for (const bot of group) {
+        tasks.delete(bot.id);
+        dropped.push(bot);
+      }
+    }
+  }
+  return dropped;
+}
+
+/** 推不动塔的 bot 去最近的发育点：没人守的兵线或己方野区。 */
 function assignFarm(input: PlanInput, bots: PlanBot[], tasks: Map<number, Task>): void {
   for (const bot of bots) {
     let best: Point | undefined;
