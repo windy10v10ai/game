@@ -71,6 +71,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly DiveMinCreeps: number = 2;
   protected readonly DiveCheckRadius: number = 900;
   protected readonly DiveGatherRange: number = 400;
+  // 转移仇恨后塔若很快又打回自己，说明身边没有别的目标可换，这段时间内直接退出射程
+  protected readonly DeaggroCooldown: number = 3;
 
   // 任务目的地很远、而己方建筑离目的地近得多时，用 TP 过去
   protected readonly TaskTeleportDistance: number = 6000;
@@ -106,6 +108,7 @@ export class BotBaseAIModifier extends BaseModifier {
   private lastOrderPos: Vector | undefined;
   private lastOrderType: UnitOrder | undefined;
   private lastOrderTime: number = -60;
+  private lastDeaggroTime: number = -60;
 
   // 开发模式决策日志：本轮交战判断的依据、选中的目标、上一次打印的内容
   private traceInfo: string = '';
@@ -197,6 +200,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.IsInAbilityPhase()) {
       return;
     }
+    if (this.DropTowerAggro()) {
+      return;
+    }
     if (this.AvoidTowerDive()) {
       return;
     }
@@ -215,6 +221,9 @@ export class BotBaseAIModifier extends BaseModifier {
       return;
     }
     if (this.IsInAbilityPhase()) {
+      return;
+    }
+    if (this.DropTowerAggro()) {
       return;
     }
 
@@ -689,13 +698,17 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   // Tower dive
   // ---------------------------------------------------------
-  /** 不进敌方塔的攻击范围，除非塔在打小兵、塔下人多血厚，或者已经在打到底。 */
+  /** 不进敌方塔的攻击范围，除非塔在打小兵、塔下人多血厚，或者已经在打到底；被塔盯上就先退出去。 */
   protected CanDive(tower: CDOTA_BaseNPC): boolean {
     // 基地塔与基地伤害高，打到底也不进
     if (this.stance === 'lastStand' && !IsBaseTower(tower)) {
       return true;
     }
     const towerTarget = tower.GetAttackTarget();
+    // 转移仇恨也没甩掉塔时，等血量掉到门槛再走已经走不出射程
+    if (towerTarget === this.hero) {
+      return false;
+    }
     const towerOnHero = towerTarget !== undefined && towerTarget.IsHero();
     if (!towerOnHero && this.CountCreepsNear(tower) >= this.DiveMinCreeps) {
       return true;
@@ -734,6 +747,46 @@ export class BotBaseAIModifier extends BaseModifier {
       }
     }
     return count;
+  }
+
+  /** 被敌方塔攻击时对塔下的友方单位下一次攻击指令，让塔换目标。 */
+  protected DropTowerAggro(): boolean {
+    if (this.gameTime - this.lastDeaggroTime < this.DeaggroCooldown) {
+      return false;
+    }
+    const tower = this.FindNearestEnemyTowerInvulnerable();
+    if (!tower || tower.GetAttackTarget() !== this.hero) {
+      return false;
+    }
+    // 只找塔射程内的单位，塔丢掉仇恨后才有别的目标可换
+    const ally = FindUnitsInRadius(
+      this.hero.GetTeamNumber(),
+      tower.GetAbsOrigin(),
+      undefined,
+      tower.Script_GetAttackRange(),
+      UnitTargetTeam.FRIENDLY,
+      UnitTargetType.HERO + UnitTargetType.BASIC,
+      UnitTargetFlags.NONE,
+      FindOrder.CLOSEST,
+      false,
+    ).find((unit) => unit !== this.hero);
+    if (!ally) {
+      return false;
+    }
+    this.lastDeaggroTime = this.gameTime;
+    if (IS_TOOLS_MODE) {
+      print(
+        `[bot-ai] ${HeroShortName(this.hero)} hp=${Math.floor(this.hero.GetHealthPercent())}%` +
+          ` deaggro=${ally.GetUnitName()} tower=${tower.GetUnitName()}`,
+      );
+    }
+    ExecuteOrderFromTable({
+      OrderType: UnitOrder.ATTACK_TARGET,
+      UnitIndex: this.hero.GetEntityIndex(),
+      TargetIndex: ally.GetEntityIndex(),
+      Queue: false,
+    });
+    return true;
   }
 
   protected AvoidTowerDive(): boolean {
