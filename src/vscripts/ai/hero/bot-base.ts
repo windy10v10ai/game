@@ -39,6 +39,8 @@ const BLINK_ITEM_NAMES = [
   'item_jump_jump_jump',
 ];
 
+const blinkRangeCache = new Map<string, number>();
+
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
   protected readonly ThinkInterval: number = 0.5;
@@ -778,12 +780,17 @@ export class BotBaseAIModifier extends BaseModifier {
     return this.CastBlink(blink, here.__add(offset.__mul(gap / distance)), 'engage');
   }
 
-  /** 闪烁距离：各件跳刀的施法距离读数不一定可靠，与闪烁距离数值取大。 */
+  /** 闪烁距离：施法距离读数对部分跳刀为 0，与 KV 的闪烁距离取大；同名跳刀数值不变，读一次缓存。 */
   private BlinkRange(blink: CDOTA_Item): number {
-    const base = Math.max(
-      blink.GetCastRange(this.hero.GetAbsOrigin(), undefined),
-      blink.GetSpecialValueFor('blink_range'),
-    );
+    const name = blink.GetName();
+    let base = blinkRangeCache.get(name);
+    if (base === undefined) {
+      base = Math.max(
+        blink.GetCastRange(this.hero.GetAbsOrigin(), undefined),
+        blink.GetSpecialValueFor('blink_range'),
+      );
+      blinkRangeCache.set(name, base);
+    }
     return base + this.hero.GetCastRangeBonus();
   }
 
