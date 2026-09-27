@@ -13,6 +13,10 @@ describe('creep ability policy', () => {
     expect(GetCreepCondition(creepSpec()).target?.count).toEqual({ gte: 2 });
   });
 
+  it('allows creep spells from level two by default', () => {
+    expect(GetCreepCondition(creepSpec()).ability?.level).toEqual({ gte: 2 });
+  });
+
   it('allows an explicit single-target use', () => {
     const condition = GetCreepCondition(
       creepSpec({

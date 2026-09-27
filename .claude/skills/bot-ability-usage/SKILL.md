@@ -101,7 +101,7 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 > **EnemyCreep 默认条件**（`CREEP_DEFAULT_CONDITION`，由 dispatcher 自动套用，无需在 spec 中重复写）：
 > - `self.unitCondition.manaPercent.gte: 40`
 > - `self.unitCondition.healthPercent.gte: 40`
-> - `ability.level.gte: 3`
+> - `ability.level.gte: 2`
 > - `self.noEnemyHeroInRange: 900`
 > - `target.count.gte: 2`
 >

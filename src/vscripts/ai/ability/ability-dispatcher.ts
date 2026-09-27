@@ -29,7 +29,7 @@ const CREEP_DEFAULT_CONDITION: CastCoindition = {
     },
     noEnemyHeroInRange: 900,
   },
-  ability: { level: { gte: 3 } },
+  ability: { level: { gte: 2 } },
   target: { count: { gte: 2 } },
 };
 

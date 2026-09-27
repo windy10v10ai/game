@@ -14,6 +14,7 @@ export const SPECS: AbilitySpec[] = [
         unitCondition: { health: { gte: 1001 }, neutralOnly: true },
         count: { gte: 1 },
       },
+      ability: { level: { gte: 1 } },
     },
   },
 ];
