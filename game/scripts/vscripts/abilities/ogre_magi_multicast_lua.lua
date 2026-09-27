@@ -98,6 +98,7 @@ no_support_abilitys = {
 	puck_illusory_orb = 1,               -- 帕克 幻象法球
 	spirit_breaker_charge_of_darkness = 1, -- 裂魂人 暗影冲刺
 	rattletrap_hookshot = 1,             -- 发条技师 发射钩爪
+	shredder_timber_chain = 1,           -- 伐木机 伐木锯链
 	huskar_life_break = 1,               -- 哈斯卡 牺牲
 	pangolier_swashbuckle = 1,           -- 石鳞剑士 虚张声势
 	pangolier_gyroshell = 1,             -- 石鳞剑士 地雷滚滚
