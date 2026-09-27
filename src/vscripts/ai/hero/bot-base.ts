@@ -343,6 +343,7 @@ export class BotBaseAIModifier extends BaseModifier {
       this.engagedUntil = this.gameTime + this.EngageMemory;
     }
     const engaged = enemies.length > 0 && this.gameTime < this.engagedUntil;
+    brain.SetEngaged(this.hero, engaged);
     this.traceInfo = '';
     this.retreatPoint = undefined;
     if (enemies.length === 0) {

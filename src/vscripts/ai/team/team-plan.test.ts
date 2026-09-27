@@ -175,6 +175,7 @@ describe('planTasks', () => {
     focusId: 99,
     rally: { x: -2000, y: 0 },
     pastFront: false,
+    engaged: false,
   });
 
   it('does not send bots to fight behind a standing tower', () => {
@@ -253,6 +254,14 @@ describe('planTasks', () => {
     const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
     expect(kinds.filter((kind) => kind === 'regroup')).toHaveLength(3);
     expect(kinds).not.toContain('fight');
+  });
+
+  it('sends the nearest bots straight in once the fight has started', () => {
+    const input = baseInput({ fights: [{ ...spot(450), engaged: true }] });
+    input.bots.forEach((bot) => (bot.pos = { x: -9000, y: 0 }));
+    const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
+    expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(3);
+    expect(kinds).not.toContain('regroup');
   });
 
   it('keeps the whole team away from a fight it cannot win', () => {

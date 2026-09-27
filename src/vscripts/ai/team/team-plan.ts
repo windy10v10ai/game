@@ -45,6 +45,8 @@ export interface FightSpot {
   rally: Point;
   /** 在敌方还没推掉的塔后面，不派人去打 */
   pastFront: boolean;
+  /** 附近已经有 bot 和敌方英雄交上手 */
+  engaged: boolean;
 }
 
 /** 一处发育点：一个野怪营地或一段没人守的兵线。 */
@@ -203,7 +205,8 @@ function findPushers(bots: PlanBot[]): Set<number> {
 /**
  * 交战按全队判断，要么不上、要么集合后一起上：
  * 全队加起来也打不过就不去，附近的人撤开，那一带也不派人推进；
- * 到场的人够了就一起集火，推塔手最后才挑；还不够就把最近的人叫到集合点凑齐，谁都不单独上。
+ * 到场的人够了就一起集火，推塔手最后才挑；还不够就把最近的人叫到集合点凑齐再上；
+ * 已经打起来（比如玩家先动手）就不等集合，按距离叫够人直接赶过去打。
  */
 function assignFights(
   input: PlanInput,
@@ -251,12 +254,15 @@ function assignFights(
           assigned += bot.power;
         }
       } else {
+        const task: Task = spot.engaged
+          ? { kind: 'fight', pos: spot.pos, targetId: spot.focusId }
+          : { kind: 'regroup', pos: spot.rally };
         let power = spot.allyPower;
-        for (const bot of byDistance(remaining, spot.rally)) {
+        for (const bot of byDistance(remaining, spot.engaged ? spot.pos : spot.rally)) {
           if (spot.enemyPower <= power * AVOID_POWER_RATIO) {
             break;
           }
-          tasks.set(bot.id, { kind: 'regroup', pos: spot.rally });
+          tasks.set(bot.id, task);
           picked.add(bot.id);
           power += bot.power;
         }

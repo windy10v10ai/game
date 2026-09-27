@@ -92,6 +92,7 @@ export class TeamBrain {
   private readonly enemyTeam: DotaTeam;
   private readonly members = new Map<EntityIndex, CDOTA_BaseNPC_Hero>();
   private readonly recoverRequests = new Set<EntityIndex>();
+  private readonly engagedMembers = new Set<EntityIndex>();
   private readonly lastSeen = new Map<EntityIndex, EnemyMemory>();
   private visible = new Set<EntityIndex>();
   private readonly threats = new Map<EntityIndex, ThreatRecord>();
@@ -115,6 +116,15 @@ export class TeamBrain {
 
   GetTask(hero: CDOTA_BaseNPC_Hero): Task | undefined {
     return this.tasks.get(hero.GetEntityIndex());
+  }
+
+  /** 英雄报告自己是否正在和敌方英雄交手，团队据此判断哪处交战已经打起来。 */
+  SetEngaged(hero: CDOTA_BaseNPC_Hero, engaged: boolean): void {
+    if (engaged) {
+      this.engagedMembers.add(hero.GetEntityIndex());
+    } else {
+      this.engagedMembers.delete(hero.GetEntityIndex());
+    }
   }
 
   SetNeedsRecover(hero: CDOTA_BaseNPC_Hero, needs: boolean): void {
@@ -286,6 +296,7 @@ export class TeamBrain {
     const ownTower = this.FindTowerNear(this.team, pos, FIGHT_TOWER_RADIUS);
     let allyPower = ownTower ? UnitPower(ownTower) : 0;
     let ourPower = allyPower;
+    let engaged = false;
     const ourNames: string[] = [];
     for (const ally of allies) {
       if (!ally.IsAlive()) {
@@ -296,6 +307,7 @@ export class TeamBrain {
         allyPower += UnitPower(ally);
       }
       if (gap <= FIGHT_DANGER_RADIUS) {
+        engaged = engaged || this.engagedMembers.has(ally.GetEntityIndex());
         ourPower += UnitPower(ally);
         ourNames.push(HeroShortName(ally));
       }
@@ -312,6 +324,7 @@ export class TeamBrain {
       ourNames,
       withTower: tower !== undefined,
       pastFront: this.IsPastFront(pos),
+      engaged,
     };
   }
 
@@ -382,6 +395,7 @@ export class TeamBrain {
       if (!IsValidEntity(hero)) {
         this.members.delete(index);
         this.recoverRequests.delete(index);
+        this.engagedMembers.delete(index);
       }
     }
   }
