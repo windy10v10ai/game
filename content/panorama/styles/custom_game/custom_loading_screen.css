@@ -48,20 +48,20 @@
   text-shadow: 1px 1px 2px #000000cc;
 }
 
-/* 启动器推广盒，边框/标题/按钮换成暗橙色（与启动器 exe 同色系），不加角标和外发光 */
+/* 启动器推广盒，边框/标题/按钮换成 exe 同款火焰橙，不加角标和外发光 */
 #LauncherPromoPanel {
   width: 100%;
   margin-top: 40px;
   padding: 12px 14px;
   background-color: #0a0c0fcc;
-  border: 1px solid #a8501f;
+  border: 1px solid #e0552d;
   border-radius: 4px;
   flow-children: down;
 }
 
 #LauncherPromoTitle {
   width: 100%;
-  color: #e0834f;
+  color: #f07a55;
   font-size: 19px;
   font-weight: bold;
   white-space: normal;
@@ -84,18 +84,18 @@
   height: 28px;
   margin-top: 10px;
   padding: 0px 14px;
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#8a4a24), to(#4a2410));
-  border: 1px solid #c9721f;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#c9481f), to(#7a2c12));
+  border: 1px solid #e0552d;
   border-radius: 3px;
 }
 
 #LauncherPromoButton:hover {
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#a8622f), to(#5f3016));
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#e0663a), to(#943a1a));
   box-shadow: #00000088 0px 0px 10px 0px;
 }
 
 #LauncherPromoButton:active {
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#4a2410), to(#8a4a24));
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#7a2c12), to(#c9481f));
 }
 
 #LauncherPromoButtonLabel {
