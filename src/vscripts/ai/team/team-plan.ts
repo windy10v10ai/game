@@ -214,6 +214,13 @@ function assignFights(input: PlanInput, free: PlanBot[], tasks: Map<number, Task
     if (spot.pastFront && spot.enemyPower <= available * AVOID_POWER_RATIO) {
       continue;
     }
+    // 附近凑不够战力时不派人，照常做手上的任务，免得把人一个个送上去
+    if (
+      spot.enemyPower <= available * AVOID_POWER_RATIO &&
+      available < spot.enemyPower * FIGHT_POWER_MARGIN
+    ) {
+      continue;
+    }
     if (spot.enemyPower > available * AVOID_POWER_RATIO) {
       for (const bot of nearby) {
         if (distance(bot.pos, spot.pos) <= FIGHT_DANGER_RADIUS) {

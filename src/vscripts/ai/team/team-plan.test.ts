@@ -247,6 +247,11 @@ describe('planTasks', () => {
     expect(tasks.get(5)?.kind).toBe('push');
   });
 
+  it('does not send bots to a fight they cannot win together', () => {
+    const tasks = planTasks(baseInput({ fights: [spot(450)] })).tasks;
+    expect([...tasks.values()].some((task) => task.kind === 'fight')).toBe(false);
+  });
+
   it('pulls pushers in only when the fight needs them', () => {
     const tasks = planTasks(baseInput({ fights: [spot(350)] })).tasks;
     expect([...tasks.values()].every((task) => task.kind === 'fight')).toBe(true);

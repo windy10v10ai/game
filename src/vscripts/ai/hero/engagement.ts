@@ -34,22 +34,11 @@ export function decideStance(input: EngagementInput): Stance {
 
 export interface EscapeInput {
   rooted: boolean;
-  ourSpeed: number;
-  fastestEnemySpeed: number;
-  distanceToSafety: number;
+  /** 有比自己快的敌人已经贴到自己攻击距离内 */
+  caughtByFaster: boolean;
 }
 
-// 敌方快这么多倍、且要跑这么多秒才到撤退点，才算肯定被追上
-const HOPELESS_SPEED_RATIO = 1.5;
-const HOPELESS_ESCAPE_SECONDS = 6;
-
+/** 只有被定身、或已被更快的敌人贴身追着打才算跑不掉，此时原地还手；甩开了就继续跑。 */
 export function canEscape(input: EscapeInput): boolean {
-  if (input.rooted) {
-    return false;
-  }
-  const escapeSeconds = input.distanceToSafety / Math.max(input.ourSpeed, 1);
-  return !(
-    input.fastestEnemySpeed >= input.ourSpeed * HOPELESS_SPEED_RATIO &&
-    escapeSeconds > HOPELESS_ESCAPE_SECONDS
-  );
+  return !input.rooted && !input.caughtByFaster;
 }

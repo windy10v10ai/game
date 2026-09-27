@@ -387,15 +387,13 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   private CanEscape(enemies: CDOTA_BaseNPC[]): boolean {
-    let fastest = 0;
-    for (const enemy of enemies) {
-      fastest = Math.max(fastest, enemy.GetIdealSpeed());
-    }
+    const speed = this.hero.GetIdealSpeed();
+    const reach = this.hero.Script_GetAttackRange() + this.HitBackExtraRange;
     return canEscape({
       rooted: this.hero.IsRooted(),
-      ourSpeed: this.hero.GetIdealSpeed(),
-      fastestEnemySpeed: fastest,
-      distanceToSafety: this.hero.GetAbsOrigin().__sub(this.FindSafePoint()).Length2D(),
+      caughtByFaster: enemies.some(
+        (enemy) => enemy.GetIdealSpeed() > speed && this.hero.GetRangeToUnit(enemy) <= reach,
+      ),
     });
   }
 
