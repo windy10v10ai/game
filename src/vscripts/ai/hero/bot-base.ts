@@ -70,6 +70,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly CastRange: number = 900;
   protected readonly LocalFightRadius: number = 1500;
   protected readonly ChaseRange: number = 1200;
+  // 原地还手时只打攻击距离外这么一点以内的敌人，再远就算追
+  protected readonly HitBackExtraRange: number = 100;
   // 智力英雄靠技能输出，追着普攻跑会脱离队伍
   protected readonly IntChaseExtra: number = 300;
   // 挨打或出手后这段时间内仍算交战中
@@ -281,9 +283,15 @@ export class BotBaseAIModifier extends BaseModifier {
   private ActionStance(task: Task | undefined): boolean {
     switch (this.stance) {
       case 'fight':
-      case 'lastStand':
         this.mode = 'fight';
         return this.ActionAttack(task) || this.ActionTask(task);
+      case 'lastStand':
+        this.mode = 'fight';
+        // 跑不掉时原地还手：技能物品照放，只打够得着的敌人，不追，够不着就继续撤
+        if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this) || this.HitBackInRange()) {
+          return true;
+        }
+        return this.ActionRetreat();
       case 'retreat':
         this.mode = 'retreat';
         // 边撤边放技能物品，让追击或靠近有代价；不停下来普攻
@@ -482,6 +490,18 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
     return ActionAttack.MoveToAttack(this.hero, target, range);
+  }
+
+  /** 打攻击距离内最近的敌方英雄。 */
+  private HitBackInRange(): boolean {
+    const reach = this.hero.Script_GetAttackRange() + this.HitBackExtraRange;
+    for (const enemy of this.aroundEnemyHeroes) {
+      if (this.hero.GetRangeToUnit(enemy) <= reach) {
+        this.traceTarget = HeroShortName(enemy);
+        return ActionAttack.MoveToAttack(this.hero, enemy, reach);
+      }
+    }
+    return false;
   }
 
   /** 优先团队指定的集火目标，否则挑血最少的；站在不能进的敌方塔下、或躲到还没推掉的塔后面的目标不追。 */
