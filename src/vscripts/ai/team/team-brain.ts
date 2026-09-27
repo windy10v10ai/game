@@ -282,8 +282,10 @@ export class TeamBrain {
     if (tower) {
       enemyPower += UnitPower(tower);
     }
-    let allyPower = 0;
-    let ourPower = 0;
+    // 己方塔也算我方战力，玩家上高地时 bot 守得更积极；玩家的塔同样算进敌方
+    const ownTower = this.FindTowerNear(this.team, pos, FIGHT_TOWER_RADIUS);
+    let allyPower = ownTower ? UnitPower(ownTower) : 0;
+    let ourPower = allyPower;
     const ourNames: string[] = [];
     for (const ally of allies) {
       if (!ally.IsAlive()) {
@@ -484,13 +486,14 @@ export class TeamBrain {
       }
       this.fronts.set(path.lane, targetForward);
       const front = creepFront.get(path.lane);
-      const waveAtTarget = front !== undefined && front >= targetForward - WAVE_AT_TARGET_DISTANCE;
+      // 这一路没有己方小兵时不去推，一个人站在塔前等只会被抓
+      if (front === undefined) {
+        continue;
+      }
+      const waveAtTarget = front >= targetForward - WAVE_AT_TARGET_DISTANCE;
       let stagingPos: Point = target.unit.GetAbsOrigin();
       if (!waveAtTarget) {
-        const waitForward =
-          front === undefined
-            ? targetForward - WAIT_OUTSIDE_TOWER
-            : Math.min(front + STAGING_AHEAD, targetForward - WAIT_OUTSIDE_TOWER);
+        const waitForward = Math.min(front + STAGING_AHEAD, targetForward - WAIT_OUTSIDE_TOWER);
         stagingPos = pointAtProgress(path, progressFromForward(path, waitForward, isRadiant));
       }
       lanes.push({

@@ -247,9 +247,20 @@ describe('planTasks', () => {
     expect(tasks.get(5)?.kind).toBe('push');
   });
 
-  it('does not send bots to a fight they cannot win together', () => {
-    const tasks = planTasks(baseInput({ fights: [spot(450)] })).tasks;
-    expect([...tasks.values()].some((task) => task.kind === 'fight')).toBe(false);
+  it('gathers at the rally before engaging when the bots nearby are not enough', () => {
+    const input = baseInput({ fights: [spot(450)] });
+    input.bots.forEach((bot) => (bot.pos = { x: -9000, y: 0 }));
+    const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
+    expect(kinds.filter((kind) => kind === 'regroup')).toHaveLength(3);
+    expect(kinds).not.toContain('fight');
+  });
+
+  it('keeps the whole team away from a fight it cannot win', () => {
+    const input = baseInput({ fights: [spot(1200)] });
+    input.bots[4].pos = { x: -9000, y: 0 };
+    const tasks = planTasks(input).tasks;
+    expect(tasks.get(1)?.kind).toBe('regroup');
+    expect(tasks.get(5)?.lane).toBe('top');
   });
 
   it('pulls pushers in only when the fight needs them', () => {

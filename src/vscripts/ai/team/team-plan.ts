@@ -100,6 +100,10 @@ export const FIGHT_JOIN_RADIUS = 2500;
 export const FIGHT_DANGER_RADIUS = 1500;
 // 派去打架的战力要高出对面一截才稳
 const FIGHT_POWER_MARGIN = 1.2;
+// 集合的 bot 到了集合点这么近就算到场
+const RALLY_ARRIVE_RADIUS = 800;
+// 全队都打不过的敌人附近这么远的推进目标先不派人，免得走过去被逐个击破
+const AVOID_LANE_RADIUS = 3000;
 // 推塔手排在后面挑，相当于离交战点远了这么多
 const PUSHER_DISTANCE_PENALTY = 2000;
 const EVEN_MAIN_SHARE = 0.6;
@@ -142,8 +146,8 @@ export function planTasks(input: PlanInput): PlanResult {
   }
 
   free = assignDefend(input, free, tasks);
-  free = assignFights(input, free, tasks);
-  const push = assignPush(input, free, tasks);
+  const fights = assignFights(input, free, tasks);
+  const push = assignPush(input, fights.remaining, tasks, fights.avoid);
   assignFarm(input, push.unassigned, tasks);
   const mainLane = push.mainLane;
 
@@ -197,59 +201,70 @@ function findPushers(bots: PlanBot[]): Set<number> {
 }
 
 /**
- * 能打的交战点从附近挑人去集火，推塔手最后才挑，战力够了就停，剩下的人继续推进；
- * 明显打不过时，附近的 bot 一起撤向集合点。
+ * 交战按全队判断，要么不上、要么集合后一起上：
+ * 全队加起来也打不过就不去，附近的人撤开，那一带也不派人推进；
+ * 到场的人够了就一起集火，推塔手最后才挑；还不够就把最近的人叫到集合点凑齐，谁都不单独上。
  */
-function assignFights(input: PlanInput, free: PlanBot[], tasks: Map<number, Task>): PlanBot[] {
+function assignFights(
+  input: PlanInput,
+  free: PlanBot[],
+  tasks: Map<number, Task>,
+): { remaining: PlanBot[]; avoid: Point[] } {
   const pushers = findPushers(input.bots);
   const spots = [...input.fights].sort((a, b) => b.enemyPower - a.enemyPower);
+  const avoid: Point[] = [];
   let remaining = free;
   for (const spot of spots) {
-    const nearby = remaining.filter((bot) => distance(bot.pos, spot.pos) <= FIGHT_JOIN_RADIUS);
-    if (nearby.length === 0) {
-      continue;
-    }
-    const available = nearby.reduce((sum, bot) => sum + bot.power, 0) + spot.allyPower;
+    const teamPower = remaining.reduce((sum, bot) => sum + bot.power, 0) + spot.allyPower;
     const picked = new Set<number>();
-    if (spot.pastFront && spot.enemyPower <= available * AVOID_POWER_RATIO) {
-      continue;
-    }
-    // 附近凑不够战力时不派人，照常做手上的任务，免得把人一个个送上去
-    if (
-      spot.enemyPower <= available * AVOID_POWER_RATIO &&
-      available < spot.enemyPower * FIGHT_POWER_MARGIN
-    ) {
-      continue;
-    }
-    if (spot.enemyPower > available * AVOID_POWER_RATIO) {
-      for (const bot of nearby) {
+    if (spot.enemyPower > teamPower * AVOID_POWER_RATIO) {
+      avoid.push(spot.pos);
+      for (const bot of remaining) {
         if (distance(bot.pos, spot.pos) <= FIGHT_DANGER_RADIUS) {
           tasks.set(bot.id, { kind: 'regroup', pos: spot.rally });
           picked.add(bot.id);
         }
       }
-    } else {
-      const need = spot.enemyPower * FIGHT_POWER_MARGIN - spot.allyPower;
-      const order = [...nearby].sort(
-        (a, b) =>
-          distance(a.pos, spot.pos) +
-          (pushers.has(a.id) ? PUSHER_DISTANCE_PENALTY : 0) -
-          distance(b.pos, spot.pos) -
-          (pushers.has(b.id) ? PUSHER_DISTANCE_PENALTY : 0),
+    } else if (!spot.pastFront) {
+      const gathered = remaining.filter(
+        (bot) =>
+          distance(bot.pos, spot.pos) <= FIGHT_JOIN_RADIUS ||
+          distance(bot.pos, spot.rally) <= RALLY_ARRIVE_RADIUS,
       );
-      let assigned = 0;
-      for (const bot of order) {
-        if (assigned >= need) {
-          break;
+      const gatheredPower = gathered.reduce((sum, bot) => sum + bot.power, 0) + spot.allyPower;
+      if (spot.enemyPower <= gatheredPower * AVOID_POWER_RATIO) {
+        const need = spot.enemyPower * FIGHT_POWER_MARGIN - spot.allyPower;
+        const order = [...gathered].sort(
+          (a, b) =>
+            distance(a.pos, spot.pos) +
+            (pushers.has(a.id) ? PUSHER_DISTANCE_PENALTY : 0) -
+            distance(b.pos, spot.pos) -
+            (pushers.has(b.id) ? PUSHER_DISTANCE_PENALTY : 0),
+        );
+        let assigned = 0;
+        for (const bot of order) {
+          if (assigned >= need) {
+            break;
+          }
+          tasks.set(bot.id, { kind: 'fight', pos: spot.pos, targetId: spot.focusId });
+          picked.add(bot.id);
+          assigned += bot.power;
         }
-        tasks.set(bot.id, { kind: 'fight', pos: spot.pos, targetId: spot.focusId });
-        picked.add(bot.id);
-        assigned += bot.power;
+      } else {
+        let power = spot.allyPower;
+        for (const bot of byDistance(remaining, spot.rally)) {
+          if (spot.enemyPower <= power * AVOID_POWER_RATIO) {
+            break;
+          }
+          tasks.set(bot.id, { kind: 'regroup', pos: spot.rally });
+          picked.add(bot.id);
+          power += bot.power;
+        }
       }
     }
     remaining = remaining.filter((bot) => !picked.has(bot.id));
   }
-  return remaining;
+  return { remaining, avoid };
 }
 
 /** 这些战力能不能推这一路：能磨掉塔血，且守塔的敌方英雄没有强出太多。 */
@@ -281,13 +296,18 @@ function assignPush(
   input: PlanInput,
   free: PlanBot[],
   tasks: Map<number, Task>,
+  avoid: Point[],
 ): { mainLane: Lane | undefined; unassigned: PlanBot[] } {
   if (free.length === 0) {
     return { mainLane: input.mainLane, unassigned: [] };
   }
   const pushPower = free.reduce((sum, bot) => sum + bot.power, 0);
   const ranked = input.lanes
-    .filter((lane) => canPushWith(pushPower, lane))
+    .filter(
+      (lane) =>
+        canPushWith(pushPower, lane) &&
+        avoid.every((pos) => distance(pos, lane.stagingPos) > AVOID_LANE_RADIUS),
+    )
     .map((lane) => ({ lane, score: laneScore(lane, free, pushPower, input.mainLane) }))
     .sort((a, b) => b.score - a.score)
     .map((entry) => entry.lane);
