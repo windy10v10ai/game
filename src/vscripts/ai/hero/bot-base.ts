@@ -74,6 +74,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly IntChaseExtra: number = 300;
   // 挨打或出手后这段时间内仍算交战中
   protected readonly EngageMemory: number = 3;
+  // 一次思考内掉血超过最大血量这个比例，看不见敌人也当作在挨打
+  protected readonly UnseenBurstRatio: number = 0.08;
 
   protected readonly RecoverHealthPercent: number = 35;
   protected readonly RecoverManaPercent: number = 15;
@@ -322,6 +324,7 @@ export class BotBaseAIModifier extends BaseModifier {
     );
     const health = this.hero.GetHealth();
     const tookDamage = health < this.lastHealth;
+    const burst = this.lastHealth - health >= this.hero.GetMaxHealth() * this.UnseenBurstRatio;
     this.tookDamage = tookDamage;
     this.lastHealth = health;
     const attackTarget = this.hero.GetAttackTarget();
@@ -335,6 +338,11 @@ export class BotBaseAIModifier extends BaseModifier {
     this.traceInfo = '';
     this.retreatPoint = undefined;
     if (enemies.length === 0) {
+      // 高地下或迷雾里被看不见的敌人打得很疼时先撤；小兵和塔打不出这么快的掉血
+      if (burst) {
+        this.engagedUntil = this.gameTime + this.EngageMemory;
+        return 'retreat';
+      }
       // 追兵刚跑出视野多半还在附近，撤退要撤完，不因一时看不见就掉头
       if (this.stance === 'retreat' && this.gameTime < this.engagedUntil) {
         return 'retreat';
@@ -864,10 +872,6 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   /** 不进敌方塔的攻击范围，除非塔在打小兵、塔下人多血厚，或者已经在打到底；被塔盯上就先退出去。 */
   protected CanDive(tower: CDOTA_BaseNPC): boolean {
-    // 基地塔与基地伤害高，打到底也不进
-    if (this.stance === 'lastStand' && !IsBaseTower(tower)) {
-      return true;
-    }
     const towerTarget = tower.GetAttackTarget();
     // 转移仇恨也没甩掉塔时，等血量掉到扛塔门槛再走已经走不出射程
     if (towerTarget === this.hero && this.hero.GetHealthPercent() < this.DeaggroHealthPercent) {
@@ -1312,9 +1316,4 @@ export class BotBaseAIModifier extends BaseModifier {
 function IsTowerLike(building: CDOTA_BaseNPC): boolean {
   const name = building.GetUnitName();
   return name.includes('tower') || name.includes('fort');
-}
-
-function IsBaseTower(building: CDOTA_BaseNPC): boolean {
-  const name = building.GetUnitName();
-  return name.includes('tower4') || name.includes('fort');
 }
