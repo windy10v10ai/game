@@ -246,7 +246,6 @@
 				</Panel>
 				<!-- 启动器推广：解决后期卡顿，始终展示，与加载状态无关 -->
 				<Panel id="LauncherPromoPanel">
-					<Label id="LauncherPromoBadge" text="#launcher_promo_badge" />
 					<Label id="LauncherPromoTitle" text="#launcher_promo_title" />
 					<Label id="LauncherPromoDesc" text="#launcher_promo_desc" />
 					<Button id="LauncherPromoButton" class="ButtonBevel" onactivate="OpenWebsiteLaunch()">
