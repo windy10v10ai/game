@@ -105,11 +105,13 @@ export class GameConfig {
 
     ListenToGameEvent(
       'player_connect_full',
-      () => {
-        if (GameRules.State_Get() !== GameState.INIT) return;
-        print('[GameConfig] no lobby, entering custom game setup');
-        GameRules.ResetToCustomGameSetup();
-      },
+      // 在连入回调里同步切状态会超出引擎处理这条网络消息的时间预算，玩家会被以溢出为由断开
+      () =>
+        Timers.CreateTimer(1, () => {
+          if (GameRules.State_Get() !== GameState.INIT) return;
+          print('[GameConfig] no lobby, entering custom game setup');
+          GameRules.ResetToCustomGameSetup();
+        }),
       undefined,
     );
   }
