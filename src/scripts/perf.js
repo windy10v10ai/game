@@ -28,6 +28,7 @@ function parseArgs() {
     soakTimescale: 2,
     // 开局满级加钱，低倍速也能很快进入后期
     boost: true,
+    maxLevel: 50,
     // bot 英雄池的起始偏移，换一批英雄观察
     botOffset: 0,
     // 天辉人数与金钱经验倍率，0 为沿用对局选项；--radiantPlayers 1 模拟 1v10

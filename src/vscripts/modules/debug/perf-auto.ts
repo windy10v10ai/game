@@ -1,5 +1,6 @@
 import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
+import { GameConfig } from '../GameConfig';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroPick } from '../hero/hero-pick';
 import { PerfProfiler } from './perf-profiler';
@@ -24,6 +25,8 @@ export interface PerfAutoConfig {
   soakTimescale: number;
   // 开局把所有英雄拉到满级并给足金钱，低倍速热身几分钟就是后期局面
   boost: boolean;
+  // 0 为沿用对局选项
+  maxLevel: number;
   // 工具模式下 bot 英雄按池子顺序固定选取，偏移后可以让多次测试覆盖池子里的其他英雄
   botOffset: number;
   // 天辉人数与金钱经验倍率，模拟少量玩家对满编 bot 的真实对局；0 为沿用对局选项
@@ -50,6 +53,8 @@ const SETTLE_SECONDS = 5;
 const EARLY_SECONDS = 30;
 const REALTIME_SECONDS = 120;
 const PROPERTY_MODIFIER_PREFIX = 'modifier_player_property_';
+// 足够升到 50 级
+const BOOST_XP = 250000;
 
 // 由 `npm run perf` 在编译产物目录临时写入，平时不存在，正常开发不会进入自动测试
 function loadConfig(): PerfAutoConfig | undefined {
@@ -98,20 +103,24 @@ function forEachHero(callback: (hero: CDOTA_BaseNPC_Hero, playerId: PlayerID) =>
   });
 }
 
-// 单个英雄在同一帧连升几十级会让引擎崩溃，每次全体只升一级，并避开开局暂停的那一秒
-function boostHeroes() {
-  forEachHero((hero) => hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED));
-  let rounds = 0;
-  const levelUp = () => {
-    let pending = false;
-    forEachHero((hero) => {
-      if (hero.GetLevel() >= GameRules.Option.maxLevel) return;
-      hero.HeroLevelUp(false);
-      pending = true;
-    });
-    if (pending && ++rounds < GameRules.Option.maxLevel) afterRealSeconds(0.2, levelUp);
+// 满级等级决定每级经验表，只能在策略阶段生成经验表之前覆盖
+if (bootConfig && bootConfig.maxLevel > 0) {
+  const maxLevel = bootConfig.maxLevel;
+  const originalSetXP = GameConfig.SetMaxLevelXPRequire;
+  GameConfig.SetMaxLevelXPRequire = function (this: typeof GameConfig) {
+    GameRules.Option.maxLevel = maxLevel;
+    originalSetXP.call(this);
   };
-  afterRealSeconds(2, levelUp);
+}
+
+// 经验溢出由引擎截到满级；避开开局暂停的那一秒
+function boostHeroes() {
+  afterRealSeconds(2, () =>
+    forEachHero((hero) => {
+      hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
+      hero.AddExperience(BOOST_XP, ModifyXpReason.UNSPECIFIED, false, false, 0);
+    }),
+  );
 }
 
 // 满级开局几分钟就会推平一方基地，测不到后期；基地仍会被打到残血，团战负载照常。
