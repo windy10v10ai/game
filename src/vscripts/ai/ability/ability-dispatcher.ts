@@ -1,6 +1,6 @@
 import { CastCoindition, DeepMerge } from '../action/cast-condition';
 import { TryCastBySpec } from '../action/target-dispatch';
-import type { BotBaseAIModifier } from '../hero/bot-base';
+import type { BotBaseAIModifier, BotMode } from '../hero/bot-base';
 import { AbilityRegistry } from './ability-registry';
 import { AbilitySpec, TargetSide } from './ability-spec';
 import { GenericAbilityFallback } from './generic-ability-fallback';
@@ -20,10 +20,7 @@ import { GenericAbilityFallback } from './generic-ability-fallback';
  * 关键性能优化：候选目标全部读自 ai.aroundEnemyHeroes / aroundEnemyCreeps / aroundFriendlyHeroes，
  * 整轮 dispatch 不再发起任何 FindUnitsInRadius 调用。
  */
-/**
- * 对小兵施法时自动套用的默认条件（等同旧 CastAbilityOnFindEnemyCreep 的 defaultCondition）。
- * spec 中显式指定的同路径值会通过 DeepMerge 覆盖这里的默认值。
- */
+/** 对小兵施法时自动套用的默认条件；spec 中的同路径值会通过 DeepMerge 覆盖。 */
 const CREEP_DEFAULT_CONDITION: CastCoindition = {
   self: {
     unitCondition: {
@@ -33,12 +30,13 @@ const CREEP_DEFAULT_CONDITION: CastCoindition = {
     noEnemyHeroInRange: 900,
   },
   ability: { level: { gte: 3 } },
+  target: { count: { gte: 2 } },
 };
 
 /** 合并结果只由两个模块级常量决定，跨 tick 恒定，重算只会白白制造垃圾对象。 */
 const creepConditionCache = new Map<AbilitySpec, CastCoindition>();
 
-function GetCreepCondition(spec: AbilitySpec): CastCoindition {
+export function GetCreepCondition(spec: AbilitySpec): CastCoindition {
   const cached = creepConditionCache.get(spec);
   if (cached) {
     return cached;
@@ -46,6 +44,10 @@ function GetCreepCondition(spec: AbilitySpec): CastCoindition {
   const merged = DeepMerge(CREEP_DEFAULT_CONDITION, spec.condition);
   creepConditionCache.set(spec, merged);
   return merged;
+}
+
+export function ShouldTryCreepSpec(mode: BotMode): boolean {
+  return mode === 'laning' || mode === 'push' || mode === 'farm' || mode === 'defend';
 }
 
 export class AbilityDispatcher {
@@ -69,6 +71,9 @@ export class AbilityDispatcher {
       const specs = AbilityRegistry.get(ability.GetName());
       if (specs) {
         for (const spec of specs) {
+          if (spec.targetSide === TargetSide.EnemyCreep && !ShouldTryCreepSpec(ai.mode)) {
+            continue;
+          }
           const condition =
             spec.targetSide === TargetSide.EnemyCreep ? GetCreepCondition(spec) : spec.condition;
           if (TryCastBySpec(ai, ability, spec.targetSide, condition)) {

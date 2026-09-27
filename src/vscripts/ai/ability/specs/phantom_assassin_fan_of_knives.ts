@@ -13,4 +13,11 @@ export const SPECS: AbilitySpec[] = [
       target: { rangeFromAbilityValue: 'radius', ignoresMagicImmune: true },
     },
   },
+  {
+    abilityName: 'phantom_assassin_fan_of_knives',
+    targetSide: TargetSide.EnemyCreep,
+    condition: {
+      target: { rangeFromAbilityValue: 'radius', ignoresMagicImmune: true },
+    },
+  },
 ];

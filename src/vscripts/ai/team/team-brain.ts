@@ -15,6 +15,7 @@ import {
   progressFromForward,
   projectOnLane,
 } from './lane-geometry';
+import { resolvePushStaging } from './push-staging';
 import {
   combatPower,
   decayThreat,
@@ -53,12 +54,6 @@ const FRONT_MARGIN = 400;
 const FARM_CAMP_RADIUS = 800;
 // 集合点允许与交战点差不多深入，推塔的队友往往就站在交战点旁边
 const RALLY_FORWARD_SLACK = 1000;
-// 兵线进到目标建筑这个距离内，才算可以开始推塔
-const WAVE_AT_TARGET_DISTANCE = 900;
-// 兵线没到时在塔攻击范围外等
-const WAIT_OUTSIDE_TOWER = 1100;
-// 兵线在 bot 赶路途中还会往前走，落脚点放在兵线前沿再往前一段
-const STAGING_AHEAD = 800;
 
 export interface EnemyMemory {
   pos: Vector;
@@ -504,18 +499,24 @@ export class TeamBrain {
       if (front === undefined) {
         continue;
       }
-      const waveAtTarget = front >= targetForward - WAVE_AT_TARGET_DISTANCE;
+      const staging = resolvePushStaging(
+        front,
+        targetForward,
+        target.unit.HasModifier('modifier_backdoor_protection_active'),
+      );
       let stagingPos: Point = target.unit.GetAbsOrigin();
-      if (!waveAtTarget) {
-        const waitForward = Math.min(front + STAGING_AHEAD, targetForward - WAIT_OUTSIDE_TOWER);
-        stagingPos = pointAtProgress(path, progressFromForward(path, waitForward, isRadiant));
+      if (!staging.waveAtTarget) {
+        stagingPos = pointAtProgress(
+          path,
+          progressFromForward(path, staging.stagingForward, isRadiant),
+        );
       }
       lanes.push({
         lane: path.lane,
         targetId: target.unit.GetEntityIndex(),
         stagingPos: Vector(stagingPos.x, stagingPos.y, 0),
         targetHpRatio: target.unit.GetHealth() / target.unit.GetMaxHealth(),
-        waveAtTarget,
+        waveAtTarget: staging.waveAtTarget,
         enemyPower: lanePower.get(path.lane) ?? 0,
         towerPower: UnitPower(target.unit),
       });

@@ -427,6 +427,7 @@ function resolveTargetCondition(
     facing: existingTarget?.facing,
     aheadCircle: existingTarget?.aheadCircle,
     enemiesNearby: existingTarget?.enemiesNearby,
+    selection: existingTarget?.selection,
     range: range ?? existingTarget?.range,
     count: count ?? existingTarget?.count,
   };

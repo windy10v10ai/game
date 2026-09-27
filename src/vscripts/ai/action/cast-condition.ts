@@ -75,6 +75,7 @@ export interface CastCoindition {
      * 用于对友方施放、顺带伤害其周围敌人的技能。
      */
     enemiesNearby?: { range: number; count: number };
+    selection?: 'highestHealth';
   };
   self?: {
     unitCondition?: UnitCondition;
@@ -160,8 +161,10 @@ export interface AbilityCoindition {
 }
 
 export interface UnitCondition {
+  health?: NumberRange;
   healthPercent?: NumberRange;
   manaPercent?: NumberRange;
+  neutralOnly?: boolean;
 
   hasScepter?: boolean;
   hasShard?: boolean;
@@ -223,6 +226,7 @@ export function FilterTargetWithCondition(
   const facing = targetCondition?.facing;
   const aheadCircle = ability ? targetCondition?.aheadCircle : undefined;
   const enemiesNearby = targetCondition?.enemiesNearby;
+  const selection = targetCondition?.selection;
   const aheadDistance = aheadCircle ? ability!.GetSpecialValueFor(aheadCircle.distanceValue) : 0;
   const aheadRadius = aheadCircle ? ability!.GetSpecialValueFor(aheadCircle.radiusValue) : 0;
 
@@ -238,6 +242,7 @@ export function FilterTargetWithCondition(
     healthThreshold *= healthCondition.multiplier ?? 1;
   }
 
+  let selected: CDOTA_BaseNPC | undefined;
   for (const unit of units) {
     // 搜索半径远大于施法距离，多数候选都倒在距离上，先筛距离可省掉后面成串的状态查询
     if (CheckNumberRangeFailure(self.GetRangeToUnit(unit), range)) {
@@ -306,10 +311,16 @@ export function FilterTargetWithCondition(
       continue;
     }
 
+    if (selection === 'highestHealth') {
+      if (!selected || unit.GetHealth() > selected.GetHealth()) {
+        selected = unit;
+      }
+      continue;
+    }
     return unit;
   }
 
-  return undefined;
+  return selected;
 }
 
 function CountUnitsInRange(
@@ -400,6 +411,9 @@ export function CheckUnitConditionFailure(
     return false;
   }
 
+  if (CheckNumberRangeFailure(unit.GetHealth(), unitCondition.health)) {
+    return true;
+  }
   if (CheckNumberRangeFailure(unit.GetHealthPercent(), unitCondition.healthPercent)) {
     return true;
   }
@@ -431,6 +445,9 @@ export function CheckUnitConditionFailure(
     return true;
   }
   if (unitCondition.excludeAncient && unit.IsAncient()) {
+    return true;
+  }
+  if (unitCondition.neutralOnly && !unit.IsNeutralUnitType()) {
     return true;
   }
 

@@ -20,6 +20,7 @@ import { Task, TaskKind } from '../team/team-plan';
 import { WardPlacement } from '../ward/ward-placement';
 import { canEscape, decideStance, Stance } from './engagement';
 import { HeroUtil } from './hero-util';
+import { retreatPointFromDanger } from './tower-retreat';
 
 // 性能排查只在工具模式生效，发布版每次思考只多一次常量判断
 const IS_TOOLS_MODE = IsInToolsMode();
@@ -562,13 +563,13 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.tookDamage && this.LosingToNeutrals()) {
       return this.ActionRetreat();
     }
+    if (this.AvoidTowerDive()) {
+      return true;
+    }
     if (ItemDispatcher.Run(this)) {
       return true;
     }
     if (AbilityDispatcher.Run(this)) {
-      return true;
-    }
-    if (this.AvoidTowerDive()) {
       return true;
     }
     if (this.TryTeleportToTask(task.pos)) {
@@ -996,7 +997,13 @@ export class BotBaseAIModifier extends BaseModifier {
     }
     this.traceTarget = `avoid:${tower.GetUnitName()}`;
     if (GameRules.AI.BotTeam?.IsNativeActive() === false) {
-      this.MoveTo(fountain, UnitOrder.MOVE_TO_POSITION);
+      const here = this.hero.GetAbsOrigin();
+      const distance = Math.max(
+        this.ArriveRadius + 50,
+        this.TowerDangerBuffer - HeroUtil.GetDistanceToAttackRange(tower, this.hero) + 50,
+      );
+      const retreat = retreatPointFromDanger(here, tower.GetAbsOrigin(), fountain, distance);
+      this.MoveTo(Vector(retreat.x, retreat.y, here.z), UnitOrder.MOVE_TO_POSITION);
       return true;
     }
     this.continueActionEndTime = this.gameTime + this.towerEscapeTime;

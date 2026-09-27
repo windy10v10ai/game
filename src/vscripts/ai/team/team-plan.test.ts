@@ -6,6 +6,7 @@ import {
   projectOnLane,
 } from './lane-geometry';
 import { combatPower, decayThreat, threatMultiplier } from './power';
+import { resolvePushStaging } from './push-staging';
 import { pushLevelFor, shouldTakeOver, takeoverFallbackSeconds } from './takeover';
 import { PlanInput, PushLane, planTasks, pickStrategy } from './team-plan';
 
@@ -63,6 +64,22 @@ describe('lane geometry', () => {
   it('ignores points far from every lane', () => {
     expect(nearestLane([path], { x: 500, y: 3000 }, 1200)).toBeUndefined();
     expect(nearestLane([path], { x: 500, y: 300 }, 1200)?.path.lane).toBe('mid');
+  });
+});
+
+describe('push staging', () => {
+  it('pushes the tower when the creep wave has arrived', () => {
+    expect(resolvePushStaging(9500, 10000, false)).toEqual({
+      waveAtTarget: true,
+      stagingForward: 10000,
+    });
+  });
+
+  it('waits outside the tower while backdoor protection remains active', () => {
+    expect(resolvePushStaging(9500, 10000, true)).toEqual({
+      waveAtTarget: false,
+      stagingForward: 8900,
+    });
   });
 });
 
