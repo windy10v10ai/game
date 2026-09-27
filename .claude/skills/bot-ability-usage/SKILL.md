@@ -80,7 +80,7 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 19. **值得主动上去打才放**：`self.canEngage: true`，按团队大脑对当前交战的战力判断，与英雄层「没打起来时要不要走上去打」同一口径（`power.ts` 的 `AVOID_POWER_RATIO`，调这一个数就能整体调激进程度）。用于跳进敌人身边、放了就难退的先手技能（如幻影突袭、闪烁突袭、A 杖强化图腾跳跃、移形换位拉敌人）。
 20. **以树为目标**：`targetSide: TargetSide.Tree`，对施法者附近最近的一棵树施放（如抓树），目标条件不适用，只看施法者条件。
 21. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
-22. **只选中立单位并优先高血量目标**：`target.unitCondition.neutralOnly: true` 限定野怪，`target.unitCondition.health` 按当前绝对生命值筛选，`target.selection: 'highestHealth'` 从符合条件的目标中选择当前生命值最高者。
+22. **只选中立单位并按绝对生命值筛选**：`target.unitCondition.neutralOnly: true` 限定野怪，`target.unitCondition.health` 按当前绝对生命值筛选。
 
 ### 是否补一条对小兵的清兵规则
 

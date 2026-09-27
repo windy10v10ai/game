@@ -1,6 +1,6 @@
 import { AbilitySpec, TargetSide } from '../ability-spec';
 
-/** 冰封禁制：打野时优先控制最耐打的目标。 */
+/** 冰封禁制：打野时控制较耐打的目标。 */
 export const SPECS: AbilitySpec[] = [
   {
     abilityName: 'crystal_maiden_frostbite',
@@ -13,7 +13,6 @@ export const SPECS: AbilitySpec[] = [
       target: {
         unitCondition: { health: { gte: 1001 }, neutralOnly: true },
         count: { gte: 1 },
-        selection: 'highestHealth',
       },
     },
   },

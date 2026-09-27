@@ -156,25 +156,6 @@ describe('FilterTargetWithCondition', () => {
       ),
     ).toBe(eligible);
   });
-
-  it('selects the eligible unit with the highest current health when requested', () => {
-    const lower = unit(1200, true);
-    const highest = unit(2200, true);
-    const middle = unit(1800, true);
-
-    expect(
-      FilterTargetWithCondition(
-        {
-          target: {
-            unitCondition: { health: { gte: 1001 }, neutralOnly: true },
-            selection: 'highestHealth',
-          },
-        },
-        [lower, highest, middle],
-        self,
-      ),
-    ).toBe(highest);
-  });
 });
 
 describe('CheckFacingFailure', () => {
