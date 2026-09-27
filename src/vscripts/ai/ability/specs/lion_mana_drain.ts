@@ -28,6 +28,7 @@ export const SPECS: AbilitySpec[] = [
       },
       target: {
         unitCondition: { manaPercent: { gte: 50 } },
+        count: { gte: 1 },
       },
       ability: { level: { gte: 1 } },
     },

@@ -18,7 +18,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_BountyHunter.Target"
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.1"
@@ -361,7 +361,7 @@
 		}
 
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
-		"AbilityManaCost"				"110 120 130 140 150"
+		"AbilityManaCost"				"120"
 
 		"AbilityValues"
 		{
@@ -536,6 +536,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityTextureName"			"necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura"
 		"HasScepterUpgrade"				"1"
 		"IsBreakable"					"1"

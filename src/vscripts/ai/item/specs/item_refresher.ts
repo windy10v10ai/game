@@ -1,5 +1,5 @@
 import { TargetSide } from '../../ability/ability-spec';
-import { ItemSpec } from '../item-spec';
+import { ItemPriority, ItemSpec } from '../item-spec';
 
 /**
  * 刷新球 / 熔火核心 / 时间宝石（升级链）：范围内有敌人、蓝量充足、
@@ -8,6 +8,7 @@ import { ItemSpec } from '../item-spec';
 export const SPECS: ItemSpec[] = [
   {
     itemName: 'item_refresher',
+    priority: ItemPriority.Refresh,
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 1200 }, ignoresMagicImmune: true },
@@ -16,6 +17,7 @@ export const SPECS: ItemSpec[] = [
   },
   {
     itemName: 'item_refresh_core',
+    priority: ItemPriority.Refresh,
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 1200 }, ignoresMagicImmune: true },
@@ -24,6 +26,7 @@ export const SPECS: ItemSpec[] = [
   },
   {
     itemName: 'item_time_gem',
+    priority: ItemPriority.Refresh,
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 1200 }, ignoresMagicImmune: true },

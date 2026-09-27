@@ -194,6 +194,14 @@ function modifier_item_blue_fantasy_debuff:DeclareFunctions()
 end
 
 function modifier_item_blue_fantasy_debuff:OnCreated()
+    -- 物品被卖掉或拆掉后仍可能补挂减益，此时技能句柄已失效
+    if not self:GetAbility() then
+        self.slow_pct = 0
+        self.attack_slow = 0
+        self.max_hp_dmg_pct = 0
+        self.hp_regen_reduction = 0
+        return
+    end
     self.slow_pct = self:GetAbility():GetSpecialValueFor("slow_pct")
     self.attack_slow = self:GetAbility():GetSpecialValueFor("attack_slow")
     self.max_hp_dmg_pct = self:GetAbility():GetSpecialValueFor("max_hp_dmg_pct") * 0.01

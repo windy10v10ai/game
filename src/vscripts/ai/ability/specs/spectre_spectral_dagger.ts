@@ -9,4 +9,11 @@ export const SPECS: AbilitySpec[] = [
       ability: { level: { gte: 3 } },
     },
   },
+  {
+    abilityName: 'spectre_spectral_dagger',
+    targetSide: TargetSide.EnemyCreep,
+    condition: {
+      target: { castMode: 'targetPosition' },
+    },
+  },
 ];

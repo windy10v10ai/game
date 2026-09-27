@@ -5,6 +5,8 @@ import {
   GetFullCastRange,
 } from '../ability/ability-cast';
 import { TargetSide } from '../ability/ability-spec';
+import { canEngage } from '../hero/engagement';
+import { HeroUtil } from '../hero/hero-util';
 import { FRIENDLY_CREEP_SEARCH_RADIUS } from './action-find';
 import {
   CastCoindition,
@@ -12,6 +14,7 @@ import {
   CheckNumberRangeFailure,
   CheckUnitConditionFailure,
   FilterTargetWithCondition,
+  GetAbilityBehaviorBits,
   NumberRange,
 } from './cast-condition';
 
@@ -45,6 +48,18 @@ export function TryCastBySpec(
   if (CheckEnemyHeroInRangeFailure(ai, condition?.self?.enemyHeroInRange)) {
     return false;
   }
+  if (
+    condition?.self?.allyHeroInRange !== undefined &&
+    !HasAllyHeroInRange(ai, condition.self.allyHeroInRange)
+  ) {
+    return false;
+  }
+  if (
+    condition?.self?.noAllyHeroInRange !== undefined &&
+    HasAllyHeroInRange(ai, condition.self.noAllyHeroInRange)
+  ) {
+    return false;
+  }
   if (CheckNoEnemyBuildingInRangeFailure(ai, condition?.self?.noEnemyBuildingInRange)) {
     return false;
   }
@@ -54,8 +69,25 @@ export function TryCastBySpec(
   if (CheckCooldownTotalFailure(hero, castable, condition?.self?.cooldownTotal)) {
     return false;
   }
+  if (condition?.self?.ultimateNotReady && IsUltimateReady(hero)) {
+    return false;
+  }
+  if (condition?.self?.canEngage && !CanEngage(ai)) {
+    return false;
+  }
+
+  if (targetSide === TargetSide.Tree) {
+    const cast = CastOnNearestTree(hero, castable);
+    if (cast) TraceCast(hero, castable, targetSide, undefined, 'tree');
+    return cast;
+  }
 
   const target = pickTarget(ai, castable, targetSide, condition);
+  if (condition?.action?.toggleByTarget) {
+    const toggled = ApplyAbilityAction(castable, { toggleOn: !!target, toggleOff: !target });
+    if (toggled) TraceCast(hero, castable, targetSide, target, target ? 'toggle_on' : 'toggle_off');
+    return toggled;
+  }
   if (!target) {
     return false;
   }
@@ -66,16 +98,59 @@ export function TryCastBySpec(
 
   // 开关/法球类：找到目标（= 满足开启条件）后只切换状态，不走正常施法派发。
   if (condition?.action) {
-    return ApplyAbilityAction(castable, condition.action);
+    const autoCastBefore = castable.GetAutoCastState();
+    const applied = ApplyAbilityAction(castable, condition.action);
+    // 开自动施法不占用本 tick，返回 false，按状态变化判断是否真的切换了
+    if (applied || castable.GetAutoCastState() !== autoCastBefore) {
+      TraceCast(hero, castable, targetSide, target, 'action');
+    }
+    return applied;
   }
 
   const castPosition = resolveCastPosition(hero, castable, target, condition);
-  return CastAbilityOnTargetByBehavior(hero, castable, target, castPosition);
+  const cast = CastAbilityOnTargetByBehavior(hero, castable, target, castPosition);
+  if (cast) TraceCast(hero, castable, targetSide, target, 'cast');
+  return cast;
+}
+
+const IS_TOOLS_MODE = IsInToolsMode();
+
+/** 开发模式下每次下达施法打一行，事后按日志核对施放时机是否符合 spec。 */
+function TraceCast(
+  hero: CDOTA_BaseNPC_Hero,
+  castable: CDOTABaseAbility,
+  side: TargetSide,
+  target: CDOTA_BaseNPC | undefined,
+  kind: string,
+): void {
+  if (!IS_TOOLS_MODE) {
+    return;
+  }
+  const time = GameRules.GetDOTATime(false, false);
+  const clock = `${Math.floor(time / 60)}:${string.format('%02d', Math.floor(time % 60))}`;
+  let targetText = '';
+  if (target) {
+    const state = HeroUtil.NotActionable(target)
+      ? 'hard'
+      : target.IsRooted()
+        ? 'root'
+        : `ms${Math.floor(target.GetIdealSpeed())}`;
+    targetText =
+      ` target=${target.GetUnitName().replace('npc_dota_', '')}` +
+      ` dist=${Math.floor(hero.GetRangeToUnit(target))}` +
+      ` hp=${Math.floor(target.GetHealthPercent())}% state=${state}`;
+  }
+  print(
+    `[bot-cast] t=${clock} ${hero.GetUnitName().replace('npc_dota_hero_', '')}` +
+      ` hp=${Math.floor(hero.GetHealthPercent())}% ${castable.GetAbilityName()} ${kind} side=${side}${targetText}` +
+      ` beh=${GetAbilityBehaviorBits(castable)} cd=${string.format('%.1f', castable.GetCooldownTimeRemaining())}`,
+  );
 }
 
 /**
  * 计算 POINT 技能的释放位置。
- * - castMode 未设或 'targetPosition' → 返回 undefined（CastAbilityOnTargetByBehavior 默认用 target 位置）
+ * - castMode 未设 → 返回 undefined（CastAbilityOnTargetByBehavior 默认用 target 位置）
+ * - 'targetPosition' → 目标位置，并让派发优先点地而不是指向单位
  * - 'projectedOnCastRange'：
  *     - 目标距离 ≤ cast range → 直接用目标位置（精准命中）
  *     - 目标距离 > cast range → 沿"施法者→目标"方向投影到 cast range 边缘
@@ -87,6 +162,73 @@ function HasEnemyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
   const hero = ai.GetHero();
   for (const enemy of ai.aroundEnemyHeroes) {
     if (enemy.IsAlive() && hero.GetRangeToUnit(enemy) <= range) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function CanEngage(ai: BotBaseAIModifier): boolean {
+  const hero = ai.GetHero();
+  const brain = GameRules.AI.BotTeam?.GetBrain(hero);
+  if (!brain || ai.aroundEnemyHeroes.length === 0) {
+    return false;
+  }
+  const fight = brain.AssessFight(hero, ai.aroundEnemyHeroes);
+  return canEngage(fight.ourPower, fight.enemyPower);
+}
+
+// 施法距离很短，允许走几步去抓稍远的树
+const TREE_SEARCH_EXTRA = 300;
+
+function CastOnNearestTree(hero: CDOTA_BaseNPC_Hero, castable: CDOTABaseAbility): boolean {
+  const origin = hero.GetAbsOrigin();
+  const trees = GridNav.GetAllTreesAroundPoint(
+    origin,
+    GetFullCastRange(hero, castable) + TREE_SEARCH_EXTRA,
+    false,
+  );
+  let nearest: CDOTA_MapTree | undefined;
+  let nearestDistance = Infinity;
+  for (const tree of trees) {
+    const distance = tree.GetAbsOrigin().__sub(origin).Length2D();
+    if (distance < nearestDistance) {
+      nearest = tree;
+      nearestDistance = distance;
+    }
+  }
+  if (!nearest) {
+    return false;
+  }
+  ExecuteOrderFromTable({
+    UnitIndex: hero.entindex(),
+    OrderType: UnitOrder.CAST_TARGET_TREE,
+    TargetIndex: GetTreeIdForEntityIndex(nearest.entindex()) as EntityIndex,
+    AbilityIndex: castable.entindex(),
+  });
+  return true;
+}
+
+function IsUltimateReady(hero: CDOTA_BaseNPC_Hero): boolean {
+  const abilityCount = hero.GetAbilityCount();
+  for (let i = 0; i < abilityCount; i++) {
+    const ability = hero.GetAbilityByIndex(i);
+    if (ability && ability.GetAbilityType() === AbilityTypes.ULTIMATE && ability.GetLevel() > 0) {
+      return ability.IsFullyCastable();
+    }
+  }
+  return false;
+}
+
+function HasAllyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
+  const hero = ai.GetHero();
+  for (const ally of ai.aroundFriendlyHeroes) {
+    if (
+      ally !== hero &&
+      ally.IsAlive() &&
+      ally.IsRealHero() &&
+      hero.GetRangeToUnit(ally) <= range
+    ) {
       return true;
     }
   }
@@ -212,6 +354,9 @@ function resolveCastPosition(
   target: CDOTA_BaseNPC,
   condition: CastCoindition | undefined,
 ): Vector | undefined {
+  if (condition?.target?.castMode === 'targetPosition') {
+    return target.GetAbsOrigin();
+  }
   if (condition?.target?.castMode !== 'projectedOnCastRange') {
     return undefined;
   }
@@ -280,6 +425,8 @@ function resolveTargetCondition(
     castMode: existingTarget?.castMode,
     excludeSelf: existingTarget?.excludeSelf,
     facing: existingTarget?.facing,
+    aheadCircle: existingTarget?.aheadCircle,
+    enemiesNearby: existingTarget?.enemiesNearby,
     range: range ?? existingTarget?.range,
     count: count ?? existingTarget?.count,
   };

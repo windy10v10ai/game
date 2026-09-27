@@ -4,6 +4,8 @@ import { GA4 } from '../../api/analytics/ga4/ga4';
 import { Game } from '../../api/game';
 import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { GameConfig } from '../GameConfig';
+import { BotOrderProbe } from '../debug/bot-order-probe';
+import { PerfAuto } from '../debug/perf-auto';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroBuyback } from '../hero/hero-buyback';
@@ -128,8 +130,12 @@ export class EventGameStateChange {
   private OnGameInProgress(): void {
     // 记录游戏开始时间用于 GA4 统计
     GA4.RecordGameStartTime();
-    // 初始化Bot团队策略，挂载到 GameRules.AI 供 FSA 层访问
+    // 初始化 bot 团队调度，挂载到 GameRules.AI 供英雄 AI 访问
     GameRules.AI.BotTeam = new BotTeam();
+    if (IsInToolsMode()) {
+      PerfAuto.onGameInProgress();
+      BotOrderProbe.install();
+    }
     // 初始化Bot出装系统
     InitializeItemReplaceMap();
   }

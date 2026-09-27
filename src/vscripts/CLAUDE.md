@@ -41,7 +41,7 @@ export function ActivateModules() {
 
 **改 `api/` 下任何代发（客户端 HTTP relay）相关代码前先读 `api/README.md`**：游廊对局服务端发不出 HTTP，线上每一局都靠玩家客户端代发，那条链路的限制（只能 GET、标题长度上限、认响应头、线路可用性）决定了这一层能怎么写。
 
-- **`ApiParameter.retryTimes` 是总尝试次数，不是重试次数**：`sendWithRetry` 的判断是 `retryCount < maxRetryTimes`，所以 `1` = 只发一次不重试，默认 `3` = 首次加两次重试共三次（401 任何情况都不重试）。**会扣积分、扣费或建订单的写入一律设 `1`**——重复执行造成的是真实损失，宁可失败让玩家重点一次，也不要静默扣两次。已确认后端本身幂等的保持默认重试（`PUT /player/:id/property` 是目标等级语义、`PUT hero-awakening` 已觉醒直接 no-op、`PUT setting` 与 `PUT game-preset` 是覆盖式写入）。新增 API 调用点时先去后端确认是累加还是覆盖，不要按路由名猜
+- **`ApiParameter.retryTimes` 是总尝试次数，不是重试次数**：`sendWithRetry` 的判断是 `retryCount < maxRetryTimes`，所以 `1` = 只发一次不重试，默认 `3` = 首次加两次重试共三次。只有网络失败（状态码 0）、429 与 5xx 才重试，其余 4xx 原样重发结果不会变，直接走失败回调。**会扣积分、扣费或建订单的写入一律设 `1`**——重复执行造成的是真实损失，宁可失败让玩家重点一次，也不要静默扣两次。`POST /game/end/local` 是例外，后端的 5 分钟冷却会挡住已记上的那次，所以重试 3 次；`POST /game/end` 没有这层保护，仍是 `1`。已确认后端本身幂等的保持默认重试（`PUT /player/:id/property` 是目标等级语义、`PUT hero-awakening` 已觉醒直接 no-op、`PUT setting` 与 `PUT game-preset` 是覆盖式写入）。新增 API 调用点时先去后端确认是累加还是覆盖，不要按路由名猜
 
 ## 测试
 

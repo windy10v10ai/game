@@ -109,7 +109,15 @@ export class PlayerHelper {
     return Math.max(0, PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal);
   }
 
+  private static maxStuns = new Map<PlayerID, number>();
+
+  // 引擎返回的控制时间偶尔会回落，取本局读到过的最大值，保证展示给玩家的数值不倒退
   static GetStuns(playerId: PlayerID): number {
-    return normalizeControlTime(PlayerResource.GetStuns(playerId));
+    const stuns = Math.max(
+      this.maxStuns.get(playerId) ?? 0,
+      normalizeControlTime(PlayerResource.GetStuns(playerId)),
+    );
+    this.maxStuns.set(playerId, stuns);
+    return stuns;
   }
 }

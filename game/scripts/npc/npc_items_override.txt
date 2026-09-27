@@ -234,7 +234,7 @@
 		"ItemPurchasable"				"1"
 		"ItemCost"						"8000"
 		"ItemStockInitial"				"1"
-		"ItemStockMax"					"3"
+		"ItemStockMax"					"1"
 		"ItemStockTime"					"600"
 		"ItemCanBeUsedWithoutInventory"	"1"
 		"AbilityValues"
@@ -242,7 +242,7 @@
 			"duration"				"120"	// 120
 			"health"				"40 80 120"
 			"health_tooltip"		"10 20 30"
-			"buff_linger_duration"		"20"// 0.1
+			"buff_linger_duration"		"10"// 0.1
 		}
 	}
 
@@ -289,10 +289,10 @@
 	//=================================================================================================================
 	"item_recipe_phylactery"
 	{
-		"ItemCost"						"1600"
+		"ItemCost"						"2800"
 		"ItemRequirements"
 		{
-			"01"						"item_point_booster;item_diadem;item_point_booster;item_diadem"
+			"01"						"item_point_booster;item_diadem"
 		}
 	}
 	"item_phylactery"
@@ -313,7 +313,7 @@
 	//=================================================================================================================
 	"item_recipe_angels_demise"
 	{
-		"ItemCost"						"1200"
+		"ItemCost"						"2000"
 	}
 	"item_angels_demise"
 	{
@@ -325,7 +325,7 @@
 			"bonus_all_stats"			"25"	// 8
 			"slow"						"50"	// 30
 			"slow_duration"				"2"		// 4
-			"bonus_spell_damage"		"700"	// 250
+			"bonus_spell_damage"		"600"	// 250
 		}
 	}
 	//=================================================================================================================

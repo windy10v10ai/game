@@ -58,4 +58,14 @@ export enum CMD {
   MODIFIER_REMOVE_All = '-mrall', // 移除指定modifier
 
   GET_KEY_V3 = '-get_key_v3', // 获取key
+
+  // ---- 性能排查 ----
+  PERF = '-perf', // 开启/关闭性能采样
+  PERF_MARK = '-perfmark', // 切换实验段标签
+  PERF_PROF = '-perfprof', // 开启/关闭 Lua 耗时归因
+  PERF_AUTO = '-perfauto', // 在当前局跑完整套对照实验：-perfauto <每段真实秒数> <重复次数> <测量倍率>
+  AI_ON = '-aion', // 开启自定义 AI 思考
+  AI_OFF = '-aioff', // 关闭自定义 AI 思考
+  CLEAR_UNITS = '-clearunits', // 移除所有小兵、野怪、召唤物
+  SPAWN_UNITS = '-spawnunits', // 中路两侧各刷一半近战兵
 }
