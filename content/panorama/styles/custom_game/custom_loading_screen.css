@@ -48,56 +48,69 @@
   text-shadow: 1px 1px 2px #000000cc;
 }
 
-#ConsoleLaunchPanel {
+/* 启动器推广盒，用火焰橙区分旧提示，靠边框和角标让玩家一眼看出是新东西 */
+#LauncherPromoPanel {
   width: 100%;
   margin-top: 24px;
   padding: 12px 14px;
-  background-color: #0a0c0fcc;
-  border: 1px solid #8a6a32;
+  background-color: #17140fee;
+  border: 2px solid #e0552d;
   border-radius: 4px;
+  box-shadow: #e0552d59 0px 0px 18px 0px;
   flow-children: down;
 }
 
-#ConsoleLaunchTitle {
+#LauncherPromoBadge {
+  width: fit-children;
+  padding: 1px 8px;
+  background-color: #e0552d;
+  border-radius: 0px 0px 4px 0px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#LauncherPromoTitle {
   width: 100%;
-  color: #e8c07d;
+  margin-top: 6px;
+  color: #f07a55;
   font-size: 19px;
   font-weight: bold;
   white-space: normal;
   text-shadow: 1px 1px 2px #000000cc;
 }
 
-#ConsoleLaunchDesc {
+#LauncherPromoDesc {
   width: 100%;
   margin-top: 7px;
-  color: #dfe8f2;
+  color: #eee7e0;
   font-size: 16px;
   line-height: 22px;
   white-space: normal;
 }
 
 /* ButtonBevel 自带 min-width，不压掉会撑成整行宽的大按钮 */
-#ConsoleLaunchWebsiteButton {
+#LauncherPromoButton {
   width: fit-children;
   min-width: 0px;
-  height: 28px;
+  height: 30px;
   margin-top: 10px;
-  padding: 0px 14px;
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#7a5f2e), to(#4a3818));
-  border: 1px solid #c9a55c;
+  padding: 0px 16px;
+  background-color: #e0552d;
+  border: none;
   border-radius: 3px;
 }
 
-#ConsoleLaunchWebsiteButton:hover {
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#9a7838), to(#5f4820));
+#LauncherPromoButton:hover {
+  background-color: #f06a40;
   box-shadow: #00000088 0px 0px 10px 0px;
 }
 
-#ConsoleLaunchWebsiteButton:active {
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#4a3818), to(#7a5f2e));
+#LauncherPromoButton:active {
+  background-color: #c9481f;
 }
 
-#ConsoleLaunchWebsiteButtonLabel {
+#LauncherPromoButtonLabel {
   vertical-align: center;
   color: #ffffff;
   font-size: 15px;
