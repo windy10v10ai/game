@@ -25,7 +25,7 @@ export function takeoverFallbackSeconds(direMultiplier: number): number {
   return Math.max(FALLBACK_MIN_MINUTES, Math.min(FALLBACK_MAX_MINUTES, minutes)) * 60;
 }
 
-/** 塔越强，bot 需要越高的等级才推得动。中路模式只有一路，更早开始推。 */
+/** 塔越强，bot 平均等级要越高才接管。中路模式只有一路，更早接管。 */
 export function pushLevelFor(towerPower: number, midOnly: boolean): number {
   let level = 15;
   if (towerPower <= 200) {

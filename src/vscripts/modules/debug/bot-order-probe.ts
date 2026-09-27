@@ -110,6 +110,8 @@ function unitKind(unit: CDOTA_BaseNPC): string {
 }
 
 function targetKind(target: CDOTA_BaseNPC, self: CDOTA_BaseNPC): string {
+  // 抓树等指令的目标是树，不是单位
+  if (!target.IsBaseNPC()) return 'tree';
   const side = target.GetTeamNumber() === self.GetTeamNumber() ? 'ally_' : '';
   if (target.IsRealHero()) return `${side}hero`;
   if (target.IsBuilding() || target.IsTower()) return `${side}bldg`;

@@ -1,11 +1,11 @@
 /**
- * 英雄层交战判断：没打起来时只在明显打不过时避开；已经打起来打不过就边撤边放技能物品，跑不掉才打到底。
+ * 英雄层交战判断：没打起来时只在明显打不过时撤开；已经打起来打不过就边撤边放技能物品，跑不掉才原地还手。
  * 目的是让 bot 有对抗性，不送的门槛放低；撤向队友或塔总比原地硬打多一线生机，所以跑不掉的门槛定得很高。
  */
 
 import { AVOID_POWER_RATIO, KEEP_FIGHTING_RATIO } from '../team/power';
 
-export type Stance = 'task' | 'fight' | 'avoid' | 'retreat' | 'lastStand';
+export type Stance = 'task' | 'fight' | 'retreat' | 'lastStand';
 
 export interface EngagementInput {
   engaged: boolean;
@@ -24,7 +24,7 @@ export function decideStance(input: EngagementInput): Stance {
     return 'task';
   }
   if (!input.engaged) {
-    return canEngage(input.ourPower, input.enemyPower) ? 'fight' : 'avoid';
+    return canEngage(input.ourPower, input.enemyPower) ? 'fight' : 'retreat';
   }
   if (input.enemyPower <= input.ourPower * KEEP_FIGHTING_RATIO) {
     return 'fight';
@@ -34,22 +34,11 @@ export function decideStance(input: EngagementInput): Stance {
 
 export interface EscapeInput {
   rooted: boolean;
-  ourSpeed: number;
-  fastestEnemySpeed: number;
-  distanceToSafety: number;
+  /** 有比自己快的敌人已经贴到自己攻击距离内 */
+  caughtByFaster: boolean;
 }
 
-// 敌方快这么多倍、且要跑这么多秒才到撤退点，才算肯定被追上
-const HOPELESS_SPEED_RATIO = 1.5;
-const HOPELESS_ESCAPE_SECONDS = 6;
-
+/** 只有被定身、或已被更快的敌人贴身追着打才算跑不掉，此时原地还手；甩开了就继续跑。 */
 export function canEscape(input: EscapeInput): boolean {
-  if (input.rooted) {
-    return false;
-  }
-  const escapeSeconds = input.distanceToSafety / Math.max(input.ourSpeed, 1);
-  return !(
-    input.fastestEnemySpeed >= input.ourSpeed * HOPELESS_SPEED_RATIO &&
-    escapeSeconds > HOPELESS_ESCAPE_SECONDS
-  );
+  return !input.rooted && !input.caughtByFaster;
 }

@@ -3,6 +3,7 @@ import {
   CheckAheadCircleFailure,
   CheckFacingFailure,
   DeepMerge,
+  FilterTargetWithCondition,
 } from './cast-condition';
 
 describe('DeepMerge', () => {
@@ -119,6 +120,41 @@ describe('DeepMerge', () => {
     expect(result).toEqual({
       debug: true,
     });
+  });
+});
+
+describe('FilterTargetWithCondition', () => {
+  const self = {
+    GetEntityIndex: () => 999,
+    GetRangeToUnit: () => 100,
+  } as unknown as CDOTA_BaseNPC_Hero;
+
+  const unit = (health: number, neutral: boolean): CDOTA_BaseNPC =>
+    ({
+      GetEntityIndex: () => health,
+      GetHealth: () => health,
+      GetHealthPercent: () => 100,
+      GetManaPercent: () => 100,
+      IsAlive: () => true,
+      IsNeutralUnitType: () => neutral,
+    }) as unknown as CDOTA_BaseNPC;
+
+  it('keeps only neutral units above the current-health threshold', () => {
+    const atThreshold = unit(1000, true);
+    const laneCreep = unit(5000, false);
+    const eligible = unit(1200, true);
+
+    expect(
+      FilterTargetWithCondition(
+        {
+          target: {
+            unitCondition: { health: { gte: 1001 }, neutralOnly: true },
+          },
+        },
+        [atThreshold, laneCreep, eligible],
+        self,
+      ),
+    ).toBe(eligible);
   });
 });
 

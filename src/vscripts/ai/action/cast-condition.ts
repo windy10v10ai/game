@@ -160,8 +160,10 @@ export interface AbilityCoindition {
 }
 
 export interface UnitCondition {
+  health?: NumberRange;
   healthPercent?: NumberRange;
   manaPercent?: NumberRange;
+  neutralOnly?: boolean;
 
   hasScepter?: boolean;
   hasShard?: boolean;
@@ -400,6 +402,9 @@ export function CheckUnitConditionFailure(
     return false;
   }
 
+  if (CheckNumberRangeFailure(unit.GetHealth(), unitCondition.health)) {
+    return true;
+  }
   if (CheckNumberRangeFailure(unit.GetHealthPercent(), unitCondition.healthPercent)) {
     return true;
   }
@@ -431,6 +436,9 @@ export function CheckUnitConditionFailure(
     return true;
   }
   if (unitCondition.excludeAncient && unit.IsAncient()) {
+    return true;
+  }
+  if (unitCondition.neutralOnly && !unit.IsNeutralUnitType()) {
     return true;
   }
 

@@ -59,7 +59,7 @@ export class BotTeam {
     const team = hero.GetTeamNumber();
     let brain = this.brains.get(team);
     if (!brain) {
-      brain = new TeamBrain(team, this.lanes, this.pushLevel);
+      brain = new TeamBrain(team, this.lanes);
       this.brains.set(team, brain);
     }
     return brain;
