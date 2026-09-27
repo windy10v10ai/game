@@ -1,3 +1,5 @@
+import { ApiClient } from '../api/api-client';
+
 export class GameConfig {
   public static readonly GAME_VERSION = 'v5.59';
   public static readonly MEMBER_BUYBACK_CD = 120;
@@ -81,6 +83,8 @@ export class GameConfig {
     game.SetMaximumAttackSpeed(700);
     game.SetMinimumAttackSpeed(20);
 
+    this.EnterSetupWithoutLobby();
+
     if (IsInToolsMode()) {
       print('[GameConfig] 开发者模式快速开始游戏');
       GameRules.SetCustomGameSetupAutoLaunchDelay(3);
@@ -90,6 +94,26 @@ export class GameConfig {
       GameRules.SetStrategyTime(3);
       GameRules.SetPreGameTime(5); // 进入游戏后号角吹响前的准备时间
     }
+  }
+
+  // 自建专用服没有大厅推进状态，自定义游戏会一直停在 INIT；游廊的大厅在玩家连入前就已推进，INIT 判断不会误触发
+  private EnterSetupWithoutLobby() {
+    print(
+      `[GameConfig] dedicated=${IsDedicatedServer()} invalidServerKey=${ApiClient.IsLocalhost()}`,
+    );
+    if (!IsDedicatedServer()) return;
+
+    ListenToGameEvent(
+      'player_connect_full',
+      // 在连入回调里同步切状态会超出引擎处理这条网络消息的时间预算，玩家会被以溢出为由断开
+      () =>
+        Timers.CreateTimer(1, () => {
+          if (GameRules.State_Get() !== GameState.INIT) return;
+          print('[GameConfig] no lobby, entering custom game setup');
+          GameRules.ResetToCustomGameSetup();
+        }),
+      undefined,
+    );
   }
 
   public static SetMaxLevelXPRequire() {

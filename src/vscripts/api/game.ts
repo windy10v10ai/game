@@ -22,19 +22,39 @@ export class Game {
 
   constructor() {}
 
+  private static loadedSteamIds = new Set<number>();
+  private static routeSelected = false;
+  private static offline = false;
+
   public static StartGame() {
     CustomNetTables.SetTableValue('loading_status', 'loading_status', {
       status: 1,
     });
-    // get IsValidPlayer player's steamIds
+    // 自建专用服第一名玩家连入就进入设置阶段，其余玩家陆续连入，需要按人补拉
+    ListenToGameEvent(
+      'player_connect_full',
+      () => Timers.CreateTimer(1, () => Game.LoadNewPlayers(false)),
+      undefined,
+    );
+    ApiClient.SelectRoute(() => {
+      Game.routeSelected = true;
+      Game.LoadNewPlayers(true);
+    });
+  }
+
+  private static LoadNewPlayers(isFirst: boolean) {
+    // 选路完成前连入的玩家由首次拉取一并带上
+    if (!Game.routeSelected) return;
+
     const steamIds: number[] = [];
-    let playerCount = 0;
     PlayerHelper.ForEachPlayer((playerId) => {
       const steamId = PlayerResource.GetSteamAccountID(playerId);
+      if (steamId === 0 || Game.loadedSteamIds.has(steamId)) return;
+      Game.loadedSteamIds.add(steamId);
       steamIds.push(steamId);
-      playerCount++;
     });
-    Player.playerCount = playerCount;
+    if (!isFirst && steamIds.length === 0) return;
+    Player.playerCount = Game.loadedSteamIds.size;
 
     const matchId = GameRules.Script_GetMatchID().toString();
 
@@ -43,11 +63,13 @@ export class Game {
       const gameStart = json.decode(data)[0] as GameStart;
 
       // Initialize GA4 if config is provided (only for official servers)
-      if (gameStart.ga4Config) {
-        GA4.Initialize(gameStart.ga4Config);
-        print(`[Game] GA4 initialized with measurementId: ${gameStart.ga4Config.measurementId}`);
-      } else {
-        print('[Game] GA4 config not provided (non-official server)');
+      if (isFirst) {
+        if (gameStart.ga4Config) {
+          GA4.Initialize(gameStart.ga4Config);
+          print(`[Game] GA4 initialized with measurementId: ${gameStart.ga4Config.measurementId}`);
+        } else {
+          print('[Game] GA4 config not provided (non-official server)');
+        }
       }
 
       // 走 MergePlayerInfo 统一写入入口；首次 existing 为空，merge 等价覆盖
@@ -79,6 +101,7 @@ export class Game {
         });
       }
 
+      if (!isFirst) return;
       const status = gameStart.players.length > 0 ? 2 : 3;
       CustomNetTables.SetTableValue('loading_status', 'loading_status', {
         status,
@@ -87,24 +110,29 @@ export class Game {
 
     // 定义失败回调
     const onFailure = (_: string) => {
+      // 首次拉取已成功时不读快照，否则会用快照覆盖先到玩家的在线数据
+      if (!isFirst && !Game.offline) {
+        print(`[Game] load failed for late players: ${steamIds.join(',')}`);
+        return;
+      }
+      Game.offline = true;
       const snapshotDate = PlayerSnapshot.Load();
       Game.PublishGamePresets();
+      if (!isFirst) return;
       CustomNetTables.SetTableValue('loading_status', 'loading_status', {
         status: 3,
         snapshotDate,
       });
     };
 
-    const apiParameter = {
+    ApiClient.sendWithRetry({
       method: HttpMethod.GET,
       path: Game.GAME_START_URL,
       querys: { steamIds: steamIds.join(','), matchId, version: GameConfig.GAME_VERSION },
       successFunc: onSuccess,
       failureFunc: onFailure,
       timeoutSeconds: 15,
-    };
-
-    ApiClient.SelectRoute(() => ApiClient.sendWithRetry(apiParameter));
+    });
   }
 
   /** 按 playerId 发布玩家存过的游戏预设，方便加载界面用 GetLocalPlayerID 读取 */
