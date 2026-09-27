@@ -1,3 +1,4 @@
+import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroPick } from '../hero/hero-pick';
@@ -21,6 +22,8 @@ export interface PerfAutoConfig {
   conditions?: string;
   soakMinutes: number;
   soakTimescale: number;
+  // 开局把所有英雄拉到满级并给足金钱，低倍速热身几分钟就是后期局面
+  boost: boolean;
   // 工具模式下 bot 英雄按池子顺序固定选取，偏移后可以让多次测试覆盖池子里的其他英雄
   botOffset: number;
   // 天辉人数与金钱经验倍率，模拟少量玩家对满编 bot 的真实对局；0 为沿用对局选项
@@ -93,6 +96,33 @@ function forEachHero(callback: (hero: CDOTA_BaseNPC_Hero, playerId: PlayerID) =>
     const hero = PlayerResource.GetSelectedHeroEntity(playerId);
     if (hero) callback(hero, playerId);
   });
+}
+
+// 单个英雄在同一帧连升几十级会让引擎崩溃，每次全体只升一级，并避开开局暂停的那一秒
+function boostHeroes() {
+  forEachHero((hero) => hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED));
+  let rounds = 0;
+  const levelUp = () => {
+    let pending = false;
+    forEachHero((hero) => {
+      if (hero.GetLevel() >= GameRules.Option.maxLevel) return;
+      hero.HeroLevelUp(false);
+      pending = true;
+    });
+    if (pending && ++rounds < GameRules.Option.maxLevel) afterRealSeconds(0.2, levelUp);
+  };
+  afterRealSeconds(2, levelUp);
+}
+
+// 满级开局几分钟就会推平一方基地，测不到后期；基地仍会被打到残血，团战负载照常。
+// modifier 注册时方法已复制到全局表，只能在实例上覆盖
+function lockForts() {
+  for (const fort of Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[]) {
+    const think = fort.FindModifierByName(modifier_fort_think.name) as
+      | modifier_fort_think
+      | undefined;
+    if (think) think.TriggerGameEnd = () => undefined;
+  }
 }
 
 export function clearUnits() {
@@ -301,6 +331,10 @@ export class PerfAuto {
     forEachHero((hero, playerId) => {
       if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) GameRules.AI.EnableAI(hero);
     });
+    if (config.boost) {
+      boostHeroes();
+      lockForts();
+    }
     // 结算阶段计时器可能不再推进，轮询发现不了游戏结束，直接听状态切换
     ListenToGameEvent(
       'game_rules_state_change',

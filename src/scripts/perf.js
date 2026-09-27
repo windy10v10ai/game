@@ -16,7 +16,8 @@ function parseArgs() {
     phaseSeconds: 40,
     reps: 1,
     warmupMinutes: 20,
-    timescale: 8,
+    // 后期服务器连 1 倍速都跑不满，高倍率只是空转还可能卡死，2 倍够用
+    timescale: 2,
     // 1 倍速才是玩家的真实感受，加速只用于热身
     measureTimescale: 1,
     // 每局的最长等待时间，超时强制结束这一局
@@ -24,7 +25,9 @@ function parseArgs() {
     quitOnDone: true,
     mode: 'steps',
     soakMinutes: 40,
-    soakTimescale: 8,
+    soakTimescale: 2,
+    // 开局满级加钱，低倍速也能很快进入后期
+    boost: true,
     // bot 英雄池的起始偏移，换一批英雄观察
     botOffset: 0,
     // 天辉人数与金钱经验倍率，0 为沿用对局选项；--radiantPlayers 1 模拟 1v10
@@ -44,7 +47,7 @@ function parseArgs() {
     const key = argv[i].replace(/^--/, '');
     if (!(key in options)) throw new Error(`unknown option --${key}`);
     const value = argv[i + 1];
-    if (key === 'quitOnDone') options[key] = value !== 'false';
+    if (key === 'quitOnDone' || key === 'boost') options[key] = value !== 'false';
     else if (key === 'mode' || key === 'conditions' || key === 'botHeroes') options[key] = value;
     else options[key] = Number(value);
   }
@@ -205,6 +208,8 @@ async function runGame(options, gameConfig, label) {
   fs.writeFileSync(path.join(runDir, 'report.md'), report);
   console.log(report);
   console.log(`\n[perf] run saved to ${runDir}`);
+  // 保持常亮的子进程会让事件循环一直不空，脚本不会自己退出
+  process.exit(0);
 })().catch((error) => {
   console.error(error);
   process.exit(1);
