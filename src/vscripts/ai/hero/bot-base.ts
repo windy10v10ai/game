@@ -760,7 +760,14 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     const building = EntIndexToHScript(task.targetId as EntityIndex) as CDOTA_BaseNPC | undefined;
-    if (!building || building.IsNull() || !building.IsAlive() || building.IsInvulnerable()) {
+    // 目标倒下后实体编号会被别的实体复用，拿到的未必还是单位
+    if (
+      !building ||
+      building.IsNull() ||
+      !building.IsBaseNPC() ||
+      !building.IsAlive() ||
+      building.IsInvulnerable()
+    ) {
       return false;
     }
     if (this.hero.GetRangeToUnit(building) > this.PushAttackRange) {
