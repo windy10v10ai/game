@@ -12,7 +12,7 @@ const POLL_MS = 15000;
 const FINISHED = /\[perf-auto\] (done|aborted)/;
 // 专用服负载高时会以处理超时为由踢掉唯一的客户端，没有玩家后游戏直接结算，脚本内存随即失控，只能立刻收场
 const BROKEN =
-  /Disconnect client .* from server|LUA Memory usage warning: The VM has hit a new high usage of \d{3},\d{3},\d{3} bytes/;
+  /Disconnect client .* from server: (?!NETWORK_DISCONNECT_SHUTDOWN)|LUA Memory usage warning: The VM has hit a new high usage of \d{3},\d{3},\d{3} bytes/;
 
 function parseArgs() {
   const options = {
