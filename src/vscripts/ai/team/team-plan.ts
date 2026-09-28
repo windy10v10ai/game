@@ -114,7 +114,7 @@ const AVOID_LANE_RADIUS = 3000;
 // 推塔手排在后面挑，相当于离交战点远了这么多
 const PUSHER_DISTANCE_PENALTY = 2000;
 // 推完一座塔顺着原路推下一座，比换到别的路划算
-const PLAN_LANE_INERTIA = 0.3;
+const PLAN_LANE_INERTIA = 1;
 // 赶路每这么远，进攻机会分扣 1
 const LANE_TRAVEL_SCALE = 4000;
 // 一路人太少时玩家到哪杀到哪，毫无反抗力，还会被牵着满图跑
@@ -303,38 +303,54 @@ function assignPush(
   if (candidates.length === 0) {
     return { plan: input.plan, unassigned: free };
   }
-  const count = Math.min(
-    candidates.length,
-    MAX_PUSH_LANES,
-    Math.max(1, Math.floor(free.length / MIN_LANE_GROUP)),
-  );
+  // 路数按全队能出力的人数定，被交战临时借走几个人不改路线
+  const active = input.bots.filter((bot) => !bot.needsRecover).length;
+  const desired = Math.min(MAX_PUSH_LANES, Math.max(1, Math.floor(active / MIN_LANE_GROUP)));
   let plan = input.plan;
-  if (!plan || !keepsPlan(plan, candidates, count, input.now)) {
-    plan = pickLanes(candidates, free, pushPower, count, input);
+  if (!plan || !keepsPlan(plan, input.lanes, candidates, desired, input.now)) {
+    plan = pickLanes(candidates, free, pushPower, Math.min(desired, candidates.length), input);
   }
   const chosen: PushLane[] = [];
+  const waiting = new Set<Lane>();
   for (const pick of plan.picks) {
     const lane = candidates.find((candidate) => candidate.lane === pick.lane);
     if (lane) {
       chosen.push(lane);
+    } else {
+      waiting.add(pick.lane);
     }
   }
-  spread(free, chosen, tasks);
-  const dropped = dropWeakGroups(free, chosen, tasks);
-  // 分出去的一组推不动，下一轮重选
-  if (dropped.length > 0) {
-    plan = undefined;
+  // 这一路的兵线暂时没了，这组人就近发育等下一波，不临时挤到另一路再走回来
+  const unassigned = free.filter(
+    (bot) => chosen.length === 0 || (bot.pushLane !== undefined && waiting.has(bot.pushLane)),
+  );
+  const pushing = free.filter((bot) => !unassigned.includes(bot));
+  if (pushing.length > 0) {
+    spread(pushing, chosen, tasks);
   }
-  return { plan, unassigned: dropped };
+  return { plan, unassigned: [...unassigned, ...dropWeakGroups(pushing, chosen, tasks)] };
 }
 
-/** 锁定期内、路数没变、每路的目标还在且还能推，就不换路。 */
-function keepsPlan(plan: LanePlan, candidates: PushLane[], count: number, now: number): boolean {
+/**
+ * 锁定期内、路数够、每路的目标还在且还能推，就不换路。
+ * 兵线暂时没到的路不在推进候选里，照样保留，等兵线回来。
+ */
+function keepsPlan(
+  plan: LanePlan,
+  lanes: PushLane[],
+  candidates: PushLane[],
+  desired: number,
+  now: number,
+): boolean {
+  const spare = candidates.some((lane) => !plan.picks.some((pick) => pick.lane === lane.lane));
+  const enough = plan.picks.length === desired || (plan.picks.length < desired && !spare);
   return (
     now < plan.until &&
-    plan.picks.length === count &&
-    plan.picks.every((pick) =>
-      candidates.some((lane) => lane.lane === pick.lane && lane.targetId === pick.targetId),
+    enough &&
+    plan.picks.every(
+      (pick) =>
+        !lanes.some((lane) => lane.lane === pick.lane) ||
+        candidates.some((lane) => lane.lane === pick.lane && lane.targetId === pick.targetId),
     )
   );
 }

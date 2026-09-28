@@ -337,6 +337,29 @@ describe('planTasks', () => {
     expect(planTasks(fallen).plan).not.toBe(first.plan);
   });
 
+  it('keeps the lanes while a fight borrows some of the bots', () => {
+    const first = planTasks(baseInput({ bots: bots(8) }));
+    const fighting = baseInput({ bots: bots(8), plan: first.plan, fights: [spot(250)] });
+    expect(planTasks(fighting).plan).toBe(first.plan);
+  });
+
+  it('lets a group farm while its lane waits for the next creep wave', () => {
+    const first = planTasks(baseInput({ bots: bots(8) }));
+    const [kept, waiting] = first.plan!.picks;
+    const input = baseInput({
+      bots: bots(8),
+      plan: first.plan,
+      lanes: [lane('top', -3000), lane('mid', 0), lane('bot', 3000)].filter(
+        (entry) => entry.lane !== waiting.lane,
+      ),
+    });
+    input.bots.forEach((bot, i) => (bot.pushLane = i < 4 ? kept.lane : waiting.lane));
+    const result = planTasks(input);
+    expect(result.plan).toBe(first.plan);
+    expect(result.tasks.get(8)?.kind).toBe('farm');
+    expect(result.tasks.get(1)?.lane).toBe(kept.lane);
+  });
+
   it('returns bots to their own lane after a detour', () => {
     const input = baseInput({ bots: bots(8) });
     const plan = planTasks(input).plan!;

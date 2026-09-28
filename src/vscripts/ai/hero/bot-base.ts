@@ -699,6 +699,9 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     this.hero.CastAbilityOnPosition(position, scroll, this.hero.GetPlayerOwnerID());
+    if (IS_TOOLS_MODE) {
+      print(`[bot-ai] ${HeroShortName(this.hero)} tp mode=${this.mode}`);
+    }
     return true;
   }
 
