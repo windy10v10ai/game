@@ -16,6 +16,7 @@ import {
   projectOnLane,
 } from './lane-geometry';
 import { resolvePushStaging } from './push-staging';
+import { ControlSummons } from './summon-control';
 import {
   combatPower,
   decayThreat,
@@ -27,8 +28,10 @@ import {
   DefendTarget,
   FIGHT_DANGER_RADIUS,
   FIGHT_JOIN_RADIUS,
+  FIGHT_SUPPORT_RADIUS,
   FarmSpot,
   FightSpot,
+  LanePlan,
   planTasks,
   PushLane,
   Task,
@@ -54,6 +57,25 @@ const FRONT_MARGIN = 400;
 const FARM_CAMP_RADIUS = 800;
 // 集合点允许与交战点差不多深入，推塔的队友往往就站在交战点旁边
 const RALLY_FORWARD_SLACK = 1000;
+// 同一座建筑同时有人往上传会叠加引导时间，引导结束后再多留一会儿
+const LANDING_RESERVE_EXTRA = 1;
+// 预计到达比同一目标最晚的人早这么多以内就可以出发
+const TELEPORT_ALIGN_SLACK = 1.5;
+// 没有继续报告的等待者视为不再等，比团队大脑的思考间隔长一点
+const TELEPORT_WAIT_EXPIRE = 1.5;
+// 基地建筑持续挨打这么久才回防，玩家碰一下就走时不会把 bot 骗回家
+const BASE_DEFEND_DELAY = 3;
+// 一塔被推掉后塔防自动刷新，被推时就开；三塔、四塔与基地留到多名敌方英雄在打、快倒时才开
+const GLYPH_OUTER_HP = 0.8;
+const GLYPH_BASE_HP = 0.4;
+const GLYPH_BASE_ATTACKERS = 2;
+// 离复活还有这么久以上才值得买活
+const BUYBACK_MIN_RESPAWN = 15;
+// 来犯敌人超过我方全队这么多倍时，买活也守不住
+const BUYBACK_HOPELESS_RATIO = 3;
+// 团战离泉水这么近时买活后走得过去，否则要有这么近的己方建筑可以 TP
+const BUYBACK_WALK_RANGE = 5000;
+const BUYBACK_TP_RANGE = 2000;
 
 export interface EnemyMemory {
   pos: Vector;
@@ -83,6 +105,13 @@ interface BuildingInfo {
   isBase: boolean;
 }
 
+interface TeleportPlan {
+  arrival: number;
+  /** 已经开始引导，到达前一直算数；否则要持续报告 */
+  committed: boolean;
+  reported: number;
+}
+
 export class TeamBrain {
   private readonly enemyTeam: DotaTeam;
   private readonly members = new Map<EntityIndex, CDOTA_BaseNPC_Hero>();
@@ -92,7 +121,15 @@ export class TeamBrain {
   private visible = new Set<EntityIndex>();
   private readonly threats = new Map<EntityIndex, ThreatRecord>();
   private tasks = new Map<number, Task>();
-  private mainLane: Lane | undefined;
+  private plan: LanePlan | undefined;
+  private readonly pushLanes = new Map<number, Lane>();
+  private readonly landingReserved = new Map<EntityIndex, number>();
+  private readonly teleports = new Map<number, Map<EntityIndex, TeleportPlan>>();
+  private readonly baseThreatSince = new Map<EntityIndex, number>();
+  // 阵亡的 bot 没有当前战力，买活判断用它最后活着时的战力
+  private readonly lastPower = new Map<EntityIndex, number>();
+  private glyphReadyAt = 0;
+  private outerTowers = -1;
   private fights: FightView[] = [];
   // 每路敌方最前面还没推掉的建筑，按己方视角的前进距离记
   private readonly fronts = new Map<Lane, number>();
@@ -128,6 +165,66 @@ export class TeamBrain {
     } else {
       this.recoverRequests.delete(hero.GetEntityIndex());
     }
+  }
+
+  /** 可以 TP 过去、这会儿没人往上传的己方建筑。 */
+  FindLandings(): CDOTA_BaseNPC[] {
+    const now = GameRules.GetGameTime();
+    return CollectBuildings()
+      .map((building) => building.unit)
+      .filter(
+        (unit) =>
+          unit.GetTeamNumber() === this.team &&
+          (this.landingReserved.get(unit.GetEntityIndex()) ?? -Infinity) <= now,
+      );
+  }
+
+  /** 同一目标里有人预计到得晚很多时先等一等，让大家差不多同时落地。 */
+  ShouldWaitToTeleport(hero: CDOTA_BaseNPC_Hero, targetId: number, eta: number): boolean {
+    const now = GameRules.GetGameTime();
+    const plans = this.TeleportsFor(targetId, now);
+    const arrival = now + eta;
+    plans.set(hero.GetEntityIndex(), { arrival, committed: false, reported: now });
+    let latest = arrival;
+    for (const plan of plans.values()) {
+      latest = Math.max(latest, plan.arrival);
+    }
+    return arrival < latest - TELEPORT_ALIGN_SLACK;
+  }
+
+  CommitTeleport(
+    hero: CDOTA_BaseNPC_Hero,
+    landing: CDOTA_BaseNPC,
+    targetId: number | undefined,
+    channel: number,
+    eta: number,
+  ): void {
+    const now = GameRules.GetGameTime();
+    this.landingReserved.set(landing.GetEntityIndex(), now + channel + LANDING_RESERVE_EXTRA);
+    if (targetId !== undefined) {
+      this.TeleportsFor(targetId, now).set(hero.GetEntityIndex(), {
+        arrival: now + eta,
+        committed: true,
+        reported: now,
+      });
+    }
+  }
+
+  private TeleportsFor(targetId: number, now: number): Map<EntityIndex, TeleportPlan> {
+    let plans = this.teleports.get(targetId);
+    if (!plans) {
+      plans = new Map();
+      this.teleports.set(targetId, plans);
+    }
+    for (const [index, plan] of plans) {
+      const alive = plan.committed
+        ? now < plan.arrival
+        : now - plan.reported < TELEPORT_WAIT_EXPIRE;
+      if (!alive) {
+        plans.delete(index);
+      }
+    }
+    return plans;
   }
 
   /** 单位对本队的威胁战力：敌方英雄乘上最近战绩带来的威胁倍率。 */
@@ -192,13 +289,15 @@ export class TeamBrain {
       return;
     }
     const buildings = CollectBuildings();
+    const defend = this.FindDefendTargets(buildings, recentEnemies, now);
+    if (this.team === DotaTeam.BADGUYS) {
+      this.UseGlyph(buildings, recentEnemies, now);
+    }
     const lanePower = this.EnemyPowerByLane(enemies, now);
     // 推进目标同时决定了每路的前线，交战点要按前线判断，先算推进
     const lanes = this.FindPushLanes(buildings, lanePower);
     this.fights = this.BuildFights(recentEnemies, allies);
 
-    const ourPower = allies.reduce((sum, hero) => sum + UnitPower(hero), 0);
-    const enemyPower = enemies.reduce((sum, hero) => sum + this.PowerOf(hero), 0);
     const fountain = HeroUtil.GetTeamFountainPosition(this.team) ?? Vector(0, 0, 0);
     const bots = [...this.members.values()]
       .filter((hero) => hero.IsAlive())
@@ -208,23 +307,123 @@ export class TeamBrain {
         power: UnitPower(hero),
         needsRecover: this.recoverRequests.has(hero.GetEntityIndex()),
         attackDps: hero.GetAverageTrueAttackDamage(undefined) * hero.GetAttacksPerSecond(false),
-        previous: this.tasks.get(hero.GetEntityIndex()),
+        pushLane: this.pushLanes.get(hero.GetEntityIndex()),
       }));
 
     const result = planTasks({
       bots,
       fountain,
-      defend: this.FindDefendTargets(buildings, recentEnemies),
+      defend,
       fights: this.fights,
       lanes,
       farms: this.FindFarmSpots(lanePower, observer),
-      ourPower,
-      enemyPower,
-      mainLane: this.mainLane,
+      plan: this.plan,
+      now,
+      random: () => RandomFloat(0, 1),
     });
     this.tasks = result.tasks;
-    this.mainLane = result.mainLane;
+    this.plan = result.plan;
+    for (const [id, task] of this.tasks) {
+      if (task.kind === 'push' && task.lane) {
+        this.pushLanes.set(id, task.lane);
+      }
+    }
     this.CountCommittedFighters();
+    ControlSummons(this.team, [...this.members.values()]);
+    this.ConsiderBuyback(defend, allies);
+  }
+
+  /** 阵亡的 bot 在基地危急、或附近团战买活后能扳回时买活；双方悬殊到买了也守不住就不买。 */
+  private ConsiderBuyback(defend: DefendTarget[], allies: CDOTA_BaseNPC_Hero[]): void {
+    const alivePower = allies.reduce((sum, hero) => sum + UnitPower(hero), 0);
+    for (const [index, hero] of this.members) {
+      if (hero.IsAlive()) {
+        this.lastPower.set(index, UnitPower(hero));
+        continue;
+      }
+      if (
+        hero.GetTimeUntilRespawn() < BUYBACK_MIN_RESPAWN ||
+        hero.GetBuybackCooldownTime() > 0 ||
+        hero.IsBuybackDisabledByDevilsBargain() ||
+        PlayerResource.GetGold(hero.GetPlayerOwnerID()) < hero.GetBuybackCost()
+      ) {
+        continue;
+      }
+      const power = this.lastPower.get(index) ?? 0;
+      const baseAttack = defend
+        .filter((target) => target.isBase)
+        .reduce((max, target) => Math.max(max, target.attackerPower), 0);
+      const holdBase =
+        baseAttack > 0 && baseAttack <= (alivePower + power) * BUYBACK_HOPELESS_RATIO;
+      const turnFight = this.fights.some(
+        (fight) =>
+          fight.engaged &&
+          fight.enemyPower > fight.ourPower &&
+          fight.enemyPower <= fight.ourPower + power &&
+          this.CanReachAfterBuyback(hero, fight.pos),
+      );
+      if (holdBase || turnFight) {
+        hero.Buyback();
+        print(`[bot-ai] ${HeroShortName(hero)} buyback base=${holdBase ? 1 : 0}`);
+      }
+    }
+  }
+
+  private CanReachAfterBuyback(hero: CDOTA_BaseNPC_Hero, pos: Point): boolean {
+    const fountain = HeroUtil.GetTeamFountainPosition(this.team);
+    if (fountain && distance(fountain, pos) <= BUYBACK_WALK_RANGE) {
+      return true;
+    }
+    const scroll = hero.FindItemInInventory('item_tpscroll');
+    return (
+      scroll !== undefined &&
+      scroll.GetCooldownTimeRemaining() <= 0 &&
+      this.FindLandings().some((unit) => distance(unit.GetAbsOrigin(), pos) <= BUYBACK_TP_RANGE)
+    );
+  }
+
+  /** 开塔防：一塔被推就开，三塔、四塔与基地在多名敌方英雄攻击下快倒时开，二塔与兵营不开。 */
+  private UseGlyph(
+    buildings: BuildingInfo[],
+    recentEnemies: CDOTA_BaseNPC_Hero[],
+    now: number,
+  ): void {
+    const outer = buildings.filter(
+      (building) => building.unit.GetTeamNumber() === this.team && building.tier === 1,
+    ).length;
+    if (outer < this.outerTowers) {
+      this.glyphReadyAt = 0;
+    }
+    this.outerTowers = outer;
+    const caller = [...this.members.values()].find((hero) => hero.IsAlive());
+    if (now < this.glyphReadyAt || !caller) {
+      return;
+    }
+    for (const building of buildings) {
+      const unit = building.unit;
+      if (unit.GetTeamNumber() !== this.team || unit.IsInvulnerable()) {
+        continue;
+      }
+      const attackers = recentEnemies.filter(
+        (enemy) => distance(unit.GetAbsOrigin(), this.PositionOf(enemy)) <= BUILDING_THREAT_RADIUS,
+      ).length;
+      const hp = unit.GetHealth() / unit.GetMaxHealth();
+      const outerPushed = building.tier === 1 && attackers > 0 && hp < GLYPH_OUTER_HP;
+      const innerFalling =
+        (building.tier === 3 || building.tier >= 5) &&
+        attackers >= GLYPH_BASE_ATTACKERS &&
+        hp < GLYPH_BASE_HP;
+      if (outerPushed || innerFalling) {
+        ExecuteOrderFromTable({
+          UnitIndex: caller.GetEntityIndex(),
+          OrderType: UnitOrder.GLYPH,
+          Queue: false,
+        });
+        this.glyphReadyAt = now + GameRules.GetGameModeEntity().GetCustomGlyphCooldown();
+        print(`[bot-ai] glyph ${unit.GetUnitName()} hp=${Math.floor(hp * 100)}`);
+        return;
+      }
+    }
   }
 
   /** 英雄看到敌人时取所在交战点的判断依据；这一秒刚出现的交战点按同一口径现算。 */
@@ -259,7 +458,8 @@ export class TeamBrain {
       const fight = this.BuildFight(group, allies);
       if (
         allies.some(
-          (ally) => ally.IsAlive() && distance(ally.GetAbsOrigin(), fight.pos) <= FIGHT_JOIN_RADIUS,
+          (ally) =>
+            ally.IsAlive() && distance(ally.GetAbsOrigin(), fight.pos) <= FIGHT_SUPPORT_RADIUS,
         )
       ) {
         fights.push(fight);
@@ -389,6 +589,7 @@ export class TeamBrain {
     for (const [index, hero] of this.members) {
       if (!IsValidEntity(hero)) {
         this.members.delete(index);
+        this.pushLanes.delete(index);
         this.recoverRequests.delete(index);
         this.engagedMembers.delete(index);
       }
@@ -416,6 +617,7 @@ export class TeamBrain {
   private FindDefendTargets(
     buildings: BuildingInfo[],
     recentEnemies: CDOTA_BaseNPC_Hero[],
+    now: number,
   ): DefendTarget[] {
     const targets: DefendTarget[] = [];
     for (const building of buildings) {
@@ -429,8 +631,17 @@ export class TeamBrain {
           attackerPower += this.PowerOf(enemy);
         }
       }
+      const index = unit.GetEntityIndex();
       if (attackerPower <= 0) {
+        this.baseThreatSince.delete(index);
         continue;
+      }
+      if (building.isBase) {
+        const since = this.baseThreatSince.get(index) ?? now;
+        this.baseThreatSince.set(index, since);
+        if (now - since < BASE_DEFEND_DELAY) {
+          continue;
+        }
       }
       targets.push({
         id: unit.GetEntityIndex(),
