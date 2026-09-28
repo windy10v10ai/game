@@ -349,6 +349,19 @@ describe('planTasks', () => {
     expect(planTasks(fighting).plan).toBe(first.plan);
   });
 
+  it('does not move pushers across lanes when a fight borrows their teammates', () => {
+    const input = baseInput({ bots: bots(8) });
+    const first = planTasks(input);
+    input.bots.forEach((bot) => (bot.pushLane = first.tasks.get(bot.id)?.lane));
+    const tasks = planTasks({ ...input, plan: first.plan, fights: [spot(250)] }).tasks;
+    for (const bot of input.bots) {
+      const task = tasks.get(bot.id);
+      if (task?.kind === 'push') {
+        expect(task.lane).toBe(bot.pushLane);
+      }
+    }
+  });
+
   it('lets a group farm while its lane waits for the next creep wave', () => {
     const first = planTasks(baseInput({ bots: bots(8) }));
     const [kept, waiting] = first.plan!.picks;

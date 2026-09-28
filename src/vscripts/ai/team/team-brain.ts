@@ -71,6 +71,8 @@ const GLYPH_BASE_HP = 0.4;
 const GLYPH_BASE_ATTACKERS = 2;
 // 离复活还有这么久以上才值得买活
 const BUYBACK_MIN_RESPAWN = 15;
+// 活着的队友战力已经比来犯敌人高出这么多时，不必再买活回防
+const BUYBACK_BASE_MARGIN = 1.2;
 // 来犯敌人超过我方全队这么多倍时，买活也守不住
 const BUYBACK_HOPELESS_RATIO = 3;
 // 团战离泉水这么近时买活后走得过去，否则要有这么近的己方建筑可以 TP
@@ -335,7 +337,11 @@ export class TeamBrain {
 
   /** 阵亡的 bot 在基地危急、或附近团战买活后能扳回时买活；双方悬殊到买了也守不住就不买。 */
   private ConsiderBuyback(defend: DefendTarget[], allies: CDOTA_BaseNPC_Hero[]): void {
-    const alivePower = allies.reduce((sum, hero) => sum + UnitPower(hero), 0);
+    // 买活的人算进战力，后面的人看到已经够了就不再买
+    let alivePower = allies.reduce((sum, hero) => sum + UnitPower(hero), 0);
+    const baseAttack = defend
+      .filter((target) => target.isBase)
+      .reduce((max, target) => Math.max(max, target.attackerPower), 0);
     for (const [index, hero] of this.members) {
       if (hero.IsAlive()) {
         this.lastPower.set(index, UnitPower(hero));
@@ -350,22 +356,26 @@ export class TeamBrain {
         continue;
       }
       const power = this.lastPower.get(index) ?? 0;
-      const baseAttack = defend
-        .filter((target) => target.isBase)
-        .reduce((max, target) => Math.max(max, target.attackerPower), 0);
       const holdBase =
-        baseAttack > 0 && baseAttack <= (alivePower + power) * BUYBACK_HOPELESS_RATIO;
-      const turnFight = this.fights.some(
+        baseAttack > 0 &&
+        alivePower < baseAttack * BUYBACK_BASE_MARGIN &&
+        baseAttack <= (alivePower + power) * BUYBACK_HOPELESS_RATIO;
+      const turnFight = this.fights.find(
         (fight) =>
           fight.engaged &&
           fight.enemyPower > fight.ourPower &&
           fight.enemyPower <= fight.ourPower + power &&
           this.CanReachAfterBuyback(hero, fight.pos),
       );
-      if (holdBase || turnFight) {
-        hero.Buyback();
-        print(`[bot-ai] ${HeroShortName(hero)} buyback base=${holdBase ? 1 : 0}`);
+      if (!holdBase && !turnFight) {
+        continue;
       }
+      hero.Buyback();
+      alivePower += power;
+      if (turnFight) {
+        turnFight.ourPower += power;
+      }
+      print(`[bot-ai] ${HeroShortName(hero)} buyback base=${holdBase ? 1 : 0}`);
     }
   }
 

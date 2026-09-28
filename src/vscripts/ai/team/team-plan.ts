@@ -326,7 +326,7 @@ function assignPush(
   );
   const pushing = free.filter((bot) => !unassigned.includes(bot));
   if (pushing.length > 0) {
-    spread(pushing, chosen, tasks);
+    spread(pushing, chosen, tasks, Math.ceil(active / plan.picks.length));
   }
   return { plan, unassigned: [...unassigned, ...dropWeakGroups(pushing, chosen, tasks)] };
 }
@@ -383,9 +383,16 @@ function pickLanes(
   return { picks, until: input.now + PLAN_LOCK_SECONDS };
 }
 
-/** 按人数平均分到选定的几路；原本属于某一路的 bot 优先回到原路，其余去最近的一路。 */
-function spread(bots: PlanBot[], used: PushLane[], tasks: Map<number, Task>): void {
-  const capacity = Math.ceil(bots.length / used.length);
+/**
+ * 原本属于某一路的 bot 回到原路，其余去人最少的一路，同样少时去最近的。
+ * 每路名额按全队人数算，交战临时借走几个人时留下的人不会被挤到另一路。
+ */
+function spread(
+  bots: PlanBot[],
+  used: PushLane[],
+  tasks: Map<number, Task>,
+  capacity: number,
+): void {
   const counts = new Map<Lane, number>();
   const pending: PlanBot[] = [];
   for (const bot of bots) {
@@ -398,11 +405,13 @@ function spread(bots: PlanBot[], used: PushLane[], tasks: Map<number, Task>): vo
     }
   }
   for (const bot of pending) {
-    const open = used.filter((lane) => (counts.get(lane.lane) ?? 0) < capacity);
-    const choices = open.length > 0 ? open : used;
-    let best = choices[0];
-    for (const lane of choices) {
-      if (distance(bot.pos, lane.stagingPos) < distance(bot.pos, best.stagingPos)) {
+    let best = used[0];
+    for (const lane of used) {
+      const gap = (counts.get(lane.lane) ?? 0) - (counts.get(best.lane) ?? 0);
+      if (
+        gap < 0 ||
+        (gap === 0 && distance(bot.pos, lane.stagingPos) < distance(bot.pos, best.stagingPos))
+      ) {
         best = lane;
       }
     }
