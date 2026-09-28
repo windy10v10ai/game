@@ -34,35 +34,20 @@ export function retreatPointFromTowers(
   return { x: origin.x + direction.x * distance, y: origin.y + direction.y * distance };
 }
 
-/**
- * 去目的地的直线会穿过这座塔的攻击范围时，先绕到塔靠自家一侧的外圈。
- * 直接走过去会被塔打回来，退出去再走又被打回来，一直在塔边打转。
- */
-export function detourAroundTower(
+/** 去目的地的直线是否穿过这座塔周围这么大的范围。 */
+export function passesTower(
   origin: Point,
   destination: Point,
   tower: Point,
   radius: number,
-  fountain: Point,
-): Point | undefined {
+): boolean {
   const sx = destination.x - origin.x;
   const sy = destination.y - origin.y;
   const lengthSquared = sx * sx + sy * sy;
   if (lengthSquared < 1) {
-    return undefined;
+    return false;
   }
   const t = ((tower.x - origin.x) * sx + (tower.y - origin.y) * sy) / lengthSquared;
-  if (t <= 0 || t >= 1) {
-    return undefined;
-  }
-  const closest = { x: origin.x + sx * t, y: origin.y + sy * t };
-  if (gap(closest, tower) >= radius) {
-    return undefined;
-  }
-  const side = unit(-sy, sx);
-  const left = { x: tower.x + side.x * radius, y: tower.y + side.y * radius };
-  const right = { x: tower.x - side.x * radius, y: tower.y - side.y * radius };
-  const leftGap = gap(left, fountain);
-  const rightGap = gap(right, fountain);
-  return leftGap <= rightGap ? left : right;
+  const clamped = Math.max(0, Math.min(1, t));
+  return gap({ x: origin.x + sx * clamped, y: origin.y + sy * clamped }, tower) < radius;
 }

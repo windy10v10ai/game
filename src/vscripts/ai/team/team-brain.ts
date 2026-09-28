@@ -9,6 +9,7 @@ import {
   distance,
   Lane,
   forwardProgress,
+  laneEntry,
   LanePath,
   nearestLane,
   Point,
@@ -67,10 +68,13 @@ const TELEPORT_ALIGN_SLACK = 1.5;
 const TELEPORT_WAIT_EXPIRE = 1.5;
 // 基地建筑持续挨打这么久才回防，玩家碰一下就走时不会把 bot 骗回家
 const BASE_DEFEND_DELAY = 3;
-// 一塔被推掉后塔防自动刷新，被推时就开；三塔、四塔与基地留到多名敌方英雄在打、快倒时才开
-const GLYPH_OUTER_HP = 0.8;
+// 一塔被推掉后塔防自动刷新，快倒时就开，不用留
+const GLYPH_OUTER_HP = 0.3;
+// 三塔、四塔与基地按实际掉血速度判断：照这个速度几秒内就倒才开，推不动塔的阵容不值得开；只剩一丝血时有人在打就开
 const GLYPH_BASE_HP = 0.4;
-const GLYPH_BASE_ATTACKERS = 2;
+const GLYPH_FALL_SECONDS = 8;
+const GLYPH_LAST_HP = 0.1;
+const GLYPH_DAMAGE_WINDOW = 3;
 // 离复活还有这么久以上才值得买活
 const BUYBACK_MIN_RESPAWN = 15;
 // 活着的队友战力已经比来犯敌人高出这么多时，不必再买活回防
@@ -133,6 +137,7 @@ export class TeamBrain {
   // 阵亡的 bot 没有当前战力，买活判断用它最后活着时的战力
   private readonly lastPower = new Map<EntityIndex, number>();
   private glyphReadyAt = 0;
+  private readonly buildingHealth = new Map<EntityIndex, { time: number; health: number }[]>();
   private outerTowers = -1;
   private fights: FightView[] = [];
   // 每路敌方最前面还没推掉的建筑，按己方视角的前进距离记
@@ -399,7 +404,7 @@ export class TeamBrain {
     );
   }
 
-  /** 开塔防：一塔被推就开，三塔、四塔与基地在多名敌方英雄攻击下快倒时开，二塔与兵营不开。 */
+  /** 开塔防：一塔快倒时开，三塔、四塔与基地掉血快或只剩一丝血时开，二塔与兵营不开。 */
   private UseGlyph(
     buildings: BuildingInfo[],
     recentEnemies: CDOTA_BaseNPC_Hero[],
@@ -412,6 +417,14 @@ export class TeamBrain {
       this.glyphReadyAt = 0;
     }
     this.outerTowers = outer;
+    // 冷却中也要记血量，冷却一好就能算出掉血速度
+    const fallSeconds = new Map<EntityIndex, number>();
+    for (const building of buildings) {
+      const unit = building.unit;
+      if (unit.GetTeamNumber() === this.team && (building.tier === 3 || building.tier >= 5)) {
+        fallSeconds.set(unit.GetEntityIndex(), this.FallSeconds(unit, now));
+      }
+    }
     const caller = [...this.members.values()].find((hero) => hero.IsAlive());
     if (now < this.glyphReadyAt || !caller) {
       return;
@@ -421,15 +434,16 @@ export class TeamBrain {
       if (unit.GetTeamNumber() !== this.team || unit.IsInvulnerable()) {
         continue;
       }
-      const attackers = recentEnemies.filter(
+      const attacked = recentEnemies.some(
         (enemy) => distance(unit.GetAbsOrigin(), this.PositionOf(enemy)) <= BUILDING_THREAT_RADIUS,
-      ).length;
+      );
       const hp = unit.GetHealth() / unit.GetMaxHealth();
-      const outerPushed = building.tier === 1 && attackers > 0 && hp < GLYPH_OUTER_HP;
+      const fall = fallSeconds.get(unit.GetEntityIndex());
+      const outerPushed = building.tier === 1 && attacked && hp < GLYPH_OUTER_HP;
       const innerFalling =
-        (building.tier === 3 || building.tier >= 5) &&
-        attackers >= GLYPH_BASE_ATTACKERS &&
-        hp < GLYPH_BASE_HP;
+        fall !== undefined &&
+        attacked &&
+        ((hp < GLYPH_BASE_HP && fall <= GLYPH_FALL_SECONDS) || hp < GLYPH_LAST_HP);
       if (outerPushed || innerFalling) {
         ExecuteOrderFromTable({
           UnitIndex: caller.GetEntityIndex(),
@@ -441,6 +455,35 @@ export class TeamBrain {
         return;
       }
     }
+  }
+
+  /** 按最近几秒的掉血速度，这座建筑还能撑几秒。 */
+  private FallSeconds(unit: CDOTA_BaseNPC, now: number): number {
+    const index = unit.GetEntityIndex();
+    const health = unit.GetHealth();
+    const samples = (this.buildingHealth.get(index) ?? []).filter(
+      (sample) => now - sample.time <= GLYPH_DAMAGE_WINDOW,
+    );
+    samples.push({ time: now, health });
+    this.buildingHealth.set(index, samples);
+    const oldest = samples[0];
+    const rate = (oldest.health - health) / Math.max(now - oldest.time, 1);
+    return rate > 0 ? health / rate : Infinity;
+  }
+
+  /** 直线赶路会穿过敌方塔区时，在目的地所在那一路上找一个能直接走过去的入口，顺着兵线绕过去。 */
+  LaneEntry(
+    from: Point,
+    destination: Point,
+    blocked: (point: Point) => boolean,
+  ): Point | undefined {
+    const hit = nearestLane(this.lanes, destination, Infinity);
+    if (!hit) {
+      return undefined;
+    }
+    const isRadiant = this.team === DotaTeam.GOODGUYS;
+    const maxForward = forwardProgress(hit.path, hit.projection.progress, isRadiant);
+    return laneEntry(hit.path, from, maxForward, isRadiant, blocked);
   }
 
   /** 离英雄这么近的交战点里最近的一处，没被派去打的英雄据此判断要不要提前离开。 */

@@ -104,3 +104,27 @@ export function forwardProgress(path: LanePath, progress: number, isRadiant: boo
 export function progressFromForward(path: LanePath, forward: number, isRadiant: boolean): number {
   return isRadiant ? forward : path.length - forward;
 }
+
+// 找兵线入口时每次往己方退这么远再试
+const LANE_ENTRY_STEP = 1000;
+
+/**
+ * 直走会穿过敌方塔区时的兵线入口：从出发点在这路上的位置（不超过目的地）往己方一侧退，
+ * 取第一个直走过去不被挡的点，再顺着兵线过去。
+ */
+export function laneEntry(
+  path: LanePath,
+  from: Point,
+  maxForward: number,
+  isRadiant: boolean,
+  blocked: (point: Point) => boolean,
+): Point | undefined {
+  const start = forwardProgress(path, projectOnLane(path, from).progress, isRadiant);
+  for (let forward = Math.min(start, maxForward); forward >= 0; forward -= LANE_ENTRY_STEP) {
+    const point = pointAtProgress(path, progressFromForward(path, forward, isRadiant));
+    if (!blocked(point)) {
+      return point;
+    }
+  }
+  return undefined;
+}

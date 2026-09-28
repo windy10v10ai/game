@@ -21,7 +21,7 @@ import { FIGHT_DANGER_RADIUS, Task, TaskKind } from '../team/team-plan';
 import { WardPlacement } from '../ward/ward-placement';
 import { canEngage, canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
-import { detourAroundTower, retreatPointFromTowers } from './tower-retreat';
+import { passesTower, retreatPointFromTowers } from './tower-retreat';
 
 /** 英雄当前在做什么：对线期交给原生时是 laning，接管后是交战状态或团队任务。 */
 export type BotMode = 'laning' | 'fight' | 'retreat' | TaskKind;
@@ -657,10 +657,10 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
     const destination = this.FormationPoint(task.pos);
-    const waypoint = this.DetourTowers(destination, task.targetId);
-    if (waypoint) {
-      this.traceTarget = 'detour';
-      return this.MoveTo(waypoint, UnitOrder.MOVE_TO_POSITION);
+    const entry = this.LaneDetour(destination, task.targetId);
+    if (entry) {
+      this.traceTarget = 'lane';
+      return this.MoveTo(entry, UnitOrder.MOVE_TO_POSITION);
     }
     if (this.MoveTo(destination, UnitOrder.ATTACK_MOVE)) {
       return true;
@@ -1003,24 +1003,26 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   /** 去目的地的路上有进不得的敌方塔时，先绕到它靠自家一侧的外圈；要推的那座塔不绕。 */
-  private DetourTowers(destination: Vector, targetId: number | undefined): Vector | undefined {
-    const fountain = HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber());
-    if (!fountain) {
+  /** 直线赶路会穿过敌方塔区时改走兵线；直接走得过去就直接走，不绕回兵线。 */
+  private LaneDetour(destination: Vector, targetId: number | undefined): Vector | undefined {
+    const here = this.hero.GetAbsOrigin();
+    const towers = this.aroundEnemyBuildingsInvulnerable.filter(
+      (tower) => IsTowerLike(tower) && tower.GetEntityIndex() !== targetId && !this.CanDive(tower),
+    );
+    const blocked = (point: Point) =>
+      towers.some((tower) =>
+        passesTower(
+          here,
+          point,
+          tower.GetAbsOrigin(),
+          tower.Script_GetAttackRange() + this.TowerDangerBuffer + this.TowerDetourMargin,
+        ),
+      );
+    if (!this.brain || !blocked(destination)) {
       return undefined;
     }
-    const here = this.hero.GetAbsOrigin();
-    for (const tower of this.aroundEnemyBuildingsInvulnerable) {
-      if (!IsTowerLike(tower) || tower.GetEntityIndex() === targetId || this.CanDive(tower)) {
-        continue;
-      }
-      const radius =
-        tower.Script_GetAttackRange() + this.TowerDangerBuffer + this.TowerDetourMargin;
-      const waypoint = detourAroundTower(here, destination, tower.GetAbsOrigin(), radius, fountain);
-      if (waypoint) {
-        return this.ToWorld(waypoint);
-      }
-    }
-    return undefined;
+    const entry = this.brain.LaneEntry(here, destination, blocked);
+    return entry ? this.ToWorld(entry) : undefined;
   }
 
   private ToWorld(point: Point): Vector {

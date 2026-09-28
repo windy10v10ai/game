@@ -1,4 +1,4 @@
-import { detourAroundTower, retreatPointFromTowers } from './tower-retreat';
+import { retreatPointFromTowers } from './tower-retreat';
 
 describe('tower retreat point', () => {
   it('moves directly away from a single tower toward home', () => {
@@ -21,30 +21,5 @@ describe('tower retreat point', () => {
     expect(
       retreatPointFromTowers({ x: 100, y: 100 }, [{ x: 100, y: 100 }], { x: 0, y: 100 }, 200),
     ).toEqual({ x: -100, y: 100 });
-  });
-});
-
-describe('tower detour', () => {
-  const fountain = { x: 0, y: -5000 };
-
-  it('goes around the home side of a tower that sits on the way', () => {
-    const waypoint = detourAroundTower(
-      { x: -2000, y: 0 },
-      { x: 2000, y: 0 },
-      { x: 0, y: 100 },
-      900,
-      fountain,
-    );
-    expect(waypoint!.x).toBeCloseTo(0);
-    expect(waypoint!.y).toBeCloseTo(-800);
-  });
-
-  it('walks straight when the tower is off the path or behind', () => {
-    expect(
-      detourAroundTower({ x: -2000, y: 0 }, { x: 2000, y: 0 }, { x: 0, y: 1500 }, 900, fountain),
-    ).toBeUndefined();
-    expect(
-      detourAroundTower({ x: 0, y: 0 }, { x: 2000, y: 0 }, { x: -500, y: 0 }, 900, fountain),
-    ).toBeUndefined();
   });
 });
