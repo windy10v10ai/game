@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Windy10v10AI.Launcher
@@ -107,10 +108,27 @@ namespace Windy10v10AI.Launcher
             }
         }
 
-        // The previous build may still be exiting when the new one starts; whatever stays locked goes on a later start
+        // The previous build is usually still exiting when the new one starts, so the delete retries briefly;
+        // whatever stays locked goes on a later start
         public static void RemoveOld()
         {
-            TryDelete(Application.ExecutablePath + ".old");
+            var old = Application.ExecutablePath + ".old";
+            if (!File.Exists(old)) return;
+            new Thread(() =>
+            {
+                for (var i = 0; i < 10; i++)
+                {
+                    try
+                    {
+                        File.Delete(old);
+                        return;
+                    }
+                    catch (Exception)
+                    {
+                        Thread.Sleep(500);
+                    }
+                }
+            }) { IsBackground = true }.Start();
         }
 
         static string Sha256(byte[] data)
