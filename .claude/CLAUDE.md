@@ -91,6 +91,7 @@ npm run build:vscripts   # TSTL build for VScripts (TypeScript → Lua)
 | `game/resource/` | 中英俄本地化文案规约、图标 png 位置 | `game/resource/CLAUDE.md` |
 | `game/scripts/vscripts/` | TSTL 编译产物（自动生成，不要手改）+ 少量遗留纯 Lua | — |
 | `docs/reference/<version>/` | Dota 2 原版 KV 与说明文本快照 | — |
+| `launcher/` | 本机专用服启动器（C# WinForms 单文件 exe）。每次发版都要同步更新 firebase 仓库的官网下载页，步骤见 `launcher/README.md`「发布」 | — |
 
 模块级的设计与决策放该模块目录下的 `README.md`（如 `src/vscripts/api/README.md` 讲客户端 HTTP 代发、`src/vscripts/ai/build-item/README.md` 讲出装）。
 
@@ -165,6 +166,8 @@ issue 只记大致步骤与进度，不承载设计细节——issue 关掉就�
 
 模块 `README.md` 是**框架性文档**：写系统现在长什么样、为什么这样搭、放弃了什么，长期维护。
 
+- **按读者写，越短越好**。面向玩家或外部读者的目录（如 `launcher/`）只写做什么、怎么用、怎么编译发布，不写设计取舍
+- **只记用户拍板的关键决定**。AI 实现时自行选定、以后可能调整的细节（超时、重试间隔、文案位置等）不写，也不要写成用户的决定
 - **不按阶段、批次组织**。逐段问「这段会不会因为某个阶段做完就失效？」——会失效的（阶段划分、进度、本阶段改了哪些文件、排查过程与证据、实测数字）进 issue、PR 或本地 spec，不进 README
 - **已实现的做法不复述，一切以代码为准**。调用链、常量名与取值、某个函数做了什么、字段怎么拼，都从代码读，抄进文档只会先过期（口径同「注释规约」）。README 只留代码里读不出来的东西：约束、决定和它的理由
 - **每个决定一句理由**。没选的方案值得提时，在理由里带半句「没选 X，因为 Y」；方案比较表、试算过程留在 PR
