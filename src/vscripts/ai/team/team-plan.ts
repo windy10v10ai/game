@@ -1,6 +1,6 @@
 /** 团队任务分派：按回复 → 防守 → 交战 → 推进 → 发育的顺序把每个 bot 分到一个带目的地的任务。 */
 import { distance, Lane, Point } from './lane-geometry';
-import { ANCIENT_FARM_POWER, AVOID_POWER_RATIO } from './power';
+import { ANCIENT_FARM_POWER } from './power';
 
 export type TaskKind = 'recover' | 'defend' | 'fight' | 'push' | 'farm' | 'hold';
 
@@ -212,15 +212,15 @@ function assignFights(
   const avoid: Point[] = [];
   let remaining = free;
   for (const spot of spots) {
-    const teamPower = remaining.reduce((sum, bot) => sum + bot.power, 0) + spot.allyPower;
-    if (spot.enemyPower > teamPower * AVOID_POWER_RATIO) {
+    const need = spot.enemyPower * FIGHT_POWER_MARGIN - spot.allyPower;
+    // 能来的人全来也凑不够就都不来，不派一部分人去送
+    if (remaining.reduce((sum, bot) => sum + bot.power, 0) < need) {
       avoid.push(spot.pos);
       continue;
     }
     if (spot.pastFront) {
       continue;
     }
-    const need = spot.enemyPower * FIGHT_POWER_MARGIN - spot.allyPower;
     // 先算好每人的代价再比较：比较时现算的浮点误差会让同一个人和自己比出大小，Lua 的排序会直接报错
     const cost = new Map<number, number>();
     for (const bot of remaining) {

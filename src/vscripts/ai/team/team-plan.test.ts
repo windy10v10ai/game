@@ -261,7 +261,7 @@ describe('planTasks', () => {
   });
 
   it('sends everyone needed straight toward the fight instead of waiting at a rally point', () => {
-    const input = baseInput({ fights: [spot(450)] });
+    const input = baseInput({ fights: [spot(400)] });
     input.bots.forEach((bot) => (bot.pos = { x: -9000, y: 0 }));
     const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
     expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(5);
@@ -282,7 +282,7 @@ describe('planTasks', () => {
   });
 
   it('calls in bots from across the map to a fight nearby bots cannot win alone', () => {
-    const input = baseInput({ fights: [{ ...spot(450), engaged: true }] });
+    const input = baseInput({ fights: [{ ...spot(400), engaged: true }] });
     input.bots.forEach((bot) => (bot.pos = { x: 5500, y: 0 }));
     input.bots[0].pos = { x: 500, y: 0 };
     const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
