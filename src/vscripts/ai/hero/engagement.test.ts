@@ -19,17 +19,17 @@ describe('decideStance', () => {
     expect(decideStance({ ...input, enemyPower: 250 })).toBe('hold');
   });
 
-  it('keeps fighting a lost fight while it can still take the damage', () => {
-    expect(decideStance({ ...input, engaged: true, enemyPower: 1000, survivalSeconds: 8 })).toBe(
-      'fight',
+  it('leaves a fight it is clearly losing right away instead of fighting on', () => {
+    expect(decideStance({ ...input, engaged: true, enemyPower: 300 })).toBe('retreat');
+    expect(decideStance({ ...input, engaged: true, enemyPower: 300, canEscape: false })).toBe(
+      'lastStand',
     );
   });
 
-  it('retreats once about to die, sooner when losing', () => {
-    const winning = { ...input, engaged: true, survivalSeconds: 4 };
-    expect(decideStance(winning)).toBe('fight');
-    expect(decideStance({ ...winning, enemyPower: 400 })).toBe('retreat');
-    expect(decideStance({ ...winning, survivalSeconds: 2 })).toBe('retreat');
+  it('keeps fighting an even fight until about to die', () => {
+    const even = { ...input, engaged: true, enemyPower: 200, survivalSeconds: 4 };
+    expect(decideStance(even)).toBe('fight');
+    expect(decideStance({ ...even, survivalSeconds: 2 })).toBe('retreat');
   });
 
   it('fights back where it stands when it cannot get away', () => {

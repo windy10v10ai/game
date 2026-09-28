@@ -260,26 +260,24 @@ describe('planTasks', () => {
     expect(tasks.get(5)?.kind).toBe('push');
   });
 
-  it('gathers at the rally before engaging when the bots nearby are not enough', () => {
+  it('sends everyone needed straight toward the fight instead of waiting at a rally point', () => {
     const input = baseInput({ fights: [spot(450)] });
     input.bots.forEach((bot) => (bot.pos = { x: -9000, y: 0 }));
     const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
-    expect(kinds.filter((kind) => kind === 'regroup')).toHaveLength(5);
-    expect(kinds).not.toContain('fight');
+    expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(5);
   });
 
-  it('sends the nearest bots straight in once the fight has started', () => {
-    const input = baseInput({ fights: [{ ...spot(450), engaged: true }] });
+  it('calls a pusher standing right next to the fight', () => {
+    const input = baseInput({ fights: [spot(150)] });
     input.bots.forEach((bot) => (bot.pos = { x: -9000, y: 0 }));
-    const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
-    expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(5);
-    expect(kinds).not.toContain('regroup');
+    input.bots[4].pos = { x: 500, y: 0 };
+    expect(planTasks(input).tasks.get(5)?.kind).toBe('fight');
   });
 
   it('pushes away from a fight the whole team cannot win instead of fleeing', () => {
     const input = baseInput({ fights: [spot(1200)] });
     const tasks = [...planTasks(input).tasks.values()];
-    expect(tasks.some((task) => task.kind === 'fight' || task.kind === 'regroup')).toBe(false);
+    expect(tasks.some((task) => task.kind === 'fight')).toBe(false);
     expect(tasks.every((task) => task.lane !== 'mid')).toBe(true);
   });
 
@@ -341,6 +339,13 @@ describe('planTasks', () => {
     const result = planTasks(fallen);
     expect(result.plan).toBe(first.plan);
     expect([...result.tasks.values()].some((task) => task.targetId === 7)).toBe(true);
+  });
+
+  it('keeps the lanes when bots go home or die during the lock', () => {
+    const first = planTasks(baseInput({ bots: bots(8) }));
+    const fewer = baseInput({ bots: bots(8), plan: first.plan, now: 150, random: () => 0.99 });
+    fewer.bots.slice(0, 4).forEach((bot) => (bot.needsRecover = true));
+    expect(planTasks(fewer).plan).toBe(first.plan);
   });
 
   it('keeps the lanes while a fight borrows some of the bots', () => {

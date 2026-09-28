@@ -25,10 +25,10 @@ export interface CombatStats {
 export const AVOID_POWER_RATIO = 2;
 
 /**
- * 已经交战时，敌方战力不超过我方这么多倍就继续打。比进场门槛松：技能已经交了、人已经贴上，
+ * 已经交战时，敌方战力超过我方这么多倍就趁早撤，不硬打。比进场门槛略松：技能已经交了、人已经贴上，
  * 这时掉头损失更大；两个数反过来会出现冲上去一挨打又掉头跑。
  */
-export const KEEP_FIGHTING_RATIO = 3;
+export const KEEP_FIGHTING_RATIO = 2.5;
 
 /** 推进路过时顺手清野需要的自身战力，太弱的英雄停下来打野会耽误推进。 */
 export const QUICK_CLEAR_POWER = 1500;

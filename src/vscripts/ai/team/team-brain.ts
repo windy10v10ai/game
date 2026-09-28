@@ -28,6 +28,7 @@ import {
 import {
   DefendTarget,
   FIGHT_DANGER_RADIUS,
+  FIGHT_FOLLOW_RADIUS,
   FIGHT_JOIN_RADIUS,
   FIGHT_SUPPORT_RADIUS,
   FarmSpot,
@@ -442,6 +443,20 @@ export class TeamBrain {
     }
   }
 
+  /** 离英雄这么近的交战点里最近的一处，没被派去打的英雄据此判断要不要提前离开。 */
+  NearestFight(hero: CDOTA_BaseNPC_Hero, radius: number): FightView | undefined {
+    let best: FightView | undefined;
+    let bestGap = radius;
+    for (const fight of this.fights) {
+      const gap = distance(hero.GetAbsOrigin(), fight.pos);
+      if (gap <= bestGap) {
+        best = fight;
+        bestGap = gap;
+      }
+    }
+    return best;
+  }
+
   /** 英雄看到敌人时取所在交战点的判断依据；这一秒刚出现的交战点按同一口径现算。 */
   AssessFight(hero: CDOTA_BaseNPC_Hero, enemies: CDOTA_BaseNPC[]): FightView {
     for (const fight of this.fights) {
@@ -539,7 +554,7 @@ export class TeamBrain {
     };
   }
 
-  /** 被派来打的 bot 还在路上时也算进这处交战点的我方战力，队友之间判断一致。 */
+  /** 被派来打、快要赶到的 bot 也算进这处交战点的我方战力，队友之间判断一致；还远的不算，免得先到的人以为有援军硬上。 */
   private CountCommittedFighters(): void {
     for (const fight of this.fights) {
       for (const [id, task] of this.tasks) {
@@ -548,7 +563,8 @@ export class TeamBrain {
           !bot ||
           task.kind !== 'fight' ||
           task.targetId !== fight.focusId ||
-          distance(bot.GetAbsOrigin(), fight.pos) <= FIGHT_DANGER_RADIUS
+          distance(bot.GetAbsOrigin(), fight.pos) <= FIGHT_DANGER_RADIUS ||
+          distance(bot.GetAbsOrigin(), fight.pos) > FIGHT_FOLLOW_RADIUS
         ) {
           continue;
         }

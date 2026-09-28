@@ -2,7 +2,7 @@
 import { distance, Lane, Point } from './lane-geometry';
 import { ANCIENT_FARM_POWER, AVOID_POWER_RATIO } from './power';
 
-export type TaskKind = 'recover' | 'defend' | 'fight' | 'regroup' | 'push' | 'farm' | 'hold';
+export type TaskKind = 'recover' | 'defend' | 'fight' | 'push' | 'farm' | 'hold';
 
 export interface Task {
   kind: TaskKind;
@@ -42,7 +42,7 @@ export interface FightSpot {
   allyPower: number;
   /** 集火目标：这一团里血最少的敌方英雄 */
   focusId: number;
-  /** 打不过时附近 bot 的集合点 */
+  /** 打不过时往哪撤 */
   rally: Point;
   /** 在敌方还没推掉的塔后面，不派人去打 */
   pastFront: boolean;
@@ -105,13 +105,13 @@ export const FIGHT_JOIN_RADIUS = 2500;
 // 离某个 bot 这么近的敌方英雄才算交战点；远处的 bot 也会被叫过来，落单的玩家会被围剿
 export const FIGHT_SUPPORT_RADIUS = 6000;
 export const FIGHT_DANGER_RADIUS = 1500;
+// 派来打的 bot 离交战点这么近才算跟得上，远处还在路上的不算进我方战力
+export const FIGHT_FOLLOW_RADIUS = 3000;
 // 派去打架的战力要高出对面一截才稳
 const FIGHT_POWER_MARGIN = 1.2;
-// 集合的 bot 到了集合点这么近就算到场
-const RALLY_ARRIVE_RADIUS = 800;
 // 全队都打不过的敌人附近这么远的推进目标先不派人，免得走过去被逐个击破
 const AVOID_LANE_RADIUS = 3000;
-// 推塔手排在后面挑，相当于离交战点远了这么多
+// 推塔手排在后面挑，相当于离交战点远了这么多；就在交战点旁边的推塔手照常叫，不站在一边看队友打
 const PUSHER_DISTANCE_PENALTY = 2000;
 // 推完一座塔顺着原路推下一座，比换到别的路划算
 const PLAN_LANE_INERTIA = 1;
@@ -197,9 +197,10 @@ function findPushers(bots: PlanBot[]): Set<number> {
 }
 
 /**
- * 交战按全队判断，要么不上、要么集合后一起上：
+ * 交战按全队判断，要么不上、要么叫够人一起上：
  * 全队加起来也打不过就不去，那一带也不派人推进，改去别的路；
- * 打得过就按距离叫够人，推塔手最后才挑；到场的人够了或已经打起来就直接上，否则先到集合点凑齐。
+ * 打得过就按距离叫够人，推塔手最后才挑。大家直接朝交战点走，不在集合点站着等，
+ * 进不进场由英雄层按跟得上的人够不够判断，先到的在外围等后面的人跟上。
  */
 function assignFights(
   input: PlanInput,
@@ -223,10 +224,10 @@ function assignFights(
     // 先算好每人的代价再比较：比较时现算的浮点误差会让同一个人和自己比出大小，Lua 的排序会直接报错
     const cost = new Map<number, number>();
     for (const bot of remaining) {
-      cost.set(
-        bot.id,
-        distance(bot.pos, spot.pos) + (pushers.has(bot.id) ? PUSHER_DISTANCE_PENALTY : 0),
-      );
+      const gap = distance(bot.pos, spot.pos);
+      const penalty =
+        pushers.has(bot.id) && gap > FIGHT_FOLLOW_RADIUS ? PUSHER_DISTANCE_PENALTY : 0;
+      cost.set(bot.id, gap + penalty);
     }
     const order = [...remaining].sort((a, b) => cost.get(a.id)! - cost.get(b.id)!);
     const picked: PlanBot[] = [];
@@ -241,17 +242,7 @@ function assignFights(
     if (picked.length === 0) {
       continue;
     }
-    const arrived = picked
-      .filter(
-        (bot) =>
-          distance(bot.pos, spot.pos) <= FIGHT_JOIN_RADIUS ||
-          distance(bot.pos, spot.rally) <= RALLY_ARRIVE_RADIUS,
-      )
-      .reduce((sum, bot) => sum + bot.power, spot.allyPower);
-    const task: Task =
-      spot.engaged || spot.enemyPower <= arrived * AVOID_POWER_RATIO
-        ? { kind: 'fight', pos: spot.pos, targetId: spot.focusId }
-        : { kind: 'regroup', pos: spot.rally };
+    const task: Task = { kind: 'fight', pos: spot.pos, targetId: spot.focusId };
     const ids = new Set<number>();
     for (const bot of picked) {
       tasks.set(bot.id, task);
@@ -308,8 +299,12 @@ function assignPush(
   // 路数按全队能出力的人数定，被交战临时借走几个人不改路线
   const active = input.bots.filter((bot) => !bot.needsRecover).length;
   const desired = Math.min(MAX_PUSH_LANES, Math.max(1, Math.floor(active / MIN_LANE_GROUP)));
+  // 锁定期内按全队战力判断原路线还能不能推：有人去打架、回家或阵亡只是暂时的，不因此换路
+  const teamPower = input.bots
+    .filter((bot) => !bot.needsRecover)
+    .reduce((sum, bot) => sum + bot.power, 0);
   let plan = input.plan;
-  if (!plan || !keepsPlan(plan, input.lanes, candidates, desired, input.now)) {
+  if (!plan || !keepsPlan(plan, input.lanes, teamPower, avoid, input.now)) {
     plan = pickLanes(candidates, free, pushPower, Math.min(desired, candidates.length), input);
   }
   const chosen: PushLane[] = [];
@@ -334,26 +329,26 @@ function assignPush(
 }
 
 /**
- * 锁定期内、路数够、每路还能推，就不换路。
+ * 锁定期内每路还能推就不换路，路数随人数的变化留到锁定期满再调整。
  * 兵线暂时没到的路不在推进候选里，照样保留，等兵线回来。
  */
 function keepsPlan(
   plan: LanePlan,
   lanes: PushLane[],
-  candidates: PushLane[],
-  desired: number,
+  teamPower: number,
+  avoid: Point[],
   now: number,
 ): boolean {
-  const spare = candidates.some((lane) => !plan.picks.some((pick) => pick.lane === lane.lane));
-  const enough = plan.picks.length === desired || (plan.picks.length < desired && !spare);
   return (
     now < plan.until &&
-    enough &&
-    plan.picks.every(
-      (pick) =>
-        !lanes.some((lane) => lane.lane === pick.lane) ||
-        candidates.some((lane) => lane.lane === pick.lane),
-    )
+    plan.picks.every((pick) => {
+      const lane = lanes.find((entry) => entry.lane === pick.lane);
+      return (
+        !lane ||
+        (canPushWith(teamPower, lane) &&
+          avoid.every((pos) => distance(pos, lane.stagingPos) > AVOID_LANE_RADIUS))
+      );
+    })
   );
 }
 

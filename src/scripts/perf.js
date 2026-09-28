@@ -10,6 +10,9 @@ const CONFIG_FILE = path.join(ROOT, 'game', 'scripts', 'vscripts', 'perf_auto_co
 const RUNS_DIR = path.join(ROOT, 'docs', 'superpowers', 'specs', 'late-game-lag', 'runs');
 const POLL_MS = 15000;
 const FINISHED = /\[perf-auto\] (done|aborted)/;
+// 专用服负载高时会以处理超时为由踢掉唯一的客户端，没有玩家后游戏直接结算，脚本内存随即失控，只能立刻收场
+const BROKEN =
+  /Disconnect client .* from server|LUA Memory usage warning: The VM has hit a new high usage of \d{3},\d{3},\d{3} bytes/;
 
 function parseArgs() {
   const options = {
@@ -76,6 +79,25 @@ function removeConfig() {
 
 function readLog(file) {
   return fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
+}
+
+// 出错时日志可达上 GB，整份读入会超出字符串上限；每次只读新增部分
+function logTail(file) {
+  let offset = 0;
+  let partial = '';
+  return () => {
+    if (!fs.existsSync(file)) return [];
+    const size = fs.statSync(file).size;
+    if (size <= offset) return [];
+    const fd = fs.openSync(file, 'r');
+    const buffer = Buffer.alloc(Math.min(size - offset, 64 * 1024 * 1024));
+    fs.readSync(fd, buffer, 0, buffer.length, offset);
+    fs.closeSync(fd);
+    offset += buffer.length;
+    const lines = (partial + buffer.toString('utf8')).split(/\r?\n/);
+    partial = lines.pop();
+    return lines;
+  };
 }
 
 // 汇总脚本需要的行：自身输出、Lua 报错、客户端未登记的 modifier、引擎慢思考警告
@@ -197,34 +219,34 @@ async function runGame(options, gameConfig, label) {
     );
   }
   // 专用服的脚本输出在服务器日志，客户端帧数据仍在客户端日志
-  const readAll = () =>
-    dedicated ? `${readLog(serverLog)}\n${readLog(logFile)}` : readLog(logFile);
+  const tails = dedicated ? [logTail(serverLog), logTail(logFile)] : [logTail(logFile)];
+  const kept = [];
+  let finished = false;
+  let broken = '';
+  let steps = 0;
 
   const deadline = Date.now() + options.timeoutMinutes * 60 * 1000;
-  let text = '';
-  let lastStep = '';
-  while (Date.now() < deadline) {
+  while (Date.now() < deadline && !finished && !broken) {
     await sleep(POLL_MS);
-    text = readAll();
-    const steps = text.match(/\[perf-auto\] step name=\S+/g);
-    const step = steps ? steps[steps.length - 1] : '';
-    if (step && step !== lastStep) {
-      console.log(`[perf] ${label}: ${step.replace('[perf-auto] step ', '')} (${steps.length})`);
-      lastStep = step;
+    for (const tail of tails) {
+      for (const line of tail()) {
+        if (KEEP_LINE.test(line)) kept.push(line);
+        if (FINISHED.test(line)) finished = true;
+        if (BROKEN.test(line)) broken = line;
+        const step = line.match(/\[perf-auto\] step name=(\S+)/);
+        if (step) console.log(`[perf] ${label}: ${step[1]} (${++steps})`);
+      }
     }
-    if (FINISHED.test(text)) break;
   }
   removeConfig();
   // 服务器退出后客户端会停在断线界面，不会自己退出
-  if (dedicated && isDotaRunning()) execSync('taskkill /IM dota2.exe /F');
-  if (!FINISHED.test(text)) {
+  if ((dedicated || broken) && isDotaRunning()) execSync('taskkill /IM dota2.exe /F');
+  if (broken) console.error(`[perf] ${label}: stopped early: ${broken.trim()}`);
+  else if (!finished) {
     console.error(`[perf] ${label}: timeout before the game finished, keeping partial data`);
   }
   await waitDotaExit();
-  return text
-    .split(/\r?\n/)
-    .filter((line) => KEEP_LINE.test(line))
-    .join('\n');
+  return kept.join('\n');
 }
 
 (async () => {

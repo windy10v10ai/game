@@ -1,15 +1,14 @@
 /**
- * 英雄层交战判断：对面强不是撤退的理由，扛不住才是。没打起来时打不过只保持距离、够得着就放技能；
- * 打起来后按「还能撑几秒」决定去留，撑得住就一直打，跑不掉才原地还手。
+ * 英雄层交战判断：没打起来时打不过就不上；打起来后明显打不过就趁早走，
+ * 打得过就打到快扛不住再撤，跑不掉才原地还手。
  */
 
 import { AVOID_POWER_RATIO, KEEP_FIGHTING_RATIO } from '../team/power';
 
 export type Stance = 'task' | 'fight' | 'hold' | 'retreat' | 'lastStand';
 
-// 按近期受到的伤害还能撑这么多秒以上就继续打；打不过时留更多余量，撤退要走一段路
+// 按近期受到的伤害还能撑这么多秒以上就继续打，撤退要走一段路，留出余量
 const SURVIVE_SECONDS = 3;
-const SURVIVE_SECONDS_LOSING = 6;
 
 export interface EngagementInput {
   engaged: boolean;
@@ -39,7 +38,7 @@ export function decideStance(input: EngagementInput): Stance {
     return input.canEscape ? 'retreat' : 'lastStand';
   }
   const losing = input.enemyPower > input.ourPower * KEEP_FIGHTING_RATIO;
-  if (input.survivalSeconds >= (losing ? SURVIVE_SECONDS_LOSING : SURVIVE_SECONDS)) {
+  if (!losing && input.survivalSeconds >= SURVIVE_SECONDS) {
     return 'fight';
   }
   return input.canEscape ? 'retreat' : 'lastStand';

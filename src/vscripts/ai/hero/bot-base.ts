@@ -19,9 +19,9 @@ import { QUICK_CLEAR_POWER } from '../team/power';
 import { HeroShortName, TeamBrain, UnitPower } from '../team/team-brain';
 import { Task, TaskKind } from '../team/team-plan';
 import { WardPlacement } from '../ward/ward-placement';
-import { canEscape, decideStance, Stance, survivalSeconds } from './engagement';
+import { canEngage, canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
-import { retreatPointFromDanger } from './tower-retreat';
+import { detourAroundTower, retreatPointFromTowers } from './tower-retreat';
 
 /** 英雄当前在做什么：对线期交给原生时是 laning，接管后是交战状态或团队任务。 */
 export type BotMode = 'laning' | 'fight' | 'retreat' | TaskKind;
@@ -68,6 +68,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly FindRadius: number = 1800;
   protected readonly CastRange: number = 900;
   protected readonly LocalFightRadius: number = 1500;
+  // 这么近有一团打不过的敌人、又没被派去打时，提前离开，不在旁边推塔打兵等人来抓
+  protected readonly ThreatRadius: number = 2500;
   protected readonly ChaseRange: number = 1200;
   // 原地还手时只打攻击距离外这么一点以内的敌人，再远就算追
   protected readonly HitBackExtraRange: number = 100;
@@ -81,6 +83,7 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly DamageWindow: number = 2;
   // 打不过的敌人没打起来时，停在它攻击距离外这么远，够得着的技能照放
   protected readonly HoldDistanceBuffer: number = 350;
+  protected readonly HoldApproachSlack: number = 300;
 
   protected readonly RecoverHealthPercent: number = 35;
   protected readonly RecoverManaPercent: number = 15;
@@ -90,6 +93,13 @@ export class BotBaseAIModifier extends BaseModifier {
 
   // 进塔攻击范围前留的余量，以及能扛塔的人数、血量、塔下兵数
   protected readonly TowerDangerBuffer: number = 150;
+  // 退出塔区时一并背离的附近塔，绕塔时再多留的余量
+  protected readonly TowerNearbyRange: number = 600;
+  protected readonly TowerDetourMargin: number = 200;
+  // 站位：黄金角均匀散开，半径在几档之间错开
+  protected readonly FormationAngleStep: number = 2.4;
+  protected readonly FormationMinRadius: number = 150;
+  protected readonly FormationRadiusStep: number = 125;
   protected readonly DiveMinHeroes: number = 3;
   protected readonly DiveMinHealthPercent: number = 50;
   protected readonly DiveMinCreeps: number = 2;
@@ -308,6 +318,7 @@ export class BotBaseAIModifier extends BaseModifier {
         }
         return this.ActionRetreat();
       case 'hold':
+        // 被派来打但跟得上的人还不够：停在敌人够不着的外围等后面的人，不去打兵
         if (this.InEnemyReach()) {
           this.mode = 'retreat';
           if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
@@ -315,8 +326,14 @@ export class BotBaseAIModifier extends BaseModifier {
           }
           return this.ActionRetreat();
         }
-        this.mode = task?.kind ?? 'hold';
-        return this.ActionTask(task);
+        this.mode = 'hold';
+        if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
+          return true;
+        }
+        if (task && !this.NearEnemyReach()) {
+          return this.MoveTo(this.FormationPoint(task.pos), UnitOrder.MOVE_TO_POSITION);
+        }
+        return true;
       default:
         this.mode = task?.kind ?? 'hold';
         return this.ActionTask(task);
@@ -379,6 +396,15 @@ export class BotBaseAIModifier extends BaseModifier {
       if (this.stance === 'retreat' && this.gameTime < this.engagedUntil) {
         return 'retreat';
       }
+      const threat = brain.NearestFight(this.hero, this.ThreatRadius);
+      if (
+        threat &&
+        task?.kind !== 'fight' &&
+        !canEngage(threat.ourPower + UnitPower(this.hero), threat.enemyPower)
+      ) {
+        this.retreatPoint = threat.rally;
+        return 'retreat';
+      }
       return 'task';
     }
 
@@ -403,11 +429,14 @@ export class BotBaseAIModifier extends BaseModifier {
     if (engaged) {
       return stance;
     }
-    if (this.needsRecover || task?.kind === 'regroup') {
+    if (this.needsRecover) {
       return 'retreat';
     }
-    // 没被派去打的 bot 继续手上的任务，打不过时保持距离
-    if (stance === 'hold' || task?.kind === 'fight') {
+    // 打不过时，被派来打的在外围等队友跟上，其余的离开，不在旁边围观
+    if (stance === 'hold') {
+      return task?.kind === 'fight' ? 'hold' : 'retreat';
+    }
+    if (task?.kind === 'fight') {
       return stance;
     }
     return 'task';
@@ -429,6 +458,15 @@ export class BotBaseAIModifier extends BaseModifier {
     return this.aroundEnemyHeroes.some(
       (enemy) =>
         this.hero.GetRangeToUnit(enemy) <= enemy.Script_GetAttackRange() + this.HoldDistanceBuffer,
+    );
+  }
+
+  /** 再往前走一点就会进敌方英雄的攻击距离，外围等人时停在这里。 */
+  private NearEnemyReach(): boolean {
+    return this.aroundEnemyHeroes.some(
+      (enemy) =>
+        this.hero.GetRangeToUnit(enemy) <=
+        enemy.Script_GetAttackRange() + this.HoldDistanceBuffer + this.HoldApproachSlack,
     );
   }
 
@@ -601,9 +639,6 @@ export class BotBaseAIModifier extends BaseModifier {
     if (task.kind === 'recover') {
       return this.ActionRecover();
     }
-    if (task.kind === 'regroup') {
-      return this.MoveTo(this.ToWorld(task.pos), UnitOrder.MOVE_TO_POSITION);
-    }
     if (this.tookDamage && this.LosingToNeutrals()) {
       return this.ActionRetreat();
     }
@@ -625,7 +660,13 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.AttackNearbyCreep(task.kind)) {
       return true;
     }
-    if (this.MoveTo(this.ToWorld(task.pos), UnitOrder.ATTACK_MOVE)) {
+    const destination = this.FormationPoint(task.pos);
+    const waypoint = this.DetourTowers(destination, task.targetId);
+    if (waypoint) {
+      this.traceTarget = 'detour';
+      return this.MoveTo(waypoint, UnitOrder.MOVE_TO_POSITION);
+    }
+    if (this.MoveTo(destination, UnitOrder.ATTACK_MOVE)) {
       return true;
     }
     this.traceTarget = 'arrived';
@@ -954,6 +995,38 @@ export class BotBaseAIModifier extends BaseModifier {
     return true;
   }
 
+  /** 每个英雄在目的地附近各有一个固定站位，一起行动时散开成一片，不挤成一个点、排成一条线走。 */
+  private FormationPoint(point: Point): Vector {
+    const slot = this.hero.GetEntityIndex();
+    const angle = slot * this.FormationAngleStep;
+    const radius = this.FormationMinRadius + (slot % 3) * this.FormationRadiusStep;
+    return this.ToWorld({
+      x: point.x + Math.cos(angle) * radius,
+      y: point.y + Math.sin(angle) * radius,
+    });
+  }
+
+  /** 去目的地的路上有进不得的敌方塔时，先绕到它靠自家一侧的外圈；要推的那座塔不绕。 */
+  private DetourTowers(destination: Vector, targetId: number | undefined): Vector | undefined {
+    const fountain = HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber());
+    if (!fountain) {
+      return undefined;
+    }
+    const here = this.hero.GetAbsOrigin();
+    for (const tower of this.aroundEnemyBuildingsInvulnerable) {
+      if (!IsTowerLike(tower) || tower.GetEntityIndex() === targetId || this.CanDive(tower)) {
+        continue;
+      }
+      const radius =
+        tower.Script_GetAttackRange() + this.TowerDangerBuffer + this.TowerDetourMargin;
+      const waypoint = detourAroundTower(here, destination, tower.GetAbsOrigin(), radius, fountain);
+      if (waypoint) {
+        return this.ToWorld(waypoint);
+      }
+    }
+    return undefined;
+  }
+
   private ToWorld(point: Point): Vector {
     return GetGroundPosition(Vector(point.x, point.y, 0), this.hero);
   }
@@ -1073,7 +1146,14 @@ export class BotBaseAIModifier extends BaseModifier {
         this.ArriveRadius + 50,
         this.TowerDangerBuffer - HeroUtil.GetDistanceToAttackRange(tower, this.hero) + 50,
       );
-      const retreat = retreatPointFromDanger(here, tower.GetAbsOrigin(), fountain, distance);
+      const dangerous = this.aroundEnemyBuildingsInvulnerable
+        .filter(
+          (building) =>
+            IsTowerLike(building) &&
+            HeroUtil.GetDistanceToAttackRange(building, this.hero) <= this.TowerNearbyRange,
+        )
+        .map((building) => building.GetAbsOrigin());
+      const retreat = retreatPointFromTowers(here, dangerous, fountain, distance);
       this.MoveTo(Vector(retreat.x, retreat.y, here.z), UnitOrder.MOVE_TO_POSITION);
       return true;
     }
