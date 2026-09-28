@@ -31,8 +31,8 @@ function parseArgs() {
     maxLevel: 50,
     // bot 英雄池的起始偏移，换一批英雄观察
     botOffset: 0,
-    // 天辉人数与金钱经验倍率，0 为沿用对局选项；--radiantPlayers 1 模拟 1v10
-    radiantPlayers: 0,
+    // 天辉人数与金钱经验倍率，0 为沿用对局选项；专用服的客户端默认只报 1 人，人数固定为满编，--radiantPlayers 1 模拟 1v10
+    radiantPlayers: 10,
     radiantMultiplier: 0,
     // 逗号分隔的英雄名，排到 bot 英雄池最前面，用于让指定英雄出场验证
     botHeroes: '',
