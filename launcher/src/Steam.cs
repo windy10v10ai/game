@@ -1,11 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Web.Script.Serialization;
 using Microsoft.Win32;
 
 namespace Windy10v10AI.Launcher
@@ -127,14 +124,13 @@ namespace Windy10v10AI.Launcher
     static class WorkshopLatest
     {
         const string SteamUrl = "https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/";
-        // Some networks in mainland China cannot reach Steam's API, so our backend asks Steam on their behalf through
-        // the same China proxy the game uses
-        const string RelayUrl = "https://1491237865-7au6o0ylxt.ap-guangzhou.tencentscf.com/api/launcher/workshop/";
+        // Some networks in mainland China cannot reach Steam's API, so our backend asks Steam on their behalf
+        const string RelayUrl = Updater.RelayApi + "workshop/";
         const int SteamTimeout = 4000;
         // Covers a cold start of the proxy and the backend behind it
         const int RelayTimeout = 8000;
-        static readonly TimeSpan RefreshAfter = TimeSpan.FromMinutes(10);
-        static readonly TimeSpan RetryAfter = TimeSpan.FromMinutes(1);
+        static readonly TimeSpan RefreshAfter = TimeSpan.FromMinutes(30);
+        static readonly TimeSpan RetryAfter = TimeSpan.FromMinutes(5);
 
         static readonly object sync = new object();
         static readonly Dictionary<string, string> manifests = new Dictionary<string, string>();
@@ -143,12 +139,6 @@ namespace Windy10v10AI.Launcher
 
         // Raised on a background thread when a request finishes, successfully or not
         public static event Action Changed;
-
-        static WorkshopLatest()
-        {
-            // Apps built against .NET 4.0 do not offer TLS 1.2 by default, and both endpoints require it
-            ServicePointManager.SecurityProtocol |= (SecurityProtocolType)3072;
-        }
 
         // Returns null until a request succeeds; checking is true while the first answer is still on its way.
         // Each call may start a refresh in the background.
@@ -187,7 +177,7 @@ namespace Windy10v10AI.Launcher
         {
             try
             {
-                var root = Request(SteamUrl, "itemcount=1&publishedfileids%5B0%5D=" + id, SteamTimeout);
+                var root = Http.Json(SteamUrl, "itemcount=1&publishedfileids%5B0%5D=" + id, SteamTimeout);
                 var details = (object[])((Dictionary<string, object>)root["response"])["publishedfiledetails"];
                 foreach (Dictionary<string, object> item in details)
                 {
@@ -210,7 +200,7 @@ namespace Windy10v10AI.Launcher
             try
             {
                 object manifest;
-                return Request(RelayUrl + id, null, RelayTimeout).TryGetValue("manifest", out manifest)
+                return Http.Json(RelayUrl + id, null, RelayTimeout).TryGetValue("manifest", out manifest)
                     ? Convert.ToString(manifest)
                     : null;
             }
@@ -218,27 +208,6 @@ namespace Windy10v10AI.Launcher
             {
                 // Both sources failed: RetryAfter schedules the next attempt
                 return null;
-            }
-        }
-
-        // Sends a POST when a form is given, otherwise a GET, and parses the JSON object in the response
-        static Dictionary<string, object> Request(string url, string form, int timeout)
-        {
-            var request = (HttpWebRequest)WebRequest.Create(url);
-            request.Timeout = timeout;
-            request.ReadWriteTimeout = timeout;
-            if (form != null)
-            {
-                request.Method = "POST";
-                request.ContentType = "application/x-www-form-urlencoded";
-                var body = Encoding.ASCII.GetBytes(form);
-                using (var stream = request.GetRequestStream()) stream.Write(body, 0, body.Length);
-            }
-
-            using (var response = request.GetResponse())
-            using (var reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
-            {
-                return (Dictionary<string, object>)new JavaScriptSerializer().DeserializeObject(reader.ReadToEnd());
             }
         }
     }

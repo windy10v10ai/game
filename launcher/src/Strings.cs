@@ -49,6 +49,12 @@ namespace Windy10v10AI.Launcher
         public static string Subscribe { get { return Pick("订阅地图", "Subscribe", "Подписаться"); } }
         public static string OpenLog { get { return Pick("打开日志", "Open log", "Открыть лог"); } }
 
+        public static string UpdateAvailable { get { return Pick("发现新版本 v{0}，更新后启动器会自动重启。", "Version {0} is available. The launcher restarts after updating.", "Доступна версия {0}. Лаунчер перезапустится после обновления."); } }
+        public static string Update { get { return Pick("更新", "Update", "Обновить"); } }
+        public static string Updating { get { return Pick("正在下载新版本…", "Downloading the new version...", "Загрузка новой версии…"); } }
+        public static string UpdateFailed { get { return Pick("自动更新失败，请到官网下载新版本。", "Update failed. Download the new version from our website.", "Не удалось обновить. Скачайте новую версию на сайте."); } }
+        public static string OpenDownloadPage { get { return Pick("打开官网", "Open website", "Открыть сайт"); } }
+
         public static string Developer { get { return Pick("开发选项", "Developer", "Для разработчиков"); } }
         public static string UseTestMap { get { return Pick("使用测试服", "Use test map", "Тестовая карта"); } }
 

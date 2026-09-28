@@ -10,7 +10,7 @@ using System.Threading;
 using System.Windows.Forms;
 
 [assembly: System.Reflection.AssemblyTitle("Windy10v10AI")]
-[assembly: System.Reflection.AssemblyVersion("0.2.1.0")]
+[assembly: System.Reflection.AssemblyVersion("0.3.0.0")]
 
 namespace Windy10v10AI.Launcher
 {
@@ -21,6 +21,7 @@ namespace Windy10v10AI.Launcher
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Updater.RemoveOld();
             Application.Run(new MainForm());
         }
     }
@@ -37,7 +38,7 @@ namespace Windy10v10AI.Launcher
 
     class MainForm : Form
     {
-        const string Version = "0.2.1";
+        const string Version = "0.3.0";
         const string ReleaseId = "2307479570";
         const string TestId = "2636824668";
         const int Port = 27015;
@@ -68,6 +69,7 @@ namespace Windy10v10AI.Launcher
         // Launch failures stay on screen until the player acts; map checks may replace any other notice
         bool stickyNotice;
         string logFile;
+        Release update;
         volatile bool stopping;
         bool busy;
 
@@ -162,6 +164,17 @@ namespace Windy10v10AI.Launcher
             {
                 if (IsHandleCreated && !IsDisposed) BeginInvoke((Action)RefreshIdleMapState);
             };
+#if !BETA
+            // Closed beta builds must not replace themselves with the public release
+            Shown += delegate
+            {
+                new Thread(() =>
+                {
+                    var newer = Updater.FindNewer(Version);
+                    if (newer != null) UI(() => { update = newer; RefreshIdleMapState(); });
+                }) { IsBackground = true }.Start();
+            };
+#endif
         }
 
         void RefreshIdleMapState()
@@ -225,15 +238,15 @@ namespace Windy10v10AI.Launcher
             {
                 case MapState.Ready:
                     SetFooter(Theme.Ok, Strings.MapReady);
-                    HideNotice();
+                    ShowIdleNotice();
                     break;
                 case MapState.Checking:
                     SetFooter(Theme.Faint, Strings.MapChecking);
-                    HideNotice();
+                    ShowIdleNotice();
                     break;
                 case MapState.Unverified:
                     SetFooter(Theme.Warning, Strings.MapUnverified);
-                    HideNotice();
+                    ShowIdleNotice();
                     break;
                 case MapState.Outdated:
                     SetFooter(Theme.Warning, Strings.MapOutdated);
@@ -276,6 +289,36 @@ namespace Windy10v10AI.Launcher
             var wasVisible = notice.Visible;
             notice.Show(kind, text, button);
             if (!wasVisible) Relayout();
+        }
+
+        // Map problems keep the notice area; otherwise it offers a pending update
+        void ShowIdleNotice()
+        {
+            if (update == null) HideNotice();
+            else ShowNotice(NoticeKind.Warning, string.Format(Strings.UpdateAvailable, update.Version), Strings.Update, StartUpdate);
+        }
+
+        void StartUpdate()
+        {
+            if (busy) return;
+            busy = true;
+            var release = update;
+            ShowNotice(NoticeKind.Warning, Strings.Updating, null, null);
+            new Thread(() =>
+            {
+                var exe = Updater.Download(release);
+                if (exe != null && Updater.Install(exe))
+                {
+                    UI(Close);
+                    return;
+                }
+                UI(() =>
+                {
+                    busy = false;
+                    ShowNotice(NoticeKind.Error, Strings.UpdateFailed, Strings.OpenDownloadPage, () => OpenUrl(Updater.DownloadPage));
+                    stickyNotice = true;
+                });
+            }) { IsBackground = true }.Start();
         }
 
         void HideNotice()
