@@ -10,7 +10,7 @@ using System.Threading;
 using System.Windows.Forms;
 
 [assembly: System.Reflection.AssemblyTitle("Windy10v10AI")]
-[assembly: System.Reflection.AssemblyVersion("0.3.0.0")]
+[assembly: System.Reflection.AssemblyVersion("0.3.1.0")]
 
 namespace Windy10v10AI.Launcher
 {
@@ -38,7 +38,7 @@ namespace Windy10v10AI.Launcher
 
     class MainForm : Form
     {
-        const string Version = "0.3.0";
+        const string Version = "0.3.1";
         const string ReleaseId = "2307479570";
         const string TestId = "2636824668";
         const int Port = 27015;
