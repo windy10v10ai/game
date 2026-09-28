@@ -84,9 +84,9 @@ export interface PlanInput {
   random: () => number;
 }
 
-/** 选定的推进路线：每路记下当时的目标建筑，目标倒了就重选。 */
+/** 选定的推进路线；目标塔倒了顺着同一路推下一座，不重选。 */
 export interface LanePlan {
-  picks: { lane: Lane; targetId: number }[];
+  picks: { lane: Lane }[];
   until: number;
 }
 
@@ -332,7 +332,7 @@ function assignPush(
 }
 
 /**
- * 锁定期内、路数够、每路的目标还在且还能推，就不换路。
+ * 锁定期内、路数够、每路还能推，就不换路。
  * 兵线暂时没到的路不在推进候选里，照样保留，等兵线回来。
  */
 function keepsPlan(
@@ -350,7 +350,7 @@ function keepsPlan(
     plan.picks.every(
       (pick) =>
         !lanes.some((lane) => lane.lane === pick.lane) ||
-        candidates.some((lane) => lane.lane === pick.lane && lane.targetId === pick.targetId),
+        candidates.some((lane) => lane.lane === pick.lane),
     )
   );
 }
@@ -377,7 +377,7 @@ function pickLanes(
       index++;
     }
     const picked = pool[index].lane;
-    picks.push({ lane: picked.lane, targetId: picked.targetId });
+    picks.push({ lane: picked.lane });
     pool = pool.filter((entry) => entry.lane !== picked);
   }
   return { picks, until: input.now + PLAN_LOCK_SECONDS };

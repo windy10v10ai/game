@@ -319,7 +319,7 @@ describe('planTasks', () => {
     expect(planTasks(input).plan?.picks[0].lane).toBe('bot');
   });
 
-  it('keeps the chosen lanes until the lock runs out or the target falls', () => {
+  it('keeps the chosen lanes until the lock runs out', () => {
     const first = planTasks(baseInput({ bots: bots(8) }));
     const picked = first.plan!.picks.map((pick) => pick.lane);
     const later = baseInput({ bots: bots(8), plan: first.plan, now: 150, random: () => 0.99 });
@@ -327,14 +327,20 @@ describe('planTasks', () => {
 
     const expired = planTasks({ ...later, now: 1000 }).plan!.picks.map((pick) => pick.lane);
     expect(expired).not.toEqual(picked);
+  });
 
+  it('follows the same lane to the next building after a tower falls', () => {
+    const first = planTasks(baseInput({ bots: bots(8) }));
     const fallen = baseInput({
       bots: bots(8),
       plan: first.plan,
       now: 150,
+      random: () => 0.99,
       lanes: [lane('top', -3000), { ...lane('mid', 0), targetId: 7 }, lane('bot', 3000)],
     });
-    expect(planTasks(fallen).plan).not.toBe(first.plan);
+    const result = planTasks(fallen);
+    expect(result.plan).toBe(first.plan);
+    expect([...result.tasks.values()].some((task) => task.targetId === 7)).toBe(true);
   });
 
   it('keeps the lanes while a fight borrows some of the bots', () => {
