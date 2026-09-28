@@ -4,6 +4,7 @@ import { GameConfig } from '../GameConfig';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroPick } from '../hero/hero-pick';
 import { PerfProfiler } from './perf-profiler';
+import { PERF_CONFIG } from './perf-config';
 import { findAllUnits, PerfSampler } from './perf-sampler';
 
 export interface PerfAutoConfig {
@@ -56,16 +57,8 @@ const PROPERTY_MODIFIER_PREFIX = 'modifier_player_property_';
 // 足够升到 50 级
 const BOOST_XP = 250000;
 
-// 由 `npm run perf` 在编译产物目录临时写入，平时不存在，正常开发不会进入自动测试
-function loadConfig(): PerfAutoConfig | undefined {
-  if (!IsInToolsMode()) return undefined;
-  const requireFn = (_G as unknown as { require: (this: void, name: string) => unknown }).require;
-  const [ok, result] = pcall(requireFn, 'perf_auto_config');
-  return ok ? (result as PerfAutoConfig) : undefined;
-}
-
 // 选英雄早于自动测试启动，只能在模块加载时调整英雄池顺序
-const bootConfig = loadConfig();
+const bootConfig = PERF_CONFIG;
 if (bootConfig && bootConfig.botOffset > 0) {
   const pool = HeroPick.BotNameList;
   const offset = bootConfig.botOffset % pool.length;
@@ -326,7 +319,7 @@ function buildSteps(
  * 性能自动测试：按控制变量逐段切换条件并采样，全程输出到控制台，供汇总脚本生成对照表。
  */
 export class PerfAuto {
-  static readonly config = loadConfig();
+  static readonly config = PERF_CONFIG;
   private static running = false;
 
   static onGameInProgress() {

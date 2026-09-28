@@ -8,7 +8,7 @@ import {
 import { combatPower, decayThreat, threatMultiplier } from './power';
 import { resolvePushStaging } from './push-staging';
 import { pushLevelFor, shouldTakeOver, takeoverFallbackSeconds } from './takeover';
-import { PlanInput, PushLane, planTasks, pickStrategy } from './team-plan';
+import { PlanInput, PushLane, planTasks } from './team-plan';
 
 const lane = (name: PushLane['lane'], x: number, enemyPower = 0): PushLane => ({
   lane: name,
@@ -37,8 +37,9 @@ const baseInput = (overrides: Partial<PlanInput>): PlanInput => ({
   fights: [],
   farms: [{ pos: { x: -4000, y: -4000 }, ancient: false }],
   lanes: [lane('top', -3000), lane('mid', 0), lane('bot', 3000)],
-  ourPower: 500,
-  enemyPower: 500,
+  now: 100,
+  // 固定取最高权重，测试结果可预期
+  random: () => 0,
   ...overrides,
 });
 
@@ -203,8 +204,6 @@ describe('planTasks', () => {
   it('farms instead of pushing a tower the team cannot even chip', () => {
     const tasks = planTasks(
       baseInput({
-        ourPower: 1000,
-        enemyPower: 300,
         lanes: [
           { ...lane('top', -3000), towerPower: 1200 },
           { ...lane('mid', 0), towerPower: 800 },
@@ -236,8 +235,6 @@ describe('planTasks', () => {
   it('farms a split group too weak for its tower', () => {
     const input = baseInput({
       bots: bots(8),
-      ourPower: 300,
-      enemyPower: 1000,
       lanes: [{ ...lane('top', -3000), towerPower: 900 }, lane('bot', 3000)],
     });
     const kinds = [...planTasks(input).tasks.values()].map((task) => task.lane ?? task.kind);
@@ -247,12 +244,10 @@ describe('planTasks', () => {
 
   it('keeps pushing the current lane instead of teleporting across the map', () => {
     const input = baseInput({
-      ourPower: 1000,
-      enemyPower: 300,
       lanes: [lane('top', -9000), { ...lane('bot', 9000), waveAtTarget: true }],
     });
     input.bots.forEach((bot) => (bot.pos = { x: -8000, y: 0 }));
-    expect(planTasks(input).mainLane).toBe('top');
+    expect(planTasks(input).plan?.picks.map((pick) => pick.lane)).toEqual(['top']);
   });
 
   it('sends just enough nearby bots to a winnable fight and leaves pushers pushing', () => {
@@ -265,28 +260,33 @@ describe('planTasks', () => {
     expect(tasks.get(5)?.kind).toBe('push');
   });
 
-  it('gathers at the rally before engaging when the bots nearby are not enough', () => {
-    const input = baseInput({ fights: [spot(450)] });
+  it('sends everyone needed straight toward the fight instead of waiting at a rally point', () => {
+    const input = baseInput({ fights: [spot(400)] });
     input.bots.forEach((bot) => (bot.pos = { x: -9000, y: 0 }));
     const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
-    expect(kinds.filter((kind) => kind === 'regroup')).toHaveLength(3);
-    expect(kinds).not.toContain('fight');
+    expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(5);
   });
 
-  it('sends the nearest bots straight in once the fight has started', () => {
-    const input = baseInput({ fights: [{ ...spot(450), engaged: true }] });
+  it('calls a pusher standing right next to the fight', () => {
+    const input = baseInput({ fights: [spot(150)] });
     input.bots.forEach((bot) => (bot.pos = { x: -9000, y: 0 }));
-    const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
-    expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(3);
-    expect(kinds).not.toContain('regroup');
+    input.bots[4].pos = { x: 500, y: 0 };
+    expect(planTasks(input).tasks.get(5)?.kind).toBe('fight');
   });
 
-  it('keeps the whole team away from a fight it cannot win', () => {
+  it('pushes away from a fight the whole team cannot win instead of fleeing', () => {
     const input = baseInput({ fights: [spot(1200)] });
-    input.bots[4].pos = { x: -9000, y: 0 };
-    const tasks = planTasks(input).tasks;
-    expect(tasks.get(1)?.kind).toBe('regroup');
-    expect(tasks.get(5)?.lane).toBe('top');
+    const tasks = [...planTasks(input).tasks.values()];
+    expect(tasks.some((task) => task.kind === 'fight')).toBe(false);
+    expect(tasks.every((task) => task.lane !== 'mid')).toBe(true);
+  });
+
+  it('calls in bots from across the map to a fight nearby bots cannot win alone', () => {
+    const input = baseInput({ fights: [{ ...spot(400), engaged: true }] });
+    input.bots.forEach((bot) => (bot.pos = { x: 5500, y: 0 }));
+    input.bots[0].pos = { x: 500, y: 0 };
+    const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
+    expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(5);
   });
 
   it('pulls pushers in only when the fight needs them', () => {
@@ -294,73 +294,116 @@ describe('planTasks', () => {
     expect([...tasks.values()].every((task) => task.kind === 'fight')).toBe(true);
   });
 
-  it('pulls nearby bots back to the rally point when clearly outmatched', () => {
-    const input = baseInput({ fights: [spot(1500)] });
-    input.bots[4].pos = { x: 5000, y: 0 };
-    const tasks = planTasks(input).tasks;
-    expect(tasks.get(1)).toEqual({ kind: 'regroup', pos: { x: -2000, y: 0 } });
-    expect(tasks.get(5)?.kind).toBe('push');
-  });
-
   it('counts players already in the fight', () => {
     const tasks = planTasks(baseInput({ fights: [spot(150, 300)] })).tasks;
     expect([...tasks.values()].some((task) => task.kind === 'fight')).toBe(false);
   });
 
-  it('groups on one lane when ahead', () => {
-    const result = planTasks(baseInput({ ourPower: 1000, enemyPower: 300 }));
-    const lanes = new Set([...result.tasks.values()].map((task) => task.lane));
-    expect(lanes.size).toBe(1);
-    expect(result.mainLane).toBeDefined();
-  });
-
-  it('keeps a main group and pressures other lanes when even', () => {
-    const result = planTasks(baseInput({}));
+  const laneCounts = (input: PlanInput) => {
     const counts = new Map<string, number>();
-    for (const task of result.tasks.values()) {
+    for (const task of planTasks(input).tasks.values()) {
       counts.set(task.lane!, (counts.get(task.lane!) ?? 0) + 1);
     }
-    expect(counts.get(result.mainLane!)).toBe(3);
-    expect(counts.size).toBe(2);
+    return counts;
+  };
+
+  it('splits into two lanes once there are enough bots for two groups', () => {
+    expect(laneCounts(baseInput({ bots: bots(5) })).size).toBe(1);
+    expect([...laneCounts(baseInput({ bots: bots(8) })).values()]).toEqual([4, 4]);
   });
 
-  it('split pushes the lanes without enemies when behind', () => {
-    const result = planTasks(
-      baseInput({
-        ourPower: 300,
-        enemyPower: 1000,
-        lanes: [lane('top', -3000), lane('mid', 0, 800), lane('bot', 3000)],
-      }),
-    );
-    const lanes = [...result.tasks.values()].map((task) => task.lane);
-    expect(lanes).not.toContain('mid');
-    expect(new Set(lanes).size).toBe(1);
-    expect(pickStrategy(300, 1000)).toBe('disadvantage');
+  it('picks lanes at random weighted by opportunity', () => {
+    const input = baseInput({ lanes: [lane('top', -3000), lane('bot', 3000)], random: () => 0.99 });
+    expect(planTasks(input).plan?.picks[0].lane).toBe('bot');
   });
 
-  it('splits into groups of at least four when behind', () => {
-    const result = planTasks(baseInput({ bots: bots(9), ourPower: 300, enemyPower: 1000 }));
-    const counts = new Map<string, number>();
-    for (const task of result.tasks.values()) {
-      counts.set(task.lane!, (counts.get(task.lane!) ?? 0) + 1);
+  it('keeps the chosen lanes until the lock runs out', () => {
+    const first = planTasks(baseInput({ bots: bots(8) }));
+    const picked = first.plan!.picks.map((pick) => pick.lane);
+    const later = baseInput({ bots: bots(8), plan: first.plan, now: 150, random: () => 0.99 });
+    expect(planTasks(later).plan).toBe(first.plan);
+
+    const expired = planTasks({ ...later, now: 1000 }).plan!.picks.map((pick) => pick.lane);
+    expect(expired).not.toEqual(picked);
+  });
+
+  it('follows the same lane to the next building after a tower falls', () => {
+    const first = planTasks(baseInput({ bots: bots(8) }));
+    const fallen = baseInput({
+      bots: bots(8),
+      plan: first.plan,
+      now: 150,
+      random: () => 0.99,
+      lanes: [lane('top', -3000), { ...lane('mid', 0), targetId: 7 }, lane('bot', 3000)],
+    });
+    const result = planTasks(fallen);
+    expect(result.plan).toBe(first.plan);
+    expect([...result.tasks.values()].some((task) => task.targetId === 7)).toBe(true);
+  });
+
+  it('keeps the lanes when bots go home or die during the lock', () => {
+    const first = planTasks(baseInput({ bots: bots(8) }));
+    const fewer = baseInput({ bots: bots(8), plan: first.plan, now: 150, random: () => 0.99 });
+    fewer.bots.slice(0, 4).forEach((bot) => (bot.needsRecover = true));
+    expect(planTasks(fewer).plan).toBe(first.plan);
+  });
+
+  it('keeps the lanes while a fight borrows some of the bots', () => {
+    const first = planTasks(baseInput({ bots: bots(8) }));
+    const fighting = baseInput({ bots: bots(8), plan: first.plan, fights: [spot(250)] });
+    expect(planTasks(fighting).plan).toBe(first.plan);
+  });
+
+  it('does not move pushers across lanes when a fight borrows their teammates', () => {
+    const input = baseInput({ bots: bots(8) });
+    const first = planTasks(input);
+    input.bots.forEach((bot) => (bot.pushLane = first.tasks.get(bot.id)?.lane));
+    const tasks = planTasks({ ...input, plan: first.plan, fights: [spot(250)] }).tasks;
+    for (const bot of input.bots) {
+      const task = tasks.get(bot.id);
+      if (task?.kind === 'push') {
+        expect(task.lane).toBe(bot.pushLane);
+      }
     }
-    expect([...counts.values()].sort()).toEqual([4, 5]);
   });
 
-  it('pushes the weakest lane unless the defenders are more than twice as strong', () => {
-    const weak = planTasks(
-      baseInput({
-        ourPower: 300,
-        enemyPower: 1000,
-        lanes: [lane('top', -3000, 1100), lane('mid', 0, 1050), lane('bot', 3000, 900)],
-      }),
-    );
-    expect([...weak.tasks.values()].every((task) => task.lane === 'bot')).toBe(true);
+  it('lets a group farm while its lane waits for the next creep wave', () => {
+    const first = planTasks(baseInput({ bots: bots(8) }));
+    const [kept, waiting] = first.plan!.picks;
+    const input = baseInput({
+      bots: bots(8),
+      plan: first.plan,
+      lanes: [lane('top', -3000), lane('mid', 0), lane('bot', 3000)].filter(
+        (entry) => entry.lane !== waiting.lane,
+      ),
+    });
+    input.bots.forEach((bot, i) => (bot.pushLane = i < 4 ? kept.lane : waiting.lane));
+    const result = planTasks(input);
+    expect(result.plan).toBe(first.plan);
+    expect(result.tasks.get(8)?.kind).toBe('farm');
+    expect(result.tasks.get(1)?.lane).toBe(kept.lane);
+  });
 
+  it('returns bots to their own lane after a detour', () => {
+    const input = baseInput({ bots: bots(8) });
+    const plan = planTasks(input).plan!;
+    input.bots.forEach((bot) => (bot.pushLane = plan.picks[1].lane));
+    input.bots[0].pushLane = plan.picks[0].lane;
+    input.bots[0].pos = { x: 99999, y: 0 };
+    const tasks = planTasks({ ...input, plan }).tasks;
+    expect(tasks.get(1)?.lane).toBe(plan.picks[0].lane);
+  });
+
+  it('avoids lanes where the players are when possible', () => {
+    const input = baseInput({
+      lanes: [lane('top', -3000), lane('mid', 0, 400), lane('bot', 3000)],
+    });
+    expect([...planTasks(input).tasks.values()].every((task) => task.lane !== 'mid')).toBe(true);
+  });
+
+  it('farms when every lane is defended more than twice as strongly', () => {
     const strong = planTasks(
       baseInput({
-        ourPower: 300,
-        enemyPower: 1000,
         lanes: [lane('top', -3000, 1300), lane('mid', 0, 1200), lane('bot', 3000, 1100)],
       }),
     );
