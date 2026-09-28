@@ -79,7 +79,8 @@ function readLog(file) {
 }
 
 // 汇总脚本需要的行：自身输出、Lua 报错、客户端未登记的 modifier、引擎慢思考警告
-const KEEP_LINE = /\[perf|\[bot-ai\] (glyph|\S+ buyback)|Script Runtime Error|unknown modifier type|thinking for [\d.]+ ms/;
+const KEEP_LINE =
+  /\[perf|\[bot-ai\] (glyph|\S+ buyback)|Script Runtime Error|unknown modifier type|thinking for [\d.]+ ms/;
 
 // 显示器休眠后 Dota 不再出画面，客户端帧数据全部失效；测试期间向系统申请保持常亮，进程退出即失效，不改电源设置
 function keepDisplayAwake() {
@@ -130,7 +131,7 @@ function launch(exe, args, label) {
   return child;
 }
 
-// 与 launcher 相同的启动方式，地图直接读本地开发目录，不需要发布；作弊用于放行加速与自动测试
+// 与 launcher 相同的启动方式，地图直接读本地开发目录，不需要发布；作弊用于放行加速
 async function launchDedicated(exe, serverLog, addonName, label) {
   const server = launch(
     exe,
@@ -150,6 +151,9 @@ async function launchDedicated(exe, serverLog, addonName, label) {
       '0',
       '+sv_cheats',
       '1',
+      // 游戏脚本只在带这个服务器名的专用服上读取测试配置，见 perf-config.ts
+      '+hostname',
+      'windy10v10ai-perf-auto',
       `+map custom gamemode=15 customgamemode=${addonName} nomapvalidation=1`,
     ],
     label,
