@@ -1,6 +1,6 @@
 /** 团队任务分派：按回复 → 防守 → 交战 → 推进 → 发育的顺序把每个 bot 分到一个带目的地的任务。 */
 import { distance, Lane, Point } from './lane-geometry';
-import { ANCIENT_FARM_POWER } from './power';
+import { ANCIENT_FARM_POWER, KEEP_FIGHTING_RATIO } from './power';
 
 export type TaskKind = 'recover' | 'defend' | 'fight' | 'push' | 'farm' | 'hold';
 
@@ -201,6 +201,7 @@ function findPushers(bots: PlanBot[]): Set<number> {
  * 全队加起来也打不过就不去，那一带也不派人推进，改去别的路；
  * 打得过就按距离叫够人，推塔手最后才挑。大家直接朝交战点走，不在集合点站着等，
  * 进不进场由英雄层按跟得上的人够不够判断，先到的在外围等后面的人跟上。
+ * 敌人先动手时，附近的人扛得住就一起接战。
  */
 function assignFights(
   input: PlanInput,
@@ -213,23 +214,30 @@ function assignFights(
   let remaining = free;
   for (const spot of spots) {
     const need = spot.enemyPower * FIGHT_POWER_MARGIN - spot.allyPower;
-    // 能来的人全来也凑不够就都不来，不派一部分人去送
-    if (remaining.reduce((sum, bot) => sum + bot.power, 0) < need) {
+    const enough = remaining.reduce((sum, bot) => sum + bot.power, 0) >= need;
+    const nearby = remaining.filter((bot) => distance(bot.pos, spot.pos) <= FIGHT_FOLLOW_RADIUS);
+    // 已经打起来时附近的人扛得住就一起接战，不丢下挨打的队友各自跑
+    const holds =
+      spot.engaged &&
+      spot.enemyPower <=
+        (nearby.reduce((sum, bot) => sum + bot.power, 0) + spot.allyPower) * KEEP_FIGHTING_RATIO;
+    if (!enough) {
       avoid.push(spot.pos);
+    }
+    // 能来的人全来也凑不够就都不来，不派一部分人去送；打起来了也只叫附近的，远处的赶来只会逐个送
+    if ((!enough && !holds) || spot.pastFront) {
       continue;
     }
-    if (spot.pastFront) {
-      continue;
-    }
+    const pool = enough ? remaining : nearby;
     // 先算好每人的代价再比较：比较时现算的浮点误差会让同一个人和自己比出大小，Lua 的排序会直接报错
     const cost = new Map<number, number>();
-    for (const bot of remaining) {
+    for (const bot of pool) {
       const gap = distance(bot.pos, spot.pos);
       const penalty =
         pushers.has(bot.id) && gap > FIGHT_FOLLOW_RADIUS ? PUSHER_DISTANCE_PENALTY : 0;
       cost.set(bot.id, gap + penalty);
     }
-    const order = [...remaining].sort((a, b) => cost.get(a.id)! - cost.get(b.id)!);
+    const order = [...pool].sort((a, b) => cost.get(a.id)! - cost.get(b.id)!);
     const picked: PlanBot[] = [];
     let assigned = 0;
     for (const bot of order) {
