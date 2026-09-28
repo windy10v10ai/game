@@ -81,9 +81,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly UnseenBurstRatio: number = 0.08;
   // 按这段时间内受到的伤害估算还能撑几秒
   protected readonly DamageWindow: number = 2;
-  // 打不过的敌人没打起来时，停在它攻击距离外这么远，够得着的技能照放
-  protected readonly HoldDistanceBuffer: number = 350;
-  protected readonly HoldApproachSlack: number = 300;
+  // 打不过的敌人没打起来时，离它攻击距离外至少这么远，留出转身离开的余地，不等它贴上来
+  protected readonly HoldDistanceBuffer: number = 600;
 
   protected readonly RecoverHealthPercent: number = 35;
   protected readonly RecoverManaPercent: number = 15;
@@ -318,7 +317,7 @@ export class BotBaseAIModifier extends BaseModifier {
         }
         return this.ActionRetreat();
       case 'hold':
-        // 被派来打但跟得上的人还不够：停在敌人够不着的外围等后面的人，不去打兵
+        // 被派来打但跟得上的人还不够：原地等后面的人，不往敌人跟前凑，也不去打兵
         if (this.InEnemyReach()) {
           this.mode = 'retreat';
           if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
@@ -327,11 +326,8 @@ export class BotBaseAIModifier extends BaseModifier {
           return this.ActionRetreat();
         }
         this.mode = 'hold';
-        if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
-          return true;
-        }
-        if (task && !this.NearEnemyReach()) {
-          return this.MoveTo(this.FormationPoint(task.pos), UnitOrder.MOVE_TO_POSITION);
+        if (!ItemDispatcher.Run(this)) {
+          AbilityDispatcher.Run(this);
         }
         return true;
       default:
@@ -408,6 +404,8 @@ export class BotBaseAIModifier extends BaseModifier {
         task?.kind !== 'fight' &&
         !canEngage(threat.ourPower + joining, threat.enemyPower)
       ) {
+        // 走出威胁范围后再撤一会，不在边界上来回进出
+        this.engagedUntil = this.gameTime + this.EngageMemory;
         this.retreatPoint = threat.rally;
         return 'retreat';
       }
@@ -430,7 +428,7 @@ export class BotBaseAIModifier extends BaseModifier {
       enemyPower: fight.enemyPower,
       canEscape: escape,
       survivalSeconds: survival,
-      wasRetreating: this.stance === 'retreat',
+      wasAvoiding: this.stance === 'retreat' || this.stance === 'hold',
     });
     if (engaged) {
       return stance;
@@ -464,15 +462,6 @@ export class BotBaseAIModifier extends BaseModifier {
     return this.aroundEnemyHeroes.some(
       (enemy) =>
         this.hero.GetRangeToUnit(enemy) <= enemy.Script_GetAttackRange() + this.HoldDistanceBuffer,
-    );
-  }
-
-  /** 再往前走一点就会进敌方英雄的攻击距离，外围等人时停在这里。 */
-  private NearEnemyReach(): boolean {
-    return this.aroundEnemyHeroes.some(
-      (enemy) =>
-        this.hero.GetRangeToUnit(enemy) <=
-        enemy.Script_GetAttackRange() + this.HoldDistanceBuffer + this.HoldApproachSlack,
     );
   }
 

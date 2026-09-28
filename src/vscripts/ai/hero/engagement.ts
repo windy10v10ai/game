@@ -17,8 +17,8 @@ export interface EngagementInput {
   canEscape: boolean;
   /** 按近期受到的伤害，自己还能撑的秒数 */
   survivalSeconds: number;
-  /** 上一次判断就在撤退 */
-  wasRetreating: boolean;
+  /** 上一次判断就在撤退，或因打不过在外围等 */
+  wasAvoiding: boolean;
 }
 
 /** 还没打起来时，这波敌人是否值得主动上去打：走上去交战与先手跳进敌人身边都用这一个口径。 */
@@ -33,8 +33,9 @@ export function decideStance(input: EngagementInput): Stance {
   if (!input.engaged) {
     return canEngage(input.ourPower, input.enemyPower) ? 'fight' : 'hold';
   }
+  // 打起来前已判断打不过的，被碰到也继续走，不因挨了一下就冲上去；
   // 撤退中伤害停了也不马上回头，否则残血在交战边缘来回进出
-  if (input.wasRetreating) {
+  if (input.wasAvoiding) {
     return input.canEscape ? 'retreat' : 'lastStand';
   }
   const losing = input.enemyPower > input.ourPower * KEEP_FIGHTING_RATIO;

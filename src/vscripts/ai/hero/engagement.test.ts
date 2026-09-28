@@ -6,7 +6,7 @@ const input = {
   enemyPower: 100,
   canEscape: true,
   survivalSeconds: Infinity,
-  wasRetreating: false,
+  wasAvoiding: false,
 };
 
 describe('decideStance', () => {
@@ -20,14 +20,14 @@ describe('decideStance', () => {
   });
 
   it('leaves a fight it is clearly losing right away instead of fighting on', () => {
-    expect(decideStance({ ...input, engaged: true, enemyPower: 300 })).toBe('retreat');
-    expect(decideStance({ ...input, engaged: true, enemyPower: 300, canEscape: false })).toBe(
+    expect(decideStance({ ...input, engaged: true, enemyPower: 350 })).toBe('retreat');
+    expect(decideStance({ ...input, engaged: true, enemyPower: 350, canEscape: false })).toBe(
       'lastStand',
     );
   });
 
   it('keeps fighting an even fight until about to die', () => {
-    const even = { ...input, engaged: true, enemyPower: 200, survivalSeconds: 4 };
+    const even = { ...input, engaged: true, enemyPower: 280, survivalSeconds: 4 };
     expect(decideStance(even)).toBe('fight');
     expect(decideStance({ ...even, survivalSeconds: 2 })).toBe('retreat');
   });
@@ -38,9 +38,9 @@ describe('decideStance', () => {
     );
   });
 
-  it('finishes a retreat before turning back into the same fight', () => {
-    expect(decideStance({ ...input, engaged: true, wasRetreating: true })).toBe('retreat');
-    expect(decideStance({ ...input, wasRetreating: true })).toBe('fight');
+  it('keeps leaving once it chose to avoid, even after being hit', () => {
+    expect(decideStance({ ...input, engaged: true, wasAvoiding: true })).toBe('retreat');
+    expect(decideStance({ ...input, wasAvoiding: true })).toBe('fight');
   });
 });
 
