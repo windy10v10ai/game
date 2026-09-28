@@ -410,51 +410,63 @@ export class TeamBrain {
     recentEnemies: CDOTA_BaseNPC_Hero[],
     now: number,
   ): void {
-    const outer = buildings.filter(
-      (building) => building.unit.GetTeamNumber() === this.team && building.tier === 1,
-    ).length;
+    const own = buildings.filter((building) => building.unit.GetTeamNumber() === this.team);
+    const outer = own.filter((building) => building.tier === 1).length;
     if (outer < this.outerTowers) {
       this.glyphReadyAt = 0;
     }
     this.outerTowers = outer;
     // 冷却中也要记血量，冷却一好就能算出掉血速度
     const fallSeconds = new Map<EntityIndex, number>();
-    for (const building of buildings) {
-      const unit = building.unit;
-      if (unit.GetTeamNumber() === this.team && (building.tier === 3 || building.tier >= 5)) {
-        fallSeconds.set(unit.GetEntityIndex(), this.FallSeconds(unit, now));
+    for (const building of own) {
+      if (building.tier === 3 || building.tier >= 5) {
+        fallSeconds.set(building.unit.GetEntityIndex(), this.FallSeconds(building.unit, now));
       }
     }
     const caller = [...this.members.values()].find((hero) => hero.IsAlive());
     if (now < this.glyphReadyAt || !caller) {
       return;
     }
-    for (const building of buildings) {
-      const unit = building.unit;
-      if (unit.GetTeamNumber() !== this.team || unit.IsInvulnerable()) {
-        continue;
-      }
-      const attacked = recentEnemies.some(
-        (enemy) => distance(unit.GetAbsOrigin(), this.PositionOf(enemy)) <= BUILDING_THREAT_RADIUS,
-      );
-      const hp = unit.GetHealth() / unit.GetMaxHealth();
-      const fall = fallSeconds.get(unit.GetEntityIndex());
-      const outerPushed = building.tier === 1 && attacked && hp < GLYPH_OUTER_HP;
-      const innerFalling =
-        fall !== undefined &&
-        attacked &&
-        ((hp < GLYPH_BASE_HP && fall <= GLYPH_FALL_SECONDS) || hp < GLYPH_LAST_HP);
-      if (outerPushed || innerFalling) {
-        ExecuteOrderFromTable({
-          UnitIndex: caller.GetEntityIndex(),
-          OrderType: UnitOrder.GLYPH,
-          Queue: false,
-        });
-        this.glyphReadyAt = now + GameRules.GetGameModeEntity().GetCustomGlyphCooldown();
-        print(`[bot-ai] glyph ${unit.GetUnitName()} hp=${Math.floor(hp * 100)}`);
-        return;
-      }
+    const target = own.find((building) =>
+      this.NeedsGlyph(building, fallSeconds.get(building.unit.GetEntityIndex()), recentEnemies),
+    );
+    if (!target) {
+      return;
     }
+    ExecuteOrderFromTable({
+      UnitIndex: caller.GetEntityIndex(),
+      OrderType: UnitOrder.GLYPH,
+      Queue: false,
+    });
+    this.glyphReadyAt = now + GameRules.GetGameModeEntity().GetCustomGlyphCooldown();
+    const unit = target.unit;
+    print(
+      `[bot-ai] glyph ${unit.GetUnitName()} hp=${Math.floor((unit.GetHealth() / unit.GetMaxHealth()) * 100)}`,
+    );
+  }
+
+  private NeedsGlyph(
+    building: BuildingInfo,
+    fall: number | undefined,
+    recentEnemies: CDOTA_BaseNPC_Hero[],
+  ): boolean {
+    const unit = building.unit;
+    if (
+      unit.IsInvulnerable() ||
+      !recentEnemies.some(
+        (enemy) => distance(unit.GetAbsOrigin(), this.PositionOf(enemy)) <= BUILDING_THREAT_RADIUS,
+      )
+    ) {
+      return false;
+    }
+    const hp = unit.GetHealth() / unit.GetMaxHealth();
+    if (building.tier === 1) {
+      return hp < GLYPH_OUTER_HP;
+    }
+    return (
+      fall !== undefined &&
+      ((hp < GLYPH_BASE_HP && fall <= GLYPH_FALL_SECONDS) || hp < GLYPH_LAST_HP)
+    );
   }
 
   /** 按最近几秒的掉血速度，这座建筑还能撑几秒。 */
