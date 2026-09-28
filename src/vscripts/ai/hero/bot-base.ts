@@ -3,6 +3,7 @@ import { AbilityDispatcher } from '../ability/ability-dispatcher';
 import { AbilityRegistry } from '../ability/ability-registry';
 import { ActionAttack } from '../action/action-attack';
 import { ActionFind, FRIENDLY_CREEP_SEARCH_RADIUS } from '../action/action-find';
+import { CheckFacingFailure } from '../action/cast-condition';
 import { getHeroBuildConfig } from '../build-item/bot-build-config';
 import { HeroBuildManager } from '../build-item/bot-build-manager';
 import { HeroBuildState, InitializeHeroBuild } from '../build-item/bot-build-state';
@@ -12,7 +13,7 @@ import { ConsumeItem } from '../item/consume-item';
 import { ItemDispatcher } from '../item/item-dispatcher';
 import { ItemRegistry } from '../item/item-registry';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
-import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
+import { IS_DEBUG_RUN, PERF_CONFIG } from '../../modules/debug/perf-config';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { Point } from '../team/lane-geometry';
 import { QUICK_CLEAR_POWER } from '../team/power';
@@ -37,6 +38,18 @@ const BLINK_ITEM_NAMES = [
   'item_swift_blink_2',
   'item_jump_jump_jump',
 ];
+
+// 原力法杖升级链，撤退与赶路时推自己按这份名单找
+const FORCE_STAFF_NAMES = [
+  'item_force_staff',
+  'item_force_staff_2',
+  'item_force_staff_3',
+  'item_hurricane_pike',
+  'item_hurricane_pike_2',
+];
+
+// 推动方向取朝向，赶路时朝向偏离目的地超过约 30° 就会推歪
+const FORCE_STAFF_TRAVEL_MIN_COS = 0.87;
 
 const blinkRangeCache = new Map<string, number>();
 
@@ -621,7 +634,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
     const safePoint = this.FindSafePoint();
-    if (this.TryBlinkToward(safePoint)) {
+    if (this.TryBlinkToward(safePoint) || this.TryForceStaffToward(safePoint, true)) {
       return true;
     }
     this.MoveTo(safePoint, UnitOrder.MOVE_TO_POSITION);
@@ -891,6 +904,49 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   /**
+   * 朝目的地推自己一段，剩下的路不够推一次时不交。
+   * 撤退时最近的敌人要在身后，赶路时朝向要基本对准目的地。
+   */
+  private TryForceStaffToward(position: Vector, escaping: boolean): boolean {
+    if (this.hero.IsMuted() || this.hero.IsRooted()) {
+      return false;
+    }
+    const staff = this.FindItem(FORCE_STAFF_NAMES);
+    if (!staff || !staff.IsFullyCastable()) {
+      return false;
+    }
+    const here = this.hero.GetAbsOrigin();
+    const offset = position.__sub(here);
+    const distance = offset.Length2D();
+    if (distance < staff.GetSpecialValueFor('push_length')) {
+      return false;
+    }
+    const forward = this.hero.GetForwardVector();
+    if (escaping) {
+      const enemy = this.aroundEnemyHeroes[0];
+      if (
+        !enemy ||
+        CheckFacingFailure('back', forward, enemy.GetAbsOrigin().__sub(here)) ||
+        CheckFacingFailure('front', forward, offset)
+      ) {
+        return false;
+      }
+    } else if (
+      (forward.x * offset.x + forward.y * offset.y) / distance <
+      FORCE_STAFF_TRAVEL_MIN_COS
+    ) {
+      return false;
+    }
+    if (IS_DEBUG_RUN) {
+      print(
+        `[bot-ai] ${HeroShortName(this.hero)} force_staff=${escaping ? 'escape' : 'move'} stance=${this.stance}`,
+      );
+    }
+    this.hero.CastAbilityOnTarget(this.hero, staff, this.hero.GetPlayerOwnerID());
+    return true;
+  }
+
+  /**
    * 切入：近战跳到敌人身上，远程跳到自己攻击距离的边缘，不贴脸送；
    * 跳完还差得远就不交，贴得够近也不交，免得原地跳一下浪费跳刀。
    */
@@ -951,9 +1007,13 @@ export class BotBaseAIModifier extends BaseModifier {
 
   /** 主物品栏里闪烁匕首升级链上的任意一件。 */
   protected FindBlinkItem(): CDOTA_Item | undefined {
+    return this.FindItem(BLINK_ITEM_NAMES);
+  }
+
+  private FindItem(names: string[]): CDOTA_Item | undefined {
     for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
       const item = this.hero.GetItemInSlot(slot);
-      if (item && BLINK_ITEM_NAMES.includes(item.GetName())) {
+      if (item && names.includes(item.GetName())) {
         return item;
       }
     }
@@ -966,7 +1026,10 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     // 赶路时附近没有敌方英雄才闪烁，有敌人时留着切入或逃跑
-    if (this.aroundEnemyHeroes.length === 0 && this.TryBlinkToward(position)) {
+    if (
+      this.aroundEnemyHeroes.length === 0 &&
+      (this.TryBlinkToward(position) || this.TryForceStaffToward(position, false))
+    ) {
       return true;
     }
     const busy = this.hero.IsMoving() || this.hero.IsAttacking();
@@ -1201,6 +1264,10 @@ export class BotBaseAIModifier extends BaseModifier {
     this.buildItemNextTime = this.gameTime + this.buildItemInterval;
 
     this.ArrangeItems();
+    // 测试发的物品不在出装表里，照常买卖会被当成多余装备卖掉
+    if (PERF_CONFIG?.testItems) {
+      return false;
+    }
     if (ConsumeItem.ConsumeKnownItems(this.hero)) {
       return true;
     }

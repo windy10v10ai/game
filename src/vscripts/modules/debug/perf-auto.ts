@@ -35,6 +35,8 @@ export interface PerfAutoConfig {
   radiantMultiplier: number;
   // 逗号分隔的英雄名（不带 npc_dota_hero_ 前缀），排到 bot 英雄池最前面，用于让指定英雄出场验证
   botHeroes: string;
+  // 逗号分隔的物品名，开局轮流发给每个英雄并停掉 bot 买卖装备，用于验证物品施放
+  testItems?: string;
 }
 
 interface PerfStep {
@@ -125,6 +127,25 @@ function lockForts() {
       | undefined;
     if (think) think.TriggerGameEnd = () => undefined;
   }
+}
+
+// 每人拿满主物品栏，轮流错开起点，让每件物品落在不同英雄身上
+function grantTestItems(list: string) {
+  const items = list.split(',');
+  let next = 0;
+  afterRealSeconds(3, () =>
+    forEachHero((hero) => {
+      for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_9; slot++) {
+        const item = hero.GetItemInSlot(slot);
+        if (item) UTIL_Remove(item);
+      }
+      for (let i = 0; i < 6; i++) {
+        hero.AddItemByName(items[next % items.length]);
+        next++;
+      }
+    }),
+  );
+  print(`[perf-auto] testItems=${list}`);
 }
 
 export function clearUnits() {
@@ -337,6 +358,7 @@ export class PerfAuto {
       boostHeroes();
       lockForts();
     }
+    if (config.testItems) grantTestItems(config.testItems);
     // 结算阶段计时器可能不再推进，轮询发现不了游戏结束，直接听状态切换
     ListenToGameEvent(
       'game_rules_state_change',

@@ -79,7 +79,10 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 18. **斩杀阈值倍数**：`healthAbilityValue.multiplier`，阈值乘以倍数，用于冷却短、预计能连放几次的伤害技能（如涤罪之焰取两倍伤害）。
 19. **值得主动上去打才放**：`self.canEngage: true`，按团队大脑对当前交战的战力判断，与英雄层「没打起来时要不要走上去打」同一口径（`power.ts` 的 `AVOID_POWER_RATIO`，调这一个数就能整体调激进程度）。用于跳进敌人身边、放了就难退的先手技能（如幻影突袭、闪烁突袭、A 杖强化图腾跳跃、移形换位拉敌人）。
 20. **以树为目标**：`targetSide: TargetSide.Tree`，对施法者附近最近的一棵树施放（如抓树），目标条件不适用，只看施法者条件。
-21. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+21. **技能交出去后才放**：`self.abilitiesOnCooldown: { seconds, count }`，至少 count 个已学会的主动技能剩余冷却不少于 seconds 才施放，不计物品。与 `cooldownTotal`（技能加物品冷却总和，给刷新类用）不同，用于开了就不能施法或该在技能之后接的增益（如疯狂面具）。
+22. **目标正背对敌人逃跑**：`target.fleeing: <range>`，只选该距离内最近的敌方英雄位于其身后的目标，判断方式与 `facing` 相同但以目标自身朝向为准。用于沿目标朝向推动的效果（如推队友的原力法杖），推错方向会把人送进敌群。
+23. **目标正被塔打**：`target.attackedByTower: true`，只选正被敌方防御塔攻击的目标，配合 `FriendlyCreep` 可给挨塔打的小兵上增益（如炎阳纹章）。
+24. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
 22. **只选中立单位并按绝对生命值筛选**：`target.unitCondition.neutralOnly: true` 限定野怪，`target.unitCondition.health` 按当前绝对生命值筛选。
 
 ### 是否补一条对小兵的清兵规则

@@ -70,6 +70,13 @@ export function TryCastBySpec(
   if (CheckCooldownTotalFailure(hero, castable, condition?.self?.cooldownTotal)) {
     return false;
   }
+  if (
+    condition?.self?.abilitiesOnCooldown &&
+    CountAbilitiesOnCooldown(hero, condition.self.abilitiesOnCooldown.seconds) <
+      condition.self.abilitiesOnCooldown.count
+  ) {
+    return false;
+  }
   if (condition?.self?.ultimateNotReady && IsUltimateReady(hero)) {
     return false;
   }
@@ -217,6 +224,23 @@ function IsUltimateReady(hero: CDOTA_BaseNPC_Hero): boolean {
     }
   }
   return false;
+}
+
+function CountAbilitiesOnCooldown(hero: CDOTA_BaseNPC_Hero, seconds: number): number {
+  let count = 0;
+  const abilityCount = hero.GetAbilityCount();
+  for (let i = 0; i < abilityCount; i++) {
+    const ability = hero.GetAbilityByIndex(i);
+    if (
+      ability &&
+      ability.GetLevel() > 0 &&
+      !ability.IsPassive() &&
+      ability.GetCooldownTimeRemaining() >= seconds
+    ) {
+      count++;
+    }
+  }
+  return count;
 }
 
 function HasAllyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
@@ -426,6 +450,8 @@ function resolveTargetCondition(
     facing: existingTarget?.facing,
     aheadCircle: existingTarget?.aheadCircle,
     enemiesNearby: existingTarget?.enemiesNearby,
+    fleeing: existingTarget?.fleeing,
+    attackedByTower: existingTarget?.attackedByTower,
     range: range ?? existingTarget?.range,
     count: count ?? existingTarget?.count,
   };

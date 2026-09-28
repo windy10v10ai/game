@@ -39,6 +39,8 @@ function parseArgs() {
     radiantMultiplier: 10,
     // 逗号分隔的英雄名，排到 bot 英雄池最前面，用于让指定英雄出场验证
     botHeroes: '',
+    // 逗号分隔的物品名，开局轮流发给每个英雄并停掉 bot 买卖装备，用于验证物品施放
+    testItems: '',
     // 先跑 minGames 局；有条件各局结果不一致就逐局追加，最多 maxGames 局
     // 逗号分隔的条件名，只复测其中几项时用
     conditions: 'all',
@@ -54,7 +56,8 @@ function parseArgs() {
     if (!(key in options)) throw new Error(`unknown option --${key}`);
     const value = argv[i + 1];
     if (key === 'quitOnDone' || key === 'boost') options[key] = value !== 'false';
-    else if (['mode', 'conditions', 'botHeroes', 'server'].includes(key)) options[key] = value;
+    else if (['mode', 'conditions', 'botHeroes', 'testItems', 'server'].includes(key))
+      options[key] = value;
     else options[key] = Number(value);
   }
   return options;
@@ -221,6 +224,9 @@ async function runGame(options, gameConfig, label) {
   // 专用服的脚本输出在服务器日志，客户端帧数据仍在客户端日志
   const tails = dedicated ? [logTail(serverLog), logTail(logFile)] : [logTail(logFile)];
   const kept = [];
+  // 验证物品施放时还要留下施法日志
+  const castLine = /\[bot-cast\]|\[bot-ai\] \S+ force_staff/;
+  const keep = (line) => KEEP_LINE.test(line) || (options.testItems !== '' && castLine.test(line));
   let finished = false;
   let broken = '';
   let steps = 0;
@@ -230,7 +236,7 @@ async function runGame(options, gameConfig, label) {
     await sleep(POLL_MS);
     for (const tail of tails) {
       for (const line of tail()) {
-        if (KEEP_LINE.test(line)) kept.push(line);
+        if (keep(line)) kept.push(line);
         if (FINISHED.test(line)) finished = true;
         if (BROKEN.test(line)) broken = line;
         const step = line.match(/\[perf-auto\] step name=(\S+)/);

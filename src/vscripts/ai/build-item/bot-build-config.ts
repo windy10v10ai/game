@@ -739,6 +739,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_desolator', // 黯灭
         'item_sange_and_yasha', // 散夜对剑
         'item_hand_of_group', // 团队之手
+        'item_solar_crest', // 炎阳纹章
+        'item_glimmer_cape', // 微光披风
         'item_hurricane_pike', // 飓风长戟
         'item_black_king_bar', // 黑皇杖
         'item_bfury', // 狂战斧
@@ -907,6 +909,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hand_of_group', // 团队之手
         'item_blink', // 闪烁匕首
         'item_glimmer_cape', // 微光披风
+        'item_solar_crest', // 炎阳纹章
         'item_force_staff', // 原力法杖
         'item_octarine_core', // 玲珑心
         'item_refresher', // 刷新球
@@ -2084,6 +2087,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_blink', // 闪烁匕首
         'item_hand_of_group', // 团队之手
         'item_glimmer_cape', // 微光披风
+        'item_solar_crest', // 炎阳纹章
         'item_aether_lens_2', // 大以太
         'item_force_staff', // 原力法杖
         'item_black_king_bar', // 黑皇杖
@@ -2142,6 +2146,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_blink', // 闪烁匕首
         'item_rod_of_atos', // 阿托斯之棍
         'item_glimmer_cape', // 微光披风
+        'item_holy_locket', // 圣洁吊坠
         'item_force_staff', // 原力法杖
         'item_octarine_core', // 玲珑心
         'item_hand_of_group', // 团队之手
@@ -2303,6 +2308,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_vanguard', // 先锋盾
         'item_bracer', // 护腕
         'item_magic_wand', // 魔杖
+        'item_mekansm', // 梅肯斯姆
         'item_falcon_blade', // 猎鹰战刃
         'item_quelling_blade_2_datadriven', // 毒瘤之刃
       ],
@@ -2360,6 +2366,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_wand', // 魔杖
         'item_bracer', // 护腕
         'item_ancient_janggo', // 韧鼓
+        'item_mekansm', // 梅肯斯姆
         'item_soul_ring', // 灵魂之戒
       ],
       [ItemTier.T2]: [

@@ -1,6 +1,7 @@
 export const AEON_DISK_BUFF = 'modifier_item_aeon_disk_buff';
 export const IMMORTALITY_MODIFIER = 'modifier_item_helm_of_the_undying_active';
 const CULLING_BLADE = 'axe_culling_blade';
+const SOLAR_CREST = 'item_solar_crest';
 
 export class DragonWishFilter {
   constructor() {
@@ -17,13 +18,19 @@ export class DragonWishFilter {
     }
 
     const ability = EntIndexToHScript(args.entindex_ability) as CDOTABaseAbility | undefined;
-    if (!ability || ability.GetAbilityName() !== CULLING_BLADE) {
-      return true;
-    }
-
     const target = EntIndexToHScript(args.entindex_target) as CDOTA_BaseNPC | undefined;
-    if (!target) return true;
+    if (!ability || !target) return true;
 
+    if (IsSolarCrestOnEnemy(ability, target)) return false;
+    if (ability.GetAbilityName() !== CULLING_BLADE) return true;
     return !target.HasModifier(IMMORTALITY_MODIFIER);
   }
+}
+
+// 原生 bot 会把炎阳纹章对敌人放，引擎拒绝后每帧重试、打断自己的对线，直接丢掉这类命令
+function IsSolarCrestOnEnemy(ability: CDOTABaseAbility, target: CDOTA_BaseNPC): boolean {
+  return (
+    ability.GetAbilityName() === SOLAR_CREST &&
+    target.GetTeamNumber() !== ability.GetCaster().GetTeamNumber()
+  );
 }
