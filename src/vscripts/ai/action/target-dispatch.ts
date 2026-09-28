@@ -7,6 +7,7 @@ import {
 import { TargetSide } from '../ability/ability-spec';
 import { canEngage } from '../hero/engagement';
 import { HeroUtil } from '../hero/hero-util';
+import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { FRIENDLY_CREEP_SEARCH_RADIUS } from './action-find';
 import {
   CastCoindition,
@@ -113,8 +114,6 @@ export function TryCastBySpec(
   return cast;
 }
 
-const IS_TOOLS_MODE = IsInToolsMode();
-
 /** 开发模式下每次下达施法打一行，事后按日志核对施放时机是否符合 spec。 */
 function TraceCast(
   hero: CDOTA_BaseNPC_Hero,
@@ -123,7 +122,7 @@ function TraceCast(
   target: CDOTA_BaseNPC | undefined,
   kind: string,
 ): void {
-  if (!IS_TOOLS_MODE) {
+  if (!IS_DEBUG_RUN) {
     return;
   }
   const time = GameRules.GetDOTATime(false, false);

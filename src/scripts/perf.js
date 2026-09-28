@@ -42,6 +42,8 @@ function parseArgs() {
     minGames: 3,
     maxGames: 5,
     spreadLimit: 10,
+    // dedicated：本机专用服加普通客户端，服务器独占进程，和 launcher 给玩家的方式一致；tools：工具模式单进程，性能剖析只在这里可用
+    server: 'dedicated',
   };
   const argv = process.argv.slice(2);
   for (let i = 0; i < argv.length; i += 2) {
@@ -49,13 +51,16 @@ function parseArgs() {
     if (!(key in options)) throw new Error(`unknown option --${key}`);
     const value = argv[i + 1];
     if (key === 'quitOnDone' || key === 'boost') options[key] = value !== 'false';
-    else if (key === 'mode' || key === 'conditions' || key === 'botHeroes') options[key] = value;
+    else if (['mode', 'conditions', 'botHeroes', 'server'].includes(key)) options[key] = value;
     else options[key] = Number(value);
   }
   return options;
 }
 
-const LAUNCHER_ONLY = ['timeoutMinutes', 'minGames', 'maxGames', 'spreadLimit'];
+const LAUNCHER_ONLY = ['timeoutMinutes', 'minGames', 'maxGames', 'spreadLimit', 'server'];
+const SERVER_PORT = 27015;
+const SERVER_LOG = 'perf-dedicated.log';
+const MAP_LOADED = 'Host activate: Loading (custom)';
 
 function writeConfig(options) {
   const fields = Object.entries(options)
@@ -101,33 +106,16 @@ async function waitDotaExit() {
   while (isDotaRunning()) await sleep(2000);
 }
 
-async function runGame(options, gameConfig, label) {
-  const dotaPath = await getDotaPath();
-  const win64 = path.join(dotaPath, 'game', 'bin', 'win64');
-  const logFile = path.join(dotaPath, 'game', 'dota', 'console.log');
-  // Dota 启动时会从头重写 console.log，按旧长度续读会漏掉开头，干脆先删掉
-  fs.rmSync(logFile, { force: true });
-  const addonName = getAddonName();
+// 失去焦点时引擎默认每帧主动睡一段，前后台切换会直接改变测到的帧率
+const CLIENT_ARGS = ['-novid', '-condebug', '+engine_no_focus_sleep', '0'];
 
-  writeConfig(gameConfig);
-  console.log(`[perf] ${label}: launching Dota 2, log: ${logFile}`);
-  const child = spawn(
-    path.join(win64, 'dota2.exe'),
-    [
-      '-novid',
-      '-tools',
-      '-condebug',
-      '-addon',
-      addonName,
-      // 失去焦点时引擎默认每帧主动睡一段，前后台切换会直接改变测到的帧率
-      '+engine_no_focus_sleep',
-      '0',
-      '+dota_launch_custom_game',
-      addonName,
-      'custom',
-    ],
-    { detached: true, cwd: win64, stdio: 'ignore' },
-  );
+function launch(exe, args, label) {
+  const child = spawn(exe, args, {
+    detached: true,
+    cwd: path.dirname(exe),
+    stdio: 'ignore',
+    windowsHide: true,
+  });
   child.unref();
   // Windows 给前台窗口更高调度优先级，固定为高优先级后前后台差别变小，测试期间可以正常用电脑
   setTimeout(() => {
@@ -139,13 +127,81 @@ async function runGame(options, gameConfig, label) {
       console.error(`[perf] ${label}: failed to raise process priority`);
     }
   }, 5000);
+  return child;
+}
+
+// 与 launcher 相同的启动方式，地图直接读本地开发目录，不需要发布；作弊用于放行加速与自动测试
+async function launchDedicated(exe, serverLog, addonName, label) {
+  const server = launch(
+    exe,
+    [
+      '-dedicated',
+      '-console',
+      '-allow_no_lobby_connect',
+      '-ip',
+      '127.0.0.1',
+      '-port',
+      String(SERVER_PORT),
+      '-con_logfile',
+      SERVER_LOG,
+      '+sv_hibernate_when_empty',
+      '0',
+      '+dota_quit_after_game',
+      '0',
+      '+sv_cheats',
+      '1',
+      `+map custom gamemode=15 customgamemode=${addonName} nomapvalidation=1`,
+    ],
+    label,
+  );
+  for (let i = 0; i < 60 && !readLog(serverLog).includes(MAP_LOADED); i++) await sleep(2000);
+  if (!readLog(serverLog).includes(MAP_LOADED)) {
+    throw new Error(`${label}: dedicated server did not load the map, see ${serverLog}`);
+  }
+  launch(exe, [...CLIENT_ARGS, '+connect', `127.0.0.1:${SERVER_PORT}`], label);
+  return server;
+}
+
+async function runGame(options, gameConfig, label) {
+  const dotaPath = await getDotaPath();
+  const exe = path.join(dotaPath, 'game', 'bin', 'win64', 'dota2.exe');
+  const logFile = path.join(dotaPath, 'game', 'dota', 'console.log');
+  const serverLog = path.join(dotaPath, 'game', 'dota', SERVER_LOG);
+  // Dota 启动时会从头重写日志，按旧长度续读会漏掉开头，干脆先删掉
+  fs.rmSync(logFile, { force: true });
+  fs.rmSync(serverLog, { force: true });
+  const addonName = getAddonName();
+  const dedicated = options.server === 'dedicated';
+
+  writeConfig(gameConfig);
+  console.log(`[perf] ${label}: launching Dota 2 (${options.server}), log: ${logFile}`);
+  if (dedicated) {
+    await launchDedicated(exe, serverLog, addonName, label);
+  } else {
+    launch(
+      exe,
+      [
+        ...CLIENT_ARGS,
+        '-tools',
+        '-addon',
+        addonName,
+        '+dota_launch_custom_game',
+        addonName,
+        'custom',
+      ],
+      label,
+    );
+  }
+  // 专用服的脚本输出在服务器日志，客户端帧数据仍在客户端日志
+  const readAll = () =>
+    dedicated ? `${readLog(serverLog)}\n${readLog(logFile)}` : readLog(logFile);
 
   const deadline = Date.now() + options.timeoutMinutes * 60 * 1000;
   let text = '';
   let lastStep = '';
   while (Date.now() < deadline) {
     await sleep(POLL_MS);
-    text = readLog(logFile);
+    text = readAll();
     const steps = text.match(/\[perf-auto\] step name=\S+/g);
     const step = steps ? steps[steps.length - 1] : '';
     if (step && step !== lastStep) {
@@ -155,6 +211,8 @@ async function runGame(options, gameConfig, label) {
     if (FINISHED.test(text)) break;
   }
   removeConfig();
+  // 服务器退出后客户端会停在断线界面，不会自己退出
+  if (dedicated && isDotaRunning()) execSync('taskkill /IM dota2.exe /F');
   if (!FINISHED.test(text)) {
     console.error(`[perf] ${label}: timeout before the game finished, keeping partial data`);
   }

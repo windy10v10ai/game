@@ -12,6 +12,7 @@ import { ConsumeItem } from '../item/consume-item';
 import { ItemDispatcher } from '../item/item-dispatcher';
 import { ItemRegistry } from '../item/item-registry';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
+import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { Point } from '../team/lane-geometry';
 import { QUICK_CLEAR_POWER } from '../team/power';
@@ -21,9 +22,6 @@ import { WardPlacement } from '../ward/ward-placement';
 import { canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
 import { retreatPointFromDanger } from './tower-retreat';
-
-// 性能排查只在工具模式生效，发布版每次思考只多一次常量判断
-const IS_TOOLS_MODE = IsInToolsMode();
 
 /** 英雄当前在做什么：对线期交给原生时是 laning，接管后是交战状态或团队任务。 */
 export type BotMode = 'laning' | 'fight' | 'retreat' | TaskKind;
@@ -200,7 +198,7 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   OnIntervalThink(): void {
-    if (IS_TOOLS_MODE) {
+    if (IS_DEBUG_RUN) {
       PerfSampler.measureAiThink(() => this.think());
       return;
     }
@@ -281,7 +279,7 @@ export class BotBaseAIModifier extends BaseModifier {
     }
     this.traceTarget = '';
     const acted = this.ActionStance(task);
-    if (IS_TOOLS_MODE) {
+    if (IS_DEBUG_RUN) {
       this.TraceDecision(task);
     }
     if (acted) {
@@ -387,7 +385,7 @@ export class BotBaseAIModifier extends BaseModifier {
     const fight = brain.AssessFight(this.hero, enemies);
     this.retreatPoint = fight.rally;
     const escape = !engaged || this.CanEscape(enemies);
-    if (IS_TOOLS_MODE) {
+    if (IS_DEBUG_RUN) {
       this.traceInfo =
         `engaged=${engaged ? 1 : 0} escape=${escape ? 1 : 0}` +
         ` live=${survival === Infinity ? '-' : Math.floor(survival)}` +
@@ -699,7 +697,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     this.hero.CastAbilityOnPosition(position, scroll, this.hero.GetPlayerOwnerID());
-    if (IS_TOOLS_MODE) {
+    if (IS_DEBUG_RUN) {
       print(`[bot-ai] ${HeroShortName(this.hero)} tp mode=${this.mode}`);
     }
     return true;
@@ -889,7 +887,7 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   private CastBlink(blink: CDOTA_Item, landing: Vector, reason: string): boolean {
-    if (IS_TOOLS_MODE) {
+    if (IS_DEBUG_RUN) {
       const distance = Math.floor(landing.__sub(this.hero.GetAbsOrigin()).Length2D());
       print(
         `[bot-ai] ${HeroShortName(this.hero)} blink=${reason} dist=${distance} stance=${this.stance}`,
@@ -1031,7 +1029,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     this.lastDeaggroTime = this.gameTime;
-    if (IS_TOOLS_MODE) {
+    if (IS_DEBUG_RUN) {
       print(
         `[bot-ai] ${HeroShortName(this.hero)} hp=${Math.floor(this.hero.GetHealthPercent())}%` +
           ` deaggro=${ally.GetUnitName()} tower=${tower.GetUnitName()}`,
@@ -1301,7 +1299,7 @@ export class BotBaseAIModifier extends BaseModifier {
   IsInAbilityPhase(): boolean {
     if (this.hero.IsChanneling()) {
       if (this.ShouldStopChannel()) {
-        if (IS_TOOLS_MODE) {
+        if (IS_DEBUG_RUN) {
           print(
             `[bot-cast] ${HeroShortName(this.hero)} stop_channel ${this.hero.GetCurrentActiveAbility()?.GetAbilityName()}`,
           );

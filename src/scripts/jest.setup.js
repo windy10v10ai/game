@@ -5,3 +5,6 @@
 if (typeof global.IsInToolsMode === 'undefined') {
   global.IsInToolsMode = () => false;
 }
+if (typeof global.IsDedicatedServer === 'undefined') {
+  global.IsDedicatedServer = () => false;
+}

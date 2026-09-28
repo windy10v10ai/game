@@ -1,3 +1,4 @@
+import { IS_DEBUG_RUN } from '../debug/perf-config';
 import { PlayerHelper } from '../helper/player-helper';
 
 export class HeroPick {
@@ -101,7 +102,7 @@ export class HeroPick {
       return 'npc_dota_hero_nevermore';
     }
     // 开发模式英雄顺序固定
-    const i = IsInToolsMode() ? 0 : RandomInt(0, nameList.length - 1);
+    const i = IS_DEBUG_RUN ? 0 : RandomInt(0, nameList.length - 1);
     const name = nameList[i];
     nameList.splice(i, 1);
     return name;

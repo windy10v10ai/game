@@ -1,4 +1,5 @@
 import { ApiClient } from '../api/api-client';
+import { IS_DEBUG_RUN } from './debug/perf-config';
 
 export class GameConfig {
   public static readonly GAME_VERSION = 'v5.59';
@@ -85,7 +86,7 @@ export class GameConfig {
 
     this.EnterSetupWithoutLobby();
 
-    if (IsInToolsMode()) {
+    if (IS_DEBUG_RUN) {
       print('[GameConfig] 开发者模式快速开始游戏');
       GameRules.SetCustomGameSetupAutoLaunchDelay(3);
       game.SetDraftingBanningTimeOverride(5); // ban 阶段时长
