@@ -2,6 +2,7 @@
  * 每队一个团队大脑：每秒按本队视野扫一次局面，给挂了 AI 的英雄分派任务。
  * 敌方英雄与小兵只认本队看得到的，建筑位置固定、始终可读。
  */
+import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { HeroUtil } from '../hero/hero-util';
 import {
   buildLanePath,
@@ -324,6 +325,11 @@ export class TeamBrain {
       random: () => RandomFloat(0, 1),
     });
     this.tasks = result.tasks;
+    if (IS_DEBUG_RUN && result.plan && result.plan !== this.plan) {
+      const picks = result.plan.picks.map((pick) => pick.lane).join(',');
+      const lanesNow = lanes.map((lane) => lane.lane).join(',');
+      print(`[bot-ai] team=${this.team} lanes=${picks} pushable=${lanesNow}`);
+    }
     this.plan = result.plan;
     for (const [id, task] of this.tasks) {
       if (task.kind === 'push' && task.lane) {

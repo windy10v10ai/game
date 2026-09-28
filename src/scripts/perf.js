@@ -80,7 +80,7 @@ function readLog(file) {
 
 // 汇总脚本需要的行：自身输出、Lua 报错、客户端未登记的 modifier、引擎慢思考警告
 const KEEP_LINE =
-  /\[perf|\[bot-ai\] (glyph|\S+ buyback)|Script Runtime Error|\[bot-team\] think error|unknown modifier type|thinking for [\d.]+ ms/;
+  /\[perf|\[bot-ai\] (glyph|team=\d+ lanes|\S+ buyback)|Script Runtime Error|\[bot-team\] think error|unknown modifier type|thinking for [\d.]+ ms/;
 
 // 显示器休眠后 Dota 不再出画面，客户端帧数据全部失效；测试期间向系统申请保持常亮，进程退出即失效，不改电源设置
 function keepDisplayAwake() {
