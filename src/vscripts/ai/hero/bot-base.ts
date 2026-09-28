@@ -17,7 +17,7 @@ import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { Point } from '../team/lane-geometry';
 import { QUICK_CLEAR_POWER } from '../team/power';
 import { HeroShortName, TeamBrain, UnitPower } from '../team/team-brain';
-import { Task, TaskKind } from '../team/team-plan';
+import { FIGHT_DANGER_RADIUS, Task, TaskKind } from '../team/team-plan';
 import { WardPlacement } from '../ward/ward-placement';
 import { canEngage, canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
@@ -397,10 +397,16 @@ export class BotBaseAIModifier extends BaseModifier {
         return 'retreat';
       }
       const threat = brain.NearestFight(this.hero, this.ThreatRadius);
+      // 交战点附近的人已算进我方战力，只有外面的才要加上自己
+      const joining =
+        threat &&
+        this.hero.GetAbsOrigin().__sub(this.ToWorld(threat.pos)).Length2D() > FIGHT_DANGER_RADIUS
+          ? UnitPower(this.hero)
+          : 0;
       if (
         threat &&
         task?.kind !== 'fight' &&
-        !canEngage(threat.ourPower + UnitPower(this.hero), threat.enemyPower)
+        !canEngage(threat.ourPower + joining, threat.enemyPower)
       ) {
         this.retreatPoint = threat.rally;
         return 'retreat';
