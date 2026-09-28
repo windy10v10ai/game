@@ -91,6 +91,7 @@ npm run build:vscripts   # TSTL build for VScripts (TypeScript → Lua)
 | `game/resource/` | 中英俄本地化文案规约、图标 png 位置 | `game/resource/CLAUDE.md` |
 | `game/scripts/vscripts/` | TSTL 编译产物（自动生成，不要手改）+ 少量遗留纯 Lua | — |
 | `docs/reference/<version>/` | Dota 2 原版 KV 与说明文本快照 | — |
+| `launcher/` | 本机专用服启动器（C# WinForms 单文件 exe）。每次发版都要同步更新 firebase 仓库的官网下载页，步骤见 `launcher/README.md`「发布」 | — |
 
 模块级的设计与决策放该模块目录下的 `README.md`（如 `src/vscripts/api/README.md` 讲客户端 HTTP 代发、`src/vscripts/ai/build-item/README.md` 讲出装）。
 
