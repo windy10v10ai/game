@@ -220,13 +220,15 @@ function assignFights(
       continue;
     }
     const need = spot.enemyPower * FIGHT_POWER_MARGIN - spot.allyPower;
-    const order = [...remaining].sort(
-      (a, b) =>
-        distance(a.pos, spot.pos) +
-        (pushers.has(a.id) ? PUSHER_DISTANCE_PENALTY : 0) -
-        distance(b.pos, spot.pos) -
-        (pushers.has(b.id) ? PUSHER_DISTANCE_PENALTY : 0),
-    );
+    // 先算好每人的代价再比较：比较时现算的浮点误差会让同一个人和自己比出大小，Lua 的排序会直接报错
+    const cost = new Map<number, number>();
+    for (const bot of remaining) {
+      cost.set(
+        bot.id,
+        distance(bot.pos, spot.pos) + (pushers.has(bot.id) ? PUSHER_DISTANCE_PENALTY : 0),
+      );
+    }
+    const order = [...remaining].sort((a, b) => cost.get(a.id)! - cost.get(b.id)!);
     const picked: PlanBot[] = [];
     let assigned = 0;
     for (const bot of order) {
