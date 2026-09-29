@@ -265,6 +265,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T2,
     cost: 2575,
   },
+  item_meteor_hammer: {
+    name: 'item_meteor_hammer',
+    nameCN: '陨星锤',
+    tier: ItemTier.T2,
+    cost: 2850,
+  },
   item_consecrated_wraps: {
     name: 'item_consecrated_wraps',
     nameCN: '圣化护服',
@@ -740,6 +746,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '星落',
     tier: ItemTier.T3,
     cost: 6000,
+    baseItems: ['item_meteor_hammer'],
   },
   item_aeon_pendant: {
     name: 'item_aeon_pendant',
