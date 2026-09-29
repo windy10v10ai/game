@@ -46,7 +46,7 @@ export interface DefendTarget {
   core: boolean;
   importance: number;
   hpRatio: number;
-  /** 来犯敌方英雄的战力；creeps 阶段为小兵战力 */
+  /** 来犯敌方英雄的战力；creeps 阶段为这波小兵扣掉附近己方建筑后剩下的战力，不大于 0 表示建筑守得住 */
   attackerPower: number;
 }
 
@@ -123,6 +123,10 @@ const DEFEND_MAX_SHARE = 0.6;
 export const TELEPORT_MIN_DISTANCE = 6000;
 // 传送过去折算成走这么远：引导几秒加落地后走到位
 const TELEPORT_ARRIVAL_DISTANCE = 2500;
+// 扣掉建筑后还剩的小兵威胁按这个比例算：小兵不会集火也不躲技能，回去太多会错过推对面的机会
+const CREEP_POWER_RATIO = 0.6;
+// 建筑守得住的小兵，这么近以内有清兵快的人才去吃兵发育，远处的不回
+const CREEP_FARM_RANGE = 4000;
 // 预警时守在建筑后方这么远，敌人上来先挨塔打，也不会被当面抓
 const DEFEND_GUARD_BACK = 600;
 // 这个范围内的 bot 算已经到场
@@ -213,11 +217,25 @@ function assignDefend(input: PlanInput, free: PlanBot[], tasks: Map<number, Task
       remaining = remaining.filter((bot) => bot !== guard);
       continue;
     }
+    if (threat.stage === 'creeps' && threat.attackerPower <= 0) {
+      const pushers = findPushers(remaining);
+      const farmer = byArrival(remaining, threat.pos).find(
+        (bot) =>
+          (bot.waveClear || pushers.has(bot.id)) &&
+          distance(bot.pos, threat.pos) <= CREEP_FARM_RANGE,
+      );
+      if (farmer) {
+        tasks.set(farmer.id, { kind: 'defend', pos: threat.pos, targetId: threat.id });
+        remaining = remaining.filter((bot) => bot !== farmer);
+      }
+      continue;
+    }
     const available = remaining.reduce((sum, bot) => sum + bot.power, 0);
     if (!threat.isBase && available < threat.attackerPower * DEFEND_GIVE_UP_RATIO) {
       continue;
     }
-    const need = threat.attackerPower * DEFEND_POWER_MARGIN;
+    const need =
+      threat.attackerPower * (threat.stage === 'creeps' ? CREEP_POWER_RATIO : DEFEND_POWER_MARGIN);
     let candidates = byArrival(remaining, threat.pos);
     if (threat.stage === 'creeps') {
       // 小兵不会跑，派清得快的：有范围技能或普攻高的

@@ -80,6 +80,8 @@ const TELEPORT_ALIGN_SLACK = 1.5;
 const TELEPORT_WAIT_EXPIRE = 1.5;
 // 敌方英雄离基地建筑这么近就先派一个人去守，打起来再叫其他人
 const BASE_WARNING_RADIUS = 2000;
+// 彼此这么近的敌方小兵算同一波
+const CREEP_WAVE_RADIUS = 1200;
 // 小兵不会跑，推到基地这么近就提前回去清
 const BASE_CREEP_RADIUS = 2500;
 // 英雄会不会控制、能不能清兵随学技能和换装备变化，隔一会儿重算
@@ -876,7 +878,8 @@ export class TeamBrain {
       targets.push(this.DefendTargetOf(building, 'warning', power));
     }
 
-    const creeps = new Map<BuildingInfo, number>();
+    // 同一波兵只算一次威胁；附近几座己方建筑一起打，扣掉它们的战力
+    const waves: { x: number; y: number; count: number; power: number }[] = [];
     const center = base.find((building) => building.tier === 6) ?? base[0];
     if (center !== undefined) {
       // 以基地为圆心搜一次盖住所有基地建筑的范围，高地兵多时不会被几座建筑重复搜到
@@ -900,15 +903,29 @@ export class TeamBrain {
         if (!creep.IsCreep() || creep.IsNeutralUnitType()) {
           continue;
         }
-        const near = NearestBuilding(base, creep.GetAbsOrigin(), BASE_CREEP_RADIUS);
-        if (near) {
-          creeps.set(near, (creeps.get(near) ?? 0) + UnitPower(creep));
+        const pos = creep.GetAbsOrigin();
+        if (!NearestBuilding(base, pos, BASE_CREEP_RADIUS)) {
+          continue;
+        }
+        const wave = waves.find(
+          (w) => distance({ x: w.x / w.count, y: w.y / w.count }, pos) <= CREEP_WAVE_RADIUS,
+        );
+        if (wave) {
+          wave.x += pos.x;
+          wave.y += pos.y;
+          wave.count++;
+          wave.power += UnitPower(creep);
+        } else {
+          waves.push({ x: pos.x, y: pos.y, count: 1, power: UnitPower(creep) });
         }
       }
     }
-    for (const [building, power] of creeps) {
-      if (!engagedIds.has(building.unit.GetEntityIndex())) {
-        targets.push(this.DefendTargetOf(building, 'creeps', power));
+    for (const wave of waves) {
+      const pos = { x: wave.x / wave.count, y: wave.y / wave.count };
+      const building = NearestBuilding(base, pos, BASE_CREEP_RADIUS);
+      if (building && !engagedIds.has(building.unit.GetEntityIndex())) {
+        const net = wave.power - BuildingPowerNear(this.team, pos);
+        targets.push(this.DefendTargetOf(building, 'creeps', net));
       }
     }
     return targets;

@@ -230,7 +230,7 @@ describe('planTasks', () => {
   });
 
   it('sends a few wave clearers against creeps pushing the base', () => {
-    const input = baseInput({ defend: [baseThreat('creeps', 150)] });
+    const input = baseInput({ defend: [baseThreat('creeps', 300)] });
     input.bots[0].waveClear = true;
     // 2、3 号既没有范围清兵技能、普攻也不高，离得再近也不派
     input.bots[1].pos = { x: 2000, y: 0 };
@@ -238,6 +238,22 @@ describe('planTasks', () => {
     const tasks = planTasks(input).tasks;
     const defenders = [...tasks.entries()].filter(([, task]) => task.kind === 'defend');
     expect(defenders.map(([id]) => id).sort()).toEqual([1, 4]);
+  });
+
+  it('leaves a wave the buildings can hold to one nearby clearer who farms it', () => {
+    // 扣掉建筑战力后威胁不剩，附近有人就派一个去吃兵，远处的不回
+    const near = baseInput({ defend: [baseThreat('creeps', 0)] });
+    near.bots.forEach((bot) => (bot.waveClear = true));
+    near.bots[2].pos = { x: 1500, y: 0 };
+    const nearTasks = [...planTasks(near).tasks.entries()].filter(([, t]) => t.kind === 'defend');
+    expect(nearTasks.map(([id]) => id)).toEqual([3]);
+
+    const far = baseInput({ defend: [baseThreat('creeps', 0)] });
+    far.bots.forEach((bot) => {
+      bot.waveClear = true;
+      bot.pos = { x: 9000, y: 0 };
+    });
+    expect([...planTasks(far).tasks.values()].some((t) => t.kind === 'defend')).toBe(false);
   });
 
   it('sends at least one bot against a weak creep wave', () => {
