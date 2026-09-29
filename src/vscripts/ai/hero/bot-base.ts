@@ -199,6 +199,8 @@ export class BotBaseAIModifier extends BaseModifier {
 
   public aroundEnemyHeroes: CDOTA_BaseNPC[] = [];
   public aroundEnemyCreeps: CDOTA_BaseNPC[] = [];
+  private aroundEnemyAncients: CDOTA_BaseNPC[] = [];
+  private aroundEnemyAncientsTime: number = -1;
   public aroundEnemyBuildings: CDOTA_BaseNPC[] = [];
   public aroundEnemyBuildingsInvulnerable: CDOTA_BaseNPC[] = [];
   public aroundFriendlyHeroes: CDOTA_BaseNPC[] = [];
@@ -1508,6 +1510,15 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   // Find unit
   // ---------------------------------------------------------
+
+  /** 身边的远古野，只在有技能想对它施放时才搜，同一轮思考内复用。 */
+  GetAroundEnemyAncients(): CDOTA_BaseNPC[] {
+    if (this.aroundEnemyAncientsTime !== this.gameTime) {
+      this.aroundEnemyAncients = ActionFind.FindEnemyAncients(this.hero, this.FindRadius);
+      this.aroundEnemyAncientsTime = this.gameTime;
+    }
+    return this.aroundEnemyAncients;
+  }
 
   private FindAround(): void {
     this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindRadius);

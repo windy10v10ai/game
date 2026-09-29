@@ -108,6 +108,8 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 > - `self.noEnemyHeroInRange: 900`
 > - `target.count.gte: 2`
 >
+> 远古野由 dispatcher 统一处理，不要为远古另写 spec：`farm` 模式下技能等级达到 `target-dispatch.ts` 的 `ANCIENT_MIN_ABILITY_LEVEL` 时，EnemyCreep 候选自动加入远古；KV `AbilityUnitTargetFlags` 带 `NOT_ANCIENTS` 的技能照引擎口径跳过。个别技能确实不该打远古时，在它的 spec 里写 `target.unitCondition.excludeAncient: true`。
+>
 > spec 中显式指定的同路径值会通过 `DeepMerge` 覆盖默认值（NumberRange 整体替换，非 key 级合并）。例如想在自身蓝量低时才吸蓝：`self.unitCondition.manaPercent: { lte: 40 }` 会替换默认的 `gte: 40`。
 
 > 现有条件结构见 [cast-condition.ts](src/vscripts/ai/action/cast-condition.ts) 的 `UnitCondition / AbilityCoindition / NumberRange`。

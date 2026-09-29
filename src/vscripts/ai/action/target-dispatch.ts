@@ -413,7 +413,10 @@ function pickTarget(
     return hero;
   }
 
-  const candidates = candidatesFor(ai, targetSide);
+  let candidates = candidatesFor(ai, targetSide);
+  if (targetSide === TargetSide.EnemyCreep && CanCastOnAncients(ai, castable)) {
+    candidates = [...candidates, ...ai.GetAroundEnemyAncients()];
+  }
   const resolved = resolveTargetCondition(condition, hero, castable, targetSide);
   return FilterTargetWithCondition(resolved, candidates, hero, castable);
 }
@@ -533,6 +536,21 @@ function resolveCount(
     count.lte = existing.lte;
   }
   return count;
+}
+
+// 远古血厚，低等级技能打上去不值那点蓝
+const ANCIENT_MIN_ABILITY_LEVEL = 4;
+
+/**
+ * 打野时高等级技能也对远古野施放。
+ * 物品等级基本停在 1 级，天然不会对远古用；技能数据标明不能选远古的（如吞噬）按引擎同一标记跳过，免得被拒后每轮重试。
+ */
+function CanCastOnAncients(ai: BotBaseAIModifier, castable: CDOTABaseAbility): boolean {
+  return (
+    ai.mode === 'farm' &&
+    castable.GetLevel() >= ANCIENT_MIN_ABILITY_LEVEL &&
+    (castable.GetAbilityTargetFlags() & UnitTargetFlags.NOT_ANCIENTS) === 0
+  );
 }
 
 /**
