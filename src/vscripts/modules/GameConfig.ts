@@ -19,6 +19,7 @@ export class GameConfig {
     SendToServerConsole('dota_pause_count 999999');
     SendToServerConsole('dota_pause_limit 999999');
     SendToServerConsole('dota_pause_force_unpause_time 999999');
+    SendToServerConsole('dota_pause_same_team_resume_time_disconnected 999999');
     // TMP 排查专用服自动恢复暂停的原因，定位后删除
     Timers.CreateTimer({
       endTime: 5,
