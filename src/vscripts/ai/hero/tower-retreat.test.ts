@@ -1,4 +1,28 @@
-import { retreatPointFromTowers } from './tower-retreat';
+import { canOutlastTower, retreatPointFromTowers } from './tower-retreat';
+
+describe('canOutlastTower', () => {
+  const input = {
+    heroHealth: 6000,
+    heroReserve: 1000,
+    towerDpsOnHero: 250,
+    towerHealth: 3000,
+    teamDpsOnTower: 400,
+  };
+
+  it('keeps hitting a tower it can outlast', () => {
+    // 能扛 20 秒，塔 7.5 秒就倒
+    expect(canOutlastTower(input)).toBe(true);
+  });
+
+  it('leaves when the tower would kill it first', () => {
+    expect(canOutlastTower({ ...input, heroHealth: 2500 })).toBe(false);
+    expect(canOutlastTower({ ...input, teamDpsOnTower: 50 })).toBe(false);
+  });
+
+  it('never dives when nobody can hurt the tower', () => {
+    expect(canOutlastTower({ ...input, teamDpsOnTower: 0 })).toBe(false);
+  });
+});
 
 describe('tower retreat point', () => {
   it('moves directly away from a single tower toward home', () => {

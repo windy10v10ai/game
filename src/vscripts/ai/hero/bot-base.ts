@@ -24,7 +24,8 @@ import { FIGHT_DANGER_RADIUS, Task, TaskKind, TELEPORT_MIN_DISTANCE } from '../t
 import { WardPlacement } from '../ward/ward-placement';
 import { canEngage, canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
-import { passesTower, retreatPointFromTowers } from './tower-retreat';
+import { canOutlastTower, passesTower, retreatPointFromTowers } from './tower-retreat';
+import { calculateAttackDPS } from '../../utils/damage-calculation';
 
 /** 英雄当前在做什么：对线期交给原生时是 laning，接管后是交战状态或团队任务。 */
 export type BotMode = 'laning' | 'fight' | 'retreat' | TaskKind;
@@ -677,7 +678,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.TryTeleport()) {
       return true;
     }
-    const safePoint = this.FindSafePoint();
+    // 要回家补给时撤到集合点或塔下只会站着等，敌人还在附近传送不了，直接往泉水走
+    const fountain = HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber());
+    const safePoint = this.needsRecover && fountain ? fountain : this.FindSafePoint();
     if (this.TryBlinkToward(safePoint) || this.TryForceStaffToward(safePoint, true)) {
       return true;
     }
@@ -1232,10 +1235,34 @@ export class BotBaseAIModifier extends BaseModifier {
     if (!towerOnHero && this.CountCreepsNear(tower) >= this.DiveMinCreeps) {
       return true;
     }
-    return (
+    if (
       this.hero.GetHealthPercent() >= this.DiveMinHealthPercent &&
       this.CountHeroesAtTower(tower) >= this.DiveMinHeroes
-    );
+    ) {
+      return true;
+    }
+    return this.CanOutlastTower(tower);
+  }
+
+  /** 塔下我方一起打塔，能不能在塔把自己打到该撤的血量之前把塔推掉。 */
+  private CanOutlastTower(tower: CDOTA_BaseNPC): boolean {
+    let teamDps = 0;
+    for (const ally of this.aroundFriendlyHeroes) {
+      if (
+        ally.IsAlive() &&
+        ally.IsRealHero() &&
+        HeroUtil.GetDistanceToAttackRange(tower, ally) <= this.DiveGatherRange
+      ) {
+        teamDps += calculateAttackDPS(ally, tower);
+      }
+    }
+    return canOutlastTower({
+      heroHealth: this.hero.GetHealth(),
+      heroReserve: (this.hero.GetMaxHealth() * this.DeaggroHealthPercent) / 100,
+      towerDpsOnHero: calculateAttackDPS(tower, this.hero),
+      towerHealth: tower.GetHealth(),
+      teamDpsOnTower: teamDps,
+    });
   }
 
   private CountCreepsNear(tower: CDOTA_BaseNPC): number {

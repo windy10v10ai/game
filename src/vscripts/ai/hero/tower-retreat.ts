@@ -34,6 +34,32 @@ export function retreatPointFromTowers(
   return { x: origin.x + direction.x * distance, y: origin.y + direction.y * distance };
 }
 
+// 扛塔的时间要比塔倒的时间多出这一截，普攻有空档、塔血估算也有误差
+const OUTLAST_MARGIN = 1.2;
+
+export interface TowerOutlastInput {
+  heroHealth: number;
+  /** 扛到只剩这么多血就该走，留给撤出射程 */
+  heroReserve: number;
+  towerDpsOnHero: number;
+  towerHealth: number;
+  /** 塔下我方英雄一起打塔的普攻输出 */
+  teamDpsOnTower: number;
+}
+
+/** 顶着塔打：照塔打自己的速度，能撑到塔被打倒才值得，够肉的后期英雄不必兵线一没就走。 */
+export function canOutlastTower(input: TowerOutlastInput): boolean {
+  if (input.teamDpsOnTower <= 0) {
+    return false;
+  }
+  if (input.towerDpsOnHero <= 0) {
+    return true;
+  }
+  const survive = (input.heroHealth - input.heroReserve) / input.towerDpsOnHero;
+  const fall = input.towerHealth / input.teamDpsOnTower;
+  return survive >= fall * OUTLAST_MARGIN;
+}
+
 /** 去目的地的直线是否穿过这座塔周围这么大的范围。 */
 export function passesTower(
   origin: Point,
