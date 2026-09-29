@@ -330,7 +330,8 @@ export class TeamBrain {
         const text = defend
           .map((target) => `${target.id}:${target.stage}:${Math.floor(target.attackerPower)}`)
           .join(',');
-        print(`[bot-ai] team=${this.team} defend=${text === '' ? '-' : text}`);
+        const time = Math.floor(GameRules.GetDOTATime(false, true));
+        print(`[bot-ai] team=${this.team} t=${time} defend=${text === '' ? '-' : text}`);
       }
     }
     if (this.team === DotaTeam.BADGUYS) {

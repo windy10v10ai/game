@@ -2,6 +2,7 @@ const { execSync, spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const { getAddonName, getDotaPath } = require('./utils');
+const { analyze } = require('./bot-anomaly');
 const { summarize, unstableConditions } = require('./perf-summary');
 
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -67,6 +68,7 @@ const LAUNCHER_ONLY = ['timeoutMinutes', 'minGames', 'maxGames', 'spreadLimit', 
 const SERVER_PORT = 27015;
 const SERVER_LOG = 'perf-dedicated.log';
 const MAP_LOADED = 'Host activate: Loading (custom)';
+const ANOMALY_MAX_BYTES = 300 * 1024 * 1024;
 
 function writeConfig(options) {
   const fields = Object.entries(options)
@@ -252,7 +254,13 @@ async function runGame(options, gameConfig, label) {
     console.error(`[perf] ${label}: timeout before the game finished, keeping partial data`);
   }
   await waitDotaExit();
-  return kept.join('\n');
+  // 日志出错时可达上 GB，太大就不做行为检测
+  const scriptLog = dedicated ? serverLog : logFile;
+  const anomaly =
+    fs.existsSync(scriptLog) && fs.statSync(scriptLog).size < ANOMALY_MAX_BYTES
+      ? analyze(readLog(scriptLog))
+      : '日志过大或不存在，跳过行为检测';
+  return { log: kept.join('\n'), anomaly };
 }
 
 (async () => {
@@ -280,8 +288,11 @@ async function runGame(options, gameConfig, label) {
       // 局数随结果追加，事先不知道哪局是最后一局，不可还原的收尾步骤放在第一局
       includeTail: game === 1,
     };
-    const log = await runGame(options, gameConfig, `game ${game}`);
+    const { log, anomaly } = await runGame(options, gameConfig, `game ${game}`);
     fs.writeFileSync(path.join(runDir, `game-${game}.log`), log);
+    const anomalyFile = path.join(runDir, `anomaly-${game}.md`);
+    fs.writeFileSync(anomalyFile, anomaly);
+    console.log(`[perf] game ${game}: bot anomaly report ${anomalyFile}`);
     logs.push(log);
     if (game < minGames) continue;
     unstable = unstableConditions(logs.join('\n'), options.spreadLimit);

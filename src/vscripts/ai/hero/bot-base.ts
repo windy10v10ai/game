@@ -147,6 +147,8 @@ export class BotBaseAIModifier extends BaseModifier {
   // 同一目的地不重复下指令；单位停下或太久没更新时才重下
   // 到达判定要比站位间距小，否则都停在靠自己一侧的站位边缘、又挤回一团
   protected readonly ArriveRadius: number = 100;
+  // 开发模式记录位置的间隔
+  protected readonly PositionTraceInterval: number = 5;
   // 回防离目的地这么近才边走边打
   protected readonly DefendAttackMoveRange: number = 1500;
   // 停下来后和队友挨着超过这么久才让开
@@ -190,6 +192,7 @@ export class BotBaseAIModifier extends BaseModifier {
   private retreatPoint: Point | undefined;
   private crowdedSince: number | undefined;
   private spreadCheckedAt = 0;
+  private nextPositionTrace = 0;
   private brain: TeamBrain | undefined;
   // 引导中最后一次看到范围内敌方英雄的时间，用来判断敌人离开了多久
   private channelEnemySeenTime = 0;
@@ -293,6 +296,9 @@ export class BotBaseAIModifier extends BaseModifier {
 
   /** 接管后：先判断交战，没打起来就执行团队任务。 */
   private ThinkCustom(brain: TeamBrain): void {
+    if (IS_DEBUG_RUN) {
+      this.TracePosition(brain.GetTask(this.hero));
+    }
     if (this.gameTime < this.continueActionEndTime) {
       return;
     }
@@ -525,6 +531,24 @@ export class BotBaseAIModifier extends BaseModifier {
       }
     }
     return best;
+  }
+
+  /** 开发模式：定时记下位置与任务，供日志检测脚本找卡住、挤在一起、远路不传送等问题。 */
+  private TracePosition(task: Task | undefined): void {
+    if (this.gameTime < this.nextPositionTrace) {
+      return;
+    }
+    this.nextPositionTrace = this.gameTime + this.PositionTraceInterval;
+    const pos = this.hero.GetAbsOrigin();
+    const scroll = this.hero.FindItemInInventory('item_tpscroll');
+    const tp = scroll === undefined ? 'none' : scroll.IsFullyCastable() ? 'ready' : 'cd';
+    const dist = task ? Math.floor(pos.__sub(this.ToWorld(task.pos)).Length2D()) : -1;
+    print(
+      `[bot-pos] t=${Math.floor(this.gameTime)} team=${this.hero.GetTeamNumber()} ${HeroShortName(this.hero)}` +
+        ` x=${Math.floor(pos.x)} y=${Math.floor(pos.y)} task=${task?.kind ?? 'none'}` +
+        ` target=${task?.targetId ?? -1} dist=${dist} stance=${this.stance} tp=${tp}` +
+        ` channel=${this.hero.IsChanneling() ? 1 : 0}`,
+    );
   }
 
   /** 开发模式：判断结果、任务或目标变化时打一行日志，便于对照实机表现排查。 */
