@@ -358,7 +358,7 @@ export class PerfAuto {
       boostHeroes();
       lockForts();
     }
-    if (config.testItems) grantTestItems(config.testItems);
+    if (config.testItems !== undefined && config.testItems !== '') grantTestItems(config.testItems);
     // 结算阶段计时器可能不再推进，轮询发现不了游戏结束，直接听状态切换
     ListenToGameEvent(
       'game_rules_state_change',
