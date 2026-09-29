@@ -7,6 +7,7 @@ import { SPECS as beastArmor } from './item_beast_armor';
 import { SPECS as beastShield } from './item_beast_shield';
 import { SPECS as blackKingBar2 } from './item_black_king_bar_2';
 import { SPECS as bladeMail2 } from './item_blade_mail_2';
+import { SPECS as bloodGrenade } from './item_blood_grenade';
 import { SPECS as bloodstone } from './item_bloodstone';
 import { SPECS as blueFantasy } from './item_blue_fantasy';
 import { SPECS as crimsonGuard } from './item_crimson_guard';
@@ -108,6 +109,7 @@ export function registerItemSpecs(): void {
 
   // D：对敌英雄伤害类（不检控制）
   ItemRegistry.registerAll(blueFantasy);
+  ItemRegistry.registerAll(bloodGrenade);
   ItemRegistry.registerAll(dagon);
   ItemRegistry.registerAll(etherealBlade);
   ItemRegistry.registerAll(shadowJudgment);
