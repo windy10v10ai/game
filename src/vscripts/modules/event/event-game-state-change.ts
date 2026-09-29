@@ -55,7 +55,12 @@ export class EventGameStateChange {
   private OnStrategyTime(): void {
     GameConfig.SetMaxLevelXPRequire();
     HeroPick.PickHumanHeroes();
-    HeroPick.PickBotHeroes();
+    // 延迟创建，避免在当前事件处理里耗时过长导致玩家被断开
+    Timers.CreateTimer({
+      endTime: 0.1,
+      useGameTime: false,
+      callback: () => HeroPick.PickBotHeroes(),
+    });
   }
 
   /**
