@@ -353,7 +353,7 @@ export class BotBaseAIModifier extends BaseModifier {
         }
         return this.ActionRetreat();
       case 'hold':
-        // 被派来打但跟得上的人还不够：原地等后面的人，不往敌人跟前凑，也不去打兵
+        // 被派来打但跟得上的人还不够：原地等后面的人，不往敌人跟前凑；守塔时敌人够不着就顺手清兵
         if (this.InEnemyReach()) {
           this.mode = 'retreat';
           if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
@@ -362,7 +362,11 @@ export class BotBaseAIModifier extends BaseModifier {
           return this.ActionRetreat();
         }
         this.mode = 'hold';
-        if (!ItemDispatcher.Run(this) && !AbilityDispatcher.Run(this)) {
+        if (
+          !ItemDispatcher.Run(this) &&
+          !AbilityDispatcher.Run(this) &&
+          !(task?.kind === 'defend' && this.AttackNearbyCreep(task.kind))
+        ) {
           this.SpreadOut();
         }
         return true;

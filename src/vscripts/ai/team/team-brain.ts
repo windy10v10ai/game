@@ -80,6 +80,8 @@ const TELEPORT_ALIGN_SLACK = 1.5;
 const TELEPORT_WAIT_EXPIRE = 1.5;
 // 敌方英雄离基地建筑这么近就先派一个人去守，打起来再叫其他人
 const BASE_WARNING_RADIUS = 2000;
+// 敌方英雄离开或看不见后，守建筑的任务再留这么久
+const DEFEND_MEMORY = 5;
 // 彼此这么近的敌方小兵算同一波
 const CREEP_WAVE_RADIUS = 1200;
 // 小兵不会跑，推到基地这么近就提前回去清
@@ -156,6 +158,7 @@ export class TeamBrain {
   private readonly teleports = new Map<number, Map<EntityIndex, TeleportPlan>>();
   private readonly roles = new Map<EntityIndex, HeroRole>();
   private readonly slots = new Map<number, Point>();
+  private readonly defendMemory = new Map<number, { target: DefendTarget; time: number }>();
   private lastDefendKey = '';
   // 阵亡的 bot 没有当前战力，买活判断用它最后活着时的战力
   private readonly lastPower = new Map<EntityIndex, number>();
@@ -324,7 +327,10 @@ export class TeamBrain {
       return;
     }
     const buildings = CollectBuildings();
-    const defend = this.FindDefendTargets(buildings, recentEnemies);
+    const defend = this.RememberDefendTargets(
+      this.FindDefendTargets(buildings, recentEnemies),
+      now,
+    );
     if (IS_DEBUG_RUN) {
       const key = defend.map((target) => `${target.id}:${target.stage}`).join(',');
       if (key !== this.lastDefendKey) {
@@ -929,6 +935,27 @@ export class TeamBrain {
       }
     }
     return targets;
+  }
+
+  /** 敌方英雄在范围边上进出或一时看不见时，守这座建筑的任务再留一会儿，免得派来的人来回换任务。 */
+  private RememberDefendTargets(targets: DefendTarget[], now: number): DefendTarget[] {
+    for (const target of targets) {
+      if (target.stage !== 'creeps') {
+        this.defendMemory.set(target.id, { target, time: now });
+      }
+    }
+    const result = [...targets];
+    for (const [id, memory] of this.defendMemory) {
+      const unit = EntIndexToHScript(id as EntityIndex) as CDOTA_BaseNPC | undefined;
+      if (now - memory.time > DEFEND_MEMORY || !unit || unit.IsNull() || !unit.IsAlive()) {
+        this.defendMemory.delete(id);
+        continue;
+      }
+      if (!targets.some((target) => target.id === id && target.stage !== 'creeps')) {
+        result.push(memory.target);
+      }
+    }
+    return result;
   }
 
   private DefendTargetOf(
