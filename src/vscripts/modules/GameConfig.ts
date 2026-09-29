@@ -85,7 +85,6 @@ export class GameConfig {
     game.SetMinimumAttackSpeed(20);
 
     this.EnterSetupWithoutLobby();
-    this.ListenPauseCommand();
 
     if (IS_DEBUG_RUN) {
       print('[GameConfig] 开发者模式快速开始游戏');
@@ -96,17 +95,6 @@ export class GameConfig {
       GameRules.SetStrategyTime(3);
       GameRules.SetPreGameTime(5); // 进入游戏后号角吹响前的准备时间
     }
-  }
-
-  // 玩家自己发起的暂停约 30 秒后会被引擎自动恢复，且没有设置能关掉；脚本发起的暂停不会
-  private ListenPauseCommand() {
-    ListenToGameEvent(
-      'player_chat',
-      (keys) => {
-        if (keys.text.trim() === '-pause') PauseGame(!GameRules.IsGamePaused());
-      },
-      undefined,
-    );
   }
 
   // 自建专用服没有大厅推进状态，自定义游戏会一直停在 INIT；游廊的大厅在玩家连入前就已推进，INIT 判断不会误触发
