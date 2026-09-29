@@ -147,6 +147,8 @@ export class BotBaseAIModifier extends BaseModifier {
   // 同一目的地不重复下指令；单位停下或太久没更新时才重下
   // 到达判定要比站位间距小，否则都停在靠自己一侧的站位边缘、又挤回一团
   protected readonly ArriveRadius: number = 100;
+  // 回防离目的地这么近才边走边打
+  protected readonly DefendAttackMoveRange: number = 1500;
   // 停下来后和队友挨着超过这么久才让开
   protected readonly CrowdedSeconds: number = 2;
   protected readonly OrderRepeatDistance: number = 400;
@@ -695,8 +697,13 @@ export class BotBaseAIModifier extends BaseModifier {
       this.traceTarget = 'lane';
       return this.MoveTo(entry, UnitOrder.MOVE_TO_POSITION);
     }
-    // 赶去交战点只管走，攻击移动会半路停下打野怪小兵，到了才开打的人逐个送
-    const order = task.kind === 'fight' ? UnitOrder.MOVE_TO_POSITION : UnitOrder.ATTACK_MOVE;
+    // 赶去交战点只管走，攻击移动会半路停下打野怪小兵，到了才开打的人逐个送；
+    // 回防离得远时同理，否则会一直打着身边的敌方塔和小兵走不开，也离不开塔区去传送
+    const rushing =
+      task.kind === 'fight' ||
+      (task.kind === 'defend' &&
+        this.hero.GetAbsOrigin().__sub(destination).Length2D() > this.DefendAttackMoveRange);
+    const order = rushing ? UnitOrder.MOVE_TO_POSITION : UnitOrder.ATTACK_MOVE;
     if (this.MoveTo(destination, order) || this.SpreadOut()) {
       return true;
     }
@@ -785,14 +792,21 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   /** 传送引导途中挨打会被打断，起手前要离开敌方英雄、敌方塔，且最近没有挨打；否则先走到安全处。 */
-  protected CanStartTeleport(): boolean {
+  /**
+   * 能否开始读传送。回防要赶时间：传送只会被控制打断，挨小兵打不断，
+   * 所以塔没在打自己时，站在敌方塔下、刚挨过打也直接读。
+   */
+  protected CanStartTeleport(urgent = false): boolean {
     if (this.hero.IsMuted() || this.aroundEnemyHeroes.length > 0) {
       return false;
+    }
+    const enemyTower = this.FindNearestEnemyTowerInvulnerable();
+    if (urgent) {
+      return !enemyTower || enemyTower.GetAttackTarget() !== this.hero;
     }
     if (this.gameTime - this.lastHurtTime < this.TeleportCalmSeconds) {
       return false;
     }
-    const enemyTower = this.FindNearestEnemyTowerInvulnerable();
     return !enemyTower || this.hero.GetRangeToUnit(enemyTower) > this.RetreatTeleportTowerSafeRange;
   }
 
@@ -833,7 +847,11 @@ export class BotBaseAIModifier extends BaseModifier {
     const here = this.hero.GetAbsOrigin();
     const target = this.ToWorld(task.pos);
     const distance = here.__sub(target).Length2D();
-    if (distance < this.TaskTeleportDistance || !this.CanStartTeleport() || !this.brain) {
+    if (
+      distance < this.TaskTeleportDistance ||
+      !this.CanStartTeleport(task.kind === 'defend') ||
+      !this.brain
+    ) {
       return false;
     }
     const scroll = this.hero.FindItemInInventory('item_tpscroll');
