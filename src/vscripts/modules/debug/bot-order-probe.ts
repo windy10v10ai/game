@@ -93,6 +93,10 @@ function count(category: string, key: string, amount = 1): void {
 }
 
 function isBot(playerId: PlayerID): boolean {
+  // 重开脚本或换图的间隙引擎仍会过滤指令，这时玩家资源还没建好
+  if ((_G as unknown as { PlayerResource?: CDOTA_PlayerResource }).PlayerResource === undefined) {
+    return false;
+  }
   return PlayerResource.IsValidPlayerID(playerId) && PlayerResource.IsFakeClient(playerId);
 }
 
