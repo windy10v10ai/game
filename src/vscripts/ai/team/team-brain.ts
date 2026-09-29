@@ -80,6 +80,8 @@ const TELEPORT_ALIGN_SLACK = 1.5;
 const TELEPORT_WAIT_EXPIRE = 1.5;
 // 敌方英雄离基地建筑这么近就先派一个人去守，打起来再叫其他人
 const BASE_WARNING_RADIUS = 2000;
+// 这么近以内有敌方小兵就算兵线快到了，偷塔保护马上会失效
+const BACKDOOR_CREEP_RADIUS = 3000;
 // 敌方英雄离开或看不见后，守建筑的任务再留这么久
 const DEFEND_MEMORY = 5;
 // 彼此这么近的敌方小兵算同一波
@@ -845,7 +847,10 @@ export class TeamBrain {
     recentEnemies: CDOTA_BaseNPC_Hero[],
   ): DefendTarget[] {
     const own = buildings.filter(
-      (building) => building.unit.GetTeamNumber() === this.team && !building.unit.IsInvulnerable(),
+      (building) =>
+        building.unit.GetTeamNumber() === this.team &&
+        !building.unit.IsInvulnerable() &&
+        !this.IsBackdoorSafe(building.unit),
     );
     const targets: DefendTarget[] = [];
     const engagedIds = new Set<EntityIndex>();
@@ -937,6 +942,25 @@ export class TeamBrain {
     return targets;
   }
 
+  /** 偷塔保护生效、附近又没有敌方小兵过来时，英雄单独打塔几乎打不动，不必回防。 */
+  private IsBackdoorSafe(unit: CDOTA_BaseNPC): boolean {
+    if (!unit.HasModifier('modifier_backdoor_protection_active')) {
+      return false;
+    }
+    const nearby = FindUnitsInRadius(
+      this.team,
+      unit.GetAbsOrigin(),
+      undefined,
+      BACKDOOR_CREEP_RADIUS,
+      UnitTargetTeam.ENEMY,
+      UnitTargetType.BASIC,
+      UnitTargetFlags.FOW_VISIBLE,
+      FindOrder.ANY,
+      false,
+    );
+    return !nearby.some((creep) => creep.IsCreep() && !creep.IsNeutralUnitType());
+  }
+
   /** 敌方英雄在范围边上进出或一时看不见时，守这座建筑的任务再留一会儿，免得派来的人来回换任务。 */
   private RememberDefendTargets(targets: DefendTarget[], now: number): DefendTarget[] {
     for (const target of targets) {
@@ -947,7 +971,13 @@ export class TeamBrain {
     const result = [...targets];
     for (const [id, memory] of this.defendMemory) {
       const unit = EntIndexToHScript(id as EntityIndex) as CDOTA_BaseNPC | undefined;
-      if (now - memory.time > DEFEND_MEMORY || !unit || unit.IsNull() || !unit.IsAlive()) {
+      if (
+        now - memory.time > DEFEND_MEMORY ||
+        !unit ||
+        unit.IsNull() ||
+        !unit.IsAlive() ||
+        this.IsBackdoorSafe(unit)
+      ) {
         this.defendMemory.delete(id);
         continue;
       }
