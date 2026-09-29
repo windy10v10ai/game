@@ -19,6 +19,30 @@ export class GameConfig {
     SendToServerConsole('dota_pause_count 999999');
     SendToServerConsole('dota_pause_limit 999999');
     SendToServerConsole('dota_pause_force_unpause_time 999999');
+    // TMP 排查专用服自动恢复暂停的原因，定位后删除
+    Timers.CreateTimer({
+      endTime: 5,
+      useGameTime: false,
+      callback: () => {
+        for (const n of [
+          'dota_pause_count',
+          'dota_pause_limit',
+          'dota_pause_cooldown',
+          'dota_pause_cooldown_time',
+          'dota_pause_force_unpause_time',
+          'dota_pause_minimum_time_spent_paused',
+          'dota_pause_minimum_time_spent_paused_bad_behavior',
+          'dota_pause_same_team_resume_time',
+          'dota_pause_same_team_resume_time_disconnected',
+          'dota_pause_countdown',
+          'dota_unpause_countdown',
+          'dota_unpause_mass_disconnect_cooldown',
+          'dota_allow_pause_in_match',
+        ]) {
+          print(`[PauseCfg] ${n}=${Convars.GetStr(n)}`);
+        }
+      },
+    });
     // 设置bot模式
     Convars.SetBool('dota_bot_mode', true);
     Convars.SetBool('dota_bot_disable', false);
