@@ -55,7 +55,7 @@ export class EventGameStateChange {
   private OnStrategyTime(): void {
     GameConfig.SetMaxLevelXPRequire();
     HeroPick.PickHumanHeroes();
-    // 最后一名玩家选完英雄时，状态切换发生在处理该玩家网络消息的过程中；同帧创建 10 个电脑会超出引擎给单条消息的时间预算，玩家被以溢出为由断开
+    // 延迟创建，避免在当前事件处理里耗时过长导致玩家被断开
     Timers.CreateTimer({
       endTime: 0.1,
       useGameTime: false,
