@@ -7,7 +7,7 @@ import { AbilityRegistry } from '../ability/ability-registry';
 import { TargetSide } from '../ability/ability-spec';
 import { HeroUtil } from '../hero/hero-util';
 import { ItemRegistry } from '../item/item-registry';
-import { CachedBuildings, CachedTowers } from './building-cache';
+import { CachedBuildings, CachedTowers, TowerAttackRange } from './building-cache';
 import { shouldUseGlyph } from './glyph';
 import {
   buildLanePath,
@@ -57,8 +57,8 @@ const LANE_CREEP_MAX_OFFSET = 1200;
 const BUILDING_THREAT_RADIUS = 1200;
 // 彼此在这个距离内的敌方英雄算同一处交战点
 const FIGHT_CLUSTER_RADIUS = 1200;
-// 敌人离自家塔这么近时，塔也算进对面的战力
-const FIGHT_TOWER_RADIUS = 900;
+// 交战点在建筑射程外这么远以内也算建筑参战，英雄走几步就进射程
+const FIGHT_TOWER_MARGIN = 300;
 // 超过敌方最前面那座塔这么远，就算越过了还没推掉的塔
 const FRONT_MARGIN = 400;
 // 同一片野区的野怪合成一个发育点
@@ -604,13 +604,10 @@ export class TeamBrain {
       }
     }
     const pos = Vector(x, y, 0);
-    const tower = this.FindTowerNear(this.enemyTeam, pos, FIGHT_TOWER_RADIUS);
-    if (tower) {
-      enemyPower += UnitPower(tower);
-    }
-    // 己方塔也算我方战力，玩家上高地时 bot 守得更积极；玩家的塔同样算进敌方
-    const ownTower = this.FindTowerNear(this.team, pos, FIGHT_TOWER_RADIUS);
-    let allyPower = ownTower ? UnitPower(ownTower) : 0;
+    const enemyTowerPower = BuildingPowerNear(this.enemyTeam, pos);
+    enemyPower += enemyTowerPower;
+    // 己方塔、兵营与基地也算我方战力，玩家上高地时 bot 守得更积极；玩家的建筑同样算进敌方
+    let allyPower = BuildingPowerNear(this.team, pos);
     let ourPower = allyPower;
     let engaged = false;
     const ourNames: string[] = [];
@@ -638,21 +635,21 @@ export class TeamBrain {
       enemyNames: enemies.map(HeroShortName),
       ourPower,
       ourNames,
-      withTower: tower !== undefined,
+      withTower: enemyTowerPower > 0,
       pastFront: this.IsPastFront(pos),
       engaged,
     };
   }
 
-  /** 被派来打、快要赶到的 bot 也算进这处交战点的我方战力，队友之间判断一致；还远的不算，免得先到的人以为有援军硬上。 */
+  /** 被派来打或回防、快要赶到的 bot 也算进这处交战点的我方战力，队友之间判断一致；还远的不算，免得先到的人以为有援军硬上。 */
   private CountCommittedFighters(): void {
     for (const fight of this.fights) {
       for (const [id, task] of this.tasks) {
         const bot = this.members.get(id as EntityIndex);
         if (
           !bot ||
-          task.kind !== 'fight' ||
-          task.targetId !== fight.focusId ||
+          (task.kind !== 'fight' && task.kind !== 'defend') ||
+          (task.kind === 'fight' && task.targetId !== fight.focusId) ||
           distance(bot.GetAbsOrigin(), fight.pos) <= FIGHT_DANGER_RADIUS ||
           distance(bot.GetAbsOrigin(), fight.pos) > FIGHT_FOLLOW_RADIUS
         ) {
@@ -691,20 +688,6 @@ export class TeamBrain {
       }
     }
     return best ?? fountain;
-  }
-
-  private FindTowerNear(team: DotaTeam, pos: Vector, radius: number): CDOTA_BaseNPC | undefined {
-    for (const tower of CachedTowers()) {
-      if (
-        !tower.IsNull() &&
-        tower.IsAlive() &&
-        tower.GetTeamNumber() === team &&
-        distance(tower.GetAbsOrigin(), pos) <= radius
-      ) {
-        return tower;
-      }
-    }
-    return undefined;
   }
 
   private PruneMembers(): void {
@@ -1131,6 +1114,21 @@ function CollectBuildings(): BuildingInfo[] {
     // 高地塔起打不过也要派人守
     return { unit, lane: BuildingLane(name), tier, importance: tier, isBase: tier >= 3 };
   });
+}
+
+/** 射程能盖到这个位置的一方建筑的战力之和，几座挨着的高地建筑一起算。 */
+function BuildingPowerNear(team: DotaTeam, pos: Point): number {
+  let power = 0;
+  for (const unit of CachedBuildings()) {
+    if (
+      unit.GetTeamNumber() === team &&
+      unit.HasAttackCapability() &&
+      distance(unit.GetAbsOrigin(), pos) <= TowerAttackRange(unit) + FIGHT_TOWER_MARGIN
+    ) {
+      power += UnitPower(unit);
+    }
+  }
+  return power;
 }
 
 function NearestBuilding(

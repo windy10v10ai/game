@@ -380,6 +380,8 @@ export class BotBaseAIModifier extends BaseModifier {
    * 英雄层只处理自己被打之后的反应：打不过就边撤边放技能物品，跑不掉才打到底。
    */
   private DecideStance(brain: TeamBrain, task: Task | undefined): Stance {
+    // 被派去打架或回防的人由团队判断过值得去，到场后不按独自一人的战力掉头
+    const committed = task?.kind === 'fight' || task?.kind === 'defend';
     const enemies = this.aroundEnemyHeroes.filter(
       (enemy) => this.hero.GetRangeToUnit(enemy) <= this.LocalFightRadius,
     );
@@ -421,11 +423,7 @@ export class BotBaseAIModifier extends BaseModifier {
         this.hero.GetAbsOrigin().__sub(this.ToWorld(threat.pos)).Length2D() > FIGHT_DANGER_RADIUS
           ? UnitPower(this.hero)
           : 0;
-      if (
-        threat &&
-        task?.kind !== 'fight' &&
-        !canEngage(threat.ourPower + joining, threat.enemyPower)
-      ) {
+      if (threat && !committed && !canEngage(threat.ourPower + joining, threat.enemyPower)) {
         // 走出威胁范围后再撤一会，不在边界上来回进出
         this.engagedUntil = this.gameTime + this.EngageMemory;
         this.retreatPoint = threat.rally;
@@ -451,7 +449,8 @@ export class BotBaseAIModifier extends BaseModifier {
       canEscape: escape,
       survivalSeconds: survival,
       wasAvoiding: this.stance === 'retreat' || this.stance === 'hold',
-      joining: task?.kind === 'fight' && fight.engaged,
+      // 回防的人按接战口径，不因对面强一些就在后面看着建筑被拆
+      joining: (task?.kind === 'fight' && fight.engaged) || task?.kind === 'defend',
       holdGround: task?.kind === 'defend' && task.hold === true,
     });
     if (engaged) {
@@ -462,9 +461,9 @@ export class BotBaseAIModifier extends BaseModifier {
     }
     // 打不过时，被派来打的在外围等队友跟上，其余的离开，不在旁边围观
     if (stance === 'hold') {
-      return task?.kind === 'fight' ? 'hold' : 'retreat';
+      return committed ? 'hold' : 'retreat';
     }
-    if (task?.kind === 'fight') {
+    if (committed) {
       return stance;
     }
     return 'task';
