@@ -54,8 +54,13 @@ const FORCE_STAFF_NAMES = [
 // 推动方向取朝向，赶路时朝向偏离目的地超过约 30° 就会推歪
 const FORCE_STAFF_TRAVEL_MIN_COS = 0.87;
 
-// 赶路推一下省不了多少时间，蓝紧张时留给撤退和施法
-const FORCE_STAFF_TRAVEL_MIN_MANA_PERCENT = 50;
+// 赶路推一下、跳一下省不了多少时间，蓝紧张时留给撤退和施法
+const TRAVEL_MIN_MANA_PERCENT = 50;
+
+// 有 A 杖后能点地跳到指定位置的技能，赶路与撤退时和跳刀一样用；值为跳跃距离的数值键
+const SCEPTER_JUMP_ABILITIES: Record<string, string> = {
+  earthshaker_enchant_totem: 'distance_scepter',
+};
 
 const blinkRangeCache = new Map<string, number>();
 
@@ -692,7 +697,11 @@ export class BotBaseAIModifier extends BaseModifier {
     // 要回家补给时撤到集合点或塔下只会站着等，敌人还在附近传送不了，直接往泉水走
     const fountain = HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber());
     const safePoint = this.needsRecover && fountain ? fountain : this.FindSafePoint();
-    if (this.TryBlinkToward(safePoint) || this.TryForceStaffToward(safePoint, true)) {
+    if (
+      this.TryBlinkToward(safePoint) ||
+      this.TryJumpToward(safePoint, true) ||
+      this.TryForceStaffToward(safePoint, true)
+    ) {
       return true;
     }
     if (!this.MoveTo(safePoint, UnitOrder.MOVE_TO_POSITION)) {
@@ -1039,6 +1048,50 @@ export class BotBaseAIModifier extends BaseModifier {
     return this.CastBlink(blink, here.__add(offset.__mul(range / distance)), 'move');
   }
 
+  /** 用技能朝目的地跳满距离，剩下的路不够跳一次时不交；赶路时蓝不多就留着。 */
+  private TryJumpToward(position: Vector, escaping: boolean): boolean {
+    if (!escaping && this.hero.GetManaPercent() < TRAVEL_MIN_MANA_PERCENT) {
+      return false;
+    }
+    const jump = this.FindReadyJump();
+    if (!jump) {
+      return false;
+    }
+    const range =
+      jump.GetSpecialValueFor(SCEPTER_JUMP_ABILITIES[jump.GetAbilityName()]) +
+      this.hero.GetCastRangeBonus();
+    const here = this.hero.GetAbsOrigin();
+    const offset = position.__sub(here);
+    const distance = offset.Length2D();
+    if (range < this.BlinkMinRange || distance < range) {
+      return false;
+    }
+    if (IS_DEBUG_RUN) {
+      print(
+        `[bot-ai] ${HeroShortName(this.hero)} jump=${escaping ? 'escape' : 'move'} ${jump.GetAbilityName()} stance=${this.stance}`,
+      );
+    }
+    this.hero.CastAbilityOnPosition(
+      here.__add(offset.__mul(range / distance)),
+      jump,
+      this.hero.GetPlayerOwnerID(),
+    );
+    return true;
+  }
+
+  private FindReadyJump(): CDOTABaseAbility | undefined {
+    if (this.hero.IsSilenced() || this.hero.IsRooted() || !this.hero.HasScepter()) {
+      return undefined;
+    }
+    for (const name in SCEPTER_JUMP_ABILITIES) {
+      const ability = this.hero.FindAbilityByName(name);
+      if (ability && ability.IsFullyCastable()) {
+        return ability;
+      }
+    }
+    return undefined;
+  }
+
   /**
    * 朝目的地推自己一段，剩下的路不够推一次时不交。
    * 撤退时最近的敌人要在身后，赶路时朝向要基本对准目的地。
@@ -1068,7 +1121,7 @@ export class BotBaseAIModifier extends BaseModifier {
         return false;
       }
     } else if (
-      this.hero.GetManaPercent() < FORCE_STAFF_TRAVEL_MIN_MANA_PERCENT ||
+      this.hero.GetManaPercent() < TRAVEL_MIN_MANA_PERCENT ||
       (forward.x * offset.x + forward.y * offset.y) / distance < FORCE_STAFF_TRAVEL_MIN_COS
     ) {
       return false;
@@ -1164,7 +1217,9 @@ export class BotBaseAIModifier extends BaseModifier {
     // 赶路时附近没有敌方英雄才闪烁，有敌人时留着切入或逃跑
     if (
       this.aroundEnemyHeroes.length === 0 &&
-      (this.TryBlinkToward(position) || this.TryForceStaffToward(position, false))
+      (this.TryBlinkToward(position) ||
+        this.TryJumpToward(position, false) ||
+        this.TryForceStaffToward(position, false))
     ) {
       return true;
     }
