@@ -762,12 +762,19 @@ export class TeamBrain {
     }
 
     const creeps = new Map<BuildingInfo, number>();
-    for (const building of base) {
+    const center = base.find((building) => building.tier === 6) ?? base[0];
+    if (center !== undefined) {
+      // 以基地为圆心搜一次盖住所有基地建筑的范围，高地兵多时不会被几座建筑重复搜到
+      const origin = center.unit.GetAbsOrigin();
+      const reach = base.reduce(
+        (max, building) => Math.max(max, distance(building.unit.GetAbsOrigin(), origin)),
+        0,
+      );
       const units = FindUnitsInRadius(
         this.team,
-        building.unit.GetAbsOrigin(),
+        origin,
         undefined,
-        BASE_CREEP_RADIUS,
+        reach + BASE_CREEP_RADIUS,
         UnitTargetTeam.ENEMY,
         UnitTargetType.BASIC,
         UnitTargetFlags.FOW_VISIBLE + UnitTargetFlags.NO_INVIS,
@@ -779,9 +786,8 @@ export class TeamBrain {
           continue;
         }
         const near = NearestBuilding(base, creep.GetAbsOrigin(), BASE_CREEP_RADIUS);
-        // 每个小兵只算给离它最近的那座，几座建筑的搜索范围重叠也不重复计
-        if (near === building) {
-          creeps.set(building, (creeps.get(building) ?? 0) + UnitPower(creep));
+        if (near) {
+          creeps.set(near, (creeps.get(near) ?? 0) + UnitPower(creep));
         }
       }
     }
