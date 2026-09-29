@@ -452,6 +452,7 @@ export class BotBaseAIModifier extends BaseModifier {
       survivalSeconds: survival,
       wasAvoiding: this.stance === 'retreat' || this.stance === 'hold',
       joining: task?.kind === 'fight' && fight.engaged,
+      holdGround: task?.kind === 'defend' && task.hold === true,
     });
     if (engaged) {
       return stance;

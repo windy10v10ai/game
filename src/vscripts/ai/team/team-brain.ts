@@ -8,6 +8,7 @@ import { TargetSide } from '../ability/ability-spec';
 import { HeroUtil } from '../hero/hero-util';
 import { ItemRegistry } from '../item/item-registry';
 import { CachedBuildings, CachedTowers } from './building-cache';
+import { shouldUseGlyph } from './glyph';
 import {
   buildLanePath,
   distance,
@@ -76,13 +77,10 @@ const BASE_WARNING_RADIUS = 2000;
 const BASE_CREEP_RADIUS = 2500;
 // 英雄会不会控制、能不能清兵随学技能和换装备变化，隔一会儿重算
 const ROLE_CACHE_SECONDS = 10;
-// 一塔被推掉后塔防自动刷新，快倒时就开，不用留
-const GLYPH_OUTER_HP = 0.3;
-// 三塔、四塔与基地按实际掉血速度判断：照这个速度几秒内就倒才开，推不动塔的阵容不值得开；只剩一丝血时有人在打就开
-const GLYPH_BASE_HP = 0.4;
-const GLYPH_FALL_SECONDS = 8;
-const GLYPH_LAST_HP = 0.1;
+// 掉血速度按最近这么多秒算
 const GLYPH_DAMAGE_WINDOW = 3;
+// TP 落地后走到被打的建筑边上的秒数
+const TELEPORT_LANDING_WALK = 1;
 // 离复活还有这么久以上才值得买活
 const BUYBACK_MIN_RESPAWN = 15;
 // 活着的队友战力已经比来犯敌人高出这么多时，不必再买活回防
@@ -376,7 +374,8 @@ export class TeamBrain {
     // 买活的人算进战力，后面的人看到已经够了就不再买
     let alivePower = allies.reduce((sum, hero) => sum + UnitPower(hero), 0);
     const baseAttack = defend
-      .filter((target) => target.isBase && target.stage === 'engaged')
+      // 兵营起才算基地危急，高地塔失守不值得花钱买活
+      .filter((target) => target.importance >= 4 && target.stage === 'engaged')
       .reduce((max, target) => Math.max(max, target.attackerPower), 0);
     for (const [index, hero] of this.members) {
       if (hero.IsAlive()) {
@@ -428,7 +427,7 @@ export class TeamBrain {
     );
   }
 
-  /** 开塔防：一塔快倒时开，三塔、四塔与基地掉血快或只剩一丝血时开，二塔与兵营不开。 */
+  /** 开塔防：正被敌方英雄攻击的建筑照当前掉血速度快倒了才开，一塔倒掉后塔防刷新。 */
   private UseGlyph(
     buildings: BuildingInfo[],
     recentEnemies: CDOTA_BaseNPC_Hero[],
@@ -445,7 +444,7 @@ export class TeamBrain {
     const fallSeconds = new Map<EntityIndex, number>();
     for (const building of buildings) {
       const unit = building.unit;
-      if (unit.GetTeamNumber() === this.team && (building.tier === 3 || building.tier >= 5)) {
+      if (unit.GetTeamNumber() === this.team) {
         fallSeconds.set(unit.GetEntityIndex(), this.FallSeconds(unit, now));
       }
     }
@@ -461,14 +460,17 @@ export class TeamBrain {
       const attacked = recentEnemies.some(
         (enemy) => distance(unit.GetAbsOrigin(), this.PositionOf(enemy)) <= BUILDING_THREAT_RADIUS,
       );
+      if (!attacked) {
+        continue;
+      }
       const hp = unit.GetHealth() / unit.GetMaxHealth();
-      const fall = fallSeconds.get(unit.GetEntityIndex());
-      const outerPushed = building.tier === 1 && attacked && hp < GLYPH_OUTER_HP;
-      const innerFalling =
-        fall !== undefined &&
-        attacked &&
-        ((hp < GLYPH_BASE_HP && fall <= GLYPH_FALL_SECONDS) || hp < GLYPH_LAST_HP);
-      if (outerPushed || innerFalling) {
+      const glyph = shouldUseGlyph({
+        tier: building.tier,
+        hpRatio: hp,
+        fallSeconds: fallSeconds.get(unit.GetEntityIndex()) ?? Infinity,
+        defenderEta: this.DefenderEta(unit),
+      });
+      if (glyph) {
         ExecuteOrderFromTable({
           UnitIndex: caller.GetEntityIndex(),
           OrderType: UnitOrder.GLYPH,
@@ -479,6 +481,27 @@ export class TeamBrain {
         return;
       }
     }
+  }
+
+  /** 上一轮派去守这座建筑的人里，最快几秒能到；能 TP 的按引导时间算。 */
+  private DefenderEta(building: CDOTA_BaseNPC): number {
+    let best = Infinity;
+    for (const [id, task] of this.tasks) {
+      const hero = this.members.get(id as EntityIndex);
+      if (task.kind !== 'defend' || task.targetId !== building.GetEntityIndex() || !hero) {
+        continue;
+      }
+      if (!hero.IsAlive()) {
+        continue;
+      }
+      let eta = hero.GetRangeToUnit(building) / Math.max(hero.GetIdealSpeed(), 1);
+      const scroll = hero.FindItemInInventory('item_tpscroll');
+      if (scroll !== undefined && scroll.IsFullyCastable()) {
+        eta = Math.min(eta, scroll.GetChannelTime() + TELEPORT_LANDING_WALK);
+      }
+      best = Math.min(best, eta);
+    }
+    return best;
   }
 
   /** 按最近几秒的掉血速度，这座建筑还能撑几秒。 */
@@ -810,6 +833,7 @@ export class TeamBrain {
       pos: unit.GetAbsOrigin(),
       stage,
       isBase: building.isBase,
+      core: building.tier >= 5,
       importance: building.importance,
       hpRatio: unit.GetHealth() / unit.GetMaxHealth(),
       attackerPower,
@@ -1104,7 +1128,8 @@ function CollectBuildings(): BuildingInfo[] {
   return CachedBuildings().map((unit) => {
     const name = unit.GetUnitName();
     const tier = BuildingTier(name);
-    return { unit, lane: BuildingLane(name), tier, importance: tier, isBase: tier >= 4 };
+    // 高地塔起打不过也要派人守
+    return { unit, lane: BuildingLane(name), tier, importance: tier, isBase: tier >= 3 };
   });
 }
 

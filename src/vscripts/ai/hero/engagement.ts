@@ -21,6 +21,8 @@ export interface EngagementInput {
   wasAvoiding: boolean;
   /** 被派去接一场队友已经打起来的仗 */
   joining: boolean;
+  /** 守基地：不按战力比撤，只在快被打死时走 */
+  holdGround: boolean;
 }
 
 /** 还没打起来时，这波敌人是否值得主动上去打：走上去交战与先手跳进敌人身边都用这一个口径。 */
@@ -31,6 +33,12 @@ export function canEngage(ourPower: number, enemyPower: number): boolean {
 export function decideStance(input: EngagementInput): Stance {
   if (input.enemyPower <= 0) {
     return 'task';
+  }
+  if (input.holdGround) {
+    if (input.survivalSeconds >= SURVIVE_SECONDS) {
+      return 'fight';
+    }
+    return input.canEscape ? 'retreat' : 'lastStand';
   }
   // 队友已经打起来时按「继续打」的口径接战，不丢下挨打的队友
   if (!input.engaged) {

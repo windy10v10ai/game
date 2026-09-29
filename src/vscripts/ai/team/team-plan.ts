@@ -10,6 +10,8 @@ export interface Task {
   /** 防守的建筑、集火的敌方英雄或推进的目标建筑 */
   targetId?: number;
   lane?: Lane;
+  /** 守基地，打不过也不撤 */
+  hold?: boolean;
 }
 
 export interface PlanBot {
@@ -36,8 +38,10 @@ export interface DefendTarget {
   id: number;
   pos: Point;
   stage: DefendStage;
-  /** 基地与兵营受威胁即视为基地危急，不计成本回防 */
+  /** 高地与基地：打不过也派人守，不像外塔那样放弃 */
   isBase: boolean;
+  /** 基地塔与基地：派去的人守到快被打死才走 */
+  core: boolean;
   importance: number;
   hpRatio: number;
   /** 来犯敌方英雄的战力；creeps 阶段为小兵战力 */
@@ -212,7 +216,11 @@ function assignDefend(input: PlanInput, free: PlanBot[], tasks: Map<number, Task
       if (assigned >= need || (!threat.isBase && count >= maxOuterDefenders)) {
         break;
       }
-      tasks.set(bot.id, { kind: 'defend', pos: threat.pos, targetId: threat.id });
+      const task: Task = { kind: 'defend', pos: threat.pos, targetId: threat.id };
+      if (threat.core && threat.stage === 'engaged') {
+        task.hold = true;
+      }
+      tasks.set(bot.id, task);
       picked.add(bot.id);
       assigned += bot.power;
       count++;

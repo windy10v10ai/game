@@ -6,6 +6,7 @@ import {
   pointAtProgress,
   projectOnLane,
 } from './lane-geometry';
+import { shouldUseGlyph } from './glyph';
 import { combatPower, decayThreat, threatMultiplier } from './power';
 import { resolvePushStaging } from './push-staging';
 import { pushLevelFor, shouldTakeOver, takeoverFallbackSeconds } from './takeover';
@@ -162,6 +163,7 @@ describe('planTasks', () => {
             pos: { x: 0, y: 0 },
             stage: 'engaged',
             isBase: false,
+            core: false,
             importance: 1,
             hpRatio: 0.5,
             attackerPower: 150,
@@ -179,6 +181,7 @@ describe('planTasks', () => {
       id: 50,
       pos: { x: 0, y: 0 },
       stage: 'engaged' as const,
+      core: false,
       importance: 1,
       hpRatio: 0.5,
       attackerPower: 5000,
@@ -194,6 +197,7 @@ describe('planTasks', () => {
     pos: { x: 2000, y: 0 },
     stage,
     isBase: true,
+    core: false,
     importance: 4,
     hpRatio: 1,
     attackerPower,
@@ -228,6 +232,16 @@ describe('planTasks', () => {
   it('sends at least one bot against a weak creep wave', () => {
     const tasks = planTasks(baseInput({ defend: [baseThreat('creeps', 10)] })).tasks;
     expect([...tasks.values()].filter((task) => task.kind === 'defend')).toHaveLength(1);
+  });
+
+  it('asks bots defending the core base to hold their ground', () => {
+    const core = planTasks(
+      baseInput({ defend: [{ ...baseThreat('engaged', 5000), core: true }] }),
+    ).tasks;
+    expect([...core.values()].every((task) => task.kind === 'defend' && task.hold)).toBe(true);
+    const highGround = planTasks(baseInput({ defend: [baseThreat('engaged', 5000)] })).tasks;
+    expect([...highGround.values()].every((task) => task.kind === 'defend')).toBe(true);
+    expect([...highGround.values()].some((task) => task.hold)).toBe(false);
   });
 
   const spot = (enemyPower: number, allyPower = 0) => ({
@@ -452,5 +466,32 @@ describe('planTasks', () => {
       }),
     );
     expect([...strong.tasks.values()].every((task) => task.kind === 'farm')).toBe(true);
+  });
+});
+
+describe('glyph', () => {
+  const glyph = (tier: number, hpRatio: number, fallSeconds: number, defenderEta = Infinity) =>
+    shouldUseGlyph({ tier, hpRatio, fallSeconds, defenderEta });
+
+  it('opens earlier against fast pushers regardless of health', () => {
+    expect(glyph(3, 0.7, 7)).toBe(true);
+    expect(glyph(3, 0.3, 30)).toBe(false);
+    expect(glyph(1, 0.2, 20)).toBe(false);
+    expect(glyph(1, 0.9, 5)).toBe(true);
+  });
+
+  it('opens on the last sliver of health', () => {
+    expect(glyph(1, 0.05, 30)).toBe(true);
+  });
+
+  it('gives the core base more time than outer towers', () => {
+    expect(glyph(6, 0.8, 9)).toBe(true);
+    expect(glyph(1, 0.8, 9)).toBe(false);
+  });
+
+  it('opens a tier 2 tower or barracks only when defenders arrive in time', () => {
+    expect(glyph(2, 0.5, 5)).toBe(false);
+    expect(glyph(2, 0.5, 5, 8)).toBe(true);
+    expect(glyph(4, 0.5, 5, 30)).toBe(false);
   });
 });
