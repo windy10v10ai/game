@@ -703,6 +703,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 5800,
     baseItems: ['item_blade_mail'],
   },
+  // 死亡掉落，电脑出了会被玩家捡走、还会反复补买，出装不要选；仅作合成材料登记
   item_rapier: {
     name: 'item_rapier',
     nameCN: '圣剑',
