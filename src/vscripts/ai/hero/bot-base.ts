@@ -3,7 +3,6 @@ import { AbilityDispatcher } from '../ability/ability-dispatcher';
 import { AbilityRegistry } from '../ability/ability-registry';
 import { ActionAttack } from '../action/action-attack';
 import { ActionFind, FRIENDLY_CREEP_SEARCH_RADIUS } from '../action/action-find';
-import { CheckFacingFailure } from '../action/cast-condition';
 import { getHeroBuildConfig } from '../build-item/bot-build-config';
 import { HeroBuildManager } from '../build-item/bot-build-manager';
 import { HeroBuildState, InitializeHeroBuild } from '../build-item/bot-build-state';
@@ -24,45 +23,12 @@ import { FIGHT_DANGER_RADIUS, Task, TaskKind, TELEPORT_MIN_DISTANCE } from '../t
 import { WardPlacement } from '../ward/ward-placement';
 import { canEngage, canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
+import { EngageToward, FindBlinkItem, MoveContext, MoveToward } from './mobility';
 import { canOutlastTower, passesTower, retreatPointFromTowers } from './tower-retreat';
 import { calculateAttackDPS } from '../../utils/damage-calculation';
 
 /** 英雄当前在做什么：对线期交给原生时是 laning，接管后是交战状态或团队任务。 */
 export type BotMode = 'laning' | 'fight' | 'retreat' | TaskKind;
-
-// 闪烁匕首升级链上的各件，切入、撤退与赶路都按这份名单找
-const BLINK_ITEM_NAMES = [
-  'item_blink',
-  'item_arcane_blink',
-  'item_arcane_blink_2',
-  'item_overwhelming_blink',
-  'item_overwhelming_blink_2',
-  'item_swift_blink',
-  'item_swift_blink_2',
-  'item_jump_jump_jump',
-];
-
-// 原力法杖升级链，撤退与赶路时推自己按这份名单找
-const FORCE_STAFF_NAMES = [
-  'item_force_staff',
-  'item_force_staff_2',
-  'item_force_staff_3',
-  'item_hurricane_pike',
-  'item_hurricane_pike_2',
-];
-
-// 推动方向取朝向，赶路时朝向偏离目的地超过约 30° 就会推歪
-const FORCE_STAFF_TRAVEL_MIN_COS = 0.87;
-
-// 赶路推一下、跳一下省不了多少时间，蓝紧张时留给撤退和施法
-const TRAVEL_MIN_MANA_PERCENT = 50;
-
-// 有 A 杖后能点地跳到指定位置的技能，赶路与撤退时和跳刀一样用；值为跳跃距离的数值键
-const SCEPTER_JUMP_ABILITIES: Record<string, string> = {
-  earthshaker_enchant_totem: 'distance_scepter',
-};
-
-const blinkRangeCache = new Map<string, number>();
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
@@ -137,12 +103,6 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly CreepClearExtraRange: number = 400;
   // 远程野怪的攻击距离
   protected readonly NeutralThreatRadius: number = 800;
-  // 切入的跳刀：濒死时不往里跳；远程落在离敌人这么远的地方；跳的距离太短不值得交
-  protected readonly BlinkEngageMinHealthPercent: number = 20;
-  protected readonly RangedBlinkStandOff: number = 600;
-  protected readonly BlinkEngageMinGap: number = 500;
-  // 算出来的闪烁距离比这还短时多半没读到真实距离，不闪
-  protected readonly BlinkMinRange: number = 600;
   // 推进路过时这个距离内的野怪可以顺手清
   protected readonly NeutralClearRange: number = 800;
   // 推进时在等待点迎上去打的敌方兵线距离，不站着等兵线自己走过来
@@ -630,7 +590,7 @@ export class BotBaseAIModifier extends BaseModifier {
     } else if (this.isIntHero) {
       range = this.hero.GetBaseAttackRange() + this.IntChaseExtra;
     }
-    if (this.TryBlinkEngage(target)) {
+    if (EngageToward(this.MoveContext(), target)) {
       return true;
     }
     return ActionAttack.MoveToAttack(this.hero, target, range);
@@ -697,11 +657,7 @@ export class BotBaseAIModifier extends BaseModifier {
     // 要回家补给时撤到集合点或塔下只会站着等，敌人还在附近传送不了，直接往泉水走
     const fountain = HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber());
     const safePoint = this.needsRecover && fountain ? fountain : this.FindSafePoint();
-    if (
-      this.TryBlinkToward(safePoint) ||
-      this.TryJumpToward(safePoint, true) ||
-      this.TryForceStaffToward(safePoint, true)
-    ) {
+    if (MoveToward(this.MoveContext(), safePoint, 'escape')) {
       return true;
     }
     if (!this.MoveTo(safePoint, UnitOrder.MOVE_TO_POSITION)) {
@@ -1032,181 +988,13 @@ export class BotBaseAIModifier extends BaseModifier {
     return true;
   }
 
-  /** 朝目的地闪烁满距离，赶路与撤退用；剩下的路不够闪一次满距离时不交，留给切入或逃跑。 */
-  protected TryBlinkToward(position: Vector): boolean {
-    const blink = this.FindReadyBlink();
-    if (!blink) {
-      return false;
-    }
-    const range = this.BlinkRange(blink);
-    const here = this.hero.GetAbsOrigin();
-    const offset = position.__sub(here);
-    const distance = offset.Length2D();
-    if (range < this.BlinkMinRange || distance < range) {
-      return false;
-    }
-    return this.CastBlink(blink, here.__add(offset.__mul(range / distance)), 'move');
-  }
-
-  /** 用技能朝目的地跳满距离，剩下的路不够跳一次时不交；赶路时蓝不多就留着。 */
-  private TryJumpToward(position: Vector, escaping: boolean): boolean {
-    if (!escaping && this.hero.GetManaPercent() < TRAVEL_MIN_MANA_PERCENT) {
-      return false;
-    }
-    const jump = this.FindReadyJump();
-    if (!jump) {
-      return false;
-    }
-    const range =
-      jump.GetSpecialValueFor(SCEPTER_JUMP_ABILITIES[jump.GetAbilityName()]) +
-      this.hero.GetCastRangeBonus();
-    const here = this.hero.GetAbsOrigin();
-    const offset = position.__sub(here);
-    const distance = offset.Length2D();
-    if (range < this.BlinkMinRange || distance < range) {
-      return false;
-    }
-    if (IS_DEBUG_RUN) {
-      print(
-        `[bot-ai] ${HeroShortName(this.hero)} jump=${escaping ? 'escape' : 'move'} ${jump.GetAbilityName()} stance=${this.stance}`,
-      );
-    }
-    this.hero.CastAbilityOnPosition(
-      here.__add(offset.__mul(range / distance)),
-      jump,
-      this.hero.GetPlayerOwnerID(),
-    );
-    return true;
-  }
-
-  private FindReadyJump(): CDOTABaseAbility | undefined {
-    if (this.hero.IsSilenced() || this.hero.IsRooted() || !this.hero.HasScepter()) {
-      return undefined;
-    }
-    for (const name in SCEPTER_JUMP_ABILITIES) {
-      const ability = this.hero.FindAbilityByName(name);
-      if (ability && ability.IsFullyCastable()) {
-        return ability;
-      }
-    }
-    return undefined;
-  }
-
-  /**
-   * 朝目的地推自己一段，剩下的路不够推一次时不交。
-   * 撤退时最近的敌人要在身后，赶路时朝向要基本对准目的地。
-   */
-  private TryForceStaffToward(position: Vector, escaping: boolean): boolean {
-    if (this.hero.IsMuted() || this.hero.IsRooted()) {
-      return false;
-    }
-    const staff = this.FindItem(FORCE_STAFF_NAMES);
-    if (!staff || !staff.IsFullyCastable()) {
-      return false;
-    }
-    const here = this.hero.GetAbsOrigin();
-    const offset = position.__sub(here);
-    const distance = offset.Length2D();
-    if (distance < staff.GetSpecialValueFor('push_length')) {
-      return false;
-    }
-    const forward = this.hero.GetForwardVector();
-    if (escaping) {
-      const enemy = this.aroundEnemyHeroes[0];
-      if (
-        !enemy ||
-        CheckFacingFailure('back', forward, enemy.GetAbsOrigin().__sub(here)) ||
-        CheckFacingFailure('front', forward, offset)
-      ) {
-        return false;
-      }
-    } else if (
-      this.hero.GetManaPercent() < TRAVEL_MIN_MANA_PERCENT ||
-      (forward.x * offset.x + forward.y * offset.y) / distance < FORCE_STAFF_TRAVEL_MIN_COS
-    ) {
-      return false;
-    }
-    if (IS_DEBUG_RUN) {
-      print(
-        `[bot-ai] ${HeroShortName(this.hero)} force_staff=${escaping ? 'escape' : 'move'} stance=${this.stance}`,
-      );
-    }
-    this.hero.CastAbilityOnTarget(this.hero, staff, this.hero.GetPlayerOwnerID());
-    return true;
-  }
-
-  /**
-   * 切入：近战跳到敌人身上，远程跳到自己攻击距离的边缘，不贴脸送；
-   * 跳完还差得远就不交，贴得够近也不交，免得原地跳一下浪费跳刀。
-   */
-  private TryBlinkEngage(target: CDOTA_BaseNPC): boolean {
-    if (this.hero.GetHealthPercent() < this.BlinkEngageMinHealthPercent) {
-      return false;
-    }
-    const blink = this.FindReadyBlink();
-    if (!blink) {
-      return false;
-    }
-    const range = this.BlinkRange(blink);
-    const here = this.hero.GetAbsOrigin();
-    const offset = target.GetAbsOrigin().__sub(here);
-    const distance = offset.Length2D();
-    const standOff = this.hero.IsRangedAttacker()
-      ? Math.min(this.hero.Script_GetAttackRange(), this.RangedBlinkStandOff)
-      : 0;
-    const gap = distance - standOff;
-    if (gap < this.BlinkEngageMinGap || gap > range) {
-      return false;
-    }
-    return this.CastBlink(blink, here.__add(offset.__mul(gap / distance)), 'engage');
-  }
-
-  /** 闪烁距离：施法距离读数对部分跳刀为 0，与 KV 的闪烁距离取大；同名跳刀数值不变，读一次缓存。 */
-  private BlinkRange(blink: CDOTA_Item): number {
-    const name = blink.GetName();
-    let base = blinkRangeCache.get(name);
-    if (base === undefined) {
-      base = Math.max(
-        blink.GetCastRange(this.hero.GetAbsOrigin(), undefined),
-        blink.GetSpecialValueFor('blink_range'),
-      );
-      blinkRangeCache.set(name, base);
-    }
-    return base + this.hero.GetCastRangeBonus();
-  }
-
-  private CastBlink(blink: CDOTA_Item, landing: Vector, reason: string): boolean {
-    if (IS_DEBUG_RUN) {
-      const distance = Math.floor(landing.__sub(this.hero.GetAbsOrigin()).Length2D());
-      print(
-        `[bot-ai] ${HeroShortName(this.hero)} blink=${reason} dist=${distance} stance=${this.stance}`,
-      );
-    }
-    this.hero.CastAbilityOnPosition(landing, blink, this.hero.GetPlayerOwnerID());
-    return true;
-  }
-
-  private FindReadyBlink(): CDOTA_Item | undefined {
-    if (this.hero.IsMuted() || this.hero.IsRooted()) {
-      return undefined;
-    }
-    const blink = this.FindBlinkItem();
-    return blink && blink.IsFullyCastable() ? blink : undefined;
-  }
-
   /** 主物品栏里闪烁匕首升级链上的任意一件。 */
   protected FindBlinkItem(): CDOTA_Item | undefined {
-    return this.FindItem(BLINK_ITEM_NAMES);
+    return FindBlinkItem(this.hero);
   }
 
-  private FindItem(names: string[]): CDOTA_Item | undefined {
-    for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
-      const item = this.hero.GetItemInSlot(slot);
-      if (item && names.includes(item.GetName())) {
-        return item;
-      }
-    }
-    return undefined;
+  private MoveContext(): MoveContext {
+    return { hero: this.hero, nearestEnemy: this.aroundEnemyHeroes[0], stance: this.stance };
   }
 
   /** 朝目的地移动，目的地没变且单位还在走或在打时不重复下指令。 */
@@ -1215,12 +1003,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     // 赶路时附近没有敌方英雄才闪烁，有敌人时留着切入或逃跑
-    if (
-      this.aroundEnemyHeroes.length === 0 &&
-      (this.TryBlinkToward(position) ||
-        this.TryJumpToward(position, false) ||
-        this.TryForceStaffToward(position, false))
-    ) {
+    if (this.aroundEnemyHeroes.length === 0 && MoveToward(this.MoveContext(), position, 'move')) {
       return true;
     }
     const busy = this.hero.IsMoving() || this.hero.IsAttacking();
