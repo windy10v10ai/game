@@ -396,7 +396,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_adi_king_plus', // 阿迪王plus
         'item_greater_crit', // 代达罗斯之殇
-        'item_rapier', // 圣剑
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
       ],
       [ItemTier.T4]: [
@@ -641,7 +640,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_satanic', // 撒旦之邪力
         'item_butterfly', // 蝴蝶
         'item_sacred_trident', // 三叉戟
-        'item_rapier', // 圣剑
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
       ],
       [ItemTier.T4]: [

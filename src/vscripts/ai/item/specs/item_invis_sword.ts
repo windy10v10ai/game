@@ -1,7 +1,7 @@
 import { TargetSide } from '../../ability/ability-spec';
 import { ItemPriority, ItemSpec } from '../item-spec';
 
-/** 影刃 / 白银之锋 / 无敌之刃（升级链）：决定上去打时隐身接近，残血被追时隐身脱身。 */
+/** 影刃 / 白银之锋 / 无敌之刃（升级链）：决定上去打时隐身接近，决定撤退时隐身脱身。 */
 export const SPECS: ItemSpec[] = [
   {
     itemName: 'item_invis_sword',
@@ -9,7 +9,7 @@ export const SPECS: ItemSpec[] = [
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 1500 }, ignoresMagicImmune: true },
-      self: { unitCondition: { healthPercent: { gte: 50 } }, canEngage: true },
+      self: { stance: 'fight' },
     },
   },
   {
@@ -18,7 +18,7 @@ export const SPECS: ItemSpec[] = [
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 900 }, ignoresMagicImmune: true },
-      self: { unitCondition: { healthPercent: { lte: 30 } } },
+      self: { stance: 'retreat' },
     },
   },
   {
@@ -27,7 +27,7 @@ export const SPECS: ItemSpec[] = [
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 1500 }, ignoresMagicImmune: true },
-      self: { unitCondition: { healthPercent: { gte: 50 } }, canEngage: true },
+      self: { stance: 'fight' },
     },
   },
   {
@@ -36,7 +36,7 @@ export const SPECS: ItemSpec[] = [
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 900 }, ignoresMagicImmune: true },
-      self: { unitCondition: { healthPercent: { lte: 30 } } },
+      self: { stance: 'retreat' },
     },
   },
   {
@@ -45,7 +45,7 @@ export const SPECS: ItemSpec[] = [
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 1500 }, ignoresMagicImmune: true },
-      self: { unitCondition: { healthPercent: { gte: 50 } }, canEngage: true },
+      self: { stance: 'fight' },
     },
   },
   {
@@ -54,7 +54,7 @@ export const SPECS: ItemSpec[] = [
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 900 }, ignoresMagicImmune: true },
-      self: { unitCondition: { healthPercent: { lte: 30 } } },
+      self: { stance: 'retreat' },
     },
   },
 ];

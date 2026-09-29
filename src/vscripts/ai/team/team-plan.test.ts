@@ -126,8 +126,9 @@ describe('takeover', () => {
     direMultiplier: 1,
   };
 
-  it('never takes over before five minutes', () => {
-    expect(shouldTakeOver({ ...input, gameTime: 4 * 60, towersLost: 5 })).toBe(false);
+  it('never takes over before four minutes', () => {
+    expect(shouldTakeOver({ ...input, gameTime: 4 * 60 - 1, towersLost: 5 })).toBe(false);
+    expect(shouldTakeOver({ ...input, gameTime: 4 * 60, towersLost: 5 })).toBe(true);
   });
 
   it('takes over on tower loss, bot level or time fallback', () => {

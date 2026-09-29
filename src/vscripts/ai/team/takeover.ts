@@ -11,7 +11,7 @@ export interface TakeoverInput {
 }
 
 // 补刀依赖原生，最早也要等对线进行一段时间
-const EARLIEST_TAKEOVER = 5 * 60;
+const EARLIEST_TAKEOVER = 4 * 60;
 const FALLBACK_BASE_MINUTES = 12;
 const FALLBACK_MIN_MINUTES = 8;
 const FALLBACK_MAX_MINUTES = 15;
