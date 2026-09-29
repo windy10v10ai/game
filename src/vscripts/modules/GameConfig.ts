@@ -15,6 +15,10 @@ export class GameConfig {
   constructor() {
     SendToServerConsole('dota_max_physical_items_purchase_limit 9999'); // 用来解决物品数量限制问题
     SendToServerConsole('dota_pause_cooldown_time 0'); // 暂停冷却时间
+    // 本地主机与自建专用服不设暂停限制
+    SendToServerConsole('dota_pause_count 999999');
+    SendToServerConsole('dota_pause_limit 999999');
+    SendToServerConsole('dota_pause_force_unpause_time 999999');
     // 设置bot模式
     Convars.SetBool('dota_bot_mode', true);
     Convars.SetBool('dota_bot_disable', false);
