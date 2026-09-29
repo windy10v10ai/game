@@ -15,6 +15,7 @@ import { ItemRegistry } from '../item/item-registry';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { IS_DEBUG_RUN, PERF_CONFIG } from '../../modules/debug/perf-config';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
+import { CachedTowers, TowerAttackRange } from '../team/building-cache';
 import { Point } from '../team/lane-geometry';
 import { QUICK_CLEAR_POWER } from '../team/power';
 import { HeroShortName, TeamBrain, UnitPower } from '../team/team-brain';
@@ -509,7 +510,7 @@ export class BotBaseAIModifier extends BaseModifier {
     const ownDistance = here.__sub(fountain).Length2D();
     let best: Vector = fountain;
     let bestDistance = ownDistance;
-    for (const tower of Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[]) {
+    for (const tower of CachedTowers()) {
       if (tower.IsNull() || !tower.IsAlive() || tower.GetTeamNumber() !== team) {
         continue;
       }
@@ -802,13 +803,18 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     const eta = channel + landingDistance / speed;
-    const aligned =
-      (task.kind === 'fight' || task.kind === 'defend') && task.targetId !== undefined;
+    // 回防落在自家建筑边上有塔护着，先到的先帮忙，不必等人齐
+    const aligned = task.kind === 'fight' && task.targetId !== undefined;
     if (aligned && this.brain.ShouldWaitToTeleport(this.hero, task.targetId as number, eta)) {
       return false;
     }
     const pos = landing.GetAbsOrigin();
-    const offset = target.__sub(pos).Normalized().__mul(this.TeleportLandingOffset);
+    // 回防落在建筑靠泉水一侧，不当着来犯敌人的面落地
+    const toward =
+      task.kind === 'defend'
+        ? (HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber()) ?? target)
+        : target;
+    const offset = toward.__sub(pos).Normalized().__mul(this.TeleportLandingOffset);
     if (!this.CastTeleportScroll(pos.__add(offset))) {
       return false;
     }
@@ -1089,7 +1095,7 @@ export class BotBaseAIModifier extends BaseModifier {
         IsTowerLike(tower) &&
         !this.CanDive(tower) &&
         tower.GetAbsOrigin().__sub(spot).Length2D() <=
-          tower.Script_GetAttackRange() + this.TowerDangerBuffer,
+          TowerAttackRange(tower) + this.TowerDangerBuffer,
     );
     return inTowerRange ? this.ToWorld(point) : spot;
   }
@@ -1107,7 +1113,7 @@ export class BotBaseAIModifier extends BaseModifier {
           here,
           point,
           tower.GetAbsOrigin(),
-          tower.Script_GetAttackRange() + this.TowerDangerBuffer + this.TowerDetourMargin,
+          TowerAttackRange(tower) + this.TowerDangerBuffer + this.TowerDetourMargin,
         ),
       );
     if (!this.brain || !blocked(destination)) {
@@ -1188,7 +1194,7 @@ export class BotBaseAIModifier extends BaseModifier {
       this.hero.GetTeamNumber(),
       tower.GetAbsOrigin(),
       undefined,
-      tower.Script_GetAttackRange(),
+      TowerAttackRange(tower),
       UnitTargetTeam.FRIENDLY,
       UnitTargetType.HERO + UnitTargetType.BASIC,
       UnitTargetFlags.NONE,
@@ -1293,8 +1299,9 @@ export class BotBaseAIModifier extends BaseModifier {
     this.buildItemNextTime = this.gameTime + this.buildItemInterval;
 
     this.ArrangeItems();
-    // 测试发的物品不在出装表里，照常买卖会被当成多余装备卖掉
-    if (PERF_CONFIG?.testItems) {
+    // 测试发的物品不在出装表里，照常买卖会被当成多余装备卖掉；Lua 里空字符串也算真，要显式比较
+    const testItems = PERF_CONFIG?.testItems;
+    if (testItems !== undefined && testItems !== '') {
       return false;
     }
     if (ConsumeItem.ConsumeKnownItems(this.hero)) {

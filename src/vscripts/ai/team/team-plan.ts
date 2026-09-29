@@ -21,15 +21,26 @@ export interface PlanBot {
   attackDps: number;
   /** 最近一次被分去推进的那一路，临时去防守或打架后回到这一路 */
   pushLane?: Lane;
+  /** 学会了控制技能或带着控制装备，敌人靠近基地时先派它去守 */
+  control?: boolean;
+  /** 学会了对小兵的范围技能 */
+  waveClear?: boolean;
 }
+
+/**
+ * engaged：敌方英雄已经贴着建筑；warning：敌方英雄正往基地来，还没动手；creeps：只有小兵推到基地。
+ */
+export type DefendStage = 'engaged' | 'warning' | 'creeps';
 
 export interface DefendTarget {
   id: number;
   pos: Point;
+  stage: DefendStage;
   /** 基地与兵营受威胁即视为基地危急，不计成本回防 */
   isBase: boolean;
   importance: number;
   hpRatio: number;
+  /** 来犯敌方英雄的战力；creeps 阶段为小兵战力 */
   attackerPower: number;
 }
 
@@ -100,6 +111,8 @@ const DEFEND_POWER_MARGIN = 1.2;
 const DEFEND_GIVE_UP_RATIO = 0.5;
 // 外塔最多抽走的人数比例，剩下的人继续推进，逼玩家回防
 const DEFEND_MAX_SHARE = 0.6;
+// 预警时守在建筑后方这么远，敌人上来先挨塔打，也不会被当面抓
+const DEFEND_GUARD_BACK = 600;
 // 这个范围内的 bot 算已经到场
 export const FIGHT_JOIN_RADIUS = 2500;
 // 离某个 bot 这么近的敌方英雄才算交战点；远处的 bot 也会被叫过来，落单的玩家会被围剿
@@ -159,24 +172,43 @@ function byDistance(bots: PlanBot[], pos: Point): PlanBot[] {
   return [...bots].sort((a, b) => distance(a.pos, pos) - distance(b.pos, pos));
 }
 
+/** 已经打起来的先派，其次清推到基地的小兵，最后给还没动手的来犯英雄派一个人盯着。 */
 function assignDefend(input: PlanInput, free: PlanBot[], tasks: Map<number, Task>): PlanBot[] {
+  const stageOrder: Record<DefendStage, number> = { engaged: 0, creeps: 1, warning: 2 };
   const threats = [...input.defend].sort(
     (a, b) =>
+      stageOrder[a.stage] - stageOrder[b.stage] ||
       b.attackerPower * b.importance * (1.5 - b.hpRatio) -
-      a.attackerPower * a.importance * (1.5 - a.hpRatio),
+        a.attackerPower * a.importance * (1.5 - a.hpRatio),
   );
   const maxOuterDefenders = Math.ceil(input.bots.length * DEFEND_MAX_SHARE);
   let remaining = free;
   for (const threat of threats) {
+    if (remaining.length === 0) {
+      break;
+    }
+    if (threat.stage === 'warning') {
+      const guard = byDistance(remaining, threat.pos).find((bot) => bot.control) ?? remaining[0];
+      const guardPos = guardPosition(threat.pos, input.fountain);
+      tasks.set(guard.id, { kind: 'defend', pos: guardPos, targetId: threat.id });
+      remaining = remaining.filter((bot) => bot !== guard);
+      continue;
+    }
     const available = remaining.reduce((sum, bot) => sum + bot.power, 0);
     if (!threat.isBase && available < threat.attackerPower * DEFEND_GIVE_UP_RATIO) {
       continue;
     }
     const need = threat.attackerPower * DEFEND_POWER_MARGIN;
+    let candidates = byDistance(remaining, threat.pos);
+    if (threat.stage === 'creeps') {
+      // 小兵不会跑，派清得快的：有范围技能或普攻高的
+      const pushers = findPushers(remaining);
+      candidates = candidates.filter((bot) => bot.waveClear || pushers.has(bot.id));
+    }
     let assigned = 0;
     let count = 0;
     const picked = new Set<number>();
-    for (const bot of byDistance(remaining, threat.pos)) {
+    for (const bot of candidates) {
       if (assigned >= need || (!threat.isBase && count >= maxOuterDefenders)) {
         break;
       }
@@ -188,6 +220,15 @@ function assignDefend(input: PlanInput, free: PlanBot[], tasks: Map<number, Task
     remaining = remaining.filter((bot) => !picked.has(bot.id));
   }
   return remaining;
+}
+
+function guardPosition(pos: Point, fountain: Point): Point {
+  const gap = distance(pos, fountain);
+  if (gap <= DEFEND_GUARD_BACK) {
+    return fountain;
+  }
+  const ratio = DEFEND_GUARD_BACK / gap;
+  return { x: pos.x + (fountain.x - pos.x) * ratio, y: pos.y + (fountain.y - pos.y) * ratio };
 }
 
 /** 攻击输出排在全队前一半的 bot 算推塔手。 */

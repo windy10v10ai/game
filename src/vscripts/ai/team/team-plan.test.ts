@@ -1,5 +1,6 @@
 import {
   buildLanePath,
+  distance,
   forwardProgress,
   nearestLane,
   pointAtProgress,
@@ -8,7 +9,7 @@ import {
 import { combatPower, decayThreat, threatMultiplier } from './power';
 import { resolvePushStaging } from './push-staging';
 import { pushLevelFor, shouldTakeOver, takeoverFallbackSeconds } from './takeover';
-import { PlanInput, PushLane, planTasks } from './team-plan';
+import { DefendStage, PlanInput, PushLane, planTasks } from './team-plan';
 
 const lane = (name: PushLane['lane'], x: number, enemyPower = 0): PushLane => ({
   lane: name,
@@ -159,6 +160,7 @@ describe('planTasks', () => {
           {
             id: 50,
             pos: { x: 0, y: 0 },
+            stage: 'engaged',
             isBase: false,
             importance: 1,
             hpRatio: 0.5,
@@ -176,6 +178,7 @@ describe('planTasks', () => {
     const threat = {
       id: 50,
       pos: { x: 0, y: 0 },
+      stage: 'engaged' as const,
       importance: 1,
       hpRatio: 0.5,
       attackerPower: 5000,
@@ -184,6 +187,47 @@ describe('planTasks', () => {
     expect([...outer.tasks.values()].some((task) => task.kind === 'defend')).toBe(false);
     const base = planTasks(baseInput({ defend: [{ ...threat, isBase: true }] }));
     expect([...base.tasks.values()].every((task) => task.kind === 'defend')).toBe(true);
+  });
+
+  const baseThreat = (stage: DefendStage, attackerPower: number) => ({
+    id: 60,
+    pos: { x: 2000, y: 0 },
+    stage,
+    isBase: true,
+    importance: 4,
+    hpRatio: 1,
+    attackerPower,
+  });
+
+  it('sends one controller to wait behind the base when enemy heroes approach', () => {
+    const input = baseInput({ defend: [baseThreat('warning', 5000)] });
+    input.bots[2].control = true;
+    input.bots[2].pos = { x: 8000, y: 0 };
+    const tasks = [...planTasks(input).tasks.entries()].filter(
+      ([, task]) => task.kind === 'defend',
+    );
+    expect(tasks.map(([id]) => id)).toEqual([3]);
+    const pos = tasks[0][1].pos;
+    // 站在建筑靠自家泉水一侧，不迎着敌人来的方向
+    expect(distance(pos, { x: -1000, y: -1000 })).toBeLessThan(
+      distance({ x: 2000, y: 0 }, { x: -1000, y: -1000 }),
+    );
+  });
+
+  it('sends a few wave clearers against creeps pushing the base', () => {
+    const input = baseInput({ defend: [baseThreat('creeps', 150)] });
+    input.bots[0].waveClear = true;
+    // 2、3 号既没有范围清兵技能、普攻也不高，离得再近也不派
+    input.bots[1].pos = { x: 2000, y: 0 };
+    input.bots[2].pos = { x: 2000, y: 0 };
+    const tasks = planTasks(input).tasks;
+    const defenders = [...tasks.entries()].filter(([, task]) => task.kind === 'defend');
+    expect(defenders.map(([id]) => id).sort()).toEqual([1, 4]);
+  });
+
+  it('sends at least one bot against a weak creep wave', () => {
+    const tasks = planTasks(baseInput({ defend: [baseThreat('creeps', 10)] })).tasks;
+    expect([...tasks.values()].filter((task) => task.kind === 'defend')).toHaveLength(1);
   });
 
   const spot = (enemyPower: number, allyPower = 0) => ({
