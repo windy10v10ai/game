@@ -111,10 +111,10 @@ export class BotBaseAIModifier extends BaseModifier {
   // 退出塔区时一并背离的附近塔，绕塔时再多留的余量
   protected readonly TowerNearbyRange: number = 600;
   protected readonly TowerDetourMargin: number = 200;
-  // 站位：黄金角均匀散开，半径在几档之间错开
+  // 站位：黄金角均匀散开，半径在几档之间错开；散得比常见范围技能大，不被一个 AoE 全打中
   protected readonly FormationAngleStep: number = 2.4;
-  protected readonly FormationMinRadius: number = 150;
-  protected readonly FormationRadiusStep: number = 125;
+  protected readonly FormationMinRadius: number = 250;
+  protected readonly FormationRadiusStep: number = 200;
   protected readonly DiveMinHeroes: number = 3;
   protected readonly DiveMinHealthPercent: number = 50;
   protected readonly DiveMinCreeps: number = 2;
@@ -143,9 +143,12 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly BlinkMinRange: number = 600;
   // 推进路过时这个距离内的野怪可以顺手清
   protected readonly NeutralClearRange: number = 800;
+  // 推进时在等待点迎上去打的敌方兵线距离，不站着等兵线自己走过来
+  protected readonly PushCreepChaseRange: number = 1200;
 
   // 同一目的地不重复下指令；单位停下或太久没更新时才重下
-  protected readonly ArriveRadius: number = 300;
+  // 到达判定要比站位间距小，否则都停在靠自己一侧的站位边缘、又挤回一团
+  protected readonly ArriveRadius: number = 100;
   protected readonly OrderRepeatDistance: number = 400;
   protected readonly OrderRefreshTime: number = 10;
 
@@ -892,6 +895,8 @@ export class BotBaseAIModifier extends BaseModifier {
         return false;
       }
       reach = Math.max(reach, this.NeutralClearRange);
+    } else if (kind === 'push') {
+      reach = Math.max(reach, this.PushCreepChaseRange);
     }
     if (!ActionAttack.MoveToAttack(this.hero, creep, reach)) {
       return false;
@@ -1072,10 +1077,19 @@ export class BotBaseAIModifier extends BaseModifier {
     const slot = this.hero.GetEntityIndex();
     const angle = slot * this.FormationAngleStep;
     const radius = this.FormationMinRadius + (slot % 3) * this.FormationRadiusStep;
-    return this.ToWorld({
+    const spot = this.ToWorld({
       x: point.x + Math.cos(angle) * radius,
       y: point.y + Math.sin(angle) * radius,
     });
+    // 目的地贴着进不得的敌方塔时，散开的站位可能落进射程，和躲塔来回拉扯，这时站回目的地本身
+    const inTowerRange = this.aroundEnemyBuildingsInvulnerable.some(
+      (tower) =>
+        IsTowerLike(tower) &&
+        !this.CanDive(tower) &&
+        tower.GetAbsOrigin().__sub(spot).Length2D() <=
+          tower.Script_GetAttackRange() + this.TowerDangerBuffer,
+    );
+    return inTowerRange ? this.ToWorld(point) : spot;
   }
 
   /** 去目的地的路上有进不得的敌方塔时，先绕到它靠自家一侧的外圈；要推的那座塔不绕。 */
