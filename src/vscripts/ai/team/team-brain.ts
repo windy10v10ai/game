@@ -57,6 +57,8 @@ const LANE_CREEP_MAX_OFFSET = 1200;
 const BUILDING_THREAT_RADIUS = 1200;
 // 彼此在这个距离内的敌方英雄算同一处交战点
 const FIGHT_CLUSTER_RADIUS = 1200;
+// 被硬控的敌方英雄战力按这个比例算
+const DISABLED_POWER_FACTOR = 0.5;
 // 交战点在建筑射程外这么远以内也算建筑参战，英雄走几步就进射程
 const FIGHT_TOWER_MARGIN = 300;
 // 超过敌方最前面那座塔这么远，就算越过了还没推掉的塔
@@ -348,6 +350,7 @@ export class TeamBrain {
       fights: this.fights,
       lanes,
       farms: this.FindFarmSpots(lanePower, observer),
+      fighting: this.FightingTargets(),
       plan: this.plan,
       now,
       random: () => RandomFloat(0, 1),
@@ -598,8 +601,14 @@ export class TeamBrain {
       const pos = this.PositionOf(enemy);
       x += pos.x / enemies.length;
       y += pos.y / enemies.length;
-      enemyPower += this.PowerOf(enemy);
-      if (enemy.GetHealth() < focus.GetHealth()) {
+      // 被硬控的敌人这几秒还不了手，打折算让附近的 bot 抓住机会上
+      const disabled = HeroUtil.NotActionable(enemy);
+      enemyPower += this.PowerOf(enemy) * (disabled ? DISABLED_POWER_FACTOR : 1);
+      if (disabled !== HeroUtil.NotActionable(focus)) {
+        if (disabled) {
+          focus = enemy;
+        }
+      } else if (enemy.GetHealth() < focus.GetHealth()) {
         focus = enemy;
       }
     }
@@ -639,6 +648,16 @@ export class TeamBrain {
       pastFront: this.IsPastFront(pos),
       engaged,
     };
+  }
+
+  private FightingTargets(): Map<number, number> {
+    const fighting = new Map<number, number>();
+    for (const [id, task] of this.tasks) {
+      if (task.kind === 'fight' && task.targetId !== undefined) {
+        fighting.set(id, task.targetId);
+      }
+    }
+    return fighting;
   }
 
   /** 被派来打或回防、快要赶到的 bot 也算进这处交战点的我方战力，队友之间判断一致；还远的不算，免得先到的人以为有援军硬上。 */

@@ -94,6 +94,8 @@ export interface PlanInput {
   farms: FarmSpot[];
   /** 上一轮选定的推进路线，锁定期内不换 */
   plan?: LanePlan;
+  /** 上一轮在打架的 bot 与各自的集火目标，打起来后按「继续打」的口径留下，不在阈值附近来回换 */
+  fighting?: Map<number, number>;
   now: number;
   /** 0–1 的随机数，选路时用 */
   random: () => number;
@@ -264,10 +266,13 @@ function assignFights(
   for (const spot of spots) {
     const need = spot.enemyPower * FIGHT_POWER_MARGIN - spot.allyPower;
     const enough = remaining.reduce((sum, bot) => sum + bot.power, 0) >= need;
-    const nearby = remaining.filter((bot) => distance(bot.pos, spot.pos) <= FIGHT_FOLLOW_RADIUS);
-    // 已经打起来时附近的人扛得住就一起接战，不丢下挨打的队友各自跑
+    const fighters = remaining.filter((bot) => input.fighting?.get(bot.id) === spot.focusId);
+    const nearby = remaining.filter(
+      (bot) => distance(bot.pos, spot.pos) <= FIGHT_FOLLOW_RADIUS || fighters.includes(bot),
+    );
+    // 已经打起来、或上一轮已经决定打这个人时，扛得住就接着打，不丢下挨打的队友各自跑
     const holds =
-      spot.engaged &&
+      (spot.engaged || fighters.length > 0) &&
       spot.enemyPower <=
         (nearby.reduce((sum, bot) => sum + bot.power, 0) + spot.allyPower) * KEEP_FIGHTING_RATIO;
     if (!enough) {
@@ -284,7 +289,8 @@ function assignFights(
       const gap = distance(bot.pos, spot.pos);
       const penalty =
         pushers.has(bot.id) && gap > FIGHT_FOLLOW_RADIUS ? PUSHER_DISTANCE_PENALTY : 0;
-      cost.set(bot.id, gap + penalty);
+      // 已经在打的人排最前，换人会让刚交上手的人被换下来
+      cost.set(bot.id, fighters.includes(bot) ? -1 : gap + penalty);
     }
     const order = [...pool].sort((a, b) => cost.get(a.id)! - cost.get(b.id)!);
     const picked: PlanBot[] = [];

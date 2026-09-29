@@ -308,6 +308,21 @@ describe('planTasks', () => {
     expect(planTasks(input).plan?.picks.map((pick) => pick.lane)).toEqual(['top']);
   });
 
+  it('keeps bots already fighting a target until the enemy is far stronger', () => {
+    // 全队也凑不够开新仗的余量，但上一轮已经在打的人不因此掉头
+    const fresh = planTasks(baseInput({ fights: [spot(450)] })).tasks;
+    expect([...fresh.values()].some((task) => task.kind === 'fight')).toBe(false);
+    const fighting = new Map([
+      [1, 99],
+      [2, 99],
+      [3, 99],
+    ]);
+    const kept = planTasks(baseInput({ fights: [spot(450)], fighting })).tasks;
+    expect([1, 2, 3].map((id) => kept.get(id)?.kind)).toEqual(['fight', 'fight', 'fight']);
+    const hopeless = planTasks(baseInput({ fights: [spot(5000)], fighting })).tasks;
+    expect([...hopeless.values()].some((task) => task.kind === 'fight')).toBe(false);
+  });
+
   it('sends just enough nearby bots to a winnable fight and leaves pushers pushing', () => {
     const input = baseInput({ fights: [spot(250)] });
     input.bots[4].pos = { x: 9000, y: 0 };
