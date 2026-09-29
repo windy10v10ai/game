@@ -33,6 +33,8 @@ export interface PerfAutoConfig {
   // 天辉人数与金钱经验倍率，模拟少量玩家对满编 bot 的真实对局；0 为沿用对局选项
   radiantPlayers: number;
   radiantMultiplier: number;
+  // 夜魇金钱经验倍率，调低后天辉能压着电脑推，用来验证电脑回防；0 为沿用对局选项
+  direMultiplier?: number;
   // 逗号分隔的英雄名（不带 npc_dota_hero_ 前缀），排到 bot 英雄池最前面，用于让指定英雄出场验证
   botHeroes: string;
   // 逗号分隔的物品名，开局轮流发给每个英雄并停掉 bot 买卖装备，用于验证物品施放
@@ -76,7 +78,12 @@ if (bootConfig && bootConfig.botHeroes !== '') {
 }
 
 // 界面在选英雄阶段仍会重新下发对局选项，只有在补 bot 的前一刻覆盖才不会被冲掉
-if (bootConfig && (bootConfig.radiantPlayers > 0 || bootConfig.radiantMultiplier > 0)) {
+if (
+  bootConfig &&
+  (bootConfig.radiantPlayers > 0 ||
+    bootConfig.radiantMultiplier > 0 ||
+    (bootConfig.direMultiplier ?? 0) > 0)
+) {
   const config = bootConfig;
   const originalPickBotHeroes = HeroPick.PickBotHeroes;
   HeroPick.PickBotHeroes = function (this: typeof HeroPick) {
@@ -84,8 +91,12 @@ if (bootConfig && (bootConfig.radiantPlayers > 0 || bootConfig.radiantMultiplier
     if (config.radiantMultiplier > 0) {
       GameRules.Option.radiantGoldXpMultiplier = config.radiantMultiplier;
     }
+    if ((config.direMultiplier ?? 0) > 0) {
+      GameRules.Option.direGoldXpMultiplier = config.direMultiplier as number;
+    }
     print(
-      `[perf-auto] radiantPlayers=${GameRules.Option.radiantPlayerNumber} radiantMultiplier=${GameRules.Option.radiantGoldXpMultiplier}`,
+      `[perf-auto] radiantPlayers=${GameRules.Option.radiantPlayerNumber} radiantMultiplier=${GameRules.Option.radiantGoldXpMultiplier}` +
+        ` direMultiplier=${GameRules.Option.direGoldXpMultiplier}`,
     );
     originalPickBotHeroes.call(this);
   };
@@ -349,6 +360,9 @@ export class PerfAuto {
     // 选项在补 bot 之后仍可能被界面重新下发，开局再确认一次倍率
     if (config.radiantMultiplier > 0) {
       GameRules.Option.radiantGoldXpMultiplier = config.radiantMultiplier;
+    }
+    if ((config.direMultiplier ?? 0) > 0) {
+      GameRules.Option.direGoldXpMultiplier = config.direMultiplier as number;
     }
     // 玩家英雄也交给 AI，场上才是 20 个行为一致的英雄
     forEachHero((hero, playerId) => {

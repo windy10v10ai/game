@@ -8,7 +8,7 @@ const path = require('path');
 const { getDotaPath } = require('./utils');
 
 const POS_LINE =
-  /\[bot-pos\] t=(\d+) team=(\d+) (\S+) x=(-?\d+) y=(-?\d+) task=(\S+) target=(-?\d+) dist=(-?\d+) stance=(\S+) tp=(\S+) channel=(\d)/;
+  /\[bot-pos\] t=(\d+) team=(\d+) (\S+) x=(-?\d+) y=(-?\d+) task=(\S+) target=(-?\d+) dist=(-?\d+) stance=(\S+) tp=(\S+) channel=(\d)(?: atk=(\d))?/;
 const TRACE_LINE = /\[bot-ai\] t=(\d+):(\d+) (\S+) hp=\d+% pw=\d+ stance=(\S+)/;
 const DEFEND_LINE = /\[bot-ai\] team=(\d+) t=(\d+) defend=(\S+)/;
 
@@ -64,6 +64,7 @@ function splitGames(text) {
         stance: match[9],
         tp: match[10],
         channel: match[11] === '1',
+        attacking: match[12] === '1',
       });
       continue;
     }
@@ -131,6 +132,7 @@ function detectStuck(heroes) {
       (s, prev) =>
         s.dist > STUCK_DISTANCE &&
         !s.channel &&
+        !s.attacking &&
         s.task !== 'none' &&
         (!prev || gap(s, prev) < STUCK_MOVE),
       (s, first) => s.task === first.task && s.target === first.target,
@@ -155,6 +157,7 @@ function detectSlowTravel(heroes) {
         s.dist > TELEPORT_DISTANCE &&
         s.tp === 'ready' &&
         !s.channel &&
+        !s.attacking &&
         ['push', 'defend', 'fight'].includes(s.task),
       (s, first) => s.task === first.task && s.target === first.target,
       SLOW_SECONDS,
@@ -172,7 +175,8 @@ function detectClumps(heroes) {
   const still = new Map();
   for (const [, samples] of heroes) {
     for (let i = 1; i < samples.length; i++) {
-      if (gap(samples[i], samples[i - 1]) >= CLUMP_STILL) continue;
+      // 一起围着打塔、打人时挨得近是正常的
+      if (samples[i].attacking || gap(samples[i], samples[i - 1]) >= CLUMP_STILL) continue;
       const bucket = Math.round(samples[i].t / 5);
       if (!still.has(bucket)) still.set(bucket, []);
       still.get(bucket).push(samples[i]);
@@ -303,6 +307,20 @@ function analyze(text) {
   }
   return games
     .map((game, index) => {
+      // 只看电脑那一队：人数少的一方是替玩家顶位的 AI，行为不代表真实对局
+      const teamSize = new Map();
+      for (const s of game.pos) {
+        if (!teamSize.has(s.team)) teamSize.set(s.team, new Set());
+        teamSize.get(s.team).add(s.hero);
+      }
+      const largest = Math.max(...[...teamSize.values()].map((set) => set.size));
+      const teams = new Set(
+        [...teamSize].filter(([, set]) => set.size === largest).map(([team]) => team),
+      );
+      game.pos = game.pos.filter((s) => teams.has(s.team));
+      game.defend = game.defend.filter((line) => teams.has(line.team));
+      const botHeroes = new Set(game.pos.map((s) => s.hero));
+      game.trace = game.trace.filter((s) => botHeroes.has(s.hero));
       const heroes = byHero(game.pos);
       const span = `${clock(game.pos[0].t)}-${clock(game.pos[game.pos.length - 1].t)}`;
       return [

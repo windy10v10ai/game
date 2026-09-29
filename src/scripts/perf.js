@@ -38,6 +38,8 @@ function parseArgs() {
     // 天辉人数与金钱经验倍率，0 为沿用对局选项；专用服的客户端默认只报 1 人、1.5 倍，固定为满编且与夜魇同倍率，--radiantPlayers 1 模拟 1v10
     radiantPlayers: 10,
     radiantMultiplier: 10,
+    // 夜魇倍率，0 为沿用对局选项；调低后天辉能压着电脑推，用来验证回防
+    direMultiplier: 0,
     // 逗号分隔的英雄名，排到 bot 英雄池最前面，用于让指定英雄出场验证
     botHeroes: '',
     // 逗号分隔的物品名，开局轮流发给每个英雄并停掉 bot 买卖装备，用于验证物品施放

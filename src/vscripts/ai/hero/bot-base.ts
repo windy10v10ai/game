@@ -545,7 +545,7 @@ export class BotBaseAIModifier extends BaseModifier {
       `[bot-pos] t=${Math.floor(this.gameTime)} team=${this.hero.GetTeamNumber()} ${HeroShortName(this.hero)}` +
         ` x=${Math.floor(pos.x)} y=${Math.floor(pos.y)} task=${task?.kind ?? 'none'}` +
         ` target=${task?.targetId ?? -1} dist=${dist} stance=${this.stance} tp=${tp}` +
-        ` channel=${this.hero.IsChanneling() ? 1 : 0}`,
+        ` channel=${this.hero.IsChanneling() ? 1 : 0} atk=${this.hero.IsAttacking() ? 1 : 0}`,
     );
   }
 
