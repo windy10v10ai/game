@@ -147,6 +147,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly ArriveRadius: number = 100;
   // 开发模式记录位置的间隔
   protected readonly PositionTraceInterval: number = 5;
+  // 走一小步时允许的绕路倍数，超过说明中间隔着悬崖
+  protected readonly StepDetourRatio: number = 2;
   // 回防离目的地这么近才边走边打
   protected readonly DefendAttackMoveRange: number = 1500;
   // 停下来后和队友挨着超过这么久才让开
@@ -777,7 +779,9 @@ export class BotBaseAIModifier extends BaseModifier {
       here.y + (pushY / length) * step,
       here.z,
     );
-    if (!GridNav.IsTraversable(target) || GridNav.IsBlocked(target)) {
+    // 让位的一步落到悬崖下或树林里就不让了，免得贴着地形原地打转
+    const path = GridNav.FindPathLength(here, target);
+    if (path <= 0 || path > step * this.StepDetourRatio) {
       return false;
     }
     return this.MoveTo(target, UnitOrder.MOVE_TO_POSITION);
@@ -1337,12 +1341,39 @@ export class BotBaseAIModifier extends BaseModifier {
         )
         .map((building) => building.GetAbsOrigin());
       const retreat = retreatPointFromTowers(here, dangerous, fountain, distance);
-      this.MoveTo(Vector(retreat.x, retreat.y, here.z), UnitOrder.MOVE_TO_POSITION);
+      this.MoveTo(this.ReachableStep(here, retreat, fountain), UnitOrder.MOVE_TO_POSITION);
       return true;
     }
     this.continueActionEndTime = this.gameTime + this.towerEscapeTime;
     this.EscapeFromTower(tower, fountain);
     return true;
+  }
+
+  /**
+   * 朝 target 方向走一小步的落脚点。高地边缘直线背离塔常落到悬崖下，走过去会贴着崖边原地不动，
+   * 这时左右偏转找一个能直接走到的点，都不行就往泉水走，寻路会自己绕下坡道。
+   */
+  private ReachableStep(here: Vector, target: Point, fountain: Vector): Vector {
+    const dx = target.x - here.x;
+    const dy = target.y - here.y;
+    const length = Math.sqrt(dx * dx + dy * dy);
+    if (length < 1) {
+      return fountain;
+    }
+    for (const degrees of [0, 30, -30, 60, -60, 90, -90]) {
+      const angle = (degrees * Math.PI) / 180;
+      const x = (dx * Math.cos(angle) - dy * Math.sin(angle)) / length;
+      const y = (dx * Math.sin(angle) + dy * Math.cos(angle)) / length;
+      const point = GetGroundPosition(
+        Vector(here.x + x * length, here.y + y * length, here.z),
+        this.hero,
+      );
+      const path = GridNav.FindPathLength(here, point);
+      if (path > 0 && path <= length * this.StepDetourRatio) {
+        return point;
+      }
+    }
+    return fountain;
   }
 
   private EscapeFromTower(tower: CDOTA_BaseNPC, fountain: Vector): void {
