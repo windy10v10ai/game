@@ -53,7 +53,7 @@ If you would like to contribute to Windy10v10AI, please see our [contributing gu
 ## Setup
 
 1. Install Dota2 and [Dota 2 Workshop Tools](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Installing_and_Launching_Tools).
-2. Install [node.js](https://nodejs.org/). The required version is pinned in [`.nvmrc`](.nvmrc) (`v22`).
+2. Install [node.js](https://nodejs.org/). The required version is pinned in [`.nvmrc`](.nvmrc) (`v24`).
    Recommend install node use [nvm](https://github.com/coreybutler/nvm-windows/releases)
 
    Run in PowerShell from the repository root. `nvm-windows` does not read `.nvmrc` directly,

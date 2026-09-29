@@ -181,8 +181,9 @@ issue 只记大致步骤与进度，不承载设计细节——issue 关掉就�
 
 - issue 驱动的改动命名 `feature/<issue-id>-<short-kebab-summary>`（3–6 个英文小写单词，如 `feature/2411-web-link-refresh`）；非 issue 驱动用 `fix/` `chore/` `docs/` 前缀，命名规则同上
 - 一律从最新 `develop` 切出。**不要在 `develop` 上直接修改或 commit 任何文件**，包括 skill 产出的设计文档——一旦确定要写文件，先切好分支
-- 本地没有进行中的改动时，直接在当前 checkout 上切分支，不建 worktree；已有未提交改动或另一个分支正在进行时，用 `git worktree add` 隔离
-- 多个会话共用本地仓库时，主检出在哪个分支不由自己决定：动手前先看 `git branch --show-current`，不是自己要的分支就不要 `git checkout` 过去，改用 `git worktree add` 到 scratchpad
+- 动手前检查 `git status --short`、`git branch --show-current` 和 `git worktree list`。当前 checkout 干净且没有其他会话或进行中的分支占用时，直接在这里从最新 `develop` 切新分支，不因可能存在其他会话而建 worktree
+- 当前在已合并的旧分支时，核实 PR 已合并、本地 HEAD 与 PR 末尾提交一致、没有未提交改动；再切回 `develop`、删除旧本地分支并切新分支。远端显示 `gone` 不等于已合并；squash merge 后 `git branch --merged` 也可能查不到旧分支
+- 只有当前 checkout 有未提交改动、未合并分支仍在使用，或确有多个会话共用这个 checkout 时，才用 worktree 隔离；不切换其他会话正在使用的 checkout 或分支
 
 ### 提交与 PR
 
