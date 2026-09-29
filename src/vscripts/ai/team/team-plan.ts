@@ -1,4 +1,4 @@
-/** 团队任务分派：按回复 → 防守 → 交战 → 推进 → 发育的顺序把每个 bot 分到一个带目的地的任务。 */
+/** 团队任务分派：按回复 → 建筑被打的回防 → 交战 → 清兵与盯人的回防 → 推进 → 发育的顺序把每个 bot 分到一个带目的地的任务。 */
 import { distance, Lane, Point } from './lane-geometry';
 import { ANCIENT_FARM_POWER, KEEP_FIGHTING_RATIO } from './power';
 
@@ -171,9 +171,11 @@ export function planTasks(input: PlanInput): PlanResult {
     }
   }
 
-  free = assignDefend(input, free, tasks);
+  // 建筑被英雄贴着打最急，其次打架；清兵与盯着来犯英雄不急，不从打架的人里抽
+  free = assignDefend(input, free, tasks, ['engaged']);
   const fights = assignFights(input, free, tasks);
-  const push = assignPush(input, fights.remaining, tasks, fights.avoid);
+  const rest = assignDefend(input, fights.remaining, tasks, ['creeps', 'warning']);
+  const push = assignPush(input, rest, tasks, fights.avoid);
   assignFarm(input, push.unassigned, tasks);
 
   for (const bot of input.bots) {
@@ -196,14 +198,21 @@ function byArrival(bots: PlanBot[], pos: Point): PlanBot[] {
 }
 
 /** 已经打起来的先派，其次清推到基地的小兵，最后给还没动手的来犯英雄派一个人盯着。 */
-function assignDefend(input: PlanInput, free: PlanBot[], tasks: Map<number, Task>): PlanBot[] {
+function assignDefend(
+  input: PlanInput,
+  free: PlanBot[],
+  tasks: Map<number, Task>,
+  stages: DefendStage[],
+): PlanBot[] {
   const stageOrder: Record<DefendStage, number> = { engaged: 0, creeps: 1, warning: 2 };
-  const threats = [...input.defend].sort(
-    (a, b) =>
-      stageOrder[a.stage] - stageOrder[b.stage] ||
-      b.attackerPower * b.importance * (1.5 - b.hpRatio) -
-        a.attackerPower * a.importance * (1.5 - a.hpRatio),
-  );
+  const threats = input.defend
+    .filter((threat) => stages.includes(threat.stage))
+    .sort(
+      (a, b) =>
+        stageOrder[a.stage] - stageOrder[b.stage] ||
+        b.attackerPower * b.importance * (1.5 - b.hpRatio) -
+          a.attackerPower * a.importance * (1.5 - a.hpRatio),
+    );
   const maxOuterDefenders = Math.ceil(input.bots.length * DEFEND_MAX_SHARE);
   let remaining = free;
   for (const threat of threats) {

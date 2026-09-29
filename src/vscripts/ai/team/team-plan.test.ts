@@ -256,6 +256,14 @@ describe('planTasks', () => {
     expect([...planTasks(far).tasks.values()].some((t) => t.kind === 'defend')).toBe(false);
   });
 
+  it('fights before sending bots home to clear creeps', () => {
+    const input = baseInput({ defend: [baseThreat('creeps', 500)], fights: [spot(400)] });
+    input.bots.forEach((bot) => (bot.waveClear = true));
+    const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
+    // 打这一架要派全队，清兵不能先把人抽走
+    expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(5);
+  });
+
   it('sends at least one bot against a weak creep wave', () => {
     const tasks = planTasks(baseInput({ defend: [baseThreat('creeps', 10)] })).tasks;
     expect([...tasks.values()].filter((task) => task.kind === 'defend')).toHaveLength(1);
