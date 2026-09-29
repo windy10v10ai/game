@@ -27,6 +27,8 @@ export interface PlanBot {
   control?: boolean;
   /** 学会了对小兵的范围技能 */
   waveClear?: boolean;
+  /** 传送卷轴能用 */
+  teleportReady?: boolean;
 }
 
 /**
@@ -117,6 +119,10 @@ const DEFEND_POWER_MARGIN = 1.2;
 const DEFEND_GIVE_UP_RATIO = 0.5;
 // 外塔最多抽走的人数比例，剩下的人继续推进，逼玩家回防
 const DEFEND_MAX_SHARE = 0.6;
+/** 离目的地超过这么远、卷轴又好着时 bot 会传送过去 */
+export const TELEPORT_MIN_DISTANCE = 6000;
+// 传送过去折算成走这么远：引导几秒加落地后走到位
+const TELEPORT_ARRIVAL_DISTANCE = 2500;
 // 预警时守在建筑后方这么远，敌人上来先挨塔打，也不会被当面抓
 const DEFEND_GUARD_BACK = 600;
 // 这个范围内的 bot 算已经到场
@@ -174,8 +180,15 @@ export function planTasks(input: PlanInput): PlanResult {
   return { tasks, plan: push.plan };
 }
 
-function byDistance(bots: PlanBot[], pos: Point): PlanBot[] {
-  return [...bots].sort((a, b) => distance(a.pos, pos) - distance(b.pos, pos));
+/** 按谁先到排：卷轴好着的远处 bot 传送过来，比近处走路的更快。 */
+function byArrival(bots: PlanBot[], pos: Point): PlanBot[] {
+  const cost = new Map<number, number>();
+  for (const bot of bots) {
+    const gap = distance(bot.pos, pos);
+    const teleport = bot.teleportReady === true && gap > TELEPORT_MIN_DISTANCE;
+    cost.set(bot.id, teleport ? TELEPORT_ARRIVAL_DISTANCE : gap);
+  }
+  return [...bots].sort((a, b) => cost.get(a.id)! - cost.get(b.id)!);
 }
 
 /** 已经打起来的先派，其次清推到基地的小兵，最后给还没动手的来犯英雄派一个人盯着。 */
@@ -194,7 +207,7 @@ function assignDefend(input: PlanInput, free: PlanBot[], tasks: Map<number, Task
       break;
     }
     if (threat.stage === 'warning') {
-      const guard = byDistance(remaining, threat.pos).find((bot) => bot.control) ?? remaining[0];
+      const guard = byArrival(remaining, threat.pos).find((bot) => bot.control) ?? remaining[0];
       const guardPos = guardPosition(threat.pos, input.fountain);
       tasks.set(guard.id, { kind: 'defend', pos: guardPos, targetId: threat.id });
       remaining = remaining.filter((bot) => bot !== guard);
@@ -205,7 +218,7 @@ function assignDefend(input: PlanInput, free: PlanBot[], tasks: Map<number, Task
       continue;
     }
     const need = threat.attackerPower * DEFEND_POWER_MARGIN;
-    let candidates = byDistance(remaining, threat.pos);
+    let candidates = byArrival(remaining, threat.pos);
     if (threat.stage === 'creeps') {
       // 小兵不会跑，派清得快的：有范围技能或普攻高的
       const pushers = findPushers(remaining);

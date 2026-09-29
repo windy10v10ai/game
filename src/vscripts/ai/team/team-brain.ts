@@ -352,6 +352,7 @@ export class TeamBrain {
         needsRecover: this.recoverRequests.has(hero.GetEntityIndex()),
         attackDps: hero.GetAverageTrueAttackDamage(undefined) * hero.GetAttacksPerSecond(false),
         pushLane: this.pushLanes.get(hero.GetEntityIndex()),
+        teleportReady: hero.FindItemInInventory('item_tpscroll')?.IsFullyCastable() === true,
         ...this.RoleOf(hero, now),
       }));
 

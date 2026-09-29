@@ -218,6 +218,17 @@ describe('planTasks', () => {
     );
   });
 
+  it('sends a far bot with teleport ready before a nearer one that has to walk', () => {
+    const input = baseInput({ defend: [{ ...baseThreat('engaged', 80), isBase: false }] });
+    input.bots[0].pos = { x: 5000, y: 0 };
+    input.bots[1].pos = { x: 12000, y: 0 };
+    input.bots[1].teleportReady = true;
+    input.bots.slice(2).forEach((bot) => (bot.pos = { x: -9000, y: 0 }));
+    const tasks = planTasks(input).tasks;
+    expect(tasks.get(2)?.kind).toBe('defend');
+    expect(tasks.get(1)?.kind).not.toBe('defend');
+  });
+
   it('sends a few wave clearers against creeps pushing the base', () => {
     const input = baseInput({ defend: [baseThreat('creeps', 150)] });
     input.bots[0].waveClear = true;

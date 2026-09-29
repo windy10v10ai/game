@@ -20,7 +20,7 @@ import { FORMATION_SPACING } from '../team/formation';
 import { Point } from '../team/lane-geometry';
 import { QUICK_CLEAR_POWER } from '../team/power';
 import { HeroShortName, TeamBrain, UnitPower } from '../team/team-brain';
-import { FIGHT_DANGER_RADIUS, Task, TaskKind } from '../team/team-plan';
+import { FIGHT_DANGER_RADIUS, Task, TaskKind, TELEPORT_MIN_DISTANCE } from '../team/team-plan';
 import { WardPlacement } from '../ward/ward-placement';
 import { canEngage, canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
@@ -123,8 +123,6 @@ export class BotBaseAIModifier extends BaseModifier {
   // 转移仇恨后塔若很快又打回自己，说明身边没有别的目标可换，这段时间内直接退出射程
   protected readonly DeaggroCooldown: number = 3;
 
-  // 任务目的地很远、而己方建筑离目的地近得多时，用 TP 过去
-  protected readonly TaskTeleportDistance: number = 6000;
   // 传送要引导，落地后还得追着往前走的兵线，省下的时间不够多就直接走过去
   protected readonly TaskTeleportSavingSeconds: number = 5;
   protected readonly TeleportLandingOffset: number = 400;
@@ -872,7 +870,7 @@ export class BotBaseAIModifier extends BaseModifier {
     const target = this.ToWorld(task.pos);
     const distance = here.__sub(target).Length2D();
     if (
-      distance < this.TaskTeleportDistance ||
+      distance < TELEPORT_MIN_DISTANCE ||
       !this.CanStartTeleport(task.kind === 'defend') ||
       !this.brain
     ) {
