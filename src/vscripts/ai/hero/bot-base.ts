@@ -148,8 +148,10 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly ArriveRadius: number = 100;
   // 开发模式记录位置的间隔
   protected readonly PositionTraceInterval: number = 5;
-  // 走一小步时允许的绕路倍数，超过说明中间隔着悬崖
-  protected readonly StepDetourRatio: number = 2;
+  // 一小步前后地面高度差超过这么多就是隔着一层悬崖
+  protected readonly CliffHeight: number = 96;
+  // 地形与扛塔判断的结果记这么久，每次思考都算太贵
+  protected readonly TerrainCheckInterval: number = 1;
   // 回防离目的地这么近才边走边打
   protected readonly DefendAttackMoveRange: number = 1500;
   // 停下来后和队友挨着超过这么久才让开
@@ -194,6 +196,8 @@ export class BotBaseAIModifier extends BaseModifier {
   private crowdedSince: number | undefined;
   private spreadCheckedAt = 0;
   private nextPositionTrace = 0;
+  private stepCache: { point: Vector; until: number } | undefined;
+  private readonly outlastCache = new Map<EntityIndex, { ok: boolean; until: number }>();
   private brain: TeamBrain | undefined;
   // 引导中最后一次看到范围内敌方英雄的时间，用来判断敌人离开了多久
   private channelEnemySeenTime = 0;
@@ -783,8 +787,7 @@ export class BotBaseAIModifier extends BaseModifier {
       here.z,
     );
     // 让位的一步落到悬崖下或树林里就不让了，免得贴着地形原地打转
-    const path = GridNav.FindPathLength(here, target);
-    if (path <= 0 || path > step * this.StepDetourRatio) {
+    if (!this.CanStepTo(here, target)) {
       return false;
     }
     return this.MoveTo(target, UnitOrder.MOVE_TO_POSITION);
@@ -1246,6 +1249,17 @@ export class BotBaseAIModifier extends BaseModifier {
 
   /** 塔下我方一起打塔，能不能在塔把自己打到该撤的血量之前把塔推掉。 */
   private CanOutlastTower(tower: CDOTA_BaseNPC): boolean {
+    const index = tower.GetEntityIndex();
+    const cached = this.outlastCache.get(index);
+    if (cached && this.gameTime < cached.until) {
+      return cached.ok;
+    }
+    const ok = this.EstimateOutlast(tower);
+    this.outlastCache.set(index, { ok, until: this.gameTime + this.TerrainCheckInterval });
+    return ok;
+  }
+
+  private EstimateOutlast(tower: CDOTA_BaseNPC): boolean {
     let teamDps = 0;
     for (const ally of this.aroundFriendlyHeroes) {
       if (
@@ -1381,6 +1395,16 @@ export class BotBaseAIModifier extends BaseModifier {
    * 这时左右偏转找一个能直接走到的点，都不行就往泉水走，寻路会自己绕下坡道。
    */
   private ReachableStep(here: Vector, target: Point, fountain: Vector): Vector {
+    // 躲塔每次思考都会调用，结果记一会儿
+    if (this.stepCache && this.gameTime < this.stepCache.until) {
+      return this.stepCache.point;
+    }
+    const point = this.FindReachableStep(here, target, fountain);
+    this.stepCache = { point, until: this.gameTime + this.TerrainCheckInterval };
+    return point;
+  }
+
+  private FindReachableStep(here: Vector, target: Point, fountain: Vector): Vector {
     const dx = target.x - here.x;
     const dy = target.y - here.y;
     const length = Math.sqrt(dx * dx + dy * dy);
@@ -1395,12 +1419,21 @@ export class BotBaseAIModifier extends BaseModifier {
         Vector(here.x + x * length, here.y + y * length, here.z),
         this.hero,
       );
-      const path = GridNav.FindPathLength(here, point);
-      if (path > 0 && path <= length * this.StepDetourRatio) {
+      if (this.CanStepTo(here, point)) {
         return point;
       }
     }
     return fountain;
+  }
+
+  /** 短距离一步能不能直接走到：落点可走、没被树挡、和脚下不隔一层悬崖。不用寻路，寻路太贵。 */
+  private CanStepTo(here: Vector, point: Vector): boolean {
+    const ground = GetGroundPosition(point, this.hero);
+    return (
+      GridNav.IsTraversable(ground) &&
+      !GridNav.IsBlocked(ground) &&
+      Math.abs(ground.z - GetGroundPosition(here, this.hero).z) < this.CliffHeight
+    );
   }
 
   private EscapeFromTower(tower: CDOTA_BaseNPC, fountain: Vector): void {
