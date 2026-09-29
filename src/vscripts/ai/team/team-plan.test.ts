@@ -204,6 +204,13 @@ describe('planTasks', () => {
     attackerPower,
   });
 
+  it('sends everyone to a base building the enemy is hitting even when a few would do', () => {
+    const input = baseInput({ bots: bots(8), defend: [baseThreat('engaged', 150)] });
+    input.bots[7].pos = { x: -9000, y: 0 };
+    const tasks = [...planTasks(input).tasks.values()];
+    expect(tasks.every((task) => task.kind === 'defend')).toBe(true);
+  });
+
   it('sends one controller to wait behind the base when enemy heroes approach', () => {
     const input = baseInput({ defend: [baseThreat('warning', 5000)] });
     input.bots[2].control = true;
@@ -280,10 +287,10 @@ describe('planTasks', () => {
     expect([...highGround.values()].some((task) => task.hold)).toBe(false);
   });
 
-  const spot = (enemyPower: number, allyPower = 0) => ({
+  const spot = (enemyPower: number) => ({
     pos: { x: 500, y: 0 },
     enemyPower,
-    allyPower,
+    allyPower: 0,
     focusId: 99,
     rally: { x: -2000, y: 0 },
     pastFront: false,
@@ -359,14 +366,25 @@ describe('planTasks', () => {
     expect([...hopeless.values()].some((task) => task.kind === 'fight')).toBe(false);
   });
 
-  it('sends just enough nearby bots to a winnable fight and leaves pushers pushing', () => {
+  it('sends every bot that can get there to a winnable fight and leaves the far ones pushing', () => {
     const input = baseInput({ fights: [spot(250)] });
     input.bots[4].pos = { x: 9000, y: 0 };
     const tasks = planTasks(input).tasks;
-    expect([1, 2, 3].map((id) => tasks.get(id)?.kind)).toEqual(['fight', 'fight', 'fight']);
+    expect([1, 2, 3, 4].map((id) => tasks.get(id)?.kind)).toEqual([
+      'fight',
+      'fight',
+      'fight',
+      'fight',
+    ]);
     expect(tasks.get(1)?.targetId).toBe(99);
-    expect(tasks.get(4)?.kind).toBe('push');
     expect(tasks.get(5)?.kind).toBe('push');
+  });
+
+  it('counts a far bot with teleport ready as able to get to the fight', () => {
+    const input = baseInput({ fights: [spot(250)] });
+    input.bots[4].pos = { x: 9000, y: 0 };
+    input.bots[4].teleportReady = true;
+    expect(planTasks(input).tasks.get(5)?.kind).toBe('fight');
   });
 
   it('sends everyone needed straight toward the fight instead of waiting at a rally point', () => {
@@ -398,14 +416,9 @@ describe('planTasks', () => {
     expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(5);
   });
 
-  it('pulls pushers in only when the fight needs them', () => {
-    const tasks = planTasks(baseInput({ fights: [spot(350)] })).tasks;
+  it('pulls pushers in even when the fight could be won without them', () => {
+    const tasks = planTasks(baseInput({ fights: [spot(100)] })).tasks;
     expect([...tasks.values()].every((task) => task.kind === 'fight')).toBe(true);
-  });
-
-  it('counts players already in the fight', () => {
-    const tasks = planTasks(baseInput({ fights: [spot(150, 300)] })).tasks;
-    expect([...tasks.values()].some((task) => task.kind === 'fight')).toBe(false);
   });
 
   const laneCounts = (input: PlanInput) => {
@@ -419,6 +432,18 @@ describe('planTasks', () => {
   it('splits into two lanes once there are enough bots for two groups', () => {
     expect(laneCounts(baseInput({ bots: bots(5) })).size).toBe(1);
     expect([...laneCounts(baseInput({ bots: bots(8) })).values()]).toEqual([4, 4]);
+  });
+
+  it('merges into one lane when half the team could not beat the enemy', () => {
+    expect([...laneCounts(baseInput({ bots: bots(8), enemyPower: 300 })).values()]).toEqual([4, 4]);
+    expect([...laneCounts(baseInput({ bots: bots(8), enemyPower: 500 })).values()]).toEqual([8]);
+  });
+
+  it('pushes one lane together during a group push and drops the split plan at once', () => {
+    const first = planTasks(baseInput({ bots: bots(8) }));
+    expect(first.plan!.picks).toHaveLength(2);
+    const group = baseInput({ bots: bots(8), plan: first.plan, now: 150, groupPush: true });
+    expect([...laneCounts(group).values()]).toEqual([8]);
   });
 
   it('picks lanes at random weighted by opportunity', () => {
