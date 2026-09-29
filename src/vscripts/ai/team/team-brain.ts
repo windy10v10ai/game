@@ -10,6 +10,7 @@ import { ItemRegistry } from '../item/item-registry';
 import { CachedBuildings, CachedTowers, TowerAttackRange } from './building-cache';
 import { arcSlots, FORMATION_SPACING, lineSlots } from './formation';
 import { shouldUseGlyph } from './glyph';
+import { GroupPushState, startGroupPush, updateGroupPush } from './group-push';
 import {
   buildLanePath,
   distance,
@@ -164,6 +165,9 @@ export class TeamBrain {
   private lastDefendKey = '';
   // 阵亡的 bot 没有当前战力，买活判断用它最后活着时的战力
   private readonly lastPower = new Map<EntityIndex, number>();
+  // 阵亡的敌方英雄同样按最后活着时算，分路与抱团按敌方全员的实力判断
+  private readonly lastEnemyPower = new Map<EntityIndex, number>();
+  private groupPush: GroupPushState | undefined;
   private glyphReadyAt = 0;
   private readonly buildingHealth = new Map<EntityIndex, { time: number; health: number }[]>();
   private outerTowers = -1;
@@ -366,8 +370,11 @@ export class TeamBrain {
         ...this.RoleOf(hero, now),
       }));
 
+    const enemyStrength = this.UpdateGroupPush(enemies, now);
     const result = planTasks({
       bots,
+      enemyPower: enemyStrength,
+      groupPush: this.groupPush?.activeSince !== undefined,
       fountain,
       defend,
       fights: this.fights,
@@ -394,6 +401,42 @@ export class TeamBrain {
     this.CountCommittedFighters();
     ControlSummons(this.team, [...this.members.values()]);
     this.ConsiderBuyback(defend, allies);
+  }
+
+  /** 更新抱团推进的状态，返回敌方英雄的总战力。 */
+  private UpdateGroupPush(enemies: CDOTA_BaseNPC_Hero[], now: number): number {
+    let total = 0;
+    let down = 0;
+    let longestRespawn = 0;
+    for (const enemy of enemies) {
+      const index = enemy.GetEntityIndex();
+      if (enemy.IsAlive()) {
+        const power = this.PowerOf(enemy);
+        this.lastEnemyPower.set(index, power);
+        total += power;
+        continue;
+      }
+      const power = this.lastEnemyPower.get(index) ?? 0;
+      total += power;
+      down += power;
+      longestRespawn = Math.max(longestRespawn, enemy.GetTimeUntilRespawn());
+    }
+    const before = this.groupPush ?? startGroupPush(now);
+    this.groupPush = updateGroupPush(before, {
+      now,
+      enemyDownShare: total > 0 ? down / total : 0,
+      longestRespawn,
+    });
+    if (
+      IS_DEBUG_RUN &&
+      (before.activeSince === undefined) !== (this.groupPush.activeSince === undefined)
+    ) {
+      const time = Math.floor(GameRules.GetDOTATime(false, true));
+      print(
+        `[bot-ai] team=${this.team} t=${time} group=${this.groupPush.activeSince === undefined ? 'end' : 'start'}`,
+      );
+    }
+    return total;
   }
 
   /** 阵亡的 bot 在基地危急、或附近团战买活后能扳回时买活；双方悬殊到买了也守不住就不买。 */

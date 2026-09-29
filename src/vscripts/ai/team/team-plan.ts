@@ -1,6 +1,6 @@
 /** 团队任务分派：按回复 → 建筑被打的回防 → 交战 → 清兵与盯人的回防 → 推进 → 发育的顺序把每个 bot 分到一个带目的地的任务。 */
 import { distance, Lane, Point } from './lane-geometry';
-import { ANCIENT_FARM_POWER, KEEP_FIGHTING_RATIO } from './power';
+import { ANCIENT_FARM_POWER, AVOID_POWER_RATIO, KEEP_FIGHTING_RATIO } from './power';
 
 export type TaskKind = 'recover' | 'defend' | 'fight' | 'push' | 'farm' | 'hold';
 
@@ -98,6 +98,10 @@ export interface PlanInput {
   plan?: LanePlan;
   /** 上一轮在打架的 bot 与各自的集火目标，打起来后按「继续打」的口径留下，不在阈值附近来回换 */
   fighting?: Map<number, number>;
+  /** 敌方英雄的总战力，阵亡的按阵亡前算 */
+  enemyPower?: number;
+  /** 全队合成一路推一波 */
+  groupPush?: boolean;
   now: number;
   /** 0–1 的随机数，选路时用 */
   random: () => number;
@@ -107,6 +111,8 @@ export interface PlanInput {
 export interface LanePlan {
   picks: { lane: Lane }[];
   until: number;
+  /** 抱团推进时选的路线，抱团开始或结束都立刻重选 */
+  group: boolean;
 }
 
 export interface PlanResult {
@@ -186,13 +192,18 @@ export function planTasks(input: PlanInput): PlanResult {
   return { tasks, plan: push.plan };
 }
 
-/** 按谁先到排：卷轴好着的远处 bot 传送过来，比近处走路的更快。 */
+/** 赶到这里折算成走多远：卷轴好着的远处 bot 传送过来，比近处走路的更快。 */
+function arrivalCost(bot: PlanBot, pos: Point): number {
+  const gap = distance(bot.pos, pos);
+  const teleport = bot.teleportReady === true && gap > TELEPORT_MIN_DISTANCE;
+  return teleport ? TELEPORT_ARRIVAL_DISTANCE : gap;
+}
+
+/** 按谁先到排。 */
 function byArrival(bots: PlanBot[], pos: Point): PlanBot[] {
   const cost = new Map<number, number>();
   for (const bot of bots) {
-    const gap = distance(bot.pos, pos);
-    const teleport = bot.teleportReady === true && gap > TELEPORT_MIN_DISTANCE;
-    cost.set(bot.id, teleport ? TELEPORT_ARRIVAL_DISTANCE : gap);
+    cost.set(bot.id, arrivalCost(bot, pos));
   }
   return [...bots].sort((a, b) => cost.get(a.id)! - cost.get(b.id)!);
 }
@@ -243,8 +254,12 @@ function assignDefend(
     if (!threat.isBase && available < threat.attackerPower * DEFEND_GIVE_UP_RATIO) {
       continue;
     }
+    // 高地起被英雄贴着打时全体回防，不按战力凑人：玩家强时估算的战力靠不住，少来几个只会被逐个击破
     const need =
-      threat.attackerPower * (threat.stage === 'creeps' ? CREEP_POWER_RATIO : DEFEND_POWER_MARGIN);
+      threat.isBase && threat.stage === 'engaged'
+        ? Infinity
+        : threat.attackerPower *
+          (threat.stage === 'creeps' ? CREEP_POWER_RATIO : DEFEND_POWER_MARGIN);
     let candidates = byArrival(remaining, threat.pos);
     if (threat.stage === 'creeps') {
       // 小兵不会跑，派清得快的：有范围技能或普攻高的
@@ -288,9 +303,9 @@ function findPushers(bots: PlanBot[]): Set<number> {
 }
 
 /**
- * 交战按全队判断，要么不上、要么叫够人一起上：
+ * 交战按全队判断，要么不上、要么满强度一起上：
  * 全队加起来也打不过就不去，那一带也不派人推进，改去别的路；
- * 打得过就按距离叫够人，推塔手最后才挑。大家直接朝交战点走，不在集合点站着等，
+ * 打得过就按距离叫够人，推塔手最后才挑，赶得到的其余人也全来。大家直接朝交战点走，不在集合点站着等，
  * 进不进场由英雄层按跟得上的人够不够判断，先到的在外围等后面的人跟上。
  * 敌人先动手时，附近的人扛得住就一起接战。
  */
@@ -336,8 +351,9 @@ function assignFights(
     const picked: PlanBot[] = [];
     let assigned = 0;
     for (const bot of order) {
-      if (assigned >= need) {
-        break;
+      // 凑够战力的人再远也叫；凑够之后赶得到的也来，打出满强度，不留一半人在别处带线
+      if (assigned >= need && (!enough || arrivalCost(bot, spot.pos) > FIGHT_SUPPORT_RADIUS)) {
+        continue;
       }
       picked.push(bot);
       assigned += bot.power;
@@ -399,16 +415,18 @@ function assignPush(
   if (candidates.length === 0) {
     return { plan: input.plan, unassigned: free };
   }
-  // 路数按全队能出力的人数定，被交战临时借走几个人不改路线
+  // 路数按全队能出力的人数与战力定，被交战临时借走几个人不改路线
   const active = input.bots.filter((bot) => !bot.needsRecover).length;
-  const desired = Math.min(MAX_PUSH_LANES, Math.max(1, Math.floor(active / MIN_LANE_GROUP)));
-  // 锁定期内按全队战力判断原路线还能不能推：有人去打架、回家或阵亡只是暂时的，不因此换路
   const teamPower = input.bots
     .filter((bot) => !bot.needsRecover)
     .reduce((sum, bot) => sum + bot.power, 0);
+  const group = input.groupPush === true;
+  const desired = group ? 1 : lanesFor(active, teamPower, input.enemyPower ?? 0);
+  // 锁定期内按全队战力判断原路线还能不能推：有人去打架、回家或阵亡只是暂时的，不因此换路
   let plan = input.plan;
-  if (!plan || !keepsPlan(plan, input.lanes, teamPower, avoid, input.now)) {
+  if (!plan || plan.group !== group || !keepsPlan(plan, input.lanes, teamPower, avoid, input.now)) {
     plan = pickLanes(candidates, free, pushPower, Math.min(desired, candidates.length), input);
+    plan.group = group;
   }
   const chosen: PushLane[] = [];
   const waiting = new Set<Lane>();
@@ -429,6 +447,15 @@ function assignPush(
     spread(pushing, chosen, tasks, Math.ceil(active / plan.picks.length));
   }
   return { plan, unassigned: [...unassigned, ...dropWeakGroups(pushing, chosen, tasks)] };
+}
+
+/**
+ * 人够两组、且半队人马就打得过敌方全队时才分两路：玩家弱时不被十人一波推平，玩家强时不被分路逐个击破。
+ */
+function lanesFor(active: number, teamPower: number, enemyPower: number): number {
+  const byCount = Math.min(MAX_PUSH_LANES, Math.max(1, Math.floor(active / MIN_LANE_GROUP)));
+  const halfHolds = teamPower / MAX_PUSH_LANES >= enemyPower * AVOID_POWER_RATIO;
+  return halfHolds ? byCount : 1;
 }
 
 /**
@@ -480,7 +507,7 @@ function pickLanes(
     picks.push({ lane: picked.lane });
     pool = pool.filter((entry) => entry.lane !== picked);
   }
-  return { picks, until: input.now + PLAN_LOCK_SECONDS };
+  return { picks, until: input.now + PLAN_LOCK_SECONDS, group: false };
 }
 
 /**
