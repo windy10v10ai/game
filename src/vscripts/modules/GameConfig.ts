@@ -15,35 +15,6 @@ export class GameConfig {
   constructor() {
     SendToServerConsole('dota_max_physical_items_purchase_limit 9999'); // 用来解决物品数量限制问题
     SendToServerConsole('dota_pause_cooldown_time 0'); // 暂停冷却时间
-    // 本地主机与自建专用服不设暂停限制
-    SendToServerConsole('dota_pause_count 999999');
-    SendToServerConsole('dota_pause_limit 999999');
-    SendToServerConsole('dota_pause_force_unpause_time 999999');
-    SendToServerConsole('dota_pause_same_team_resume_time_disconnected 999999');
-    // TMP 排查专用服自动恢复暂停的原因，定位后删除
-    Timers.CreateTimer({
-      endTime: 5,
-      useGameTime: false,
-      callback: () => {
-        for (const n of [
-          'dota_pause_count',
-          'dota_pause_limit',
-          'dota_pause_cooldown',
-          'dota_pause_cooldown_time',
-          'dota_pause_force_unpause_time',
-          'dota_pause_minimum_time_spent_paused',
-          'dota_pause_minimum_time_spent_paused_bad_behavior',
-          'dota_pause_same_team_resume_time',
-          'dota_pause_same_team_resume_time_disconnected',
-          'dota_pause_countdown',
-          'dota_unpause_countdown',
-          'dota_unpause_mass_disconnect_cooldown',
-          'dota_allow_pause_in_match',
-        ]) {
-          print(`[PauseCfg] ${n}=${Convars.GetStr(n)}`);
-        }
-      },
-    });
     // 设置bot模式
     Convars.SetBool('dota_bot_mode', true);
     Convars.SetBool('dota_bot_disable', false);
@@ -114,6 +85,7 @@ export class GameConfig {
     game.SetMinimumAttackSpeed(20);
 
     this.EnterSetupWithoutLobby();
+    this.ListenPauseCommand();
 
     if (IS_DEBUG_RUN) {
       print('[GameConfig] 开发者模式快速开始游戏');
@@ -124,6 +96,17 @@ export class GameConfig {
       GameRules.SetStrategyTime(3);
       GameRules.SetPreGameTime(5); // 进入游戏后号角吹响前的准备时间
     }
+  }
+
+  // 玩家自己发起的暂停约 30 秒后会被引擎自动恢复，且没有设置能关掉；脚本发起的暂停不会
+  private ListenPauseCommand() {
+    ListenToGameEvent(
+      'player_chat',
+      (keys) => {
+        if (keys.text.trim() === '-pause') PauseGame(!GameRules.IsGamePaused());
+      },
+      undefined,
+    );
   }
 
   // 自建专用服没有大厅推进状态，自定义游戏会一直停在 INIT；游廊的大厅在玩家连入前就已推进，INIT 判断不会误触发
