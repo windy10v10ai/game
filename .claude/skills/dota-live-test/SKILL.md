@@ -1,6 +1,6 @@
 ---
 name: dota-live-test
-description: 在 Dota 2 Tools 里实机跑一局，落盘控制台日志后 grep 验证改动。触发：用户说「实机验证」「跑一局看看」「帮我测一下」，或改动依赖引擎运行时行为（事件收发、modifier 生效、API 链路）而 jest 覆盖不到。
+description: 在 Dota 2 Tools 里实机跑一局，落盘控制台日志后 grep 验证改动。触发：用户说「实机验证」「跑一局看看」「帮我测一下」，或改动依赖引擎运行时行为（事件收发、modifier 生效、API 链路、电脑 AI 行为）而 jest 覆盖不到。
 ---
 
 # Dota Live Test
@@ -8,6 +8,27 @@ description: 在 Dota 2 Tools 里实机跑一局，落盘控制台日志后 grep
 实机验证的关键是**日志落盘**：让 Dota 把控制台输出写进文件，用 `grep` 读，而不是截图读 VConsole 窗口。
 
 `con_logfile` 在 Source 2 不是有效命令，运行时开不了文件日志，只能在**启动参数**里加。
+
+## 验 bot AI 行为：用自动对局
+
+验电脑的交战、回防、推进、物品施放时，不手动开局，用 `npm run perf` 跑无人值守的一局（第 3～5 步由脚本代劳），第 1、6 步照常：
+
+```bash
+npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --minGames 1 --maxGames 1
+```
+
+按要验的场景加参数（全部选项见 `src/scripts/perf.js` 的 `parseArgs`）：
+
+| 场景 | 参数 |
+|---|---|
+| 天辉强推电脑高地与基地 | `--boost false --radiantPlayers 5 --radiantMultiplier 10 --direMultiplier 1` |
+| 物品施放 | `--testItems item_a,item_b`：开局发物品并停掉买卖装备 |
+| 指定英雄出场 | `--botHeroes axe,lion` |
+
+- 加速不超过 2 倍，更高会拖垮服务器
+- 每局结束在运行目录写 `anomaly-<N>.md`（卡住、远路不传送、挤在一起、打撤来回切、没任务、建筑挨打没人到场），先读它再 grep 细节。手动局用 `npm run bot-anomaly [日志路径]` 出同样的报告
+- 下一局启动会删掉 `console.log`，要留的日志先拷到 scratchpad
+- 天辉被替成 AI 顶位，报告只统计人数多的一方；天辉那侧的行为不代表真实玩家
 
 ## 派子代理跑
 

@@ -82,6 +82,8 @@ Glob pattern: src/vscripts/ai/item/specs/<itemName>.ts
 
 除了 [bot-ability-usage](../bot-ability-usage/SKILL.md) 已列出的通用条件（血量、数量、等级、`notActionable`、`noModifier` 等）外，物品场景常见的还有：
 
+0. **对小兵的规则要写全门槛**：技能的 `EnemyCreep` 默认门槛与模式过滤由 `AbilityDispatcher` 叠加，`ItemDispatcher` 不叠加。物品对小兵的 spec 显式写 `target.count`、`self.noEnemyHeroInRange` 与蓝量，参考 [item_meteor_hammer.ts](src/vscripts/ai/item/specs/item_meteor_hammer.ts)。
+
 1. **排除远古野**：`target.unitCondition.excludeAncient: true`（团队之手/无限手套等对小兵使用的物品，即使候选池本身不含远古野也建议保留，属于防御性写法）。
 2. **附近没有敌方英雄/建筑才用**（安全场景判断，如烟雾）：`self.noEnemyHeroInRange` / `self.noEnemyBuildingInRange`，语义是"存在则跳过"，与"要求敌人存在"相反，不要混淆。
 3. **身上没有对应 buff 才用**（避免重复施放同一效果，如烟雾自身的隐身 buff）：`self.unitCondition.noModifier: '<modifier名>'`。
