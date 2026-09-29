@@ -1,6 +1,6 @@
 ---
 name: update-heroes-custom
-description: 校验 npc_heroes_custom.txt 里各英雄 Bot.Build 的加点顺序与天赋档位。触发：某英雄的 Bot.Build 被改动，或 update-abilities-override 处理完一个英雄后接力调用。
+description: 编写与校验 npc_heroes_custom.txt 里电脑英雄的技能加点（Bot.Build）与天赋档位。触发：用户说「调整 XX 加点」「XX 技能点太晚」「电脑加点优化」「哪些等级没有技能点」；动手改任何英雄的 Bot.Build 之前；update-abilities-override 处理完一个英雄后接力调用。
 ---
 
 # Update Heroes Custom
@@ -9,6 +9,7 @@ description: 校验 npc_heroes_custom.txt 里各英雄 Bot.Build 的加点顺序
 
 ## 何时使用
 
+- 新写或调整加点顺序：先按下方「Build 规则」排，改完走「检测流程」。调整已有加点时在规则允许的等级键之间交换，不要往 `17/19/21/22` 填点，也不要清空 `23/26/31`。
 - 版本更新或改 Ability 槽位 / override 后校验 Bot 加点。
 - 用户要求核对 Bot 加点 / 天赋 / 技能等级。
 
