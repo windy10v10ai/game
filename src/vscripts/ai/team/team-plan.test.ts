@@ -1,14 +1,16 @@
 import {
   buildLanePath,
+  distance,
   forwardProgress,
   nearestLane,
   pointAtProgress,
   projectOnLane,
 } from './lane-geometry';
+import { shouldUseGlyph } from './glyph';
 import { combatPower, decayThreat, threatMultiplier } from './power';
 import { resolvePushStaging } from './push-staging';
 import { pushLevelFor, shouldTakeOver, takeoverFallbackSeconds } from './takeover';
-import { PlanInput, PushLane, planTasks } from './team-plan';
+import { DefendStage, PlanInput, PushLane, planTasks } from './team-plan';
 
 const lane = (name: PushLane['lane'], x: number, enemyPower = 0): PushLane => ({
   lane: name,
@@ -159,7 +161,9 @@ describe('planTasks', () => {
           {
             id: 50,
             pos: { x: 0, y: 0 },
+            stage: 'engaged',
             isBase: false,
+            core: false,
             importance: 1,
             hpRatio: 0.5,
             attackerPower: 150,
@@ -176,6 +180,8 @@ describe('planTasks', () => {
     const threat = {
       id: 50,
       pos: { x: 0, y: 0 },
+      stage: 'engaged' as const,
+      core: false,
       importance: 1,
       hpRatio: 0.5,
       attackerPower: 5000,
@@ -184,6 +190,93 @@ describe('planTasks', () => {
     expect([...outer.tasks.values()].some((task) => task.kind === 'defend')).toBe(false);
     const base = planTasks(baseInput({ defend: [{ ...threat, isBase: true }] }));
     expect([...base.tasks.values()].every((task) => task.kind === 'defend')).toBe(true);
+  });
+
+  const baseThreat = (stage: DefendStage, attackerPower: number) => ({
+    id: 60,
+    pos: { x: 2000, y: 0 },
+    stage,
+    isBase: true,
+    core: false,
+    importance: 4,
+    hpRatio: 1,
+    attackerPower,
+  });
+
+  it('sends one controller to wait behind the base when enemy heroes approach', () => {
+    const input = baseInput({ defend: [baseThreat('warning', 5000)] });
+    input.bots[2].control = true;
+    input.bots[2].pos = { x: 8000, y: 0 };
+    const tasks = [...planTasks(input).tasks.entries()].filter(
+      ([, task]) => task.kind === 'defend',
+    );
+    expect(tasks.map(([id]) => id)).toEqual([3]);
+    const pos = tasks[0][1].pos;
+    // 站在建筑靠自家泉水一侧，不迎着敌人来的方向
+    expect(distance(pos, { x: -1000, y: -1000 })).toBeLessThan(
+      distance({ x: 2000, y: 0 }, { x: -1000, y: -1000 }),
+    );
+  });
+
+  it('sends a far bot with teleport ready before a nearer one that has to walk', () => {
+    const input = baseInput({ defend: [{ ...baseThreat('engaged', 80), isBase: false }] });
+    input.bots[0].pos = { x: 5000, y: 0 };
+    input.bots[1].pos = { x: 12000, y: 0 };
+    input.bots[1].teleportReady = true;
+    input.bots.slice(2).forEach((bot) => (bot.pos = { x: -9000, y: 0 }));
+    const tasks = planTasks(input).tasks;
+    expect(tasks.get(2)?.kind).toBe('defend');
+    expect(tasks.get(1)?.kind).not.toBe('defend');
+  });
+
+  it('sends a few wave clearers against creeps pushing the base', () => {
+    const input = baseInput({ defend: [baseThreat('creeps', 300)] });
+    input.bots[0].waveClear = true;
+    // 2、3 号既没有范围清兵技能、普攻也不高，离得再近也不派
+    input.bots[1].pos = { x: 2000, y: 0 };
+    input.bots[2].pos = { x: 2000, y: 0 };
+    const tasks = planTasks(input).tasks;
+    const defenders = [...tasks.entries()].filter(([, task]) => task.kind === 'defend');
+    expect(defenders.map(([id]) => id).sort()).toEqual([1, 4]);
+  });
+
+  it('leaves a wave the buildings can hold to one nearby clearer who farms it', () => {
+    // 扣掉建筑战力后威胁不剩，附近有人就派一个去吃兵，远处的不回
+    const near = baseInput({ defend: [baseThreat('creeps', 0)] });
+    near.bots.forEach((bot) => (bot.waveClear = true));
+    near.bots[2].pos = { x: 1500, y: 0 };
+    const nearTasks = [...planTasks(near).tasks.entries()].filter(([, t]) => t.kind === 'defend');
+    expect(nearTasks.map(([id]) => id)).toEqual([3]);
+
+    const far = baseInput({ defend: [baseThreat('creeps', 0)] });
+    far.bots.forEach((bot) => {
+      bot.waveClear = true;
+      bot.pos = { x: 9000, y: 0 };
+    });
+    expect([...planTasks(far).tasks.values()].some((t) => t.kind === 'defend')).toBe(false);
+  });
+
+  it('fights before sending bots home to clear creeps', () => {
+    const input = baseInput({ defend: [baseThreat('creeps', 500)], fights: [spot(400)] });
+    input.bots.forEach((bot) => (bot.waveClear = true));
+    const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
+    // 打这一架要派全队，清兵不能先把人抽走
+    expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(5);
+  });
+
+  it('sends at least one bot against a weak creep wave', () => {
+    const tasks = planTasks(baseInput({ defend: [baseThreat('creeps', 10)] })).tasks;
+    expect([...tasks.values()].filter((task) => task.kind === 'defend')).toHaveLength(1);
+  });
+
+  it('asks bots defending the core base to hold their ground', () => {
+    const core = planTasks(
+      baseInput({ defend: [{ ...baseThreat('engaged', 5000), core: true }] }),
+    ).tasks;
+    expect([...core.values()].every((task) => task.kind === 'defend' && task.hold)).toBe(true);
+    const highGround = planTasks(baseInput({ defend: [baseThreat('engaged', 5000)] })).tasks;
+    expect([...highGround.values()].every((task) => task.kind === 'defend')).toBe(true);
+    expect([...highGround.values()].some((task) => task.hold)).toBe(false);
   });
 
   const spot = (enemyPower: number, allyPower = 0) => ({
@@ -248,6 +341,21 @@ describe('planTasks', () => {
     });
     input.bots.forEach((bot) => (bot.pos = { x: -8000, y: 0 }));
     expect(planTasks(input).plan?.picks.map((pick) => pick.lane)).toEqual(['top']);
+  });
+
+  it('keeps bots already fighting a target until the enemy is far stronger', () => {
+    // 全队也凑不够开新仗的余量，但上一轮已经在打的人不因此掉头
+    const fresh = planTasks(baseInput({ fights: [spot(450)] })).tasks;
+    expect([...fresh.values()].some((task) => task.kind === 'fight')).toBe(false);
+    const fighting = new Map([
+      [1, 99],
+      [2, 99],
+      [3, 99],
+    ]);
+    const kept = planTasks(baseInput({ fights: [spot(450)], fighting })).tasks;
+    expect([1, 2, 3].map((id) => kept.get(id)?.kind)).toEqual(['fight', 'fight', 'fight']);
+    const hopeless = planTasks(baseInput({ fights: [spot(5000)], fighting })).tasks;
+    expect([...hopeless.values()].some((task) => task.kind === 'fight')).toBe(false);
   });
 
   it('sends just enough nearby bots to a winnable fight and leaves pushers pushing', () => {
@@ -408,5 +516,32 @@ describe('planTasks', () => {
       }),
     );
     expect([...strong.tasks.values()].every((task) => task.kind === 'farm')).toBe(true);
+  });
+});
+
+describe('glyph', () => {
+  const glyph = (tier: number, hpRatio: number, fallSeconds: number, defenderEta = Infinity) =>
+    shouldUseGlyph({ tier, hpRatio, fallSeconds, defenderEta });
+
+  it('opens earlier against fast pushers regardless of health', () => {
+    expect(glyph(3, 0.7, 7)).toBe(true);
+    expect(glyph(3, 0.3, 30)).toBe(false);
+    expect(glyph(1, 0.2, 20)).toBe(false);
+    expect(glyph(1, 0.9, 5)).toBe(true);
+  });
+
+  it('opens on the last sliver of health', () => {
+    expect(glyph(1, 0.05, 30)).toBe(true);
+  });
+
+  it('gives the core base more time than outer towers', () => {
+    expect(glyph(6, 0.8, 9)).toBe(true);
+    expect(glyph(1, 0.8, 9)).toBe(false);
+  });
+
+  it('opens a tier 2 tower or barracks only when defenders arrive in time', () => {
+    expect(glyph(2, 0.5, 5)).toBe(false);
+    expect(glyph(2, 0.5, 5, 8)).toBe(true);
+    expect(glyph(4, 0.5, 5, 30)).toBe(false);
   });
 });

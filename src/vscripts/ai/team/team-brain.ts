@@ -3,7 +3,13 @@
  * 敌方英雄与小兵只认本队看得到的，建筑位置固定、始终可读。
  */
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
+import { AbilityRegistry } from '../ability/ability-registry';
+import { TargetSide } from '../ability/ability-spec';
 import { HeroUtil } from '../hero/hero-util';
+import { ItemRegistry } from '../item/item-registry';
+import { CachedBuildings, CachedTowers, TowerAttackRange } from './building-cache';
+import { arcSlots, FORMATION_SPACING, lineSlots } from './formation';
+import { shouldUseGlyph } from './glyph';
 import {
   buildLanePath,
   distance,
@@ -52,8 +58,14 @@ const LANE_CREEP_MAX_OFFSET = 1200;
 const BUILDING_THREAT_RADIUS = 1200;
 // 彼此在这个距离内的敌方英雄算同一处交战点
 const FIGHT_CLUSTER_RADIUS = 1200;
-// 敌人离自家塔这么近时，塔也算进对面的战力
-const FIGHT_TOWER_RADIUS = 900;
+// 去打架的人在目标这么远处排成扇形，从几个方向围上去
+const FIGHT_ARC_RADIUS = 500;
+// 回防时按这么近的敌人定朝向
+const DEFEND_FACING_RADIUS = 3000;
+// 被硬控的敌方英雄战力按这个比例算
+const DISABLED_POWER_FACTOR = 0.5;
+// 交战点在建筑射程外这么远以内也算建筑参战，英雄走几步就进射程
+const FIGHT_TOWER_MARGIN = 300;
 // 超过敌方最前面那座塔这么远，就算越过了还没推掉的塔
 const FRONT_MARGIN = 400;
 // 同一片野区的野怪合成一个发育点
@@ -66,15 +78,22 @@ const LANDING_RESERVE_EXTRA = 1;
 const TELEPORT_ALIGN_SLACK = 1.5;
 // 没有继续报告的等待者视为不再等，比团队大脑的思考间隔长一点
 const TELEPORT_WAIT_EXPIRE = 1.5;
-// 基地建筑持续挨打这么久才回防，玩家碰一下就走时不会把 bot 骗回家
-const BASE_DEFEND_DELAY = 3;
-// 一塔被推掉后塔防自动刷新，快倒时就开，不用留
-const GLYPH_OUTER_HP = 0.3;
-// 三塔、四塔与基地按实际掉血速度判断：照这个速度几秒内就倒才开，推不动塔的阵容不值得开；只剩一丝血时有人在打就开
-const GLYPH_BASE_HP = 0.4;
-const GLYPH_FALL_SECONDS = 8;
-const GLYPH_LAST_HP = 0.1;
+// 敌方英雄离基地建筑这么近就先派一个人去守，打起来再叫其他人
+const BASE_WARNING_RADIUS = 2000;
+// 这么近以内有敌方小兵就算兵线快到了，偷塔保护马上会失效
+const BACKDOOR_CREEP_RADIUS = 3000;
+// 敌方英雄离开或看不见后，守建筑的任务再留这么久
+const DEFEND_MEMORY = 5;
+// 彼此这么近的敌方小兵算同一波
+const CREEP_WAVE_RADIUS = 1200;
+// 小兵不会跑，推到基地这么近就提前回去清
+const BASE_CREEP_RADIUS = 2500;
+// 英雄会不会控制、能不能清兵随学技能和换装备变化，隔一会儿重算
+const ROLE_CACHE_SECONDS = 10;
+// 掉血速度按最近这么多秒算
 const GLYPH_DAMAGE_WINDOW = 3;
+// TP 落地后走到被打的建筑边上的秒数
+const TELEPORT_LANDING_WALK = 1;
 // 离复活还有这么久以上才值得买活
 const BUYBACK_MIN_RESPAWN = 15;
 // 活着的队友战力已经比来犯敌人高出这么多时，不必再买活回防
@@ -113,6 +132,12 @@ interface BuildingInfo {
   isBase: boolean;
 }
 
+interface HeroRole {
+  control: boolean;
+  waveClear: boolean;
+  until: number;
+}
+
 interface TeleportPlan {
   arrival: number;
   /** 已经开始引导，到达前一直算数；否则要持续报告 */
@@ -133,7 +158,10 @@ export class TeamBrain {
   private readonly pushLanes = new Map<number, Lane>();
   private readonly landingReserved = new Map<EntityIndex, number>();
   private readonly teleports = new Map<number, Map<EntityIndex, TeleportPlan>>();
-  private readonly baseThreatSince = new Map<EntityIndex, number>();
+  private readonly roles = new Map<EntityIndex, HeroRole>();
+  private readonly slots = new Map<number, Point>();
+  private readonly defendMemory = new Map<number, { target: DefendTarget; time: number }>();
+  private lastDefendKey = '';
   // 阵亡的 bot 没有当前战力，买活判断用它最后活着时的战力
   private readonly lastPower = new Map<EntityIndex, number>();
   private glyphReadyAt = 0;
@@ -159,6 +187,11 @@ export class TeamBrain {
     return this.tasks.get(hero.GetEntityIndex());
   }
 
+  /** 和同去一处的队友一起排开时，这个 bot 该站的位置；独自一人时没有。 */
+  SlotOf(hero: CDOTA_BaseNPC_Hero): Point | undefined {
+    return this.slots.get(hero.GetEntityIndex());
+  }
+
   /** 英雄报告自己是否正在和敌方英雄交手，团队据此判断哪处交战已经打起来。 */
   SetEngaged(hero: CDOTA_BaseNPC_Hero, engaged: boolean): void {
     if (engaged) {
@@ -179,13 +212,11 @@ export class TeamBrain {
   /** 可以 TP 过去、这会儿没人往上传的己方建筑。 */
   FindLandings(): CDOTA_BaseNPC[] {
     const now = GameRules.GetGameTime();
-    return CollectBuildings()
-      .map((building) => building.unit)
-      .filter(
-        (unit) =>
-          unit.GetTeamNumber() === this.team &&
-          (this.landingReserved.get(unit.GetEntityIndex()) ?? -Infinity) <= now,
-      );
+    return CachedBuildings().filter(
+      (unit) =>
+        unit.GetTeamNumber() === this.team &&
+        (this.landingReserved.get(unit.GetEntityIndex()) ?? -Infinity) <= now,
+    );
   }
 
   /** 同一目标里有人预计到得晚很多时先等一等，让大家差不多同时落地。 */
@@ -298,7 +329,21 @@ export class TeamBrain {
       return;
     }
     const buildings = CollectBuildings();
-    const defend = this.FindDefendTargets(buildings, recentEnemies, now);
+    const defend = this.RememberDefendTargets(
+      this.FindDefendTargets(buildings, recentEnemies),
+      now,
+    );
+    if (IS_DEBUG_RUN) {
+      const key = defend.map((target) => `${target.id}:${target.stage}`).join(',');
+      if (key !== this.lastDefendKey) {
+        this.lastDefendKey = key;
+        const text = defend
+          .map((target) => `${target.id}:${target.stage}:${Math.floor(target.attackerPower)}`)
+          .join(',');
+        const time = Math.floor(GameRules.GetDOTATime(false, true));
+        print(`[bot-ai] team=${this.team} t=${time} defend=${text === '' ? '-' : text}`);
+      }
+    }
     if (this.team === DotaTeam.BADGUYS) {
       this.UseGlyph(buildings, recentEnemies, now);
     }
@@ -317,6 +362,8 @@ export class TeamBrain {
         needsRecover: this.recoverRequests.has(hero.GetEntityIndex()),
         attackDps: hero.GetAverageTrueAttackDamage(undefined) * hero.GetAttacksPerSecond(false),
         pushLane: this.pushLanes.get(hero.GetEntityIndex()),
+        teleportReady: hero.FindItemInInventory('item_tpscroll')?.IsFullyCastable() === true,
+        ...this.RoleOf(hero, now),
       }));
 
     const result = planTasks({
@@ -326,11 +373,13 @@ export class TeamBrain {
       fights: this.fights,
       lanes,
       farms: this.FindFarmSpots(lanePower, observer),
+      fighting: this.FightingTargets(),
       plan: this.plan,
       now,
       random: () => RandomFloat(0, 1),
     });
     this.tasks = result.tasks;
+    this.AssignSlots(recentEnemies);
     if (IS_DEBUG_RUN && result.plan && result.plan !== this.plan) {
       const picks = result.plan.picks.map((pick) => pick.lane).join(',');
       const lanesNow = lanes.map((lane) => lane.lane).join(',');
@@ -352,7 +401,8 @@ export class TeamBrain {
     // 买活的人算进战力，后面的人看到已经够了就不再买
     let alivePower = allies.reduce((sum, hero) => sum + UnitPower(hero), 0);
     const baseAttack = defend
-      .filter((target) => target.isBase)
+      // 兵营起才算基地危急，高地塔失守不值得花钱买活
+      .filter((target) => target.importance >= 4 && target.stage === 'engaged')
       .reduce((max, target) => Math.max(max, target.attackerPower), 0);
     for (const [index, hero] of this.members) {
       if (hero.IsAlive()) {
@@ -404,7 +454,7 @@ export class TeamBrain {
     );
   }
 
-  /** 开塔防：一塔快倒时开，三塔、四塔与基地掉血快或只剩一丝血时开，二塔与兵营不开。 */
+  /** 开塔防：正被敌方英雄攻击的建筑照当前掉血速度快倒了才开，一塔倒掉后塔防刷新。 */
   private UseGlyph(
     buildings: BuildingInfo[],
     recentEnemies: CDOTA_BaseNPC_Hero[],
@@ -421,7 +471,7 @@ export class TeamBrain {
     const fallSeconds = new Map<EntityIndex, number>();
     for (const building of buildings) {
       const unit = building.unit;
-      if (unit.GetTeamNumber() === this.team && (building.tier === 3 || building.tier >= 5)) {
+      if (unit.GetTeamNumber() === this.team) {
         fallSeconds.set(unit.GetEntityIndex(), this.FallSeconds(unit, now));
       }
     }
@@ -437,14 +487,17 @@ export class TeamBrain {
       const attacked = recentEnemies.some(
         (enemy) => distance(unit.GetAbsOrigin(), this.PositionOf(enemy)) <= BUILDING_THREAT_RADIUS,
       );
+      if (!attacked) {
+        continue;
+      }
       const hp = unit.GetHealth() / unit.GetMaxHealth();
-      const fall = fallSeconds.get(unit.GetEntityIndex());
-      const outerPushed = building.tier === 1 && attacked && hp < GLYPH_OUTER_HP;
-      const innerFalling =
-        fall !== undefined &&
-        attacked &&
-        ((hp < GLYPH_BASE_HP && fall <= GLYPH_FALL_SECONDS) || hp < GLYPH_LAST_HP);
-      if (outerPushed || innerFalling) {
+      const glyph = shouldUseGlyph({
+        tier: building.tier,
+        hpRatio: hp,
+        fallSeconds: fallSeconds.get(unit.GetEntityIndex()) ?? Infinity,
+        defenderEta: this.DefenderEta(unit),
+      });
+      if (glyph) {
         ExecuteOrderFromTable({
           UnitIndex: caller.GetEntityIndex(),
           OrderType: UnitOrder.GLYPH,
@@ -455,6 +508,27 @@ export class TeamBrain {
         return;
       }
     }
+  }
+
+  /** 上一轮派去守这座建筑的人里，最快几秒能到；能 TP 的按引导时间算。 */
+  private DefenderEta(building: CDOTA_BaseNPC): number {
+    let best = Infinity;
+    for (const [id, task] of this.tasks) {
+      const hero = this.members.get(id as EntityIndex);
+      if (task.kind !== 'defend' || task.targetId !== building.GetEntityIndex() || !hero) {
+        continue;
+      }
+      if (!hero.IsAlive()) {
+        continue;
+      }
+      let eta = hero.GetRangeToUnit(building) / Math.max(hero.GetIdealSpeed(), 1);
+      const scroll = hero.FindItemInInventory('item_tpscroll');
+      if (scroll !== undefined && scroll.IsFullyCastable()) {
+        eta = Math.min(eta, scroll.GetChannelTime() + TELEPORT_LANDING_WALK);
+      }
+      best = Math.min(best, eta);
+    }
+    return best;
   }
 
   /** 按最近几秒的掉血速度，这座建筑还能撑几秒。 */
@@ -551,19 +625,22 @@ export class TeamBrain {
       const pos = this.PositionOf(enemy);
       x += pos.x / enemies.length;
       y += pos.y / enemies.length;
-      enemyPower += this.PowerOf(enemy);
-      if (enemy.GetHealth() < focus.GetHealth()) {
+      // 被硬控的敌人这几秒还不了手，打折算让附近的 bot 抓住机会上
+      const disabled = HeroUtil.NotActionable(enemy);
+      enemyPower += this.PowerOf(enemy) * (disabled ? DISABLED_POWER_FACTOR : 1);
+      if (disabled !== HeroUtil.NotActionable(focus)) {
+        if (disabled) {
+          focus = enemy;
+        }
+      } else if (enemy.GetHealth() < focus.GetHealth()) {
         focus = enemy;
       }
     }
     const pos = Vector(x, y, 0);
-    const tower = this.FindTowerNear(this.enemyTeam, pos, FIGHT_TOWER_RADIUS);
-    if (tower) {
-      enemyPower += UnitPower(tower);
-    }
-    // 己方塔也算我方战力，玩家上高地时 bot 守得更积极；玩家的塔同样算进敌方
-    const ownTower = this.FindTowerNear(this.team, pos, FIGHT_TOWER_RADIUS);
-    let allyPower = ownTower ? UnitPower(ownTower) : 0;
+    const enemyTowerPower = BuildingPowerNear(this.enemyTeam, pos);
+    enemyPower += enemyTowerPower;
+    // 己方塔、兵营与基地也算我方战力，玩家上高地时 bot 守得更积极；玩家的建筑同样算进敌方
+    let allyPower = BuildingPowerNear(this.team, pos);
     let ourPower = allyPower;
     let engaged = false;
     const ourNames: string[] = [];
@@ -591,21 +668,107 @@ export class TeamBrain {
       enemyNames: enemies.map(HeroShortName),
       ourPower,
       ourNames,
-      withTower: tower !== undefined,
+      withTower: enemyTowerPower > 0,
       pastFront: this.IsPastFront(pos),
       engaged,
     };
   }
 
-  /** 被派来打、快要赶到的 bot 也算进这处交战点的我方战力，队友之间判断一致；还远的不算，免得先到的人以为有援军硬上。 */
+  /** 同去一处的 bot 按队形分好站位：推进与回防横排朝敌人，打架在目标我方一侧排成扇形。 */
+  private AssignSlots(recentEnemies: CDOTA_BaseNPC_Hero[]): void {
+    this.slots.clear();
+    const groups = new Map<string, { task: Task; heroes: CDOTA_BaseNPC_Hero[] }>();
+    for (const [id, task] of this.tasks) {
+      const hero = this.members.get(id as EntityIndex);
+      if (!hero || (task.kind !== 'push' && task.kind !== 'defend' && task.kind !== 'fight')) {
+        continue;
+      }
+      const key = `${task.kind}:${task.targetId ?? -1}:${Math.floor(task.pos.x)}:${Math.floor(task.pos.y)}`;
+      const group = groups.get(key);
+      if (group) {
+        group.heroes.push(hero);
+      } else {
+        groups.set(key, { task, heroes: [hero] });
+      }
+    }
+    for (const { task, heroes } of groups.values()) {
+      if (heroes.length < 2) {
+        continue;
+      }
+      const members = heroes.map((hero) => ({
+        id: hero.GetEntityIndex() as number,
+        pos: hero.GetAbsOrigin(),
+        melee: !hero.IsRangedAttacker(),
+      }));
+      const facing = this.FacingOf(task, members, recentEnemies);
+      const slots =
+        task.kind === 'fight'
+          ? arcSlots(task.pos, facing, members, FIGHT_ARC_RADIUS, FORMATION_SPACING)
+          : lineSlots(task.pos, facing, members, FORMATION_SPACING);
+      for (const [id, slot] of slots) {
+        // 站位落在树林、悬崖里时站回集合点本身，靠英雄层的让位散开
+        this.slots.set(id, GridNav.IsTraversable(Vector(slot.x, slot.y, 0)) ? slot : task.pos);
+      }
+    }
+  }
+
+  /** 队形的朝向（单位向量）：推进朝目标建筑，回防朝最近的来犯敌人，打架朝我方来的方向。 */
+  private FacingOf(
+    task: Task,
+    members: { pos: Point }[],
+    recentEnemies: CDOTA_BaseNPC_Hero[],
+  ): Point {
+    const anchor = task.pos;
+    let toward: Point | undefined;
+    if (task.kind === 'fight') {
+      const x = members.reduce((sum, member) => sum + member.pos.x, 0) / members.length;
+      const y = members.reduce((sum, member) => sum + member.pos.y, 0) / members.length;
+      toward = { x, y };
+    } else if (task.kind === 'push' && task.targetId !== undefined) {
+      const building = EntIndexToHScript(task.targetId as EntityIndex) as CDOTA_BaseNPC | undefined;
+      toward = building && IsValidEntity(building) ? building.GetAbsOrigin() : undefined;
+    } else if (task.kind === 'defend') {
+      let best = DEFEND_FACING_RADIUS;
+      for (const enemy of recentEnemies) {
+        const gap = distance(this.PositionOf(enemy), anchor);
+        if (gap < best) {
+          best = gap;
+          toward = this.PositionOf(enemy);
+        }
+      }
+    }
+    if (toward === undefined) {
+      // 没有明确的敌人方向时背对自家泉水，敌人多从这一侧来
+      const fountain = HeroUtil.GetTeamFountainPosition(this.team);
+      toward = fountain
+        ? { x: 2 * anchor.x - fountain.x, y: 2 * anchor.y - fountain.y }
+        : { x: anchor.x + 1, y: anchor.y };
+    }
+    const dx = toward.x - anchor.x;
+    const dy = toward.y - anchor.y;
+    const length = Math.sqrt(dx * dx + dy * dy);
+    return length > 1 ? { x: dx / length, y: dy / length } : { x: 1, y: 0 };
+  }
+
+  private FightingTargets(): Map<number, number> {
+    const fighting = new Map<number, number>();
+    for (const [id, task] of this.tasks) {
+      if (task.kind === 'fight' && task.targetId !== undefined) {
+        fighting.set(id, task.targetId);
+      }
+    }
+    return fighting;
+  }
+
+  /** 被派来打或回防、快要赶到的 bot 也算进这处交战点的我方战力，队友之间判断一致；还远的不算，免得先到的人以为有援军硬上。 */
   private CountCommittedFighters(): void {
     for (const fight of this.fights) {
       for (const [id, task] of this.tasks) {
         const bot = this.members.get(id as EntityIndex);
         if (
           !bot ||
-          task.kind !== 'fight' ||
-          task.targetId !== fight.focusId ||
+          (task.kind !== 'fight' && task.kind !== 'defend') ||
+          (task.kind === 'fight' && task.targetId !== fight.focusId) ||
           distance(bot.GetAbsOrigin(), fight.pos) <= FIGHT_DANGER_RADIUS ||
           distance(bot.GetAbsOrigin(), fight.pos) > FIGHT_FOLLOW_RADIUS
         ) {
@@ -622,7 +785,7 @@ export class TeamBrain {
     const fountain = HeroUtil.GetTeamFountainPosition(this.team) ?? pos;
     const depth = distance(pos, fountain) + RALLY_FORWARD_SLACK;
     const candidates: CDOTA_BaseNPC[] = [...this.members.values()];
-    for (const tower of Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[]) {
+    for (const tower of CachedTowers()) {
       if (tower.GetTeamNumber() === this.team) {
         candidates.push(tower);
       }
@@ -644,20 +807,6 @@ export class TeamBrain {
       }
     }
     return best ?? fountain;
-  }
-
-  private FindTowerNear(team: DotaTeam, pos: Vector, radius: number): CDOTA_BaseNPC | undefined {
-    for (const tower of Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[]) {
-      if (
-        !tower.IsNull() &&
-        tower.IsAlive() &&
-        tower.GetTeamNumber() === team &&
-        distance(tower.GetAbsOrigin(), pos) <= radius
-      ) {
-        return tower;
-      }
-    }
-    return undefined;
   }
 
   private PruneMembers(): void {
@@ -689,45 +838,205 @@ export class TeamBrain {
     return memory;
   }
 
+  /**
+   * 敌方英雄贴着任一建筑算已经打起来；离基地建筑近但还没动手算预警；基地附近只有小兵时按小兵派人清。
+   * 预警与小兵各自归到离它最近的基地建筑，同一拨人不在几座建筑上重复派人。
+   */
   private FindDefendTargets(
     buildings: BuildingInfo[],
     recentEnemies: CDOTA_BaseNPC_Hero[],
-    now: number,
   ): DefendTarget[] {
+    const own = buildings.filter(
+      (building) =>
+        building.unit.GetTeamNumber() === this.team &&
+        !building.unit.IsInvulnerable() &&
+        !this.IsBackdoorSafe(building.unit),
+    );
     const targets: DefendTarget[] = [];
-    for (const building of buildings) {
-      const unit = building.unit;
-      if (unit.GetTeamNumber() !== this.team || unit.IsInvulnerable()) {
+    const engagedIds = new Set<EntityIndex>();
+    const engagedEnemies = new Set<CDOTA_BaseNPC_Hero>();
+    for (const building of own) {
+      const attackers = recentEnemies.filter(
+        (enemy) =>
+          distance(building.unit.GetAbsOrigin(), this.PositionOf(enemy)) <= BUILDING_THREAT_RADIUS,
+      );
+      if (attackers.length === 0) {
         continue;
       }
-      let attackerPower = 0;
-      for (const enemy of recentEnemies) {
-        if (distance(unit.GetAbsOrigin(), this.PositionOf(enemy)) <= BUILDING_THREAT_RADIUS) {
-          attackerPower += this.PowerOf(enemy);
-        }
-      }
-      const index = unit.GetEntityIndex();
-      if (attackerPower <= 0) {
-        this.baseThreatSince.delete(index);
+      attackers.forEach((enemy) => engagedEnemies.add(enemy));
+      engagedIds.add(building.unit.GetEntityIndex());
+      targets.push(
+        this.DefendTargetOf(
+          building,
+          'engaged',
+          attackers.reduce((sum, enemy) => sum + this.PowerOf(enemy), 0),
+        ),
+      );
+    }
+
+    const base = own.filter((building) => building.isBase);
+    const warning = new Map<BuildingInfo, number>();
+    for (const enemy of recentEnemies) {
+      if (engagedEnemies.has(enemy)) {
         continue;
       }
-      if (building.isBase) {
-        const since = this.baseThreatSince.get(index) ?? now;
-        this.baseThreatSince.set(index, since);
-        if (now - since < BASE_DEFEND_DELAY) {
+      const near = NearestBuilding(base, this.PositionOf(enemy), BASE_WARNING_RADIUS);
+      if (near) {
+        warning.set(near, (warning.get(near) ?? 0) + this.PowerOf(enemy));
+      }
+    }
+    for (const [building, power] of warning) {
+      targets.push(this.DefendTargetOf(building, 'warning', power));
+    }
+
+    // 同一波兵只算一次威胁；附近几座己方建筑一起打，扣掉它们的战力
+    const waves: { x: number; y: number; count: number; power: number }[] = [];
+    const center = base.find((building) => building.tier === 6) ?? base[0];
+    if (center !== undefined) {
+      // 以基地为圆心搜一次盖住所有基地建筑的范围，高地兵多时不会被几座建筑重复搜到
+      const origin = center.unit.GetAbsOrigin();
+      const reach = base.reduce(
+        (max, building) => Math.max(max, distance(building.unit.GetAbsOrigin(), origin)),
+        0,
+      );
+      const units = FindUnitsInRadius(
+        this.team,
+        origin,
+        undefined,
+        reach + BASE_CREEP_RADIUS,
+        UnitTargetTeam.ENEMY,
+        UnitTargetType.BASIC,
+        UnitTargetFlags.FOW_VISIBLE + UnitTargetFlags.NO_INVIS,
+        FindOrder.ANY,
+        false,
+      );
+      for (const creep of units) {
+        if (!creep.IsCreep() || creep.IsNeutralUnitType()) {
           continue;
         }
+        const pos = creep.GetAbsOrigin();
+        if (!NearestBuilding(base, pos, BASE_CREEP_RADIUS)) {
+          continue;
+        }
+        const wave = waves.find(
+          (w) => distance({ x: w.x / w.count, y: w.y / w.count }, pos) <= CREEP_WAVE_RADIUS,
+        );
+        if (wave) {
+          wave.x += pos.x;
+          wave.y += pos.y;
+          wave.count++;
+          wave.power += UnitPower(creep);
+        } else {
+          waves.push({ x: pos.x, y: pos.y, count: 1, power: UnitPower(creep) });
+        }
       }
-      targets.push({
-        id: unit.GetEntityIndex(),
-        pos: unit.GetAbsOrigin(),
-        isBase: building.isBase,
-        importance: building.importance,
-        hpRatio: unit.GetHealth() / unit.GetMaxHealth(),
-        attackerPower,
-      });
+    }
+    for (const wave of waves) {
+      const pos = { x: wave.x / wave.count, y: wave.y / wave.count };
+      const building = NearestBuilding(base, pos, BASE_CREEP_RADIUS);
+      if (building && !engagedIds.has(building.unit.GetEntityIndex())) {
+        const net = wave.power - BuildingPowerNear(this.team, pos);
+        targets.push(this.DefendTargetOf(building, 'creeps', net));
+      }
     }
     return targets;
+  }
+
+  /** 偷塔保护生效、附近又没有敌方小兵过来时，英雄单独打塔几乎打不动，不必回防。 */
+  private IsBackdoorSafe(unit: CDOTA_BaseNPC): boolean {
+    if (!unit.HasModifier('modifier_backdoor_protection_active')) {
+      return false;
+    }
+    const nearby = FindUnitsInRadius(
+      this.team,
+      unit.GetAbsOrigin(),
+      undefined,
+      BACKDOOR_CREEP_RADIUS,
+      UnitTargetTeam.ENEMY,
+      UnitTargetType.BASIC,
+      UnitTargetFlags.FOW_VISIBLE,
+      FindOrder.ANY,
+      false,
+    );
+    return !nearby.some((creep) => creep.IsCreep() && !creep.IsNeutralUnitType());
+  }
+
+  /** 敌方英雄在范围边上进出或一时看不见时，守这座建筑的任务再留一会儿，免得派来的人来回换任务。 */
+  private RememberDefendTargets(targets: DefendTarget[], now: number): DefendTarget[] {
+    for (const target of targets) {
+      if (target.stage !== 'creeps') {
+        this.defendMemory.set(target.id, { target, time: now });
+      }
+    }
+    const result = [...targets];
+    for (const [id, memory] of this.defendMemory) {
+      const unit = EntIndexToHScript(id as EntityIndex) as CDOTA_BaseNPC | undefined;
+      if (
+        now - memory.time > DEFEND_MEMORY ||
+        !unit ||
+        unit.IsNull() ||
+        !unit.IsAlive() ||
+        this.IsBackdoorSafe(unit)
+      ) {
+        this.defendMemory.delete(id);
+        continue;
+      }
+      if (!targets.some((target) => target.id === id && target.stage !== 'creeps')) {
+        result.push(memory.target);
+      }
+    }
+    return result;
+  }
+
+  private DefendTargetOf(
+    building: BuildingInfo,
+    stage: DefendTarget['stage'],
+    attackerPower: number,
+  ): DefendTarget {
+    const unit = building.unit;
+    return {
+      id: unit.GetEntityIndex(),
+      pos: unit.GetAbsOrigin(),
+      stage,
+      isBase: building.isBase,
+      core: building.tier >= 5,
+      importance: building.importance,
+      hpRatio: unit.GetHealth() / unit.GetMaxHealth(),
+      attackerPower,
+    };
+  }
+
+  /** 会不会控制、能不能范围清兵，都以施法规则为准：跳过已被控目标的算控制，对小兵放的算清兵。 */
+  private RoleOf(hero: CDOTA_BaseNPC_Hero, now: number): { control: boolean; waveClear: boolean } {
+    const index = hero.GetEntityIndex();
+    const cached = this.roles.get(index);
+    if (cached && now < cached.until) {
+      return cached;
+    }
+    let control = false;
+    let waveClear = false;
+    for (let i = 0; i < hero.GetAbilityCount(); i++) {
+      const ability = hero.GetAbilityByIndex(i);
+      if (!ability || ability.GetLevel() <= 0) {
+        continue;
+      }
+      for (const spec of AbilityRegistry.get(ability.GetAbilityName()) ?? []) {
+        control = control || spec.condition?.target?.unitCondition?.notActionable === true;
+        waveClear = waveClear || spec.targetSide === TargetSide.EnemyCreep;
+      }
+    }
+    for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
+      const item = hero.GetItemInSlot(slot);
+      if (!item) {
+        continue;
+      }
+      for (const spec of ItemRegistry.get(item.GetAbilityName()) ?? []) {
+        control = control || spec.condition?.target?.unitCondition?.notActionable === true;
+      }
+    }
+    const role = { control, waveClear, until: now + ROLE_CACHE_SECONDS };
+    this.roles.set(index, role);
+    return role;
   }
 
   /** 这个位置是否在某一路敌方还没推掉的塔后面，bot 不越过它追人或打架。 */
@@ -981,27 +1290,45 @@ function IsLaneCreep(creep: CDOTA_BaseNPC): boolean {
   );
 }
 
-const BUILDING_CLASSES = ['npc_dota_tower', 'npc_dota_barracks', 'npc_dota_fort'];
-
 function CollectBuildings(): BuildingInfo[] {
-  const result: BuildingInfo[] = [];
-  for (const className of BUILDING_CLASSES) {
-    for (const unit of Entities.FindAllByClassname(className) as CDOTA_BaseNPC[]) {
-      if (unit.IsNull() || !unit.IsAlive()) {
-        continue;
-      }
-      const name = unit.GetUnitName();
-      const tier = BuildingTier(name);
-      result.push({
-        unit,
-        lane: BuildingLane(name),
-        tier,
-        importance: tier,
-        isBase: tier >= 4,
-      });
+  return CachedBuildings().map((unit) => {
+    const name = unit.GetUnitName();
+    const tier = BuildingTier(name);
+    // 高地塔起打不过也要派人守
+    return { unit, lane: BuildingLane(name), tier, importance: tier, isBase: tier >= 3 };
+  });
+}
+
+/** 射程能盖到这个位置的一方建筑的战力之和，几座挨着的高地建筑一起算。 */
+function BuildingPowerNear(team: DotaTeam, pos: Point): number {
+  let power = 0;
+  for (const unit of CachedBuildings()) {
+    if (
+      unit.GetTeamNumber() === team &&
+      unit.HasAttackCapability() &&
+      distance(unit.GetAbsOrigin(), pos) <= TowerAttackRange(unit) + FIGHT_TOWER_MARGIN
+    ) {
+      power += UnitPower(unit);
     }
   }
-  return result;
+  return power;
+}
+
+function NearestBuilding(
+  buildings: BuildingInfo[],
+  pos: Point,
+  radius: number,
+): BuildingInfo | undefined {
+  let best: BuildingInfo | undefined;
+  let bestDistance = radius;
+  for (const building of buildings) {
+    const gap = distance(building.unit.GetAbsOrigin(), pos);
+    if (gap <= bestDistance) {
+      best = building;
+      bestDistance = gap;
+    }
+  }
+  return best;
 }
 
 /** 外塔 1、二塔 2、高地塔 3、兵营 4、基地塔 5、基地 6，数值同时用作防守重要度。 */

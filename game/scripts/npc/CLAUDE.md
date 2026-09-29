@@ -13,7 +13,7 @@
 | `npc_items_custom.txt` | `npc_items_modifier.txt`<br>`npc_items_artifact.txt`<br>`npc_items_clone.txt` | 自制物品。modifier 放物品间共享的 DataDriven modifier（`item_apply_modifiers` 引用），artifact 放神器，clone 放原版物品的倍率克隆 |
 | `npc_units_custom.txt` | `npc_units_building.txt`<br>`npc_units_creep.txt`<br>`npc_units_neutral.txt` | 自定义单位 |
 
-其余独立文件：`npc_heroes_custom.txt`（英雄覆盖与 `Bot.Build` 加点）、`herolist.txt`（可选英雄开关）、`neutral_items.txt`（中立物品掉落表，改动需同步 `src/vscripts/ai/item/neutral-item.ts` 的 `GetDefaultConfig`）、`portraits_custom.txt`（自定义模型头像）。
+其余独立文件：`npc_heroes_custom.txt`（英雄覆盖与 `Bot.Build` 加点；改加点前先调用 `update-heroes-custom` skill，哪些等级没有技能点、每级最多几点都在那里）、`herolist.txt`（可选英雄开关）、`neutral_items.txt`（中立物品掉落表，改动需同步 `src/vscripts/ai/item/neutral-item.ts` 的 `GetDefaultConfig`）、`portraits_custom.txt`（自定义模型头像）。
 
 `npc_items_clone.txt` 由 `clone-item` skill 生成，勿手改。
 
