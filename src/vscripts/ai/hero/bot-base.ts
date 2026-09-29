@@ -175,6 +175,9 @@ export class BotBaseAIModifier extends BaseModifier {
   public gameTime: number = 0;
   public mode: BotMode = 'laning';
   protected stance: Stance = 'task';
+  public GetStance(): Stance {
+    return this.stance;
+  }
 
   private engagedUntil: number = -60;
   private lastHurtTime: number = -60;
@@ -669,7 +672,7 @@ export class BotBaseAIModifier extends BaseModifier {
     return best;
   }
 
-  private IsProtectedByTower(enemy: CDOTA_BaseNPC): boolean {
+  IsProtectedByTower(enemy: CDOTA_BaseNPC): boolean {
     for (const building of this.aroundEnemyBuildingsInvulnerable) {
       if (
         IsTowerLike(building) &&

@@ -10,7 +10,7 @@ export const SPECS: AbilitySpec[] = [
     abilityName: 'riki_blink_strike',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      self: { canEngage: true },
+      self: { stance: 'fight' },
       target: { range: { gte: 300 } },
     },
   },

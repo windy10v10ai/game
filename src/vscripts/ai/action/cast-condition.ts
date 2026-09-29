@@ -1,4 +1,5 @@
 import { HeroUtil } from '../hero/hero-util';
+import type { CastStance } from '../hero/engagement';
 
 /**
  * 施法条件，必须满足所有条件才能施法
@@ -133,10 +134,10 @@ export interface CastCoindition {
      */
     ultimateNotReady?: boolean;
     /**
-     * 要求团队大脑判断这波敌人值得主动上去打才施法，与英雄层「走上去交战」同一口径，
-     * 用于跳进敌人身边、放了就难退的先手技能。
+     * 要求英雄当前的打/撤决定与之相符才施法：'fight' 用于跳进敌人身边的先手，'retreat' 用于脱身。
+     * 跳进去的用法还会跳过站在越不了的塔下的目标。
      */
-    canEngage?: boolean;
+    stance?: CastStance;
   };
   ability?: AbilityCoindition;
   action?: {

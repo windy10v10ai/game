@@ -5,7 +5,7 @@ import {
   GetFullCastRange,
 } from '../ability/ability-cast';
 import { TargetSide } from '../ability/ability-spec';
-import { canEngage } from '../hero/engagement';
+import { matchesStance } from '../hero/engagement';
 import { HeroUtil } from '../hero/hero-util';
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { FRIENDLY_CREEP_SEARCH_RADIUS } from './action-find';
@@ -80,23 +80,28 @@ export function TryCastBySpec(
   if (condition?.self?.ultimateNotReady && IsUltimateReady(hero)) {
     return false;
   }
-  if (condition?.self?.canEngage && !CanEngage(ai)) {
+  const stance = condition?.self?.stance;
+  if (stance && !matchesStance(stance, ai.GetStance())) {
     return false;
   }
 
   if (targetSide === TargetSide.Tree) {
     const cast = CastOnNearestTree(hero, castable);
-    if (cast) TraceCast(hero, castable, targetSide, undefined, 'tree');
+    if (cast) TraceCast(ai, castable, targetSide, undefined, 'tree');
     return cast;
   }
 
   const target = pickTarget(ai, castable, targetSide, condition);
   if (condition?.action?.toggleByTarget) {
     const toggled = ApplyAbilityAction(castable, { toggleOn: !!target, toggleOff: !target });
-    if (toggled) TraceCast(hero, castable, targetSide, target, target ? 'toggle_on' : 'toggle_off');
+    if (toggled) TraceCast(ai, castable, targetSide, target, target ? 'toggle_on' : 'toggle_off');
     return toggled;
   }
   if (!target) {
+    return false;
+  }
+  // 冲进去的技能不跳到越不了的塔下
+  if (stance === 'fight' && ai.IsProtectedByTower(target)) {
     return false;
   }
 
@@ -110,20 +115,20 @@ export function TryCastBySpec(
     const applied = ApplyAbilityAction(castable, condition.action);
     // 开自动施法不占用本 tick，返回 false，按状态变化判断是否真的切换了
     if (applied || castable.GetAutoCastState() !== autoCastBefore) {
-      TraceCast(hero, castable, targetSide, target, 'action');
+      TraceCast(ai, castable, targetSide, target, 'action');
     }
     return applied;
   }
 
   const castPosition = resolveCastPosition(hero, castable, target, condition);
   const cast = CastAbilityOnTargetByBehavior(hero, castable, target, castPosition);
-  if (cast) TraceCast(hero, castable, targetSide, target, 'cast');
+  if (cast) TraceCast(ai, castable, targetSide, target, 'cast');
   return cast;
 }
 
 /** 开发模式下每次下达施法打一行，事后按日志核对施放时机是否符合 spec。 */
 function TraceCast(
-  hero: CDOTA_BaseNPC_Hero,
+  ai: BotBaseAIModifier,
   castable: CDOTABaseAbility,
   side: TargetSide,
   target: CDOTA_BaseNPC | undefined,
@@ -132,6 +137,7 @@ function TraceCast(
   if (!IS_DEBUG_RUN) {
     return;
   }
+  const hero = ai.GetHero();
   const time = GameRules.GetDOTATime(false, false);
   const clock = `${Math.floor(time / 60)}:${string.format('%02d', Math.floor(time % 60))}`;
   let targetText = '';
@@ -148,7 +154,7 @@ function TraceCast(
   }
   print(
     `[bot-cast] t=${clock} ${hero.GetUnitName().replace('npc_dota_hero_', '')}` +
-      ` hp=${Math.floor(hero.GetHealthPercent())}% ${castable.GetAbilityName()} ${kind} side=${side}${targetText}` +
+      ` hp=${Math.floor(hero.GetHealthPercent())}% stance=${ai.GetStance()} ${castable.GetAbilityName()} ${kind} side=${side}${targetText}` +
       ` beh=${GetAbilityBehaviorBits(castable)} cd=${string.format('%.1f', castable.GetCooldownTimeRemaining())}`,
   );
 }
@@ -172,16 +178,6 @@ function HasEnemyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
     }
   }
   return false;
-}
-
-function CanEngage(ai: BotBaseAIModifier): boolean {
-  const hero = ai.GetHero();
-  const brain = GameRules.AI.BotTeam?.GetBrain(hero);
-  if (!brain || ai.aroundEnemyHeroes.length === 0) {
-    return false;
-  }
-  const fight = brain.AssessFight(hero, ai.aroundEnemyHeroes);
-  return canEngage(fight.ourPower, fight.enemyPower);
 }
 
 // 施法距离很短，允许走几步去抓稍远的树

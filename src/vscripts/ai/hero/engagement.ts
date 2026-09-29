@@ -30,6 +30,13 @@ export function canEngage(ourPower: number, enemyPower: number): boolean {
   return enemyPower <= ourPower * AVOID_POWER_RATIO;
 }
 
+export type CastStance = 'fight' | 'retreat';
+
+/** 位移、隐身这类技能按英雄已做出的打/撤决定选用法；跑不掉时两种都可能救命。 */
+export function matchesStance(want: CastStance, stance: Stance): boolean {
+  return stance === want || stance === 'lastStand';
+}
+
 export function decideStance(input: EngagementInput): Stance {
   if (input.enemyPower <= 0) {
     return 'task';
