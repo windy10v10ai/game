@@ -598,15 +598,23 @@ export class BotBaseAIModifier extends BaseModifier {
     return false;
   }
 
-  /** 优先团队指定的集火目标，否则挑血最少的；站在不能进的敌方塔下、或躲到还没推掉的塔后面的目标不追。 */
+  /**
+   * 优先团队指定的集火目标，否则挑血最少的；站在不能进的敌方塔下、或躲到还没推掉的塔后面的目标不追。
+   * 已经贴到身边的敌人不算追，照打，免得放着身边的英雄不打去打野怪。
+   */
   private PickFightTarget(focusId: number | undefined): CDOTA_BaseNPC | undefined {
+    const reach = this.hero.Script_GetAttackRange() + this.HitBackExtraRange;
     let best: CDOTA_BaseNPC | undefined;
     for (const enemy of this.aroundEnemyHeroes) {
       const isFocus = enemy.GetEntityIndex() === focusId;
-      if (!isFocus && this.hero.GetRangeToUnit(enemy) > this.ChaseRange) {
+      const range = this.hero.GetRangeToUnit(enemy);
+      if (!isFocus && range > this.ChaseRange) {
         continue;
       }
-      if (this.IsProtectedByTower(enemy) || this.brain?.IsPastFront(enemy.GetAbsOrigin())) {
+      if (
+        this.IsProtectedByTower(enemy) ||
+        (range > reach && this.brain?.IsPastFront(enemy.GetAbsOrigin()))
+      ) {
         continue;
       }
       if (isFocus) {
@@ -678,7 +686,9 @@ export class BotBaseAIModifier extends BaseModifier {
       this.traceTarget = 'lane';
       return this.MoveTo(entry, UnitOrder.MOVE_TO_POSITION);
     }
-    if (this.MoveTo(destination, UnitOrder.ATTACK_MOVE)) {
+    // 赶去交战点只管走，攻击移动会半路停下打野怪小兵，到了才开打的人逐个送
+    const order = task.kind === 'fight' ? UnitOrder.MOVE_TO_POSITION : UnitOrder.ATTACK_MOVE;
+    if (this.MoveTo(destination, order)) {
       return true;
     }
     this.traceTarget = 'arrived';
