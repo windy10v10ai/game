@@ -51,6 +51,9 @@ const FORCE_STAFF_NAMES = [
 // 推动方向取朝向，赶路时朝向偏离目的地超过约 30° 就会推歪
 const FORCE_STAFF_TRAVEL_MIN_COS = 0.87;
 
+// 赶路推一下省不了多少时间，蓝紧张时留给撤退和施法
+const FORCE_STAFF_TRAVEL_MIN_MANA_PERCENT = 50;
+
 const blinkRangeCache = new Map<string, number>();
 
 @registerModifier('ai/hero/bot-base')
@@ -932,8 +935,8 @@ export class BotBaseAIModifier extends BaseModifier {
         return false;
       }
     } else if (
-      (forward.x * offset.x + forward.y * offset.y) / distance <
-      FORCE_STAFF_TRAVEL_MIN_COS
+      this.hero.GetManaPercent() < FORCE_STAFF_TRAVEL_MIN_MANA_PERCENT ||
+      (forward.x * offset.x + forward.y * offset.y) / distance < FORCE_STAFF_TRAVEL_MIN_COS
     ) {
       return false;
     }
