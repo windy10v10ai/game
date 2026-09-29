@@ -8,6 +8,7 @@ import { TargetSide } from '../ability/ability-spec';
 import { HeroUtil } from '../hero/hero-util';
 import { ItemRegistry } from '../item/item-registry';
 import { CachedBuildings, CachedTowers, TowerAttackRange } from './building-cache';
+import { arcSlots, FORMATION_SPACING, lineSlots } from './formation';
 import { shouldUseGlyph } from './glyph';
 import {
   buildLanePath,
@@ -57,6 +58,10 @@ const LANE_CREEP_MAX_OFFSET = 1200;
 const BUILDING_THREAT_RADIUS = 1200;
 // 彼此在这个距离内的敌方英雄算同一处交战点
 const FIGHT_CLUSTER_RADIUS = 1200;
+// 去打架的人在目标这么远处排成扇形，从几个方向围上去
+const FIGHT_ARC_RADIUS = 500;
+// 回防时按这么近的敌人定朝向
+const DEFEND_FACING_RADIUS = 3000;
 // 被硬控的敌方英雄战力按这个比例算
 const DISABLED_POWER_FACTOR = 0.5;
 // 交战点在建筑射程外这么远以内也算建筑参战，英雄走几步就进射程
@@ -148,6 +153,7 @@ export class TeamBrain {
   private readonly landingReserved = new Map<EntityIndex, number>();
   private readonly teleports = new Map<number, Map<EntityIndex, TeleportPlan>>();
   private readonly roles = new Map<EntityIndex, HeroRole>();
+  private readonly slots = new Map<number, Point>();
   private lastDefendKey = '';
   // 阵亡的 bot 没有当前战力，买活判断用它最后活着时的战力
   private readonly lastPower = new Map<EntityIndex, number>();
@@ -172,6 +178,11 @@ export class TeamBrain {
 
   GetTask(hero: CDOTA_BaseNPC_Hero): Task | undefined {
     return this.tasks.get(hero.GetEntityIndex());
+  }
+
+  /** 和同去一处的队友一起排开时，这个 bot 该站的位置；独自一人时没有。 */
+  SlotOf(hero: CDOTA_BaseNPC_Hero): Point | undefined {
+    return this.slots.get(hero.GetEntityIndex());
   }
 
   /** 英雄报告自己是否正在和敌方英雄交手，团队据此判断哪处交战已经打起来。 */
@@ -356,6 +367,7 @@ export class TeamBrain {
       random: () => RandomFloat(0, 1),
     });
     this.tasks = result.tasks;
+    this.AssignSlots(recentEnemies);
     if (IS_DEBUG_RUN && result.plan && result.plan !== this.plan) {
       const picks = result.plan.picks.map((pick) => pick.lane).join(',');
       const lanesNow = lanes.map((lane) => lane.lane).join(',');
@@ -648,6 +660,82 @@ export class TeamBrain {
       pastFront: this.IsPastFront(pos),
       engaged,
     };
+  }
+
+  /** 同去一处的 bot 按队形分好站位：推进与回防横排朝敌人，打架在目标我方一侧排成扇形。 */
+  private AssignSlots(recentEnemies: CDOTA_BaseNPC_Hero[]): void {
+    this.slots.clear();
+    const groups = new Map<string, { task: Task; heroes: CDOTA_BaseNPC_Hero[] }>();
+    for (const [id, task] of this.tasks) {
+      const hero = this.members.get(id as EntityIndex);
+      if (!hero || (task.kind !== 'push' && task.kind !== 'defend' && task.kind !== 'fight')) {
+        continue;
+      }
+      const key = `${task.kind}:${task.targetId ?? -1}:${Math.floor(task.pos.x)}:${Math.floor(task.pos.y)}`;
+      const group = groups.get(key);
+      if (group) {
+        group.heroes.push(hero);
+      } else {
+        groups.set(key, { task, heroes: [hero] });
+      }
+    }
+    for (const { task, heroes } of groups.values()) {
+      if (heroes.length < 2) {
+        continue;
+      }
+      const members = heroes.map((hero) => ({
+        id: hero.GetEntityIndex() as number,
+        pos: hero.GetAbsOrigin(),
+        melee: !hero.IsRangedAttacker(),
+      }));
+      const facing = this.FacingOf(task, members, recentEnemies);
+      const slots =
+        task.kind === 'fight'
+          ? arcSlots(task.pos, facing, members, FIGHT_ARC_RADIUS, FORMATION_SPACING)
+          : lineSlots(task.pos, facing, members, FORMATION_SPACING);
+      for (const [id, slot] of slots) {
+        // 站位落在树林、悬崖里时站回集合点本身，靠英雄层的让位散开
+        this.slots.set(id, GridNav.IsTraversable(Vector(slot.x, slot.y, 0)) ? slot : task.pos);
+      }
+    }
+  }
+
+  /** 队形的朝向（单位向量）：推进朝目标建筑，回防朝最近的来犯敌人，打架朝我方来的方向。 */
+  private FacingOf(
+    task: Task,
+    members: { pos: Point }[],
+    recentEnemies: CDOTA_BaseNPC_Hero[],
+  ): Point {
+    const anchor = task.pos;
+    let toward: Point | undefined;
+    if (task.kind === 'fight') {
+      const x = members.reduce((sum, member) => sum + member.pos.x, 0) / members.length;
+      const y = members.reduce((sum, member) => sum + member.pos.y, 0) / members.length;
+      toward = { x, y };
+    } else if (task.kind === 'push' && task.targetId !== undefined) {
+      const building = EntIndexToHScript(task.targetId as EntityIndex) as CDOTA_BaseNPC | undefined;
+      toward = building && IsValidEntity(building) ? building.GetAbsOrigin() : undefined;
+    } else if (task.kind === 'defend') {
+      let best = DEFEND_FACING_RADIUS;
+      for (const enemy of recentEnemies) {
+        const gap = distance(this.PositionOf(enemy), anchor);
+        if (gap < best) {
+          best = gap;
+          toward = this.PositionOf(enemy);
+        }
+      }
+    }
+    if (toward === undefined) {
+      // 没有明确的敌人方向时背对自家泉水，敌人多从这一侧来
+      const fountain = HeroUtil.GetTeamFountainPosition(this.team);
+      toward = fountain
+        ? { x: 2 * anchor.x - fountain.x, y: 2 * anchor.y - fountain.y }
+        : { x: anchor.x + 1, y: anchor.y };
+    }
+    const dx = toward.x - anchor.x;
+    const dy = toward.y - anchor.y;
+    const length = Math.sqrt(dx * dx + dy * dy);
+    return length > 1 ? { x: dx / length, y: dy / length } : { x: 1, y: 0 };
   }
 
   private FightingTargets(): Map<number, number> {

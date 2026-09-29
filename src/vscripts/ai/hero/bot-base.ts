@@ -16,6 +16,7 @@ import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../ite
 import { IS_DEBUG_RUN, PERF_CONFIG } from '../../modules/debug/perf-config';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { CachedTowers, TowerAttackRange } from '../team/building-cache';
+import { FORMATION_SPACING } from '../team/formation';
 import { Point } from '../team/lane-geometry';
 import { QUICK_CLEAR_POWER } from '../team/power';
 import { HeroShortName, TeamBrain, UnitPower } from '../team/team-brain';
@@ -112,10 +113,6 @@ export class BotBaseAIModifier extends BaseModifier {
   // 退出塔区时一并背离的附近塔，绕塔时再多留的余量
   protected readonly TowerNearbyRange: number = 600;
   protected readonly TowerDetourMargin: number = 200;
-  // 站位：黄金角均匀散开，半径在几档之间错开；散得比常见范围技能大，不被一个 AoE 全打中
-  protected readonly FormationAngleStep: number = 2.4;
-  protected readonly FormationMinRadius: number = 250;
-  protected readonly FormationRadiusStep: number = 200;
   protected readonly DiveMinHeroes: number = 3;
   protected readonly DiveMinHealthPercent: number = 50;
   protected readonly DiveMinCreeps: number = 2;
@@ -150,6 +147,8 @@ export class BotBaseAIModifier extends BaseModifier {
   // 同一目的地不重复下指令；单位停下或太久没更新时才重下
   // 到达判定要比站位间距小，否则都停在靠自己一侧的站位边缘、又挤回一团
   protected readonly ArriveRadius: number = 100;
+  // 停下来后和队友挨着超过这么久才让开
+  protected readonly CrowdedSeconds: number = 2;
   protected readonly OrderRepeatDistance: number = 400;
   protected readonly OrderRefreshTime: number = 10;
 
@@ -187,6 +186,8 @@ export class BotBaseAIModifier extends BaseModifier {
   private lastTraceKey: string = '';
   // 交战中团队大脑给的集合点，撤退时退向这里
   private retreatPoint: Point | undefined;
+  private crowdedSince: number | undefined;
+  private spreadCheckedAt = 0;
   private brain: TeamBrain | undefined;
   // 引导中最后一次看到范围内敌方英雄的时间，用来判断敌人离开了多久
   private channelEnemySeenTime = 0;
@@ -348,8 +349,8 @@ export class BotBaseAIModifier extends BaseModifier {
           return this.ActionRetreat();
         }
         this.mode = 'hold';
-        if (!ItemDispatcher.Run(this)) {
-          AbilityDispatcher.Run(this);
+        if (!ItemDispatcher.Run(this) && !AbilityDispatcher.Run(this)) {
+          this.SpreadOut();
         }
         return true;
       default:
@@ -654,7 +655,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.TryBlinkToward(safePoint) || this.TryForceStaffToward(safePoint, true)) {
       return true;
     }
-    this.MoveTo(safePoint, UnitOrder.MOVE_TO_POSITION);
+    if (!this.MoveTo(safePoint, UnitOrder.MOVE_TO_POSITION)) {
+      this.SpreadOut();
+    }
     return true;
   }
 
@@ -694,11 +697,61 @@ export class BotBaseAIModifier extends BaseModifier {
     }
     // 赶去交战点只管走，攻击移动会半路停下打野怪小兵，到了才开打的人逐个送
     const order = task.kind === 'fight' ? UnitOrder.MOVE_TO_POSITION : UnitOrder.ATTACK_MOVE;
-    if (this.MoveTo(destination, order)) {
+    if (this.MoveTo(destination, order) || this.SpreadOut()) {
       return true;
     }
     this.traceTarget = 'arrived';
     return false;
+  }
+
+  /**
+   * 停下来后和队友挨着站了一阵就让开一步，撤退点、等人处也不长期叠成一团。
+   * 只在到位后调用，路过、打架时短暂靠近不管，免得互相让来让去走不了位。
+   */
+  private SpreadOut(): boolean {
+    // 中间走开过就重新计时
+    if (this.gameTime - this.spreadCheckedAt > 1) {
+      this.crowdedSince = undefined;
+    }
+    this.spreadCheckedAt = this.gameTime;
+    const here = this.hero.GetAbsOrigin();
+    let pushX = 0;
+    let pushY = 0;
+    for (const ally of this.aroundFriendlyHeroes) {
+      if (ally === this.hero || !ally.IsAlive()) {
+        continue;
+      }
+      const away = here.__sub(ally.GetAbsOrigin());
+      const gap = away.Length2D();
+      if (gap >= FORMATION_SPACING) {
+        continue;
+      }
+      // 完全重叠时没有方向，按编号错开
+      const angle = this.hero.GetEntityIndex();
+      const dirX = gap > 1 ? away.x / gap : Math.cos(angle);
+      const dirY = gap > 1 ? away.y / gap : Math.sin(angle);
+      pushX += dirX * (FORMATION_SPACING - gap);
+      pushY += dirY * (FORMATION_SPACING - gap);
+    }
+    const length = Math.sqrt(pushX * pushX + pushY * pushY);
+    if (length < 1) {
+      this.crowdedSince = undefined;
+      return false;
+    }
+    this.crowdedSince = this.crowdedSince ?? this.gameTime;
+    if (this.gameTime - this.crowdedSince < this.CrowdedSeconds) {
+      return false;
+    }
+    const step = Math.max(length, this.ArriveRadius * 2);
+    const target = Vector(
+      here.x + (pushX / length) * step,
+      here.y + (pushY / length) * step,
+      here.z,
+    );
+    if (!GridNav.IsTraversable(target) || GridNav.IsBlocked(target)) {
+      return false;
+    }
+    return this.MoveTo(target, UnitOrder.MOVE_TO_POSITION);
   }
 
   private ActionRecover(): boolean {
@@ -1082,13 +1135,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   /** 每个英雄在目的地附近各有一个固定站位，一起行动时散开成一片，不挤成一个点、排成一条线走。 */
   private FormationPoint(point: Point): Vector {
-    const slot = this.hero.GetEntityIndex();
-    const angle = slot * this.FormationAngleStep;
-    const radius = this.FormationMinRadius + (slot % 3) * this.FormationRadiusStep;
-    const spot = this.ToWorld({
-      x: point.x + Math.cos(angle) * radius,
-      y: point.y + Math.sin(angle) * radius,
-    });
+    const spot = this.ToWorld(this.brain?.SlotOf(this.hero) ?? point);
     // 目的地贴着进不得的敌方塔时，散开的站位可能落进射程，和躲塔来回拉扯，这时站回目的地本身
     const inTowerRange = this.aroundEnemyBuildingsInvulnerable.some(
       (tower) =>
