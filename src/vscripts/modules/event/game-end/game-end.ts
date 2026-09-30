@@ -47,7 +47,8 @@ export class GameEnd {
       respawnTimePct: gameOptionsData.respawn_time_pct,
     };
 
-    const gameTime = GameRules.GetGameTime();
+    // 从号角吹响算起，与游戏内计时器、结算界面显示的时长一致，不含选人与准备阶段
+    const gameTime = GameRules.GetDOTATime(false, false);
     const difficultyMultiplier = GameEndPoint.GetDifficultyMultiplier(difficulty, GameRules.Option);
 
     const players: GameEndPlayerDto[] = [];
