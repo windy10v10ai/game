@@ -24,6 +24,7 @@ import { WardPlacement } from '../ward/ward-placement';
 import { canEngage, canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
 import { EngageToward, FindBlinkItem, MoveContext, MoveToward } from './mobility';
+import { ROADSIDE_CHANNELS, TryRoadside } from './roadside';
 import { canOutlastTower, passesTower, retreatPointFromTowers } from './tower-retreat';
 import { calculateAttackDPS } from '../../utils/damage-calculation';
 
@@ -39,6 +40,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly towerEscapeTime: number = 3;
   protected readonly towerEscapeTick: number = 0.03;
   protected continueActionEndTime: number = -60;
+  private roadsideUntil = 0;
+  private roadsideCheckAt = 0;
 
   // 中立槽修复节奏：间隔与下次校验时间（gameTime）
   protected readonly neutralItemRepairInterval: number = 5;
@@ -107,6 +110,11 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly NeutralClearRange: number = 800;
   // 推进时在等待点迎上去打的敌方兵线距离，不站着等兵线自己走过来
   protected readonly PushCreepChaseRange: number = 1200;
+  // 离肉山这么近才指定它打，远处照常赶路，不在半路被引到别处
+  protected readonly RoshanAttackRange: number = 1500;
+  protected readonly RoadsideCheckInterval: number = 1;
+  // 走去捡东西期间不再下别的移动命令，但最多这么久，路上的情况会变
+  protected readonly RoadsideMaxSeconds: number = 3;
 
   // 同一目的地不重复下指令；单位停下或太久没更新时才重下
   // 到达判定要比站位间距小，否则都停在靠自己一侧的站位边缘、又挤回一团
@@ -393,8 +401,8 @@ export class BotBaseAIModifier extends BaseModifier {
     this.traceInfo = '';
     this.retreatPoint = undefined;
     if (enemies.length === 0) {
-      // 高地下或迷雾里被看不见的敌人打得很疼时先撤；小兵和塔打不出这么快的掉血
-      if (burst) {
+      // 高地下或迷雾里被看不见的敌人打得很疼时先撤；小兵和塔打不出这么快的掉血，打肉山时的掉血来自肉山
+      if (burst && task?.kind !== 'roshan') {
         this.engagedUntil = this.gameTime + this.EngageMemory;
         return 'retreat';
       }
@@ -673,10 +681,14 @@ export class BotBaseAIModifier extends BaseModifier {
     if (task.kind === 'recover') {
       return this.ActionRecover();
     }
-    if (this.tookDamage && this.LosingToNeutrals()) {
+    // 打肉山时肉山一定比单个英雄强，靠派够人与回复任务控制去留，不按单挑野怪的口径撤
+    if (this.tookDamage && task.kind !== 'roshan' && this.LosingToNeutrals()) {
       return this.ActionRetreat();
     }
     if (this.AvoidTowerDive()) {
+      return true;
+    }
+    if (this.Roadside(task)) {
       return true;
     }
     if (ItemDispatcher.Run(this)) {
@@ -691,6 +703,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (task.kind === 'push' && this.AttackPushTarget(task)) {
       return true;
     }
+    if (task.kind === 'roshan' && this.AttackRoshan(task)) {
+      return true;
+    }
     if (this.AttackNearbyCreep(task.kind)) {
       return true;
     }
@@ -701,10 +716,10 @@ export class BotBaseAIModifier extends BaseModifier {
       return this.MoveTo(entry, UnitOrder.MOVE_TO_POSITION);
     }
     // 赶去交战点只管走，攻击移动会半路停下打野怪小兵，到了才开打的人逐个送；
-    // 回防离得远时同理，否则会一直打着身边的敌方塔和小兵走不开，也离不开塔区去传送
+    // 回防、去肉山离得远时同理，否则会一直打着身边的敌方塔和小兵走不开，也离不开塔区去传送
     const rushing =
       task.kind === 'fight' ||
-      (task.kind === 'defend' &&
+      ((task.kind === 'defend' || task.kind === 'roshan') &&
         this.hero.GetAbsOrigin().__sub(destination).Length2D() > this.DefendAttackMoveRange);
     const order = rushing ? UnitOrder.MOVE_TO_POSITION : UnitOrder.ATTACK_MOVE;
     if (this.MoveTo(destination, order) || this.SpreadOut()) {
@@ -900,6 +915,46 @@ export class BotBaseAIModifier extends BaseModifier {
       channel,
       eta,
     );
+    return true;
+  }
+
+  /** 离肉山近了就指定它打；攻击移动到坑外会停下，站着不出手。 */
+  private AttackRoshan(task: Task): boolean {
+    const roshan = EntIndexToHScript(task.targetId as EntityIndex) as CDOTA_BaseNPC | undefined;
+    if (!roshan || !IsValidEntity(roshan) || !roshan.IsAlive()) {
+      return false;
+    }
+    if (!ActionAttack.MoveToAttack(this.hero, roshan, this.RoshanAttackRange)) {
+      return false;
+    }
+    this.traceTarget = 'roshan';
+    return true;
+  }
+
+  /** 附近没有敌方英雄时顺手捡符、捡肉山掉落、占前哨、点观察者；赶去打架或回防时只捡肉山掉落。 */
+  private Roadside(task: Task): boolean {
+    if (this.aroundEnemyHeroes.length > 0) {
+      this.roadsideUntil = 0;
+      return false;
+    }
+    if (this.gameTime < this.roadsideUntil) {
+      this.traceTarget = 'roadside';
+      return true;
+    }
+    if (this.gameTime < this.roadsideCheckAt) {
+      return false;
+    }
+    this.roadsideCheckAt = this.gameTime + this.RoadsideCheckInterval;
+    const seconds = TryRoadside(
+      this.hero,
+      task.kind === 'fight' || task.kind === 'defend',
+      UnitPower,
+    );
+    if (seconds <= 0) {
+      return false;
+    }
+    this.roadsideUntil = this.gameTime + Math.min(seconds, this.RoadsideMaxSeconds);
+    this.traceTarget = 'roadside';
     return true;
   }
 
@@ -1351,6 +1406,10 @@ export class BotBaseAIModifier extends BaseModifier {
    * 再按施放档位排好主物品栏，施放时按格子顺序检查，重要的先放。
    */
   private ArrangeItems(): void {
+    // 为捡盾腾出的主栏空位不能马上被备用栏的东西补回去
+    if (this.gameTime < this.roadsideUntil) {
+      return;
+    }
     let backpack = InventorySlot.SLOT_7;
     const priorities: number[] = [];
     for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
@@ -1472,6 +1531,9 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   private ShouldStopChannel(): boolean {
     const ability = this.hero.GetCurrentActiveAbility();
+    if (ability && ROADSIDE_CHANNELS.includes(ability.GetAbilityName())) {
+      return this.aroundEnemyHeroes.length > 0;
+    }
     const specs = ability ? AbilityRegistry.get(ability.GetName()) : undefined;
     if (!ability || !specs) {
       return false;

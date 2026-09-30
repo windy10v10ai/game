@@ -90,6 +90,7 @@
 	}
 	"item_cheese"
 	{
+		"ItemCanBeUsedWithoutInventory"	"1"
 		// "AbilityCooldown"				"0"
 		// "ItemCost"						"4000"		// 1000
 		// "ItemStockInitial"				"1"
@@ -584,6 +585,10 @@
 	"item_dust"
 	{
 		"ItemCanBeUsedWithoutInventory" "1"
+	}
+	"item_refresher_shard"
+	{
+		"ItemCanBeUsedWithoutInventory"	"1"
 	}
 	//=================================================================================================================
 	// Observer Wards 假眼

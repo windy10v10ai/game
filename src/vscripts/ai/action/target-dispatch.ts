@@ -538,12 +538,12 @@ function resolveCount(
 const ANCIENT_MIN_ABILITY_LEVEL = 4;
 
 /**
- * 打野时高等级技能也对远古野施放。
+ * 打野与打肉山时高等级技能也对远古单位施放。
  * 物品等级基本停在 1 级，天然不会对远古用；技能数据标明不能选远古的（如吞噬）按引擎同一标记跳过，免得被拒后每轮重试。
  */
 function CanCastOnAncients(ai: BotBaseAIModifier, castable: CDOTABaseAbility): boolean {
   return (
-    ai.mode === 'farm' &&
+    (ai.mode === 'farm' || ai.mode === 'roshan') &&
     castable.GetLevel() >= ANCIENT_MIN_ABILITY_LEVEL &&
     (castable.GetAbilityTargetFlags() & UnitTargetFlags.NOT_ANCIENTS) === 0
   );

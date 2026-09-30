@@ -1,8 +1,8 @@
-/** 团队任务分派：按回复 → 建筑被打的回防 → 交战 → 清兵与盯人的回防 → 推进 → 发育的顺序把每个 bot 分到一个带目的地的任务。 */
+/** 团队任务分派：按回复 → 建筑被打的回防 → 交战 → 清兵与盯人的回防 → 肉山 → 推进 → 发育的顺序把每个 bot 分到一个带目的地的任务。 */
 import { distance, Lane, Point } from './lane-geometry';
 import { ANCIENT_FARM_POWER, AVOID_POWER_RATIO, KEEP_FIGHTING_RATIO } from './power';
 
-export type TaskKind = 'recover' | 'defend' | 'fight' | 'push' | 'farm' | 'hold';
+export type TaskKind = 'recover' | 'defend' | 'fight' | 'roshan' | 'push' | 'farm' | 'hold';
 
 export interface Task {
   kind: TaskKind;
@@ -84,6 +84,18 @@ export interface PushLane {
   enemyPower: number;
   /** 目标建筑自身的战力，不会攻击的建筑为 0 */
   towerPower: number;
+  /** 目标是高地塔、兵营或基地 */
+  highGround?: boolean;
+}
+
+export interface RoshanInfo {
+  id: number;
+  pos: Point;
+  power: number;
+  /** 这只肉山刷出来多久了 */
+  aliveSeconds: number;
+  /** 这只肉山留给玩家的时间，每只随机 */
+  waitSeconds: number;
 }
 
 export interface PlanInput {
@@ -102,6 +114,12 @@ export interface PlanInput {
   enemyPower?: number;
   /** 全队合成一路推一波 */
   groupPush?: boolean;
+  /** 敌方还有一塔、二塔没推掉，含暂时没有兵线的路 */
+  outerTowersLeft?: boolean;
+  /** 活着的肉山 */
+  roshan?: RoshanInfo;
+  /** 上一轮在打肉山的 bot */
+  roshanSquad?: Set<number>;
   now: number;
   /** 0–1 的随机数，选路时用 */
   random: () => number;
@@ -118,6 +136,8 @@ export interface LanePlan {
 export interface PlanResult {
   tasks: Map<number, Task>;
   plan?: LanePlan;
+  /** 碾压敌方，在高地外施压而不直接冲 */
+  siege: boolean;
 }
 // 回防要带够余量，刚好持平的人数守不住塔
 const DEFEND_POWER_MARGIN = 1.2;
@@ -164,6 +184,12 @@ const PLAN_LOCK_SECONDS = 90;
 const TOWER_PUSH_RATIO = 0.5;
 // 守塔的敌方英雄不超过我方这么多倍就尽量去推，而不是一直发育
 const DEFENDED_PUSH_RATIO = 2;
+// 肉山的技能与减甲算不进战力，派去的人要强出一截才稳稳打下来，不去打到一半被打回家
+export const ROSHAN_POWER_MARGIN = 4;
+// 留给玩家的时间过后又这么久肉山还在，放开人数限制全队一起去，不会永远不打
+const ROSHAN_ALL_IN_AFTER = 180;
+// 放开之前最多派半队，其余继续推进压制玩家
+const ROSHAN_MAX_SHARE = 0.5;
 
 export function planTasks(input: PlanInput): PlanResult {
   const tasks = new Map<number, Task>();
@@ -181,15 +207,15 @@ export function planTasks(input: PlanInput): PlanResult {
   free = assignDefend(input, free, tasks, ['engaged']);
   const fights = assignFights(input, free, tasks);
   const rest = assignDefend(input, fights.remaining, tasks, ['creeps', 'warning']);
-  const push = assignPush(input, rest, tasks, fights.avoid);
-  assignFarm(input, push.unassigned, tasks);
+  const push = assignPush(input, assignRoshan(input, rest, tasks), tasks, fights.avoid);
+  assignFarm(input, push.unassigned, tasks, push.anchors);
 
   for (const bot of input.bots) {
     if (!tasks.has(bot.id)) {
       tasks.set(bot.id, { kind: 'hold', pos: input.fountain });
     }
   }
-  return { tasks, plan: push.plan };
+  return { tasks, plan: push.plan, siege: push.anchors.length > 0 };
 }
 
 /** 赶到这里折算成走多远：卷轴好着的远处 bot 传送过来，比近处走路的更快。 */
@@ -315,6 +341,9 @@ function assignFights(
   tasks: Map<number, Task>,
 ): { remaining: PlanBot[]; avoid: Point[] } {
   const pushers = findPushers(input.bots);
+  // 远处在打肉山的人和推塔手一样排在后面挑，凑够之后也不叫，免得肉山打到一半全队走开
+  const onRoshan = (bot: PlanBot, gap: number) =>
+    gap > FIGHT_FOLLOW_RADIUS && input.roshanSquad?.has(bot.id) === true;
   const spots = [...input.fights].sort((a, b) => b.enemyPower - a.enemyPower);
   const avoid: Point[] = [];
   let remaining = free;
@@ -342,8 +371,8 @@ function assignFights(
     const cost = new Map<number, number>();
     for (const bot of pool) {
       const gap = distance(bot.pos, spot.pos);
-      const penalty =
-        pushers.has(bot.id) && gap > FIGHT_FOLLOW_RADIUS ? PUSHER_DISTANCE_PENALTY : 0;
+      const busy = (pushers.has(bot.id) && gap > FIGHT_FOLLOW_RADIUS) || onRoshan(bot, gap);
+      const penalty = busy ? PUSHER_DISTANCE_PENALTY : 0;
       // 已经在打的人排最前，换人会让刚交上手的人被换下来
       cost.set(bot.id, fighters.includes(bot) ? -1 : gap + penalty);
     }
@@ -352,7 +381,11 @@ function assignFights(
     let assigned = 0;
     for (const bot of order) {
       // 凑够战力的人再远也叫；凑够之后赶得到的也来，打出满强度，不留一半人在别处带线
-      if (assigned >= need && (!enough || arrivalCost(bot, spot.pos) > FIGHT_SUPPORT_RADIUS)) {
+      const skip =
+        !enough ||
+        arrivalCost(bot, spot.pos) > FIGHT_SUPPORT_RADIUS ||
+        onRoshan(bot, distance(bot.pos, spot.pos));
+      if (assigned >= need && skip) {
         continue;
       }
       picked.push(bot);
@@ -370,6 +403,59 @@ function assignFights(
     remaining = remaining.filter((bot) => !ids.has(bot.id));
   }
   return { remaining, avoid };
+}
+
+/**
+ * 肉山刷出来、留给玩家的时间过后，没有建筑要守、没在打架、全队强过敌方、半队以内的人就明显打得过时，派离得最近的几个人去打，
+ * 其余照常推进；肉山一直没人打时放开到全队。
+ * 开打后原班人马打到肉山死，不再按战力重算：双方都在掉血，每秒重算会打到一半全队走开、回头再来。
+ */
+function assignRoshan(input: PlanInput, free: PlanBot[], tasks: Map<number, Task>): PlanBot[] {
+  const roshan = input.roshan;
+  if (!roshan) {
+    return free;
+  }
+  const squad = input.roshanSquad;
+  let picked = free.filter((bot) => squad?.has(bot.id));
+  if (picked.length === 0) {
+    picked = startRoshan(input, roshan, free);
+  }
+  const task: Task = { kind: 'roshan', pos: roshan.pos, targetId: roshan.id };
+  for (const bot of picked) {
+    tasks.set(bot.id, task);
+  }
+  return free.filter((bot) => !picked.includes(bot));
+}
+
+function startRoshan(input: PlanInput, roshan: RoshanInfo, free: PlanBot[]): PlanBot[] {
+  const active = input.bots.filter((bot) => !bot.needsRecover);
+  const teamPower = active.reduce((sum, bot) => sum + bot.power, 0);
+  if (
+    roshan.aliveSeconds < roshan.waitSeconds ||
+    input.defend.length > 0 ||
+    input.fights.length > 0 ||
+    teamPower < (input.enemyPower ?? 0) * AVOID_POWER_RATIO
+  ) {
+    return [];
+  }
+  const need = roshan.power * ROSHAN_POWER_MARGIN;
+  const gap = new Map<number, number>();
+  for (const bot of free) {
+    gap.set(bot.id, distance(bot.pos, roshan.pos));
+  }
+  const picked: PlanBot[] = [];
+  let assigned = 0;
+  for (const bot of [...free].sort((a, b) => gap.get(a.id)! - gap.get(b.id)!)) {
+    if (assigned >= need) {
+      break;
+    }
+    picked.push(bot);
+    assigned += bot.power;
+  }
+  const affordable =
+    roshan.aliveSeconds >= roshan.waitSeconds + ROSHAN_ALL_IN_AFTER ||
+    picked.length <= Math.ceil(active.length * ROSHAN_MAX_SHARE);
+  return assigned >= need && affordable ? picked : [];
 }
 
 /** 这些战力能不能推这一路：能磨掉塔血，且守塔的敌方英雄没有强出太多。 */
@@ -402,18 +488,9 @@ function assignPush(
   free: PlanBot[],
   tasks: Map<number, Task>,
   avoid: Point[],
-): { plan: LanePlan | undefined; unassigned: PlanBot[] } {
+): { plan: LanePlan | undefined; unassigned: PlanBot[]; anchors: Point[] } {
   if (free.length === 0) {
-    return { plan: input.plan, unassigned: [] };
-  }
-  const pushPower = free.reduce((sum, bot) => sum + bot.power, 0);
-  const candidates = input.lanes.filter(
-    (lane) =>
-      canPushWith(pushPower, lane) &&
-      avoid.every((pos) => distance(pos, lane.stagingPos) > AVOID_LANE_RADIUS),
-  );
-  if (candidates.length === 0) {
-    return { plan: input.plan, unassigned: free };
+    return { plan: input.plan, unassigned: [], anchors: [] };
   }
   // 路数按全队能出力的人数与战力定，被交战临时借走几个人不改路线
   const active = input.bots.filter((bot) => !bot.needsRecover).length;
@@ -421,10 +498,32 @@ function assignPush(
     .filter((bot) => !bot.needsRecover)
     .reduce((sum, bot) => sum + bot.power, 0);
   const group = input.groupPush === true;
-  const desired = group ? 1 : lanesFor(active, teamPower, input.enemyPower ?? 0);
+  const enemyPower = input.enemyPower ?? 0;
+  const siege = !group && dominates(teamPower, enemyPower);
+  const outerLeft = input.outerTowersLeft === true || input.lanes.some((lane) => !lane.highGround);
+  const held = input.lanes.filter((lane) => lane.highGround && (outerLeft || siege));
+  const open = input.lanes.filter((lane) => !held.includes(lane));
+  const pushPower = free.reduce((sum, bot) => sum + bot.power, 0);
+  const candidates = open.filter(
+    (lane) =>
+      canPushWith(pushPower, lane) &&
+      avoid.every((pos) => distance(pos, lane.stagingPos) > AVOID_LANE_RADIUS),
+  );
+  // 碾压时不直接上高地，在高地推进点附近刷野清兵施压，玩家露面就被叫来的人围剿
+  const anchors = siege && !outerLeft ? held.map((lane) => lane.stagingPos) : [];
+  if (candidates.length === 0) {
+    return { plan: input.plan, unassigned: free, anchors };
+  }
+  const desired = group ? 1 : lanesFor(active, teamPower, enemyPower);
   // 锁定期内按全队战力判断原路线还能不能推：有人去打架、回家或阵亡只是暂时的，不因此换路
   let plan = input.plan;
-  if (!plan || plan.group !== group || !keepsPlan(plan, input.lanes, teamPower, avoid, input.now)) {
+  const heldPicked = plan?.picks.some((pick) => held.some((lane) => lane.lane === pick.lane));
+  if (
+    !plan ||
+    plan.group !== group ||
+    heldPicked ||
+    !keepsPlan(plan, open, teamPower, avoid, input.now)
+  ) {
     plan = pickLanes(candidates, free, pushPower, Math.min(desired, candidates.length), input);
     plan.group = group;
   }
@@ -446,7 +545,11 @@ function assignPush(
   if (pushing.length > 0) {
     spread(pushing, chosen, tasks, Math.ceil(active / plan.picks.length));
   }
-  return { plan, unassigned: [...unassigned, ...dropWeakGroups(pushing, chosen, tasks)] };
+  return {
+    plan,
+    unassigned: [...unassigned, ...dropWeakGroups(pushing, chosen, tasks)],
+    anchors,
+  };
 }
 
 /**
@@ -454,8 +557,15 @@ function assignPush(
  */
 function lanesFor(active: number, teamPower: number, enemyPower: number): number {
   const byCount = Math.min(MAX_PUSH_LANES, Math.max(1, Math.floor(active / MIN_LANE_GROUP)));
-  const halfHolds = teamPower / MAX_PUSH_LANES >= enemyPower * AVOID_POWER_RATIO;
-  return halfHolds ? byCount : 1;
+  return dominates(teamPower, enemyPower) ? byCount : 1;
+}
+
+/**
+ * 半队人马就打得过敌方全队：分两路推，高地外施压而不直接冲。
+ * 两处用同一口径，强到敢分路就强到该收着打，调这一个判断就能整体调节奏。
+ */
+function dominates(teamPower: number, enemyPower: number): boolean {
+  return teamPower / MAX_PUSH_LANES >= enemyPower * AVOID_POWER_RATIO;
 }
 
 /**
@@ -563,15 +673,24 @@ function dropWeakGroups(bots: PlanBot[], lanes: PushLane[], tasks: Map<number, T
   return dropped;
 }
 
-/** 推不动塔的 bot 去最近的发育点，远古野只有够强的 bot 才去。 */
-function assignFarm(input: PlanInput, bots: PlanBot[], tasks: Map<number, Task>): void {
+/** 推不动塔的 bot 去最近的发育点，在高地外施压时去离推进点最近的；远古野只有够强的 bot 才去。 */
+function assignFarm(
+  input: PlanInput,
+  bots: PlanBot[],
+  tasks: Map<number, Task>,
+  anchors: Point[],
+): void {
+  const gapOf = (bot: PlanBot, pos: Point) =>
+    anchors.length === 0
+      ? distance(bot.pos, pos)
+      : Math.min(...anchors.map((anchor) => distance(anchor, pos)));
   for (const bot of bots) {
     let best: Point | undefined;
     for (const spot of input.farms) {
       if (spot.ancient && bot.power < ANCIENT_FARM_POWER) {
         continue;
       }
-      if (!best || distance(bot.pos, spot.pos) < distance(bot.pos, best)) {
+      if (!best || gapOf(bot, spot.pos) < gapOf(bot, best)) {
         best = spot.pos;
       }
     }

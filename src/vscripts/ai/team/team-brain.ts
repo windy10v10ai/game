@@ -25,6 +25,8 @@ import {
   projectOnLane,
 } from './lane-geometry';
 import { resolvePushStaging } from './push-staging';
+import { FindRoshan, RoshanTiming } from './roshan';
+import { SupplyWards } from '../ward/ward-supply';
 import { ControlSummons } from './summon-control';
 import {
   combatPower,
@@ -168,6 +170,10 @@ export class TeamBrain {
   // 阵亡的敌方英雄同样按最后活着时算，分路与抱团按敌方全员的实力判断
   private readonly lastEnemyPower = new Map<EntityIndex, number>();
   private groupPush: GroupPushState | undefined;
+  private roshanSquadSize = 0;
+  private siege = false;
+  // 正在拆敌方高地或抱团推进，阵亡的人买活回来接着推
+  private sieging = false;
   private glyphReadyAt = 0;
   private readonly buildingHealth = new Map<EntityIndex, { time: number; health: number }[]>();
   private outerTowers = -1;
@@ -371,10 +377,23 @@ export class TeamBrain {
       }));
 
     const enemyStrength = this.UpdateGroupPush(enemies, now);
+    const roshan = FindRoshan();
+    const squadBefore = this.RoshanSquad();
     const result = planTasks({
       bots,
       enemyPower: enemyStrength,
       groupPush: this.groupPush?.activeSince !== undefined,
+      outerTowersLeft: buildings.some(
+        (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 2,
+      ),
+      roshanSquad: squadBefore,
+      roshan: roshan && {
+        id: roshan.GetEntityIndex() as number,
+        pos: roshan.GetAbsOrigin(),
+        power: UnitPower(roshan),
+        aliveSeconds: now - RoshanTiming().seenAt,
+        waitSeconds: RoshanTiming().waitSeconds,
+      },
       fountain,
       defend,
       fights: this.fights,
@@ -386,6 +405,9 @@ export class TeamBrain {
       random: () => RandomFloat(0, 1),
     });
     this.tasks = result.tasks;
+    if (IS_DEBUG_RUN) {
+      this.TraceRoshan(this.RoshanSquad(), roshan);
+    }
     this.AssignSlots(recentEnemies);
     if (IS_DEBUG_RUN && result.plan && result.plan !== this.plan) {
       const picks = result.plan.picks.map((pick) => pick.lane).join(',');
@@ -393,6 +415,19 @@ export class TeamBrain {
       print(`[bot-ai] team=${this.team} lanes=${picks} pushable=${lanesNow}`);
     }
     this.plan = result.plan;
+    if (IS_DEBUG_RUN && result.siege !== this.siege) {
+      const time = Math.floor(GameRules.GetDOTATime(false, true));
+      print(`[bot-ai] team=${this.team} t=${time} siege=${result.siege ? 'start' : 'end'}`);
+    }
+    this.siege = result.siege;
+    const highGround = new Set(
+      lanes.filter((lane) => lane.highGround).map((lane) => lane.targetId),
+    );
+    this.sieging =
+      this.groupPush?.activeSince !== undefined ||
+      [...this.tasks.values()].some(
+        (task) => task.kind === 'push' && highGround.has(task.targetId ?? -1),
+      );
     for (const [id, task] of this.tasks) {
       if (task.kind === 'push' && task.lane) {
         this.pushLanes.set(id, task.lane);
@@ -400,7 +435,35 @@ export class TeamBrain {
     }
     this.CountCommittedFighters();
     ControlSummons(this.team, [...this.members.values()]);
-    this.ConsiderBuyback(defend, allies);
+    SupplyWards(this.team, [...this.members.values()], UnitPower);
+    this.ConsiderBuyback(defend, allies, enemies);
+  }
+
+  private RoshanSquad(): Set<number> {
+    const squad = new Set<number>();
+    for (const [id, task] of this.tasks) {
+      if (task.kind === 'roshan') {
+        squad.add(id);
+      }
+    }
+    return squad;
+  }
+
+  private TraceRoshan(squad: Set<number>, roshan: CDOTA_BaseNPC | undefined): void {
+    if (squad.size === this.roshanSquadSize) {
+      return;
+    }
+    this.roshanSquadSize = squad.size;
+    let power = 0;
+    for (const id of squad) {
+      const hero = this.members.get(id as EntityIndex);
+      power += hero ? UnitPower(hero) : 0;
+    }
+    const time = Math.floor(GameRules.GetDOTATime(false, true));
+    const target = roshan ? Math.floor(UnitPower(roshan)) : 0;
+    print(
+      `[bot-ai] team=${this.team} t=${time} roshan=${squad.size} squad_pw=${Math.floor(power)} roshan_pw=${target}`,
+    );
   }
 
   /** 更新抱团推进的状态，返回敌方英雄的总战力。 */
@@ -439,10 +502,18 @@ export class TeamBrain {
     return total;
   }
 
-  /** 阵亡的 bot 在基地危急、或附近团战买活后能扳回时买活；双方悬殊到买了也守不住就不买。 */
-  private ConsiderBuyback(defend: DefendTarget[], allies: CDOTA_BaseNPC_Hero[]): void {
+  /**
+   * 阵亡的 bot 在基地危急、附近团战买活后能扳回、或正在拆敌方高地时买活；
+   * 双方悬殊到买了也守不住、或进攻时活着的人已经打不过就不买，免得买活出来再送一次。
+   */
+  private ConsiderBuyback(
+    defend: DefendTarget[],
+    allies: CDOTA_BaseNPC_Hero[],
+    enemies: CDOTA_BaseNPC_Hero[],
+  ): void {
     // 买活的人算进战力，后面的人看到已经够了就不再买
     let alivePower = allies.reduce((sum, hero) => sum + UnitPower(hero), 0);
+    const enemyAlive = enemies.reduce((sum, hero) => sum + UnitPower(hero), 0);
     const baseAttack = defend
       // 兵营起才算基地危急，高地塔失守不值得花钱买活
       .filter((target) => target.importance >= 4 && target.stage === 'engaged')
@@ -472,7 +543,8 @@ export class TeamBrain {
           fight.enemyPower <= fight.ourPower + power &&
           this.CanReachAfterBuyback(hero, fight.pos),
       );
-      if (!holdBase && !turnFight) {
+      const keepSieging = this.sieging && alivePower + power >= enemyAlive;
+      if (!holdBase && !turnFight && !keepSieging) {
         continue;
       }
       hero.Buyback();
@@ -480,7 +552,9 @@ export class TeamBrain {
       if (turnFight) {
         turnFight.ourPower += power;
       }
-      print(`[bot-ai] ${HeroShortName(hero)} buyback base=${holdBase ? 1 : 0}`);
+      print(
+        `[bot-ai] ${HeroShortName(hero)} buyback base=${holdBase ? 1 : 0} siege=${keepSieging ? 1 : 0}`,
+      );
     }
   }
 
@@ -1157,6 +1231,7 @@ export class TeamBrain {
         waveAtTarget: staging.waveAtTarget,
         enemyPower: lanePower.get(path.lane) ?? 0,
         towerPower: UnitPower(target.unit),
+        highGround: target.isBase,
       });
     }
     return lanes;
@@ -1180,6 +1255,10 @@ export class TeamBrain {
       false,
     );
     for (const unit of units) {
+      // 肉山由团队按战力专门派人，不当普通远古野去打
+      if (unit.GetUnitName() === 'npc_dota_roshan') {
+        continue;
+      }
       const pos = unit.GetAbsOrigin();
       if (unit.GetTeamNumber() !== DotaTeam.NEUTRALS) {
         if (!IsLaneCreep(unit) || !observer.CanEntityBeSeenByMyTeam(unit)) {
