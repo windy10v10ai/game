@@ -33,6 +33,8 @@ export interface PerfAutoConfig {
   // 天辉人数与金钱经验倍率，模拟少量玩家对满编 bot 的真实对局；0 为沿用对局选项
   radiantPlayers: number;
   radiantMultiplier: number;
+  // 只把天辉拉到满级并给足金钱，模拟压制电脑的强势玩家
+  radiantBoost?: boolean;
   // 夜魇金钱经验倍率，调低后天辉能压着电脑推，用来验证电脑回防；0 为沿用对局选项
   direMultiplier?: number;
   // 逗号分隔的英雄名（不带 npc_dota_hero_ 前缀），排到 bot 英雄池最前面，用于让指定英雄出场验证
@@ -120,9 +122,10 @@ if (bootConfig && bootConfig.maxLevel > 0) {
 }
 
 // 经验溢出由引擎截到满级；避开开局暂停的那一秒
-function boostHeroes() {
+function boostHeroes(team?: DotaTeam) {
   afterRealSeconds(2, () =>
     forEachHero((hero) => {
+      if (team !== undefined && hero.GetTeamNumber() !== team) return;
       hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
       hero.AddExperience(BOOST_XP, ModifyXpReason.UNSPECIFIED, false, false, 0);
     }),
@@ -364,13 +367,18 @@ export class PerfAuto {
     if ((config.direMultiplier ?? 0) > 0) {
       GameRules.Option.direGoldXpMultiplier = config.direMultiplier as number;
     }
-    // 玩家英雄也交给 AI，场上才是 20 个行为一致的英雄
-    forEachHero((hero, playerId) => {
-      if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) GameRules.AI.EnableAI(hero);
-    });
+    // 满编时玩家英雄也交给 AI，场上才是 20 个行为一致的英雄；天辉人少时由天辉 bot 扮演玩家，
+    // 玩家英雄留在泉水，免得原生 bot 不管它、接管前一直站着
+    if (config.radiantPlayers === 0 || config.radiantPlayers >= 10) {
+      forEachHero((hero, playerId) => {
+        if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) GameRules.AI.EnableAI(hero);
+      });
+    }
     if (config.boost) {
       boostHeroes();
       lockForts();
+    } else if (config.radiantBoost === true) {
+      boostHeroes(DotaTeam.GOODGUYS);
     }
     if (config.testItems !== undefined && config.testItems !== '') grantTestItems(config.testItems);
     // 结算阶段计时器可能不再推进，轮询发现不了游戏结束，直接听状态切换

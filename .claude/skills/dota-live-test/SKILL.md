@@ -21,8 +21,8 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 | 场景 | 参数 |
 |---|---|
-| 1v10 玩家强势 | `--boost false --radiantPlayers 1 --radiantMultiplier 10 --direMultiplier 1` |
-| 1v10 玩家弱势 | `--boost false --radiantPlayers 1 --radiantMultiplier 1` |
+| 1v10 玩家强势 | `--boost false --radiantPlayers 2 --radiantBoost true`：天辉 bot 开局满级满钱扮演玩家 |
+| 1v10 玩家弱势 | `--boost false --radiantPlayers 2 --radiantMultiplier 1` |
 | 天辉强推电脑高地与基地 | `--boost false --radiantPlayers 5 --radiantMultiplier 10 --direMultiplier 1` |
 | 物品施放 | `--testItems item_a,item_b`：开局发物品并停掉买卖装备 |
 | 指定英雄出场 | `--botHeroes axe,lion` |
@@ -30,7 +30,7 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 - 加速不超过 2 倍，更高会拖垮服务器
 - 每局结束在运行目录写 `anomaly-<N>.md`（卡住、远路不传送、挤在一起、打撤来回切、没任务、建筑挨打没人到场），先读它再 grep 细节。手动局用 `npm run bot-anomaly [日志路径]` 出同样的报告
 - 下一局启动会删掉 `console.log`，要留的日志先拷到 scratchpad
-- 天辉被替成 AI 顶位，报告只统计人数多的一方；天辉那侧的行为不代表真实玩家
+- 天辉满编时玩家英雄也交给 AI；天辉人少时玩家英雄留在泉水，由天辉 bot 扮演玩家，买装备与对线都走现有 bot 逻辑。报告只统计人数多的一方，天辉那侧的行为不代表真实玩家
 
 ## 派子代理跑
 
