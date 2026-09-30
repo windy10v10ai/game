@@ -489,10 +489,11 @@ export class TeamBrain {
     const standing = buildings
       .filter((building) => building.unit.GetTeamNumber() === this.enemyTeam)
       .reduce((sum, building) => sum + building.unit.GetHealth() / building.unit.GetMaxHealth(), 0);
-    if (this.pushMark - standing >= PUSH_PROGRESS) {
+    // 只和上次有进展时比，回血后再打回原样不算：偷塔保护下反复磨血正是要换路的死胡同
+    if (this.pushMark < 0) {
+      this.pushMark = standing;
+    } else if (this.pushMark - standing >= PUSH_PROGRESS) {
       progress.add('push');
-    }
-    if (progress.has('push') || standing > this.pushMark) {
       this.pushMark = standing;
     }
     const counts = new Map<Activity, number>();
