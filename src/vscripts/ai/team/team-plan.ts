@@ -415,7 +415,7 @@ function assignFights(
 /**
  * 肉山刷出来、留给玩家的时间过后，没有建筑要守、没在打架、全队强过敌方、半队以内的人就明显打得过时，派离得最近的几个人去打，
  * 其余照常推进；肉山一直没人打时放开到全队。
- * 开打后原班人马打到肉山死，不再按战力重算：双方都在掉血，每秒重算会打到一半全队走开、回头再来。
+ * 开打后原班人马打到肉山死，不按开打门槛重算：双方都在掉血，每秒重算会打到一半全队走开、回头再来。
  */
 function assignRoshan(input: PlanInput, free: PlanBot[], tasks: Map<number, Task>): PlanBot[] {
   const roshan = input.roshan;
@@ -423,15 +423,35 @@ function assignRoshan(input: PlanInput, free: PlanBot[], tasks: Map<number, Task
     return free;
   }
   const squad = input.roshanSquad;
-  let picked = free.filter((bot) => squad?.has(bot.id));
-  if (picked.length === 0) {
-    picked = startRoshan(input, roshan, free);
-  }
+  const kept = free.filter((bot) => squad?.has(bot.id));
+  const picked =
+    kept.length > 0 ? keepRoshan(roshan, free, kept) : startRoshan(input, roshan, free);
   const task: Task = { kind: 'roshan', pos: roshan.pos, targetId: roshan.id };
   for (const bot of picked) {
     tasks.set(bot.id, task);
   }
   return free.filter((bot) => !picked.includes(bot));
+}
+
+/**
+ * 已经在打的人不按开打门槛重算；被抽走几个人、剩下的不再比肉山强时就近补人，补不上就都撤，不让一两个人打到死。
+ */
+function keepRoshan(roshan: RoshanInfo, free: PlanBot[], kept: PlanBot[]): PlanBot[] {
+  const picked = [...kept];
+  let assigned = kept.reduce((sum, bot) => sum + bot.power, 0);
+  const others = free.filter((bot) => !kept.includes(bot));
+  const gap = new Map<number, number>();
+  for (const bot of others) {
+    gap.set(bot.id, distance(bot.pos, roshan.pos));
+  }
+  for (const bot of others.sort((a, b) => gap.get(a.id)! - gap.get(b.id)!)) {
+    if (assigned >= roshan.power) {
+      break;
+    }
+    picked.push(bot);
+    assigned += bot.power;
+  }
+  return assigned >= roshan.power ? picked : [];
 }
 
 function startRoshan(input: PlanInput, roshan: RoshanInfo, free: PlanBot[]): PlanBot[] {

@@ -651,15 +651,26 @@ describe('roshan', () => {
     expect(tasks[0][1].targetId).toBe(900);
   });
 
-  it('keeps the squad on roshan until it dies instead of re-checking power', () => {
+  it('keeps the squad on roshan without re-checking the start bar', () => {
+    // 两人战力 200，达不到开打要的 4 倍，但比肉山强，继续打
     const tasks = roshanTasks(
-      baseInput({
-        bots: spreadBots(),
-        roshan: needing(10),
-        roshanSquad: new Set([2, 5]),
-      }),
+      baseInput({ bots: spreadBots(), roshan: needing(8), roshanSquad: new Set([2, 5]) }),
     );
     expect(tasks.map(([id]) => id).sort()).toEqual([2, 5]);
+  });
+
+  it('tops up a squad that lost members until it outpowers roshan again', () => {
+    const tasks = roshanTasks(
+      baseInput({ bots: spreadBots(), roshan: needing(10), roshanSquad: new Set([2, 5]) }),
+    );
+    expect(tasks.map(([id]) => id).sort()).toEqual([2, 4, 5]);
+  });
+
+  it('calls off roshan when even the top-up cannot outpower it', () => {
+    const tasks = roshanTasks(
+      baseInput({ bots: spreadBots(), roshan: needing(24), roshanSquad: new Set([2, 5]) }),
+    );
+    expect(tasks).toEqual([]);
   });
 
   it('gives players a few minutes after roshan appears', () => {

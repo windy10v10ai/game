@@ -1369,6 +1369,10 @@ export class BotBaseAIModifier extends BaseModifier {
   // Build Item
   // ---------------------------------------------------------
   BuildItem(): boolean {
+    // 为捡盾腾出的主栏空位不能被整理挪回来的或新买的装备占掉
+    if (this.gameTime < this.roadsideUntil) {
+      return false;
+    }
     // 买装卖装都不要求即时响应，而 SellExtraItems 是先扫完物品栏才判断够不够出售阈值，
     // 每 tick 跑一遍绝大多数时候只是在空扫
     if (this.gameTime < this.buildItemNextTime) {
@@ -1406,10 +1410,6 @@ export class BotBaseAIModifier extends BaseModifier {
    * 再按施放档位排好主物品栏，施放时按格子顺序检查，重要的先放。
    */
   private ArrangeItems(): void {
-    // 为捡盾腾出的主栏空位不能马上被备用栏的东西补回去
-    if (this.gameTime < this.roadsideUntil) {
-      return;
-    }
     let backpack = InventorySlot.SLOT_7;
     const priorities: number[] = [];
     for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {

@@ -47,7 +47,8 @@ export function SupplyWards(
         continue;
       }
       used++;
-      if (item.GetName() === WARD_ITEM) {
+      // 侦察与岗哨合成的组合守卫里，侦察守卫的数量记在当前充能上
+      if (OBSERVER_WARD_CONFIG.itemNames.includes(item.GetName())) {
         owned += item.GetCurrentCharges();
         holding = true;
       }
