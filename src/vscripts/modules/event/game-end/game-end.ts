@@ -48,7 +48,7 @@ export class GameEnd {
     };
 
     // 从号角吹响算起，与游戏内计时器、结算界面显示的时长一致，不含选人与准备阶段
-    const gameTime = GameRules.GetDOTATime(false, false);
+    const dotaTime = GameRules.GetDOTATime(false, false);
     const difficultyMultiplier = GameEndPoint.GetDifficultyMultiplier(difficulty, GameRules.Option);
 
     const players: GameEndPlayerDto[] = [];
@@ -115,7 +115,7 @@ export class GameEnd {
         playerDto,
         difficultyMultiplier,
         winnerTeamId,
-        gameTime,
+        dotaTime,
       );
 
       const playerInfo = CustomNetTables.GetTableValue(
@@ -173,7 +173,7 @@ export class GameEnd {
       steamId: 0, // 非玩家单位的事件，固定0
       gameOptions,
       winnerTeamId,
-      gameTimeMsec: Math.round(gameTime * 1000),
+      gameTimeMsec: Math.round(dotaTime * 1000),
       countryCode: GA4.countryCode,
       playerCount: Math.max(1, players.filter((player) => player.steamId > 0).length),
       players,
@@ -209,7 +209,7 @@ export class GameEnd {
     player: GameEndPlayerDto,
     difficultyMultiplier: number,
     winnerTeamId: DotaTeam,
-    gameTime: number,
+    dotaTime: number,
   ): number {
     if (player.steamId === 0) {
       // 电脑不获得积分
@@ -217,7 +217,7 @@ export class GameEnd {
     }
     const teamKills = PlayerResource.GetTeamKills(player.teamId);
     const timeMultiplier = GameEndPoint.GetParticipationRateMultiplier(player, teamKills);
-    const gameTimePoints = GameEndPoint.GetGameTimePoints(gameTime) * timeMultiplier;
+    const gameTimePoints = GameEndPoint.GetGameTimePoints(dotaTime) * timeMultiplier;
     const basePoints = player.score + gameTimePoints;
     const points = basePoints * difficultyMultiplier;
     // 输了积分减半
