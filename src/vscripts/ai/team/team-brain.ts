@@ -383,6 +383,8 @@ export class TeamBrain {
       bots,
       enemyPower: enemyStrength,
       groupPush: this.groupPush?.activeSince !== undefined,
+      teamStrength: this.TeamStrength(),
+      siege: this.siege,
       outerTowersLeft: buildings.some(
         (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 2,
       ),
@@ -437,6 +439,15 @@ export class TeamBrain {
     ControlSummons(this.team, [...this.members.values()]);
     SupplyWards(this.team, [...this.members.values()], UnitPower);
     this.ConsiderBuyback(defend, allies, enemies);
+  }
+
+  /** 本队 bot 的总战力，阵亡的按阵亡前算，和敌方口径一致。 */
+  private TeamStrength(): number {
+    let total = 0;
+    for (const [index, hero] of this.members) {
+      total += hero.IsAlive() ? UnitPower(hero) : (this.lastPower.get(index) ?? 0);
+    }
+    return total;
   }
 
   private RoshanSquad(): Set<number> {

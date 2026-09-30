@@ -585,6 +585,43 @@ describe('high ground', () => {
     expect(tasks.every((task) => task.kind === 'farm' && task.pos.x === -2800)).toBe(true);
   });
 
+  it('judges dominance by strength, counting bots that are dead for now', () => {
+    const tasks = kinds(
+      baseInput({
+        bots: bots(2),
+        lanes: [highGround('top', -3000)],
+        enemyPower: 150,
+        teamStrength: 500,
+      }),
+    );
+    expect(tasks.every((task) => task.kind === 'farm')).toBe(true);
+  });
+
+  it('keeps pressing outside high ground while dominance dips a little', () => {
+    const input = baseInput({ lanes: [highGround('top', -3000)], enemyPower: 230 });
+    expect(kinds(input).every((task) => task.kind === 'push')).toBe(true);
+    expect(kinds({ ...input, siege: true }).every((task) => task.kind === 'farm')).toBe(true);
+  });
+
+  it('keeps the pressing state while every bot is off fighting', () => {
+    const fights = [
+      {
+        pos: { x: 0, y: 0 },
+        enemyPower: 40,
+        allyPower: 0,
+        focusId: 50,
+        rally: { x: 0, y: 0 },
+        pastFront: false,
+        engaged: false,
+      },
+    ];
+    const result = planTasks(
+      baseInput({ lanes: [highGround('top', -3000)], enemyPower: 50, fights }),
+    );
+    expect([...result.tasks.values()].every((task) => task.kind === 'fight')).toBe(true);
+    expect(result.siege).toBe(true);
+  });
+
   it('storms high ground during a group push even when far stronger', () => {
     const tasks = kinds(
       baseInput({ lanes: [highGround('top', -3000)], enemyPower: 50, groupPush: true }),

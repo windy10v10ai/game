@@ -112,6 +112,10 @@ export interface PlanInput {
   fighting?: Map<number, number>;
   /** 敌方英雄的总战力，阵亡的按阵亡前算 */
   enemyPower?: number;
+  /** 己方 bot 的总战力，口径同敌方，阵亡的按阵亡前算 */
+  teamStrength?: number;
+  /** 上一轮在高地外施压 */
+  siege?: boolean;
   /** 全队合成一路推一波 */
   groupPush?: boolean;
   /** 敌方还有一塔、二塔没推掉，含暂时没有兵线的路 */
@@ -178,6 +182,8 @@ const MIN_LANE_GROUP = 3;
 const MAX_PUSH_LANES = 2;
 // 只从机会分前几名里抽，太差的路不去
 const LANE_PICK_POOL = 3;
+// 在高地外施压时，实力降到碾压门槛的这个比例以下才改强攻
+const SIEGE_KEEP_RATIO = 0.8;
 // 选定的路线至少保持这么久，否则每秒重算会走到一半掉头
 const PLAN_LOCK_SECONDS = 90;
 // 不要求这一波推掉塔，能把塔血磨下去一些就值得上，只避开上去毫无作用的塔
@@ -207,7 +213,8 @@ export function planTasks(input: PlanInput): PlanResult {
   free = assignDefend(input, free, tasks, ['engaged']);
   const fights = assignFights(input, free, tasks);
   const rest = assignDefend(input, fights.remaining, tasks, ['creeps', 'warning']);
-  const push = assignPush(input, assignRoshan(input, rest, tasks), tasks, fights.avoid);
+  const siege = pressing(input);
+  const push = assignPush(input, assignRoshan(input, rest, tasks), tasks, fights.avoid, siege);
   assignFarm(input, push.unassigned, tasks, push.anchors);
 
   for (const bot of input.bots) {
@@ -215,7 +222,7 @@ export function planTasks(input: PlanInput): PlanResult {
       tasks.set(bot.id, { kind: 'hold', pos: input.fountain });
     }
   }
-  return { tasks, plan: push.plan, siege: push.anchors.length > 0 };
+  return { tasks, plan: push.plan, siege };
 }
 
 /** 赶到这里折算成走多远：卷轴好着的远处 bot 传送过来，比近处走路的更快。 */
@@ -488,6 +495,7 @@ function assignPush(
   free: PlanBot[],
   tasks: Map<number, Task>,
   avoid: Point[],
+  siege: boolean,
 ): { plan: LanePlan | undefined; unassigned: PlanBot[]; anchors: Point[] } {
   if (free.length === 0) {
     return { plan: input.plan, unassigned: [], anchors: [] };
@@ -499,7 +507,6 @@ function assignPush(
     .reduce((sum, bot) => sum + bot.power, 0);
   const group = input.groupPush === true;
   const enemyPower = input.enemyPower ?? 0;
-  const siege = !group && dominates(teamPower, enemyPower);
   const outerLeft = input.outerTowersLeft === true || input.lanes.some((lane) => !lane.highGround);
   const held = input.lanes.filter((lane) => lane.highGround && (outerLeft || siege));
   const open = input.lanes.filter((lane) => !held.includes(lane));
@@ -550,6 +557,19 @@ function assignPush(
     unassigned: [...unassigned, ...dropWeakGroups(pushing, chosen, tasks)],
     anchors,
   };
+}
+
+/** 碾压敌方、又不在抱团推进时，高地外施压而不直接冲；按实力算，不因一时有人阵亡或去打架就改强攻。 */
+function pressing(input: PlanInput): boolean {
+  if (input.groupPush === true) {
+    return false;
+  }
+  const strength =
+    input.teamStrength ??
+    input.bots.filter((bot) => !bot.needsRecover).reduce((sum, bot) => sum + bot.power, 0);
+  // 已经在施压时降到门槛以下一截才改强攻，不在门槛附近来回切
+  const bar = input.siege ? SIEGE_KEEP_RATIO : 1;
+  return dominates(strength / bar, input.enemyPower ?? 0);
 }
 
 /**
