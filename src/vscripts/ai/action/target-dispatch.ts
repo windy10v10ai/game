@@ -134,7 +134,8 @@ function TraceCast(
   target: CDOTA_BaseNPC | undefined,
   kind: string,
 ): void {
-  if (!IS_DEBUG_RUN) {
+  // 用掉即消失的物品施放后实体已被删除
+  if (!IS_DEBUG_RUN || !IsValidEntity(castable)) {
     return;
   }
   const hero = ai.GetHero();
