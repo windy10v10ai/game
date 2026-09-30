@@ -170,7 +170,7 @@ export const FIGHT_SUPPORT_RADIUS = 6000;
 export const FIGHT_DANGER_RADIUS = 1500;
 // 派来打的 bot 离交战点这么近才算跟得上，远处还在路上的不算进我方战力
 export const FIGHT_FOLLOW_RADIUS = 3000;
-// 全队强过敌方这么多倍才算占优：去打肉山、半队打得过全队才分两路与高地外施压
+// 半队强过敌方全队这么多倍才算占优：分两路与高地外施压
 const AHEAD_RATIO = 1.2;
 // 全队都打不过的敌人附近这么远的推进目标先不派人，免得走过去被逐个击破
 const AVOID_LANE_RADIUS = 3000;
@@ -419,7 +419,7 @@ function assignFights(
 }
 
 /**
- * 肉山刷出来、留给玩家的时间过后，没有建筑要守、没在打架、全队强过敌方、半队以内的人就明显打得过时，派离得最近的几个人去打，
+ * 肉山刷出来、留给玩家的时间过后，没有建筑要守、没在打架、半队以内的人就明显打得过时，派离得最近的几个人去打，
  * 其余照常推进；肉山一直没人打时放开到全队。
  * 开打后原班人马打到肉山死，不按开打门槛重算：双方都在掉血，每秒重算会打到一半全队走开、回头再来。
  */
@@ -462,12 +462,11 @@ function keepRoshan(roshan: RoshanInfo, free: PlanBot[], kept: PlanBot[]): PlanB
 
 function startRoshan(input: PlanInput, roshan: RoshanInfo, free: PlanBot[]): PlanBot[] {
   const active = input.bots.filter((bot) => !bot.needsRecover);
-  const teamPower = active.reduce((sum, bot) => sum + bot.power, 0);
+  // 不比敌方全队强也去：玩家不在附近时偷肉山，被撞上按交战处理
   if (
     roshan.aliveSeconds < roshan.waitSeconds ||
     input.defend.length > 0 ||
-    input.fights.length > 0 ||
-    teamPower < (input.enemyPower ?? 0) * AHEAD_RATIO
+    input.fights.length > 0
   ) {
     return [];
   }

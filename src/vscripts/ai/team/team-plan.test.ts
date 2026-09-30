@@ -709,8 +709,10 @@ describe('roshan', () => {
     expect(tasks.map(([id]) => id).sort()).toEqual([2, 3, 4, 5]);
   });
 
-  it('skips roshan when the team is not ahead of the enemy', () => {
-    expect(roshanTasks(baseInput({ bots: spreadBots(), roshan, enemyPower: 500 }))).toEqual([]);
+  it('sneaks roshan even when the enemy is stronger than the whole team', () => {
+    expect(roshanTasks(baseInput({ bots: spreadBots(), roshan, enemyPower: 5000 }))).not.toEqual(
+      [],
+    );
   });
 
   it('skips roshan while a building needs defending', () => {
