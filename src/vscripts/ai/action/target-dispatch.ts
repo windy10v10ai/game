@@ -444,6 +444,7 @@ function resolveTargetCondition(
     rangeFromAbilityValue: existingTarget?.rangeFromAbilityValue,
     rangeFromAttackRange: existingTarget?.rangeFromAttackRange,
     attackRangeOffset: existingTarget?.attackRangeOffset,
+    outOfAttackRange: existingTarget?.outOfAttackRange,
     castMode: existingTarget?.castMode,
     excludeSelf: existingTarget?.excludeSelf,
     facing: existingTarget?.facing,
@@ -475,7 +476,7 @@ function resolveRange(
   castable: CDOTABaseAbility,
 ): NumberRange | undefined {
   const existing = existingTarget?.range;
-  if (existing?.lte !== undefined) {
+  if (existing?.lte !== undefined && !existingTarget?.outOfAttackRange) {
     return undefined;
   }
   const abilityValueKey = existingTarget?.rangeFromAbilityValue;
@@ -488,8 +489,10 @@ function resolveRange(
   if (existingTarget?.attackRangeOffset !== undefined) {
     castRange += existingTarget.attackRangeOffset;
   }
-  const range: NumberRange = { lte: castRange };
-  if (existing?.gte !== undefined) {
+  const range: NumberRange = { lte: existing?.lte ?? castRange };
+  if (existingTarget?.outOfAttackRange) {
+    range.gte = hero.Script_GetAttackRange();
+  } else if (existing?.gte !== undefined) {
     range.gte = existing.gte;
   }
   return range;
