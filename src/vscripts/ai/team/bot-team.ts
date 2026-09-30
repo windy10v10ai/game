@@ -1,5 +1,4 @@
 import { Player } from '../../api/player';
-import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { TowerPushStatus } from '../../modules/event/event-entity-killed';
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { reloadable } from '../../utils/tstl-utils';
@@ -50,8 +49,7 @@ export class BotTeam {
       }
     }
     for (const brain of this.brains.values()) {
-      // 测试时交给 AI 的玩家英雄原生不管，开局就由团队分派，正式对局不走这条
-      brain.Think(!this.nativeActive || (IS_DEBUG_RUN && !brain.HasNativeBots()));
+      brain.Think(!this.nativeActive);
     }
     this.addMoneyForBots();
     if (this.nativeActive) {

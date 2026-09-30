@@ -2,7 +2,6 @@
  * 每队一个团队大脑：每秒按本队视野扫一次局面，给挂了 AI 的英雄分派任务。
  * 敌方英雄与小兵只认本队看得到的，建筑位置固定、始终可读。
  */
-import { PlayerHelper } from '../../modules/helper/player-helper';
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { AbilityRegistry } from '../ability/ability-registry';
 import { TargetSide } from '../ability/ability-spec';
@@ -170,7 +169,6 @@ export class TeamBrain {
   private siege = false;
   private avoided: { pos: Point; until: number }[] = [];
   private readonly activity = new ActivityTracker();
-  private assigning = false;
   private tiredLanes: Lane[] = [];
   private enemiesAlive = new Set<EntityIndex>();
   private pushMark = -1;
@@ -288,19 +286,8 @@ export class TeamBrain {
     return plans;
   }
 
-  /** 这一轮是否由团队分派任务；否则移动交给原生。 */
-  IsAssigning(): boolean {
-    return this.assigning;
-  }
-
-  /** 队里没有原生 bot：只有测试时交给 AI 的玩家英雄，原生不会操控它们。 */
-  HasNativeBots(): boolean {
-    return [...this.members.values()].some((hero) => PlayerHelper.IsBotPlayer(hero));
-  }
-
   /** 每秒调用一次；assign 为 false 时只更新局面记忆，任务交给原生。 */
   Think(assign: boolean): void {
-    this.assigning = assign;
     this.PruneMembers();
     const heroes = HeroList.GetAllHeroes().filter(
       (hero) => IsValidEntity(hero) && hero.IsRealHero() && !hero.IsIllusion(),
