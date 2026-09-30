@@ -237,7 +237,7 @@ export class BotBaseAIModifier extends BaseModifier {
     const botTeam = GameRules.AI.BotTeam;
     const brain = botTeam?.GetBrain(this.hero);
     brain?.Join(this.hero);
-    if (!botTeam || !brain || botTeam.IsNativeActive()) {
+    if (!botTeam || !brain || !brain.IsAssigning()) {
       this.ThinkNative();
       return;
     }

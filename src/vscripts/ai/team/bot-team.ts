@@ -49,7 +49,7 @@ export class BotTeam {
       }
     }
     for (const brain of this.brains.values()) {
-      brain.Think(!this.nativeActive);
+      brain.Think(!this.nativeActive || !brain.HasNativeBots());
     }
     this.addMoneyForBots();
     if (this.nativeActive) {
