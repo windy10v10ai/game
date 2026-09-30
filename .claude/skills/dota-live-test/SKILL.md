@@ -21,6 +21,8 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 | 场景 | 参数 |
 |---|---|
+| 1v10 玩家强势 | `--boost false --radiantPlayers 1 --radiantMultiplier 10 --direMultiplier 1` |
+| 1v10 玩家弱势 | `--boost false --radiantPlayers 1 --radiantMultiplier 1` |
 | 天辉强推电脑高地与基地 | `--boost false --radiantPlayers 5 --radiantMultiplier 10 --direMultiplier 1` |
 | 物品施放 | `--testItems item_a,item_b`：开局发物品并停掉买卖装备 |
 | 指定英雄出场 | `--botHeroes axe,lion` |
