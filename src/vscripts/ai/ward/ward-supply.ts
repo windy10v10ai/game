@@ -9,8 +9,8 @@ const WARD_ITEM = 'item_ward_observer';
 const CHECK_SECONDS = 10;
 // 眼的插法是路过预设眼位才插，手里攒太多也插不出去
 const TEAM_WARD_CAP = 4;
-// 有玩家的队伍给玩家留一个，不让 bot 把商店买空
-const PLAYER_RESERVE = 1;
+// 有玩家的队伍给玩家留几个，不让 bot 把商店买空
+const PLAYER_RESERVE = 2;
 const FIELD_SLOTS = 9;
 
 const checkedAt = new Map<DotaTeam, number>();

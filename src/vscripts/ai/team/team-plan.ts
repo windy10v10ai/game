@@ -124,6 +124,8 @@ export interface PlanInput {
   roshan?: RoshanInfo;
   /** 上一轮在打肉山的 bot */
   roshanSquad?: Set<number>;
+  /** 不久前全队也打不过的交战点：敌人进了迷雾也先别回去推进 */
+  avoided?: Point[];
   now: number;
   /** 0–1 的随机数，选路时用 */
   random: () => number;
@@ -142,6 +144,8 @@ export interface PlanResult {
   plan?: LanePlan;
   /** 碾压敌方，在高地外施压而不直接冲 */
   siege: boolean;
+  /** 本轮全队也打不过的交战点 */
+  avoid: Point[];
 }
 // 回防要带够余量，刚好持平的人数守不住塔
 const DEFEND_POWER_MARGIN = 1.2;
@@ -214,7 +218,8 @@ export function planTasks(input: PlanInput): PlanResult {
   const fights = assignFights(input, free, tasks);
   const rest = assignDefend(input, fights.remaining, tasks, ['creeps', 'warning']);
   const siege = pressing(input);
-  const push = assignPush(input, assignRoshan(input, rest, tasks), tasks, fights.avoid, siege);
+  const avoid = [...fights.avoid, ...(input.avoided ?? [])];
+  const push = assignPush(input, assignRoshan(input, rest, tasks), tasks, avoid, siege);
   assignFarm(input, push.unassigned, tasks, push.anchors);
 
   for (const bot of input.bots) {
@@ -222,7 +227,7 @@ export function planTasks(input: PlanInput): PlanResult {
       tasks.set(bot.id, { kind: 'hold', pos: input.fountain });
     }
   }
-  return { tasks, plan: push.plan, siege };
+  return { tasks, plan: push.plan, siege, avoid: fights.avoid };
 }
 
 /** 赶到这里折算成走多远：卷轴好着的远处 bot 传送过来，比近处走路的更快。 */

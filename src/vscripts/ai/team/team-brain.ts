@@ -28,13 +28,7 @@ import { resolvePushStaging } from './push-staging';
 import { FindRoshan, RoshanTiming } from './roshan';
 import { SupplyWards } from '../ward/ward-supply';
 import { ControlSummons } from './summon-control';
-import {
-  combatPower,
-  decayThreat,
-  threatAfterDeath,
-  threatAfterKill,
-  threatMultiplier,
-} from './power';
+import { combatPower } from './power';
 import {
   DefendTarget,
   FIGHT_DANGER_RADIUS,
@@ -56,6 +50,9 @@ const LAST_SEEN_FORGET = 15;
 const FIGHT_MEMORY = 3;
 // 与团队大脑的思考间隔一致
 const POWER_CACHE_SECONDS = 1;
+// 全队也打不过的交战点记这么久：敌人进了迷雾多半还在，别一看不见就回去推进又被撞上
+const AVOID_MEMORY = 30;
+const AVOID_MERGE_RADIUS = 1500;
 const LANE_MAX_OFFSET = 2000;
 const LANE_CREEP_MAX_OFFSET = 1200;
 const BUILDING_THREAT_RADIUS = 1200;
@@ -122,11 +119,6 @@ export interface FightView extends FightSpot {
   withTower: boolean;
 }
 
-interface ThreatRecord {
-  score: number;
-  time: number;
-}
-
 interface BuildingInfo {
   unit: CDOTA_BaseNPC;
   lane: Lane | undefined;
@@ -153,9 +145,9 @@ export class TeamBrain {
   private readonly members = new Map<EntityIndex, CDOTA_BaseNPC_Hero>();
   private readonly recoverRequests = new Set<EntityIndex>();
   private readonly engagedMembers = new Set<EntityIndex>();
+  private readonly retreatingMembers = new Set<EntityIndex>();
   private readonly lastSeen = new Map<EntityIndex, EnemyMemory>();
   private visible = new Set<EntityIndex>();
-  private readonly threats = new Map<EntityIndex, ThreatRecord>();
   private tasks = new Map<number, Task>();
   private plan: LanePlan | undefined;
   private readonly pushLanes = new Map<number, Lane>();
@@ -172,6 +164,7 @@ export class TeamBrain {
   private groupPush: GroupPushState | undefined;
   private roshanSquadSize = 0;
   private siege = false;
+  private avoided: { pos: Point; until: number }[] = [];
   // 正在拆敌方高地或抱团推进，阵亡的人买活回来接着推
   private sieging = false;
   private glyphReadyAt = 0;
@@ -208,6 +201,15 @@ export class TeamBrain {
       this.engagedMembers.add(hero.GetEntityIndex());
     } else {
       this.engagedMembers.delete(hero.GetEntityIndex());
+    }
+  }
+
+  /** 英雄报告自己正在撤，团队算交战点战力时不把它当帮手。 */
+  SetRetreating(hero: CDOTA_BaseNPC_Hero, retreating: boolean): void {
+    if (retreating) {
+      this.retreatingMembers.add(hero.GetEntityIndex());
+    } else {
+      this.retreatingMembers.delete(hero.GetEntityIndex());
     }
   }
 
@@ -275,36 +277,6 @@ export class TeamBrain {
       }
     }
     return plans;
-  }
-
-  /** 单位对本队的威胁战力：敌方英雄乘上最近战绩带来的威胁倍率。 */
-  PowerOf(unit: CDOTA_BaseNPC): number {
-    const power = UnitPower(unit);
-    if (unit.GetTeamNumber() !== this.enemyTeam || !unit.IsRealHero()) {
-      return power;
-    }
-    return power * threatMultiplier(this.ThreatScore(unit.GetEntityIndex()));
-  }
-
-  OnHeroKilled(killed: CDOTA_BaseNPC_Hero, killerHero: CDOTA_BaseNPC_Hero | undefined): void {
-    const now = GameRules.GetGameTime();
-    if (killed.GetTeamNumber() === this.enemyTeam) {
-      const index = killed.GetEntityIndex();
-      this.threats.set(index, { score: threatAfterDeath(this.ThreatScore(index)), time: now });
-      return;
-    }
-    if (killerHero && killerHero.GetTeamNumber() === this.enemyTeam) {
-      const index = killerHero.GetEntityIndex();
-      this.threats.set(index, { score: threatAfterKill(this.ThreatScore(index)), time: now });
-    }
-  }
-
-  private ThreatScore(index: EntityIndex): number {
-    const record = this.threats.get(index);
-    if (!record) {
-      return 0;
-    }
-    return decayThreat(record.score, GameRules.GetGameTime() - record.time);
   }
 
   /** 每秒调用一次；assign 为 false 时只更新局面记忆，任务交给原生。 */
@@ -389,6 +361,7 @@ export class TeamBrain {
         (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 2,
       ),
       roshanSquad: squadBefore,
+      avoided: this.avoided.map((entry) => entry.pos),
       roshan: roshan && {
         id: roshan.GetEntityIndex() as number,
         pos: roshan.GetAbsOrigin(),
@@ -407,6 +380,15 @@ export class TeamBrain {
       random: () => RandomFloat(0, 1),
     });
     this.tasks = result.tasks;
+    // 同一处每秒都会报一次，新的顶掉附近旧的，列表不随时间变长
+    this.avoided = [
+      ...this.avoided.filter(
+        (entry) =>
+          entry.until > now &&
+          result.avoid.every((pos) => distance(pos, entry.pos) > AVOID_MERGE_RADIUS),
+      ),
+      ...result.avoid.map((pos) => ({ pos, until: now + AVOID_MEMORY })),
+    ];
     if (IS_DEBUG_RUN) {
       this.TraceRoshan(this.RoshanSquad(), roshan);
     }
@@ -485,7 +467,7 @@ export class TeamBrain {
     for (const enemy of enemies) {
       const index = enemy.GetEntityIndex();
       if (enemy.IsAlive()) {
-        const power = this.PowerOf(enemy);
+        const power = UnitPower(enemy);
         this.lastEnemyPower.set(index, power);
         total += power;
         continue;
@@ -755,7 +737,7 @@ export class TeamBrain {
       y += pos.y / enemies.length;
       // 被硬控的敌人这几秒还不了手，打折算让附近的 bot 抓住机会上
       const disabled = HeroUtil.NotActionable(enemy);
-      enemyPower += this.PowerOf(enemy) * (disabled ? DISABLED_POWER_FACTOR : 1);
+      enemyPower += UnitPower(enemy) * (disabled ? DISABLED_POWER_FACTOR : 1);
       if (disabled !== HeroUtil.NotActionable(focus)) {
         if (disabled) {
           focus = enemy;
@@ -780,7 +762,8 @@ export class TeamBrain {
       if (!this.members.has(ally.GetEntityIndex()) && gap <= FIGHT_JOIN_RADIUS) {
         allyPower += UnitPower(ally);
       }
-      if (gap <= FIGHT_DANGER_RADIUS) {
+      // 正在撤的队友帮不上忙，算进去会让前排以为有人跟着硬上
+      if (gap <= FIGHT_DANGER_RADIUS && !this.retreatingMembers.has(ally.GetEntityIndex())) {
         engaged = engaged || this.engagedMembers.has(ally.GetEntityIndex());
         ourPower += UnitPower(ally);
         ourNames.push(HeroShortName(ally));
@@ -944,6 +927,7 @@ export class TeamBrain {
         this.pushLanes.delete(index);
         this.recoverRequests.delete(index);
         this.engagedMembers.delete(index);
+        this.retreatingMembers.delete(index);
       }
     }
   }
@@ -997,7 +981,7 @@ export class TeamBrain {
         this.DefendTargetOf(
           building,
           'engaged',
-          attackers.reduce((sum, enemy) => sum + this.PowerOf(enemy), 0),
+          attackers.reduce((sum, enemy) => sum + UnitPower(enemy), 0),
         ),
       );
     }
@@ -1010,7 +994,7 @@ export class TeamBrain {
       }
       const near = NearestBuilding(base, this.PositionOf(enemy), BASE_WARNING_RADIUS);
       if (near) {
-        warning.set(near, (warning.get(near) ?? 0) + this.PowerOf(enemy));
+        warning.set(near, (warning.get(near) ?? 0) + UnitPower(enemy));
       }
     }
     for (const [building, power] of warning) {
@@ -1337,7 +1321,7 @@ export class TeamBrain {
           : LANE_MAX_OFFSET - enemy.GetIdealSpeed() * (now - memory.time - LAST_SEEN_EXACT);
       const hit = nearestLane(this.lanes, memory.pos, Math.max(maxOffset, 0));
       if (hit) {
-        result.set(hit.path.lane, (result.get(hit.path.lane) ?? 0) + this.PowerOf(enemy));
+        result.set(hit.path.lane, (result.get(hit.path.lane) ?? 0) + UnitPower(enemy));
       }
     }
     return result;

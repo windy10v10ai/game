@@ -9,6 +9,7 @@ const input = (overrides: Partial<EngagementInput>): EngagementInput => ({
   wasAvoiding: false,
   joining: false,
   holdGround: false,
+  teamBacked: false,
   ...overrides,
 });
 
@@ -23,6 +24,14 @@ describe('decideStance', () => {
     expect(decideStance(input({ holdGround: true, engaged: false }))).toBe('fight');
     expect(decideStance(input({ holdGround: true, wasAvoiding: true }))).toBe('fight');
     expect(decideStance(input({ holdGround: true, survivalSeconds: 1 }))).toBe('retreat');
+  });
+  it('keeps a fight the team still backs until about to die, whatever the local odds', () => {
+    expect(decideStance(input({ teamBacked: true }))).toBe('fight');
+    expect(decideStance(input({ teamBacked: true, wasAvoiding: true }))).toBe('fight');
+    expect(decideStance(input({ teamBacked: true, survivalSeconds: 1 }))).toBe('retreat');
+    expect(decideStance(input({ teamBacked: true, survivalSeconds: 1, canEscape: false }))).toBe(
+      'lastStand',
+    );
   });
 });
 

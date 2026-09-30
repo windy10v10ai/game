@@ -23,6 +23,8 @@ export interface EngagementInput {
   joining: boolean;
   /** 守基地：不按战力比撤，只在快被打死时走 */
   holdGround: boolean;
+  /** 团队按全队战力仍决定打这一仗：身边一时人少也不掉头，只在快被打死时走 */
+  teamBacked: boolean;
 }
 
 /** 还没打起来时，这波敌人是否值得主动上去打：走上去交战与先手跳进敌人身边都用这一个口径。 */
@@ -53,6 +55,12 @@ export function decideStance(input: EngagementInput): Stance {
       ? input.enemyPower <= input.ourPower * KEEP_FIGHTING_RATIO
       : canEngage(input.ourPower, input.enemyPower);
     return ready ? 'fight' : 'hold';
+  }
+  if (input.teamBacked) {
+    if (input.survivalSeconds >= SURVIVE_SECONDS) {
+      return 'fight';
+    }
+    return input.canEscape ? 'retreat' : 'lastStand';
   }
   // 打起来前已判断打不过的，被碰到也继续走，不因挨了一下就冲上去；
   // 撤退中伤害停了也不马上回头，否则残血在交战边缘来回进出

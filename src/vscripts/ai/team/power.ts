@@ -22,13 +22,13 @@ export interface CombatStats {
  * 跳进敌人身边的先手技能与跳刀切入也按它判断：会主动上去打的局面才允许先手。
  * 大于 1 是有意的：玩家要有挑战的战斗，勉强打不过也要打，调这一个数就能整体调交战倾向。
  */
-export const AVOID_POWER_RATIO = 1.5;
+export const AVOID_POWER_RATIO = 2;
 
 /**
  * 已经交战时，敌方战力超过我方这么多倍就趁早撤，不硬打。比进场门槛略松：技能已经交了、人已经贴上，
  * 这时掉头损失更大；两个数反过来会出现冲上去一挨打又掉头跑。
  */
-export const KEEP_FIGHTING_RATIO = 3;
+export const KEEP_FIGHTING_RATIO = 4;
 
 /** 推进路过时顺手清野需要的自身战力，太弱的英雄停下来打野会耽误推进。 */
 export const QUICK_CLEAR_POWER = 1500;
@@ -40,14 +40,6 @@ export const ANCIENT_FARM_POWER = 3000;
 const SPELL_DPS_PER_LEVEL = 12;
 // 技能物品全在冷却时仍保留的技能输出比例，普攻之外还有被动与下一轮冷却
 const SPELL_READY_FLOOR = 0.3;
-
-// 威胁值按半衰期衰减，一波团战的影响大约持续两三分钟
-const THREAT_HALF_LIFE = 90;
-const THREAT_PER_KILL = 1;
-const THREAT_MULTIPLIER_PER_POINT = 0.5;
-const MAX_THREAT_MULTIPLIER = 3;
-// 被击杀说明这个敌人并非不可战胜，威胁打折而不是清零
-const THREAT_KEEP_ON_DEATH = 0.5;
 
 /** 一个单位的战力：有效血量与输出乘积的平方根，残血自然打折。 */
 export function combatPower(stats: CombatStats): number {
@@ -65,21 +57,4 @@ export function combatPower(stats: CombatStats): number {
       (1 + stats.spellAmp) *
       (SPELL_READY_FLOOR + (1 - SPELL_READY_FLOOR) * stats.spellReady);
   return Math.sqrt(effectiveHealth * Math.max(dps, 0));
-}
-
-export function decayThreat(score: number, elapsed: number): number {
-  return score * Math.pow(0.5, elapsed / THREAT_HALF_LIFE);
-}
-
-export function threatAfterKill(score: number): number {
-  return score + THREAT_PER_KILL;
-}
-
-export function threatAfterDeath(score: number): number {
-  return score * THREAT_KEEP_ON_DEATH;
-}
-
-/** 最近连续击杀我方的敌人，实际威胁比属性体现出来的更大。 */
-export function threatMultiplier(score: number): number {
-  return Math.min(MAX_THREAT_MULTIPLIER, 1 + score * THREAT_MULTIPLIER_PER_POINT);
 }

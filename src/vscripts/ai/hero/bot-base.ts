@@ -296,6 +296,7 @@ export class BotBaseAIModifier extends BaseModifier {
     this.UpdateRecoverNeed(brain);
     const task = brain.GetTask(this.hero);
     this.stance = this.DecideStance(brain, task);
+    brain.SetRetreating(this.hero, this.stance === 'retreat');
     // 出装与整理物品栏不占用行动，接管后几乎每轮都在行动，排在后面会一直轮不到
     if (this.BuildItem()) {
       return;
@@ -420,9 +421,8 @@ export class BotBaseAIModifier extends BaseModifier {
           ? UnitPower(this.hero)
           : 0;
       if (threat && !committed && !canEngage(threat.ourPower + joining, threat.enemyPower)) {
-        // 走出威胁范围后再撤一会，不在边界上来回进出
+        // 走出威胁范围后再撤一会，不在边界上来回进出；不打就退回身后的塔，不在交战点边上等着被追
         this.engagedUntil = this.gameTime + this.EngageMemory;
-        this.retreatPoint = threat.rally;
         return 'retreat';
       }
       return 'task';
@@ -448,6 +448,10 @@ export class BotBaseAIModifier extends BaseModifier {
       // 回防的人按接战口径，不因对面强一些就在后面看着建筑被拆
       joining: (task?.kind === 'fight' && fight.engaged) || task?.kind === 'defend',
       holdGround: task?.kind === 'defend' && task.hold === true,
+      teamBacked:
+        task?.kind === 'fight' &&
+        task.targetId !== undefined &&
+        fight.enemyIds.includes(task.targetId as EntityIndex),
     });
     if (engaged) {
       return stance;
