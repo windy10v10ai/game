@@ -24,7 +24,7 @@ import { WardPlacement } from '../ward/ward-placement';
 import { canEngage, canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
 import { EngageToward, FindBlinkItem, MoveContext, MoveToward } from './mobility';
-import { ROADSIDE_CHANNELS, TryRoadside } from './roadside';
+import { ROADSIDE_CHANNELS, RoadsideScope, TryRoadside } from './roadside';
 import { canOutlastTower, passesTower, retreatPointFromTowers } from './tower-retreat';
 import { calculateAttackDPS } from '../../utils/damage-calculation';
 
@@ -115,6 +115,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly RoadsideCheckInterval: number = 1;
   // 走去捡东西期间不再下别的移动命令，但最多这么久，路上的情况会变
   protected readonly RoadsideMaxSeconds: number = 3;
+  // 赶去打架或回防时离目的地还有这么远，顺手捡符、点观察者不耽误到场
+  protected readonly RoadsideRushDistance: number = 3000;
 
   // 同一目的地不重复下指令；单位停下或太久没更新时才重下
   // 到达判定要比站位间距小，否则都停在靠自己一侧的站位边缘、又挤回一团
@@ -931,7 +933,7 @@ export class BotBaseAIModifier extends BaseModifier {
     return true;
   }
 
-  /** 附近没有敌方英雄时顺手捡符、捡肉山掉落、占前哨、点观察者；赶去打架或回防时只捡肉山掉落。 */
+  /** 附近没有敌方英雄时顺手捡符、捡肉山掉落、占前哨、点观察者，赶去打架或回防时少做几样。 */
   private Roadside(task: Task): boolean {
     if (this.aroundEnemyHeroes.length > 0) {
       this.roadsideUntil = 0;
@@ -945,17 +947,21 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     this.roadsideCheckAt = this.gameTime + this.RoadsideCheckInterval;
-    const seconds = TryRoadside(
-      this.hero,
-      task.kind === 'fight' || task.kind === 'defend',
-      UnitPower,
-    );
+    const seconds = TryRoadside(this.hero, this.RoadsideScopeOf(task), UnitPower);
     if (seconds <= 0) {
       return false;
     }
     this.roadsideUntil = this.gameTime + Math.min(seconds, this.RoadsideMaxSeconds);
     this.traceTarget = 'roadside';
     return true;
+  }
+
+  private RoadsideScopeOf(task: Task): RoadsideScope {
+    if (task.kind !== 'fight' && task.kind !== 'defend') {
+      return 'all';
+    }
+    const gap = this.hero.GetAbsOrigin().__sub(this.ToWorld(task.pos)).Length2D();
+    return gap > this.RoadsideRushDistance ? 'quick' : 'drops';
   }
 
   /** 兵线已到目标建筑时直接点建筑，偷塔保护、塔在打人或附近有敌方英雄时交给普通移动。 */

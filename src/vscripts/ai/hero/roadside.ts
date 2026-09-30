@@ -29,12 +29,15 @@ const TRIED_PRUNE_SIZE = 100;
 const triedAt = new Map<string, number>();
 
 /**
- * 下了命令时返回走过去要的秒数，这段时间内英雄不再下别的移动命令；没事可做返回 0。
- * 赶路急时只捡肉山掉落：打完肉山常被马上叫去打架，盾留在地上就白打了。
+ * 顺手能做哪些事：离要赶去的战场还远时捡符、点观察者只耽误一两秒，占前哨读条太久不做；
+ * 快到战场时只捡肉山掉落，打完肉山常被马上叫去打架，盾留在地上就白打了。
  */
+export type RoadsideScope = 'all' | 'quick' | 'drops';
+
+/** 下了命令时返回走过去要的秒数，这段时间内英雄不再下别的移动命令；没事可做返回 0。 */
 export function TryRoadside(
   hero: CDOTA_BaseNPC_Hero,
-  urgent: boolean,
+  scope: RoadsideScope,
   powerOf: (hero: CDOTA_BaseNPC_Hero) => number,
 ): number {
   const origin = hero.GetAbsOrigin();
@@ -60,7 +63,7 @@ export function TryRoadside(
     }
   }
 
-  if (urgent) {
+  if (scope === 'drops') {
     return 0;
   }
   for (const rune of Entities.FindAllByClassnameWithin(
@@ -74,7 +77,7 @@ export function TryRoadside(
   }
 
   const capture = hero.FindAbilityByName('ability_capture');
-  if (capture) {
+  if (capture && scope === 'all') {
     for (const outpost of Fixed('npc_dota_watch_tower')) {
       // 前哨开局无敌，到时间才能占
       if (
