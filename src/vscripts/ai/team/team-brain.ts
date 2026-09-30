@@ -28,6 +28,7 @@ import { resolvePushStaging } from './push-staging';
 import { FindRoshan, RoshanTiming } from './roshan';
 import { SupplyWards } from '../ward/ward-supply';
 import { ControlSummons } from './summon-control';
+import { Activity, ActivityTracker } from './activity';
 import { combatPower } from './power';
 import {
   DefendTarget,
@@ -53,6 +54,8 @@ const POWER_CACHE_SECONDS = 1;
 // 全队也打不过的交战点记这么久：敌人进了迷雾多半还在，别一看不见就回去推进又被撞上
 const AVOID_MEMORY = 30;
 const AVOID_MERGE_RADIUS = 1500;
+// 敌方建筑合计掉这么多（按座算的血量比例）才算推进有进展，零星磨血不算
+const PUSH_PROGRESS = 0.2;
 const LANE_MAX_OFFSET = 2000;
 const LANE_CREEP_MAX_OFFSET = 1200;
 const BUILDING_THREAT_RADIUS = 1200;
@@ -165,6 +168,10 @@ export class TeamBrain {
   private roshanSquadSize = 0;
   private siege = false;
   private avoided: { pos: Point; until: number }[] = [];
+  private readonly activity = new ActivityTracker();
+  private tiredLanes: Lane[] = [];
+  private enemiesAlive = new Set<EntityIndex>();
+  private pushMark = -1;
   // 正在拆敌方高地或抱团推进，阵亡的人买活回来接着推
   private sieging = false;
   private glyphReadyAt = 0;
@@ -348,6 +355,12 @@ export class TeamBrain {
         ...this.RoleOf(hero, now),
       }));
 
+    const resting = this.UpdateActivity(
+      enemies,
+      buildings,
+      bots.filter((bot) => !bot.needsRecover).length,
+      now,
+    );
     const enemyStrength = this.UpdateGroupPush(enemies, now);
     const roshan = FindRoshan();
     const squadBefore = this.RoshanSquad();
@@ -362,6 +375,8 @@ export class TeamBrain {
       ),
       roshanSquad: squadBefore,
       avoided: this.avoided.map((entry) => entry.pos),
+      resting,
+      tiredLanes: this.tiredLanes,
       roshan: roshan && {
         id: roshan.GetEntityIndex() as number,
         pos: roshan.GetAbsOrigin(),
@@ -440,6 +455,48 @@ export class TeamBrain {
       }
     }
     return squad;
+  }
+
+  /** 按上一轮的分派记下全队在做什么、有没有进展，返回该歇着的事。 */
+  private UpdateActivity(
+    enemies: CDOTA_BaseNPC_Hero[],
+    buildings: BuildingInfo[],
+    active: number,
+    now: number,
+  ): Set<Activity> {
+    const progress = new Set<Activity>();
+    const alive = new Set(
+      enemies.filter((enemy) => enemy.IsAlive()).map((enemy) => enemy.GetEntityIndex()),
+    );
+    if ([...this.enemiesAlive].some((index) => !alive.has(index))) {
+      progress.add('fight');
+    }
+    this.enemiesAlive = alive;
+    // 被推掉的建筑不在列表里，剩余血量比例一起消失，也算进展
+    const standing = buildings
+      .filter((building) => building.unit.GetTeamNumber() === this.enemyTeam)
+      .reduce((sum, building) => sum + building.unit.GetHealth() / building.unit.GetMaxHealth(), 0);
+    if (this.pushMark - standing >= PUSH_PROGRESS) {
+      progress.add('push');
+    }
+    if (progress.has('push') || standing > this.pushMark) {
+      this.pushMark = standing;
+    }
+    const counts = new Map<Activity, number>();
+    for (const task of this.tasks.values()) {
+      if (task.kind === 'fight' || task.kind === 'push' || task.kind === 'farm') {
+        counts.set(task.kind, (counts.get(task.kind) ?? 0) + 1);
+      }
+    }
+    const tired = this.activity.Update(counts, active, progress, now);
+    if (tired.includes('push')) {
+      this.tiredLanes = this.plan?.picks.map((pick) => pick.lane) ?? [];
+    }
+    if (IS_DEBUG_RUN && tired.length > 0) {
+      const time = Math.floor(GameRules.GetDOTATime(false, true));
+      print(`[bot-ai] team=${this.team} t=${time} rest=${tired.join(',')}`);
+    }
+    return this.activity.Resting(now);
   }
 
   private TraceRoshan(squad: Set<number>, roshan: CDOTA_BaseNPC | undefined): void {

@@ -1,5 +1,6 @@
 /** 团队任务分派：按回复 → 建筑被打的回防 → 交战 → 清兵与盯人的回防 → 肉山 → 推进 → 发育的顺序把每个 bot 分到一个带目的地的任务。 */
 import { distance, Lane, Point } from './lane-geometry';
+import { Activity } from './activity';
 import { ANCIENT_FARM_POWER, AVOID_POWER_RATIO, KEEP_FIGHTING_RATIO } from './power';
 
 export type TaskKind = 'recover' | 'defend' | 'fight' | 'roshan' | 'push' | 'farm' | 'hold';
@@ -126,6 +127,10 @@ export interface PlanInput {
   roshanSquad?: Set<number>;
   /** 不久前全队也打不过的交战点：敌人进了迷雾也先别回去推进 */
   avoided?: Point[];
+  /** 做太久没进展、暂时歇着的事 */
+  resting?: Set<Activity>;
+  /** 推太久没进展的路，歇推进期间换别的路 */
+  tiredLanes?: Lane[];
   now: number;
   /** 0–1 的随机数，选路时用 */
   random: () => number;
@@ -198,6 +203,8 @@ const DEFENDED_PUSH_RATIO = 2;
 export const ROSHAN_POWER_MARGIN = 4;
 // 留给玩家的时间过后又这么久肉山还在，放开人数限制全队一起去，不会永远不打
 const ROSHAN_ALL_IN_AFTER = 180;
+// 敌方英雄离肉山这么近时不去，免得刚歇下打架又在肉山坑撞上
+const ROSHAN_CONTEST_RADIUS = 3000;
 // 放开之前最多派半队，其余继续推进压制玩家
 const ROSHAN_MAX_SHARE = 0.5;
 
@@ -372,8 +379,12 @@ function assignFights(
       (spot.engaged || fighters.length > 0) &&
       spot.enemyPower <=
         (nearby.reduce((sum, bot) => sum + bot.power, 0) + spot.allyPower) * KEEP_FIGHTING_RATIO;
-    if (!enough) {
+    // 歇打架时不派人，也别推到敌人跟前去；敌人动手时由英雄层就地还手
+    if (!enough || input.resting?.has('fight')) {
       avoid.push(spot.pos);
+    }
+    if (input.resting?.has('fight')) {
+      continue;
     }
     // 能来的人全来也凑不够就都不来，不派一部分人去送；打起来了也只叫附近的，远处的赶来只会逐个送
     if ((!enough && !holds) || spot.pastFront) {
@@ -431,7 +442,7 @@ function assignRoshan(input: PlanInput, free: PlanBot[], tasks: Map<number, Task
   const squad = input.roshanSquad;
   const kept = free.filter((bot) => squad?.has(bot.id));
   const picked =
-    kept.length > 0 ? keepRoshan(roshan, free, kept) : startRoshan(input, roshan, free);
+    kept.length > 0 ? keepRoshan(roshan, free, kept) : startRoshan(input, roshan, free, tasks);
   const task: Task = { kind: 'roshan', pos: roshan.pos, targetId: roshan.id };
   for (const bot of picked) {
     tasks.set(bot.id, task);
@@ -460,13 +471,20 @@ function keepRoshan(roshan: RoshanInfo, free: PlanBot[], kept: PlanBot[]): PlanB
   return assigned >= roshan.power ? picked : [];
 }
 
-function startRoshan(input: PlanInput, roshan: RoshanInfo, free: PlanBot[]): PlanBot[] {
+function startRoshan(
+  input: PlanInput,
+  roshan: RoshanInfo,
+  free: PlanBot[],
+  tasks: Map<number, Task>,
+): PlanBot[] {
   const active = input.bots.filter((bot) => !bot.needsRecover);
-  // 不比敌方全队强也去：玩家不在附近时偷肉山，被撞上按交战处理
+  // 不比敌方全队强也去：玩家不在附近时偷肉山，被撞上按交战处理。
+  // 有人在打架时不分人去，歇打架时才轮得到
   if (
     roshan.aliveSeconds < roshan.waitSeconds ||
     input.defend.length > 0 ||
-    input.fights.length > 0
+    [...tasks.values()].some((task) => task.kind === 'fight') ||
+    input.fights.some((fight) => distance(fight.pos, roshan.pos) <= ROSHAN_CONTEST_RADIUS)
   ) {
     return [];
   }
@@ -534,7 +552,9 @@ function assignPush(
   const enemyPower = input.enemyPower ?? 0;
   const outerLeft = input.outerTowersLeft === true || input.lanes.some((lane) => !lane.highGround);
   const held = input.lanes.filter((lane) => lane.highGround && (outerLeft || siege));
-  const open = input.lanes.filter((lane) => !held.includes(lane));
+  // 推太久没进展的路先放一放，换一路推；没别的路可推就去发育或打肉山
+  const tired = input.resting?.has('push') ? (input.tiredLanes ?? []) : [];
+  const open = input.lanes.filter((lane) => !held.includes(lane) && !tired.includes(lane.lane));
   const pushPower = free.reduce((sum, bot) => sum + bot.power, 0);
   const candidates = open.filter(
     (lane) =>
@@ -549,7 +569,9 @@ function assignPush(
   const desired = group ? 1 : lanesFor(active, teamPower, enemyPower);
   // 锁定期内按全队战力判断原路线还能不能推：有人去打架、回家或阵亡只是暂时的，不因此换路
   let plan = input.plan;
-  const heldPicked = plan?.picks.some((pick) => held.some((lane) => lane.lane === pick.lane));
+  const heldPicked = plan?.picks.some(
+    (pick) => held.some((lane) => lane.lane === pick.lane) || tired.includes(pick.lane),
+  );
   if (
     !plan ||
     plan.group !== group ||
@@ -586,7 +608,8 @@ function assignPush(
 
 /** 碾压敌方、又不在抱团推进时，高地外施压而不直接冲；按实力算，不因一时有人阵亡或去打架就改强攻。 */
 function pressing(input: PlanInput): boolean {
-  if (input.groupPush === true) {
+  // 在高地外刷野施压太久没进展就上高地，不一直绕着推进点转
+  if (input.groupPush === true || input.resting?.has('farm')) {
     return false;
   }
   const strength =
