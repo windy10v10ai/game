@@ -115,6 +115,7 @@ export class GameEnd {
         playerDto,
         difficultyMultiplier,
         winnerTeamId,
+        gameTime,
       );
 
       const playerInfo = CustomNetTables.GetTableValue(
@@ -208,6 +209,7 @@ export class GameEnd {
     player: GameEndPlayerDto,
     difficultyMultiplier: number,
     winnerTeamId: DotaTeam,
+    gameTime: number,
   ): number {
     if (player.steamId === 0) {
       // 电脑不获得积分
@@ -215,7 +217,7 @@ export class GameEnd {
     }
     const teamKills = PlayerResource.GetTeamKills(player.teamId);
     const timeMultiplier = GameEndPoint.GetParticipationRateMultiplier(player, teamKills);
-    const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime()) * timeMultiplier;
+    const gameTimePoints = GameEndPoint.GetGameTimePoints(gameTime) * timeMultiplier;
     const basePoints = player.score + gameTimePoints;
     const points = basePoints * difficultyMultiplier;
     // 输了积分减半
