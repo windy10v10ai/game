@@ -166,8 +166,8 @@ export const FIGHT_SUPPORT_RADIUS = 6000;
 export const FIGHT_DANGER_RADIUS = 1500;
 // 派来打的 bot 离交战点这么近才算跟得上，远处还在路上的不算进我方战力
 export const FIGHT_FOLLOW_RADIUS = 3000;
-// 派去打架的战力要高出对面一截才稳
-const FIGHT_POWER_MARGIN = 1.2;
+// 全队强过敌方这么多倍才算占优：去打肉山、半队打得过全队才分两路与高地外施压
+const AHEAD_RATIO = 1.2;
 // 全队都打不过的敌人附近这么远的推进目标先不派人，免得走过去被逐个击破
 const AVOID_LANE_RADIUS = 3000;
 // 推塔手排在后面挑，相当于离交战点远了这么多；就在交战点旁边的推塔手照常叫，不站在一边看队友打
@@ -355,7 +355,8 @@ function assignFights(
   const avoid: Point[] = [];
   let remaining = free;
   for (const spot of spots) {
-    const need = spot.enemyPower * FIGHT_POWER_MARGIN - spot.allyPower;
+    // 与英雄层进场同一口径，派出的人到齐后正好够上
+    const need = spot.enemyPower / AVOID_POWER_RATIO - spot.allyPower;
     const enough = remaining.reduce((sum, bot) => sum + bot.power, 0) >= need;
     const fighters = remaining.filter((bot) => input.fighting?.get(bot.id) === spot.focusId);
     const nearby = remaining.filter(
@@ -461,7 +462,7 @@ function startRoshan(input: PlanInput, roshan: RoshanInfo, free: PlanBot[]): Pla
     roshan.aliveSeconds < roshan.waitSeconds ||
     input.defend.length > 0 ||
     input.fights.length > 0 ||
-    teamPower < (input.enemyPower ?? 0) * AVOID_POWER_RATIO
+    teamPower < (input.enemyPower ?? 0) * AHEAD_RATIO
   ) {
     return [];
   }
@@ -605,7 +606,7 @@ function lanesFor(active: number, teamPower: number, enemyPower: number): number
  * 两处用同一口径，强到敢分路就强到该收着打，调这一个判断就能整体调节奏。
  */
 function dominates(teamPower: number, enemyPower: number): boolean {
-  return teamPower / MAX_PUSH_LANES >= enemyPower * AVOID_POWER_RATIO;
+  return teamPower / MAX_PUSH_LANES >= enemyPower * AHEAD_RATIO;
 }
 
 /**

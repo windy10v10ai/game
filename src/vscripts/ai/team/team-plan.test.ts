@@ -353,14 +353,14 @@ describe('planTasks', () => {
 
   it('keeps bots already fighting a target until the enemy is far stronger', () => {
     // 全队也凑不够开新仗的余量，但上一轮已经在打的人不因此掉头
-    const fresh = planTasks(baseInput({ fights: [spot(450)] })).tasks;
+    const fresh = planTasks(baseInput({ fights: [spot(800)] })).tasks;
     expect([...fresh.values()].some((task) => task.kind === 'fight')).toBe(false);
     const fighting = new Map([
       [1, 99],
       [2, 99],
       [3, 99],
     ]);
-    const kept = planTasks(baseInput({ fights: [spot(450)], fighting })).tasks;
+    const kept = planTasks(baseInput({ fights: [spot(800)], fighting })).tasks;
     expect([1, 2, 3].map((id) => kept.get(id)?.kind)).toEqual(['fight', 'fight', 'fight']);
     const hopeless = planTasks(baseInput({ fights: [spot(5000)], fighting })).tasks;
     expect([...hopeless.values()].some((task) => task.kind === 'fight')).toBe(false);
@@ -380,6 +380,11 @@ describe('planTasks', () => {
     expect(tasks.get(5)?.kind).toBe('push');
   });
 
+  it('takes on a fight the whole team is slightly weaker in', () => {
+    const tasks = planTasks(baseInput({ fights: [spot(700)] })).tasks;
+    expect([...tasks.values()].every((task) => task.kind === 'fight')).toBe(true);
+  });
+
   it('counts a far bot with teleport ready as able to get to the fight', () => {
     const input = baseInput({ fights: [spot(250)] });
     input.bots[4].pos = { x: 9000, y: 0 };
@@ -388,7 +393,7 @@ describe('planTasks', () => {
   });
 
   it('sends everyone needed straight toward the fight instead of waiting at a rally point', () => {
-    const input = baseInput({ fights: [spot(400)] });
+    const input = baseInput({ fights: [spot(700)] });
     input.bots.forEach((bot) => (bot.pos = { x: -9000, y: 0 }));
     const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
     expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(5);
