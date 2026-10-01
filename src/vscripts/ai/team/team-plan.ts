@@ -203,6 +203,8 @@ const DEFENDED_PUSH_RATIO = 2;
 export const ROSHAN_POWER_MARGIN = 4;
 // 留给玩家的时间过后又这么久肉山还在，放开人数限制全队一起去，不会永远不打
 const ROSHAN_ALL_IN_AFTER = 180;
+// 开打后剩下的人要比肉山（按它当前血量）强这么多才继续，被叫走一两个没事，走多了一起撤；肉山快死时门槛跟着降
+const ROSHAN_KEEP_MARGIN = 2;
 // 敌方英雄离肉山这么近时不去，免得刚歇下打架又在肉山坑撞上
 const ROSHAN_CONTEST_RADIUS = 3000;
 // 放开之前最多派半队，其余继续推进压制玩家
@@ -451,9 +453,10 @@ function assignRoshan(input: PlanInput, free: PlanBot[], tasks: Map<number, Task
 }
 
 /**
- * 已经在打的人不按开打门槛重算；被抽走几个人、剩下的不再比肉山强时就近补人，补不上就都撤，不让一两个人打到死。
+ * 已经在打的人不按开打门槛重算；被抽走太多、剩下的不再稳稳强过肉山时就近补人，补不上就一起撤，不留一两个人在坑里。
  */
 function keepRoshan(roshan: RoshanInfo, free: PlanBot[], kept: PlanBot[]): PlanBot[] {
+  const need = roshan.power * ROSHAN_KEEP_MARGIN;
   const picked = [...kept];
   let assigned = kept.reduce((sum, bot) => sum + bot.power, 0);
   const others = free.filter((bot) => !kept.includes(bot));
@@ -462,13 +465,13 @@ function keepRoshan(roshan: RoshanInfo, free: PlanBot[], kept: PlanBot[]): PlanB
     gap.set(bot.id, distance(bot.pos, roshan.pos));
   }
   for (const bot of others.sort((a, b) => gap.get(a.id)! - gap.get(b.id)!)) {
-    if (assigned >= roshan.power) {
+    if (assigned >= need) {
       break;
     }
     picked.push(bot);
     assigned += bot.power;
   }
-  return assigned >= roshan.power ? picked : [];
+  return assigned >= need ? picked : [];
 }
 
 function startRoshan(
