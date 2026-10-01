@@ -156,8 +156,8 @@ export interface PlanResult {
 }
 // 回防要带够余量，刚好持平的人数守不住塔
 const DEFEND_POWER_MARGIN = 1.2;
-// 全队赶过去也只有攻方一半战力时，外塔不值得去送
-const DEFEND_GIVE_UP_RATIO = 0.5;
+// 全队赶过去也够不上主动交战的门槛时，外塔不值得去送，和打架同一口径
+const DEFEND_GIVE_UP_RATIO = 1 / AVOID_POWER_RATIO;
 // 外塔最多抽走的人数比例，剩下的人继续推进，逼玩家回防
 const DEFEND_MAX_SHARE = 0.6;
 /** 离目的地超过这么远、卷轴又好着时 bot 会传送过去 */

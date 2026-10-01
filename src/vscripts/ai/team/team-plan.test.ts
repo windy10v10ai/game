@@ -7,7 +7,15 @@ import {
   projectOnLane,
 } from './lane-geometry';
 import { shouldUseGlyph } from './glyph';
-import { combatPower, damagePerSecond, effectiveHealth } from './power';
+import {
+  combatPower,
+  damagePerSecond,
+  decayThreat,
+  effectiveHealth,
+  threatAfterDeath,
+  threatAfterKill,
+  threatMultiplier,
+} from './power';
 import { Activity } from './activity';
 import { resolvePushStaging } from './push-staging';
 import { pushLevelFor, shouldTakeOver, takeoverFallbackSeconds } from './takeover';
@@ -110,6 +118,20 @@ describe('power', () => {
   it('counts magic resist and drops when skills and items are on cooldown', () => {
     expect(combatPower({ ...stats, magicResist: 0.5 })).toBeGreaterThan(combatPower(stats));
     expect(combatPower({ ...stats, spellReady: 0 })).toBeLessThan(combatPower(stats));
+  });
+
+  it('grows threat by how strong the victim was next to the killer, a little and capped', () => {
+    const equal = threatAfterKill(0, 1000, 1000);
+    expect(threatAfterKill(0, 200, 1000)).toBeLessThan(equal);
+    expect(threatMultiplier(equal)).toBeGreaterThan(1);
+    expect(threatMultiplier(equal)).toBeLessThan(1.2);
+    expect(threatMultiplier(threatAfterKill(0, 5000, 1000))).toBeLessThanOrEqual(1.3);
+    expect(threatMultiplier(100)).toBe(1.3);
+  });
+
+  it('fades threat within a couple of minutes and halves it on death', () => {
+    expect(decayThreat(0.2, 60)).toBeCloseTo(0.1);
+    expect(threatAfterDeath(0.2)).toBeCloseTo(0.1);
   });
 
   it('splits into effective health and damage per second', () => {
@@ -397,7 +419,7 @@ describe('planTasks', () => {
   });
 
   it('takes on a fight the whole team is slightly weaker in', () => {
-    const tasks = planTasks(baseInput({ fights: [spot(900)] })).tasks;
+    const tasks = planTasks(baseInput({ fights: [spot(700)] })).tasks;
     expect([...tasks.values()].every((task) => task.kind === 'fight')).toBe(true);
   });
 
@@ -409,7 +431,7 @@ describe('planTasks', () => {
   });
 
   it('sends everyone needed straight toward the fight instead of waiting at a rally point', () => {
-    const input = baseInput({ fights: [spot(900)] });
+    const input = baseInput({ fights: [spot(700)] });
     input.bots.forEach((bot) => (bot.pos = { x: -9000, y: 0 }));
     const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
     expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(5);

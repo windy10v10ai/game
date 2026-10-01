@@ -29,7 +29,16 @@ import { FindRoshan, RoshanTiming } from './roshan';
 import { SupplyWards } from '../ward/ward-supply';
 import { ControlSummons } from './summon-control';
 import { Activity, ActivityTracker } from './activity';
-import { CombatStats, combatPower, damagePerSecond, effectiveHealth } from './power';
+import {
+  CombatStats,
+  combatPower,
+  damagePerSecond,
+  decayThreat,
+  effectiveHealth,
+  threatAfterDeath,
+  threatAfterKill,
+  threatMultiplier,
+} from './power';
 import { canDiveTower } from '../hero/tower-retreat';
 import {
   DefendTarget,
@@ -1450,9 +1459,44 @@ export function UnitPower(unit: CDOTA_BaseNPC): number {
   if (cached !== undefined) {
     return cached;
   }
-  const power = ComputePower(unit);
+  let power = ComputePower(unit);
+  if (unit.IsRealHero() && power > 0) {
+    heroPower.set(index, power);
+    power *= threatMultiplier(ThreatScore(index, now));
+  }
   powerCache.set(index, power);
   return power;
+}
+
+// 英雄最近一次活着时的属性战力，击杀时按双方生前战力算威胁
+const heroPower = new Map<EntityIndex, number>();
+const heroThreat = new Map<EntityIndex, { score: number; time: number }>();
+
+function ThreatScore(index: EntityIndex, now: number): number {
+  const record = heroThreat.get(index);
+  return record ? decayThreat(record.score, now - record.time) : 0;
+}
+
+/** 英雄被击杀时记下双方的击杀威胁，两队通用：玩家连杀稍显可怕，bot 击杀玩家后也敢追。 */
+export function RecordHeroKill(killed: CDOTA_BaseNPC, killer: CDOTA_BaseNPC | undefined): void {
+  const now = GameRules.GetGameTime();
+  const killedIndex = killed.GetEntityIndex();
+  heroThreat.set(killedIndex, {
+    score: threatAfterDeath(ThreatScore(killedIndex, now)),
+    time: now,
+  });
+  if (!killer || killer.GetTeamNumber() === killed.GetTeamNumber()) {
+    return;
+  }
+  const killerIndex = killer.GetEntityIndex();
+  heroThreat.set(killerIndex, {
+    score: threatAfterKill(
+      ThreatScore(killerIndex, now),
+      heroPower.get(killedIndex) ?? 0,
+      heroPower.get(killerIndex) ?? ComputePower(killer),
+    ),
+    time: now,
+  });
 }
 
 function ComputePower(unit: CDOTA_BaseNPC): number {

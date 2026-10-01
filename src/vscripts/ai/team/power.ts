@@ -25,13 +25,13 @@ export interface CombatStats {
  * 跳进敌人身边的先手技能与跳刀切入也按它判断：会主动上去打的局面才允许先手。
  * 大于 1 是有意的：玩家要有挑战的战斗，勉强打不过也要打，调这一个数就能整体调交战倾向。
  */
-export const AVOID_POWER_RATIO = 2;
+export const AVOID_POWER_RATIO = 1.5;
 
 /**
  * 已经交战时，敌方战力超过我方这么多倍就趁早撤，不硬打。比进场门槛略松：技能已经交了、人已经贴上，
  * 这时掉头损失更大；两个数反过来会出现冲上去一挨打又掉头跑。
  */
-export const KEEP_FIGHTING_RATIO = 4;
+export const KEEP_FIGHTING_RATIO = 3;
 
 /** 推进路过时顺手清野需要的自身战力，太弱的英雄停下来打野会耽误推进。 */
 export const QUICK_CLEAR_POWER = 1500;
@@ -77,4 +77,30 @@ export function damagePerSecond(stats: CombatStats): number {
       (1 + stats.spellAmp) *
       (SPELL_READY_FLOOR + (1 - SPELL_READY_FLOOR) * stats.spellReady);
   return Math.max(dps, 0);
+}
+
+// 击杀威胁只微调战力：连杀的一方稍显可怕，打完一波一两分钟回落；放大太多会变成越杀越不敢打
+const THREAT_HALF_LIFE = 60;
+// 击杀一个和自己一样强的英雄加的威胁分，杀弱的加得少
+const THREAT_PER_EQUAL_KILL = 0.1;
+const MAX_THREAT_MULTIPLIER = 1.3;
+// 被击杀说明并非不可战胜，威胁打折而不是清零
+const THREAT_KEEP_ON_DEATH = 0.5;
+
+export function decayThreat(score: number, elapsed: number): number {
+  return score * Math.pow(0.5, elapsed / THREAT_HALF_LIFE);
+}
+
+export function threatAfterKill(score: number, victimPower: number, killerPower: number): number {
+  const ratio = killerPower > 0 ? victimPower / killerPower : 1;
+  return score + THREAT_PER_EQUAL_KILL * ratio;
+}
+
+export function threatAfterDeath(score: number): number {
+  return score * THREAT_KEEP_ON_DEATH;
+}
+
+/** 最近击杀过对面英雄的，实际威胁比属性体现的略大。 */
+export function threatMultiplier(score: number): number {
+  return Math.min(MAX_THREAT_MULTIPLIER, 1 + score);
 }
