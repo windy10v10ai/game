@@ -64,6 +64,8 @@ export interface FightSpot {
   rally: Point;
   /** 在敌方还没推掉的塔后面，不派人去打 */
   pastFront: boolean;
+  /** 敌人躲在塔下，越塔时塔会先打死我方的人，不派人去打 */
+  towerSafe?: boolean;
   /** 附近已经有 bot 和敌方英雄交上手 */
   engaged: boolean;
 }
@@ -389,7 +391,7 @@ function assignFights(
       continue;
     }
     // 能来的人全来也凑不够就都不来，不派一部分人去送；打起来了也只叫附近的，远处的赶来只会逐个送
-    if ((!enough && !holds) || spot.pastFront) {
+    if ((!enough && !holds) || spot.pastFront || spot.towerSafe === true) {
       continue;
     }
     const pool = enough ? remaining : nearby;

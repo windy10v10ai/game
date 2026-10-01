@@ -89,6 +89,9 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly TowerNearbyRange: number = 600;
   protected readonly TowerDetourMargin: number = 200;
   protected readonly DiveMinHeroes: number = 3;
+  // 越塔抓人时这么近的范围内至少有这么多队友一起
+  protected readonly DiveMinPartners: number = 1;
+  protected readonly DivePartnerRange: number = 1200;
   protected readonly DiveMinHealthPercent: number = 50;
   protected readonly DiveMinCreeps: number = 2;
   protected readonly DiveCheckRadius: number = 900;
@@ -1153,6 +1156,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (towerTarget === this.hero && this.hero.GetHealthPercent() < this.DeaggroHealthPercent) {
       return false;
     }
+    if (this.DivingWithTeam()) {
+      return true;
+    }
     const towerOnHero = towerTarget !== undefined && towerTarget.IsHero();
     if (!towerOnHero && this.CountCreepsNear(tower) >= this.DiveMinCreeps) {
       return true;
@@ -1213,6 +1219,31 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   /** 已进塔或在射程边缘的健康队友都算，否则先到的人数不够又退出来，大家一直凑不齐。 */
+  /** 团队判断这一团能越塔打死时，被派来的人有队友在身边就一起越，不一个人先冲。 */
+  private DivingWithTeam(): boolean {
+    const task = this.brain?.GetTask(this.hero);
+    if (task?.kind !== 'fight' || task.targetId === undefined || !this.brain) {
+      return false;
+    }
+    const target = EntIndexToHScript(task.targetId as EntityIndex) as CDOTA_BaseNPC | undefined;
+    return (
+      target !== undefined &&
+      IsValidEntity(target) &&
+      this.brain.DivesOn(target) &&
+      this.CountDivePartners() >= this.DiveMinPartners
+    );
+  }
+
+  private CountDivePartners(): number {
+    return this.aroundFriendlyHeroes.filter(
+      (ally) =>
+        ally !== this.hero &&
+        ally.IsAlive() &&
+        ally.IsRealHero() &&
+        this.hero.GetRangeToUnit(ally) <= this.DivePartnerRange,
+    ).length;
+  }
+
   private CountHeroesAtTower(tower: CDOTA_BaseNPC): number {
     let count = 0;
     for (const ally of this.aroundFriendlyHeroes) {

@@ -7,7 +7,7 @@ import {
   projectOnLane,
 } from './lane-geometry';
 import { shouldUseGlyph } from './glyph';
-import { combatPower } from './power';
+import { combatPower, damagePerSecond, effectiveHealth } from './power';
 import { Activity } from './activity';
 import { resolvePushStaging } from './push-staging';
 import { pushLevelFor, shouldTakeOver, takeoverFallbackSeconds } from './takeover';
@@ -110,6 +110,12 @@ describe('power', () => {
   it('counts magic resist and drops when skills and items are on cooldown', () => {
     expect(combatPower({ ...stats, magicResist: 0.5 })).toBeGreaterThan(combatPower(stats));
     expect(combatPower({ ...stats, spellReady: 0 })).toBeLessThan(combatPower(stats));
+  });
+
+  it('splits into effective health and damage per second', () => {
+    expect(Math.sqrt(effectiveHealth(stats) * damagePerSecond(stats))).toBeCloseTo(
+      combatPower(stats),
+    );
   });
 
   it('counts evasion and magic immunity as harder to kill, by at most half the damage each', () => {
@@ -300,6 +306,11 @@ describe('planTasks', () => {
     rally: { x: -2000, y: 0 },
     pastFront: false,
     engaged: false,
+  });
+
+  it('does not send bots after an enemy whose tower would kill them first', () => {
+    const tasks = planTasks(baseInput({ fights: [{ ...spot(250), towerSafe: true }] })).tasks;
+    expect([...tasks.values()].some((task) => task.kind === 'fight')).toBe(false);
   });
 
   it('does not send bots to fight behind a standing tower', () => {

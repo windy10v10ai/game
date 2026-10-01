@@ -49,6 +49,11 @@ const SPELL_READY_FLOOR = 0.3;
 
 /** 一个单位的战力：有效血量与输出乘积的平方根，残血自然打折。 */
 export function combatPower(stats: CombatStats): number {
+  return Math.sqrt(effectiveHealth(stats) * damagePerSecond(stats));
+}
+
+/** 按护甲、魔抗、闪避、魔免折算后，打死这个单位要打掉的血量。 */
+export function effectiveHealth(stats: CombatStats): number {
   if (stats.health <= 0) {
     return 0;
   }
@@ -57,13 +62,19 @@ export function combatPower(stats: CombatStats): number {
   // 暴击、吸血引擎读不出汇总值，不估
   const physicalTaken = (1 - armorFactor) * (1 - Math.min(Math.max(stats.evasion, 0), MAX_EVASION));
   const magicTaken = stats.magicImmune ? 0 : 1 - stats.magicResist;
-  const damageTaken = Math.max(0.1, 0.5 * physicalTaken + 0.5 * magicTaken);
-  const effectiveHealth = stats.health / damageTaken;
+  return stats.health / Math.max(0.1, 0.5 * physicalTaken + 0.5 * magicTaken);
+}
+
+/** 普攻加按等级估的技能输出，技能物品在冷却时打折。 */
+export function damagePerSecond(stats: CombatStats): number {
+  if (stats.health <= 0) {
+    return 0;
+  }
   const dps =
     stats.attackDamage * stats.attacksPerSecond +
     stats.level *
       SPELL_DPS_PER_LEVEL *
       (1 + stats.spellAmp) *
       (SPELL_READY_FLOOR + (1 - SPELL_READY_FLOOR) * stats.spellReady);
-  return Math.sqrt(effectiveHealth * Math.max(dps, 0));
+  return Math.max(dps, 0);
 }

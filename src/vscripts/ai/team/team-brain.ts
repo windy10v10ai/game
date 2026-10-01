@@ -29,7 +29,8 @@ import { FindRoshan, RoshanTiming } from './roshan';
 import { SupplyWards } from '../ward/ward-supply';
 import { ControlSummons } from './summon-control';
 import { Activity, ActivityTracker } from './activity';
-import { combatPower } from './power';
+import { CombatStats, combatPower, damagePerSecond, effectiveHealth } from './power';
+import { canDiveTower } from '../hero/tower-retreat';
 import {
   DefendTarget,
   FIGHT_DANGER_RADIUS,
@@ -784,6 +785,48 @@ export class TeamBrain {
     return fights;
   }
 
+  /**
+   * 敌人在自家塔下时，附近能赶来的 bot 一起越塔，能不能在塔打死一个人之前把人打死。
+   * 只算没在撤的 bot，玩家队友不归调度不算。
+   */
+  private CanDiveAt(pos: Vector, enemies: CDOTA_BaseNPC[], allies: CDOTA_BaseNPC_Hero[]): boolean {
+    let towerDps = 0;
+    for (const unit of CachedBuildings()) {
+      if (
+        unit.GetTeamNumber() === this.enemyTeam &&
+        unit.HasAttackCapability() &&
+        distance(unit.GetAbsOrigin(), pos) <= TowerAttackRange(unit) + FIGHT_TOWER_MARGIN
+      ) {
+        towerDps += damagePerSecond(UnitStats(unit));
+      }
+    }
+    const divers = allies.filter(
+      (ally) =>
+        ally.IsAlive() &&
+        this.members.has(ally.GetEntityIndex()) &&
+        !this.retreatingMembers.has(ally.GetEntityIndex()) &&
+        distance(ally.GetAbsOrigin(), pos) <= FIGHT_FOLLOW_RADIUS,
+    );
+    if (divers.length === 0) {
+      return false;
+    }
+    const stats = divers.map(UnitStats);
+    return canDiveTower({
+      enemyHealth: enemies.reduce((sum, enemy) => sum + effectiveHealth(UnitStats(enemy)), 0),
+      teamDps: stats.reduce((sum, ally) => sum + damagePerSecond(ally), 0),
+      towerDps,
+      diverHealth: stats.reduce((sum, ally) => sum + effectiveHealth(ally), 0) / stats.length,
+    });
+  }
+
+  /** 这个敌人所在的交战点团队判断能越塔抓。 */
+  DivesOn(enemy: CDOTA_BaseNPC): boolean {
+    const index = enemy.GetEntityIndex();
+    return this.fights.some(
+      (fight) => fight.enemyIds.includes(index) && fight.withTower && fight.towerSafe !== true,
+    );
+  }
+
   private BuildFight(enemies: CDOTA_BaseNPC[], allies: CDOTA_BaseNPC_Hero[]): FightView {
     let x = 0;
     let y = 0;
@@ -806,6 +849,7 @@ export class TeamBrain {
     }
     const pos = Vector(x, y, 0);
     const enemyTowerPower = BuildingPowerNear(this.enemyTeam, pos);
+    const towerSafe = enemyTowerPower > 0 && !this.CanDiveAt(pos, enemies, allies);
     enemyPower += enemyTowerPower;
     // 己方塔、兵营与基地也算我方战力，玩家上高地时 bot 守得更积极；玩家的建筑同样算进敌方
     let allyPower = BuildingPowerNear(this.team, pos);
@@ -838,6 +882,7 @@ export class TeamBrain {
       ourPower,
       ourNames,
       withTower: enemyTowerPower > 0,
+      towerSafe,
       pastFront: this.IsPastFront(pos),
       engaged,
     };
@@ -1411,11 +1456,12 @@ export function UnitPower(unit: CDOTA_BaseNPC): number {
 }
 
 function ComputePower(unit: CDOTA_BaseNPC): number {
-  if (!unit.IsAlive()) {
-    return 0;
-  }
+  return unit.IsAlive() ? combatPower(UnitStats(unit)) : 0;
+}
+
+function UnitStats(unit: CDOTA_BaseNPC): CombatStats {
   const isHero = unit.IsHero();
-  return combatPower({
+  return {
     health: unit.GetHealth(),
     armor: unit.GetPhysicalArmorValue(false),
     // 引擎允许不传伤害来源，类型声明把它标成了必填
@@ -1427,7 +1473,7 @@ function ComputePower(unit: CDOTA_BaseNPC): number {
     spellReady: isHero ? SpellReadiness(unit) : 1,
     evasion: unit.GetEvasion(),
     magicImmune: unit.IsMagicImmune(),
-  });
+  };
 }
 
 /** 已学的主动技能与身上的主动物品里，现在能放的比例；不区分技能强弱。 */
