@@ -21,8 +21,8 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 | 场景 | 参数 |
 |---|---|
-| 1v10 按难度（N5 / N6 / N8） | `--boost false --radiantPlayers 2 --radiantMultiplier 5 --direMultiplier 7 --towerPower 300`；N6 改 `9`、`350`，N8 改 `14`、`500`。天辉 bot 扮演玩家，倍率比玩家实际的 1.5 高，补上真人比 bot 会杀会发育 |
-| 1v10 玩家强势 | 上面任一难度把 `--radiantMultiplier` 提到 `10` |
+| 1v10 按难度（N5 / N6 / N8） | `--boost false --radiantPlayers 2 --radiantMultiplier 15 --direMultiplier 7 --towerPower 300`；N6 改 `9`、`350`，N8 改 `14`、`500`。天辉 bot 扮演玩家，倍率远高于玩家实际的 1.5，补上真人比 bot 会杀会发育；5、10 倍时天辉 bot 18–21 分钟就被推平，测不到对抗 |
+| 1v10 玩家强势 | 上面任一难度把 `--radiantMultiplier` 提到 `20` |
 | 1v10 玩家碾压 | `--boost false --radiantPlayers 2 --radiantBoost true --direMultiplier 1`：天辉开局满级满钱，局面极端，只用来找 bot 犯蠢 |
 | 天辉强推电脑高地与基地 | `--boost false --radiantPlayers 5 --radiantMultiplier 10 --direMultiplier 1` |
 | 物品施放 | `--testItems item_a,item_b`：开局发物品并停掉买卖装备 |
