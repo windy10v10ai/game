@@ -157,7 +157,7 @@ export class BotBaseAIModifier extends BaseModifier {
   private engagedUntil: number = -60;
   private lastHurtTime: number = -60;
   private recentDamage: { time: number; damage: number }[] = [];
-  private lastHealth: number = 0;
+  private lastMissingHealth: number = 0;
   private tookDamage: boolean = false;
   private needsRecover: boolean = false;
   private lastOrderPos: Vector | undefined;
@@ -383,14 +383,16 @@ export class BotBaseAIModifier extends BaseModifier {
       (enemy) => this.hero.GetRangeToUnit(enemy) <= this.LocalFightRadius,
     );
     const health = this.hero.GetHealth();
-    const drop = Math.max(0, this.lastHealth - health);
+    // 按缺的血算掉血：离开泉水、换装备这类上限变化会让当前血量一起掉，不是挨打
+    const missing = this.hero.GetMaxHealth() - health;
+    const drop = Math.max(0, missing - this.lastMissingHealth);
     const tookDamage = drop > 0;
     const burst = drop >= this.hero.GetMaxHealth() * this.UnseenBurstRatio;
     this.tookDamage = tookDamage;
     if (tookDamage) {
       this.lastHurtTime = this.gameTime;
     }
-    this.lastHealth = health;
+    this.lastMissingHealth = missing;
     const survival = this.SurvivalSeconds(drop);
     const attackTarget = this.hero.GetAttackTarget();
     if (
