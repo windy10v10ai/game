@@ -37,6 +37,8 @@ export interface PerfAutoConfig {
   radiantBoost?: boolean;
   // 夜魇金钱经验倍率，调低后天辉能压着电脑推，用来验证电脑回防；0 为沿用对局选项
   direMultiplier?: number;
+  // 防御塔强度百分比，按难度预设测真实局面；0 为沿用对局选项
+  towerPower?: number;
   // 逗号分隔的英雄名（不带 npc_dota_hero_ 前缀），排到 bot 英雄池最前面，用于让指定英雄出场验证
   botHeroes: string;
   // 逗号分隔的物品名，开局轮流发给每个英雄并停掉 bot 买卖装备，用于验证物品施放
@@ -84,7 +86,8 @@ if (
   bootConfig &&
   (bootConfig.radiantPlayers > 0 ||
     bootConfig.radiantMultiplier > 0 ||
-    (bootConfig.direMultiplier ?? 0) > 0)
+    (bootConfig.direMultiplier ?? 0) > 0 ||
+    (bootConfig.towerPower ?? 0) > 0)
 ) {
   const config = bootConfig;
   const originalPickBotHeroes = HeroPick.PickBotHeroes;
@@ -96,9 +99,10 @@ if (
     if ((config.direMultiplier ?? 0) > 0) {
       GameRules.Option.direGoldXpMultiplier = config.direMultiplier as number;
     }
+    if ((config.towerPower ?? 0) > 0) GameRules.Option.towerPower = config.towerPower as number;
     print(
       `[perf-auto] radiantPlayers=${GameRules.Option.radiantPlayerNumber} radiantMultiplier=${GameRules.Option.radiantGoldXpMultiplier}` +
-        ` direMultiplier=${GameRules.Option.direGoldXpMultiplier}`,
+        ` direMultiplier=${GameRules.Option.direGoldXpMultiplier} towerPower=${GameRules.Option.towerPower}`,
     );
     originalPickBotHeroes.call(this);
   };
@@ -412,6 +416,16 @@ export class PerfAuto {
   // 浸泡测试：不切换任何条件一直跑到指定分钟，看每 tick 耗时和泄漏指标随游戏时间的变化
   private static soak(config: PerfAutoConfig) {
     PerfSampler.setPhase('soak');
+    // 基地被推平后按游戏时间的计时器和状态切换事件实测都可能不再触发，按真实时间再盯一道
+    const watchGameOver = () => {
+      if (this.finished) return;
+      if (GameRules.State_Get() >= GameState.POST_GAME) {
+        this.finish(true, config.quitOnDone);
+        return;
+      }
+      afterRealSeconds(5, watchGameOver);
+    };
+    afterRealSeconds(5, watchGameOver);
     SendToServerConsole(`host_timescale ${config.soakTimescale}`);
     Timers.CreateTimer(5, (): number | undefined => {
       const gameOver = GameRules.State_Get() >= GameState.POST_GAME;
