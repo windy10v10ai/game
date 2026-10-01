@@ -97,6 +97,8 @@ describe('power', () => {
     level: 10,
     spellAmp: 0,
     spellReady: 1,
+    evasion: 0,
+    magicImmune: false,
   };
 
   it('grows with health and damage and is zero when dead', () => {
@@ -108,6 +110,14 @@ describe('power', () => {
   it('counts magic resist and drops when skills and items are on cooldown', () => {
     expect(combatPower({ ...stats, magicResist: 0.5 })).toBeGreaterThan(combatPower(stats));
     expect(combatPower({ ...stats, spellReady: 0 })).toBeLessThan(combatPower(stats));
+  });
+
+  it('counts evasion and magic immunity as harder to kill, by at most half the damage each', () => {
+    const base = combatPower(stats);
+    expect(combatPower({ ...stats, evasion: 0.5 })).toBeGreaterThan(base);
+    const immune = combatPower({ ...stats, magicImmune: true });
+    expect(immune).toBeGreaterThan(base);
+    expect(immune).toBeLessThan(base * Math.SQRT2 * 1.2);
   });
 });
 

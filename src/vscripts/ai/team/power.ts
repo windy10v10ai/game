@@ -15,6 +15,9 @@ export interface CombatStats {
   spellAmp: number;
   /** 主动技能与物品中当前能放的比例，0–1 */
   spellReady: number;
+  /** 闪避率，0.3 表示 30% */
+  evasion: number;
+  magicImmune: boolean;
 }
 
 /**
@@ -36,6 +39,9 @@ export const QUICK_CLEAR_POWER = 1500;
 /** 打远古野需要的自身战力，不读野怪战力，调这一个数即可。 */
 export const ANCIENT_FARM_POWER = 3000;
 
+// 叠满闪避也有克制手段，不让有效血量无限放大
+const MAX_EVASION = 0.75;
+
 // 攻击输出算不到技能伤害，按等级补一项，否则法系英雄会被严重低估
 const SPELL_DPS_PER_LEVEL = 12;
 // 技能物品全在冷却时仍保留的技能输出比例，普攻之外还有被动与下一轮冷却
@@ -47,8 +53,11 @@ export function combatPower(stats: CombatStats): number {
     return 0;
   }
   const armorFactor = (0.06 * stats.armor) / (1 + 0.06 * Math.abs(stats.armor));
-  // 承受的伤害按物理与魔法各占一半估算
-  const damageTaken = Math.max(0.1, 1 - 0.5 * armorFactor - 0.5 * stats.magicResist);
+  // 承受的伤害按物理与魔法各占一半估算；闪避只躲普攻那一半，魔免时魔法那一半打不进来。
+  // 暴击、吸血引擎读不出汇总值，不估
+  const physicalTaken = (1 - armorFactor) * (1 - Math.min(Math.max(stats.evasion, 0), MAX_EVASION));
+  const magicTaken = stats.magicImmune ? 0 : 1 - stats.magicResist;
+  const damageTaken = Math.max(0.1, 0.5 * physicalTaken + 0.5 * magicTaken);
   const effectiveHealth = stats.health / damageTaken;
   const dps =
     stats.attackDamage * stats.attacksPerSecond +

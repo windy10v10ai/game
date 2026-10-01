@@ -1425,6 +1425,8 @@ function ComputePower(unit: CDOTA_BaseNPC): number {
     level: isHero ? unit.GetLevel() : 0,
     spellAmp: isHero ? unit.GetSpellAmplification(false) : 0,
     spellReady: isHero ? SpellReadiness(unit) : 1,
+    evasion: unit.GetEvasion(),
+    magicImmune: unit.IsMagicImmune(),
   });
 }
 
