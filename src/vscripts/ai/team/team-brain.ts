@@ -187,7 +187,7 @@ export class TeamBrain {
   private enemiesAlive = new Set<EntityIndex>();
   private pushMark = -1;
   // 正在拆敌方高地或抱团推进，阵亡的人买活回来接着推
-  private sieging = false;
+  private siegePos: Point | undefined;
   private glyphReadyAt = 0;
   private readonly buildingHealth = new Map<EntityIndex, { time: number; health: number }[]>();
   private outerTowers = -1;
@@ -444,9 +444,9 @@ export class TeamBrain {
       lanes.filter((lane) => lane.highGround).map((lane) => lane.targetId),
     );
     // 抱团推外塔时死了不买，买活冷却要留给高地和基地
-    this.sieging = [...this.tasks.values()].some(
+    this.siegePos = [...this.tasks.values()].find(
       (task) => task.kind === 'push' && highGround.has(task.targetId ?? -1),
-    );
+    )?.pos;
     for (const [id, task] of this.tasks) {
       if (task.kind === 'push' && task.lane) {
         this.pushLanes.set(id, task.lane);
@@ -614,7 +614,7 @@ export class TeamBrain {
           fight.enemyPower <= fight.ourPower + power &&
           this.CanReachAfterBuyback(hero, fight.pos),
       );
-      const keepSieging = this.sieging && alivePower + power >= enemyAlive;
+      const keepSieging = this.CanRejoinSiege(hero, power, enemyAlive);
       if (!holdBase && !turnFight && !keepSieging) {
         continue;
       }
@@ -627,6 +627,28 @@ export class TeamBrain {
         `[bot-ai] ${HeroShortName(hero)} buyback base=${holdBase ? 1 : 0} siege=${keepSieging ? 1 : 0}`,
       );
     }
+  }
+
+  /**
+   * 进攻高地时阵亡：高地前还有活着的队友在打、买活后赶得过去、加上自己打得过敌方才买。
+   * 队友都没了买活过去也是一个人送，赶不过去就是白花钱。
+   */
+  private CanRejoinSiege(hero: CDOTA_BaseNPC_Hero, power: number, enemyAlive: number): boolean {
+    const pos = this.siegePos;
+    if (!pos) {
+      return false;
+    }
+    let siegePower = 0;
+    for (const member of this.members.values()) {
+      if (member.IsAlive() && distance(member.GetAbsOrigin(), pos) <= FIGHT_FOLLOW_RADIUS) {
+        siegePower += UnitPower(member);
+      }
+    }
+    return (
+      siegePower > 0 &&
+      siegePower + power >= enemyAlive &&
+      this.CanReachAfterBuyback(hero, pos)
+    );
   }
 
   private CanReachAfterBuyback(hero: CDOTA_BaseNPC_Hero, pos: Point): boolean {
