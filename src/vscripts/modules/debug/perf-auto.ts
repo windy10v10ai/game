@@ -416,16 +416,6 @@ export class PerfAuto {
   // 浸泡测试：不切换任何条件一直跑到指定分钟，看每 tick 耗时和泄漏指标随游戏时间的变化
   private static soak(config: PerfAutoConfig) {
     PerfSampler.setPhase('soak');
-    // 基地被推平后按游戏时间的计时器和状态切换事件实测都可能不再触发，按真实时间再盯一道
-    const watchGameOver = () => {
-      if (this.finished) return;
-      if (GameRules.State_Get() >= GameState.POST_GAME) {
-        this.finish(true, config.quitOnDone);
-        return;
-      }
-      afterRealSeconds(5, watchGameOver);
-    };
-    afterRealSeconds(5, watchGameOver);
     SendToServerConsole(`host_timescale ${config.soakTimescale}`);
     Timers.CreateTimer(5, (): number | undefined => {
       const gameOver = GameRules.State_Get() >= GameState.POST_GAME;

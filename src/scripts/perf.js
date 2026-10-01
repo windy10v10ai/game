@@ -10,7 +10,8 @@ const CONFIG_FILE = path.join(ROOT, 'game', 'scripts', 'vscripts', 'perf_auto_co
 // 每轮一个子目录，和排查文档放在一起，今后对比历史数据直接从这里取
 const RUNS_DIR = path.join(ROOT, 'docs', 'superpowers', 'specs', 'late-game-lag', 'runs');
 const POLL_MS = 15000;
-const FINISHED = /\[perf-auto\] (done|aborted)/;
+// 基地被推平后游戏内的计时器与状态事件都可能不再触发，直接认引擎的结算状态
+const FINISHED = /\[perf-auto\] (done|aborted)|entering state 'DOTA_GAMERULES_STATE_POST_GAME'/;
 // 专用服负载高时会以处理超时为由踢掉唯一的客户端，没有玩家后游戏直接结算，脚本内存随即失控，只能立刻收场
 const BROKEN =
   /Disconnect client .* from server: (?!NETWORK_DISCONNECT_SHUTDOWN)|LUA Memory usage warning: The VM has hit a new high usage of \d{3},\d{3},\d{3} bytes/;
