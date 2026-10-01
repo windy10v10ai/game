@@ -1,7 +1,10 @@
+import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
+import { GameConfig } from '../GameConfig';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroPick } from '../hero/hero-pick';
 import { PerfProfiler } from './perf-profiler';
+import { PERF_CONFIG } from './perf-config';
 import { findAllUnits, PerfSampler } from './perf-sampler';
 
 export interface PerfAutoConfig {
@@ -21,13 +24,21 @@ export interface PerfAutoConfig {
   conditions?: string;
   soakMinutes: number;
   soakTimescale: number;
+  // 开局把所有英雄拉到满级并给足金钱，低倍速热身几分钟就是后期局面
+  boost: boolean;
+  // 0 为沿用对局选项
+  maxLevel: number;
   // 工具模式下 bot 英雄按池子顺序固定选取，偏移后可以让多次测试覆盖池子里的其他英雄
   botOffset: number;
   // 天辉人数与金钱经验倍率，模拟少量玩家对满编 bot 的真实对局；0 为沿用对局选项
   radiantPlayers: number;
   radiantMultiplier: number;
+  // 夜魇金钱经验倍率，调低后天辉能压着电脑推，用来验证电脑回防；0 为沿用对局选项
+  direMultiplier?: number;
   // 逗号分隔的英雄名（不带 npc_dota_hero_ 前缀），排到 bot 英雄池最前面，用于让指定英雄出场验证
   botHeroes: string;
+  // 逗号分隔的物品名，开局轮流发给每个英雄并停掉 bot 买卖装备，用于验证物品施放
+  testItems?: string;
 }
 
 interface PerfStep {
@@ -47,17 +58,11 @@ const SETTLE_SECONDS = 5;
 const EARLY_SECONDS = 30;
 const REALTIME_SECONDS = 120;
 const PROPERTY_MODIFIER_PREFIX = 'modifier_player_property_';
-
-// 由 `npm run perf` 在编译产物目录临时写入，平时不存在，正常开发不会进入自动测试
-function loadConfig(): PerfAutoConfig | undefined {
-  if (!IsInToolsMode()) return undefined;
-  const requireFn = (_G as unknown as { require: (this: void, name: string) => unknown }).require;
-  const [ok, result] = pcall(requireFn, 'perf_auto_config');
-  return ok ? (result as PerfAutoConfig) : undefined;
-}
+// 足够升到 50 级
+const BOOST_XP = 250000;
 
 // 选英雄早于自动测试启动，只能在模块加载时调整英雄池顺序
-const bootConfig = loadConfig();
+const bootConfig = PERF_CONFIG;
 if (bootConfig && bootConfig.botOffset > 0) {
   const pool = HeroPick.BotNameList;
   const offset = bootConfig.botOffset % pool.length;
@@ -73,7 +78,12 @@ if (bootConfig && bootConfig.botHeroes !== '') {
 }
 
 // 界面在选英雄阶段仍会重新下发对局选项，只有在补 bot 的前一刻覆盖才不会被冲掉
-if (bootConfig && (bootConfig.radiantPlayers > 0 || bootConfig.radiantMultiplier > 0)) {
+if (
+  bootConfig &&
+  (bootConfig.radiantPlayers > 0 ||
+    bootConfig.radiantMultiplier > 0 ||
+    (bootConfig.direMultiplier ?? 0) > 0)
+) {
   const config = bootConfig;
   const originalPickBotHeroes = HeroPick.PickBotHeroes;
   HeroPick.PickBotHeroes = function (this: typeof HeroPick) {
@@ -81,8 +91,12 @@ if (bootConfig && (bootConfig.radiantPlayers > 0 || bootConfig.radiantMultiplier
     if (config.radiantMultiplier > 0) {
       GameRules.Option.radiantGoldXpMultiplier = config.radiantMultiplier;
     }
+    if ((config.direMultiplier ?? 0) > 0) {
+      GameRules.Option.direGoldXpMultiplier = config.direMultiplier as number;
+    }
     print(
-      `[perf-auto] radiantPlayers=${GameRules.Option.radiantPlayerNumber} radiantMultiplier=${GameRules.Option.radiantGoldXpMultiplier}`,
+      `[perf-auto] radiantPlayers=${GameRules.Option.radiantPlayerNumber} radiantMultiplier=${GameRules.Option.radiantGoldXpMultiplier}` +
+        ` direMultiplier=${GameRules.Option.direGoldXpMultiplier}`,
     );
     originalPickBotHeroes.call(this);
   };
@@ -93,6 +107,56 @@ function forEachHero(callback: (hero: CDOTA_BaseNPC_Hero, playerId: PlayerID) =>
     const hero = PlayerResource.GetSelectedHeroEntity(playerId);
     if (hero) callback(hero, playerId);
   });
+}
+
+// 满级等级决定每级经验表，只能在策略阶段生成经验表之前覆盖
+if (bootConfig && bootConfig.maxLevel > 0) {
+  const maxLevel = bootConfig.maxLevel;
+  const originalSetXP = GameConfig.SetMaxLevelXPRequire;
+  GameConfig.SetMaxLevelXPRequire = function (this: typeof GameConfig) {
+    GameRules.Option.maxLevel = maxLevel;
+    originalSetXP.call(this);
+  };
+}
+
+// 经验溢出由引擎截到满级；避开开局暂停的那一秒
+function boostHeroes() {
+  afterRealSeconds(2, () =>
+    forEachHero((hero) => {
+      hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
+      hero.AddExperience(BOOST_XP, ModifyXpReason.UNSPECIFIED, false, false, 0);
+    }),
+  );
+}
+
+// 满级开局几分钟就会推平一方基地，测不到后期；基地仍会被打到残血，团战负载照常。
+// modifier 注册时方法已复制到全局表，只能在实例上覆盖
+function lockForts() {
+  for (const fort of Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[]) {
+    const think = fort.FindModifierByName(modifier_fort_think.name) as
+      | modifier_fort_think
+      | undefined;
+    if (think) think.TriggerGameEnd = () => undefined;
+  }
+}
+
+// 每人拿满主物品栏，轮流错开起点，让每件物品落在不同英雄身上
+function grantTestItems(list: string) {
+  const items = list.split(',');
+  let next = 0;
+  afterRealSeconds(3, () =>
+    forEachHero((hero) => {
+      for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_9; slot++) {
+        const item = hero.GetItemInSlot(slot);
+        if (item) UTIL_Remove(item);
+      }
+      for (let i = 0; i < 6; i++) {
+        hero.AddItemByName(items[next % items.length]);
+        next++;
+      }
+    }),
+  );
+  print(`[perf-auto] testItems=${list}`);
 }
 
 export function clearUnits() {
@@ -287,7 +351,7 @@ function buildSteps(
  * 性能自动测试：按控制变量逐段切换条件并采样，全程输出到控制台，供汇总脚本生成对照表。
  */
 export class PerfAuto {
-  static readonly config = loadConfig();
+  static readonly config = PERF_CONFIG;
   private static running = false;
 
   static onGameInProgress() {
@@ -297,10 +361,18 @@ export class PerfAuto {
     if (config.radiantMultiplier > 0) {
       GameRules.Option.radiantGoldXpMultiplier = config.radiantMultiplier;
     }
+    if ((config.direMultiplier ?? 0) > 0) {
+      GameRules.Option.direGoldXpMultiplier = config.direMultiplier as number;
+    }
     // 玩家英雄也交给 AI，场上才是 20 个行为一致的英雄
     forEachHero((hero, playerId) => {
       if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) GameRules.AI.EnableAI(hero);
     });
+    if (config.boost) {
+      boostHeroes();
+      lockForts();
+    }
+    if (config.testItems !== undefined && config.testItems !== '') grantTestItems(config.testItems);
     // 结算阶段计时器可能不再推进，轮询发现不了游戏结束，直接听状态切换
     ListenToGameEvent(
       'game_rules_state_change',

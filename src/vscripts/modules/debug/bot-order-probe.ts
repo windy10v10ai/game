@@ -93,6 +93,10 @@ function count(category: string, key: string, amount = 1): void {
 }
 
 function isBot(playerId: PlayerID): boolean {
+  // 重开脚本或换图的间隙引擎仍会过滤指令，这时玩家资源还没建好
+  if ((_G as unknown as { PlayerResource?: CDOTA_PlayerResource }).PlayerResource === undefined) {
+    return false;
+  }
   return PlayerResource.IsValidPlayerID(playerId) && PlayerResource.IsFakeClient(playerId);
 }
 
@@ -173,11 +177,14 @@ function recordFilteredOrder(args: ExecuteOrderFilterEvent): void {
   if (name !== undefined) count('ncast', name);
 }
 
+const DEBUG_LIB = (_G as unknown as { debug?: typeof debug }).debug;
+
 function markScriptOrder<T>(call: () => T): T {
   scriptOrders++;
   // 没用 try/finally：TSTL 编译成吞错的 pcall，会藏住调用方的报错
   // 第 3 层是替换后入口的调用方，即业务代码里下指令的那一行
-  const caller = debug.getinfo(3, 'Sl');
+  // 专用服没有调试库，只计数不记来源
+  const caller = DEBUG_LIB?.getinfo(3, 'Sl');
   if (caller && caller.short_src !== undefined) {
     const fileName = caller.short_src.split('\\').pop()?.split('/').pop();
     count('site', `${fileName}:${caller.currentline}`);

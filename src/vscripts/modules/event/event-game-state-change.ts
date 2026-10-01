@@ -6,6 +6,7 @@ import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { GameConfig } from '../GameConfig';
 import { BotOrderProbe } from '../debug/bot-order-probe';
 import { PerfAuto } from '../debug/perf-auto';
+import { IS_DEBUG_RUN } from '../debug/perf-config';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroBuyback } from '../hero/hero-buyback';
@@ -54,7 +55,12 @@ export class EventGameStateChange {
   private OnStrategyTime(): void {
     GameConfig.SetMaxLevelXPRequire();
     HeroPick.PickHumanHeroes();
-    HeroPick.PickBotHeroes();
+    // 延迟创建，避免在当前事件处理里耗时过长导致玩家被断开
+    Timers.CreateTimer({
+      endTime: 0.1,
+      useGameTime: false,
+      callback: () => HeroPick.PickBotHeroes(),
+    });
   }
 
   /**
@@ -132,7 +138,7 @@ export class EventGameStateChange {
     GA4.RecordGameStartTime();
     // 初始化 bot 团队调度，挂载到 GameRules.AI 供英雄 AI 访问
     GameRules.AI.BotTeam = new BotTeam();
-    if (IsInToolsMode()) {
+    if (IS_DEBUG_RUN) {
       PerfAuto.onGameInProgress();
       BotOrderProbe.install();
     }

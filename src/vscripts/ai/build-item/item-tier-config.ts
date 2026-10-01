@@ -265,6 +265,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T2,
     cost: 2575,
   },
+  item_meteor_hammer: {
+    name: 'item_meteor_hammer',
+    nameCN: '陨星锤',
+    tier: ItemTier.T2,
+    cost: 2850,
+  },
   item_consecrated_wraps: {
     name: 'item_consecrated_wraps',
     nameCN: '圣化护服',
@@ -697,6 +703,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 5800,
     baseItems: ['item_blade_mail'],
   },
+  // 死亡掉落，电脑出了会被玩家捡走、还会反复补买，出装不要选；仅作合成材料登记
   item_rapier: {
     name: 'item_rapier',
     nameCN: '圣剑',
@@ -740,6 +747,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '星落',
     tier: ItemTier.T3,
     cost: 6000,
+    baseItems: ['item_meteor_hammer'],
   },
   item_aeon_pendant: {
     name: 'item_aeon_pendant',

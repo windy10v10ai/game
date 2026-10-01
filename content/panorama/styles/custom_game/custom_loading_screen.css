@@ -48,26 +48,27 @@
   text-shadow: 1px 1px 2px #000000cc;
 }
 
-#ConsoleLaunchPanel {
+/* 启动器推广盒，边框/标题/按钮换成 exe 同款火焰橙，不加角标和外发光 */
+#LauncherPromoPanel {
   width: 100%;
-  margin-top: 24px;
+  margin-top: 40px;
   padding: 12px 14px;
   background-color: #0a0c0fcc;
-  border: 1px solid #8a6a32;
+  border: 1px solid #e0552d;
   border-radius: 4px;
   flow-children: down;
 }
 
-#ConsoleLaunchTitle {
+#LauncherPromoTitle {
   width: 100%;
-  color: #e8c07d;
+  color: #f07a55;
   font-size: 19px;
   font-weight: bold;
   white-space: normal;
   text-shadow: 1px 1px 2px #000000cc;
 }
 
-#ConsoleLaunchDesc {
+#LauncherPromoDesc {
   width: 100%;
   margin-top: 7px;
   color: #dfe8f2;
@@ -77,27 +78,27 @@
 }
 
 /* ButtonBevel 自带 min-width，不压掉会撑成整行宽的大按钮 */
-#ConsoleLaunchWebsiteButton {
+#LauncherPromoButton {
   width: fit-children;
   min-width: 0px;
   height: 28px;
   margin-top: 10px;
   padding: 0px 14px;
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#7a5f2e), to(#4a3818));
-  border: 1px solid #c9a55c;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#c9481f), to(#7a2c12));
+  border: 1px solid #e0552d;
   border-radius: 3px;
 }
 
-#ConsoleLaunchWebsiteButton:hover {
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#9a7838), to(#5f4820));
+#LauncherPromoButton:hover {
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#e0663a), to(#943a1a));
   box-shadow: #00000088 0px 0px 10px 0px;
 }
 
-#ConsoleLaunchWebsiteButton:active {
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#4a3818), to(#7a5f2e));
+#LauncherPromoButton:active {
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#7a2c12), to(#c9481f));
 }
 
-#ConsoleLaunchWebsiteButtonLabel {
+#LauncherPromoButtonLabel {
   vertical-align: center;
   color: #ffffff;
   font-size: 15px;

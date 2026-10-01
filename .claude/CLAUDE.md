@@ -91,6 +91,7 @@ npm run build:vscripts   # TSTL build for VScripts (TypeScript → Lua)
 | `game/resource/` | 中英俄本地化文案规约、图标 png 位置 | `game/resource/CLAUDE.md` |
 | `game/scripts/vscripts/` | TSTL 编译产物（自动生成，不要手改）+ 少量遗留纯 Lua | — |
 | `docs/reference/<version>/` | Dota 2 原版 KV 与说明文本快照 | — |
+| `launcher/` | 只有一个 README：本机专用服启动器已搬到 firebase 仓库的 `launcher/` | — |
 
 模块级的设计与决策放该模块目录下的 `README.md`（如 `src/vscripts/api/README.md` 讲客户端 HTTP 代发、`src/vscripts/ai/build-item/README.md` 讲出装）。
 
@@ -165,6 +166,8 @@ issue 只记大致步骤与进度，不承载设计细节——issue 关掉就�
 
 模块 `README.md` 是**框架性文档**：写系统现在长什么样、为什么这样搭、放弃了什么，长期维护。
 
+- **按读者写，越短越好**。面向玩家或外部读者的目录只写做什么、怎么用、怎么编译发布，不写设计取舍
+- **只记用户拍板的关键决定**。AI 实现时自行选定、以后可能调整的细节（超时、重试间隔、文案位置等）不写，也不要写成用户的决定
 - **不按阶段、批次组织**。逐段问「这段会不会因为某个阶段做完就失效？」——会失效的（阶段划分、进度、本阶段改了哪些文件、排查过程与证据、实测数字）进 issue、PR 或本地 spec，不进 README
 - **已实现的做法不复述，一切以代码为准**。调用链、常量名与取值、某个函数做了什么、字段怎么拼，都从代码读，抄进文档只会先过期（口径同「注释规约」）。README 只留代码里读不出来的东西：约束、决定和它的理由
 - **每个决定一句理由**。没选的方案值得提时，在理由里带半句「没选 X，因为 Y」；方案比较表、试算过程留在 PR
@@ -178,8 +181,9 @@ issue 只记大致步骤与进度，不承载设计细节——issue 关掉就�
 
 - issue 驱动的改动命名 `feature/<issue-id>-<short-kebab-summary>`（3–6 个英文小写单词，如 `feature/2411-web-link-refresh`）；非 issue 驱动用 `fix/` `chore/` `docs/` 前缀，命名规则同上
 - 一律从最新 `develop` 切出。**不要在 `develop` 上直接修改或 commit 任何文件**，包括 skill 产出的设计文档——一旦确定要写文件，先切好分支
-- 本地没有进行中的改动时，直接在当前 checkout 上切分支，不建 worktree；已有未提交改动或另一个分支正在进行时，用 `git worktree add` 隔离
-- 多个会话共用本地仓库时，主检出在哪个分支不由自己决定：动手前先看 `git branch --show-current`，不是自己要的分支就不要 `git checkout` 过去，改用 `git worktree add` 到 scratchpad
+- 动手前检查 `git status --short`、`git branch --show-current` 和 `git worktree list`。当前 checkout 干净且没有其他会话或进行中的分支占用时，直接在这里从最新 `develop` 切新分支，不因可能存在其他会话而建 worktree
+- 当前在已合并的旧分支时，核实 PR 已合并、本地 HEAD 与 PR 末尾提交一致、没有未提交改动；再切回 `develop`、删除旧本地分支并切新分支。远端显示 `gone` 不等于已合并；squash merge 后 `git branch --merged` 也可能查不到旧分支
+- 只有当前 checkout 有未提交改动、未合并分支仍在使用，或确有多个会话共用这个 checkout 时，才用 worktree 隔离；不切换其他会话正在使用的 checkout 或分支
 
 ### 提交与 PR
 

@@ -32,8 +32,12 @@ export class BotTeam {
     this.initEarlyGame();
     this.initAddAmount();
     ListenToGameEvent('entity_killed', (keys) => this.onEntityKilled(keys), this);
+    // 回调出错时计时器会被整个移除，团队 AI 整局停摆；出错只跳过这一轮
     Timers.CreateTimer(this.refreshInterval, () => {
-      this.refresh();
+      const [ok, error] = xpcall(() => this.refresh(), withTraceback);
+      if (!ok) {
+        print(`[bot-team] think error: ${error}`);
+      }
       return this.refreshInterval;
     });
   }
@@ -219,4 +223,11 @@ export class BotTeam {
       hero.ModifyGold(addMoney, true, ModifyGoldReason.GAME_TICK);
     });
   }
+}
+
+// 排序等库函数里的报错只带库文件行号，要靠调用栈才找得到出错的调用方
+function withTraceback(this: void, message: unknown): string {
+  const traceback = (_G as unknown as { debug?: { traceback?: (message: string) => string } }).debug
+    ?.traceback;
+  return traceback ? traceback(tostring(message)) : tostring(message);
 }

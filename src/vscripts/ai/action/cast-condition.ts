@@ -1,4 +1,5 @@
 import { HeroUtil } from '../hero/hero-util';
+import type { CastStance } from '../hero/engagement';
 
 /**
  * 施法条件，必须满足所有条件才能施法
@@ -75,6 +76,13 @@ export interface CastCoindition {
      * 用于对友方施放、顺带伤害其周围敌人的技能。
      */
     enemiesNearby?: { range: number; count: number };
+    /**
+     * 只选该距离内最近的敌方英雄位于其身后的目标，即正背对敌人逃跑的单位。
+     * 用于沿目标朝向推动的物品，推错方向会把人送进敌群。
+     */
+    fleeing?: number;
+    /** 只选正被敌方防御塔攻击的目标。 */
+    attackedByTower?: boolean;
   };
   self?: {
     unitCondition?: UnitCondition;
@@ -117,14 +125,19 @@ export interface CastCoindition {
      */
     cooldownTotal?: NumberRange;
     /**
+     * 要求至少 count 个已学会的主动技能剩余冷却不少于 seconds 才施法，不计物品。
+     * 用于技能交出去之后才该开的增益。
+     */
+    abilitiesOnCooldown?: { seconds: number; count: number };
+    /**
      * 大招已学会且能放时跳过，用于放完会被引导锁住的技能：先把大招交出去再放它。
      */
     ultimateNotReady?: boolean;
     /**
-     * 要求团队大脑判断这波敌人值得主动上去打才施法，与英雄层「走上去交战」同一口径，
-     * 用于跳进敌人身边、放了就难退的先手技能。
+     * 要求英雄当前的打/撤决定与之相符才施法：'fight' 用于跳进敌人身边的先手，'retreat' 用于脱身。
+     * 跳进去的用法还会跳过站在越不了的塔下的目标。
      */
-    canEngage?: boolean;
+    stance?: CastStance;
   };
   ability?: AbilityCoindition;
   action?: {
@@ -225,6 +238,8 @@ export function FilterTargetWithCondition(
   const facing = targetCondition?.facing;
   const aheadCircle = ability ? targetCondition?.aheadCircle : undefined;
   const enemiesNearby = targetCondition?.enemiesNearby;
+  const fleeing = targetCondition?.fleeing;
+  const attackedByTower = targetCondition?.attackedByTower;
   const aheadDistance = aheadCircle ? ability!.GetSpecialValueFor(aheadCircle.distanceValue) : 0;
   const aheadRadius = aheadCircle ? ability!.GetSpecialValueFor(aheadCircle.radiusValue) : 0;
 
@@ -282,6 +297,14 @@ export function FilterTargetWithCondition(
       enemiesNearby &&
       CountEnemiesAround(self, unit, enemiesNearby.range) < enemiesNearby.count
     ) {
+      continue;
+    }
+
+    if (fleeing !== undefined && !IsFleeing(unit, fleeing)) {
+      continue;
+    }
+
+    if (attackedByTower && !IsAttackedByTower(unit)) {
       continue;
     }
 
@@ -355,6 +378,46 @@ function CountEnemiesAround(self: CDOTA_BaseNPC_Hero, unit: CDOTA_BaseNPC, range
     FindOrder.ANY,
     false,
   ).length;
+}
+
+function IsFleeing(unit: CDOTA_BaseNPC, range: number): boolean {
+  const enemy = FindUnitsInRadius(
+    unit.GetTeamNumber(),
+    unit.GetAbsOrigin(),
+    undefined,
+    range,
+    UnitTargetTeam.ENEMY,
+    UnitTargetType.HERO,
+    UnitTargetFlags.NO_INVIS,
+    FindOrder.CLOSEST,
+    false,
+  )[0];
+  return (
+    enemy !== undefined &&
+    !CheckFacingFailure(
+      'back',
+      unit.GetForwardVector(),
+      enemy.GetAbsOrigin().__sub(unit.GetAbsOrigin()),
+    )
+  );
+}
+
+// 覆盖防御塔攻击距离加上单位体积
+const TOWER_ATTACK_SEARCH_RADIUS = 900;
+
+function IsAttackedByTower(unit: CDOTA_BaseNPC): boolean {
+  const towers = FindUnitsInRadius(
+    unit.GetTeamNumber(),
+    unit.GetAbsOrigin(),
+    undefined,
+    TOWER_ATTACK_SEARCH_RADIUS,
+    UnitTargetTeam.ENEMY,
+    UnitTargetType.BUILDING,
+    UnitTargetFlags.INVULNERABLE,
+    FindOrder.ANY,
+    false,
+  );
+  return towers.some((tower) => tower.IsTower() && tower.GetAttackTarget() === unit);
 }
 
 /**

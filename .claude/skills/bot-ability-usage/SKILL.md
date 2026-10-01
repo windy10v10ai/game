@@ -77,9 +77,12 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 16. **目标身边敌人多才选**：`target.enemiesNearby: { range, count }`，只选身边至少 count 个敌方单位（英雄与小兵一起数）的目标。用于对友方施放、顺带伤害其周围敌人的技能（如暗影波对队友或己方小兵放）。
 17. **目标带某状态才选**：`target.unitCondition.hasModifier: [...]`，带其中任一 modifier 才选，是 `noModifier` 的反面。用于接在别的技能效果之后放（如涤罪之焰只对身上有命运敕令或虚妄之诺的队友放）。
 18. **斩杀阈值倍数**：`healthAbilityValue.multiplier`，阈值乘以倍数，用于冷却短、预计能连放几次的伤害技能（如涤罪之焰取两倍伤害）。
-19. **值得主动上去打才放**：`self.canEngage: true`，按团队大脑对当前交战的战力判断，与英雄层「没打起来时要不要走上去打」同一口径（`power.ts` 的 `AVOID_POWER_RATIO`，调这一个数就能整体调激进程度）。用于跳进敌人身边、放了就难退的先手技能（如幻影突袭、闪烁突袭、A 杖强化图腾跳跃、移形换位拉敌人）。
+19. **按打/撤决定选用法**：`self.stance: 'fight' | 'retreat'`，读英雄层已做出的打/撤决定（已接战的坚持、塔的战力、敌人被控都已算在里面），跑不掉的原地还手两者都算。位移、隐身这类既能先手又能脱身的技能按它拆成两条，不要用自身血量代替局势判断。`'fight'` 用于跳进敌人身边、放了就难退的先手（如幻影突袭、神圣一跳朝前、穿刺），还会跳过站在越不了的塔下的目标；`'retreat'` 用于脱身（如神圣一跳背身、影刃）。
 20. **以树为目标**：`targetSide: TargetSide.Tree`，对施法者附近最近的一棵树施放（如抓树），目标条件不适用，只看施法者条件。
-21. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+21. **技能交出去后才放**：`self.abilitiesOnCooldown: { seconds, count }`，至少 count 个已学会的主动技能剩余冷却不少于 seconds 才施放，不计物品。与 `cooldownTotal`（技能加物品冷却总和，给刷新类用）不同，用于开了就不能施法或该在技能之后接的增益（如疯狂面具）。
+22. **目标正背对敌人逃跑**：`target.fleeing: <range>`，只选该距离内最近的敌方英雄位于其身后的目标，判断方式与 `facing` 相同但以目标自身朝向为准。用于沿目标朝向推动的效果（如推队友的原力法杖），推错方向会把人送进敌群。
+23. **目标正被塔打**：`target.attackedByTower: true`，只选正被敌方防御塔攻击的目标，配合 `FriendlyCreep` 可给挨塔打的小兵上增益（如炎阳纹章）。
+24. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
 22. **只选中立单位并按绝对生命值筛选**：`target.unitCondition.neutralOnly: true` 限定野怪，`target.unitCondition.health` 按当前绝对生命值筛选。
 
 ### 是否补一条对小兵的清兵规则
@@ -104,6 +107,8 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 > - `ability.level.gte: 2`
 > - `self.noEnemyHeroInRange: 900`
 > - `target.count.gte: 2`
+>
+> 远古野由 dispatcher 统一处理，不要为远古另写 spec：`farm` 模式下技能等级达到 `target-dispatch.ts` 的 `ANCIENT_MIN_ABILITY_LEVEL` 时，EnemyCreep 候选自动加入远古；KV `AbilityUnitTargetFlags` 带 `NOT_ANCIENTS` 的技能照引擎口径跳过。个别技能确实不该打远古时，在它的 spec 里写 `target.unitCondition.excludeAncient: true`。
 >
 > spec 中显式指定的同路径值会通过 `DeepMerge` 覆盖默认值（NumberRange 整体替换，非 key 级合并）。例如想在自身蓝量低时才吸蓝：`self.unitCondition.manaPercent: { lte: 40 }` 会替换默认的 `gte: 40`。
 

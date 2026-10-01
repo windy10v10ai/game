@@ -12,40 +12,28 @@ import { ConsumeItem } from '../item/consume-item';
 import { ItemDispatcher } from '../item/item-dispatcher';
 import { ItemRegistry } from '../item/item-registry';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
+import { IS_DEBUG_RUN, PERF_CONFIG } from '../../modules/debug/perf-config';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
+import { CachedTowers, TowerAttackRange } from '../team/building-cache';
+import { FORMATION_SPACING } from '../team/formation';
 import { Point } from '../team/lane-geometry';
 import { QUICK_CLEAR_POWER } from '../team/power';
 import { HeroShortName, TeamBrain, UnitPower } from '../team/team-brain';
-import { Task, TaskKind } from '../team/team-plan';
+import { FIGHT_DANGER_RADIUS, Task, TaskKind, TELEPORT_MIN_DISTANCE } from '../team/team-plan';
 import { WardPlacement } from '../ward/ward-placement';
-import { canEscape, decideStance, Stance } from './engagement';
+import { canEngage, canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
-import { retreatPointFromDanger } from './tower-retreat';
-
-// 性能排查只在工具模式生效，发布版每次思考只多一次常量判断
-const IS_TOOLS_MODE = IsInToolsMode();
+import { EngageToward, FindBlinkItem, MoveContext, MoveToward } from './mobility';
+import { canOutlastTower, passesTower, retreatPointFromTowers } from './tower-retreat';
+import { calculateAttackDPS } from '../../utils/damage-calculation';
 
 /** 英雄当前在做什么：对线期交给原生时是 laning，接管后是交战状态或团队任务。 */
 export type BotMode = 'laning' | 'fight' | 'retreat' | TaskKind;
 
-// 闪烁匕首升级链上的各件，切入、撤退与赶路都按这份名单找
-const BLINK_ITEM_NAMES = [
-  'item_blink',
-  'item_arcane_blink',
-  'item_arcane_blink_2',
-  'item_overwhelming_blink',
-  'item_overwhelming_blink_2',
-  'item_swift_blink',
-  'item_swift_blink_2',
-  'item_jump_jump_jump',
-];
-
-const blinkRangeCache = new Map<string, number>();
-
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
-  protected readonly ThinkInterval: number = 0.5;
-  protected readonly ThinkIntervalTool: number = 0.5;
+  protected readonly ThinkInterval: number = 0.4;
+  protected readonly ThinkIntervalTool: number = 0.4;
 
   // 原生期间躲塔要和原生抢控制，在这段时间内持续下移动指令
   protected readonly towerEscapeTime: number = 3;
@@ -70,6 +58,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly FindRadius: number = 1800;
   protected readonly CastRange: number = 900;
   protected readonly LocalFightRadius: number = 1500;
+  // 这么近有一团打不过的敌人、又没被派去打时，提前离开，不在旁边推塔打兵等人来抓
+  protected readonly ThreatRadius: number = 2500;
   protected readonly ChaseRange: number = 1200;
   // 原地还手时只打攻击距离外这么一点以内的敌人，再远就算追
   protected readonly HitBackExtraRange: number = 100;
@@ -79,6 +69,10 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly EngageMemory: number = 3;
   // 一次思考内掉血超过最大血量这个比例，看不见敌人也当作在挨打
   protected readonly UnseenBurstRatio: number = 0.08;
+  // 按这段时间内受到的伤害估算还能撑几秒
+  protected readonly DamageWindow: number = 2;
+  // 打不过的敌人没打起来时，离它攻击距离外至少这么远，留出转身离开的余地，不等它贴上来
+  protected readonly HoldDistanceBuffer: number = 600;
 
   protected readonly RecoverHealthPercent: number = 35;
   protected readonly RecoverManaPercent: number = 15;
@@ -88,6 +82,9 @@ export class BotBaseAIModifier extends BaseModifier {
 
   // 进塔攻击范围前留的余量，以及能扛塔的人数、血量、塔下兵数
   protected readonly TowerDangerBuffer: number = 150;
+  // 退出塔区时一并背离的附近塔，绕塔时再多留的余量
+  protected readonly TowerNearbyRange: number = 600;
+  protected readonly TowerDetourMargin: number = 200;
   protected readonly DiveMinHeroes: number = 3;
   protected readonly DiveMinHealthPercent: number = 50;
   protected readonly DiveMinCreeps: number = 2;
@@ -98,8 +95,6 @@ export class BotBaseAIModifier extends BaseModifier {
   // 转移仇恨后塔若很快又打回自己，说明身边没有别的目标可换，这段时间内直接退出射程
   protected readonly DeaggroCooldown: number = 3;
 
-  // 任务目的地很远、而己方建筑离目的地近得多时，用 TP 过去
-  protected readonly TaskTeleportDistance: number = 6000;
   // 传送要引导，落地后还得追着往前走的兵线，省下的时间不够多就直接走过去
   protected readonly TaskTeleportSavingSeconds: number = 5;
   protected readonly TeleportLandingOffset: number = 400;
@@ -108,17 +103,24 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly CreepClearExtraRange: number = 400;
   // 远程野怪的攻击距离
   protected readonly NeutralThreatRadius: number = 800;
-  // 切入的跳刀：濒死时不往里跳；远程落在离敌人这么远的地方；跳的距离太短不值得交
-  protected readonly BlinkEngageMinHealthPercent: number = 20;
-  protected readonly RangedBlinkStandOff: number = 600;
-  protected readonly BlinkEngageMinGap: number = 500;
-  // 算出来的闪烁距离比这还短时多半没读到真实距离，不闪
-  protected readonly BlinkMinRange: number = 600;
   // 推进路过时这个距离内的野怪可以顺手清
   protected readonly NeutralClearRange: number = 800;
+  // 推进时在等待点迎上去打的敌方兵线距离，不站着等兵线自己走过来
+  protected readonly PushCreepChaseRange: number = 1200;
 
   // 同一目的地不重复下指令；单位停下或太久没更新时才重下
-  protected readonly ArriveRadius: number = 300;
+  // 到达判定要比站位间距小，否则都停在靠自己一侧的站位边缘、又挤回一团
+  protected readonly ArriveRadius: number = 100;
+  // 开发模式记录位置的间隔
+  protected readonly PositionTraceInterval: number = 5;
+  // 一小步前后地面高度差超过这么多就是隔着一层悬崖
+  protected readonly CliffHeight: number = 96;
+  // 地形与扛塔判断的结果记这么久，每次思考都算太贵
+  protected readonly TerrainCheckInterval: number = 1;
+  // 回防离目的地这么近才边走边打
+  protected readonly DefendAttackMoveRange: number = 1500;
+  // 停下来后和队友挨着超过这么久才让开
+  protected readonly CrowdedSeconds: number = 2;
   protected readonly OrderRepeatDistance: number = 400;
   protected readonly OrderRefreshTime: number = 10;
 
@@ -126,6 +128,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly RetreatTeleportMaxHealthPercent: number = 30;
   // 传送引导约 3 秒，塔攻击距离 700 之外再留一段缓冲，避免刚起手就被塔火力打断
   protected readonly RetreatTeleportTowerSafeRange: number = 1200;
+  // 刚挨过打时附近多半还有看不见的敌人，引导会被打断
+  protected readonly TeleportCalmSeconds: number = 2;
 
   protected hero: CDOTA_BaseNPC_Hero;
   public GetHero(): CDOTA_BaseNPC_Hero {
@@ -136,8 +140,13 @@ export class BotBaseAIModifier extends BaseModifier {
   public gameTime: number = 0;
   public mode: BotMode = 'laning';
   protected stance: Stance = 'task';
+  public GetStance(): Stance {
+    return this.stance;
+  }
 
   private engagedUntil: number = -60;
+  private lastHurtTime: number = -60;
+  private recentDamage: { time: number; damage: number }[] = [];
   private lastHealth: number = 0;
   private tookDamage: boolean = false;
   private needsRecover: boolean = false;
@@ -152,6 +161,11 @@ export class BotBaseAIModifier extends BaseModifier {
   private lastTraceKey: string = '';
   // 交战中团队大脑给的集合点，撤退时退向这里
   private retreatPoint: Point | undefined;
+  private crowdedSince: number | undefined;
+  private spreadCheckedAt = 0;
+  private nextPositionTrace = 0;
+  private stepCache: { point: Vector; until: number } | undefined;
+  private readonly outlastCache = new Map<EntityIndex, { ok: boolean; until: number }>();
   private brain: TeamBrain | undefined;
   // 引导中最后一次看到范围内敌方英雄的时间，用来判断敌人离开了多久
   private channelEnemySeenTime = 0;
@@ -165,6 +179,8 @@ export class BotBaseAIModifier extends BaseModifier {
 
   public aroundEnemyHeroes: CDOTA_BaseNPC[] = [];
   public aroundEnemyCreeps: CDOTA_BaseNPC[] = [];
+  private aroundEnemyAncients: CDOTA_BaseNPC[] = [];
+  private aroundEnemyAncientsTime: number = -1;
   public aroundEnemyBuildings: CDOTA_BaseNPC[] = [];
   public aroundEnemyBuildingsInvulnerable: CDOTA_BaseNPC[] = [];
   public aroundFriendlyHeroes: CDOTA_BaseNPC[] = [];
@@ -192,7 +208,7 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   OnIntervalThink(): void {
-    if (IS_TOOLS_MODE) {
+    if (IS_DEBUG_RUN) {
       PerfSampler.measureAiThink(() => this.think());
       return;
     }
@@ -253,6 +269,9 @@ export class BotBaseAIModifier extends BaseModifier {
 
   /** 接管后：先判断交战，没打起来就执行团队任务。 */
   private ThinkCustom(brain: TeamBrain): void {
+    if (IS_DEBUG_RUN) {
+      this.TracePosition(brain.GetTask(this.hero));
+    }
     if (this.gameTime < this.continueActionEndTime) {
       return;
     }
@@ -267,18 +286,19 @@ export class BotBaseAIModifier extends BaseModifier {
     this.UpdateRecoverNeed(brain);
     const task = brain.GetTask(this.hero);
     this.stance = this.DecideStance(brain, task);
+    // 出装与整理物品栏不占用行动，接管后几乎每轮都在行动，排在后面会一直轮不到
+    if (this.BuildItem()) {
+      return;
+    }
     this.traceTarget = '';
     const acted = this.ActionStance(task);
-    if (IS_TOOLS_MODE) {
+    if (IS_DEBUG_RUN) {
       this.TraceDecision(task);
     }
     if (acted) {
       return;
     }
-    if (WardPlacement.Run(this)) {
-      return;
-    }
-    this.BuildItem();
+    WardPlacement.Run(this);
   }
 
   private ActionStance(task: Task | undefined): boolean {
@@ -300,6 +320,24 @@ export class BotBaseAIModifier extends BaseModifier {
           return true;
         }
         return this.ActionRetreat();
+      case 'hold':
+        // 被派来打但跟得上的人还不够：原地等后面的人，不往敌人跟前凑；守塔时敌人够不着就顺手清兵
+        if (this.InEnemyReach()) {
+          this.mode = 'retreat';
+          if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
+            return true;
+          }
+          return this.ActionRetreat();
+        }
+        this.mode = 'hold';
+        if (
+          !ItemDispatcher.Run(this) &&
+          !AbilityDispatcher.Run(this) &&
+          !(task?.kind === 'defend' && this.AttackNearbyCreep(task.kind))
+        ) {
+          this.SpreadOut();
+        }
+        return true;
       default:
         this.mode = task?.kind ?? 'hold';
         return this.ActionTask(task);
@@ -328,14 +366,21 @@ export class BotBaseAIModifier extends BaseModifier {
    * 英雄层只处理自己被打之后的反应：打不过就边撤边放技能物品，跑不掉才打到底。
    */
   private DecideStance(brain: TeamBrain, task: Task | undefined): Stance {
+    // 被派去打架或回防的人由团队判断过值得去，到场后不按独自一人的战力掉头
+    const committed = task?.kind === 'fight' || task?.kind === 'defend';
     const enemies = this.aroundEnemyHeroes.filter(
       (enemy) => this.hero.GetRangeToUnit(enemy) <= this.LocalFightRadius,
     );
     const health = this.hero.GetHealth();
-    const tookDamage = health < this.lastHealth;
-    const burst = this.lastHealth - health >= this.hero.GetMaxHealth() * this.UnseenBurstRatio;
+    const drop = Math.max(0, this.lastHealth - health);
+    const tookDamage = drop > 0;
+    const burst = drop >= this.hero.GetMaxHealth() * this.UnseenBurstRatio;
     this.tookDamage = tookDamage;
+    if (tookDamage) {
+      this.lastHurtTime = this.gameTime;
+    }
     this.lastHealth = health;
+    const survival = this.SurvivalSeconds(drop);
     const attackTarget = this.hero.GetAttackTarget();
     if (
       enemies.length > 0 &&
@@ -357,15 +402,29 @@ export class BotBaseAIModifier extends BaseModifier {
       if (this.stance === 'retreat' && this.gameTime < this.engagedUntil) {
         return 'retreat';
       }
+      const threat = brain.NearestFight(this.hero, this.ThreatRadius);
+      // 交战点附近的人已算进我方战力，只有外面的才要加上自己
+      const joining =
+        threat &&
+        this.hero.GetAbsOrigin().__sub(this.ToWorld(threat.pos)).Length2D() > FIGHT_DANGER_RADIUS
+          ? UnitPower(this.hero)
+          : 0;
+      if (threat && !committed && !canEngage(threat.ourPower + joining, threat.enemyPower)) {
+        // 走出威胁范围后再撤一会，不在边界上来回进出
+        this.engagedUntil = this.gameTime + this.EngageMemory;
+        this.retreatPoint = threat.rally;
+        return 'retreat';
+      }
       return 'task';
     }
 
     const fight = brain.AssessFight(this.hero, enemies);
     this.retreatPoint = fight.rally;
     const escape = !engaged || this.CanEscape(enemies);
-    if (IS_TOOLS_MODE) {
+    if (IS_DEBUG_RUN) {
       this.traceInfo =
         `engaged=${engaged ? 1 : 0} escape=${escape ? 1 : 0}` +
+        ` live=${survival === Infinity ? '-' : Math.floor(survival)}` +
         ` our=${Math.floor(fight.ourPower)}(${fight.ourNames.join(',')})` +
         ` enemy=${Math.floor(fight.enemyPower)}(${fight.enemyNames.join(',')}${fight.withTower ? ',tower' : ''})`;
     }
@@ -374,18 +433,45 @@ export class BotBaseAIModifier extends BaseModifier {
       ourPower: fight.ourPower,
       enemyPower: fight.enemyPower,
       canEscape: escape,
+      survivalSeconds: survival,
+      wasAvoiding: this.stance === 'retreat' || this.stance === 'hold',
+      // 回防的人按接战口径，不因对面强一些就在后面看着建筑被拆
+      joining: (task?.kind === 'fight' && fight.engaged) || task?.kind === 'defend',
+      holdGround: task?.kind === 'defend' && task.hold === true,
     });
     if (engaged) {
       return stance;
     }
-    if (this.needsRecover || task?.kind === 'regroup') {
+    if (this.needsRecover) {
       return 'retreat';
     }
-    // 没被派去打的 bot 继续手上的任务，只在明显打不过时撤开
-    if (stance === 'retreat' || task?.kind === 'fight') {
+    // 打不过时，被派来打的在外围等队友跟上，其余的离开，不在旁边围观
+    if (stance === 'hold') {
+      return committed ? 'hold' : 'retreat';
+    }
+    if (committed) {
       return stance;
     }
     return 'task';
+  }
+
+  /** 把这一轮掉的血记进窗口，按窗口内受到的伤害估算还能撑几秒。 */
+  private SurvivalSeconds(drop: number): number {
+    const since = this.gameTime - this.DamageWindow;
+    this.recentDamage = this.recentDamage.filter((entry) => entry.time > since);
+    if (drop > 0) {
+      this.recentDamage.push({ time: this.gameTime, damage: drop });
+    }
+    const total = this.recentDamage.reduce((sum, entry) => sum + entry.damage, 0);
+    return survivalSeconds(this.hero.GetHealth(), total, this.DamageWindow);
+  }
+
+  /** 已经走进某个敌方英雄的攻击距离附近。 */
+  private InEnemyReach(): boolean {
+    return this.aroundEnemyHeroes.some(
+      (enemy) =>
+        this.hero.GetRangeToUnit(enemy) <= enemy.Script_GetAttackRange() + this.HoldDistanceBuffer,
+    );
   }
 
   private CanEscape(enemies: CDOTA_BaseNPC[]): boolean {
@@ -410,7 +496,7 @@ export class BotBaseAIModifier extends BaseModifier {
     const ownDistance = here.__sub(fountain).Length2D();
     let best: Vector = fountain;
     let bestDistance = ownDistance;
-    for (const tower of Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[]) {
+    for (const tower of CachedTowers()) {
       if (tower.IsNull() || !tower.IsAlive() || tower.GetTeamNumber() !== team) {
         continue;
       }
@@ -422,6 +508,24 @@ export class BotBaseAIModifier extends BaseModifier {
       }
     }
     return best;
+  }
+
+  /** 开发模式：定时记下位置与任务，供日志检测脚本找卡住、挤在一起、远路不传送等问题。 */
+  private TracePosition(task: Task | undefined): void {
+    if (this.gameTime < this.nextPositionTrace) {
+      return;
+    }
+    this.nextPositionTrace = this.gameTime + this.PositionTraceInterval;
+    const pos = this.hero.GetAbsOrigin();
+    const scroll = this.hero.FindItemInInventory('item_tpscroll');
+    const tp = scroll === undefined ? 'none' : scroll.IsFullyCastable() ? 'ready' : 'cd';
+    const dist = task ? Math.floor(pos.__sub(this.ToWorld(task.pos)).Length2D()) : -1;
+    print(
+      `[bot-pos] t=${Math.floor(this.gameTime)} team=${this.hero.GetTeamNumber()} ${HeroShortName(this.hero)}` +
+        ` x=${Math.floor(pos.x)} y=${Math.floor(pos.y)} task=${task?.kind ?? 'none'}` +
+        ` target=${task?.targetId ?? -1} dist=${dist} stance=${this.stance} tp=${tp}` +
+        ` channel=${this.hero.IsChanneling() ? 1 : 0} atk=${this.hero.IsAttacking() ? 1 : 0}`,
+    );
   }
 
   /** 开发模式：判断结果、任务或目标变化时打一行日志，便于对照实机表现排查。 */
@@ -486,7 +590,7 @@ export class BotBaseAIModifier extends BaseModifier {
     } else if (this.isIntHero) {
       range = this.hero.GetBaseAttackRange() + this.IntChaseExtra;
     }
-    if (this.TryBlinkEngage(target)) {
+    if (EngageToward(this.MoveContext(), target)) {
       return true;
     }
     return ActionAttack.MoveToAttack(this.hero, target, range);
@@ -504,15 +608,23 @@ export class BotBaseAIModifier extends BaseModifier {
     return false;
   }
 
-  /** 优先团队指定的集火目标，否则挑血最少的；站在不能进的敌方塔下、或躲到还没推掉的塔后面的目标不追。 */
+  /**
+   * 优先团队指定的集火目标，否则挑血最少的；站在不能进的敌方塔下、或躲到还没推掉的塔后面的目标不追。
+   * 已经贴到身边的敌人不算追，照打，免得放着身边的英雄不打去打野怪。
+   */
   private PickFightTarget(focusId: number | undefined): CDOTA_BaseNPC | undefined {
+    const reach = this.hero.Script_GetAttackRange() + this.HitBackExtraRange;
     let best: CDOTA_BaseNPC | undefined;
     for (const enemy of this.aroundEnemyHeroes) {
       const isFocus = enemy.GetEntityIndex() === focusId;
-      if (!isFocus && this.hero.GetRangeToUnit(enemy) > this.ChaseRange) {
+      const range = this.hero.GetRangeToUnit(enemy);
+      if (!isFocus && range > this.ChaseRange) {
         continue;
       }
-      if (this.IsProtectedByTower(enemy) || this.brain?.IsPastFront(enemy.GetAbsOrigin())) {
+      if (
+        this.IsProtectedByTower(enemy) ||
+        (range > reach && this.brain?.IsPastFront(enemy.GetAbsOrigin()))
+      ) {
         continue;
       }
       if (isFocus) {
@@ -525,7 +637,7 @@ export class BotBaseAIModifier extends BaseModifier {
     return best;
   }
 
-  private IsProtectedByTower(enemy: CDOTA_BaseNPC): boolean {
+  IsProtectedByTower(enemy: CDOTA_BaseNPC): boolean {
     for (const building of this.aroundEnemyBuildingsInvulnerable) {
       if (
         IsTowerLike(building) &&
@@ -542,11 +654,15 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.TryTeleport()) {
       return true;
     }
-    const safePoint = this.FindSafePoint();
-    if (this.TryBlinkToward(safePoint)) {
+    // 要回家补给时撤到集合点或塔下只会站着等，敌人还在附近传送不了，直接往泉水走
+    const fountain = HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber());
+    const safePoint = this.needsRecover && fountain ? fountain : this.FindSafePoint();
+    if (MoveToward(this.MoveContext(), safePoint, 'escape')) {
       return true;
     }
-    this.MoveTo(safePoint, UnitOrder.MOVE_TO_POSITION);
+    if (!this.MoveTo(safePoint, UnitOrder.MOVE_TO_POSITION)) {
+      this.SpreadOut();
+    }
     return true;
   }
 
@@ -556,9 +672,6 @@ export class BotBaseAIModifier extends BaseModifier {
     }
     if (task.kind === 'recover') {
       return this.ActionRecover();
-    }
-    if (task.kind === 'regroup') {
-      return this.MoveTo(this.ToWorld(task.pos), UnitOrder.MOVE_TO_POSITION);
     }
     if (this.tookDamage && this.LosingToNeutrals()) {
       return this.ActionRetreat();
@@ -572,7 +685,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (AbilityDispatcher.Run(this)) {
       return true;
     }
-    if (this.TryTeleportToTask(task.pos)) {
+    if (this.TryTeleportToTask(task)) {
       return true;
     }
     if (task.kind === 'push' && this.AttackPushTarget(task)) {
@@ -581,11 +694,75 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.AttackNearbyCreep(task.kind)) {
       return true;
     }
-    if (this.MoveTo(this.ToWorld(task.pos), UnitOrder.ATTACK_MOVE)) {
+    const destination = this.FormationPoint(task.pos);
+    const entry = this.LaneDetour(destination, task.targetId);
+    if (entry) {
+      this.traceTarget = 'lane';
+      return this.MoveTo(entry, UnitOrder.MOVE_TO_POSITION);
+    }
+    // 赶去交战点只管走，攻击移动会半路停下打野怪小兵，到了才开打的人逐个送；
+    // 回防离得远时同理，否则会一直打着身边的敌方塔和小兵走不开，也离不开塔区去传送
+    const rushing =
+      task.kind === 'fight' ||
+      (task.kind === 'defend' &&
+        this.hero.GetAbsOrigin().__sub(destination).Length2D() > this.DefendAttackMoveRange);
+    const order = rushing ? UnitOrder.MOVE_TO_POSITION : UnitOrder.ATTACK_MOVE;
+    if (this.MoveTo(destination, order) || this.SpreadOut()) {
       return true;
     }
     this.traceTarget = 'arrived';
     return false;
+  }
+
+  /**
+   * 停下来后和队友挨着站了一阵就让开一步，撤退点、等人处也不长期叠成一团。
+   * 只在到位后调用，路过、打架时短暂靠近不管，免得互相让来让去走不了位。
+   */
+  private SpreadOut(): boolean {
+    // 中间走开过就重新计时
+    if (this.gameTime - this.spreadCheckedAt > 1) {
+      this.crowdedSince = undefined;
+    }
+    this.spreadCheckedAt = this.gameTime;
+    const here = this.hero.GetAbsOrigin();
+    let pushX = 0;
+    let pushY = 0;
+    for (const ally of this.aroundFriendlyHeroes) {
+      if (ally === this.hero || !ally.IsAlive()) {
+        continue;
+      }
+      const away = here.__sub(ally.GetAbsOrigin());
+      const gap = away.Length2D();
+      if (gap >= FORMATION_SPACING) {
+        continue;
+      }
+      // 完全重叠时没有方向，按编号错开
+      const angle = this.hero.GetEntityIndex();
+      const dirX = gap > 1 ? away.x / gap : Math.cos(angle);
+      const dirY = gap > 1 ? away.y / gap : Math.sin(angle);
+      pushX += dirX * (FORMATION_SPACING - gap);
+      pushY += dirY * (FORMATION_SPACING - gap);
+    }
+    const length = Math.sqrt(pushX * pushX + pushY * pushY);
+    if (length < 1) {
+      this.crowdedSince = undefined;
+      return false;
+    }
+    this.crowdedSince = this.crowdedSince ?? this.gameTime;
+    if (this.gameTime - this.crowdedSince < this.CrowdedSeconds) {
+      return false;
+    }
+    const step = Math.max(length, this.ArriveRadius * 2);
+    const target = Vector(
+      here.x + (pushX / length) * step,
+      here.y + (pushY / length) * step,
+      here.z,
+    );
+    // 让位的一步落到悬崖下或树林里就不让了，免得贴着地形原地打转
+    if (!this.CanStepTo(here, target)) {
+      return false;
+    }
+    return this.MoveTo(target, UnitOrder.MOVE_TO_POSITION);
   }
 
   private ActionRecover(): boolean {
@@ -609,24 +786,32 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.mode !== 'retreat' && this.mode !== 'recover') {
       return false;
     }
-    if (this.hero.IsMuted()) {
-      return false;
-    }
     if (
       this.mode === 'retreat' &&
       this.hero.GetHealthPercent() >= this.RetreatTeleportMaxHealthPercent
     ) {
       return false;
     }
-    if (this.aroundEnemyHeroes.length > 0) {
+    return this.CanStartTeleport();
+  }
+
+  /** 传送引导途中挨打会被打断，起手前要离开敌方英雄、敌方塔，且最近没有挨打；否则先走到安全处。 */
+  /**
+   * 能否开始读传送。回防要赶时间：传送只会被控制打断，挨小兵打不断，
+   * 所以塔没在打自己时，站在敌方塔下、刚挨过打也直接读。
+   */
+  protected CanStartTeleport(urgent = false): boolean {
+    if (this.hero.IsMuted() || this.aroundEnemyHeroes.length > 0) {
       return false;
     }
-    // 附近有敌方塔就不开引导，会被塔火力打断
     const enemyTower = this.FindNearestEnemyTowerInvulnerable();
-    if (enemyTower && this.hero.GetRangeToUnit(enemyTower) <= this.RetreatTeleportTowerSafeRange) {
+    if (urgent) {
+      return !enemyTower || enemyTower.GetAttackTarget() !== this.hero;
+    }
+    if (this.gameTime - this.lastHurtTime < this.TeleportCalmSeconds) {
       return false;
     }
-    return true;
+    return !enemyTower || this.hero.GetRangeToUnit(enemyTower) > this.RetreatTeleportTowerSafeRange;
   }
 
   /**
@@ -652,15 +837,25 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     this.hero.CastAbilityOnPosition(position, scroll, this.hero.GetPlayerOwnerID());
+    if (IS_DEBUG_RUN) {
+      print(`[bot-ai] ${HeroShortName(this.hero)} tp mode=${this.mode}`);
+    }
     return true;
   }
 
-  /** 任务目的地在半张地图外时，TP 到离目的地最近的己方建筑。 */
-  private TryTeleportToTask(destination: Point): boolean {
+  /**
+   * 任务目的地在半张地图外时，TP 到离目的地最近、这会儿没人往上传的己方建筑。
+   * 同一处交战或防守的人对齐到达时间，预计到得早的先走着等一等，避免一个个落地被逐个击破。
+   */
+  private TryTeleportToTask(task: Task): boolean {
     const here = this.hero.GetAbsOrigin();
-    const target = this.ToWorld(destination);
+    const target = this.ToWorld(task.pos);
     const distance = here.__sub(target).Length2D();
-    if (distance < this.TaskTeleportDistance || this.aroundEnemyHeroes.length > 0) {
+    if (
+      distance < TELEPORT_MIN_DISTANCE ||
+      !this.CanStartTeleport(task.kind === 'defend') ||
+      !this.brain
+    ) {
       return false;
     }
     const scroll = this.hero.FindItemInInventory('item_tpscroll');
@@ -668,26 +863,44 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     const speed = Math.max(this.hero.GetIdealSpeed(), 1);
-    const team = this.hero.GetTeamNumber();
-    let landing: Vector | undefined;
+    const channel = scroll.GetChannelTime();
+    let landing: CDOTA_BaseNPC | undefined;
     // 落点离目的地要比现在近出「引导时间 + 省下的时间」能走的路程
-    let landingDistance =
-      distance - (scroll.GetChannelTime() + this.TaskTeleportSavingSeconds) * speed;
-    for (const tower of Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[]) {
-      if (tower.IsNull() || !tower.IsAlive() || tower.GetTeamNumber() !== team) {
-        continue;
-      }
-      const towerDistance = tower.GetAbsOrigin().__sub(target).Length2D();
-      if (towerDistance < landingDistance) {
-        landing = tower.GetAbsOrigin();
-        landingDistance = towerDistance;
+    let landingDistance = distance - (channel + this.TaskTeleportSavingSeconds) * speed;
+    for (const building of this.brain.FindLandings()) {
+      const buildingDistance = building.GetAbsOrigin().__sub(target).Length2D();
+      if (buildingDistance < landingDistance) {
+        landing = building;
+        landingDistance = buildingDistance;
       }
     }
     if (!landing) {
       return false;
     }
-    const offset = target.__sub(landing).Normalized().__mul(this.TeleportLandingOffset);
-    return this.CastTeleportScroll(landing.__add(offset));
+    const eta = channel + landingDistance / speed;
+    // 回防落在自家建筑边上有塔护着，先到的先帮忙，不必等人齐
+    const aligned = task.kind === 'fight' && task.targetId !== undefined;
+    if (aligned && this.brain.ShouldWaitToTeleport(this.hero, task.targetId as number, eta)) {
+      return false;
+    }
+    const pos = landing.GetAbsOrigin();
+    // 回防落在建筑靠泉水一侧，不当着来犯敌人的面落地
+    const toward =
+      task.kind === 'defend'
+        ? (HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber()) ?? target)
+        : target;
+    const offset = toward.__sub(pos).Normalized().__mul(this.TeleportLandingOffset);
+    if (!this.CastTeleportScroll(pos.__add(offset))) {
+      return false;
+    }
+    this.brain.CommitTeleport(
+      this.hero,
+      landing,
+      aligned ? task.targetId : undefined,
+      channel,
+      eta,
+    );
+    return true;
   }
 
   /** 兵线已到目标建筑时直接点建筑，偷塔保护、塔在打人或附近有敌方英雄时交给普通移动。 */
@@ -696,7 +909,14 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     const building = EntIndexToHScript(task.targetId as EntityIndex) as CDOTA_BaseNPC | undefined;
-    if (!building || building.IsNull() || !building.IsAlive() || building.IsInvulnerable()) {
+    // 目标倒下后实体编号会被别的实体复用，拿到的未必还是单位
+    if (
+      !building ||
+      building.IsNull() ||
+      !building.IsBaseNPC() ||
+      !building.IsAlive() ||
+      building.IsInvulnerable()
+    ) {
       return false;
     }
     if (this.hero.GetRangeToUnit(building) > this.PushAttackRange) {
@@ -758,6 +978,8 @@ export class BotBaseAIModifier extends BaseModifier {
         return false;
       }
       reach = Math.max(reach, this.NeutralClearRange);
+    } else if (kind === 'push') {
+      reach = Math.max(reach, this.PushCreepChaseRange);
     }
     if (!ActionAttack.MoveToAttack(this.hero, creep, reach)) {
       return false;
@@ -766,90 +988,13 @@ export class BotBaseAIModifier extends BaseModifier {
     return true;
   }
 
-  /** 朝目的地闪烁满距离，赶路与撤退用；剩下的路不够闪一次满距离时不交，留给切入或逃跑。 */
-  protected TryBlinkToward(position: Vector): boolean {
-    const blink = this.FindReadyBlink();
-    if (!blink) {
-      return false;
-    }
-    const range = this.BlinkRange(blink);
-    const here = this.hero.GetAbsOrigin();
-    const offset = position.__sub(here);
-    const distance = offset.Length2D();
-    if (range < this.BlinkMinRange || distance < range) {
-      return false;
-    }
-    return this.CastBlink(blink, here.__add(offset.__mul(range / distance)), 'move');
-  }
-
-  /**
-   * 切入：近战跳到敌人身上，远程跳到自己攻击距离的边缘，不贴脸送；
-   * 跳完还差得远就不交，贴得够近也不交，免得原地跳一下浪费跳刀。
-   */
-  private TryBlinkEngage(target: CDOTA_BaseNPC): boolean {
-    if (this.hero.GetHealthPercent() < this.BlinkEngageMinHealthPercent) {
-      return false;
-    }
-    const blink = this.FindReadyBlink();
-    if (!blink) {
-      return false;
-    }
-    const range = this.BlinkRange(blink);
-    const here = this.hero.GetAbsOrigin();
-    const offset = target.GetAbsOrigin().__sub(here);
-    const distance = offset.Length2D();
-    const standOff = this.hero.IsRangedAttacker()
-      ? Math.min(this.hero.Script_GetAttackRange(), this.RangedBlinkStandOff)
-      : 0;
-    const gap = distance - standOff;
-    if (gap < this.BlinkEngageMinGap || gap > range) {
-      return false;
-    }
-    return this.CastBlink(blink, here.__add(offset.__mul(gap / distance)), 'engage');
-  }
-
-  /** 闪烁距离：施法距离读数对部分跳刀为 0，与 KV 的闪烁距离取大；同名跳刀数值不变，读一次缓存。 */
-  private BlinkRange(blink: CDOTA_Item): number {
-    const name = blink.GetName();
-    let base = blinkRangeCache.get(name);
-    if (base === undefined) {
-      base = Math.max(
-        blink.GetCastRange(this.hero.GetAbsOrigin(), undefined),
-        blink.GetSpecialValueFor('blink_range'),
-      );
-      blinkRangeCache.set(name, base);
-    }
-    return base + this.hero.GetCastRangeBonus();
-  }
-
-  private CastBlink(blink: CDOTA_Item, landing: Vector, reason: string): boolean {
-    if (IS_TOOLS_MODE) {
-      const distance = Math.floor(landing.__sub(this.hero.GetAbsOrigin()).Length2D());
-      print(
-        `[bot-ai] ${HeroShortName(this.hero)} blink=${reason} dist=${distance} stance=${this.stance}`,
-      );
-    }
-    this.hero.CastAbilityOnPosition(landing, blink, this.hero.GetPlayerOwnerID());
-    return true;
-  }
-
-  private FindReadyBlink(): CDOTA_Item | undefined {
-    if (this.hero.IsMuted() || this.hero.IsRooted()) {
-      return undefined;
-    }
-    const blink = this.FindBlinkItem();
-    return blink && blink.IsFullyCastable() ? blink : undefined;
-  }
-
   /** 主物品栏里闪烁匕首升级链上的任意一件。 */
   protected FindBlinkItem(): CDOTA_Item | undefined {
-    for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
-      const item = this.hero.GetItemInSlot(slot);
-      if (item && BLINK_ITEM_NAMES.includes(item.GetName())) {
-        return item;
-      }
-    }
-    return undefined;
+    return FindBlinkItem(this.hero);
+  }
+
+  private MoveContext(): MoveContext {
+    return { hero: this.hero, nearestEnemy: this.aroundEnemyHeroes[0], stance: this.stance };
   }
 
   /** 朝目的地移动，目的地没变且单位还在走或在打时不重复下指令。 */
@@ -858,7 +1003,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     // 赶路时附近没有敌方英雄才闪烁，有敌人时留着切入或逃跑
-    if (this.aroundEnemyHeroes.length === 0 && this.TryBlinkToward(position)) {
+    if (this.aroundEnemyHeroes.length === 0 && MoveToward(this.MoveContext(), position, 'move')) {
       return true;
     }
     const busy = this.hero.IsMoving() || this.hero.IsAttacking();
@@ -883,6 +1028,43 @@ export class BotBaseAIModifier extends BaseModifier {
     return true;
   }
 
+  /** 每个英雄在目的地附近各有一个固定站位，一起行动时散开成一片，不挤成一个点、排成一条线走。 */
+  private FormationPoint(point: Point): Vector {
+    const spot = this.ToWorld(this.brain?.SlotOf(this.hero) ?? point);
+    // 目的地贴着进不得的敌方塔时，散开的站位可能落进射程，和躲塔来回拉扯，这时站回目的地本身
+    const inTowerRange = this.aroundEnemyBuildingsInvulnerable.some(
+      (tower) =>
+        IsTowerLike(tower) &&
+        !this.CanDive(tower) &&
+        tower.GetAbsOrigin().__sub(spot).Length2D() <=
+          TowerAttackRange(tower) + this.TowerDangerBuffer,
+    );
+    return inTowerRange ? this.ToWorld(point) : spot;
+  }
+
+  /** 去目的地的路上有进不得的敌方塔时，先绕到它靠自家一侧的外圈；要推的那座塔不绕。 */
+  /** 直线赶路会穿过敌方塔区时改走兵线；直接走得过去就直接走，不绕回兵线。 */
+  private LaneDetour(destination: Vector, targetId: number | undefined): Vector | undefined {
+    const here = this.hero.GetAbsOrigin();
+    const towers = this.aroundEnemyBuildingsInvulnerable.filter(
+      (tower) => IsTowerLike(tower) && tower.GetEntityIndex() !== targetId && !this.CanDive(tower),
+    );
+    const blocked = (point: Point) =>
+      towers.some((tower) =>
+        passesTower(
+          here,
+          point,
+          tower.GetAbsOrigin(),
+          TowerAttackRange(tower) + this.TowerDangerBuffer + this.TowerDetourMargin,
+        ),
+      );
+    if (!this.brain || !blocked(destination)) {
+      return undefined;
+    }
+    const entry = this.brain.LaneEntry(here, destination, blocked);
+    return entry ? this.ToWorld(entry) : undefined;
+  }
+
   private ToWorld(point: Point): Vector {
     return GetGroundPosition(Vector(point.x, point.y, 0), this.hero);
   }
@@ -901,10 +1083,45 @@ export class BotBaseAIModifier extends BaseModifier {
     if (!towerOnHero && this.CountCreepsNear(tower) >= this.DiveMinCreeps) {
       return true;
     }
-    return (
+    if (
       this.hero.GetHealthPercent() >= this.DiveMinHealthPercent &&
       this.CountHeroesAtTower(tower) >= this.DiveMinHeroes
-    );
+    ) {
+      return true;
+    }
+    return this.CanOutlastTower(tower);
+  }
+
+  /** 塔下我方一起打塔，能不能在塔把自己打到该撤的血量之前把塔推掉。 */
+  private CanOutlastTower(tower: CDOTA_BaseNPC): boolean {
+    const index = tower.GetEntityIndex();
+    const cached = this.outlastCache.get(index);
+    if (cached && this.gameTime < cached.until) {
+      return cached.ok;
+    }
+    const ok = this.EstimateOutlast(tower);
+    this.outlastCache.set(index, { ok, until: this.gameTime + this.TerrainCheckInterval });
+    return ok;
+  }
+
+  private EstimateOutlast(tower: CDOTA_BaseNPC): boolean {
+    let teamDps = 0;
+    for (const ally of this.aroundFriendlyHeroes) {
+      if (
+        ally.IsAlive() &&
+        ally.IsRealHero() &&
+        HeroUtil.GetDistanceToAttackRange(tower, ally) <= this.DiveGatherRange
+      ) {
+        teamDps += calculateAttackDPS(ally, tower);
+      }
+    }
+    return canOutlastTower({
+      heroHealth: this.hero.GetHealth(),
+      heroReserve: (this.hero.GetMaxHealth() * this.DeaggroHealthPercent) / 100,
+      towerDpsOnHero: calculateAttackDPS(tower, this.hero),
+      towerHealth: tower.GetHealth(),
+      teamDpsOnTower: teamDps,
+    });
   }
 
   private CountCreepsNear(tower: CDOTA_BaseNPC): number {
@@ -954,7 +1171,7 @@ export class BotBaseAIModifier extends BaseModifier {
       this.hero.GetTeamNumber(),
       tower.GetAbsOrigin(),
       undefined,
-      tower.Script_GetAttackRange(),
+      TowerAttackRange(tower),
       UnitTargetTeam.FRIENDLY,
       UnitTargetType.HERO + UnitTargetType.BASIC,
       UnitTargetFlags.NONE,
@@ -965,7 +1182,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     this.lastDeaggroTime = this.gameTime;
-    if (IS_TOOLS_MODE) {
+    if (IS_DEBUG_RUN) {
       print(
         `[bot-ai] ${HeroShortName(this.hero)} hp=${Math.floor(this.hero.GetHealthPercent())}%` +
           ` deaggro=${ally.GetUnitName()} tower=${tower.GetUnitName()}`,
@@ -1002,13 +1219,66 @@ export class BotBaseAIModifier extends BaseModifier {
         this.ArriveRadius + 50,
         this.TowerDangerBuffer - HeroUtil.GetDistanceToAttackRange(tower, this.hero) + 50,
       );
-      const retreat = retreatPointFromDanger(here, tower.GetAbsOrigin(), fountain, distance);
-      this.MoveTo(Vector(retreat.x, retreat.y, here.z), UnitOrder.MOVE_TO_POSITION);
+      const dangerous = this.aroundEnemyBuildingsInvulnerable
+        .filter(
+          (building) =>
+            IsTowerLike(building) &&
+            HeroUtil.GetDistanceToAttackRange(building, this.hero) <= this.TowerNearbyRange,
+        )
+        .map((building) => building.GetAbsOrigin());
+      const retreat = retreatPointFromTowers(here, dangerous, fountain, distance);
+      this.MoveTo(this.ReachableStep(here, retreat, fountain), UnitOrder.MOVE_TO_POSITION);
       return true;
     }
     this.continueActionEndTime = this.gameTime + this.towerEscapeTime;
     this.EscapeFromTower(tower, fountain);
     return true;
+  }
+
+  /**
+   * 朝 target 方向走一小步的落脚点。高地边缘直线背离塔常落到悬崖下，走过去会贴着崖边原地不动，
+   * 这时左右偏转找一个能直接走到的点，都不行就往泉水走，寻路会自己绕下坡道。
+   */
+  private ReachableStep(here: Vector, target: Point, fountain: Vector): Vector {
+    // 躲塔每次思考都会调用，结果记一会儿
+    if (this.stepCache && this.gameTime < this.stepCache.until) {
+      return this.stepCache.point;
+    }
+    const point = this.FindReachableStep(here, target, fountain);
+    this.stepCache = { point, until: this.gameTime + this.TerrainCheckInterval };
+    return point;
+  }
+
+  private FindReachableStep(here: Vector, target: Point, fountain: Vector): Vector {
+    const dx = target.x - here.x;
+    const dy = target.y - here.y;
+    const length = Math.sqrt(dx * dx + dy * dy);
+    if (length < 1) {
+      return fountain;
+    }
+    for (const degrees of [0, 30, -30, 60, -60, 90, -90]) {
+      const angle = (degrees * Math.PI) / 180;
+      const x = (dx * Math.cos(angle) - dy * Math.sin(angle)) / length;
+      const y = (dx * Math.sin(angle) + dy * Math.cos(angle)) / length;
+      const point = GetGroundPosition(
+        Vector(here.x + x * length, here.y + y * length, here.z),
+        this.hero,
+      );
+      if (this.CanStepTo(here, point)) {
+        return point;
+      }
+    }
+    return fountain;
+  }
+
+  /** 短距离一步能不能直接走到：落点可走、没被树挡、和脚下不隔一层悬崖。不用寻路，寻路太贵。 */
+  private CanStepTo(here: Vector, point: Vector): boolean {
+    const ground = GetGroundPosition(point, this.hero);
+    return (
+      GridNav.IsTraversable(ground) &&
+      !GridNav.IsBlocked(ground) &&
+      Math.abs(ground.z - GetGroundPosition(here, this.hero).z) < this.CliffHeight
+    );
   }
 
   private EscapeFromTower(tower: CDOTA_BaseNPC, fountain: Vector): void {
@@ -1052,8 +1322,14 @@ export class BotBaseAIModifier extends BaseModifier {
     this.buildItemNextTime = this.gameTime + this.buildItemInterval;
 
     this.ArrangeItems();
-    // 使用消耗品
-    ConsumeItem.ConsumeKnownItems(this.hero);
+    // 测试发的物品不在出装表里，照常买卖会被当成多余装备卖掉；Lua 里空字符串也算真，要显式比较
+    const testItems = PERF_CONFIG?.testItems;
+    if (testItems !== undefined && testItems !== '') {
+      return false;
+    }
+    if (ConsumeItem.ConsumeKnownItems(this.hero)) {
+      return true;
+    }
     // SellItem.SellExtraItems 内部已包含智能出售系统
     if (SellItem.SellExtraItems(this.hero, this.buildState)) {
       return true;
@@ -1234,7 +1510,7 @@ export class BotBaseAIModifier extends BaseModifier {
   IsInAbilityPhase(): boolean {
     if (this.hero.IsChanneling()) {
       if (this.ShouldStopChannel()) {
-        if (IS_TOOLS_MODE) {
+        if (IS_DEBUG_RUN) {
           print(
             `[bot-cast] ${HeroShortName(this.hero)} stop_channel ${this.hero.GetCurrentActiveAbility()?.GetAbilityName()}`,
           );
@@ -1264,6 +1540,15 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   // Find unit
   // ---------------------------------------------------------
+
+  /** 身边的远古野，只在有技能想对它施放时才搜，同一轮思考内复用。 */
+  GetAroundEnemyAncients(): CDOTA_BaseNPC[] {
+    if (this.aroundEnemyAncientsTime !== this.gameTime) {
+      this.aroundEnemyAncients = ActionFind.FindEnemyAncients(this.hero, this.FindRadius);
+      this.aroundEnemyAncientsTime = this.gameTime;
+    }
+    return this.aroundEnemyAncients;
+  }
 
   private FindAround(): void {
     this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindRadius);

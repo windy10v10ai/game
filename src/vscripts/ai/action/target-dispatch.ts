@@ -5,8 +5,9 @@ import {
   GetFullCastRange,
 } from '../ability/ability-cast';
 import { TargetSide } from '../ability/ability-spec';
-import { canEngage } from '../hero/engagement';
+import { matchesStance } from '../hero/engagement';
 import { HeroUtil } from '../hero/hero-util';
+import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { FRIENDLY_CREEP_SEARCH_RADIUS } from './action-find';
 import {
   CastCoindition,
@@ -69,26 +70,38 @@ export function TryCastBySpec(
   if (CheckCooldownTotalFailure(hero, castable, condition?.self?.cooldownTotal)) {
     return false;
   }
+  if (
+    condition?.self?.abilitiesOnCooldown &&
+    CountAbilitiesOnCooldown(hero, condition.self.abilitiesOnCooldown.seconds) <
+      condition.self.abilitiesOnCooldown.count
+  ) {
+    return false;
+  }
   if (condition?.self?.ultimateNotReady && IsUltimateReady(hero)) {
     return false;
   }
-  if (condition?.self?.canEngage && !CanEngage(ai)) {
+  const stance = condition?.self?.stance;
+  if (stance && !matchesStance(stance, ai.GetStance())) {
     return false;
   }
 
   if (targetSide === TargetSide.Tree) {
     const cast = CastOnNearestTree(hero, castable);
-    if (cast) TraceCast(hero, castable, targetSide, undefined, 'tree');
+    if (cast) TraceCast(ai, castable, targetSide, undefined, 'tree');
     return cast;
   }
 
   const target = pickTarget(ai, castable, targetSide, condition);
   if (condition?.action?.toggleByTarget) {
     const toggled = ApplyAbilityAction(castable, { toggleOn: !!target, toggleOff: !target });
-    if (toggled) TraceCast(hero, castable, targetSide, target, target ? 'toggle_on' : 'toggle_off');
+    if (toggled) TraceCast(ai, castable, targetSide, target, target ? 'toggle_on' : 'toggle_off');
     return toggled;
   }
   if (!target) {
+    return false;
+  }
+  // 冲进去的技能不跳到越不了的塔下
+  if (stance === 'fight' && ai.IsProtectedByTower(target)) {
     return false;
   }
 
@@ -102,30 +115,29 @@ export function TryCastBySpec(
     const applied = ApplyAbilityAction(castable, condition.action);
     // 开自动施法不占用本 tick，返回 false，按状态变化判断是否真的切换了
     if (applied || castable.GetAutoCastState() !== autoCastBefore) {
-      TraceCast(hero, castable, targetSide, target, 'action');
+      TraceCast(ai, castable, targetSide, target, 'action');
     }
     return applied;
   }
 
   const castPosition = resolveCastPosition(hero, castable, target, condition);
   const cast = CastAbilityOnTargetByBehavior(hero, castable, target, castPosition);
-  if (cast) TraceCast(hero, castable, targetSide, target, 'cast');
+  if (cast) TraceCast(ai, castable, targetSide, target, 'cast');
   return cast;
 }
 
-const IS_TOOLS_MODE = IsInToolsMode();
-
 /** 开发模式下每次下达施法打一行，事后按日志核对施放时机是否符合 spec。 */
 function TraceCast(
-  hero: CDOTA_BaseNPC_Hero,
+  ai: BotBaseAIModifier,
   castable: CDOTABaseAbility,
   side: TargetSide,
   target: CDOTA_BaseNPC | undefined,
   kind: string,
 ): void {
-  if (!IS_TOOLS_MODE) {
+  if (!IS_DEBUG_RUN) {
     return;
   }
+  const hero = ai.GetHero();
   const time = GameRules.GetDOTATime(false, false);
   const clock = `${Math.floor(time / 60)}:${string.format('%02d', Math.floor(time % 60))}`;
   let targetText = '';
@@ -142,7 +154,7 @@ function TraceCast(
   }
   print(
     `[bot-cast] t=${clock} ${hero.GetUnitName().replace('npc_dota_hero_', '')}` +
-      ` hp=${Math.floor(hero.GetHealthPercent())}% ${castable.GetAbilityName()} ${kind} side=${side}${targetText}` +
+      ` hp=${Math.floor(hero.GetHealthPercent())}% stance=${ai.GetStance()} ${castable.GetAbilityName()} ${kind} side=${side}${targetText}` +
       ` beh=${GetAbilityBehaviorBits(castable)} cd=${string.format('%.1f', castable.GetCooldownTimeRemaining())}`,
   );
 }
@@ -166,16 +178,6 @@ function HasEnemyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
     }
   }
   return false;
-}
-
-function CanEngage(ai: BotBaseAIModifier): boolean {
-  const hero = ai.GetHero();
-  const brain = GameRules.AI.BotTeam?.GetBrain(hero);
-  if (!brain || ai.aroundEnemyHeroes.length === 0) {
-    return false;
-  }
-  const fight = brain.AssessFight(hero, ai.aroundEnemyHeroes);
-  return canEngage(fight.ourPower, fight.enemyPower);
 }
 
 // 施法距离很短，允许走几步去抓稍远的树
@@ -218,6 +220,23 @@ function IsUltimateReady(hero: CDOTA_BaseNPC_Hero): boolean {
     }
   }
   return false;
+}
+
+function CountAbilitiesOnCooldown(hero: CDOTA_BaseNPC_Hero, seconds: number): number {
+  let count = 0;
+  const abilityCount = hero.GetAbilityCount();
+  for (let i = 0; i < abilityCount; i++) {
+    const ability = hero.GetAbilityByIndex(i);
+    if (
+      ability &&
+      ability.GetLevel() > 0 &&
+      !ability.IsPassive() &&
+      ability.GetCooldownTimeRemaining() >= seconds
+    ) {
+      count++;
+    }
+  }
+  return count;
 }
 
 function HasAllyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
@@ -390,7 +409,10 @@ function pickTarget(
     return hero;
   }
 
-  const candidates = candidatesFor(ai, targetSide);
+  let candidates = candidatesFor(ai, targetSide);
+  if (targetSide === TargetSide.EnemyCreep && CanCastOnAncients(ai, castable)) {
+    candidates = [...candidates, ...ai.GetAroundEnemyAncients()];
+  }
   const resolved = resolveTargetCondition(condition, hero, castable, targetSide);
   return FilterTargetWithCondition(resolved, candidates, hero, castable);
 }
@@ -427,6 +449,8 @@ function resolveTargetCondition(
     facing: existingTarget?.facing,
     aheadCircle: existingTarget?.aheadCircle,
     enemiesNearby: existingTarget?.enemiesNearby,
+    fleeing: existingTarget?.fleeing,
+    attackedByTower: existingTarget?.attackedByTower,
     range: range ?? existingTarget?.range,
     count: count ?? existingTarget?.count,
   };
@@ -508,6 +532,21 @@ function resolveCount(
     count.lte = existing.lte;
   }
   return count;
+}
+
+// 远古血厚，低等级技能打上去不值那点蓝
+const ANCIENT_MIN_ABILITY_LEVEL = 4;
+
+/**
+ * 打野时高等级技能也对远古野施放。
+ * 物品等级基本停在 1 级，天然不会对远古用；技能数据标明不能选远古的（如吞噬）按引擎同一标记跳过，免得被拒后每轮重试。
+ */
+function CanCastOnAncients(ai: BotBaseAIModifier, castable: CDOTABaseAbility): boolean {
+  return (
+    ai.mode === 'farm' &&
+    castable.GetLevel() >= ANCIENT_MIN_ABILITY_LEVEL &&
+    (castable.GetAbilityTargetFlags() & UnitTargetFlags.NOT_ANCIENTS) === 0
+  );
 }
 
 /**

@@ -33,7 +33,7 @@ describe('creep ability policy', () => {
     },
   );
 
-  it.each<BotMode>(['fight', 'retreat', 'regroup', 'recover', 'hold'])(
+  it.each<BotMode>(['fight', 'retreat', 'recover', 'hold'])(
     'skips creep spells in %s mode',
     (mode) => {
       expect(ShouldTryCreepSpec(mode)).toBe(false);

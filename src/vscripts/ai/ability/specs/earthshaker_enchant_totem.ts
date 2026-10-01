@@ -21,7 +21,7 @@ export const SPECS: AbilitySpec[] = [
     abilityName: 'earthshaker_enchant_totem',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      self: { unitCondition: { hasScepter: true }, canEngage: true },
+      self: { unitCondition: { hasScepter: true }, stance: 'fight' },
       target: { range: { gte: 300 }, castMode: 'targetPosition' },
     },
   },

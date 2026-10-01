@@ -30,10 +30,12 @@ export function ActivateModules() {
 ## 修改 AI 时
 
 1. 英雄特定 AI: 在 `ai/hero/` 中添加/修改 modifiers
-2. 所有英雄 AI 扩展 `BotBaseAIModifier` 并实现 `OnIntervalThink()` (0.5 秒间隔，见 `ai/hero/bot-base.ts` 的 `ThinkInterval`)
+2. 所有英雄 AI 扩展 `BotBaseAIModifier` 并实现 `OnIntervalThink()` (间隔见 `ai/hero/bot-base.ts` 的 `ThinkInterval`)
 3. 模式: 在 `ai/mode/` 中实现 `GetDesire()` (返回 0-1 的浮点数)
 4. 动作: 在 `ai/action/` 中添加可重用的行为(attack, move, cast)
 5. 物品构建: 在 `ai/build-item/` 中定义，设计与决策见 `ai/build-item/README.md`
+6. 朝地点的位移（赶路、撤退、跳刀切入）登记在 `ai/hero/mobility.ts` 的位移表，不在 `bot-base.ts` 里另写；朝单位施放的位移技能仍走技能/物品 spec
+7. 接管后的团队 AI（`ai/team/` 与 `bot-base.ts` 的交战、回防、推进、站位）按 `bot-ai-tuning` skill 的流程改，设计与决策见 `ai/team/README.md`
 
 ## API 调用
 
@@ -69,6 +71,8 @@ export function ActivateModules() {
 - **不吃技能增强须显式标 flag，不靠物理类型**: 自定义技能用 `ApplyDamage` 造成物理伤害时，**不要**依赖「物理类型隐式不吃 spell amp」这条经验来确保不被技能增强放大。引擎判定是否吃技能增强的真正开关是伤害标志位，要明确排除时显式加 `damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION`（本项目技能增强是自定义属性 `property_spell_amplify_percentage` 实现，更不应靠隐式行为）
 - **代码代为触发技能施放须补 `UseResources`**：代码直接调用某个技能的 `OnSpellStart()`（如自动检测循环里代玩家触发施法、监听某事件后连锁触发另一个技能）时，跳过了引擎原生施法管线，不会自动扣资源/进 CD，须显式调用 `this.UseResources(mana, useHealth, gold, cooldown)` 补上（四个布尔参数对应要不要消耗法力/生命/金钱、要不要进入冷却，按该技能实际消耗类型传参）。这一步只在「代码主动触发施放」时需要；玩家手动点技能触发的 `OnSpellStart()` 回调，引擎在调用前已经走完资源结算，不要重复调用，否则会双重扣资源/双重进 CD
 - **下达攻击命令前先查 `IsAttacking()`**：高频重复下达 `ATTACK_MOVE` / `ATTACK_TARGET`（如 0.1 秒一次的执行器）会不断重置攻击前摇，Bot 表现为反复抬手却打不出伤害。发命令前加 `if (hero.IsAttacking()) return;` 让当前这次攻击走完，参考 `ai/action/action-attack.ts` 的 `MoveToAttack`。判定要放在结束/中断条件**之后**、发命令**之前**，否则 Bot 被小兵缠住时会连中断条件都不再检查
+- **Lua 里空字符串和 0 都为真**：`if (str)`、`str ? a : b` 对 `''` 成立，TSTL 只对部分类型给警告。可选字符串、数字判断「有值」一律显式写 `!== undefined && !== ''`，否则配置留空也会走进分支
+- **Bot 每次思考里不调寻路**：`GridNav.FindPathLength` / `CanFindPath` 开销大，且与小兵共用寻路，10 个 bot 每次思考都调会让全场单位思考超时。短距离一步能否走到用 `GridNav.IsTraversable` + `IsBlocked` + 地面高度差判断；随思考重复的昂贵估算（寻路、逐人算 DPS）按单位缓存约 1 秒
 - **永久增减属性用 `Modify*` 改基础值，不要挂属性回调 modifier**：给英雄永久加/减全属性直接调 `ModifyStrength` / `ModifyAgility` / `ModifyIntellect`（传负数即减，只动基础属性、不含装备加成），一次生效、零持续开销（参考 `game/scripts/vscripts/items/item_tome_of_luoshu.lua`）。**不要**为了承载这个数值而挂一个声明 `MODIFIER_PROPERTY_STATS_*_BONUS` 的自定义 modifier——引擎每次重算属性都要跨进 Lua 调一遍回调，且数值还得靠 `SetHasCustomTransmitterData` 额外同步才能在客户端 tooltip 显示，漏同步就显示成 0。需要 buff 图标时另挂一个**不声明任何属性回调**的纯显示 modifier，数值放 stack count（引擎原生同步，客户端一定拿得到）。扣基础属性时须自行兜底下限，避免扣成负数
 
 ## 查阅引擎 API（函数签名、参数）
