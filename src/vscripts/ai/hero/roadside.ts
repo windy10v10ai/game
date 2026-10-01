@@ -2,13 +2,14 @@
 
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { PlayerHelper } from '../../modules/helper/player-helper';
+import { CachedOutposts } from '../team/building-cache';
 
 const RUNE_RANGE = 800;
 const DROP_RANGE = 800;
 const OUTPOST_RANGE = 900;
 const WATCHER_RANGE = 700;
-// 前哨读条被打断后隔这么久再试
-const OUTPOST_RETRY_SECONDS = 60;
+// 本队占过的前哨被玩家抢回后隔这么久才再去占，玩家人少，不和他反复抢
+const OUTPOST_RECAPTURE_SECONDS = 120;
 // 观察者的队伍和状态读不出亮没亮，点过一次就等它亮完再冷却完再去
 const WATCHER_RETRY_SECONDS = 420 + 120;
 // 捡东西的命令常被打架打断，隔一会儿就能再捡
@@ -27,6 +28,8 @@ export const ROADSIDE_CHANNELS = ['ability_capture', 'ability_lamp_use'];
 
 const TRIED_PRUNE_SIZE = 100;
 const triedAt = new Map<string, number>();
+// 每队最近一次看到自己占着某个前哨的时间
+const ownedAt = new Map<string, number>();
 
 /**
  * 顺手能做哪些事：离要赶去的战场还远时捡符、点观察者只耽误一两秒，占前哨读条太久不做；
@@ -78,13 +81,17 @@ export function TryRoadside(
 
   const capture = hero.FindAbilityByName('ability_capture');
   if (capture && scope === 'all') {
-    for (const outpost of Fixed('npc_dota_watch_tower')) {
-      // 前哨开局无敌，到时间才能占
+    for (const outpost of CachedOutposts()) {
+      const key = `${team}:${outpost.GetEntityIndex()}`;
+      if (outpost.GetTeamNumber() === team) {
+        ownedAt.set(key, now);
+        continue;
+      }
+      // 前哨开局无敌，到时间才能占；几个 bot 一起读条占得更快，不互相排队
       if (
-        outpost.GetTeamNumber() !== team &&
         !outpost.IsInvulnerable() &&
         hero.GetRangeToUnit(outpost) <= OUTPOST_RANGE &&
-        Try(team, outpost, now, OUTPOST_RETRY_SECONDS)
+        now - (ownedAt.get(key) ?? -Infinity) >= OUTPOST_RECAPTURE_SECONDS
       ) {
         return Cast(hero, capture, outpost, 'outpost');
       }

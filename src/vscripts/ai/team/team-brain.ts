@@ -7,7 +7,7 @@ import { AbilityRegistry } from '../ability/ability-registry';
 import { TargetSide } from '../ability/ability-spec';
 import { HeroUtil } from '../hero/hero-util';
 import { ItemRegistry } from '../item/item-registry';
-import { CachedBuildings, CachedTowers, TowerAttackRange } from './building-cache';
+import { CachedBuildings, CachedOutposts, CachedTowers, TowerAttackRange } from './building-cache';
 import { arcSlots, FORMATION_SPACING, lineSlots } from './formation';
 import { shouldUseGlyph } from './glyph';
 import { GroupPushState, startGroupPush, updateGroupPush } from './group-push';
@@ -245,7 +245,8 @@ export class TeamBrain {
   /** 可以 TP 过去、这会儿没人往上传的己方建筑。 */
   FindLandings(): CDOTA_BaseNPC[] {
     const now = GameRules.GetGameTime();
-    return CachedBuildings().filter(
+    // 本队占着的前哨也能传
+    return [...CachedBuildings(), ...CachedOutposts()].filter(
       (unit) =>
         unit.GetTeamNumber() === this.team &&
         (this.landingReserved.get(unit.GetEntityIndex()) ?? -Infinity) <= now,
@@ -645,9 +646,7 @@ export class TeamBrain {
       }
     }
     return (
-      siegePower > 0 &&
-      siegePower + power >= enemyAlive &&
-      this.CanReachAfterBuyback(hero, pos)
+      siegePower > 0 && siegePower + power >= enemyAlive && this.CanReachAfterBuyback(hero, pos)
     );
   }
 
