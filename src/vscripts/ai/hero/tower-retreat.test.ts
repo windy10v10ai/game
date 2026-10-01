@@ -1,4 +1,4 @@
-import { canOutlastTower, retreatPointFromTowers } from './tower-retreat';
+import { canDiveTower, canOutlastTower, retreatPointFromTowers } from './tower-retreat';
 
 describe('canOutlastTower', () => {
   const input = {
@@ -45,5 +45,23 @@ describe('tower retreat point', () => {
     expect(
       retreatPointFromTowers({ x: 100, y: 100 }, [{ x: 100, y: 100 }], { x: 0, y: 100 }, 200),
     ).toEqual({ x: -100, y: 100 });
+  });
+});
+
+describe('canDiveTower', () => {
+  const dive = { enemyHealth: 3000, teamDps: 600, towerDps: 200, diverHealth: 2000 };
+
+  it('dives when the target dies before the tower kills one diver', () => {
+    expect(canDiveTower(dive)).toBe(true);
+  });
+
+  it('stays out when the tower would kill a diver first', () => {
+    expect(canDiveTower({ ...dive, towerDps: 500 })).toBe(false);
+    expect(canDiveTower({ ...dive, teamDps: 200 })).toBe(false);
+  });
+
+  it('never dives with no damage and always dives a harmless tower', () => {
+    expect(canDiveTower({ ...dive, teamDps: 0 })).toBe(false);
+    expect(canDiveTower({ ...dive, towerDps: 0 })).toBe(true);
   });
 });

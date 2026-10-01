@@ -82,8 +82,9 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 21. **技能交出去后才放**：`self.abilitiesOnCooldown: { seconds, count }`，至少 count 个已学会的主动技能剩余冷却不少于 seconds 才施放，不计物品。与 `cooldownTotal`（技能加物品冷却总和，给刷新类用）不同，用于开了就不能施法或该在技能之后接的增益（如疯狂面具）。
 22. **目标正背对敌人逃跑**：`target.fleeing: <range>`，只选该距离内最近的敌方英雄位于其身后的目标，判断方式与 `facing` 相同但以目标自身朝向为准。用于沿目标朝向推动的效果（如推队友的原力法杖），推错方向会把人送进敌群。
 23. **目标正被塔打**：`target.attackedByTower: true`，只选正被敌方防御塔攻击的目标，配合 `FriendlyCreep` 可给挨塔打的小兵上增益（如炎阳纹章）。
-24. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
-22. **只选中立单位并按绝对生命值筛选**：`target.unitCondition.neutralOnly: true` 限定野怪，`target.unitCondition.health` 按当前绝对生命值筛选。
+24. **只打普攻够不着的目标**：`target.outOfAttackRange: true`，距离下限取施法者当前攻击距离。用于施法前摇或引导长、贴脸时不如普攻的单体技能（如暗杀），留给追残血和打远处。
+25. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+26. **只选中立单位并按绝对生命值筛选**：`target.unitCondition.neutralOnly: true` 限定野怪，`target.unitCondition.health` 按当前绝对生命值筛选。
 
 ### 是否补一条对小兵的清兵规则
 

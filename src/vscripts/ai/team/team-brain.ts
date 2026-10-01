@@ -7,7 +7,7 @@ import { AbilityRegistry } from '../ability/ability-registry';
 import { TargetSide } from '../ability/ability-spec';
 import { HeroUtil } from '../hero/hero-util';
 import { ItemRegistry } from '../item/item-registry';
-import { CachedBuildings, CachedTowers, TowerAttackRange } from './building-cache';
+import { CachedBuildings, CachedOutposts, CachedTowers, TowerAttackRange } from './building-cache';
 import { arcSlots, FORMATION_SPACING, lineSlots } from './formation';
 import { shouldUseGlyph } from './glyph';
 import { GroupPushState, startGroupPush, updateGroupPush } from './group-push';
@@ -25,14 +25,21 @@ import {
   projectOnLane,
 } from './lane-geometry';
 import { resolvePushStaging } from './push-staging';
+import { FindRoshan, RoshanTiming } from './roshan';
+import { SupplyWards } from '../ward/ward-supply';
 import { ControlSummons } from './summon-control';
+import { Activity, ActivityTracker } from './activity';
 import {
+  CombatStats,
   combatPower,
+  damagePerSecond,
   decayThreat,
+  effectiveHealth,
   threatAfterDeath,
   threatAfterKill,
   threatMultiplier,
 } from './power';
+import { canDiveTower } from '../hero/tower-retreat';
 import {
   DefendTarget,
   FIGHT_DANGER_RADIUS,
@@ -54,6 +61,14 @@ const LAST_SEEN_FORGET = 15;
 const FIGHT_MEMORY = 3;
 // 与团队大脑的思考间隔一致
 const POWER_CACHE_SECONDS = 1;
+// 全队也打不过的交战点记这么久：敌人进了迷雾多半还在，别一看不见就回去推进又被撞上
+const AVOID_MEMORY = 30;
+const AVOID_MERGE_RADIUS = 1500;
+// 肉山的暴击、怒意狂击、海妖外壳、砸地这些战力公式算不到，按实测折成这个倍数；加成被动的减伤已单独算进有效血量
+const ROSHAN_HIDDEN_POWER = 1.5;
+const ROSHAN_RETRY_SECONDS = 90;
+// 敌方建筑合计掉这么多（按座算的血量比例）才算推进有进展，零星磨血不算
+const PUSH_PROGRESS = 0.2;
 const LANE_MAX_OFFSET = 2000;
 const LANE_CREEP_MAX_OFFSET = 1200;
 const BUILDING_THREAT_RADIUS = 1200;
@@ -120,11 +135,6 @@ export interface FightView extends FightSpot {
   withTower: boolean;
 }
 
-interface ThreatRecord {
-  score: number;
-  time: number;
-}
-
 interface BuildingInfo {
   unit: CDOTA_BaseNPC;
   lane: Lane | undefined;
@@ -151,9 +161,9 @@ export class TeamBrain {
   private readonly members = new Map<EntityIndex, CDOTA_BaseNPC_Hero>();
   private readonly recoverRequests = new Set<EntityIndex>();
   private readonly engagedMembers = new Set<EntityIndex>();
+  private readonly retreatingMembers = new Set<EntityIndex>();
   private readonly lastSeen = new Map<EntityIndex, EnemyMemory>();
   private visible = new Set<EntityIndex>();
-  private readonly threats = new Map<EntityIndex, ThreatRecord>();
   private tasks = new Map<number, Task>();
   private plan: LanePlan | undefined;
   private readonly pushLanes = new Map<number, Lane>();
@@ -168,6 +178,16 @@ export class TeamBrain {
   // 阵亡的敌方英雄同样按最后活着时算，分路与抱团按敌方全员的实力判断
   private readonly lastEnemyPower = new Map<EntityIndex, number>();
   private groupPush: GroupPushState | undefined;
+  private roshanSquadSize = 0;
+  private roshanRetryAt = -Infinity;
+  private siege = false;
+  private avoided: { pos: Point; until: number }[] = [];
+  private readonly activity = new ActivityTracker();
+  private tiredLanes: Lane[] = [];
+  private enemiesAlive = new Set<EntityIndex>();
+  private pushMark = -1;
+  // 正在拆敌方高地或抱团推进，阵亡的人买活回来接着推
+  private siegePos: Point | undefined;
   private glyphReadyAt = 0;
   private readonly buildingHealth = new Map<EntityIndex, { time: number; health: number }[]>();
   private outerTowers = -1;
@@ -205,6 +225,15 @@ export class TeamBrain {
     }
   }
 
+  /** 英雄报告自己正在撤，团队算交战点战力时不把它当帮手。 */
+  SetRetreating(hero: CDOTA_BaseNPC_Hero, retreating: boolean): void {
+    if (retreating) {
+      this.retreatingMembers.add(hero.GetEntityIndex());
+    } else {
+      this.retreatingMembers.delete(hero.GetEntityIndex());
+    }
+  }
+
   SetNeedsRecover(hero: CDOTA_BaseNPC_Hero, needs: boolean): void {
     if (needs) {
       this.recoverRequests.add(hero.GetEntityIndex());
@@ -216,7 +245,8 @@ export class TeamBrain {
   /** 可以 TP 过去、这会儿没人往上传的己方建筑。 */
   FindLandings(): CDOTA_BaseNPC[] {
     const now = GameRules.GetGameTime();
-    return CachedBuildings().filter(
+    // 本队占着的前哨也能传
+    return [...CachedBuildings(), ...CachedOutposts()].filter(
       (unit) =>
         unit.GetTeamNumber() === this.team &&
         (this.landingReserved.get(unit.GetEntityIndex()) ?? -Infinity) <= now,
@@ -269,36 +299,6 @@ export class TeamBrain {
       }
     }
     return plans;
-  }
-
-  /** 单位对本队的威胁战力：敌方英雄乘上最近战绩带来的威胁倍率。 */
-  PowerOf(unit: CDOTA_BaseNPC): number {
-    const power = UnitPower(unit);
-    if (unit.GetTeamNumber() !== this.enemyTeam || !unit.IsRealHero()) {
-      return power;
-    }
-    return power * threatMultiplier(this.ThreatScore(unit.GetEntityIndex()));
-  }
-
-  OnHeroKilled(killed: CDOTA_BaseNPC_Hero, killerHero: CDOTA_BaseNPC_Hero | undefined): void {
-    const now = GameRules.GetGameTime();
-    if (killed.GetTeamNumber() === this.enemyTeam) {
-      const index = killed.GetEntityIndex();
-      this.threats.set(index, { score: threatAfterDeath(this.ThreatScore(index)), time: now });
-      return;
-    }
-    if (killerHero && killerHero.GetTeamNumber() === this.enemyTeam) {
-      const index = killerHero.GetEntityIndex();
-      this.threats.set(index, { score: threatAfterKill(this.ThreatScore(index)), time: now });
-    }
-  }
-
-  private ThreatScore(index: EntityIndex): number {
-    const record = this.threats.get(index);
-    if (!record) {
-      return 0;
-    }
-    return decayThreat(record.score, GameRules.GetGameTime() - record.time);
   }
 
   /** 每秒调用一次；assign 为 false 时只更新局面记忆，任务交给原生。 */
@@ -370,11 +370,38 @@ export class TeamBrain {
         ...this.RoleOf(hero, now),
       }));
 
+    const resting = this.UpdateActivity(
+      enemies,
+      buildings,
+      bots.filter((bot) => !bot.needsRecover).length,
+      now,
+    );
     const enemyStrength = this.UpdateGroupPush(enemies, now);
+    const roshan = FindRoshan();
+    const squadBefore = this.RoshanSquad();
     const result = planTasks({
       bots,
       enemyPower: enemyStrength,
       groupPush: this.groupPush?.activeSince !== undefined,
+      teamStrength: this.TeamStrength(),
+      siege: this.siege,
+      outerTowersLeft: buildings.some(
+        (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 2,
+      ),
+      roshanSquad: squadBefore,
+      avoided: this.avoided.map((entry) => entry.pos),
+      resting,
+      tiredLanes: this.tiredLanes,
+      roshan:
+        roshan && (squadBefore.size > 0 || now >= this.roshanRetryAt)
+          ? {
+              id: roshan.GetEntityIndex() as number,
+              pos: roshan.GetAbsOrigin(),
+              power: RoshanPower(roshan),
+              aliveSeconds: now - RoshanTiming().seenAt,
+              waitSeconds: RoshanTiming().waitSeconds,
+            }
+          : undefined,
       fountain,
       defend,
       fights: this.fights,
@@ -386,6 +413,22 @@ export class TeamBrain {
       random: () => RandomFloat(0, 1),
     });
     this.tasks = result.tasks;
+    // 同一处每秒都会报一次，新的顶掉附近旧的，列表不随时间变长
+    this.avoided = [
+      ...this.avoided.filter(
+        (entry) =>
+          entry.until > now &&
+          result.avoid.every((pos) => distance(pos, entry.pos) > AVOID_MERGE_RADIUS),
+      ),
+      ...result.avoid.map((pos) => ({ pos, until: now + AVOID_MEMORY })),
+    ];
+    // 打到一半撤下来的，隔一阵再考虑，不刚复活就又去送
+    if (roshan && squadBefore.size > 0 && this.RoshanSquad().size === 0) {
+      this.roshanRetryAt = now + ROSHAN_RETRY_SECONDS;
+    }
+    if (IS_DEBUG_RUN) {
+      this.TraceRoshan(this.RoshanSquad(), roshan);
+    }
     this.AssignSlots(recentEnemies);
     if (IS_DEBUG_RUN && result.plan && result.plan !== this.plan) {
       const picks = result.plan.picks.map((pick) => pick.lane).join(',');
@@ -393,6 +436,18 @@ export class TeamBrain {
       print(`[bot-ai] team=${this.team} lanes=${picks} pushable=${lanesNow}`);
     }
     this.plan = result.plan;
+    if (IS_DEBUG_RUN && result.siege !== this.siege) {
+      const time = Math.floor(GameRules.GetDOTATime(false, true));
+      print(`[bot-ai] team=${this.team} t=${time} siege=${result.siege ? 'start' : 'end'}`);
+    }
+    this.siege = result.siege;
+    const highGround = new Set(
+      lanes.filter((lane) => lane.highGround).map((lane) => lane.targetId),
+    );
+    // 抱团推外塔时死了不买，买活冷却要留给高地和基地
+    this.siegePos = [...this.tasks.values()].find(
+      (task) => task.kind === 'push' && highGround.has(task.targetId ?? -1),
+    )?.pos;
     for (const [id, task] of this.tasks) {
       if (task.kind === 'push' && task.lane) {
         this.pushLanes.set(id, task.lane);
@@ -400,7 +455,87 @@ export class TeamBrain {
     }
     this.CountCommittedFighters();
     ControlSummons(this.team, [...this.members.values()]);
-    this.ConsiderBuyback(defend, allies);
+    SupplyWards(this.team, [...this.members.values()], UnitPower);
+    this.ConsiderBuyback(defend, allies, enemies);
+  }
+
+  /** 本队 bot 的总战力，阵亡的按阵亡前算，和敌方口径一致。 */
+  private TeamStrength(): number {
+    let total = 0;
+    for (const [index, hero] of this.members) {
+      total += hero.IsAlive() ? UnitPower(hero) : (this.lastPower.get(index) ?? 0);
+    }
+    return total;
+  }
+
+  private RoshanSquad(): Set<number> {
+    const squad = new Set<number>();
+    for (const [id, task] of this.tasks) {
+      if (task.kind === 'roshan') {
+        squad.add(id);
+      }
+    }
+    return squad;
+  }
+
+  /** 按上一轮的分派记下全队在做什么、有没有进展，返回该歇着的事。 */
+  private UpdateActivity(
+    enemies: CDOTA_BaseNPC_Hero[],
+    buildings: BuildingInfo[],
+    active: number,
+    now: number,
+  ): Set<Activity> {
+    const progress = new Set<Activity>();
+    const alive = new Set(
+      enemies.filter((enemy) => enemy.IsAlive()).map((enemy) => enemy.GetEntityIndex()),
+    );
+    if ([...this.enemiesAlive].some((index) => !alive.has(index))) {
+      progress.add('fight');
+    }
+    this.enemiesAlive = alive;
+    // 被推掉的建筑不在列表里，剩余血量比例一起消失，也算进展
+    const standing = buildings
+      .filter((building) => building.unit.GetTeamNumber() === this.enemyTeam)
+      .reduce((sum, building) => sum + building.unit.GetHealth() / building.unit.GetMaxHealth(), 0);
+    // 只和上次有进展时比，回血后再打回原样不算：偷塔保护下反复磨血正是要换路的死胡同
+    if (this.pushMark < 0) {
+      this.pushMark = standing;
+    } else if (this.pushMark - standing >= PUSH_PROGRESS) {
+      progress.add('push');
+      this.pushMark = standing;
+    }
+    const counts = new Map<Activity, number>();
+    for (const task of this.tasks.values()) {
+      if (task.kind === 'fight' || task.kind === 'push' || task.kind === 'farm') {
+        counts.set(task.kind, (counts.get(task.kind) ?? 0) + 1);
+      }
+    }
+    const tired = this.activity.Update(counts, active, progress, now);
+    if (tired.includes('push')) {
+      this.tiredLanes = this.plan?.picks.map((pick) => pick.lane) ?? [];
+    }
+    if (IS_DEBUG_RUN && tired.length > 0) {
+      const time = Math.floor(GameRules.GetDOTATime(false, true));
+      print(`[bot-ai] team=${this.team} t=${time} rest=${tired.join(',')}`);
+    }
+    return this.activity.Resting(now);
+  }
+
+  private TraceRoshan(squad: Set<number>, roshan: CDOTA_BaseNPC | undefined): void {
+    if (squad.size === this.roshanSquadSize) {
+      return;
+    }
+    this.roshanSquadSize = squad.size;
+    let power = 0;
+    for (const id of squad) {
+      const hero = this.members.get(id as EntityIndex);
+      power += hero ? UnitPower(hero) : 0;
+    }
+    const time = Math.floor(GameRules.GetDOTATime(false, true));
+    const target = roshan ? Math.floor(RoshanPower(roshan)) : 0;
+    print(
+      `[bot-ai] team=${this.team} t=${time} roshan=${squad.size} squad_pw=${Math.floor(power)} roshan_pw=${target}`,
+    );
   }
 
   /** 更新抱团推进的状态，返回敌方英雄的总战力。 */
@@ -411,7 +546,7 @@ export class TeamBrain {
     for (const enemy of enemies) {
       const index = enemy.GetEntityIndex();
       if (enemy.IsAlive()) {
-        const power = this.PowerOf(enemy);
+        const power = UnitPower(enemy);
         this.lastEnemyPower.set(index, power);
         total += power;
         continue;
@@ -439,10 +574,18 @@ export class TeamBrain {
     return total;
   }
 
-  /** 阵亡的 bot 在基地危急、或附近团战买活后能扳回时买活；双方悬殊到买了也守不住就不买。 */
-  private ConsiderBuyback(defend: DefendTarget[], allies: CDOTA_BaseNPC_Hero[]): void {
+  /**
+   * 阵亡的 bot 在基地危急、附近团战买活后能扳回、或正在拆敌方高地时买活；
+   * 双方悬殊到买了也守不住、或进攻时活着的人已经打不过就不买，免得买活出来再送一次。
+   */
+  private ConsiderBuyback(
+    defend: DefendTarget[],
+    allies: CDOTA_BaseNPC_Hero[],
+    enemies: CDOTA_BaseNPC_Hero[],
+  ): void {
     // 买活的人算进战力，后面的人看到已经够了就不再买
     let alivePower = allies.reduce((sum, hero) => sum + UnitPower(hero), 0);
+    const enemyAlive = enemies.reduce((sum, hero) => sum + UnitPower(hero), 0);
     const baseAttack = defend
       // 兵营起才算基地危急，高地塔失守不值得花钱买活
       .filter((target) => target.importance >= 4 && target.stage === 'engaged')
@@ -472,7 +615,8 @@ export class TeamBrain {
           fight.enemyPower <= fight.ourPower + power &&
           this.CanReachAfterBuyback(hero, fight.pos),
       );
-      if (!holdBase && !turnFight) {
+      const keepSieging = this.CanRejoinSiege(hero, power, enemyAlive);
+      if (!holdBase && !turnFight && !keepSieging) {
         continue;
       }
       hero.Buyback();
@@ -480,8 +624,30 @@ export class TeamBrain {
       if (turnFight) {
         turnFight.ourPower += power;
       }
-      print(`[bot-ai] ${HeroShortName(hero)} buyback base=${holdBase ? 1 : 0}`);
+      print(
+        `[bot-ai] ${HeroShortName(hero)} buyback base=${holdBase ? 1 : 0} siege=${keepSieging ? 1 : 0}`,
+      );
     }
+  }
+
+  /**
+   * 进攻高地时阵亡：高地前还有活着的队友在打、买活后赶得过去、加上自己打得过敌方才买。
+   * 队友都没了买活过去也是一个人送，赶不过去就是白花钱。
+   */
+  private CanRejoinSiege(hero: CDOTA_BaseNPC_Hero, power: number, enemyAlive: number): boolean {
+    const pos = this.siegePos;
+    if (!pos) {
+      return false;
+    }
+    let siegePower = 0;
+    for (const member of this.members.values()) {
+      if (member.IsAlive() && distance(member.GetAbsOrigin(), pos) <= FIGHT_FOLLOW_RADIUS) {
+        siegePower += UnitPower(member);
+      }
+    }
+    return (
+      siegePower > 0 && siegePower + power >= enemyAlive && this.CanReachAfterBuyback(hero, pos)
+    );
   }
 
   private CanReachAfterBuyback(hero: CDOTA_BaseNPC_Hero, pos: Point): boolean {
@@ -659,6 +825,48 @@ export class TeamBrain {
     return fights;
   }
 
+  /**
+   * 敌人在自家塔下时，附近能赶来的 bot 一起越塔，能不能在塔打死一个人之前把人打死。
+   * 只算没在撤的 bot，玩家队友不归调度不算。
+   */
+  private CanDiveAt(pos: Vector, enemies: CDOTA_BaseNPC[], allies: CDOTA_BaseNPC_Hero[]): boolean {
+    let towerDps = 0;
+    for (const unit of CachedBuildings()) {
+      if (
+        unit.GetTeamNumber() === this.enemyTeam &&
+        unit.HasAttackCapability() &&
+        distance(unit.GetAbsOrigin(), pos) <= TowerAttackRange(unit) + FIGHT_TOWER_MARGIN
+      ) {
+        towerDps += damagePerSecond(UnitStats(unit));
+      }
+    }
+    const divers = allies.filter(
+      (ally) =>
+        ally.IsAlive() &&
+        this.members.has(ally.GetEntityIndex()) &&
+        !this.retreatingMembers.has(ally.GetEntityIndex()) &&
+        distance(ally.GetAbsOrigin(), pos) <= FIGHT_FOLLOW_RADIUS,
+    );
+    if (divers.length === 0) {
+      return false;
+    }
+    const stats = divers.map(UnitStats);
+    return canDiveTower({
+      enemyHealth: enemies.reduce((sum, enemy) => sum + effectiveHealth(UnitStats(enemy)), 0),
+      teamDps: stats.reduce((sum, ally) => sum + damagePerSecond(ally), 0),
+      towerDps,
+      diverHealth: stats.reduce((sum, ally) => sum + effectiveHealth(ally), 0) / stats.length,
+    });
+  }
+
+  /** 这个敌人所在的交战点团队判断能越塔抓。 */
+  DivesOn(enemy: CDOTA_BaseNPC): boolean {
+    const index = enemy.GetEntityIndex();
+    return this.fights.some(
+      (fight) => fight.enemyIds.includes(index) && fight.withTower && fight.towerSafe !== true,
+    );
+  }
+
   private BuildFight(enemies: CDOTA_BaseNPC[], allies: CDOTA_BaseNPC_Hero[]): FightView {
     let x = 0;
     let y = 0;
@@ -670,7 +878,7 @@ export class TeamBrain {
       y += pos.y / enemies.length;
       // 被硬控的敌人这几秒还不了手，打折算让附近的 bot 抓住机会上
       const disabled = HeroUtil.NotActionable(enemy);
-      enemyPower += this.PowerOf(enemy) * (disabled ? DISABLED_POWER_FACTOR : 1);
+      enemyPower += UnitPower(enemy) * (disabled ? DISABLED_POWER_FACTOR : 1);
       if (disabled !== HeroUtil.NotActionable(focus)) {
         if (disabled) {
           focus = enemy;
@@ -681,6 +889,7 @@ export class TeamBrain {
     }
     const pos = Vector(x, y, 0);
     const enemyTowerPower = BuildingPowerNear(this.enemyTeam, pos);
+    const towerSafe = enemyTowerPower > 0 && !this.CanDiveAt(pos, enemies, allies);
     enemyPower += enemyTowerPower;
     // 己方塔、兵营与基地也算我方战力，玩家上高地时 bot 守得更积极；玩家的建筑同样算进敌方
     let allyPower = BuildingPowerNear(this.team, pos);
@@ -695,7 +904,8 @@ export class TeamBrain {
       if (!this.members.has(ally.GetEntityIndex()) && gap <= FIGHT_JOIN_RADIUS) {
         allyPower += UnitPower(ally);
       }
-      if (gap <= FIGHT_DANGER_RADIUS) {
+      // 正在撤的队友帮不上忙，算进去会让前排以为有人跟着硬上
+      if (gap <= FIGHT_DANGER_RADIUS && !this.retreatingMembers.has(ally.GetEntityIndex())) {
         engaged = engaged || this.engagedMembers.has(ally.GetEntityIndex());
         ourPower += UnitPower(ally);
         ourNames.push(HeroShortName(ally));
@@ -712,6 +922,7 @@ export class TeamBrain {
       ourPower,
       ourNames,
       withTower: enemyTowerPower > 0,
+      towerSafe,
       pastFront: this.IsPastFront(pos),
       engaged,
     };
@@ -859,6 +1070,7 @@ export class TeamBrain {
         this.pushLanes.delete(index);
         this.recoverRequests.delete(index);
         this.engagedMembers.delete(index);
+        this.retreatingMembers.delete(index);
       }
     }
   }
@@ -912,7 +1124,7 @@ export class TeamBrain {
         this.DefendTargetOf(
           building,
           'engaged',
-          attackers.reduce((sum, enemy) => sum + this.PowerOf(enemy), 0),
+          attackers.reduce((sum, enemy) => sum + UnitPower(enemy), 0),
         ),
       );
     }
@@ -925,7 +1137,7 @@ export class TeamBrain {
       }
       const near = NearestBuilding(base, this.PositionOf(enemy), BASE_WARNING_RADIUS);
       if (near) {
-        warning.set(near, (warning.get(near) ?? 0) + this.PowerOf(enemy));
+        warning.set(near, (warning.get(near) ?? 0) + UnitPower(enemy));
       }
     }
     for (const [building, power] of warning) {
@@ -1157,6 +1369,7 @@ export class TeamBrain {
         waveAtTarget: staging.waveAtTarget,
         enemyPower: lanePower.get(path.lane) ?? 0,
         towerPower: UnitPower(target.unit),
+        highGround: target.isBase,
       });
     }
     return lanes;
@@ -1180,6 +1393,10 @@ export class TeamBrain {
       false,
     );
     for (const unit of units) {
+      // 肉山由团队按战力专门派人，不当普通远古野去打
+      if (unit.GetUnitName() === 'npc_dota_roshan') {
+        continue;
+      }
       const pos = unit.GetAbsOrigin();
       if (unit.GetTeamNumber() !== DotaTeam.NEUTRALS) {
         if (!IsLaneCreep(unit) || !observer.CanEntityBeSeenByMyTeam(unit)) {
@@ -1247,7 +1464,7 @@ export class TeamBrain {
           : LANE_MAX_OFFSET - enemy.GetIdealSpeed() * (now - memory.time - LAST_SEEN_EXACT);
       const hit = nearestLane(this.lanes, memory.pos, Math.max(maxOffset, 0));
       if (hit) {
-        result.set(hit.path.lane, (result.get(hit.path.lane) ?? 0) + this.PowerOf(enemy));
+        result.set(hit.path.lane, (result.get(hit.path.lane) ?? 0) + UnitPower(enemy));
       }
     }
     return result;
@@ -1273,17 +1490,53 @@ export function UnitPower(unit: CDOTA_BaseNPC): number {
   if (cached !== undefined) {
     return cached;
   }
-  const power = ComputePower(unit);
+  let power = ComputePower(unit);
+  if (unit.IsRealHero() && power > 0) {
+    heroPower.set(index, power);
+    power *= threatMultiplier(ThreatScore(index, now));
+  }
   powerCache.set(index, power);
   return power;
 }
 
-function ComputePower(unit: CDOTA_BaseNPC): number {
-  if (!unit.IsAlive()) {
-    return 0;
+// 英雄最近一次活着时的属性战力，击杀时按双方生前战力算威胁
+const heroPower = new Map<EntityIndex, number>();
+const heroThreat = new Map<EntityIndex, { score: number; time: number }>();
+
+function ThreatScore(index: EntityIndex, now: number): number {
+  const record = heroThreat.get(index);
+  return record ? decayThreat(record.score, now - record.time) : 0;
+}
+
+/** 英雄被击杀时记下双方的击杀威胁，两队通用：玩家连杀稍显可怕，bot 击杀玩家后也敢追。 */
+export function RecordHeroKill(killed: CDOTA_BaseNPC, killer: CDOTA_BaseNPC | undefined): void {
+  const now = GameRules.GetGameTime();
+  const killedIndex = killed.GetEntityIndex();
+  heroThreat.set(killedIndex, {
+    score: threatAfterDeath(ThreatScore(killedIndex, now)),
+    time: now,
+  });
+  if (!killer || killer.GetTeamNumber() === killed.GetTeamNumber()) {
+    return;
   }
+  const killerIndex = killer.GetEntityIndex();
+  heroThreat.set(killerIndex, {
+    score: threatAfterKill(
+      ThreatScore(killerIndex, now),
+      heroPower.get(killedIndex) ?? 0,
+      heroPower.get(killerIndex) ?? ComputePower(killer),
+    ),
+    time: now,
+  });
+}
+
+function ComputePower(unit: CDOTA_BaseNPC): number {
+  return unit.IsAlive() ? combatPower(UnitStats(unit)) : 0;
+}
+
+function UnitStats(unit: CDOTA_BaseNPC): CombatStats {
   const isHero = unit.IsHero();
-  return combatPower({
+  return {
     health: unit.GetHealth(),
     armor: unit.GetPhysicalArmorValue(false),
     // 引擎允许不传伤害来源，类型声明把它标成了必填
@@ -1293,7 +1546,23 @@ function ComputePower(unit: CDOTA_BaseNPC): number {
     level: isHero ? unit.GetLevel() : 0,
     spellAmp: isHero ? unit.GetSpellAmplification(false) : 0,
     spellReady: isHero ? SpellReadiness(unit) : 1,
-  });
+    evasion: unit.GetEvasion(),
+    magicImmune: unit.IsMagicImmune(),
+    damageTaken: RoshanDamageTaken(unit),
+  };
+}
+
+/** 肉山加成被动按等级大幅减伤，面板读不出来；加成会叠加多层，按实际层数算。 */
+function RoshanDamageTaken(unit: CDOTA_BaseNPC): number | undefined {
+  if (unit.GetUnitName() !== 'npc_dota_roshan') {
+    return undefined;
+  }
+  const buff = unit.FindAbilityByName('roshan_buff');
+  if (!buff || buff.GetLevel() < 1) {
+    return undefined;
+  }
+  const stacks = unit.FindAllModifiersByName('modifier_roshan_buff').length;
+  return 1 + (buff.GetSpecialValueFor('damage_reduction') * stacks) / 100;
 }
 
 /** 已学的主动技能与身上的主动物品里，现在能放的比例；不区分技能强弱。 */
@@ -1450,4 +1719,9 @@ export function BuildLanePaths(): LanePath[] {
     paths.push(buildLanePath(lane, points));
   }
   return paths;
+}
+
+/** 肉山战力：公式算到的部分乘上算不到的技能折算。 */
+function RoshanPower(roshan: CDOTA_BaseNPC): number {
+  return UnitPower(roshan) * ROSHAN_HIDDEN_POWER;
 }

@@ -24,6 +24,7 @@ import { WardPlacement } from '../ward/ward-placement';
 import { canEngage, canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
 import { EngageToward, FindBlinkItem, MoveContext, MoveToward } from './mobility';
+import { ROADSIDE_CHANNELS, RoadsideScope, TryRoadside } from './roadside';
 import { canOutlastTower, passesTower, retreatPointFromTowers } from './tower-retreat';
 import { calculateAttackDPS } from '../../utils/damage-calculation';
 
@@ -39,6 +40,8 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly towerEscapeTime: number = 3;
   protected readonly towerEscapeTick: number = 0.03;
   protected continueActionEndTime: number = -60;
+  private roadsideUntil = 0;
+  private roadsideCheckAt = 0;
 
   // 中立槽修复节奏：间隔与下次校验时间（gameTime）
   protected readonly neutralItemRepairInterval: number = 5;
@@ -86,6 +89,9 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly TowerNearbyRange: number = 600;
   protected readonly TowerDetourMargin: number = 200;
   protected readonly DiveMinHeroes: number = 3;
+  // 越塔抓人时这么近的范围内至少有这么多队友一起
+  protected readonly DiveMinPartners: number = 1;
+  protected readonly DivePartnerRange: number = 1200;
   protected readonly DiveMinHealthPercent: number = 50;
   protected readonly DiveMinCreeps: number = 2;
   protected readonly DiveCheckRadius: number = 900;
@@ -107,6 +113,13 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly NeutralClearRange: number = 800;
   // 推进时在等待点迎上去打的敌方兵线距离，不站着等兵线自己走过来
   protected readonly PushCreepChaseRange: number = 1200;
+  // 离肉山这么近才指定它打，远处照常赶路，不在半路被引到别处
+  protected readonly RoshanAttackRange: number = 1500;
+  protected readonly RoadsideCheckInterval: number = 1;
+  // 走去捡东西期间不再下别的移动命令，但最多这么久，路上的情况会变
+  protected readonly RoadsideMaxSeconds: number = 3;
+  // 赶去打架或回防时离目的地还有这么远，顺手捡符、点观察者不耽误到场
+  protected readonly RoadsideRushDistance: number = 3000;
 
   // 同一目的地不重复下指令；单位停下或太久没更新时才重下
   // 到达判定要比站位间距小，否则都停在靠自己一侧的站位边缘、又挤回一团
@@ -147,7 +160,7 @@ export class BotBaseAIModifier extends BaseModifier {
   private engagedUntil: number = -60;
   private lastHurtTime: number = -60;
   private recentDamage: { time: number; damage: number }[] = [];
-  private lastHealth: number = 0;
+  private lastMissingHealth: number = 0;
   private tookDamage: boolean = false;
   private needsRecover: boolean = false;
   private lastOrderPos: Vector | undefined;
@@ -286,6 +299,7 @@ export class BotBaseAIModifier extends BaseModifier {
     this.UpdateRecoverNeed(brain);
     const task = brain.GetTask(this.hero);
     this.stance = this.DecideStance(brain, task);
+    brain.SetRetreating(this.hero, this.stance === 'retreat');
     // 出装与整理物品栏不占用行动，接管后几乎每轮都在行动，排在后面会一直轮不到
     if (this.BuildItem()) {
       return;
@@ -372,14 +386,16 @@ export class BotBaseAIModifier extends BaseModifier {
       (enemy) => this.hero.GetRangeToUnit(enemy) <= this.LocalFightRadius,
     );
     const health = this.hero.GetHealth();
-    const drop = Math.max(0, this.lastHealth - health);
+    // 按缺的血算掉血：离开泉水、换装备这类上限变化会让当前血量一起掉，不是挨打
+    const missing = this.hero.GetMaxHealth() - health;
+    const drop = Math.max(0, missing - this.lastMissingHealth);
     const tookDamage = drop > 0;
     const burst = drop >= this.hero.GetMaxHealth() * this.UnseenBurstRatio;
     this.tookDamage = tookDamage;
     if (tookDamage) {
       this.lastHurtTime = this.gameTime;
     }
-    this.lastHealth = health;
+    this.lastMissingHealth = missing;
     const survival = this.SurvivalSeconds(drop);
     const attackTarget = this.hero.GetAttackTarget();
     if (
@@ -393,13 +409,15 @@ export class BotBaseAIModifier extends BaseModifier {
     this.traceInfo = '';
     this.retreatPoint = undefined;
     if (enemies.length === 0) {
-      // 高地下或迷雾里被看不见的敌人打得很疼时先撤；小兵和塔打不出这么快的掉血
-      if (burst) {
+      // 高地下或迷雾里被看不见的敌人打得很疼时先撤；小兵和塔打不出这么快的掉血，打肉山时的掉血来自肉山
+      if (burst && task?.kind !== 'roshan') {
         this.engagedUntil = this.gameTime + this.EngageMemory;
+        this.traceInfo = 'why=burst';
         return 'retreat';
       }
       // 追兵刚跑出视野多半还在附近，撤退要撤完，不因一时看不见就掉头
       if (this.stance === 'retreat' && this.gameTime < this.engagedUntil) {
+        this.traceInfo = 'why=memory';
         return 'retreat';
       }
       const threat = brain.NearestFight(this.hero, this.ThreatRadius);
@@ -410,9 +428,13 @@ export class BotBaseAIModifier extends BaseModifier {
           ? UnitPower(this.hero)
           : 0;
       if (threat && !committed && !canEngage(threat.ourPower + joining, threat.enemyPower)) {
-        // 走出威胁范围后再撤一会，不在边界上来回进出
+        // 走出威胁范围后再撤一会，不在边界上来回进出；不打就退回身后的塔，不在交战点边上等着被追
         this.engagedUntil = this.gameTime + this.EngageMemory;
-        this.retreatPoint = threat.rally;
+        if (IS_DEBUG_RUN) {
+          this.traceInfo =
+            `why=threat our=${Math.floor(threat.ourPower + joining)}` +
+            ` enemy=${Math.floor(threat.enemyPower)}(${threat.enemyNames.join(',')})`;
+        }
         return 'retreat';
       }
       return 'task';
@@ -438,6 +460,10 @@ export class BotBaseAIModifier extends BaseModifier {
       // 回防的人按接战口径，不因对面强一些就在后面看着建筑被拆
       joining: (task?.kind === 'fight' && fight.engaged) || task?.kind === 'defend',
       holdGround: task?.kind === 'defend' && task.hold === true,
+      teamBacked:
+        task?.kind === 'fight' &&
+        task.targetId !== undefined &&
+        fight.enemyIds.includes(task.targetId as EntityIndex),
     });
     if (engaged) {
       return stance;
@@ -673,10 +699,14 @@ export class BotBaseAIModifier extends BaseModifier {
     if (task.kind === 'recover') {
       return this.ActionRecover();
     }
-    if (this.tookDamage && this.LosingToNeutrals()) {
+    // 打肉山时肉山一定比单个英雄强，靠派够人与回复任务控制去留，不按单挑野怪的口径撤
+    if (this.tookDamage && task.kind !== 'roshan' && this.LosingToNeutrals()) {
       return this.ActionRetreat();
     }
     if (this.AvoidTowerDive()) {
+      return true;
+    }
+    if (this.Roadside(task)) {
       return true;
     }
     if (ItemDispatcher.Run(this)) {
@@ -691,6 +721,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (task.kind === 'push' && this.AttackPushTarget(task)) {
       return true;
     }
+    if (task.kind === 'roshan' && this.AttackRoshan(task)) {
+      return true;
+    }
     if (this.AttackNearbyCreep(task.kind)) {
       return true;
     }
@@ -701,10 +734,10 @@ export class BotBaseAIModifier extends BaseModifier {
       return this.MoveTo(entry, UnitOrder.MOVE_TO_POSITION);
     }
     // 赶去交战点只管走，攻击移动会半路停下打野怪小兵，到了才开打的人逐个送；
-    // 回防离得远时同理，否则会一直打着身边的敌方塔和小兵走不开，也离不开塔区去传送
+    // 回防、去肉山离得远时同理，否则会一直打着身边的敌方塔和小兵走不开，也离不开塔区去传送
     const rushing =
       task.kind === 'fight' ||
-      (task.kind === 'defend' &&
+      ((task.kind === 'defend' || task.kind === 'roshan') &&
         this.hero.GetAbsOrigin().__sub(destination).Length2D() > this.DefendAttackMoveRange);
     const order = rushing ? UnitOrder.MOVE_TO_POSITION : UnitOrder.ATTACK_MOVE;
     if (this.MoveTo(destination, order) || this.SpreadOut()) {
@@ -903,6 +936,50 @@ export class BotBaseAIModifier extends BaseModifier {
     return true;
   }
 
+  /** 离肉山近了就指定它打；攻击移动到坑外会停下，站着不出手。 */
+  private AttackRoshan(task: Task): boolean {
+    const roshan = EntIndexToHScript(task.targetId as EntityIndex) as CDOTA_BaseNPC | undefined;
+    if (!roshan || !IsValidEntity(roshan) || !roshan.IsAlive()) {
+      return false;
+    }
+    if (!ActionAttack.MoveToAttack(this.hero, roshan, this.RoshanAttackRange)) {
+      return false;
+    }
+    this.traceTarget = 'roshan';
+    return true;
+  }
+
+  /** 附近没有敌方英雄时顺手捡符、捡肉山掉落、占前哨、点观察者，赶去打架或回防时少做几样。 */
+  private Roadside(task: Task): boolean {
+    if (this.aroundEnemyHeroes.length > 0) {
+      this.roadsideUntil = 0;
+      return false;
+    }
+    if (this.gameTime < this.roadsideUntil) {
+      this.traceTarget = 'roadside';
+      return true;
+    }
+    if (this.gameTime < this.roadsideCheckAt) {
+      return false;
+    }
+    this.roadsideCheckAt = this.gameTime + this.RoadsideCheckInterval;
+    const seconds = TryRoadside(this.hero, this.RoadsideScopeOf(task), UnitPower);
+    if (seconds <= 0) {
+      return false;
+    }
+    this.roadsideUntil = this.gameTime + Math.min(seconds, this.RoadsideMaxSeconds);
+    this.traceTarget = 'roadside';
+    return true;
+  }
+
+  private RoadsideScopeOf(task: Task): RoadsideScope {
+    if (task.kind !== 'fight' && task.kind !== 'defend') {
+      return 'all';
+    }
+    const gap = this.hero.GetAbsOrigin().__sub(this.ToWorld(task.pos)).Length2D();
+    return gap > this.RoadsideRushDistance ? 'quick' : 'drops';
+  }
+
   /** 兵线已到目标建筑时直接点建筑，偷塔保护、塔在打人或附近有敌方英雄时交给普通移动。 */
   private AttackPushTarget(task: Task): boolean {
     if (task.targetId === undefined) {
@@ -1079,6 +1156,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (towerTarget === this.hero && this.hero.GetHealthPercent() < this.DeaggroHealthPercent) {
       return false;
     }
+    if (this.DivingWithTeam()) {
+      return true;
+    }
     const towerOnHero = towerTarget !== undefined && towerTarget.IsHero();
     if (!towerOnHero && this.CountCreepsNear(tower) >= this.DiveMinCreeps) {
       return true;
@@ -1139,6 +1219,31 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   /** 已进塔或在射程边缘的健康队友都算，否则先到的人数不够又退出来，大家一直凑不齐。 */
+  /** 团队判断这一团能越塔打死时，被派来的人有队友在身边就一起越，不一个人先冲。 */
+  private DivingWithTeam(): boolean {
+    const task = this.brain?.GetTask(this.hero);
+    if (task?.kind !== 'fight' || task.targetId === undefined || !this.brain) {
+      return false;
+    }
+    const target = EntIndexToHScript(task.targetId as EntityIndex) as CDOTA_BaseNPC | undefined;
+    return (
+      target !== undefined &&
+      IsValidEntity(target) &&
+      this.brain.DivesOn(target) &&
+      this.CountDivePartners() >= this.DiveMinPartners
+    );
+  }
+
+  private CountDivePartners(): number {
+    return this.aroundFriendlyHeroes.filter(
+      (ally) =>
+        ally !== this.hero &&
+        ally.IsAlive() &&
+        ally.IsRealHero() &&
+        this.hero.GetRangeToUnit(ally) <= this.DivePartnerRange,
+    ).length;
+  }
+
   private CountHeroesAtTower(tower: CDOTA_BaseNPC): number {
     let count = 0;
     for (const ally of this.aroundFriendlyHeroes) {
@@ -1314,6 +1419,10 @@ export class BotBaseAIModifier extends BaseModifier {
   // Build Item
   // ---------------------------------------------------------
   BuildItem(): boolean {
+    // 为捡盾腾出的主栏空位不能被整理挪回来的或新买的装备占掉
+    if (this.gameTime < this.roadsideUntil) {
+      return false;
+    }
     // 买装卖装都不要求即时响应，而 SellExtraItems 是先扫完物品栏才判断够不够出售阈值，
     // 每 tick 跑一遍绝大多数时候只是在空扫
     if (this.gameTime < this.buildItemNextTime) {
@@ -1356,7 +1465,8 @@ export class BotBaseAIModifier extends BaseModifier {
     for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
       let item = this.hero.GetItemInSlot(slot);
       if (!item) {
-        while (backpack <= InventorySlot.SLOT_9 && !this.hero.GetItemInSlot(backpack)) {
+        // 备用栏也能用的（战旗、奶酪等）留在备用栏，主物品栏留给要放在身上才生效的装备
+        while (backpack <= InventorySlot.SLOT_9 && !this.CanFillMainSlot(backpack)) {
           backpack++;
         }
         if (backpack <= InventorySlot.SLOT_9) {
@@ -1370,6 +1480,11 @@ export class BotBaseAIModifier extends BaseModifier {
     for (const [from, to] of planSlotSwaps(priorities)) {
       this.hero.SwapItems(from, to);
     }
+  }
+
+  private CanFillMainSlot(slot: InventorySlot): boolean {
+    const item = this.hero.GetItemInSlot(slot);
+    return item !== undefined && !ItemRegistry.usableFromBackpack(item.GetName());
   }
 
   PurchaseItem(): boolean {
@@ -1472,6 +1587,9 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   private ShouldStopChannel(): boolean {
     const ability = this.hero.GetCurrentActiveAbility();
+    if (ability && ROADSIDE_CHANNELS.includes(ability.GetAbilityName())) {
+      return this.aroundEnemyHeroes.length > 0;
+    }
     const specs = ability ? AbilityRegistry.get(ability.GetName()) : undefined;
     if (!ability || !specs) {
       return false;

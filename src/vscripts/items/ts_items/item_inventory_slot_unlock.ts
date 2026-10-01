@@ -16,6 +16,8 @@ const UNMANAGED_BACKPACK_ITEMS: string[] = [
   // 背包里也能直接用。CanBeUsedOutOfInventory() 在物品经过解锁格后就会变 true，
   // 运行时读不出 KV 的 ItemCanBeUsedWithoutInventory，只能手工镜像一份
   'item_roshans_banner',
+  'item_cheese',
+  'item_refresher_shard',
   'item_dust',
   'item_smoke_of_deceit',
   // 'item_ward_observer',

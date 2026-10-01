@@ -9,6 +9,7 @@ import { SPECS as blackKingBar2 } from './item_black_king_bar_2';
 import { SPECS as bladeMail2 } from './item_blade_mail_2';
 import { SPECS as bloodstone } from './item_bloodstone';
 import { SPECS as blueFantasy } from './item_blue_fantasy';
+import { SPECS as cheese } from './item_cheese';
 import { SPECS as crimsonGuard } from './item_crimson_guard';
 import { SPECS as dagon } from './item_dagon';
 import { SPECS as draculaMask } from './item_dracula_mask';
@@ -35,6 +36,7 @@ import { SPECS as mekansm } from './item_mekansm';
 import { SPECS as meteorHammer } from './item_meteor_hammer';
 import { SPECS as mjollnir } from './item_mjollnir';
 import { SPECS as refresher } from './item_refresher';
+import { SPECS as roshansBanner } from './item_roshans_banner';
 import { SPECS as rodOfAtos } from './item_rod_of_atos';
 import { SPECS as saintOrb } from './item_saint_orb';
 import { SPECS as satanic2 } from './item_satanic_2';
@@ -62,6 +64,9 @@ export function registerItemSpecs(): void {
   // Phase 1：对小兵 / 拾取物
   ItemRegistry.registerAll(handOfGroup);
   ItemRegistry.registerAll(smokeOfDeceit);
+  // 肉山掉落
+  ItemRegistry.registerAll(cheese);
+  ItemRegistry.registerAll(roshansBanner);
 
   // B1：无条件常驻 buff（不受距离限制）
   ItemRegistry.registerAll(adiKing);

@@ -30,6 +30,11 @@ class ItemRegistryClass {
     return this.map.get(itemName)?.[0]?.priority ?? ItemPriority.Default;
   }
 
+  /** 放在备用栏也能施放的物品，不必占主物品栏。 */
+  usableFromBackpack(itemName: string): boolean {
+    return this.map.get(itemName)?.some((spec) => spec.usableFromBackpack === true) ?? false;
+  }
+
   getAll(): Map<string, ItemSpec[]> {
     return this.map;
   }

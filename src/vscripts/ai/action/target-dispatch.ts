@@ -134,7 +134,8 @@ function TraceCast(
   target: CDOTA_BaseNPC | undefined,
   kind: string,
 ): void {
-  if (!IS_DEBUG_RUN) {
+  // 用掉即消失的物品施放后实体已被删除
+  if (!IS_DEBUG_RUN || !IsValidEntity(castable)) {
     return;
   }
   const hero = ai.GetHero();
@@ -444,6 +445,7 @@ function resolveTargetCondition(
     rangeFromAbilityValue: existingTarget?.rangeFromAbilityValue,
     rangeFromAttackRange: existingTarget?.rangeFromAttackRange,
     attackRangeOffset: existingTarget?.attackRangeOffset,
+    outOfAttackRange: existingTarget?.outOfAttackRange,
     castMode: existingTarget?.castMode,
     excludeSelf: existingTarget?.excludeSelf,
     facing: existingTarget?.facing,
@@ -475,7 +477,7 @@ function resolveRange(
   castable: CDOTABaseAbility,
 ): NumberRange | undefined {
   const existing = existingTarget?.range;
-  if (existing?.lte !== undefined) {
+  if (existing?.lte !== undefined && !existingTarget?.outOfAttackRange) {
     return undefined;
   }
   const abilityValueKey = existingTarget?.rangeFromAbilityValue;
@@ -488,8 +490,10 @@ function resolveRange(
   if (existingTarget?.attackRangeOffset !== undefined) {
     castRange += existingTarget.attackRangeOffset;
   }
-  const range: NumberRange = { lte: castRange };
-  if (existing?.gte !== undefined) {
+  const range: NumberRange = { lte: existing?.lte ?? castRange };
+  if (existingTarget?.outOfAttackRange) {
+    range.gte = hero.Script_GetAttackRange();
+  } else if (existing?.gte !== undefined) {
     range.gte = existing.gte;
   }
   return range;
@@ -538,12 +542,12 @@ function resolveCount(
 const ANCIENT_MIN_ABILITY_LEVEL = 4;
 
 /**
- * 打野时高等级技能也对远古野施放。
+ * 打野与打肉山时高等级技能也对远古单位施放。
  * 物品等级基本停在 1 级，天然不会对远古用；技能数据标明不能选远古的（如吞噬）按引擎同一标记跳过，免得被拒后每轮重试。
  */
 function CanCastOnAncients(ai: BotBaseAIModifier, castable: CDOTABaseAbility): boolean {
   return (
-    ai.mode === 'farm' &&
+    (ai.mode === 'farm' || ai.mode === 'roshan') &&
     castable.GetLevel() >= ANCIENT_MIN_ABILITY_LEVEL &&
     (castable.GetAbilityTargetFlags() & UnitTargetFlags.NOT_ANCIENTS) === 0
   );

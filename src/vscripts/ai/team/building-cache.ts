@@ -46,3 +46,13 @@ export function TowerAttackRange(tower: CDOTA_BaseNPC): number {
   }
   return range;
 }
+
+let outposts: CDOTA_BaseNPC[] = [];
+
+/** 全图的前哨：开局就在、位置不变，只找一次；归属随占领变化，用时再读。 */
+export function CachedOutposts(): CDOTA_BaseNPC[] {
+  if (outposts.length === 0) {
+    outposts = Entities.FindAllByClassname('npc_dota_watch_tower') as CDOTA_BaseNPC[];
+  }
+  return outposts.filter((unit) => IsValidEntity(unit));
+}

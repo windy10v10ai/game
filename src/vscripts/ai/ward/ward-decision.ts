@@ -66,3 +66,41 @@ export function canPlaceAtHeroPosition(input: GroundPlacementInput): boolean {
   }
   return true;
 }
+
+export interface WardBuyer {
+  id: number;
+  power: number;
+  gold: number;
+  /** 身上已有同种眼可以叠放，或随身格子没满 */
+  hasRoom: boolean;
+}
+
+export interface WardSupply {
+  /** 本队插着的加 bot 手里的 */
+  owned: number;
+  cap: number;
+  stock: number;
+  /** 商店里留给玩家的数量 */
+  reserve: number;
+  cost: number;
+}
+
+/** 本队的眼不够时，挑战力最低、买得起且有地方放的 bot 买一个：辅助插眼，核心留着钱出装。 */
+export function pickWardBuyer(
+  buyers: readonly WardBuyer[],
+  supply: WardSupply,
+): number | undefined {
+  if (supply.owned >= supply.cap || supply.stock <= supply.reserve) {
+    return undefined;
+  }
+  let best: WardBuyer | undefined;
+  for (const buyer of buyers) {
+    if (buyer.gold < supply.cost || !buyer.hasRoom) {
+      continue;
+    }
+    if (!best || buyer.power < best.power) {
+      best = buyer;
+    }
+  }
+  return best?.id;
+}

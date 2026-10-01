@@ -9,6 +9,7 @@ export const SPECS: AbilitySpec[] = [
   {
     abilityName: 'windrunner_powershot',
     targetSide: TargetSide.EnemyHero,
+    condition: { target: { outOfAttackRange: true } },
   },
   {
     abilityName: 'windrunner_powershot',

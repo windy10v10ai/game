@@ -7,10 +7,19 @@ import {
   projectOnLane,
 } from './lane-geometry';
 import { shouldUseGlyph } from './glyph';
-import { combatPower, decayThreat, threatMultiplier } from './power';
+import {
+  combatPower,
+  damagePerSecond,
+  decayThreat,
+  effectiveHealth,
+  threatAfterDeath,
+  threatAfterKill,
+  threatMultiplier,
+} from './power';
+import { Activity } from './activity';
 import { resolvePushStaging } from './push-staging';
 import { pushLevelFor, shouldTakeOver, takeoverFallbackSeconds } from './takeover';
-import { DefendStage, PlanInput, PushLane, planTasks } from './team-plan';
+import { DefendStage, PlanInput, PushLane, planTasks, ROSHAN_POWER_MARGIN } from './team-plan';
 
 const lane = (name: PushLane['lane'], x: number, enemyPower = 0): PushLane => ({
   lane: name,
@@ -96,6 +105,8 @@ describe('power', () => {
     level: 10,
     spellAmp: 0,
     spellReady: 1,
+    evasion: 0,
+    magicImmune: false,
   };
 
   it('grows with health and damage and is zero when dead', () => {
@@ -109,10 +120,36 @@ describe('power', () => {
     expect(combatPower({ ...stats, spellReady: 0 })).toBeLessThan(combatPower(stats));
   });
 
-  it('decays threat and caps the multiplier', () => {
-    expect(decayThreat(2, 90)).toBeCloseTo(1);
-    expect(threatMultiplier(0)).toBe(1);
-    expect(threatMultiplier(100)).toBe(3);
+  it('grows threat by how strong the victim was next to the killer, a little and capped', () => {
+    const equal = threatAfterKill(0, 1000, 1000);
+    expect(threatAfterKill(0, 200, 1000)).toBeLessThan(equal);
+    expect(threatMultiplier(equal)).toBeGreaterThan(1);
+    expect(threatMultiplier(equal)).toBeLessThan(1.2);
+    expect(threatMultiplier(threatAfterKill(0, 5000, 1000))).toBeLessThanOrEqual(1.5);
+    expect(threatMultiplier(100)).toBe(1.5);
+  });
+
+  it('fades threat over a few minutes and halves it on death', () => {
+    expect(decayThreat(0.2, 120)).toBeCloseTo(0.1);
+    expect(threatAfterDeath(0.2)).toBeCloseTo(0.1);
+  });
+
+  it('counts damage reduction that the stats panel does not show', () => {
+    expect(effectiveHealth({ ...stats, damageTaken: 0.5 })).toBeCloseTo(effectiveHealth(stats) * 2);
+  });
+
+  it('splits into effective health and damage per second', () => {
+    expect(Math.sqrt(effectiveHealth(stats) * damagePerSecond(stats))).toBeCloseTo(
+      combatPower(stats),
+    );
+  });
+
+  it('counts evasion and magic immunity as harder to kill, by at most half the damage each', () => {
+    const base = combatPower(stats);
+    expect(combatPower({ ...stats, evasion: 0.5 })).toBeGreaterThan(base);
+    const immune = combatPower({ ...stats, magicImmune: true });
+    expect(immune).toBeGreaterThan(base);
+    expect(immune).toBeLessThan(base * Math.SQRT2 * 1.2);
   });
 });
 
@@ -297,6 +334,11 @@ describe('planTasks', () => {
     engaged: false,
   });
 
+  it('does not send bots after an enemy whose tower would kill them first', () => {
+    const tasks = planTasks(baseInput({ fights: [{ ...spot(250), towerSafe: true }] })).tasks;
+    expect([...tasks.values()].some((task) => task.kind === 'fight')).toBe(false);
+  });
+
   it('does not send bots to fight behind a standing tower', () => {
     const tasks = planTasks(baseInput({ fights: [{ ...spot(250), pastFront: true }] })).tasks;
     expect([...tasks.values()].some((task) => task.kind === 'fight')).toBe(false);
@@ -353,14 +395,14 @@ describe('planTasks', () => {
 
   it('keeps bots already fighting a target until the enemy is far stronger', () => {
     // 全队也凑不够开新仗的余量，但上一轮已经在打的人不因此掉头
-    const fresh = planTasks(baseInput({ fights: [spot(450)] })).tasks;
+    const fresh = planTasks(baseInput({ fights: [spot(1200)] })).tasks;
     expect([...fresh.values()].some((task) => task.kind === 'fight')).toBe(false);
     const fighting = new Map([
       [1, 99],
       [2, 99],
       [3, 99],
     ]);
-    const kept = planTasks(baseInput({ fights: [spot(450)], fighting })).tasks;
+    const kept = planTasks(baseInput({ fights: [spot(1200)], fighting })).tasks;
     expect([1, 2, 3].map((id) => kept.get(id)?.kind)).toEqual(['fight', 'fight', 'fight']);
     const hopeless = planTasks(baseInput({ fights: [spot(5000)], fighting })).tasks;
     expect([...hopeless.values()].some((task) => task.kind === 'fight')).toBe(false);
@@ -380,6 +422,11 @@ describe('planTasks', () => {
     expect(tasks.get(5)?.kind).toBe('push');
   });
 
+  it('takes on a fight the whole team is slightly weaker in', () => {
+    const tasks = planTasks(baseInput({ fights: [spot(700)] })).tasks;
+    expect([...tasks.values()].every((task) => task.kind === 'fight')).toBe(true);
+  });
+
   it('counts a far bot with teleport ready as able to get to the fight', () => {
     const input = baseInput({ fights: [spot(250)] });
     input.bots[4].pos = { x: 9000, y: 0 };
@@ -388,7 +435,7 @@ describe('planTasks', () => {
   });
 
   it('sends everyone needed straight toward the fight instead of waiting at a rally point', () => {
-    const input = baseInput({ fights: [spot(400)] });
+    const input = baseInput({ fights: [spot(700)] });
     input.bots.forEach((bot) => (bot.pos = { x: -9000, y: 0 }));
     const kinds = [...planTasks(input).tasks.values()].map((task) => task.kind);
     expect(kinds.filter((kind) => kind === 'fight')).toHaveLength(5);
@@ -535,6 +582,48 @@ describe('planTasks', () => {
     expect([...planTasks(input).tasks.values()].every((task) => task.lane !== 'mid')).toBe(true);
   });
 
+  it('keeps away from where an unbeatable enemy was seen a moment ago', () => {
+    const input = baseInput({
+      lanes: [lane('top', -3000), lane('mid', 0), lane('bot', 3000)],
+      avoided: [{ x: 0, y: 0 }],
+    });
+    expect([...planTasks(input).tasks.values()].every((task) => task.lane !== 'mid')).toBe(true);
+  });
+
+  it('reports fights the whole team cannot take so the area stays avoided', () => {
+    const fight = {
+      pos: { x: 0, y: 0 },
+      enemyPower: 1e6,
+      allyPower: 0,
+      focusId: 99,
+      rally: { x: -2000, y: 0 },
+      pastFront: false,
+      engaged: false,
+    };
+    expect(planTasks(baseInput({ fights: [fight] })).avoid).toEqual([{ x: 0, y: 0 }]);
+  });
+
+  it('stops sending bots to fights while resting from fighting and keeps away from them', () => {
+    const result = planTasks(
+      baseInput({
+        lanes: [lane('top', -3000), lane('mid', 0), lane('bot', 3000)],
+        fights: [{ ...spot(100), pos: { x: 0, y: 0 } }],
+        resting: new Set<Activity>(['fight']),
+      }),
+    );
+    expect([...result.tasks.values()].some((task) => task.kind === 'fight')).toBe(false);
+    expect([...result.tasks.values()].every((task) => task.lane !== 'mid')).toBe(true);
+  });
+
+  it('switches away from lanes the team has been stuck pushing', () => {
+    const input = baseInput({
+      lanes: [lane('top', -3000), lane('mid', 0), lane('bot', 3000)],
+      resting: new Set<Activity>(['push']),
+      tiredLanes: ['top', 'bot'],
+    });
+    expect([...planTasks(input).tasks.values()].every((task) => task.lane === 'mid')).toBe(true);
+  });
+
   it('farms when every lane is defended more than twice as strongly', () => {
     const strong = planTasks(
       baseInput({
@@ -542,6 +631,280 @@ describe('planTasks', () => {
       }),
     );
     expect([...strong.tasks.values()].every((task) => task.kind === 'farm')).toBe(true);
+  });
+});
+
+describe('high ground', () => {
+  const highGround = (name: PushLane['lane'], x: number) => ({
+    ...lane(name, x),
+    highGround: true,
+  });
+  const kinds = (input: PlanInput) => [...planTasks(input).tasks.values()];
+
+  it('pushes the remaining outer towers before going up high ground', () => {
+    const tasks = kinds(
+      baseInput({ lanes: [highGround('top', -3000), lane('mid', 0)], enemyPower: 300 }),
+    );
+    expect(tasks.every((task) => task.lane === 'mid')).toBe(true);
+  });
+
+  it('keeps the outer-first order while a lane has no creep wave to push with', () => {
+    const tasks = kinds(
+      baseInput({ lanes: [highGround('top', -3000)], outerTowersLeft: true, enemyPower: 300 }),
+    );
+    expect(tasks.every((task) => task.kind === 'farm')).toBe(true);
+  });
+
+  it('storms high ground when the team is not far stronger', () => {
+    const tasks = kinds(baseInput({ lanes: [highGround('top', -3000)], enemyPower: 300 }));
+    expect(tasks.every((task) => task.kind === 'push' && task.lane === 'top')).toBe(true);
+  });
+
+  it('farms around the high ground push point when far stronger', () => {
+    const tasks = kinds(
+      baseInput({
+        lanes: [highGround('top', -3000)],
+        enemyPower: 50,
+        farms: [
+          { pos: { x: 100, y: 0 }, ancient: false },
+          { pos: { x: -2800, y: 0 }, ancient: false },
+        ],
+      }),
+    );
+    expect(tasks.every((task) => task.kind === 'farm' && task.pos.x === -2800)).toBe(true);
+  });
+
+  it('judges dominance by strength, counting bots that are dead for now', () => {
+    const tasks = kinds(
+      baseInput({
+        bots: bots(2),
+        lanes: [highGround('top', -3000)],
+        enemyPower: 150,
+        teamStrength: 500,
+      }),
+    );
+    expect(tasks.every((task) => task.kind === 'farm')).toBe(true);
+  });
+
+  it('keeps pressing outside high ground while dominance dips a little', () => {
+    const input = baseInput({ lanes: [highGround('top', -3000)], enemyPower: 230 });
+    expect(kinds(input).every((task) => task.kind === 'push')).toBe(true);
+    expect(kinds({ ...input, siege: true }).every((task) => task.kind === 'farm')).toBe(true);
+  });
+
+  it('keeps the pressing state while every bot is off fighting', () => {
+    const fights = [
+      {
+        pos: { x: 0, y: 0 },
+        enemyPower: 40,
+        allyPower: 0,
+        focusId: 50,
+        rally: { x: 0, y: 0 },
+        pastFront: false,
+        engaged: false,
+      },
+    ];
+    const result = planTasks(
+      baseInput({ lanes: [highGround('top', -3000)], enemyPower: 50, fights }),
+    );
+    expect([...result.tasks.values()].every((task) => task.kind === 'fight')).toBe(true);
+    expect(result.siege).toBe(true);
+  });
+
+  it('stops pressing and goes up once the team has farmed around high ground too long', () => {
+    const tasks = kinds(
+      baseInput({
+        lanes: [highGround('top', -3000)],
+        enemyPower: 50,
+        siege: true,
+        resting: new Set<Activity>(['farm']),
+      }),
+    );
+    expect(tasks.every((task) => task.kind === 'push')).toBe(true);
+  });
+
+  it('storms high ground during a group push even when far stronger', () => {
+    const tasks = kinds(
+      baseInput({ lanes: [highGround('top', -3000)], enemyPower: 50, groupPush: true }),
+    );
+    expect(tasks.every((task) => task.kind === 'push')).toBe(true);
+  });
+});
+
+describe('roshan', () => {
+  // 留给玩家的 2 分钟已过，三个 bot 刚好够打
+  const roshan = {
+    id: 900,
+    pos: { x: 5000, y: 0 },
+    power: 300 / ROSHAN_POWER_MARGIN,
+    aliveSeconds: 150,
+    waitSeconds: 120,
+  };
+  const needing = (count: number) => ({ ...roshan, power: (count * 100) / ROSHAN_POWER_MARGIN });
+  // 编号越大离肉山越近
+  const spreadBots = () => bots(5).map((bot) => ({ ...bot, pos: { x: bot.id * 500, y: 0 } }));
+  const roshanTasks = (input: PlanInput) =>
+    [...planTasks(input).tasks.entries()].filter(([, task]) => task.kind === 'roshan');
+
+  it('sends the nearest bots with enough power and keeps the rest pushing', () => {
+    const tasks = roshanTasks(baseInput({ bots: spreadBots(), roshan }));
+    expect(tasks.map(([id]) => id).sort()).toEqual([3, 4, 5]);
+    expect(tasks[0][1].targetId).toBe(900);
+  });
+
+  it('keeps the squad on roshan without re-checking the start bar', () => {
+    // 两人战力 200，达不到开打要的 4 倍，但仍稳稳强过肉山，继续打
+    const tasks = roshanTasks(
+      baseInput({ bots: spreadBots(), roshan: needing(4), roshanSquad: new Set([2, 5]) }),
+    );
+    expect(tasks.map(([id]) => id).sort()).toEqual([2, 5]);
+  });
+
+  it('tops up a squad that lost members until it outpowers roshan again', () => {
+    const tasks = roshanTasks(
+      baseInput({ bots: spreadBots(), roshan: needing(5), roshanSquad: new Set([2, 5]) }),
+    );
+    expect(tasks.map(([id]) => id).sort()).toEqual([2, 4, 5]);
+  });
+
+  it('pulls the whole squad off once too many have left, instead of leaving one on roshan', () => {
+    const input = baseInput({
+      bots: spreadBots().map((bot) => ({ ...bot, needsRecover: bot.id !== 5 })),
+      roshan: needing(3),
+      roshanSquad: new Set([4, 5]),
+    });
+    expect(roshanTasks(input)).toEqual([]);
+  });
+
+  it('calls off roshan when even the top-up cannot outpower it', () => {
+    const tasks = roshanTasks(
+      baseInput({ bots: spreadBots(), roshan: needing(24), roshanSquad: new Set([2, 5]) }),
+    );
+    expect(tasks).toEqual([]);
+  });
+
+  it('gives players a few minutes after roshan appears', () => {
+    expect(
+      roshanTasks(baseInput({ bots: spreadBots(), roshan: { ...roshan, aliveSeconds: 60 } })),
+    ).toEqual([]);
+  });
+
+  it('waits while roshan would take more than half the team', () => {
+    expect(roshanTasks(baseInput({ bots: spreadBots(), roshan: needing(4) }))).toEqual([]);
+  });
+
+  it('lets the whole team go once roshan has been up for long', () => {
+    const late = { ...needing(4), aliveSeconds: 600 };
+    const tasks = roshanTasks(baseInput({ bots: spreadBots(), roshan: late }));
+    expect(tasks.map(([id]) => id).sort()).toEqual([2, 3, 4, 5]);
+  });
+
+  it('sneaks roshan even when the enemy is stronger than the whole team', () => {
+    expect(roshanTasks(baseInput({ bots: spreadBots(), roshan, enemyPower: 5000 }))).not.toEqual(
+      [],
+    );
+  });
+
+  it('skips roshan while a building needs defending', () => {
+    const defend = [
+      {
+        id: 7,
+        pos: { x: 0, y: 0 },
+        stage: 'creeps' as DefendStage,
+        isBase: false,
+        core: false,
+        importance: 1,
+        hpRatio: 1,
+        attackerPower: 50,
+      },
+    ];
+    expect(roshanTasks(baseInput({ bots: spreadBots(), roshan, defend }))).toEqual([]);
+  });
+
+  it('skips roshan when the free bots together cannot kill it', () => {
+    expect(
+      roshanTasks(baseInput({ bots: spreadBots(), roshan: { ...needing(6), aliveSeconds: 600 } })),
+    ).toEqual([]);
+  });
+
+  it('leaves the roshan squad out of a fight that is already won without it', () => {
+    const fights = [
+      {
+        pos: { x: -2000, y: 0 },
+        enemyPower: 100,
+        allyPower: 0,
+        focusId: 50,
+        rally: { x: 0, y: 0 },
+        pastFront: false,
+        engaged: false,
+      },
+    ];
+    const tasks = roshanTasks(
+      baseInput({ bots: spreadBots(), roshan, fights, roshanSquad: new Set([4, 5]) }),
+    );
+    expect(tasks.map(([id]) => id).sort()).toEqual([4, 5]);
+  });
+
+  it('does not set out for roshan while a fight is going on', () => {
+    const fights = [
+      {
+        pos: { x: -9000, y: 0 },
+        enemyPower: 50,
+        allyPower: 0,
+        focusId: 50,
+        rally: { x: 0, y: 0 },
+        pastFront: false,
+        engaged: false,
+      },
+    ];
+    expect(roshanTasks(baseInput({ bots: spreadBots(), roshan, fights }))).toEqual([]);
+  });
+
+  const farFight = (x: number) => ({
+    pos: { x, y: 0 },
+    enemyPower: 50,
+    allyPower: 0,
+    focusId: 50,
+    rally: { x: 0, y: 0 },
+    pastFront: false,
+    engaged: false,
+  });
+
+  it('goes for roshan while resting from a fight elsewhere', () => {
+    const tasks = roshanTasks(
+      baseInput({
+        bots: spreadBots(),
+        roshan,
+        fights: [farFight(-9000)],
+        resting: new Set<Activity>(['fight']),
+      }),
+    );
+    expect(tasks.map(([id]) => id).sort()).toEqual([3, 4, 5]);
+  });
+
+  it('stays off roshan while the enemy is right next to it', () => {
+    const input = baseInput({
+      bots: spreadBots(),
+      roshan,
+      fights: [farFight(5200)],
+      resting: new Set<Activity>(['fight']),
+    });
+    expect(roshanTasks(input)).toEqual([]);
+  });
+
+  it('lets a fight take bots first', () => {
+    const fights = [
+      {
+        pos: { x: 1000, y: 0 },
+        enemyPower: 300,
+        allyPower: 0,
+        focusId: 50,
+        rally: { x: 0, y: 0 },
+        pastFront: false,
+        engaged: false,
+      },
+    ];
+    expect(roshanTasks(baseInput({ bots: spreadBots(), roshan, fights }))).toEqual([]);
   });
 });
 
