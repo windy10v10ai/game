@@ -64,8 +64,8 @@ const POWER_CACHE_SECONDS = 1;
 // 全队也打不过的交战点记这么久：敌人进了迷雾多半还在，别一看不见就回去推进又被撞上
 const AVOID_MEMORY = 30;
 const AVOID_MERGE_RADIUS = 1500;
-// 肉山的暴击、怒意狂击、海妖外壳、砸地这些战力公式算不到，按实测折成这个倍数
-const ROSHAN_HIDDEN_POWER = 2;
+// 肉山的暴击、怒意狂击、海妖外壳、砸地这些战力公式算不到，按实测折成这个倍数；加成被动的减伤已单独算进有效血量
+const ROSHAN_HIDDEN_POWER = 1.5;
 const ROSHAN_RETRY_SECONDS = 90;
 // 敌方建筑合计掉这么多（按座算的血量比例）才算推进有进展，零星磨血不算
 const PUSH_PROGRESS = 0.2;
@@ -1528,7 +1528,21 @@ function UnitStats(unit: CDOTA_BaseNPC): CombatStats {
     spellReady: isHero ? SpellReadiness(unit) : 1,
     evasion: unit.GetEvasion(),
     magicImmune: unit.IsMagicImmune(),
+    damageTaken: RoshanDamageTaken(unit),
   };
+}
+
+/** 肉山加成被动按等级大幅减伤，面板读不出来；加成会叠加多层，按实际层数算。 */
+function RoshanDamageTaken(unit: CDOTA_BaseNPC): number | undefined {
+  if (unit.GetUnitName() !== 'npc_dota_roshan') {
+    return undefined;
+  }
+  const buff = unit.FindAbilityByName('roshan_buff');
+  if (!buff || buff.GetLevel() < 1) {
+    return undefined;
+  }
+  const stacks = unit.FindAllModifiersByName('modifier_roshan_buff').length;
+  return 1 + (buff.GetSpecialValueFor('damage_reduction') * stacks) / 100;
 }
 
 /** 已学的主动技能与身上的主动物品里，现在能放的比例；不区分技能强弱。 */

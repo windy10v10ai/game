@@ -18,6 +18,8 @@ export interface CombatStats {
   /** 闪避率，0.3 表示 30% */
   evasion: number;
   magicImmune: boolean;
+  /** 受到伤害的倍数，0.6 表示少受 40%；面板读不出的减伤由调用方按技能算好填入 */
+  damageTaken?: number;
 }
 
 /**
@@ -62,7 +64,8 @@ export function effectiveHealth(stats: CombatStats): number {
   // 暴击、吸血引擎读不出汇总值，不估
   const physicalTaken = (1 - armorFactor) * (1 - Math.min(Math.max(stats.evasion, 0), MAX_EVASION));
   const magicTaken = stats.magicImmune ? 0 : 1 - stats.magicResist;
-  return stats.health / Math.max(0.1, 0.5 * physicalTaken + 0.5 * magicTaken);
+  const taken = (0.5 * physicalTaken + 0.5 * magicTaken) * (stats.damageTaken ?? 1);
+  return stats.health / Math.max(0.05, taken);
 }
 
 /** 普攻加按等级估的技能输出，技能物品在冷却时打折。 */

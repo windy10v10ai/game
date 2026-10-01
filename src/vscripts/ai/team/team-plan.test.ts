@@ -134,6 +134,10 @@ describe('power', () => {
     expect(threatAfterDeath(0.2)).toBeCloseTo(0.1);
   });
 
+  it('counts damage reduction that the stats panel does not show', () => {
+    expect(effectiveHealth({ ...stats, damageTaken: 0.5 })).toBeCloseTo(effectiveHealth(stats) * 2);
+  });
+
   it('splits into effective health and damage per second', () => {
     expect(Math.sqrt(effectiveHealth(stats) * damagePerSecond(stats))).toBeCloseTo(
       combatPower(stats),
