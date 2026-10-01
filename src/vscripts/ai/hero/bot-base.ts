@@ -1465,7 +1465,8 @@ export class BotBaseAIModifier extends BaseModifier {
     for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
       let item = this.hero.GetItemInSlot(slot);
       if (!item) {
-        while (backpack <= InventorySlot.SLOT_9 && !this.hero.GetItemInSlot(backpack)) {
+        // 备用栏也能用的（战旗、奶酪等）留在备用栏，主物品栏留给要放在身上才生效的装备
+        while (backpack <= InventorySlot.SLOT_9 && !this.CanFillMainSlot(backpack)) {
           backpack++;
         }
         if (backpack <= InventorySlot.SLOT_9) {
@@ -1479,6 +1480,11 @@ export class BotBaseAIModifier extends BaseModifier {
     for (const [from, to] of planSlotSwaps(priorities)) {
       this.hero.SwapItems(from, to);
     }
+  }
+
+  private CanFillMainSlot(slot: InventorySlot): boolean {
+    const item = this.hero.GetItemInSlot(slot);
+    return item !== undefined && !ItemRegistry.usableFromBackpack(item.GetName());
   }
 
   PurchaseItem(): boolean {
