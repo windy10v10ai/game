@@ -161,6 +161,9 @@ export class TeamBrain {
   private readonly members = new Map<EntityIndex, CDOTA_BaseNPC_Hero>();
   private readonly recoverRequests = new Set<EntityIndex>();
   private readonly engagedMembers = new Set<EntityIndex>();
+  // 真人队友不归调度、不会报告自己在交手，由团队按掉血与攻击目标判断
+  private readonly playerEngagedUntil = new Map<EntityIndex, number>();
+  private readonly playerHealth = new Map<EntityIndex, number>();
   private readonly retreatingMembers = new Set<EntityIndex>();
   private readonly lastSeen = new Map<EntityIndex, EnemyMemory>();
   private visible = new Set<EntityIndex>();
@@ -354,6 +357,7 @@ export class TeamBrain {
     const lanePower = this.EnemyPowerByLane(enemies, now);
     // 推进目标同时决定了每路的前线，交战点要按前线判断，先算推进
     const lanes = this.FindPushLanes(buildings, lanePower);
+    this.TrackPlayerCombat(allies, now);
     this.fights = this.BuildFights(recentEnemies, allies);
 
     const fountain = HeroUtil.GetTeamFountainPosition(this.team) ?? Vector(0, 0, 0);
@@ -868,6 +872,7 @@ export class TeamBrain {
   }
 
   private BuildFight(enemies: CDOTA_BaseNPC[], allies: CDOTA_BaseNPC_Hero[]): FightView {
+    const now = GameRules.GetGameTime();
     let x = 0;
     let y = 0;
     let enemyPower = 0;
@@ -906,7 +911,10 @@ export class TeamBrain {
       }
       // 正在撤的队友帮不上忙，算进去会让前排以为有人跟着硬上
       if (gap <= FIGHT_DANGER_RADIUS && !this.retreatingMembers.has(ally.GetEntityIndex())) {
-        engaged = engaged || this.engagedMembers.has(ally.GetEntityIndex());
+        engaged =
+          engaged ||
+          this.engagedMembers.has(ally.GetEntityIndex()) ||
+          (this.playerEngagedUntil.get(ally.GetEntityIndex()) ?? -Infinity) > now;
         ourPower += UnitPower(ally);
         ourNames.push(HeroShortName(ally));
       }
@@ -1061,6 +1069,28 @@ export class TeamBrain {
       }
     }
     return best ?? fountain;
+  }
+
+  /** 真人队友正在交手时，所在的交战点按已经打起来算，附近的 bot 按接战口径去帮，不在一旁等。 */
+  private TrackPlayerCombat(allies: CDOTA_BaseNPC_Hero[], now: number): void {
+    for (const ally of allies) {
+      const index = ally.GetEntityIndex();
+      if (this.members.has(index)) {
+        continue;
+      }
+      const health = ally.GetHealth();
+      const last = this.playerHealth.get(index);
+      this.playerHealth.set(index, health);
+      if (!ally.IsAlive()) {
+        this.playerEngagedUntil.delete(index);
+        continue;
+      }
+      const target = ally.GetAttackTarget();
+      const hurt = last !== undefined && health < last;
+      if (hurt || (target !== undefined && target.IsHero())) {
+        this.playerEngagedUntil.set(index, now + FIGHT_MEMORY);
+      }
+    }
   }
 
   private PruneMembers(): void {
