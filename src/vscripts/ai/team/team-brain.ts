@@ -443,11 +443,10 @@ export class TeamBrain {
     const highGround = new Set(
       lanes.filter((lane) => lane.highGround).map((lane) => lane.targetId),
     );
-    this.sieging =
-      this.groupPush?.activeSince !== undefined ||
-      [...this.tasks.values()].some(
-        (task) => task.kind === 'push' && highGround.has(task.targetId ?? -1),
-      );
+    // 抱团推外塔时死了不买，买活冷却要留给高地和基地
+    this.sieging = [...this.tasks.values()].some(
+      (task) => task.kind === 'push' && highGround.has(task.targetId ?? -1),
+    );
     for (const [id, task] of this.tasks) {
       if (task.kind === 'push' && task.lane) {
         this.pushLanes.set(id, task.lane);
