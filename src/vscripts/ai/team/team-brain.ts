@@ -64,6 +64,9 @@ const POWER_CACHE_SECONDS = 1;
 // 全队也打不过的交战点记这么久：敌人进了迷雾多半还在，别一看不见就回去推进又被撞上
 const AVOID_MEMORY = 30;
 const AVOID_MERGE_RADIUS = 1500;
+// 肉山的暴击、怒意狂击、海妖外壳、砸地这些战力公式算不到，按实测折成这个倍数
+const ROSHAN_HIDDEN_POWER = 2;
+const ROSHAN_RETRY_SECONDS = 90;
 // 敌方建筑合计掉这么多（按座算的血量比例）才算推进有进展，零星磨血不算
 const PUSH_PROGRESS = 0.2;
 const LANE_MAX_OFFSET = 2000;
@@ -176,6 +179,7 @@ export class TeamBrain {
   private readonly lastEnemyPower = new Map<EntityIndex, number>();
   private groupPush: GroupPushState | undefined;
   private roshanSquadSize = 0;
+  private roshanRetryAt = -Infinity;
   private siege = false;
   private avoided: { pos: Point; until: number }[] = [];
   private readonly activity = new ActivityTracker();
@@ -387,13 +391,16 @@ export class TeamBrain {
       avoided: this.avoided.map((entry) => entry.pos),
       resting,
       tiredLanes: this.tiredLanes,
-      roshan: roshan && {
-        id: roshan.GetEntityIndex() as number,
-        pos: roshan.GetAbsOrigin(),
-        power: UnitPower(roshan),
-        aliveSeconds: now - RoshanTiming().seenAt,
-        waitSeconds: RoshanTiming().waitSeconds,
-      },
+      roshan:
+        roshan && (squadBefore.size > 0 || now >= this.roshanRetryAt)
+          ? {
+              id: roshan.GetEntityIndex() as number,
+              pos: roshan.GetAbsOrigin(),
+              power: RoshanPower(roshan),
+              aliveSeconds: now - RoshanTiming().seenAt,
+              waitSeconds: RoshanTiming().waitSeconds,
+            }
+          : undefined,
       fountain,
       defend,
       fights: this.fights,
@@ -414,6 +421,10 @@ export class TeamBrain {
       ),
       ...result.avoid.map((pos) => ({ pos, until: now + AVOID_MEMORY })),
     ];
+    // 打到一半撤下来的，隔一阵再考虑，不刚复活就又去送
+    if (roshan && squadBefore.size > 0 && this.RoshanSquad().size === 0) {
+      this.roshanRetryAt = now + ROSHAN_RETRY_SECONDS;
+    }
     if (IS_DEBUG_RUN) {
       this.TraceRoshan(this.RoshanSquad(), roshan);
     }
@@ -521,7 +532,7 @@ export class TeamBrain {
       power += hero ? UnitPower(hero) : 0;
     }
     const time = Math.floor(GameRules.GetDOTATime(false, true));
-    const target = roshan ? Math.floor(UnitPower(roshan)) : 0;
+    const target = roshan ? Math.floor(RoshanPower(roshan)) : 0;
     print(
       `[bot-ai] team=${this.team} t=${time} roshan=${squad.size} squad_pw=${Math.floor(power)} roshan_pw=${target}`,
     );
@@ -1674,4 +1685,9 @@ export function BuildLanePaths(): LanePath[] {
     paths.push(buildLanePath(lane, points));
   }
   return paths;
+}
+
+/** 肉山战力：公式算到的部分乘上算不到的技能折算。 */
+function RoshanPower(roshan: CDOTA_BaseNPC): number {
+  return UnitPower(roshan) * ROSHAN_HIDDEN_POWER;
 }
