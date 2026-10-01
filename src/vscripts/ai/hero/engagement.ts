@@ -9,6 +9,8 @@ export type Stance = 'task' | 'fight' | 'hold' | 'retreat' | 'lastStand';
 
 // 按近期受到的伤害还能撑这么多秒以上就继续打，撤退要走一段路，留出余量
 const SURVIVE_SECONDS = 3;
+// 团队还在打的仗，身边战力差到「继续打」倍率的这么多倍才不再硬撑
+const TEAM_BACKED_SLACK = 2;
 
 export interface EngagementInput {
   engaged: boolean;
@@ -56,7 +58,9 @@ export function decideStance(input: EngagementInput): Stance {
       : canEngage(input.ourPower, input.enemyPower);
     return ready ? 'fight' : 'hold';
   }
-  if (input.teamBacked) {
+  // 援军赶来前身边只剩自己几个、对面又强出一大截时，再撑也等不到人，团队还在打也先撤
+  const hopeless = input.enemyPower > input.ourPower * KEEP_FIGHTING_RATIO * TEAM_BACKED_SLACK;
+  if (input.teamBacked && !hopeless) {
     if (input.survivalSeconds >= SURVIVE_SECONDS) {
       return 'fight';
     }

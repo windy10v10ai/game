@@ -25,13 +25,20 @@ describe('decideStance', () => {
     expect(decideStance(input({ holdGround: true, wasAvoiding: true }))).toBe('fight');
     expect(decideStance(input({ holdGround: true, survivalSeconds: 1 }))).toBe('retreat');
   });
-  it('keeps a fight the team still backs until about to die, whatever the local odds', () => {
-    expect(decideStance(input({ teamBacked: true }))).toBe('fight');
-    expect(decideStance(input({ teamBacked: true, wasAvoiding: true }))).toBe('fight');
-    expect(decideStance(input({ teamBacked: true, survivalSeconds: 1 }))).toBe('retreat');
-    expect(decideStance(input({ teamBacked: true, survivalSeconds: 1, canEscape: false }))).toBe(
-      'lastStand',
+  it('keeps a fight the team still backs until about to die while the local odds are not hopeless', () => {
+    expect(decideStance(input({ teamBacked: true, enemyPower: 500 }))).toBe('fight');
+    expect(decideStance(input({ teamBacked: true }))).toBe('retreat');
+    expect(decideStance(input({ teamBacked: true, enemyPower: 500, wasAvoiding: true }))).toBe(
+      'fight',
     );
+    expect(decideStance(input({ teamBacked: true, enemyPower: 500, survivalSeconds: 1 }))).toBe(
+      'retreat',
+    );
+    expect(
+      decideStance(
+        input({ teamBacked: true, enemyPower: 500, survivalSeconds: 1, canEscape: false }),
+      ),
+    ).toBe('lastStand');
   });
 });
 
