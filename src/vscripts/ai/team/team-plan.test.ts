@@ -125,12 +125,12 @@ describe('power', () => {
     expect(threatAfterKill(0, 200, 1000)).toBeLessThan(equal);
     expect(threatMultiplier(equal)).toBeGreaterThan(1);
     expect(threatMultiplier(equal)).toBeLessThan(1.2);
-    expect(threatMultiplier(threatAfterKill(0, 5000, 1000))).toBeLessThanOrEqual(1.3);
-    expect(threatMultiplier(100)).toBe(1.3);
+    expect(threatMultiplier(threatAfterKill(0, 5000, 1000))).toBeLessThanOrEqual(1.5);
+    expect(threatMultiplier(100)).toBe(1.5);
   });
 
-  it('fades threat within a couple of minutes and halves it on death', () => {
-    expect(decayThreat(0.2, 60)).toBeCloseTo(0.1);
+  it('fades threat over a few minutes and halves it on death', () => {
+    expect(decayThreat(0.2, 120)).toBeCloseTo(0.1);
     expect(threatAfterDeath(0.2)).toBeCloseTo(0.1);
   });
 

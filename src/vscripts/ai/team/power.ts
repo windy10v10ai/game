@@ -79,11 +79,11 @@ export function damagePerSecond(stats: CombatStats): number {
   return Math.max(dps, 0);
 }
 
-// 击杀威胁只微调战力：连杀的一方稍显可怕，打完一波一两分钟回落；放大太多会变成越杀越不敢打
-const THREAT_HALF_LIFE = 60;
+// 击杀威胁只微调战力：持续强势的一方稍显可怕，几分钟才回落；放大太多会变成越杀越不敢打
+const THREAT_HALF_LIFE = 120;
 // 击杀一个和自己一样强的英雄加的威胁分，杀弱的加得少
 const THREAT_PER_EQUAL_KILL = 0.1;
-const MAX_THREAT_MULTIPLIER = 1.3;
+const MAX_THREAT_MULTIPLIER = 1.5;
 // 被击杀说明并非不可战胜，威胁打折而不是清零
 const THREAT_KEEP_ON_DEATH = 0.5;
 
