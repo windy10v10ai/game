@@ -407,10 +407,12 @@ export class BotBaseAIModifier extends BaseModifier {
       // 高地下或迷雾里被看不见的敌人打得很疼时先撤；小兵和塔打不出这么快的掉血，打肉山时的掉血来自肉山
       if (burst && task?.kind !== 'roshan') {
         this.engagedUntil = this.gameTime + this.EngageMemory;
+        this.traceInfo = 'why=burst';
         return 'retreat';
       }
       // 追兵刚跑出视野多半还在附近，撤退要撤完，不因一时看不见就掉头
       if (this.stance === 'retreat' && this.gameTime < this.engagedUntil) {
+        this.traceInfo = 'why=memory';
         return 'retreat';
       }
       const threat = brain.NearestFight(this.hero, this.ThreatRadius);
@@ -423,6 +425,11 @@ export class BotBaseAIModifier extends BaseModifier {
       if (threat && !committed && !canEngage(threat.ourPower + joining, threat.enemyPower)) {
         // 走出威胁范围后再撤一会，不在边界上来回进出；不打就退回身后的塔，不在交战点边上等着被追
         this.engagedUntil = this.gameTime + this.EngageMemory;
+        if (IS_DEBUG_RUN) {
+          this.traceInfo =
+            `why=threat our=${Math.floor(threat.ourPower + joining)}` +
+            ` enemy=${Math.floor(threat.enemyPower)}(${threat.enemyNames.join(',')})`;
+        }
         return 'retreat';
       }
       return 'task';

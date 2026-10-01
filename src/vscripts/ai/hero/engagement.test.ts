@@ -40,6 +40,14 @@ describe('decideStance', () => {
       ),
     ).toBe('lastStand');
   });
+  it('needs clearly more breathing room to turn back into a fight it just left', () => {
+    const backed = { teamBacked: true, enemyPower: 500, wasAvoiding: true };
+    expect(decideStance(input({ ...backed, survivalSeconds: 4 }))).toBe('retreat');
+    expect(decideStance(input({ ...backed, survivalSeconds: 4, wasAvoiding: false }))).toBe(
+      'fight',
+    );
+    expect(decideStance(input({ ...backed, survivalSeconds: 10 }))).toBe('fight');
+  });
 });
 
 describe('matchesStance', () => {
