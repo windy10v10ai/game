@@ -8,6 +8,7 @@
   "scripts": {
     "postinstall": "patch-package && node src/scripts/install.js",
     "launch": "node src/scripts/launch.js",
+    "dota:cmd": "node src/scripts/dota-cmd.js",
     "perf": "npm run build:vscripts && node src/scripts/perf.js",
     "bot-anomaly": "node src/scripts/bot-anomaly.js",
     "predeploy": "npm run build && node src/scripts/deploy.js",
