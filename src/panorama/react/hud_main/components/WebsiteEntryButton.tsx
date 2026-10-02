@@ -54,7 +54,7 @@ export function WebsiteEntryButton() {
       style={{
         ...buttonStyle,
         // 挂在 Dota HUD 下，自定义样式表的 :hover 作用不到，改用 state 高亮
-        brightness: hovered ? '1.3' : '1',
+        brightness: hovered ? '1.2' : '1',
         visibility: inGameHud ? 'visible' : 'collapse',
       }}
       onactivate={() => $.DispatchEvent('ExternalBrowserGoToURL', WEBSITE_URL)}
