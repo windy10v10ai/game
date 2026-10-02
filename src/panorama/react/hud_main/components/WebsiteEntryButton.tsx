@@ -14,7 +14,7 @@ const buttonStyle: Partial<VCSSStyleDeclaration> = {
   backgroundImage: `url('${WEBSITE_ICON}')`,
   backgroundSize: '100% 100%',
   backgroundRepeat: 'no-repeat',
-  opacity: '0.8',
+  opacity: '1',
   transitionProperty: 'brightness',
   transitionDuration: '0.1s',
 };
