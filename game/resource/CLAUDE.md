@@ -8,6 +8,8 @@
 | `addon_english.txt` | 英文 |
 | `addon_russian.txt` | 俄文 |
 
+改完无需重启 Dota Tools，运行中的游戏会直接显示新文案（与 KV 不同）。
+
 原版技能说明参考 `docs/reference/<version>/abilities_schinese.txt` 与 `abilities_english.txt`（`<version>` 取最新数字版本目录），编写自定义文案时对齐官方术语。
 
 ## 文案规约
