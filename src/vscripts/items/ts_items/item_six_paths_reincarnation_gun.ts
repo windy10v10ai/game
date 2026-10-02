@@ -1,3 +1,4 @@
+import { calculateStatusResistedDuration } from '../../utils/damage-calculation';
 import { BaseItem, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
 import { BaseItemModifier } from './base_item_modifier';
 
@@ -94,7 +95,7 @@ export class ModifierItemSixPathsReincarnationGun extends BaseItemModifier {
     if (!target || target.IsNull() || target.GetTeamNumber() === parent.GetTeamNumber()) return;
     if (target.IsBuilding() || target.IsOther()) return;
 
-    const debuffDuration = this.mageSlayerDuration * (1 - target.GetStatusResistance());
+    const debuffDuration = calculateStatusResistedDuration(this.mageSlayerDuration, target);
     target.AddNewModifier(parent, ability, 'modifier_item_six_paths_reincarnation_gun_debuff', {
       duration: debuffDuration,
     });

@@ -452,7 +452,7 @@
 	// 大智力跳 爱因斯坦闪光
 	"item_recipe_arcane_blink"
 	{
-		"ItemCost"						"0"
+		"ItemCost"						"500"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_arcane_blink"
 		"AbilityTextureName"			"item_recipe_arcane_blink_2"

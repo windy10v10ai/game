@@ -35,7 +35,7 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 ## 验物品与技能：远程发命令
 
-验被动属性、主动效果、状态何时上何时掉、对单位和建筑的伤害时，不点界面：启动时带远程控制台端口（第 3 步），之后用 `npm run dota:cmd` 发 `-item` 发物品、`-cast` 代码施法、`-watch` 监视变化，直接读命令返回的日志。命令清单与标准流程 → `references/remote-commands.md`。
+验被动属性、主动效果、状态何时上何时掉、对单位和建筑的伤害时，不点界面：启动时带远程控制台端口（第 3 步），之后用 `npm run dota:cmd` 发 `-give` 发物品、`-cast` 代码施法、`-watch` 监视变化，直接读命令返回的日志。备用施法（Ctrl）代码触发不了，要用 computer-use 真实按键。命令清单与标准流程 → `references/remote-commands.md`。
 
 只有说明文字排版、真实键鼠手感这类必须看画面的，才用 computer-use 截图。
 

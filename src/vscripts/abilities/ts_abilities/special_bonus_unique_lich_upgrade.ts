@@ -1,3 +1,4 @@
+import { calculateStatusResistedDuration } from '../../utils/damage-calculation';
 import {
   BaseAbility,
   BaseModifier,
@@ -200,7 +201,7 @@ export class modifier_special_bonus_unique_lich_upgrade extends BaseModifier {
 
       if (!this.isRoshan(enemy) && enemy.IsAlive() && freezeDuration > 0) {
         enemy.AddNewModifier(lich, awaken, 'modifier_stunned', {
-          duration: freezeDuration * (1 - enemy.GetStatusResistance()),
+          duration: calculateStatusResistedDuration(freezeDuration, enemy),
         });
       }
     }
