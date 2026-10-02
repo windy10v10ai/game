@@ -30,7 +30,6 @@ export class EventEntityKilled {
     if (!killedUnit) {
       return;
     }
-    // 无攻击者的英雄死亡同样要设置复活时间，否则会用引擎默认值
     if (killedUnit.IsRealHero()) {
       this.onHeroKilled(killedUnit as CDOTA_BaseNPC_Hero);
       return;
