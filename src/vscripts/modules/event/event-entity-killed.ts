@@ -26,14 +26,18 @@ export class EventEntityKilled {
     if (!keys.entindex_killed) {
       return;
     }
-    if (!keys.entindex_attacker) {
-      return;
-    }
     const killedUnit = EntIndexToHScript(keys.entindex_killed) as CDOTA_BaseNPC | undefined;
-    const attacker = EntIndexToHScript(keys.entindex_attacker) as CDOTA_BaseNPC | undefined;
     if (!killedUnit) {
       return;
     }
+    if (killedUnit.IsRealHero()) {
+      this.onHeroKilled(killedUnit as CDOTA_BaseNPC_Hero);
+      return;
+    }
+    if (!keys.entindex_attacker) {
+      return;
+    }
+    const attacker = EntIndexToHScript(keys.entindex_attacker) as CDOTA_BaseNPC | undefined;
     //print(`[EventEntityKilled] Unit killed: ${killedUnit.GetUnitName()}`);
     // 检查是否为防御塔
     if (killedUnit.IsTower()) {
@@ -42,10 +46,6 @@ export class EventEntityKilled {
     // 检查是否为兵营
     else if (this.isBarrack(killedUnit)) {
       this.onBarrackKilled(killedUnit);
-    }
-    // 检查是否为英雄
-    else if (killedUnit.IsRealHero() && !killedUnit.IsReincarnating()) {
-      this.onHeroKilled(killedUnit as CDOTA_BaseNPC_Hero, attacker);
     }
     // 检查是否为小兵
     else if (killedUnit.IsCreep()) {
@@ -168,8 +168,28 @@ export class EventEntityKilled {
   // 英雄击杀
   //--------------------------------------------------------------------------------------------------------
 
-  private onHeroKilled(hero: CDOTA_BaseNPC_Hero, _attacker: CDOTA_BaseNPC | undefined): void {
-    this.setRespawnTime(hero);
+  private readonly respawnCheckDelay = 1;
+
+  private onHeroKilled(hero: CDOTA_BaseNPC_Hero): void {
+    const reincarnating = hero.IsReincarnating();
+    if (!reincarnating) {
+      this.setRespawnTime(hero);
+    }
+
+    // 线上偶发复活时间异常巨大且来源未明，死后复查兜底并留日志追查
+    Timers.CreateTimer(this.respawnCheckDelay, () => {
+      if (hero.IsNull() || hero.IsAlive()) {
+        return;
+      }
+      const remaining = hero.GetTimeUntilRespawn();
+      // 写成取反比较以同时拦住 NaN
+      if (!(remaining <= this.respawnTimeMax)) {
+        this.setRespawnTime(hero);
+        print(
+          `[EventEntityKilled] respawn time fallback: ${hero.GetUnitName()} reincarnating=${reincarnating} ${remaining} -> ${hero.GetTimeUntilRespawn()}`,
+        );
+      }
+    });
   }
 
   private readonly dotaRespawnTime = [
