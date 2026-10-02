@@ -259,6 +259,17 @@ export function handleTestDebugCommand(
     hero.Stop();
     log(`tp ${unitLabel(hero)}`);
   }
+  if (cmd === CMD.REFRESH) {
+    for (let i = 0; i < hero.GetAbilityCount(); i++) {
+      const ability = hero.GetAbilityByIndex(i);
+      if (!ability || ability.IsHidden()) continue;
+      ability.SetLevel(ability.GetMaxLevel());
+      ability.EndCooldown();
+    }
+    for (let slot = 0; slot < 6; slot++) hero.GetItemInSlot(slot)?.EndCooldown();
+    hero.SetMana(hero.GetMaxMana());
+    log(`refresh ${unitLabel(hero)}`);
+  }
   if (cmd === CMD.GIVE) {
     const item = hero.AddItemByName(args[0]);
     log(`give ${args[0]} ${item ? 'ok' : 'failed'}`);

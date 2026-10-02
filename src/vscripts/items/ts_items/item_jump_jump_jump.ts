@@ -98,8 +98,12 @@ export class ItemJumpJumpJump extends BaseItem {
     ParticleManager.SetParticleControl(burstFx, 1, Vector(radius, radius, radius));
     ParticleManager.ReleaseParticleIndex(burstFx);
 
+    const buffDuration = this.GetSpecialValueFor('buff_duration');
     caster.AddNewModifier(caster, this, 'modifier_item_swift_blink_buff', {
-      duration: this.GetSpecialValueFor('buff_duration'),
+      duration: buffDuration,
+    });
+    caster.AddNewModifier(caster, this, 'modifier_item_arcane_blink_buff', {
+      duration: buffDuration,
     });
 
     const heal = this.GetSpecialValueFor('heal_amount');
