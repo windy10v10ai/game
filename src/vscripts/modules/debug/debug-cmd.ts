@@ -75,6 +75,7 @@ export enum CMD {
   CAST = '-cast', // 代码施法：-cast <物品或技能名> [<x偏移> <y偏移> | @dummy]，备用施法只认玩家真实按键，代码触发不了
   DUMMY = '-dummy', // 在英雄偏移处刷训练假人：-dummy [x偏移] [y偏移]
   TP = '-tp', // 英雄瞬移到坐标：-tp <x> <y>；坐标可从 -watch 的 start 行读
+  REFRESH = '-refresh', // 英雄技能全部升满级，技能与物品冷却全部刷新，用于同一技能连续对照
   GIVE = '-give', // 服务端直接给英雄发物品，不依赖客户端处理：-give <物品名>
   HURT = '-hurt', // 最近刷的假人对英雄造成纯粹伤害，模拟敌方英雄攻击：-hurt [伤害]
 }
