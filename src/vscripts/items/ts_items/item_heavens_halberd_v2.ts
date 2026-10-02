@@ -1,3 +1,4 @@
+import { calculateStatusResistedDuration } from '../../utils/damage-calculation';
 import { BaseItem, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
 import { BaseItemModifier } from './base_item_modifier';
 
@@ -62,7 +63,7 @@ export class ItemHeavensHalberdV2 extends BaseItem {
       };
 
       enemy.AddNewModifier(enemy, this, 'modifier_knockback', knockback);
-      const finalDur = dur * (1 - enemy.GetStatusResistance());
+      const finalDur = calculateStatusResistedDuration(dur, enemy);
       enemy.AddNewModifier(enemy, this, 'modifier_heavens_halberd_debuff', {
         duration: finalDur,
       });
@@ -125,7 +126,7 @@ export class ModifierItemHeavensHalberdV2 extends BaseItemModifier {
           this.disarmed = false;
           this.StartIntervalThink(this.cd);
 
-          const duration = this.disarm * (1 - event.target.GetStatusResistance());
+          const duration = calculateStatusResistedDuration(this.disarm, event.target);
           event.target.AddNewModifier(
             this.GetParent(),
             this.ability,

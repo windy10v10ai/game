@@ -1,5 +1,8 @@
 import { BaseModifier, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
-import { calculateAttackDPS } from '../../utils/damage-calculation';
+import {
+  calculateAttackDPS,
+  calculateStatusResistedDuration,
+} from '../../utils/damage-calculation';
 import { applyAwakenMagicImmunity } from './shared/awaken-magic-immunity';
 import {
   AutoCastAbility,
@@ -28,7 +31,7 @@ function canWinDuel(
 
   const timeToKill = target.GetHealth() / casterDPS;
   // 状态抗性会缩短决斗对目标一侧的强制时长，目标可能借机提前脱离
-  const effectiveDuration = duelDuration * (1 - target.GetStatusResistance());
+  const effectiveDuration = calculateStatusResistedDuration(duelDuration, target);
   const killTimeRatio =
     caster.GetLevel() >= LATE_GAME_LEVEL
       ? KILL_TIME_DUEL_DURATION_RATIO_LATE

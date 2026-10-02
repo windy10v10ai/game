@@ -38,7 +38,7 @@ caster:AddNewModifier(caster, ability, "modifier_item_devastator", {})
 | `modifier_black_king_bar_immune` | 魔免（BKB） | `duration` | `item_beast_shield` KV、`awaken-magic-immunity.ts` |
 | `modifier_fountain_glyph` | 防御符文 | `duration` | `event-npc-spawned.ts` |
 
-眩晕别自己写：`modifier_stunned` 已是全仓统一写法，配 `duration` 即可，记得乘 `1 - target:GetStatusResistance()`。
+眩晕别自己写：`modifier_stunned` 已是全仓统一写法，配 `duration` 即可。给敌人挂的时长引擎不会按状态抗性缩短，TS 里先过 `calculateStatusResistedDuration`（规则见 `src/vscripts/CLAUDE.md`），遗留 Lua 里乘 `1 - target:GetStatusResistance()`。
 
 ## 原版物品 modifier
 

@@ -1,3 +1,4 @@
+import { calculateStatusResistedDuration } from '../../utils/damage-calculation';
 import {
   BaseItem,
   BaseModifier,
@@ -113,7 +114,7 @@ export class ItemJumpJumpJump extends BaseItem {
     for (const enemy of this.Impact(caster, origin)) {
       if (enemy.IsBuilding()) continue;
       enemy.AddNewModifier(caster, this, 'modifier_item_overwhelming_blink_debuff', {
-        duration: slowDuration,
+        duration: calculateStatusResistedDuration(slowDuration, enemy),
       });
     }
   }
@@ -174,11 +175,11 @@ export class ItemJumpJumpJump extends BaseItem {
         ability: this,
       });
       enemy.AddNewModifier(caster, this, 'modifier_item_meteor_hammer_burn', {
-        duration: burnDuration,
+        duration: calculateStatusResistedDuration(burnDuration, enemy),
       });
       if (!isBuilding) {
         enemy.AddNewModifier(caster, this, 'modifier_stunned', {
-          duration: stunDuration * (1 - enemy.GetStatusResistance()),
+          duration: calculateStatusResistedDuration(stunDuration, enemy),
         });
       }
     }
