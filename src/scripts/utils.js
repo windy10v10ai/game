@@ -21,3 +21,6 @@ module.exports.getDotaPath = async () => {
     }
   }
 };
+
+// 远程控制台端口：launch 启动 Dota 时打开，dota-cmd 往这里发命令
+module.exports.NETCON_PORT = 29000;

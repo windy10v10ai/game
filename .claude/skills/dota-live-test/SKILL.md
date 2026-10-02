@@ -33,6 +33,12 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 - 下一局启动会删掉 `console.log`，要留的日志先拷到 scratchpad
 - 天辉满编时玩家英雄也交给 AI；天辉人少时玩家英雄留在泉水，由天辉 bot 扮演玩家，买装备与对线都走现有 bot 逻辑。报告只统计人数多的一方，天辉那侧的行为不代表真实玩家
 
+## 验物品与技能：远程发命令
+
+验被动属性、主动效果、状态何时上何时掉、对单位和建筑的伤害时，不点界面：启动时带远程控制台端口（第 3 步），之后用 `npm run dota:cmd` 发 `-item` 发物品、`-cast` 代码施法、`-watch` 监视变化，直接读命令返回的日志。命令清单与标准流程 → `references/remote-commands.md`。
+
+只有说明文字排版、真实键鼠手感这类必须看画面的，才用 computer-use 截图。
+
 ## 派子代理跑
 
 下面的步骤是照本宣科的固定流程，判断日志算不算通过则要改动的上下文。分工：子代理跑流程并回报观察，主会话做判断。
@@ -80,10 +86,10 @@ cd api && npm run start
 Dota 已在运行时直接 `Start-Process` 会开出第二个实例，只弹一个 `Source2 - Warning` 窗口，要先 `Stop-Process -Name dota2 -Force`。
 
 ```powershell
-$dota = "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\win64"; Start-Process -FilePath "$dota\dota2.exe" -WorkingDirectory $dota -ArgumentList '-novid','-tools','-addon','windy10v10ai','-condebug','-conclearlog','+dota_launch_custom_game','windy10v10ai','dota'
+$dota = "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\win64"; Start-Process -FilePath "$dota\dota2.exe" -WorkingDirectory $dota -ArgumentList '-novid','-tools','-addon','windy10v10ai','-condebug','-conclearlog','-netconport','29000','+dota_launch_custom_game','windy10v10ai','dota'
 ```
 
-`-condebug` 把输出写到 `<dota>/game/dota/console.log`，`-conclearlog` 每次启动清空该文件，避免跨会话累积。`+dota_launch_custom_game` 让地图自动加载，不需要点任何按钮。
+`-condebug` 把输出写到 `<dota>/game/dota/console.log`，`-conclearlog` 每次启动清空该文件，避免跨会话累积。`-netconport` 打开远程控制台，供 `npm run dota:cmd` 发命令（`npm run launch` 已带上）。`+dota_launch_custom_game` 让地图自动加载，不需要点任何按钮。
 
 完成判据：`console.log` 出现且体积在涨。
 

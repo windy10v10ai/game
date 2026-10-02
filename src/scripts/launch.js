@@ -1,7 +1,7 @@
 const { exec, spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-const { getAddonName, getDotaPath } = require('./utils');
+const { getAddonName, getDotaPath, NETCON_PORT } = require('./utils');
 
 async function ensureThumbnailCachePlaceholders() {
   const gameDir = path.resolve(__dirname, '..', '..', 'game');
@@ -63,6 +63,9 @@ async function ensureThumbnailCachePlaceholders() {
         '-tools',
         // 控制台输出落盘到 game/dota/console.log，便于事后排查
         '-condebug',
+        // 远程控制台，供 npm run dota:cmd 从外部发命令
+        '-netconport',
+        String(NETCON_PORT),
         '-addon',
         addonName,
         '+dota_launch_custom_game',

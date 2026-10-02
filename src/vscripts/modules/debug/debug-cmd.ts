@@ -68,4 +68,10 @@ export enum CMD {
   AI_OFF = '-aioff', // 关闭自定义 AI 思考
   CLEAR_UNITS = '-clearunits', // 移除所有小兵、野怪、召唤物
   SPAWN_UNITS = '-spawnunits', // 中路两侧各刷一半近战兵
+
+  // ---- 实机测试 ----
+  STAT = '-stat', // 输出英雄与假人的数值、物品冷却
+  WATCH = '-watch', // 开关：监视英雄与假人的 modifier 与数值变化；-watch <半径> 额外监视范围内敌人
+  CAST = '-cast', // 代码施法：-cast <物品或技能名> [<x偏移> <y偏移> | @dummy] [alt]
+  DUMMY = '-dummy', // 在英雄偏移处刷训练假人：-dummy [x偏移] [y偏移]
 }
