@@ -1,5 +1,5 @@
 import { GameEndDto, GameEndPlayerDto } from './analytics/dto/game-end-dto';
-import { splitGameEndByPlayer } from './game-end-proxy';
+import { canRetryGameEnd, splitGameEndByPlayer } from './game-end-proxy';
 
 function player(steamId: number): GameEndPlayerDto {
   return { steamId, playerId: 3, heroName: 'npc_dota_hero_axe' } as GameEndPlayerDto;
@@ -37,5 +37,21 @@ describe('splitGameEndByPlayer', () => {
   it('returns nothing when only bots played', () => {
     const botsOnly = { ...gameEnd, players: [player(0)] } as GameEndDto;
     expect(splitGameEndByPlayer(botsOnly)).toEqual([]);
+  });
+});
+
+describe('canRetryGameEnd', () => {
+  it('retries transport failures until the attempt limit', () => {
+    expect(canRetryGameEnd('timeout', 1)).toBe(true);
+    expect(canRetryGameEnd('client_timeout', 2)).toBe(true);
+    expect(canRetryGameEnd('internal', 2)).toBe(true);
+    expect(canRetryGameEnd('timeout', 3)).toBe(false);
+  });
+
+  it('does not retry requests the backend rejected', () => {
+    expect(canRetryGameEnd('bad_request', 1)).toBe(false);
+    expect(canRetryGameEnd('unauthorized', 1)).toBe(false);
+    expect(canRetryGameEnd('not_found', 1)).toBe(false);
+    expect(canRetryGameEnd('too_long', 1)).toBe(false);
   });
 });
