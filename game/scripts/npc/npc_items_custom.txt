@@ -3881,7 +3881,7 @@
 			"mana_regen_multiplier"	"50"
 
 			"blink_range"			"1600"
-			"blink_damage_cooldown"	"0.1"
+			"blink_damage_cooldown"	"0.5"
 			"meteor_fall_time"		"0.3"
 			"remote_cast_range"		"900"
 			"remote_land_time"		"0.5"
