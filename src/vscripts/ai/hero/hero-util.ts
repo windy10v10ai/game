@@ -30,16 +30,17 @@ export class HeroUtil {
   }
 
   static NotActionable(hero: CDOTA_BaseNPC): boolean {
+    return hero.IsHexed() || this.IsHardDisabled(hero);
+  }
+
+  /** 是否完全无法下达指令；变形只禁攻击与施法、仍能移动，不算在内。 */
+  static IsHardDisabled(hero: CDOTA_BaseNPC): boolean {
     // 死亡
     if (hero.IsAlive() === false) {
       return true;
     }
     // 眩晕
     if (hero.IsStunned()) {
-      return true;
-    }
-    // 变羊
-    if (hero.IsHexed()) {
       return true;
     }
     // 噩梦

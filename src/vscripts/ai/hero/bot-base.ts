@@ -249,6 +249,9 @@ export class BotBaseAIModifier extends BaseModifier {
 
   /** 对线期：移动交给原生，只负责施法、躲塔、插眼与出装。 */
   private ThinkNative(): void {
+    if (this.hero.IsHexed()) {
+      return;
+    }
     this.mode = 'laning';
     this.stance = 'task';
     const botTeam = GameRules.AI.BotTeam;
@@ -298,7 +301,8 @@ export class BotBaseAIModifier extends BaseModifier {
     this.brain = brain;
     this.UpdateRecoverNeed(brain);
     const task = brain.GetTask(this.hero);
-    this.stance = this.DecideStance(brain, task);
+    // 变形后打不了也放不了技能，只剩撤离一条路
+    this.stance = this.hero.IsHexed() ? 'retreat' : this.DecideStance(brain, task);
     brain.SetRetreating(this.hero, this.stance === 'retreat');
     // 出装与整理物品栏不占用行动，接管后几乎每轮都在行动，排在后面会一直轮不到
     if (this.BuildItem()) {
@@ -1408,7 +1412,7 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   StopAction(): boolean {
-    if (HeroUtil.NotActionable(this.hero)) {
+    if (HeroUtil.IsHardDisabled(this.hero)) {
       return true;
     }
 
