@@ -60,6 +60,9 @@ caster:AddNewModifier(caster, ability, "modifier_item_devastator", {})
 | `modifier_item_force_staff_motion` | 原力法杖 | 直线位移（带 `duration`） | `item_force_staff` |
 | `modifier_item_swift_blink_buff` | 迅疾闪光 | 攻速/移速增益 | `item_jump_jump_jump` |
 | `modifier_item_overwhelming_blink_debuff` | 盛势闪光 | 减速（带 `duration`） | `item_jump_jump_jump` |
+| `modifier_item_meteor_hammer` | 陨星锤 | 被动属性（三维 / 技能增强 / 魔法恢复增强） | `item_jump_jump_jump` |
+| `modifier_item_meteor_hammer_burn` | 陨星锤 | 燃烧伤害 + 减速，单位与建筑分别读 `burn_dps_units` / `burn_dps_buildings`（带 `duration`） | `item_jump_jump_jump` |
+| `modifier_item_blink_dagger` | 跳刀 | 受敌方英雄或肉山伤害后让整件物品进入 `blink_damage_cooldown` 冷却，`item_lua` 物品也生效 | `item_jump_jump_jump` |
 | `modifier_item_ultimate_scepter` | 阿哈利姆神杖 | 神杖效果（`duration = -1` 为永久） | `item_ultimate_scepter_2` |
 | `modifier_item_buff_ward` | 侦察守卫 | 眼位存在状态 | `ability_ward_observer_slot.ts` |
 | `modifier_item_ward_true_sight` | 岗哨守卫 | 真视 | `ability_ward_sentry_slot.ts` |

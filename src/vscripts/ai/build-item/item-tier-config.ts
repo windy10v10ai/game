@@ -962,7 +962,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_arcane_blink',
     nameCN: '爱因斯坦闪光',
     tier: ItemTier.T4,
-    cost: 10100,
+    cost: 10600,
     baseItems: ['item_arcane_blink_2'],
   },
   item_angels_demise: {
@@ -1137,16 +1137,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_jump_jump_jump',
     nameCN: '跳！跳！跳！刀',
     tier: ItemTier.T4,
-    cost: 15650,
-    // 可以有多个前置：overwhelming_blink_2, arcane_blink, swift_blink_2，选择其中一个作为主要前置
+    cost: 18600,
     baseItems: [
-      'item_arcane_blink',
-      'item_arcane_blink_2',
-      'item_blink',
-      'item_overwhelming_blink',
       'item_overwhelming_blink_2',
-      'item_swift_blink',
       'item_swift_blink_2',
+      'item_arcane_blink',
+      'item_meteor_hammer_2',
     ],
   },
   item_necronomicon_staff: {

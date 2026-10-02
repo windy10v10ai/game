@@ -89,7 +89,8 @@ function diffUnit(unit: CDOTA_BaseNPC, before: UnitSnapshot): UnitSnapshot {
 
 function addWatch(unit: CDOTA_BaseNPC): void {
   watched.set(unit.entindex(), { modifiers: readModifiers(unit), values: readValues(unit) });
-  log(`watch start ${unitLabel(unit)}`);
+  const pos = unit.GetAbsOrigin();
+  log(`watch start ${unitLabel(unit)} pos=${math.floor(pos.x)},${math.floor(pos.y)}`);
 }
 
 function startWatch(hero: CDOTA_BaseNPC_Hero, radius: number): void {
@@ -158,14 +159,12 @@ function lastDummy(): CDOTA_BaseNPC | undefined {
 
 function castByCommand(hero: CDOTA_BaseNPC_Hero, args: string[]): void {
   const [name, xArg, yArg] = args;
-  const alt = args.includes('alt');
   const ability = hero.FindItemInInventory(name) ?? hero.FindAbilityByName(name);
   if (!ability) {
     log(`cast ${name} not found`);
     return;
   }
 
-  ability.SetAltCastState(alt);
   const order: ExecuteOrderOptions = {
     UnitIndex: hero.entindex(),
     AbilityIndex: ability.entindex(),
@@ -190,11 +189,7 @@ function castByCommand(hero: CDOTA_BaseNPC_Hero, args: string[]): void {
     order.Position = hero.GetAbsOrigin().__add(Vector(Number(xArg), Number(yArg), 0));
   }
   ExecuteOrderFromTable(order);
-  log(`cast ${name} alt=${alt}`);
-  // 备用施法状态只在下达命令时被引擎读取，复位避免影响之后的手动施法
-  Timers.CreateTimer(WATCH_INTERVAL, () => {
-    if (IsValidEntity(ability)) ability.SetAltCastState(false);
-  });
+  log(`cast ${name}`);
 }
 
 // 会改动整局状态，只在工具模式放行
@@ -207,6 +202,10 @@ export function handleTestDebugCommand(
 
   if (cmd === CMD.STAT) {
     logStat(hero);
+    const playerId = hero.GetPlayerOwnerID();
+    HeroList.GetAllHeroes()
+      .filter((other) => other !== hero && other.GetPlayerOwnerID() === playerId)
+      .forEach(logStat);
     dummies.filter((dummy) => IsValidEntity(dummy)).forEach(logStat);
   }
   if (cmd === CMD.WATCH) {
@@ -219,6 +218,29 @@ export function handleTestDebugCommand(
   }
   if (cmd === CMD.CAST) {
     castByCommand(hero, args);
+  }
+  if (cmd === CMD.TP) {
+    FindClearSpaceForUnit(hero, Vector(Number(args[0]), Number(args[1]), 0), true);
+    hero.Stop();
+    log(`tp ${unitLabel(hero)}`);
+  }
+  if (cmd === CMD.GIVE) {
+    const item = hero.AddItemByName(args[0]);
+    log(`give ${args[0]} ${item ? 'ok' : 'failed'}`);
+  }
+  if (cmd === CMD.HURT) {
+    const dummy = lastDummy();
+    if (!dummy) {
+      log('hurt no dummy');
+      return;
+    }
+    ApplyDamage({
+      attacker: dummy,
+      victim: hero,
+      damage: Number(args[0] ?? 100),
+      damage_type: DamageTypes.PURE,
+    });
+    log(`hurt ${unitLabel(hero)} by ${unitLabel(dummy)}`);
   }
   if (cmd === CMD.DUMMY) {
     const offset = Vector(Number(args[0] ?? 300), Number(args[1] ?? 0), 0);

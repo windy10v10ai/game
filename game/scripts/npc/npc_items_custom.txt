@@ -3806,8 +3806,8 @@
 				"bonus_strength"		"30"	//6
 				"bonus_agility"			"30"	//6
 				"bonus_intellect"		"50"	//24
-				"spell_amp"				"30"	//10
-				"mana_regen_multiplier"	"75"	//25
+				"spell_amp"				"24"	//10
+				"mana_regen_multiplier"	"50"	//25
 
 				"burn_dps_buildings"	"60"	//50
 				"burn_dps_units"		"150"	//50
@@ -3841,7 +3841,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3850,54 +3850,64 @@
 		"ItemResult"					"item_jump_jump_jump"
 		"ItemRequirements"
 		{
-			"01"						"item_overwhelming_blink;item_swift_blink;item_arcane_blink_2"
+			"01"						"item_overwhelming_blink_2;item_meteor_hammer_2"
+			"02"						"item_swift_blink_2;item_meteor_hammer_2"
+			"03"						"item_arcane_blink;item_meteor_hammer_2"
 		}
 	}
 	"item_jump_jump_jump"
 	{
 		"ID"							"10384"
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/item_jump_jump_jump"
+		"ScriptFile"					"items/ts_items/item_jump_jump_jump"
 		"AbilityTextureName"			"jump_jump_jump"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"15"
-		"AbilityManaCost"				"250"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"200"
 		"AbilitySharedCooldown"			"blink"
 
-		"ItemCost"						"15650"
+		"ItemCost"						"18600"
 		"ItemAliases"					"blink dagger;arcane blink;swift blink;overwhelming blink;fallen sky;meteor hammer"
 
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"35"	// Tooltip, real value in item_jump_jump_jump_bonus_all_stats
-			"blink_damage_cooldown"	"1.0"
-			"meteor_fall_time"		"0.5"
-			"meteor_land_radius"
+			"bonus_strength"			"80"
+			"bonus_agility"			"80"
+			"bonus_intellect"		"80"
+			"spell_amp"				"36"
+			"mana_regen_multiplier"	"50"
+
+			"blink_range"			"1600"
+			"blink_damage_cooldown"	"0.1"
+			"meteor_fall_time"		"0.3"
+			"remote_cast_range"		"900"
+			"remote_land_time"		"0.5"
+
+			"impact_radius"
 			{
 				"value"		"400"
 				"affected_by_aoe_increase"	"1"
 			}
-			"buff_duration"			"6"
-			// Below are the overwhelming, swift, and arcane modifier values
-			"movement_slow"			"50"
-			"attack_slow"			"50"
+			"stun_duration"			"1.0"
+			"impact_damage_units"	"400"
+			"impact_damage_buildings"	"150"
+			"burn_dps_units"			"150"
+			"burn_dps_buildings"		"60"
+			"burn_slow"				"50"
+			"burn_duration"			"6"
+			"burn_interval"			"1.0"
 
-			"bonus_movement"		"40"
-			"bonus_agi_active"		"35"
-
-			"cast_pct_improvement"	"50"
-			"manacost_reduction"	"25"
-			"debuff_amp"			"20"
-			// Fall down effect
-			"base_damage"			"100"
-			"str_damage"			"100"
-			"meteor_stun_duration"	"1.0"
-			"slow_duration"			"6.0"
-			"meteor_burn_duration"	"6.0"
-			"meteor_burn_dps"		"100"
+			"movement_slow"			"80"
+			"attack_slow"			"100"
+			"slow_duration"			"6"
+			"bonus_movement"			"60"
+			"bonus_agi_active"		"70"
+			"buff_duration"			"7"
+			"heal_amount"			"1000"
+			"mana_amount"			"400"
 		}
 	}
 	//=================================================================================================================
