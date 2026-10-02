@@ -163,8 +163,16 @@ export class ItemJumpJumpJump extends BaseItem {
 
     const stunDuration = this.GetSpecialValueFor('stun_duration');
     const burnDuration = this.GetSpecialValueFor('burn_duration');
-    const buildingDamage = this.GetSpecialValueFor('impact_damage_buildings');
-    const unitDamage = this.GetSpecialValueFor('impact_damage_units');
+    // 非英雄单位持有时没有属性，只打固定伤害
+    const allStats = caster.IsHero()
+      ? caster.GetStrength() + caster.GetAgility() + caster.GetIntellect(false)
+      : 0;
+    const buildingDamage =
+      this.GetSpecialValueFor('impact_damage_buildings') +
+      (allStats * this.GetSpecialValueFor('impact_stat_pct_buildings')) / 100;
+    const unitDamage =
+      this.GetSpecialValueFor('impact_damage_units') +
+      (allStats * this.GetSpecialValueFor('impact_stat_pct_units')) / 100;
     for (const enemy of enemies) {
       const isBuilding = enemy.IsBuilding();
       ApplyDamage({

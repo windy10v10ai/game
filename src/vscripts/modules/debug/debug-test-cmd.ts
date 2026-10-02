@@ -45,20 +45,51 @@ function unitLabel(unit: CDOTA_BaseNPC): string {
   return `${unit.GetUnitName()}#${unit.entindex()}`;
 }
 
+function pct(value: number): string {
+  return `${(value * 100).toFixed(1)}%`;
+}
+
+/** 按类别分行输出单位能从引擎读到的全部数值，用于对照伤害、增益的实测结果。 */
 function logStat(unit: CDOTA_BaseNPC): void {
-  const parts: string[] = [];
-  readValues(unit).forEach((value, key) => parts.push(`${key}=${value}`));
+  const label = unitLabel(unit);
+  log(
+    `stat ${label} base lvl=${unit.GetLevel()} hp=${math.floor(unit.GetHealth())}/${unit.GetMaxHealth()}` +
+      ` mp=${math.floor(unit.GetMana())}/${math.floor(unit.GetMaxMana())}` +
+      ` hpRegen=${unit.GetHealthRegen().toFixed(1)} mpRegen=${unit.GetManaRegen().toFixed(1)}` +
+      ` ms=${math.floor(unit.GetIdealSpeed())} baseMs=${unit.GetBaseMoveSpeed()}`,
+  );
   if (unit.IsHero()) {
-    parts.push(
-      `hpRegen=${unit.GetHealthRegen().toFixed(1)}`,
-      `mpRegen=${unit.GetManaRegen().toFixed(1)}`,
+    log(
+      `stat ${label} attr str=${math.floor(unit.GetStrength())}(${unit.GetBaseStrength()})` +
+        ` agi=${math.floor(unit.GetAgility())}(${unit.GetBaseAgility()})` +
+        ` int=${math.floor(unit.GetIntellect(false))}(${unit.GetBaseIntellect()})` +
+        ` primary=${math.floor(unit.GetPrimaryStatValue())}`,
     );
+  }
+  log(
+    `stat ${label} attack dmg=${math.floor(unit.GetAverageTrueAttackDamage(undefined))}` +
+      ` baseDmg=${unit.GetBaseDamageMin()}-${unit.GetBaseDamageMax()}` +
+      ` as=${math.floor(unit.GetDisplayAttackSpeed())} aps=${unit.GetAttacksPerSecond(false).toFixed(2)}` +
+      ` range=${math.floor(unit.Script_GetAttackRange())}` +
+      ` evasion=${pct(unit.GetEvasion())}`,
+  );
+  log(
+    `stat ${label} defense armor=${unit.GetPhysicalArmorValue(false).toFixed(1)}` +
+      ` mres=${pct(unit.Script_GetMagicalArmorValue(undefined as unknown as object))}` +
+      ` statusRes=${pct(unit.GetStatusResistance())}`,
+  );
+  log(
+    `stat ${label} spell amp=${pct(unit.GetSpellAmplification(false))}` +
+      ` castRange=+${unit.GetCastRangeBonus()} cdr=${unit.GetCooldownReduction().toFixed(3)}`,
+  );
+  if (unit.IsHero()) {
+    const items: string[] = [];
     for (let slot = 0; slot < 6; slot++) {
       const item = unit.GetItemInSlot(slot);
-      if (item) parts.push(`${item.GetName()}:cd=${item.GetCooldownTimeRemaining().toFixed(1)}`);
+      if (item) items.push(`${item.GetName()}:cd=${item.GetCooldownTimeRemaining().toFixed(1)}`);
     }
+    log(`stat ${label} items ${items.join(' ')}`);
   }
-  log(`stat ${unitLabel(unit)} ${parts.join(' ')}`);
 }
 
 function diffUnit(unit: CDOTA_BaseNPC, before: UnitSnapshot): UnitSnapshot {
@@ -90,7 +121,11 @@ function diffUnit(unit: CDOTA_BaseNPC, before: UnitSnapshot): UnitSnapshot {
 function addWatch(unit: CDOTA_BaseNPC): void {
   watched.set(unit.entindex(), { modifiers: readModifiers(unit), values: readValues(unit) });
   const pos = unit.GetAbsOrigin();
-  log(`watch start ${unitLabel(unit)} pos=${math.floor(pos.x)},${math.floor(pos.y)}`);
+  log(
+    `watch start ${unitLabel(unit)} pos=${math.floor(pos.x)},${math.floor(pos.y)}` +
+      ` armor=${unit.GetPhysicalArmorValue(false).toFixed(1)}` +
+      ` mres=${pct(unit.Script_GetMagicalArmorValue(undefined as unknown as object))}`,
+  );
 }
 
 function startWatch(hero: CDOTA_BaseNPC_Hero, radius: number): void {
