@@ -6,6 +6,7 @@ import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { CMD } from './debug-cmd';
 import { handleGlobalItemDebugCommand } from './debug-item-helper';
+import { handleTestDebugCommand } from './debug-test-cmd';
 import { handlePerfDebugCommand } from './perf-cmd';
 
 @reloadable
@@ -160,6 +161,7 @@ export class Debug {
     }
 
     handlePerfDebugCommand(cmd, args);
+    handleTestDebugCommand(cmd, args, PlayerResource.GetSelectedHeroEntity(keys.playerid));
 
     // ---- item 替换装备命令 ----
     handleGlobalItemDebugCommand(cmd);

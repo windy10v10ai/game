@@ -47,7 +47,13 @@ export function GetCreepCondition(spec: AbilitySpec): CastCoindition {
 }
 
 export function ShouldTryCreepSpec(mode: BotMode): boolean {
-  return mode === 'laning' || mode === 'push' || mode === 'farm' || mode === 'defend';
+  return (
+    mode === 'laning' ||
+    mode === 'push' ||
+    mode === 'farm' ||
+    mode === 'defend' ||
+    mode === 'roshan'
+  );
 }
 
 export class AbilityDispatcher {

@@ -34,6 +34,31 @@ export function retreatPointFromTowers(
   return { x: origin.x + direction.x * distance, y: origin.y + direction.y * distance };
 }
 
+// 越塔抓人时，打死目标的时间要比塔打死一个队友的时间短出这一截，追击走位与技能前摇都要时间
+const DIVE_MARGIN = 1.5;
+
+export interface TowerDiveInput {
+  /** 塔下敌方英雄合计的有效血量 */
+  enemyHealth: number;
+  /** 一起越塔的我方合计输出 */
+  teamDps: number;
+  /** 附近敌方塔合计的输出 */
+  towerDps: number;
+  /** 越塔的人平均有效血量，塔一次只打一个人 */
+  diverHealth: number;
+}
+
+/** 越塔抓人：在塔打死一个队友之前就能把人打死才值得，人多输出高就敢越，塔太强就不去。 */
+export function canDiveTower(input: TowerDiveInput): boolean {
+  if (input.teamDps <= 0) {
+    return false;
+  }
+  if (input.towerDps <= 0) {
+    return true;
+  }
+  return (input.enemyHealth / input.teamDps) * DIVE_MARGIN <= input.diverHealth / input.towerDps;
+}
+
 // 扛塔的时间要比塔倒的时间多出这一截，普攻有空档、塔血估算也有误差
 const OUTLAST_MARGIN = 1.2;
 

@@ -1,11 +1,12 @@
 import { Player } from '../../api/player';
 import { TowerPushStatus } from '../../modules/event/event-entity-killed';
+import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { reloadable } from '../../utils/tstl-utils';
 import { BotLaneRecovery } from './bot-lane-recovery';
 import { LanePath } from './lane-geometry';
 import { pushLevelFor, shouldTakeOver } from './takeover';
-import { BuildLanePaths, TeamBrain } from './team-brain';
+import { BuildLanePaths, RecordHeroKill, TeamBrain } from './team-brain';
 
 /**
  * bot 的全局调度：对线期交给原生 bot，到切换点后关掉原生、由各队的团队大脑接管。
@@ -34,7 +35,10 @@ export class BotTeam {
     ListenToGameEvent('entity_killed', (keys) => this.onEntityKilled(keys), this);
     // 回调出错时计时器会被整个移除，团队 AI 整局停摆；出错只跳过这一轮
     Timers.CreateTimer(this.refreshInterval, () => {
-      const [ok, error] = xpcall(() => this.refresh(), withTraceback);
+      const [ok, error] = xpcall(
+        () => PerfSampler.measureTeamThink(() => this.refresh()),
+        withTraceback,
+      );
       if (!ok) {
         print(`[bot-team] think error: ${error}`);
       }
@@ -142,17 +146,12 @@ export class BotTeam {
     }
     const attacker =
       keys.entindex_attacker !== undefined ? EntIndexToHScript(keys.entindex_attacker) : undefined;
-    let killerHero: CDOTA_BaseNPC_Hero | undefined;
-    if (attacker === undefined || !attacker.IsBaseNPC()) {
-      killerHero = undefined;
-    } else if (attacker.IsRealHero()) {
-      killerHero = attacker;
-    } else {
-      killerHero = attacker.GetPlayerOwner()?.GetAssignedHero();
+    let killer: CDOTA_BaseNPC | undefined;
+    if (attacker !== undefined && attacker.IsBaseNPC()) {
+      // 召唤物与幻象的击杀算在主人头上
+      killer = attacker.IsRealHero() ? attacker : attacker.GetPlayerOwner()?.GetAssignedHero();
     }
-    for (const brain of this.brains.values()) {
-      brain.OnHeroKilled(killed, killerHero);
-    }
+    RecordHeroKill(killed, killer);
   }
 
   /** Returns whether jungle recovery currently owns this hero's movement. */

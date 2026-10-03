@@ -302,3 +302,4 @@ Glob: game/scripts/npc/shops*.txt
 - [ ] addon_english.txt 和 addon_schinese.txt 已同步写入本地化键
 - [ ] 本地化键名前缀与物品系统名完全匹配
 - [ ] npc_items_clone.txt 格式正确（有文件头/尾，KV 块正确嵌套）
+- [ ] 实机按 `dota-live-test` 的「验物品与技能」发物品、`-stat` 核对属性与 KV 一致

@@ -9,6 +9,9 @@ export type Stance = 'task' | 'fight' | 'hold' | 'retreat' | 'lastStand';
 
 // 按近期受到的伤害还能撑这么多秒以上就继续打，撤退要走一段路，留出余量
 const SURVIVE_SECONDS = 3;
+// 团队还在打的仗，身边战力差到「继续打」倍率的这么多倍才不再硬撑
+const TEAM_BACKED_SLACK = 2;
+const REENGAGE_SURVIVE_FACTOR = 2;
 
 export interface EngagementInput {
   engaged: boolean;
@@ -23,6 +26,8 @@ export interface EngagementInput {
   joining: boolean;
   /** 守基地：不按战力比撤，只在快被打死时走 */
   holdGround: boolean;
+  /** 团队按全队战力仍决定打这一仗：身边一时人少也不掉头，只在快被打死时走 */
+  teamBacked: boolean;
 }
 
 /** 还没打起来时，这波敌人是否值得主动上去打：走上去交战与先手跳进敌人身边都用这一个口径。 */
@@ -53,6 +58,16 @@ export function decideStance(input: EngagementInput): Stance {
       ? input.enemyPower <= input.ourPower * KEEP_FIGHTING_RATIO
       : canEngage(input.ourPower, input.enemyPower);
     return ready ? 'fight' : 'hold';
+  }
+  // 援军赶来前身边只剩自己几个、对面又强出一大截时，再撑也等不到人，团队还在打也先撤
+  const hopeless = input.enemyPower > input.ourPower * KEEP_FIGHTING_RATIO * TEAM_BACKED_SLACK;
+  if (input.teamBacked && !hopeless) {
+    // 刚因快撑不住撤下来的，被奶回一点血不马上掉头，否则在交战边缘来回进出
+    const needed = input.wasAvoiding ? SURVIVE_SECONDS * REENGAGE_SURVIVE_FACTOR : SURVIVE_SECONDS;
+    if (input.survivalSeconds >= needed) {
+      return 'fight';
+    }
+    return input.canEscape ? 'retreat' : 'lastStand';
   }
   // 打起来前已判断打不过的，被碰到也继续走，不因挨了一下就冲上去；
   // 撤退中伤害停了也不马上回头，否则残血在交战边缘来回进出

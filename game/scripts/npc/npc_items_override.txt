@@ -90,6 +90,7 @@
 	}
 	"item_cheese"
 	{
+		"ItemCanBeUsedWithoutInventory"	"1"
 		// "AbilityCooldown"				"0"
 		// "ItemCost"						"4000"		// 1000
 		// "ItemStockInitial"				"1"
@@ -239,10 +240,10 @@
 		"ItemCanBeUsedWithoutInventory"	"1"
 		"AbilityValues"
 		{
-			"duration"				"120"	// 120
+			"duration"				"90"
 			"health"				"40 80 120"
 			"health_tooltip"		"10 20 30"
-			"buff_linger_duration"		"10"// 0.1
+			"buff_linger_duration"		"5"
 		}
 	}
 
@@ -451,7 +452,7 @@
 	// 大智力跳 爱因斯坦闪光
 	"item_recipe_arcane_blink"
 	{
-		"ItemCost"						"0"
+		"ItemCost"						"500"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_arcane_blink"
 		"AbilityTextureName"			"item_recipe_arcane_blink_2"
@@ -584,6 +585,10 @@
 	"item_dust"
 	{
 		"ItemCanBeUsedWithoutInventory" "1"
+	}
+	"item_refresher_shard"
+	{
+		"ItemCanBeUsedWithoutInventory"	"1"
 	}
 	//=================================================================================================================
 	// Observer Wards 假眼

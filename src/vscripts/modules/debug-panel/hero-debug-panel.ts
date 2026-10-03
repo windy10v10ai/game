@@ -1,5 +1,6 @@
 import { modifier_debug_invulnerable } from '../../modifiers/debug/modifier_debug_invulnerable';
 import { modifier_debug_manual_control } from '../../modifiers/debug/modifier_debug_manual_control';
+import { spawnTargetDummy } from '../debug/debug-test-cmd';
 
 // 调试面板默认生成英雄（npc_dota_hero_18 → sven），与原生面板初始体验一致。
 const DEFAULT_SPAWN_HERO_ID = 18;
@@ -189,18 +190,7 @@ export class HeroDebugPanel {
     if (!selectedHero) {
       return;
     }
-    const dummy = CreateUnitByName(
-      'npc_dota_hero_target_dummy',
-      selectedHero.GetAbsOrigin(),
-      true,
-      undefined,
-      undefined,
-      DotaTeam.NEUTRALS,
-    );
-    dummy.SetControllableByPlayer(event.PlayerID, false);
-    dummy.Hold();
-    dummy.SetIdleAcquire(false);
-    dummy.SetAcquisitionRange(0);
+    spawnTargetDummy(event.PlayerID, selectedHero.GetAbsOrigin());
   }
 
   private onSelectSpawnHero(event: StrEventData): void {
