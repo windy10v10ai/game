@@ -197,7 +197,7 @@ const MAX_PUSH_LANES = 2;
 const LANE_PICK_POOL = 3;
 // 在高地外施压时，实力降到碾压门槛的这个比例以下才改强攻
 const SIEGE_KEEP_RATIO = 0.8;
-// 占优时推掉一座外塔后隔这么久才推下一座，给玩家留发育的空间
+// 推掉一座外塔后隔这么久才推下一座，给玩家留发育的空间
 const TOWER_PUSH_INTERVAL = 120;
 // 选定的路线至少保持这么久，否则每秒重算会走到一半掉头
 const PLAN_LOCK_SECONDS = 90;
@@ -560,12 +560,11 @@ function assignPush(
   const group = input.groupPush === true;
   const enemyPower = input.enemyPower ?? 0;
   const outerLeft = input.outerTowersLeft === true || input.lanes.some((lane) => !lane.highGround);
-  // 占优时推掉一座外塔后先缓一阵，在前线附近刷野清兵施压，不一路连推
+  // 推掉一座外塔后先缓一阵，在前线附近刷野清兵施压，不一路连推；抱团时一样缓，否则掉塔间隔还是很短
   const cooling =
     outerLeft &&
-    !group &&
     input.now < (input.outerTowerFellAt ?? -Infinity) + TOWER_PUSH_INTERVAL &&
-    dominates(teamStrength(input), enemyPower);
+    (group || dominates(teamStrength(input), enemyPower));
   const held = input.lanes.filter((lane) => cooling || (lane.highGround && (outerLeft || siege)));
   // 推太久没进展的路先放一放，换一路推；没别的路可推就去发育或打肉山
   const tired = input.resting?.has('push') ? (input.tiredLanes ?? []) : [];

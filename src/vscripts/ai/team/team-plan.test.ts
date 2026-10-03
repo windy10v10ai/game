@@ -759,9 +759,9 @@ describe('tower push interval', () => {
     expect(tasks.every((task) => task.kind === 'push')).toBe(true);
   });
 
-  it('keeps pushing during a group push', () => {
-    const tasks = kinds(justFell({ enemyPower: 50, groupPush: true }));
-    expect(tasks.every((task) => task.kind === 'push')).toBe(true);
+  it('waits during a group push even when the team is not far stronger', () => {
+    const tasks = kinds(justFell({ enemyPower: 300, groupPush: true }));
+    expect(tasks.every((task) => task.kind === 'farm')).toBe(true);
   });
 });
 
