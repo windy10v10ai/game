@@ -396,13 +396,13 @@ function summarizeSoak(rows) {
   }
   const out = ['## 浸泡测试：随游戏时间的变化', ''];
   out.push(
-    '| 游戏分钟 | ms/tick | 速度比 | maxGap ms | 单位 | modifier | 实体 | thinker | 计时器 | Lua MB |',
-    '|---|---|---|---|---|---|---|---|---|---|',
+    '| 游戏分钟 | ms/tick | 速度比 | maxGap ms | AI ms/tick | 团队 ms/tick | 单位 | modifier | 实体 | thinker | 计时器 | Lua MB |',
+    '|---|---|---|---|---|---|---|---|---|---|---|---|',
   );
   for (const [bucket, ws] of Object.entries(buckets).sort((a, b) => a[0] - b[0])) {
-    const m = (k) => mean(ws.map((w) => Number(w[k])));
+    const m = (k) => mean(ws.map((w) => Number(w[k] ?? 0)));
     out.push(
-      `| ${bucket}–${Number(bucket) + BUCKET_MINUTES} | ${fmt(1000 / m('tick'), 2)} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...ws.map((w) => Number(w.maxGap))), 0)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} | ${fmt(m('ents'), 0)} | ${fmt(m('thinkers'), 0)} | ${fmt(m('timers'), 0)} | ${fmt(m('mem'), 1)} |`,
+      `| ${bucket}–${Number(bucket) + BUCKET_MINUTES} | ${fmt(1000 / m('tick'), 2)} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...ws.map((w) => Number(w.maxGap))), 0)} | ${fmt(m('ai') / m('tick'), 2)} | ${fmt(m('team') / m('tick'), 2)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} | ${fmt(m('ents'), 0)} | ${fmt(m('thinkers'), 0)} | ${fmt(m('timers'), 0)} | ${fmt(m('mem'), 1)} |`,
     );
   }
   out.push('', '加速倍率下服务器跑满时 ms/tick 才是真实处理耗时；早期跑不满时它包含等待时间。', '');

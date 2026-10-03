@@ -125,6 +125,7 @@ export const SellItemCommonJunkList: string[] = [
   'item_famango',
   'item_great_famango',
   'item_greater_famango',
+  'item_roshans_banner', // 肉山的战旗
 ];
 
 /**

@@ -240,10 +240,10 @@
 		"ItemCanBeUsedWithoutInventory"	"1"
 		"AbilityValues"
 		{
-			"duration"				"120"	// 120
+			"duration"				"90"
 			"health"				"40 80 120"
 			"health_tooltip"		"10 20 30"
-			"buff_linger_duration"		"10"// 0.1
+			"buff_linger_duration"		"5"
 		}
 	}
 

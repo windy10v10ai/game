@@ -20,6 +20,7 @@ export class PerfSampler {
   private static maxGap = 0;
   private static hitches = 0;
   private static aiTime = 0;
+  private static teamTime = 0;
   private static pausedInWindow = false;
 
   static start() {
@@ -59,6 +60,16 @@ export class PerfSampler {
     this.aiTime += Plat_FloatTime() - start;
   }
 
+  static measureTeamThink(think: () => void) {
+    if (!this.enabled) {
+      think();
+      return;
+    }
+    const start = Plat_FloatTime();
+    think();
+    this.teamTime += Plat_FloatTime() - start;
+  }
+
   private static resetWindow() {
     const now = Plat_FloatTime();
     this.windowStartReal = now;
@@ -68,6 +79,7 @@ export class PerfSampler {
     this.maxGap = 0;
     this.hitches = 0;
     this.aiTime = 0;
+    this.teamTime = 0;
     this.pausedInWindow = false;
   }
 
@@ -103,6 +115,7 @@ export class PerfSampler {
       `maxGap=${Math.floor(this.maxGap * 1000)}`,
       `hitch=${this.hitches}`,
       `ai=${string.format('%.2f', (this.aiTime * 1000) / realDt)}`,
+      `team=${string.format('%.2f', (this.teamTime * 1000) / realDt)}`,
       `units=${units.total}`,
       `heroes=${units.heroes}`,
       `illus=${units.illusions}`,
