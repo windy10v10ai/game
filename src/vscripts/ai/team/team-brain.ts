@@ -82,8 +82,6 @@ const DEFEND_FACING_RADIUS = 3000;
 const DISABLED_POWER_FACTOR = 0.5;
 // 交战点在建筑射程外这么远以内也算建筑参战，英雄走几步就进射程
 const FIGHT_TOWER_MARGIN = 300;
-// 英雄站定后的自动索敌范围，加上散开站位的余量
-const FARM_TOWER_CLEARANCE = 1200;
 // 超过敌方最前面那座塔这么远，就算越过了还没推掉的塔
 const FRONT_MARGIN = 400;
 // 同一片野区的野怪合成一个发育点
@@ -1442,16 +1440,16 @@ export class TeamBrain {
         continue;
       }
       const pos = unit.GetAbsOrigin();
-      // 敌方塔附近站定后会自动索敌顺手拆塔，发育变成推进，推塔节奏就乱了
-      if (NearEnemyTower(this.enemyTeam, pos)) {
-        continue;
-      }
       if (unit.GetTeamNumber() !== DotaTeam.NEUTRALS) {
         if (!IsLaneCreep(unit) || !observer.CanEntityBeSeenByMyTeam(unit)) {
           continue;
         }
         const hit = nearestLane(this.lanes, pos, LANE_CREEP_MAX_OFFSET);
         if (!hit || (lanePower.get(hit.path.lane) ?? 0) > 0 || this.IsPastFront(pos)) {
+          continue;
+        }
+        // 敌方塔下的兵打不得，攻击移动过去还会顺手拆塔，发育变成推进
+        if (BuildingPowerNear(this.enemyTeam, pos) > 0) {
           continue;
         }
       }
@@ -1672,15 +1670,6 @@ function BuildingPowerNear(team: DotaTeam, pos: Point): number {
     }
   }
   return power;
-}
-
-function NearEnemyTower(enemyTeam: DotaTeam, pos: Point): boolean {
-  return CachedBuildings().some(
-    (unit) =>
-      unit.GetTeamNumber() === enemyTeam &&
-      unit.HasAttackCapability() &&
-      distance(unit.GetAbsOrigin(), pos) <= TowerAttackRange(unit) + FARM_TOWER_CLEARANCE,
-  );
 }
 
 function NearestBuilding(
