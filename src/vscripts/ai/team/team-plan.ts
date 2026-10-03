@@ -133,6 +133,8 @@ export interface PlanInput {
   resting?: Set<Activity>;
   /** 推太久没进展的路，歇推进期间换别的路 */
   tiredLanes?: Lane[];
+  /** 敌方上一座一塔或二塔被推掉的时间 */
+  outerTowerFellAt?: number;
   now: number;
   /** 0–1 的随机数，选路时用 */
   random: () => number;
@@ -195,6 +197,8 @@ const MAX_PUSH_LANES = 2;
 const LANE_PICK_POOL = 3;
 // 在高地外施压时，实力降到碾压门槛的这个比例以下才改强攻
 const SIEGE_KEEP_RATIO = 0.8;
+// 占优时推掉一座外塔后隔这么久才推下一座，给玩家留发育的空间
+const TOWER_PUSH_INTERVAL = 120;
 // 选定的路线至少保持这么久，否则每秒重算会走到一半掉头
 const PLAN_LOCK_SECONDS = 90;
 // 不要求这一波推掉塔，能把塔血磨下去一些就值得上，只避开上去毫无作用的塔
@@ -556,7 +560,13 @@ function assignPush(
   const group = input.groupPush === true;
   const enemyPower = input.enemyPower ?? 0;
   const outerLeft = input.outerTowersLeft === true || input.lanes.some((lane) => !lane.highGround);
-  const held = input.lanes.filter((lane) => lane.highGround && (outerLeft || siege));
+  // 占优时推掉一座外塔后先缓一阵，在前线附近刷野清兵施压，不一路连推
+  const cooling =
+    outerLeft &&
+    !group &&
+    input.now < (input.outerTowerFellAt ?? -Infinity) + TOWER_PUSH_INTERVAL &&
+    dominates(teamStrength(input), enemyPower);
+  const held = input.lanes.filter((lane) => cooling || (lane.highGround && (outerLeft || siege)));
   // 推太久没进展的路先放一放，换一路推；没别的路可推就去发育或打肉山
   const tired = input.resting?.has('push') ? (input.tiredLanes ?? []) : [];
   const open = input.lanes.filter((lane) => !held.includes(lane) && !tired.includes(lane.lane));
@@ -567,7 +577,7 @@ function assignPush(
       avoid.every((pos) => distance(pos, lane.stagingPos) > AVOID_LANE_RADIUS),
   );
   // 碾压时不直接上高地，在高地推进点附近刷野清兵施压，玩家露面就被叫来的人围剿
-  const anchors = siege && !outerLeft ? held.map((lane) => lane.stagingPos) : [];
+  const anchors = cooling || (siege && !outerLeft) ? held.map((lane) => lane.stagingPos) : [];
   if (candidates.length === 0) {
     return { plan: input.plan, unassigned: free, anchors };
   }
@@ -617,12 +627,16 @@ function pressing(input: PlanInput): boolean {
   if (input.groupPush === true || input.resting?.has('farm')) {
     return false;
   }
-  const strength =
-    input.teamStrength ??
-    input.bots.filter((bot) => !bot.needsRecover).reduce((sum, bot) => sum + bot.power, 0);
   // 已经在施压时降到门槛以下一截才改强攻，不在门槛附近来回切
   const bar = input.siege ? SIEGE_KEEP_RATIO : 1;
-  return dominates(strength / bar, input.enemyPower ?? 0);
+  return dominates(teamStrength(input) / bar, input.enemyPower ?? 0);
+}
+
+function teamStrength(input: PlanInput): number {
+  return (
+    input.teamStrength ??
+    input.bots.filter((bot) => !bot.needsRecover).reduce((sum, bot) => sum + bot.power, 0)
+  );
 }
 
 /**

@@ -731,6 +731,40 @@ describe('high ground', () => {
   });
 });
 
+describe('tower push interval', () => {
+  const kinds = (input: PlanInput) => [...planTasks(input).tasks.values()];
+  const justFell = (overrides: Partial<PlanInput>) =>
+    baseInput({ lanes: [lane('mid', 0)], outerTowerFellAt: 70, ...overrides });
+
+  it('farms near the front instead of pushing right after an outer tower falls', () => {
+    const tasks = kinds(
+      justFell({
+        enemyPower: 50,
+        farms: [
+          { pos: { x: -4000, y: 0 }, ancient: false },
+          { pos: { x: 500, y: 0 }, ancient: false },
+        ],
+      }),
+    );
+    expect(tasks.every((task) => task.kind === 'farm' && task.pos.x === 500)).toBe(true);
+  });
+
+  it('pushes again once the interval has passed', () => {
+    const tasks = kinds(justFell({ enemyPower: 50, now: 200 }));
+    expect(tasks.every((task) => task.kind === 'push')).toBe(true);
+  });
+
+  it('keeps pushing when the team is not far stronger', () => {
+    const tasks = kinds(justFell({ enemyPower: 300 }));
+    expect(tasks.every((task) => task.kind === 'push')).toBe(true);
+  });
+
+  it('keeps pushing during a group push', () => {
+    const tasks = kinds(justFell({ enemyPower: 50, groupPush: true }));
+    expect(tasks.every((task) => task.kind === 'push')).toBe(true);
+  });
+});
+
 describe('roshan', () => {
   // 留给玩家的 2 分钟已过，三个 bot 刚好够打
   const roshan = {

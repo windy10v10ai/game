@@ -194,6 +194,8 @@ export class TeamBrain {
   private glyphReadyAt = 0;
   private readonly buildingHealth = new Map<EntityIndex, { time: number; health: number }[]>();
   private outerTowers = -1;
+  private enemyOuterTowers = -1;
+  private outerTowerFellAt = -Infinity;
   private fights: FightView[] = [];
   // 每路敌方最前面还没推掉的建筑，按己方视角的前进距离记
   private readonly fronts = new Map<Lane, number>();
@@ -381,6 +383,17 @@ export class TeamBrain {
       now,
     );
     const enemyStrength = this.UpdateGroupPush(enemies, now);
+    const enemyOuter = buildings.filter(
+      (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 2,
+    ).length;
+    if (enemyOuter < this.enemyOuterTowers) {
+      this.outerTowerFellAt = now;
+      if (IS_DEBUG_RUN) {
+        const time = Math.floor(GameRules.GetDOTATime(false, true));
+        print(`[bot-ai] team=${this.team} t=${time} outer-tower-fell left=${enemyOuter}`);
+      }
+    }
+    this.enemyOuterTowers = enemyOuter;
     const roshan = FindRoshan();
     const squadBefore = this.RoshanSquad();
     const result = planTasks({
@@ -389,9 +402,8 @@ export class TeamBrain {
       groupPush: this.groupPush?.activeSince !== undefined,
       teamStrength: this.TeamStrength(),
       siege: this.siege,
-      outerTowersLeft: buildings.some(
-        (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 2,
-      ),
+      outerTowersLeft: enemyOuter > 0,
+      outerTowerFellAt: this.outerTowerFellAt,
       roshanSquad: squadBefore,
       avoided: this.avoided.map((entry) => entry.pos),
       resting,
