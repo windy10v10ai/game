@@ -384,8 +384,8 @@ export class BotBaseAIModifier extends BaseModifier {
    * 英雄层只处理自己被打之后的反应：打不过就边撤边放技能物品，跑不掉才打到底。
    */
   private DecideStance(brain: TeamBrain, task: Task | undefined): Stance {
-    // 被派去打架或回防的人由团队判断过值得去，到场后不按独自一人的战力掉头
-    const committed = task?.kind === 'fight' || task?.kind === 'defend';
+    // 被派去打架、回防或强攻的人由团队判断过值得去，到场后不按独自一人的战力掉头
+    const committed = task?.kind === 'fight' || task?.kind === 'defend' || task?.assault === true;
     const enemies = this.aroundEnemyHeroes.filter(
       (enemy) => this.hero.GetRangeToUnit(enemy) <= this.LocalFightRadius,
     );
@@ -461,8 +461,11 @@ export class BotBaseAIModifier extends BaseModifier {
       canEscape: escape,
       survivalSeconds: survival,
       wasAvoiding: this.stance === 'retreat' || this.stance === 'hold',
-      // 回防的人按接战口径，不因对面强一些就在后面看着建筑被拆
-      joining: (task?.kind === 'fight' && fight.engaged) || task?.kind === 'defend',
+      // 回防与强攻的人按接战口径，不因对面强一些就在后面看着
+      joining:
+        (task?.kind === 'fight' && fight.engaged) ||
+        task?.kind === 'defend' ||
+        task?.assault === true,
       holdGround: task?.kind === 'defend' && task.hold === true,
       teamBacked:
         task?.kind === 'fight' &&
