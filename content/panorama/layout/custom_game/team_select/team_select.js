@@ -220,7 +220,10 @@ function CheckForHostPrivileges() {
 function UpdateTimer() {
   var gameTime = Game.GetGameTime();
   var transitionTime = Game.GetStateTransitionTime();
-  CheckForHostPrivileges();
+  // 自动开始时投票定稿前按钮按了也没用，只在关掉自动开始时提前给房主看
+  if (g_DifficultyChosen || !Game.GetAutoLaunchEnabled()) {
+    CheckForHostPrivileges();
+  }
 
   if (g_DifficultyChosen) {
     $('#LockAndStartButton').enabled = true;
