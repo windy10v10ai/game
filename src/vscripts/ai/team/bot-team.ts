@@ -35,7 +35,10 @@ export class BotTeam {
     ListenToGameEvent('entity_killed', (keys) => this.onEntityKilled(keys), this);
     // 回调出错时计时器会被整个移除，团队 AI 整局停摆；出错只跳过这一轮
     Timers.CreateTimer(this.refreshInterval, () => {
-      const [ok, error] = xpcall(() => PerfSampler.measureTeamThink(() => this.refresh()), withTraceback);
+      const [ok, error] = xpcall(
+        () => PerfSampler.measureTeamThink(() => this.refresh()),
+        withTraceback,
+      );
       if (!ok) {
         print(`[bot-team] think error: ${error}`);
       }
