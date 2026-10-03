@@ -13,6 +13,8 @@ export interface Task {
   lane?: Lane;
   /** 守基地，打不过也不撤 */
   hold?: boolean;
+  /** 抱团强攻高地：按「继续打」的口径进场，打不过也冲 */
+  assault?: boolean;
 }
 
 export interface PlanBot {
@@ -133,6 +135,8 @@ export interface PlanInput {
   resting?: Set<Activity>;
   /** 推太久没进展的路，歇推进期间换别的路 */
   tiredLanes?: Lane[];
+  /** 敌方上一座一塔或二塔被推掉的时间 */
+  outerTowerFellAt?: number;
   now: number;
   /** 0–1 的随机数，选路时用 */
   random: () => number;
@@ -195,6 +199,8 @@ const MAX_PUSH_LANES = 2;
 const LANE_PICK_POOL = 3;
 // 在高地外施压时，实力降到碾压门槛的这个比例以下才改强攻
 const SIEGE_KEEP_RATIO = 0.8;
+// 推掉一座外塔后隔这么久才推下一座，给玩家留发育的空间
+const TOWER_PUSH_INTERVAL = 120;
 // 选定的路线至少保持这么久，否则每秒重算会走到一半掉头
 const PLAN_LOCK_SECONDS = 90;
 // 不要求这一波推掉塔，能把塔血磨下去一些就值得上，只避开上去毫无作用的塔
@@ -226,12 +232,21 @@ export function planTasks(input: PlanInput): PlanResult {
 
   // 建筑被英雄贴着打最急，其次打架；清兵与盯着来犯英雄不急，不从打架的人里抽
   free = assignDefend(input, free, tasks, ['engaged']);
-  const fights = assignFights(input, free, tasks);
+  // 外塔推完后抱团就是强攻高地：玩家不死时只靠这一波给压力，也给玩家守住反杀、翻盘的机会
+  const assault = input.groupPush === true && !outerTowersLeft(input);
+  const fights = assignFights(input, free, tasks, assault);
   const rest = assignDefend(input, fights.remaining, tasks, ['creeps', 'warning']);
   const siege = pressing(input);
-  const avoid = [...fights.avoid, ...(input.avoided ?? [])];
-  const push = assignPush(input, assignRoshan(input, rest, tasks), tasks, avoid, siege);
+  const avoid = assault ? [] : [...fights.avoid, ...(input.avoided ?? [])];
+  const push = assignPush(input, assignRoshan(input, rest, tasks), tasks, avoid, siege, assault);
   assignFarm(input, push.unassigned, tasks, push.anchors);
+  if (assault) {
+    for (const task of tasks.values()) {
+      if (task.kind === 'fight' || task.kind === 'push') {
+        task.assault = true;
+      }
+    }
+  }
 
   for (const bot of input.bots) {
     if (!tasks.has(bot.id)) {
@@ -362,6 +377,7 @@ function assignFights(
   input: PlanInput,
   free: PlanBot[],
   tasks: Map<number, Task>,
+  assault: boolean,
 ): { remaining: PlanBot[]; avoid: Point[] } {
   const pushers = findPushers(input.bots);
   // 远处在打肉山的人和推塔手一样排在后面挑，凑够之后也不叫，免得肉山打到一半全队走开
@@ -372,7 +388,8 @@ function assignFights(
   let remaining = free;
   for (const spot of spots) {
     // 与英雄层进场同一口径，派出的人到齐后正好够上
-    const need = spot.enemyPower / AVOID_POWER_RATIO - spot.allyPower;
+    const need =
+      spot.enemyPower / (assault ? KEEP_FIGHTING_RATIO : AVOID_POWER_RATIO) - spot.allyPower;
     const enough = remaining.reduce((sum, bot) => sum + bot.power, 0) >= need;
     const fighters = remaining.filter((bot) => input.fighting?.get(bot.id) === spot.focusId);
     const nearby = remaining.filter(
@@ -391,7 +408,7 @@ function assignFights(
       continue;
     }
     // 能来的人全来也凑不够就都不来，不派一部分人去送；打起来了也只叫附近的，远处的赶来只会逐个送
-    if ((!enough && !holds) || spot.pastFront || spot.towerSafe === true) {
+    if ((!enough && !holds) || spot.pastFront || (spot.towerSafe === true && !assault)) {
       continue;
     }
     const pool = enough ? remaining : nearby;
@@ -513,11 +530,16 @@ function startRoshan(
   return assigned >= need && affordable ? picked : [];
 }
 
-/** 这些战力能不能推这一路：能磨掉塔血，且守塔的敌方英雄没有强出太多。 */
-function canPushWith(power: number, lane: PushLane): boolean {
+/** 这些战力能不能推这一路：能磨掉塔血，且守塔的敌方英雄没有强出太多；强攻时不看守塔的人。 */
+function canPushWith(power: number, lane: PushLane, assault: boolean): boolean {
   return (
-    power >= lane.towerPower * TOWER_PUSH_RATIO && lane.enemyPower <= power * DEFENDED_PUSH_RATIO
+    power >= lane.towerPower * TOWER_PUSH_RATIO &&
+    (assault || lane.enemyPower <= power * DEFENDED_PUSH_RATIO)
   );
+}
+
+function outerTowersLeft(input: PlanInput): boolean {
+  return input.outerTowersLeft === true || input.lanes.some((lane) => !lane.highGround);
 }
 
 /** 这一路的进攻机会，扣掉 bot 赶过去的路程，顺着原路推下一座塔比 TP 去别的路划算。 */
@@ -544,6 +566,7 @@ function assignPush(
   tasks: Map<number, Task>,
   avoid: Point[],
   siege: boolean,
+  assault: boolean,
 ): { plan: LanePlan | undefined; unassigned: PlanBot[]; anchors: Point[] } {
   if (free.length === 0) {
     return { plan: input.plan, unassigned: [], anchors: [] };
@@ -555,19 +578,24 @@ function assignPush(
     .reduce((sum, bot) => sum + bot.power, 0);
   const group = input.groupPush === true;
   const enemyPower = input.enemyPower ?? 0;
-  const outerLeft = input.outerTowersLeft === true || input.lanes.some((lane) => !lane.highGround);
-  const held = input.lanes.filter((lane) => lane.highGround && (outerLeft || siege));
+  const outerLeft = outerTowersLeft(input);
+  // 推掉一座外塔后先缓一阵，在前线附近刷野清兵施压，不一路连推；抱团时一样缓，否则掉塔间隔还是很短
+  const cooling =
+    outerLeft &&
+    input.now < (input.outerTowerFellAt ?? -Infinity) + TOWER_PUSH_INTERVAL &&
+    (group || dominates(teamStrength(input), enemyPower));
+  const held = input.lanes.filter((lane) => cooling || (lane.highGround && (outerLeft || siege)));
   // 推太久没进展的路先放一放，换一路推；没别的路可推就去发育或打肉山
   const tired = input.resting?.has('push') ? (input.tiredLanes ?? []) : [];
   const open = input.lanes.filter((lane) => !held.includes(lane) && !tired.includes(lane.lane));
   const pushPower = free.reduce((sum, bot) => sum + bot.power, 0);
   const candidates = open.filter(
     (lane) =>
-      canPushWith(pushPower, lane) &&
+      canPushWith(pushPower, lane, assault) &&
       avoid.every((pos) => distance(pos, lane.stagingPos) > AVOID_LANE_RADIUS),
   );
   // 碾压时不直接上高地，在高地推进点附近刷野清兵施压，玩家露面就被叫来的人围剿
-  const anchors = siege && !outerLeft ? held.map((lane) => lane.stagingPos) : [];
+  const anchors = cooling || (siege && !outerLeft) ? held.map((lane) => lane.stagingPos) : [];
   if (candidates.length === 0) {
     return { plan: input.plan, unassigned: free, anchors };
   }
@@ -581,7 +609,7 @@ function assignPush(
     !plan ||
     plan.group !== group ||
     heldPicked ||
-    !keepsPlan(plan, open, teamPower, avoid, input.now)
+    !keepsPlan(plan, open, teamPower, avoid, input.now, assault)
   ) {
     plan = pickLanes(candidates, free, pushPower, Math.min(desired, candidates.length), input);
     plan.group = group;
@@ -606,7 +634,7 @@ function assignPush(
   }
   return {
     plan,
-    unassigned: [...unassigned, ...dropWeakGroups(pushing, chosen, tasks)],
+    unassigned: [...unassigned, ...dropWeakGroups(pushing, chosen, tasks, assault)],
     anchors,
   };
 }
@@ -617,12 +645,16 @@ function pressing(input: PlanInput): boolean {
   if (input.groupPush === true || input.resting?.has('farm')) {
     return false;
   }
-  const strength =
-    input.teamStrength ??
-    input.bots.filter((bot) => !bot.needsRecover).reduce((sum, bot) => sum + bot.power, 0);
   // 已经在施压时降到门槛以下一截才改强攻，不在门槛附近来回切
   const bar = input.siege ? SIEGE_KEEP_RATIO : 1;
-  return dominates(strength / bar, input.enemyPower ?? 0);
+  return dominates(teamStrength(input) / bar, input.enemyPower ?? 0);
+}
+
+function teamStrength(input: PlanInput): number {
+  return (
+    input.teamStrength ??
+    input.bots.filter((bot) => !bot.needsRecover).reduce((sum, bot) => sum + bot.power, 0)
+  );
 }
 
 /**
@@ -651,6 +683,7 @@ function keepsPlan(
   teamPower: number,
   avoid: Point[],
   now: number,
+  assault: boolean,
 ): boolean {
   return (
     now < plan.until &&
@@ -658,7 +691,7 @@ function keepsPlan(
       const lane = lanes.find((entry) => entry.lane === pick.lane);
       return (
         !lane ||
-        (canPushWith(teamPower, lane) &&
+        (canPushWith(teamPower, lane, assault) &&
           avoid.every((pos) => distance(pos, lane.stagingPos) > AVOID_LANE_RADIUS))
       );
     })
@@ -731,12 +764,17 @@ function spread(
 }
 
 /** 分完之后某一路的人磨不动那座塔或守方强出太多，这一组改去发育，不上去送。 */
-function dropWeakGroups(bots: PlanBot[], lanes: PushLane[], tasks: Map<number, Task>): PlanBot[] {
+function dropWeakGroups(
+  bots: PlanBot[],
+  lanes: PushLane[],
+  tasks: Map<number, Task>,
+  assault: boolean,
+): PlanBot[] {
   const dropped: PlanBot[] = [];
   for (const lane of lanes) {
     const group = bots.filter((bot) => tasks.get(bot.id)?.lane === lane.lane);
     const power = group.reduce((sum, bot) => sum + bot.power, 0);
-    if (group.length > 0 && !canPushWith(power, lane)) {
+    if (group.length > 0 && !canPushWith(power, lane, assault)) {
       for (const bot of group) {
         tasks.delete(bot.id);
         dropped.push(bot);

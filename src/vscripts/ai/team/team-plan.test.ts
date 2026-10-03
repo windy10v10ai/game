@@ -729,6 +729,84 @@ describe('high ground', () => {
     );
     expect(tasks.every((task) => task.kind === 'push')).toBe(true);
   });
+
+  describe('group assault', () => {
+    const defender = {
+      pos: { x: -3000, y: 0 },
+      // 超过「主动上」门槛，但没超过「继续打」门槛
+      enemyPower: 1000,
+      allyPower: 0,
+      focusId: 50,
+      rally: { x: 0, y: 0 },
+      pastFront: false,
+      towerSafe: true,
+      engaged: false,
+    };
+
+    it('charges a defender under the high ground tower during a group push', () => {
+      const tasks = kinds(
+        baseInput({ lanes: [highGround('top', -3000)], fights: [defender], groupPush: true }),
+      );
+      expect(tasks.every((task) => task.kind === 'fight' && task.assault === true)).toBe(true);
+    });
+
+    it('leaves the same defender alone outside a group push', () => {
+      const tasks = kinds(baseInput({ lanes: [highGround('top', -3000)], fights: [defender] }));
+      expect(tasks.some((task) => task.kind === 'fight')).toBe(false);
+    });
+
+    it('pushes a well defended high ground lane it would otherwise avoid', () => {
+      const input = baseInput({
+        lanes: [{ ...highGround('top', -3000), enemyPower: 2000 }],
+        avoided: [{ x: -3000, y: 0 }],
+        enemyPower: 2000,
+      });
+      expect(kinds(input).some((task) => task.kind === 'push')).toBe(false);
+      const assault = kinds({ ...input, groupPush: true });
+      expect(assault.every((task) => task.kind === 'push' && task.assault === true)).toBe(true);
+    });
+
+    it('does not assault while outer towers are left', () => {
+      const tasks = kinds(
+        baseInput({ lanes: [lane('mid', 0)], fights: [defender], groupPush: true }),
+      );
+      expect(tasks.some((task) => task.assault === true)).toBe(false);
+    });
+  });
+});
+
+describe('tower push interval', () => {
+  const kinds = (input: PlanInput) => [...planTasks(input).tasks.values()];
+  const justFell = (overrides: Partial<PlanInput>) =>
+    baseInput({ lanes: [lane('mid', 0)], outerTowerFellAt: 70, ...overrides });
+
+  it('farms near the front instead of pushing right after an outer tower falls', () => {
+    const tasks = kinds(
+      justFell({
+        enemyPower: 50,
+        farms: [
+          { pos: { x: -4000, y: 0 }, ancient: false },
+          { pos: { x: 500, y: 0 }, ancient: false },
+        ],
+      }),
+    );
+    expect(tasks.every((task) => task.kind === 'farm' && task.pos.x === 500)).toBe(true);
+  });
+
+  it('pushes again once the interval has passed', () => {
+    const tasks = kinds(justFell({ enemyPower: 50, now: 200 }));
+    expect(tasks.every((task) => task.kind === 'push')).toBe(true);
+  });
+
+  it('keeps pushing when the team is not far stronger', () => {
+    const tasks = kinds(justFell({ enemyPower: 300 }));
+    expect(tasks.every((task) => task.kind === 'push')).toBe(true);
+  });
+
+  it('waits during a group push even when the team is not far stronger', () => {
+    const tasks = kinds(justFell({ enemyPower: 300, groupPush: true }));
+    expect(tasks.every((task) => task.kind === 'farm')).toBe(true);
+  });
 });
 
 describe('roshan', () => {
