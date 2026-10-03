@@ -26,7 +26,11 @@ function OnLockAndStartPressed() {
     return;
   }
   if (!g_DifficultyChosen) {
-    return;
+    // 关掉自动开始时投票不会超时定稿，房主开始就是投票结束
+    if (Game.GetAutoLaunchEnabled()) {
+      return;
+    }
+    GameEvents.SendCustomGameEventToServer('vote_end', {});
   }
 
   // Lock the team selection so that no more team changes can be made
@@ -216,11 +220,14 @@ function CheckForHostPrivileges() {
 function UpdateTimer() {
   var gameTime = Game.GetGameTime();
   var transitionTime = Game.GetStateTransitionTime();
+  // 自动开始时投票定稿前按钮按了也没用，只在关掉自动开始时提前给房主看
+  if (g_DifficultyChosen || !Game.GetAutoLaunchEnabled()) {
+    CheckForHostPrivileges();
+  }
 
   if (g_DifficultyChosen) {
     $('#LockAndStartButton').enabled = true;
     $('#CancelAndUnlockButton').enabled = true;
-    CheckForHostPrivileges();
     if (transitionTime >= 0) {
       $('#StartGameCountdownTimer').SetDialogVariableInt(
         'countdown_timer_seconds',
@@ -243,7 +250,7 @@ function UpdateTimer() {
     $.GetContextPanel().SetHasClass('teams_unlocked', Game.GetTeamSelectionLocked() == false);
   } else {
     const voteTime = Math.max(0, Math.floor(transitionTime - gameTime - 30));
-    $('#LockAndStartButton').enabled = false;
+    $('#LockAndStartButton').enabled = !Game.GetAutoLaunchEnabled();
     $('#CancelAndUnlockButton').enabled = false;
     $('#TimerLabelVote').visible = true;
     if (transitionTime >= 0) {
@@ -444,7 +451,8 @@ function OnGameDifficultyChoiceChange(_table, key, value) {
     return;
   }
   g_DifficultyChosen = true;
-  if (difficulty !== 0) {
+  // 关掉自动开始时等房主手动开始，定稿不触发倒计时
+  if (difficulty !== 0 && Game.GetAutoLaunchEnabled()) {
     Game.SetRemainingSetupTime(10);
   }
 
