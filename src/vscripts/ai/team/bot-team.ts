@@ -1,5 +1,6 @@
 import { Player } from '../../api/player';
 import { TowerPushStatus } from '../../modules/event/event-entity-killed';
+import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { reloadable } from '../../utils/tstl-utils';
 import { BotLaneRecovery } from './bot-lane-recovery';
@@ -34,7 +35,7 @@ export class BotTeam {
     ListenToGameEvent('entity_killed', (keys) => this.onEntityKilled(keys), this);
     // 回调出错时计时器会被整个移除，团队 AI 整局停摆；出错只跳过这一轮
     Timers.CreateTimer(this.refreshInterval, () => {
-      const [ok, error] = xpcall(() => this.refresh(), withTraceback);
+      const [ok, error] = xpcall(() => PerfSampler.measureTeamThink(() => this.refresh()), withTraceback);
       if (!ok) {
         print(`[bot-team] think error: ${error}`);
       }
