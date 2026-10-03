@@ -1448,10 +1448,6 @@ export class TeamBrain {
         if (!hit || (lanePower.get(hit.path.lane) ?? 0) > 0 || this.IsPastFront(pos)) {
           continue;
         }
-        // 敌方塔下的兵打不得，攻击移动过去还会顺手拆塔，发育变成推进
-        if (BuildingPowerNear(this.enemyTeam, pos) > 0) {
-          continue;
-        }
       }
       const spot = spots.find((other) => distance(other.pos, pos) <= FARM_CAMP_RADIUS);
       const ancient = unit.IsAncient();
