@@ -41,6 +41,8 @@ export interface CastCoindition {
      * 将攻击距离计入搜索半径时额外增加的距离。
      */
     attackRangeOffset?: number;
+    /** 只选普攻够不着的目标：贴脸时普攻更好，引导长的技能留给追残血和打远处。 */
+    outOfAttackRange?: boolean;
     /**
      * 决定 POINT 技能的释放位置：
      * - 不设（默认）：释放点 = 目标位置；技能同时能指向单位时优先指向单位

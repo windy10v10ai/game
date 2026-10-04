@@ -21,6 +21,9 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 | 场景 | 参数 |
 |---|---|
+| 1v10 按难度（N5 / N6 / N8） | `--boost false --radiantPlayers 2 --radiantMultiplier 15 --direMultiplier 7 --towerPower 300`；N6 改 `9`、`350`，N8 改 `14`、`500`。天辉 bot 扮演玩家，倍率远高于玩家实际的 1.5，补上真人比 bot 会杀会发育；5、10 倍时天辉 bot 18–21 分钟就被推平，测不到对抗 |
+| 1v10 玩家强势 | 上面任一难度把 `--radiantMultiplier` 提到 `20` |
+| 1v10 玩家碾压 | 上面任一难度加 `--radiantBoost true`：天辉开局满级满钱。天辉 bot 再高倍率也打不过 10 个 bot，要测碾压只能直接给钱给等级；看 bot 有没有犯蠢，不看阵亡数 |
 | 天辉强推电脑高地与基地 | `--boost false --radiantPlayers 5 --radiantMultiplier 10 --direMultiplier 1` |
 | 物品施放 | `--testItems item_a,item_b`：开局发物品并停掉买卖装备 |
 | 指定英雄出场 | `--botHeroes axe,lion` |
@@ -28,19 +31,23 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 - 加速不超过 2 倍，更高会拖垮服务器
 - 每局结束在运行目录写 `anomaly-<N>.md`（卡住、远路不传送、挤在一起、打撤来回切、没任务、建筑挨打没人到场），先读它再 grep 细节。手动局用 `npm run bot-anomaly [日志路径]` 出同样的报告
 - 下一局启动会删掉 `console.log`，要留的日志先拷到 scratchpad
-- 天辉被替成 AI 顶位，报告只统计人数多的一方；天辉那侧的行为不代表真实玩家
+- 天辉满编时玩家英雄也交给 AI；天辉人少时玩家英雄留在泉水，由天辉 bot 扮演玩家，买装备与对线都走现有 bot 逻辑。报告只统计人数多的一方，天辉那侧的行为不代表真实玩家
+
+## 验物品与技能：远程发命令
+
+验被动属性、主动效果、状态何时上何时掉、对单位和建筑的伤害时，不点界面：启动时带远程控制台端口（第 3 步），之后用 `npm run dota:cmd` 发 `-give` 发物品、`-cast` 代码施法、`-watch` 监视变化，直接读命令返回的日志。备用施法（Ctrl）代码触发不了，要用 computer-use 真实按键。命令清单与标准流程 → `references/remote-commands.md`。
+
+只有说明文字排版、真实键鼠手感这类必须看画面的，才用 computer-use 截图。
 
 ## 派子代理跑
 
 下面的步骤是照本宣科的固定流程，判断日志算不算通过则要改动的上下文。分工：子代理跑流程并回报观察，主会话做判断。
 
-用 Agent 工具、`model: "sonnet"`，**一轮验证派一个**，跑完即结束；要再验一轮就再派一个。子代理是冷启动，交接里写全：改了什么、要不要本地后端、怎么触发、期待哪几行日志。
+**实机测试一律派子代理**，只验一两个点、改完顺手回归一下也一样：等加载、发命令、读日志、截图在主会话里来回几轮，消耗远高于写一份交接。用 Agent 工具，照命令序列执行、回报日志行的用 `model: "haiku"`；要读懂日志判断现象或用 computer-use 操作画面的用 `"sonnet"`。**一轮验证派一个**，跑完即结束；要再验一轮就再派一个。子代理是冷启动，交接里写全：改了什么、要不要本地后端、要发的命令、期待哪几行日志和要带回的数字。
 
 - **只回报观察**：哪几行出现了、时间戳是多少、断在哪一步。诊断和改代码留给主会话
 - **开工先查端口**，没起的自己起——上一轮的后台进程不一定还活着
 - **不收尾**：关不关由主会话决定，见第 6 步
-
-验证点只有一两个时，写交接比自己跑还贵，直接自己跑。
 
 拿到这份 skill 的子代理从第 1 步开始，不再往下派。
 
@@ -77,10 +84,10 @@ cd api && npm run start
 Dota 已在运行时直接 `Start-Process` 会开出第二个实例，只弹一个 `Source2 - Warning` 窗口，要先 `Stop-Process -Name dota2 -Force`。
 
 ```powershell
-$dota = "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\win64"; Start-Process -FilePath "$dota\dota2.exe" -WorkingDirectory $dota -ArgumentList '-novid','-tools','-addon','windy10v10ai','-condebug','-conclearlog','+dota_launch_custom_game','windy10v10ai','dota'
+$dota = "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\win64"; Start-Process -FilePath "$dota\dota2.exe" -WorkingDirectory $dota -ArgumentList '-novid','-tools','-addon','windy10v10ai','-condebug','-conclearlog','-netconport','29000','+dota_launch_custom_game','windy10v10ai','dota'
 ```
 
-`-condebug` 把输出写到 `<dota>/game/dota/console.log`，`-conclearlog` 每次启动清空该文件，避免跨会话累积。`+dota_launch_custom_game` 让地图自动加载，不需要点任何按钮。
+`-condebug` 把输出写到 `<dota>/game/dota/console.log`，`-conclearlog` 每次启动清空该文件，避免跨会话累积。`-netconport` 打开远程控制台，供 `npm run dota:cmd` 发命令（`npm run launch` 已带上）。`+dota_launch_custom_game` 让地图自动加载，不需要点任何按钮。
 
 完成判据：`console.log` 出现且体积在涨。
 

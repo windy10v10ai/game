@@ -273,6 +273,7 @@ ID 一旦写入不要再改（项目内已有惯例注释："Do not change this 
 - **bot 会买 / 会用** → `bot-item-build`（购买决策）、`bot-item-usage`（战斗使用）
 - **验证** → 改 KV 后重启 Dota Tools（`script_reload` 不重读 KV）；模式 1 的 Lua 改完 `script_reload` 即可；模式 2 收尾跑一次 `npm run build:vscripts` 只看报错，不读编译产物，运行时行为靠 jest（自己的分支逻辑）+ Dota Tools 实跑
 - **复用过原版 modifier 的物品**，实机确认属性数值与 KV 一致（双倍是静默的，tooltip 显示的是 KV 值，不是实际生效值）
+- **实机验证**按 `dota-live-test` 的「验物品与技能」：`-give` 发物品、`-stat` 核对属性、`-cast` + `-watch` 验主动，全程读日志不点界面
 
 ## 不明确时询问
 

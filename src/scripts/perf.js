@@ -10,7 +10,8 @@ const CONFIG_FILE = path.join(ROOT, 'game', 'scripts', 'vscripts', 'perf_auto_co
 // 每轮一个子目录，和排查文档放在一起，今后对比历史数据直接从这里取
 const RUNS_DIR = path.join(ROOT, 'docs', 'superpowers', 'specs', 'late-game-lag', 'runs');
 const POLL_MS = 15000;
-const FINISHED = /\[perf-auto\] (done|aborted)/;
+// 基地被推平后游戏内的计时器与状态事件都可能不再触发，直接认引擎的结算状态
+const FINISHED = /\[perf-auto\] (done|aborted)|entering state 'DOTA_GAMERULES_STATE_POST_GAME'/;
 // 专用服负载高时会以处理超时为由踢掉唯一的客户端，没有玩家后游戏直接结算，脚本内存随即失控，只能立刻收场
 const BROKEN =
   /Disconnect client .* from server: (?!NETWORK_DISCONNECT_SHUTDOWN)|LUA Memory usage warning: The VM has hit a new high usage of \d{3},\d{3},\d{3} bytes/;
@@ -38,8 +39,12 @@ function parseArgs() {
     // 天辉人数与金钱经验倍率，0 为沿用对局选项；专用服的客户端默认只报 1 人、1.5 倍，固定为满编且与夜魇同倍率，--radiantPlayers 1 模拟 1v10
     radiantPlayers: 10,
     radiantMultiplier: 10,
+    // 只给天辉满级与金钱，配合 --radiantPlayers 2 模拟 1v10 的强势玩家
+    radiantBoost: false,
     // 夜魇倍率，0 为沿用对局选项；调低后天辉能压着电脑推，用来验证回防
     direMultiplier: 0,
+    // 防御塔强度百分比，0 为沿用对局选项（工具模式 700%），按难度预设测时填 300/350/500
+    towerPower: 0,
     // 逗号分隔的英雄名，排到 bot 英雄池最前面，用于让指定英雄出场验证
     botHeroes: '',
     // 逗号分隔的物品名，开局轮流发给每个英雄并停掉 bot 买卖装备，用于验证物品施放
@@ -58,7 +63,7 @@ function parseArgs() {
     const key = argv[i].replace(/^--/, '');
     if (!(key in options)) throw new Error(`unknown option --${key}`);
     const value = argv[i + 1];
-    if (key === 'quitOnDone' || key === 'boost') options[key] = value !== 'false';
+    if (['quitOnDone', 'boost', 'radiantBoost'].includes(key)) options[key] = value !== 'false';
     else if (['mode', 'conditions', 'botHeroes', 'testItems', 'server'].includes(key))
       options[key] = value;
     else options[key] = Number(value);

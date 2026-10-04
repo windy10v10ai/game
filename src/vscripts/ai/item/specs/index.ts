@@ -9,6 +9,7 @@ import { SPECS as blackKingBar2 } from './item_black_king_bar_2';
 import { SPECS as bladeMail2 } from './item_blade_mail_2';
 import { SPECS as bloodstone } from './item_bloodstone';
 import { SPECS as blueFantasy } from './item_blue_fantasy';
+import { SPECS as cheese } from './item_cheese';
 import { SPECS as crimsonGuard } from './item_crimson_guard';
 import { SPECS as dagon } from './item_dagon';
 import { SPECS as draculaMask } from './item_dracula_mask';
@@ -62,6 +63,8 @@ export function registerItemSpecs(): void {
   // Phase 1：对小兵 / 拾取物
   ItemRegistry.registerAll(handOfGroup);
   ItemRegistry.registerAll(smokeOfDeceit);
+  // 肉山掉落
+  ItemRegistry.registerAll(cheese);
 
   // B1：无条件常驻 buff（不受距离限制）
   ItemRegistry.registerAll(adiKing);

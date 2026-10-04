@@ -73,6 +73,7 @@ export function ActivateModules() {
 - **下达攻击命令前先查 `IsAttacking()`**：高频重复下达 `ATTACK_MOVE` / `ATTACK_TARGET`（如 0.1 秒一次的执行器）会不断重置攻击前摇，Bot 表现为反复抬手却打不出伤害。发命令前加 `if (hero.IsAttacking()) return;` 让当前这次攻击走完，参考 `ai/action/action-attack.ts` 的 `MoveToAttack`。判定要放在结束/中断条件**之后**、发命令**之前**，否则 Bot 被小兵缠住时会连中断条件都不再检查
 - **Lua 里空字符串和 0 都为真**：`if (str)`、`str ? a : b` 对 `''` 成立，TSTL 只对部分类型给警告。可选字符串、数字判断「有值」一律显式写 `!== undefined && !== ''`，否则配置留空也会走进分支
 - **Bot 每次思考里不调寻路**：`GridNav.FindPathLength` / `CanFindPath` 开销大，且与小兵共用寻路，10 个 bot 每次思考都调会让全场单位思考超时。短距离一步能否走到用 `GridNav.IsTraversable` + `IsBlocked` + 地面高度差判断；随思考重复的昂贵估算（寻路、逐人算 DPS）按单位缓存约 1 秒
+- **给敌人挂负面状态的时长要自己折算状态抗性，统一用 `calculateStatusResistedDuration`**：引擎 `AddNewModifier` 不会按目标状态抗性缩短 `duration`（已实测），眩晕、缴械、减速等负面状态都要先过 `utils/damage-calculation.ts` 的 `calculateStatusResistedDuration(duration, target)` 再传入，不要在调用处手写 `duration * (1 - target.GetStatusResistance())`。原版 modifier 同样适用。给友方或自己挂的增益不折算
 - **永久增减属性用 `Modify*` 改基础值，不要挂属性回调 modifier**：给英雄永久加/减全属性直接调 `ModifyStrength` / `ModifyAgility` / `ModifyIntellect`（传负数即减，只动基础属性、不含装备加成），一次生效、零持续开销（参考 `game/scripts/vscripts/items/item_tome_of_luoshu.lua`）。**不要**为了承载这个数值而挂一个声明 `MODIFIER_PROPERTY_STATS_*_BONUS` 的自定义 modifier——引擎每次重算属性都要跨进 Lua 调一遍回调，且数值还得靠 `SetHasCustomTransmitterData` 额外同步才能在客户端 tooltip 显示，漏同步就显示成 0。需要 buff 图标时另挂一个**不声明任何属性回调**的纯显示 modifier，数值放 stack count（引擎原生同步，客户端一定拿得到）。扣基础属性时须自行兜底下限，避免扣成负数
 
 ## 查阅引擎 API（函数签名、参数）

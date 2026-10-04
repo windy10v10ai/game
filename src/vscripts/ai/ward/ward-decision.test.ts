@@ -1,4 +1,4 @@
-import { canPlaceAtHeroPosition, findAvailableCandidates } from './ward-decision';
+import { canPlaceAtHeroPosition, findAvailableCandidates, pickWardBuyer } from './ward-decision';
 import type { WardTypeConfig } from './ward-position-config';
 
 /** 判定只用到 __sub 与 Length2D，构造最小替身即可 */
@@ -104,5 +104,29 @@ describe('canPlaceAtHeroPosition', () => {
     const towerAt1500 = { ...emptyGround, friendTowers: [vec(1500, 0)] };
     expect(canPlaceAtHeroPosition(towerAt1500)).toBe(false);
     expect(canPlaceAtHeroPosition({ ...towerAt1500, config: sentryConfig })).toBe(true);
+  });
+});
+
+describe('pickWardBuyer', () => {
+  const buyer = (id: number, power: number, gold = 1000, hasRoom = true) => ({
+    id,
+    power,
+    gold,
+    hasRoom,
+  });
+  const supply = { owned: 1, cap: 4, stock: 3, reserve: 0, cost: 50 };
+
+  it('picks the weakest bot that can afford a ward and has room', () => {
+    const buyers = [buyer(1, 300), buyer(2, 100, 10), buyer(3, 200), buyer(4, 50, 1000, false)];
+    expect(pickWardBuyer(buyers, supply)).toBe(3);
+  });
+
+  it('stops buying once the team owns enough wards', () => {
+    expect(pickWardBuyer([buyer(1, 100)], { ...supply, owned: 4 })).toBeUndefined();
+  });
+
+  it('leaves the reserved stock in the shop for players', () => {
+    expect(pickWardBuyer([buyer(1, 100)], { ...supply, stock: 1, reserve: 1 })).toBeUndefined();
+    expect(pickWardBuyer([buyer(1, 100)], { ...supply, stock: 2, reserve: 1 })).toBe(1);
   });
 });

@@ -1,3 +1,4 @@
+import { calculateStatusResistedDuration } from '../../utils/damage-calculation';
 import {
   BaseAbility,
   BaseModifier,
@@ -177,7 +178,7 @@ export class modifier_special_bonus_unique_earthshaker_upgrade extends BaseModif
         const enemyIndex = enemy.GetEntityIndex();
         if (!enemy.IsAlive() || stunnedTargets.indexOf(enemyIndex) !== -1) continue;
 
-        const stunDuration = baseStunDuration * (1 - enemy.GetStatusResistance());
+        const stunDuration = calculateStatusResistedDuration(baseStunDuration, enemy);
         if (stunDuration <= 0) continue;
 
         enemy.AddNewModifier(earthshaker, awaken, 'modifier_stunned', { duration: stunDuration });

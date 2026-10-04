@@ -9,6 +9,7 @@ const input = (overrides: Partial<EngagementInput>): EngagementInput => ({
   wasAvoiding: false,
   joining: false,
   holdGround: false,
+  teamBacked: false,
   ...overrides,
 });
 
@@ -23,6 +24,29 @@ describe('decideStance', () => {
     expect(decideStance(input({ holdGround: true, engaged: false }))).toBe('fight');
     expect(decideStance(input({ holdGround: true, wasAvoiding: true }))).toBe('fight');
     expect(decideStance(input({ holdGround: true, survivalSeconds: 1 }))).toBe('retreat');
+  });
+  it('keeps a fight the team still backs until about to die while the local odds are not hopeless', () => {
+    expect(decideStance(input({ teamBacked: true, enemyPower: 500 }))).toBe('fight');
+    expect(decideStance(input({ teamBacked: true }))).toBe('retreat');
+    expect(decideStance(input({ teamBacked: true, enemyPower: 500, wasAvoiding: true }))).toBe(
+      'fight',
+    );
+    expect(decideStance(input({ teamBacked: true, enemyPower: 500, survivalSeconds: 1 }))).toBe(
+      'retreat',
+    );
+    expect(
+      decideStance(
+        input({ teamBacked: true, enemyPower: 500, survivalSeconds: 1, canEscape: false }),
+      ),
+    ).toBe('lastStand');
+  });
+  it('needs clearly more breathing room to turn back into a fight it just left', () => {
+    const backed = { teamBacked: true, enemyPower: 500, wasAvoiding: true };
+    expect(decideStance(input({ ...backed, survivalSeconds: 4 }))).toBe('retreat');
+    expect(decideStance(input({ ...backed, survivalSeconds: 4, wasAvoiding: false }))).toBe(
+      'fight',
+    );
+    expect(decideStance(input({ ...backed, survivalSeconds: 10 }))).toBe('fight');
   });
 });
 

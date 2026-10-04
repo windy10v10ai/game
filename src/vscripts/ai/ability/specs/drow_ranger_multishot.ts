@@ -6,7 +6,7 @@ export const SPECS: AbilitySpec[] = [
     abilityName: 'drow_ranger_multishot',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      target: { rangeFromAttackRange: true, attackRangeOffset: 400 },
+      target: { rangeFromAttackRange: true, attackRangeOffset: 400, outOfAttackRange: true },
     },
   },
   {

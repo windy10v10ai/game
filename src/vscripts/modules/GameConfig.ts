@@ -1,8 +1,11 @@
 import { ApiClient } from '../api/api-client';
 import { IS_DEBUG_RUN } from './debug/perf-config';
 
+// 与启动器联机开房时给专用服设的服务器名一致
+const LAUNCHER_ROOM_HOSTNAME = 'windy10v10ai-room';
+
 export class GameConfig {
-  public static readonly GAME_VERSION = 'v5.60';
+  public static readonly GAME_VERSION = 'v5.61';
   public static readonly MEMBER_BUYBACK_CD = 120;
   public static readonly PRE_GAME_TIME = 60;
   // 英雄击杀经验系数
@@ -22,7 +25,10 @@ export class GameConfig {
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 10); // 设置天辉队伍人数上限
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 10); // 设置夜魇队伍人数上限
     GameRules.LockCustomGameSetupTeamAssignment(false); // 锁定队伍分配
-    GameRules.EnableCustomGameSetupAutoLaunch(true); // 是否自动开始游戏
+    // 联机开房要等朋友连进来，由房主手动开始
+    const launcherRoom =
+      IsDedicatedServer() && Convars.GetStr('hostname') === LAUNCHER_ROOM_HOSTNAME;
+    GameRules.EnableCustomGameSetupAutoLaunch(!launcherRoom); // 是否自动开始游戏
     GameRules.SetCustomGameSetupAutoLaunchDelay(45); // 游戏设置时间 -30s 为投票时间
     GameRules.SetCustomGameSetupRemainingTime(3); // 游戏设置剩余时间
     // GameRules.SetCustomGameSetupTimeout(3); // 游戏设置阶段超时
