@@ -5,8 +5,8 @@ async function removeIfExists(p) {
   try {
     await fs.promises.rm(p, { recursive: true, force: true });
   } catch (e) {
-    // Best-effort cleanup; do not block deploy flow.
-    console.warn(`[predeploy] Failed to remove ${p}:`, e.message || e);
+    // Best-effort cleanup; do not block publishing.
+    console.warn(`[workshop:prepare] Failed to remove ${p}:`, e.message || e);
   }
 }
 
@@ -25,4 +25,3 @@ async function removeIfExists(p) {
   console.error(error);
   process.exit(1);
 });
-
