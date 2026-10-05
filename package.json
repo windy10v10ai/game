@@ -11,8 +11,6 @@
     "dota:cmd": "node src/scripts/dota-cmd.js",
     "perf": "npm run build:vscripts && node src/scripts/perf.js",
     "bot-anomaly": "node src/scripts/bot-anomaly.js",
-    "predeploy": "npm run build && node src/scripts/deploy.js",
-    "deploy": "node src/scripts/publish.js",
     "build": "run-p build:*",
     "build:panorama": "node --preserve-symlinks node_modules/webpack/bin/webpack.js --config src/panorama/webpack.prod.js",
     "build:vscripts": "tstl --project src/vscripts/tsconfig.json",

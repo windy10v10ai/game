@@ -96,6 +96,12 @@
 						<Panel id="GameLoadingStatusDot" />
 						<Label id="GameLoadingStatusText" class="DisplayOptionsLableTitle" text="#loading_status_1" />
 					</Panel>
+					<!--启动器联机房间：还有谁在进入-->
+					<Panel id="RoomStatusBar">
+						<Panel id="RoomStatusDot" />
+						<Label id="RoomStatusText" class="DisplayOptionsLableTitle" text="" />
+						<Label id="RoomStatusCount" text="" />
+					</Panel>
 				</Panel>
 
 				<!--Start and lock button-->

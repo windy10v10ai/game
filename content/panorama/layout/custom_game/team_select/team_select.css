@@ -95,29 +95,50 @@
   min-height: 100px;
 }
 /* 三种加载状态同一个条形组件，底色、左边线、圆点与文字都取状态色 */
-#GameLoadingStatusBar {
+#GameLoadingStatusBar,
+#RoomStatusBar {
   width: 100%;
   flow-children: right;
   padding: 8px 12px;
 }
-#GameLoadingStatusDot {
+/* 只在启动器联机开房时出现，与数据加载状态是两件独立的事，所以另起一条 */
+#RoomStatusBar {
+  margin-top: 6px;
+  visibility: collapse;
+}
+#RoomStatusBar.Loading,
+#RoomStatusBar.Online,
+#RoomStatusBar.Offline {
+  visibility: visible;
+}
+#RoomStatusCount {
+  margin-left: 10px;
+  vertical-align: center;
+  font-size: 16px;
+  opacity: 0.8;
+}
+#GameLoadingStatusDot,
+#RoomStatusDot {
   width: 7px;
   height: 7px;
   margin-right: 10px;
   vertical-align: center;
   border-radius: 50%;
 }
-#GameLoadingStatusText {
+#GameLoadingStatusText,
+#RoomStatusText {
   width: fill-parent-flow(1);
   vertical-align: center;
   font-size: 18px;
 }
 
-.Loading #GameLoadingStatusBar {
+.Loading #GameLoadingStatusBar,
+#RoomStatusBar.Loading {
   background-color: #fd841f1f;
   border-left: 2px solid #fd841f;
 }
-.Loading #GameLoadingStatusDot {
+.Loading #GameLoadingStatusDot,
+#RoomStatusBar.Loading #RoomStatusDot {
   background-color: #fd841f;
   box-shadow: #fd841f66 0px 0px 3px 1px;
   animation-name: LoadingStatusPulse;
@@ -125,33 +146,43 @@
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
-.Loading #GameLoadingStatusText {
+.Loading #GameLoadingStatusText,
+#RoomStatusBar.Loading #RoomStatusText,
+#RoomStatusBar.Loading #RoomStatusCount {
   color: #fd841f;
 }
 
 /* 绿与离线的灰冷暖相反，在线与离线一眼能分开 */
-.Online #GameLoadingStatusBar {
+.Online #GameLoadingStatusBar,
+#RoomStatusBar.Online {
   background-color: #4caf6a26;
   border-left: 2px solid #4caf6a;
 }
-.Online #GameLoadingStatusDot {
+.Online #GameLoadingStatusDot,
+#RoomStatusBar.Online #RoomStatusDot {
   background-color: #6fcf73;
   box-shadow: #6fcf7366 0px 0px 3px 1px;
 }
-.Online #GameLoadingStatusText {
+.Online #GameLoadingStatusText,
+#RoomStatusBar.Online #RoomStatusText,
+#RoomStatusBar.Online #RoomStatusCount {
   color: #6fcf73;
 }
 
 /* 与个人中心、属性页同款石板色；面板不贴窗口边缘，用左边线代替下边线 */
-.Offline #GameLoadingStatusBar {
+.Offline #GameLoadingStatusBar,
+#RoomStatusBar.Offline {
   background-color: #4a5a6e4d;
   border-left: 2px solid #7a8ca0;
 }
-.Offline #GameLoadingStatusDot {
+.Offline #GameLoadingStatusDot,
+#RoomStatusBar.Offline #RoomStatusDot {
   background-color: #7a8ca0;
   box-shadow: #7a8ca055 0px 0px 3px 1px;
 }
-.Offline #GameLoadingStatusText {
+.Offline #GameLoadingStatusText,
+#RoomStatusBar.Offline #RoomStatusText,
+#RoomStatusBar.Offline #RoomStatusCount {
   color: #d6dee8;
 }
 

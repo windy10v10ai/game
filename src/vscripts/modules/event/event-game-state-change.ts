@@ -6,6 +6,7 @@ import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { GameConfig } from '../GameConfig';
 import { BotOrderProbe } from '../debug/bot-order-probe';
 import { PerfAuto } from '../debug/perf-auto';
+import { WatchLauncherRoom } from '../launcher-room';
 import { IS_DEBUG_RUN } from '../debug/perf-config';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
@@ -28,6 +29,7 @@ export class EventGameStateChange {
         // 设置玩家颜色
         this.setPlayerColor();
       });
+      WatchLauncherRoom();
     } else if (state === GameState.HERO_SELECTION) {
       this.OnHeroSelection();
     } else if (state === GameState.STRATEGY_TIME) {
