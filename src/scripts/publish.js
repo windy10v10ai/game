@@ -8,12 +8,15 @@ const { getDotaPath, getAddonName } = require('./utils');
 const STEAMCMD = 'C:\\App\\steamcmd\\steamcmd.exe';
 const STEAMCMD_CONFIG = 'C:\\App\\steamcmd\\config\\config.vdf';
 const WORKSHOP_ITEM_ID = '2307479570';
+// 测试服是另一个创意工坊条目，先发这里找人实测，不影响正式地图的订阅者
+const TEST_WORKSHOP_ITEM_ID = '2636824668';
 const APP_ID = '570';
 
 function getSteamUsername() {
   const config = fs.readFileSync(STEAMCMD_CONFIG, 'utf8');
   const match = config.match(/"Accounts"\s*\{\s*"([^"]+)"/);
-  if (!match) throw new Error('No cached SteamCMD account found. Run steamcmd.exe +login <username> first.');
+  if (!match)
+    throw new Error('No cached SteamCMD account found. Run steamcmd.exe +login <username> first.');
   return match[1];
 }
 
@@ -24,12 +27,18 @@ function getSteamUsername() {
   const username = getSteamUsername();
   const contentFolder = path.join(dotaPath, 'game', 'dota_addons', getAddonName());
 
-  const changeNote = (process.argv[2] || '').replace(/\\n/g, '\n');
+  const args = process.argv.slice(2);
+  const isTest = args.includes('--test');
+  const itemId = isTest ? TEST_WORKSHOP_ITEM_ID : WORKSHOP_ITEM_ID;
+  const changeNote = (args.find((arg) => arg !== '--test') || '').replace(/\\n/g, '\n');
   if (!changeNote) {
-    console.error('[publish] Error: changenote is required. Usage: npm run deploy -- "Your update notes"');
+    console.error(
+      '[publish] Error: changenote is required. Usage: npm run deploy[:test] -- "Your update notes"',
+    );
     process.exit(1);
   }
 
+  console.log(`[publish] Workshop item: ${itemId}${isTest ? ' (test)' : ''}`);
   console.log(`[publish] Steam account: ${username}`);
   console.log(`[publish] Content folder: ${contentFolder}`);
   console.log(`[publish] Change note: ${changeNote || '(none)'}`);
@@ -38,7 +47,7 @@ function getSteamUsername() {
     '"workshopitem"',
     '{',
     `\t"appid"\t\t"${APP_ID}"`,
-    `\t"publishedfileid"\t"${WORKSHOP_ITEM_ID}"`,
+    `\t"publishedfileid"\t"${itemId}"`,
     `\t"contentfolder"\t"${contentFolder.replace(/\\/g, '\\\\')}"`,
     `\t"changenote"\t"${changeNote.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`,
     '}',
@@ -49,13 +58,14 @@ function getSteamUsername() {
   console.log(`[publish] VDF written to ${vdfPath}`);
 
   try {
-    execSync(
-      `"${STEAMCMD}" +login ${username} +workshop_build_item "${vdfPath}" +quit`,
-      { stdio: 'inherit' }
-    );
+    execSync(`"${STEAMCMD}" +login ${username} +workshop_build_item "${vdfPath}" +quit`, {
+      stdio: 'inherit',
+    });
     console.log('[publish] Workshop item updated successfully.');
   } finally {
-    try { fs.unlinkSync(vdfPath); } catch (_) {}
+    try {
+      fs.unlinkSync(vdfPath);
+    } catch (_) {}
   }
 })().catch((err) => {
   console.error('[publish] Failed:', err.message || err);
