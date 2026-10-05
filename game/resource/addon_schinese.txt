@@ -87,7 +87,7 @@
 		"room_status_entering"			"玩家正在连接：{players}"
 		"room_status_separator"			"，"
 		"room_status_waiting"			"等待其他玩家加入"
-		"room_status_ready"				"加入的玩家都已进入，房主可以点「{button}」"
+		"room_status_ready"				"所有玩家都已进入"
 		"offline_data_hint"				"离线模式，数据截至 {date}。加点、重置属性与觉醒请前往网站操作，下次地图更新后生效。"
 		"end_screen_offline_hint"		"离线模式，本局积分与战绩未记录。"
 		"launcher_promo_title"			"后期卡顿？试试启动器"

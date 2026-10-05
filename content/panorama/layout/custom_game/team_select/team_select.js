@@ -310,10 +310,7 @@ function OnLauncherRoomChange(table, key, value) {
   } else if (alone) {
     $('#RoomStatusText').text = $.Localize('#room_status_waiting');
   } else {
-    $('#RoomStatusText').text = $.Localize('#room_status_ready').replace(
-      '{button}',
-      $.Localize('#custom_game_team_select_lock_start'),
-    );
+    $('#RoomStatusText').text = $.Localize('#room_status_ready');
   }
 }
 

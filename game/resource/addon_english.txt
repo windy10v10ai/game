@@ -87,7 +87,7 @@
 		"room_status_entering"			"Players connecting: {players}"
 		"room_status_separator"			", "
 		"room_status_waiting"			"Waiting for other players to join"
-		"room_status_ready"				"Everyone who joined is in. The host can click {button}."
+		"room_status_ready"				"All players are in"
 		"offline_data_hint"				"Offline mode, data as of {date}. Allocate attribute points, reset attributes, and awaken heroes on the website. Changes apply after the next map update."
 		"end_screen_offline_hint"		"Offline mode. Points and stats from this game were not recorded."
 		"launcher_promo_title"			"Late Game Lag? Try the Launcher"
