@@ -46,5 +46,4 @@
 - 外部 API 调用：`.claude/skills/api-usage/SKILL.md`
 - Dota 文档/API 查询：`.claude/skills/dota-docs-lookup/SKILL.md`
 - 创建 PR：`.claude/skills/create-pr/SKILL.md`，并按要求使用 `.claude/skills/release-note/SKILL.md`
-- 发布到创意工坊（测试服 / 正式服）：`.claude/skills/deploy/SKILL.md`
 - 文档规范沉淀：`.claude/skills/doc-update/SKILL.md`
