@@ -16,7 +16,7 @@ description: 发布地图到 Steam 创意工坊的测试服或正式服。触发
 
 1. **确认发哪个**：用户没说发正式服就是测试服。正式服所有订阅者会立刻收到，发之前先向用户复述中英文更新日志全文（取当前 PR 的 Release Note 段）并等确认
 2. **确认内容**：上传的是本机 `game/dota_addons/<addon>` 目录，也就是当前 checkout 编译后的产物，先确认分支对
-3. **编译与清理**：`npm run workshop:prepare`，编译 VScripts 与 Panorama，并删掉不该进包的 tools 缓存文件。换机器 clone 后还要先用 Dota tools 完整编译一次，否则 Panorama 图片的 `vtex_c` 不在包里（见 `add-image` skill）
+3. **编译**：`npm run build`。换机器 clone 后还要先用 Dota tools 完整编译一次，否则 Panorama 图片的 `vtex_c` 不在包里（见 `add-image` skill）
 4. **发布**：由用户在 Workshop Tools 里发布到对应编号，填写更新说明。需要用 computer use 代点时，先经用户同意
 
 ## 判断是否成功
