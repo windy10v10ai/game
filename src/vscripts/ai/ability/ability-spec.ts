@@ -34,6 +34,8 @@ export interface AbilitySpec {
   abilityName: string;
   targetSide: TargetSide;
   condition?: CastCoindition;
+  /** 控制技能，团队分工据此认定控制型英雄。 */
+  control?: boolean;
   /** 持续施法中提前结束的条件，不写则引导到底。 */
   stopChannel?: {
     /** 该距离内没有敌方英雄时停下，避免对着空地一直引导 */

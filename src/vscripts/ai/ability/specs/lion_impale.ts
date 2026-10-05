@@ -3,17 +3,13 @@ import { AbilitySpec, TargetSide } from '../ability-spec';
 /**
  * 裂地尖刺：UNIT_TARGET / ENEMY / HERO+CREEP。
  *
- * 对英雄无限制；对小兵要求技能 level >= 4（高级才值得用于清兵）。
+ * 伤害高，目标已被控制也照放，让控制重叠，避免对单人玩家无缝连控。
  */
 export const SPECS: AbilitySpec[] = [
   {
     abilityName: 'lion_impale',
     targetSide: TargetSide.EnemyHero,
-    condition: {
-      target: {
-        unitCondition: { notActionable: true },
-      },
-    },
+    control: true,
   },
   {
     abilityName: 'lion_impale',

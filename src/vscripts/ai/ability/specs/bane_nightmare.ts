@@ -9,6 +9,7 @@ export const SPECS: AbilitySpec[] = [
   {
     abilityName: 'bane_nightmare',
     targetSide: TargetSide.EnemyHero,
+    control: true,
     condition: {
       self: { noAllyHeroInRange: 900 },
       target: {

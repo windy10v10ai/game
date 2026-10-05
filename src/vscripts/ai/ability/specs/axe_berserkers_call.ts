@@ -10,6 +10,7 @@ export const SPECS: AbilitySpec[] = [
   {
     abilityName: 'axe_berserkers_call',
     targetSide: TargetSide.EnemyHero,
+    control: true,
     condition: {
       target: {
         unitCondition: { notActionable: true },

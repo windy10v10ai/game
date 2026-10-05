@@ -1303,7 +1303,7 @@ export class TeamBrain {
     };
   }
 
-  /** 会不会控制、能不能范围清兵，都以施法规则为准：跳过已被控目标的算控制，对小兵放的算清兵。 */
+  /** 会不会控制、能不能范围清兵，都以施法规则为准：标为控制的算控制，对小兵放的算清兵。 */
   private RoleOf(hero: CDOTA_BaseNPC_Hero, now: number): { control: boolean; waveClear: boolean } {
     const index = hero.GetEntityIndex();
     const cached = this.roles.get(index);
@@ -1318,7 +1318,7 @@ export class TeamBrain {
         continue;
       }
       for (const spec of AbilityRegistry.get(ability.GetAbilityName()) ?? []) {
-        control = control || spec.condition?.target?.unitCondition?.notActionable === true;
+        control = control || spec.control === true;
         waveClear = waveClear || spec.targetSide === TargetSide.EnemyCreep;
       }
     }
@@ -1328,7 +1328,7 @@ export class TeamBrain {
         continue;
       }
       for (const spec of ItemRegistry.get(item.GetAbilityName()) ?? []) {
-        control = control || spec.condition?.target?.unitCondition?.notActionable === true;
+        control = control || spec.control === true;
       }
     }
     const role = { control, waveClear, until: now + ROLE_CACHE_SECONDS };

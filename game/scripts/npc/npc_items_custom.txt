@@ -2774,7 +2774,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"						"12"
+		"AbilityCooldown"						"15"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2796,7 +2796,7 @@
 				"rate"					"50"
 				"bonus_evasion"		    "20"
 				// actual values
-				"active_sp"				"50"
+				"active_sp"				"40"
 				"active_evasion"		"20"
 				"dur"					"3"
 
@@ -5848,13 +5848,13 @@
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
 			"bonus_all_stats"			"30"	// tooltip only - 全属性
-			"bonus_movement_speed"		"140"	// tooltip only - 移动速度
-			"bonus_movement_speed_pct"	"20"	// tooltip only - 移动速度百分比
+			"bonus_movement_speed"		"120"	// tooltip only - 移动速度
+			"bonus_movement_speed_pct"	"10"	// tooltip only - 移动速度百分比
 			"bonus_turn_rate"			"50"	// tooltip only - 转身速率
 			"bonus_evasion"			"20"	// tooltip only - 闪避
 			// 主动效果（在 Lua 中实现）
-			"active_movement_speed_pct"	"50"
-			"active_duration"			"4"
+			"active_movement_speed_pct"	"40"
+			"active_duration"			"3"
 		}
 	}
 
