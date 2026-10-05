@@ -24,6 +24,8 @@ export interface ItemSpec {
   itemName: string;
   targetSide: TargetSide;
   condition?: CastCoindition;
+  /** 同 AbilitySpec.control */
+  control?: boolean;
   /** 物品在备用栏位（6-8槽）中仍可使用（默认 false）。适用于拾取物。 */
   usableFromBackpack?: boolean;
   /** 不填为 Default */
