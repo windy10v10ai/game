@@ -91,7 +91,7 @@
 		"offline_data_hint"				"Offline mode, data as of {date}. Allocate attribute points, reset attributes, and awaken heroes on the website. Changes apply after the next map update."
 		"end_screen_offline_hint"		"Offline mode. Points and stats from this game were not recorded."
 		"launcher_promo_title"			"Late Game Lag? Try the Launcher"
-		"launcher_promo_desc"			"Run a server on your own PC for a smoother late game. Single-player only."
+		"launcher_promo_desc"			"Run a server on your own PC for a smoother late game. You can also host a room for friends."
 		"local_host_feature_unsupported_hint"		"To keep account data safe, this cannot be done in game. Click to do it on the website."
 		"website_local_host_notice"		"Attribute points, attribute resets, and awakening cannot be done in game. To protect player data, sign in with Steam on the website to do it. Changes apply next game in online mode, or after the next map update in offline mode."
 		"website_open_button"				"Open Website"
