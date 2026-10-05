@@ -72,6 +72,28 @@ git rev-parse --abbrev-ref --symbolic-full-name @{u}
 gh pr create --base develop --title "<英文标题>" --body-file <填充后的模板文件>
 ```
 
+### 界面截图
+
+**只在改了界面时放**（Panorama 布局、样式、玩家能看到的文案），纯逻辑、数值、AI 改动不放。
+
+- **默认只拍中文**；改了界面文案时中、英、俄三种语言各拍一组，确认长文本不溢出、不挤掉旁边的元素
+- 只放改动后的画面，要对比时才放改动前
+- **拍图派子代理，用 `model: "sonnet"`**：起服、等加载、截图、裁图都是固定流程，图片在主会话里来回读很贵。交接里写全要拍的状态、裁剪区域、存放目录（会话 scratchpad），子代理回报文件路径和「有没有溢出、截断、白屏」；主会话只看最终裁好的小图。haiku 判断不了排版问题，不用
+- 本机专用服 + 客户端的启动方式与派子代理的分工见 `dota-live-test` skill；客户端加 `-language english` / `-language russian` 切语言，每种语言单独起一次
+
+图片放 `assets` 孤儿分支的 `pr/<PR 编号>/`，不进 `develop` 源码树。路径里有 PR 编号，所以顺序是**先建 PR，再推图，再 `gh pr edit` 更新正文**：
+
+```bash
+git worktree add --detach <临时目录>/wt-assets origin/assets
+cd <临时目录>/wt-assets && git checkout -B assets origin/assets
+mkdir -p pr/<PR 编号> && cp <图片> pr/<PR 编号>/
+git add -A && git commit -m "Add screenshots for PR #<PR 编号>" && git push origin assets
+```
+
+用完 `git worktree remove <临时目录>/wt-assets --force`。正文用 `https://raw.githubusercontent.com/windy10v10ai/game/assets/pr/<PR 编号>/<名字>.png` 引用，推完先 `curl -o /dev/null -w '%{http_code}'` 确认 200。重拍的图换新文件名，不覆盖旧文件：GitHub 按网址缓存 PR 里的图，同名覆盖后仍显示旧图。
+
+截图放在 `## Checklist` 之前，单独一段 `## Screenshots`。
+
 ### Release Note 三选一
 
 #### 先自行判定是否纯内部改动
