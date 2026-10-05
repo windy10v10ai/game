@@ -48,8 +48,8 @@ declare global {
       loading_status: { status: number; snapshotDate?: string };
     };
     launcher_room: {
-      // 启动器里已连上隧道、还没进入游戏的玩家；loading 为 1 表示正在载入，0 表示还在连接
-      launcher_room: { entering: { name: string; loading: number }[] };
+      // entering 是启动器里还没进入游戏的玩家名，inGame 含主机
+      launcher_room: { entering: string[]; inGame: number; maxPlayers: number };
     };
     server_env: {
       server_env: { is_local_host: number };

@@ -1,4 +1,4 @@
-/** 启动器联机开房：识别这类专用服，并在选队阶段把还在进入的玩家同步给选队界面 */
+/** 启动器联机开房：识别这类专用服，并在选队阶段把房间人数与正在连接的玩家同步给选队界面 */
 
 // 与启动器联机开房时给专用服设的服务器名一致
 const LAUNCHER_ROOM_HOSTNAME = 'windy10v10ai-room';
@@ -7,7 +7,9 @@ const LAUNCHER_ROOM_URL = 'http://127.0.0.1:27080/room';
 const POLL_SECONDS = 2;
 
 interface LauncherRoomResponse {
-  entering?: { name: string; loading: boolean }[];
+  entering?: string[];
+  inGame?: number;
+  maxPlayers?: number;
 }
 
 export function IsLauncherRoom(): boolean {
@@ -32,11 +34,11 @@ export function WatchLauncherRoom(): void {
       } catch {
         return;
       }
-      const entering = (room.entering ?? []).map((player) => ({
-        name: player.name,
-        loading: player.loading ? 1 : 0,
-      }));
-      CustomNetTables.SetTableValue('launcher_room', 'launcher_room', { entering });
+      CustomNetTables.SetTableValue('launcher_room', 'launcher_room', {
+        entering: room.entering ?? [],
+        inGame: room.inGame ?? 0,
+        maxPlayers: room.maxPlayers ?? 0,
+      });
     });
     return POLL_SECONDS;
   });

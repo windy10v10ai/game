@@ -100,6 +100,7 @@
 					<Panel id="RoomStatusBar">
 						<Panel id="RoomStatusDot" />
 						<Label id="RoomStatusText" class="DisplayOptionsLableTitle" text="" />
+						<Label id="RoomStatusCount" text="" />
 					</Panel>
 				</Panel>
 

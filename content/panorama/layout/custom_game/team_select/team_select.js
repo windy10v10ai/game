@@ -289,33 +289,32 @@ function OnGameLoadingStatusChange(table, key, value) {
 }
 
 /**
- * 启动器联机房间的进入状态，只有启动器开房时服务端才会写入
+ * 启动器联机房间的人数与正在连接的玩家，只有启动器开房时服务端才会写入
  */
 function OnLauncherRoomChange(table, key, value) {
   if (!value) return;
   const entering = Object.values(value.entering || {});
+  const connecting = entering.length > 0;
+  // 公开房间不知道还会来多少人，只有主机时用中性的灰色，不暗示可以开始了
+  const alone = !connecting && value.inGame <= 1;
   const bar = $('#RoomStatusBar');
-  bar.SetHasClass('Loading', entering.length > 0);
-  bar.SetHasClass('Online', entering.length === 0);
-  if (entering.length === 0) {
+  bar.SetHasClass('Loading', connecting);
+  bar.SetHasClass('Offline', alone);
+  bar.SetHasClass('Online', !connecting && !alone);
+  $('#RoomStatusCount').text = value.inGame + ' / ' + value.maxPlayers;
+  if (connecting) {
+    $('#RoomStatusText').text = $.Localize('#room_status_entering').replace(
+      '{players}',
+      entering.join($.Localize('#room_status_separator')),
+    );
+  } else if (alone) {
+    $('#RoomStatusText').text = $.Localize('#room_status_waiting');
+  } else {
     $('#RoomStatusText').text = $.Localize('#room_status_ready').replace(
       '{button}',
       $.Localize('#custom_game_team_select_lock_start'),
     );
-    return;
   }
-  const players = entering.map((player) =>
-    $.Localize('#room_status_player')
-      .replace('{name}', player.name)
-      .replace(
-        '{status}',
-        $.Localize(player.loading ? '#room_status_loading' : '#room_status_connecting'),
-      ),
-  );
-  $('#RoomStatusText').text = $.Localize('#room_status_entering').replace(
-    '{players}',
-    players.join($.Localize('#room_status_separator')),
-  );
 }
 
 /**
