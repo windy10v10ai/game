@@ -1566,7 +1566,7 @@
 		"DOTA_Tooltip_ability_omniknight_repel_bonus_str"								"STRENGTH:"
 		"DOTA_Tooltip_ability_omniknight_repel_hp_regen"								"HEALTH REGEN:"
 		"DOTA_Tooltip_modifier_omniknight_repel"										"Heavenly Grace"
-		"DOTA_Tooltip_modifier_omniknight_repel_Description"							"Gaining %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance, %dMODIFIER_PROPERTY_BONUS_STATS_STRENGTH% strength, and %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
+		"DOTA_Tooltip_modifier_omniknight_repel_Description"							"Gaining %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance, %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% strength, and %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
 
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"Increases the target's movement speed and health regeneration, and grants flying movement, allowing them to move over any terrain."
@@ -2170,7 +2170,7 @@
 		"DOTA_Tooltip_modifier_goku_kaioken" 	 "Jiewang Boxing"
 		"DOTA_Tooltip_modifier_goku_kaioken_Description" 	 "Receiving %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed. Attacks have a chance to stun the target and summon an illusion of yourself to attack the target again."
 		"DOTA_Tooltip_modifier_goku_super_saiyan_passive" 	 "Super Saiyan: Potential"
-		"DOTA_Tooltip_modifier_goku_super_saiyan_passive_Description" 	 "Gaining %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% all stats."
+		"DOTA_Tooltip_modifier_goku_super_saiyan_passive_Description" 	 "Gaining %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% Strength, %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% Agility, and %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% Intellect."
 		"DOTA_Tooltip_modifier_goku_super_saiyan" 	 "Super Saiyan: Active"
 		"DOTA_Tooltip_modifier_goku_super_saiyan_Description" 	 "Grants %dMODIFIER_PROPERTY_STATUS_RESISTANCE%%% Status Resistance, and regenerating %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% max mana and %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% max health. All of your basic abilities are far stronger."
 
@@ -2239,7 +2239,7 @@
 		"DOTA_Tooltip_ability_ability_yukari_01_factor"		"REPEAT HIT FACTOR:"
 		"DOTA_Tooltip_ability_ability_yukari_01_speed"  "PROJECTILE SPEED:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04"	"Deep Danmaku Barrier -Transient Dreams-"
-		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"CHANNELED - A large teleportation enchantment is created at the targeted location anywhere on the map. The maximum channel time is %AbilityChannelTime% seconds, and the maximum radius of the enchantment is %max)radius%. No matter how long the channel is and even if interrupted, as soon as the channel ends, Yukari will be teleported to the target location afterwards. \nWhile channeling, several magical barrages are scattered at the target location, damaging surrounding enemy units. The teleportation generates spatial shock, inflicting up to %int_bonus% * Yukari's intelligence as magical damage to all enemy units within %wanbaochui_radius% radius and stunning them for up to %stun_duration% seconds, based on how long the spell was channeled for."
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"CHANNELED - A large teleportation enchantment is created at the targeted location anywhere on the map. The maximum channel time is %AbilityChannelTime% seconds, and the maximum radius of the enchantment is %max_radius%. No matter how long the channel is and even if interrupted, as soon as the channel ends, Yukari will be teleported to the target location afterwards. \nWhile channeling, several magical barrages are scattered at the target location, damaging surrounding enemy units. The teleportation generates spatial shock, inflicting up to %int_bonus% * Yukari's intelligence as magical damage to all enemy units within %wanbaochui_radius% radius and stunning them for up to %stun_duration% seconds, based on how long the spell was channeled for."
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"MAX RADIUS:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"DAMAGE PER INTERVAL:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"INTERVAL:"
@@ -2295,7 +2295,7 @@
 
 		// item_moon_shard_datadriven
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"Moon Shard"
-		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed_Description"		"Permanently granted %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed and %dMODIFIER_PROPERTY_BONUS_DAY_VISION% day and night vision."
+		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed_Description"		"Permanently granted %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_BONUS_DAY_VISION% day vision, and %dMODIFIER_PROPERTY_BONUS_NIGHT_VISION% night vision."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven"								"Moon Shard"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Description"				"<h1>Use: Consume</h1> Consume the Moon Shard to permanently gain %consumed_bonus_attack_speed% attack speed, %consumed_bonus_day_vision% day vision, and %consumed_bonus_night_vision% night vision. Can be consumed multiple times, and stacks with itself.\n<h1>Passive: Shade Sight</h1> Grants %bonus_night_vision% bonus night vision."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_bonus_attack_speed"		"+$attack"
@@ -2725,7 +2725,7 @@
 
 		// item_heavens_halberd_v2 天堂2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"Heaven's Lament"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Heaven's Rage</h1>Disarm all enemy units within %knockback_range% of yourself and knocks them all back.<br>Disarm Duration: %disarm_con_base%s + STR/%disarm_con_per_str% seconds. Max duration is %disarm_con_max% seconds.\n<h1>Passive: Heaven's Wrath</h1>Attacks have a %attch%%% chance of disarming the target. This effect can only be triggered once every 5 seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Heaven's Rage</h1>Disarm all enemy units within %knockback_range% of yourself and knock them back %knockback_distance% units.<br>Disarm Duration: %disarm_con_base%s + STR/%disarm_con_per_str% seconds. Max duration is %disarm_con_max% seconds.\n<h1>Passive: Heaven's Wrath</h1>Attacks have a %attch%%% chance of disarming the target for %disarm% seconds. This effect can only be triggered once every 5 seconds."
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_Lore"							"Behold: Heaven's Arsenal!"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
@@ -2737,7 +2737,7 @@
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Boots"
-		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Fast!</font></h1>Gain %active_sp%%% movement speed for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Fast!</font></h1>Gain %active_sp%%% movement speed and %active_evasion%%% evasion for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"Gotta Go Fast!"
 		"DOTA_Tooltip_ability_item_adi_king_sp"												"+Movement Speed (Stacks)"
 		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
@@ -2751,7 +2751,7 @@
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Boots Plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Faster!</font></h1>Gain %active_sp%%% movement speed for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Faster!</font></h1>Gain %active_sp%%% movement speed and %active_evasion%%% evasion for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"Gotta Go Faster!"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+Movement Speed (Stacks)"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
@@ -2800,7 +2800,7 @@
 		// item_wasp_golden
 		"DOTA_Tooltip_ability_item_wasp_golden"							"<font color='#FFD700'>Golden Wasp</font>"
 		"DOTA_Tooltip_ability_item_wasp_golden_Lore"						"A faint whisper dances around your ears, 'Do you want absolute power?'"
-		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>Active: Overwhelming Tyranny</h1>Critical Chance and Evasion increases to %active_crit_chance%%%, and grants %move_speed%%% Movement Speed, but Critical Damage decreases to %active_crit_multiplier%%%. Lasts for %active_boost_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>Active: Overwhelming Tyranny</h1>Critical Chance increases to %active_crit_chance%%%, Evasion increases to %active_dodge_chance%%%, and grants %move_speed%%% Movement Speed, but Critical Damage decreases to %active_crit_multiplier%%%. Lasts for %active_boost_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_agile"				"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_golden_dodge_chance"				"%+$evasion"
@@ -3289,7 +3289,7 @@
 
 		// item_disperser_chaos 混沌·散魂剑
 		"DOTA_Tooltip_ability_item_disperser_chaos"				"<font color='#80FFF4'>Chaotic</font> Disperser</font>"
-		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>Active: Suppress</h1> Slows the target for %enemy_effect_duration% seconds if they are an enemy or applies a basic dispell and grants bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds if they are an ally. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>Active: Suppress</h1> Slows the target for %enemy_effect_duration% seconds if they are an enemy or applies a basic dispell and grants bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds if they are an ally. Caster is always granted the ally benefit on cast.<br><br>Cast Range: %abilitycastrange%.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"

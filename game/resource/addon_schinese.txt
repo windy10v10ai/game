@@ -1899,7 +1899,7 @@
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_visionrange_down"				"%视野范围降低："
 
 		"DOTA_Tooltip_ability_jack_surgery"														"外科手术"
-		"DOTA_Tooltip_ability_jack_surgery_description"											"被杰克攻击的敌人将会获得解体效果，每层解体都会降低敌人的治疗，生命回复\n每个敌人身上最大解体层数为%max_count%，当达到最大层数时，敌人将受到破坏效果\n敌人失去的属性将会附加给杰克"
+		"DOTA_Tooltip_ability_jack_surgery_description"											"被杰克攻击的敌人将会获得解体效果，每层解体都会降低敌人的治疗，生命回复\n每个敌人身上最大解体层数为%max_count%，当达到最大层数时，敌人将受到%duration%秒的破坏效果\n敌人失去的属性将会附加给杰克"
 		"DOTA_Tooltip_ability_jack_surgery_Lore"												"可以使用沾满血的手术刀为Master以及自己治疗。开膛手杰克的牺牲者是以摘除特定脏器这种需要解剖学知识的方式被杀的。"
 		"DOTA_Tooltip_ability_jack_surgery_duration"											"持续时间："
 		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%每层治疗降低："
@@ -2067,7 +2067,7 @@
 		"DOTA_Tooltip_ability_ability_yukari_01_factor"		"重复命中伤害系数:"
 		"DOTA_Tooltip_ability_ability_yukari_01_speed"	"弹幕飞行速度:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04"	"「深弹幕结界 -梦幻泡影-」"
-		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"以任意位置为目标展开大型的传送结界，八云紫将在引导结束后传送到目标位置。引导时间越长，造成的伤害越大。最大引导时间4秒，结界的范围为750。无论引导多久，只要引导一结束（即使是被打断的），传送就会进行。\n引导期间，目标地点会散射出大量的弹幕，对周围的敌方单位造成伤害，传送完成后产生空间震，根据引导时间对%wanbaochui_radius%范围内的敌方单位造成最多%int_bonus%倍智力的魔法伤害与眩晕。"
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"以任意位置为目标展开大型的传送结界，八云紫将在引导结束后传送到目标位置。引导时间越长，造成的伤害越大。最大引导时间%AbilityChannelTime%秒，结界的范围为%max_radius%。无论引导多久，只要引导一结束（即使是被打断的），传送就会进行。\n引导期间，目标地点会散射出大量的弹幕，对周围的敌方单位造成伤害，传送完成后产生空间震，根据引导时间对%wanbaochui_radius%范围内的敌方单位造成最多%int_bonus%倍智力的魔法伤害，并眩晕最多%stun_duration%秒。"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"结界范围："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"弹幕结界单次伤害："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"弹幕结界伤害间隔："
@@ -2334,7 +2334,7 @@
 
 		// wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"急速之翼"
-		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得 移动速度, 攻击速度, 生命恢复, 魔法恢复加成。"
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE%移动速度，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度，%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%生命恢复和%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%魔法恢复加成。"
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"急速之翼"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>使用：永久升级</h1>消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
@@ -2778,12 +2778,12 @@
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_blue_fantasy_Lore" 								"黄泉之音，闻者命不久矣"
 		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff"  							"残响震荡"
-		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff_Description"  				"装备被禁用，被动技能被禁用，持续驱散增益效果。移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。每秒受到自身4%%的最大生命值的魔法伤害。"
+		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff_Description"  				"装备被禁用，被动技能被禁用，生命恢复和受到的治疗降低%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%，并持续驱散增益效果。移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。每秒受到自身4%%的最大生命值的魔法伤害。"
 
 		// item_wasp_despotic 大核荣耀
 		"DOTA_Tooltip_ability_item_wasp_despotic"					"大核荣耀暴虐"
 		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"黄金大核荣耀被拆分后的产物，代表暴虐的一面。"
-		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>主动：暴虐</h1>%active_boost_duration%秒内致命一击概率为%active_crit_chance%%%，致命一击伤害为%active_crit_multiplier%%%。"
+		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>主动：暴虐</h1>%active_boost_duration%秒内致命一击概率为%active_crit_chance%%%，致命一击伤害为%active_crit_multiplier%%%。\n<h1>被动：致命一击</h1>每次攻击有%crit_chance%%%概率造成%crit_multiplier%%%伤害。"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_chance"		"%致命一击概率:"
@@ -2792,7 +2792,7 @@
 		// item_wasp_callous
 		"DOTA_Tooltip_ability_item_wasp_callous"						"大核荣耀冷酷"
 		"DOTA_Tooltip_ability_item_wasp_callous_Lore"				"黄金大核荣耀被拆分后的产物，代表冷酷的一面。"
-		"DOTA_Tooltip_ability_item_wasp_callous_Description"			"<h1>主动：冷酷</h1>%active_boost_duration%秒内闪避概率为%active_dodge_chance%%%，移动速度提升%move_speed%%%。"
+		"DOTA_Tooltip_ability_item_wasp_callous_Description"			"<h1>主动：冷酷</h1>%active_boost_duration%秒内闪避概率为%active_dodge_chance%%%，移动速度提升%move_speed%%%。\n<h1>被动：致命一击</h1>每次攻击有%crit_chance%%%概率造成%crit_multiplier%%%伤害。"
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_agile"			"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_callous_dodge_chance"		"%+$evasion"
@@ -2803,7 +2803,7 @@
 		// item_wasp_golden
 		"DOTA_Tooltip_ability_item_wasp_golden"							"黄金大核荣耀"
 		"DOTA_Tooltip_ability_item_wasp_golden_Lore"						"似乎有人在你的耳边低语：“你想拥有绝对的力量吗。”"
-		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>主动：大核荣耀</h1>%active_boost_duration%秒内致命一击概率为%active_crit_chance%%%，致命一击伤害为%active_crit_multiplier%%%；闪避概率为%active_dodge_chance%%%，移动速度提升%move_speed%%%。"
+		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>主动：大核荣耀</h1>%active_boost_duration%秒内致命一击概率为%active_crit_chance%%%，致命一击伤害为%active_crit_multiplier%%%，闪避概率为%active_dodge_chance%%%，移动速度提升%move_speed%%%。\n<h1>被动：致命一击</h1>每次攻击有%crit_chance%%%概率造成%crit_multiplier%%%伤害。"
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_agile"				"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_golden_dodge_chance"				"%+$evasion"
@@ -3295,7 +3295,7 @@
 
 		// item_disperser_chaos 混沌·散魂剑
 		"DOTA_Tooltip_ability_item_disperser_chaos"							"<font color='#FF4500'>混沌·散魂剑</font>"
-		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>主动：抑制</h1>若目标是敌军，会被减速%enemy_effect_duration%秒，若目标是友军则会提升移动速度，施加弱驱散效果并且无法被减速，持续%ally_effect_duration%秒。施法者总是会获得友军的加成效果。<br><br>移动速度减缓和提升效果在状态持续时间内初始均为%phase_movement_speed%%%，并且逐渐减少至0。<br><br>施法距离：%abilitycastrange%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：破法</h1>每次攻击将燃烧目标%feedback_mana_burn%点魔法，而且每燃烧一点魔法都会造成%damage_per_burn%点物理伤害。<br><br>近战英雄的幻象每次攻击将燃烧%feedback_mana_burn_illusion_melee%点魔法。远程英雄的幻象每次攻击将燃烧%feedback_mana_burn_illusion_ranged%点魔法。"
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>主动：抑制</h1>若目标是敌军，会被减速%enemy_effect_duration%秒，若目标是友军则会提升移动速度，施加弱驱散效果并获得%slow_resist%%%减速抗性，持续%ally_effect_duration%秒。施法者总是会获得友军的加成效果。<br><br>移动速度减缓和提升效果在状态持续时间内初始均为%phase_movement_speed%%%，并且逐渐减少至0。<br><br>施法距离：%abilitycastrange%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：破法</h1>每次攻击将燃烧目标%feedback_mana_burn%点魔法，而且每燃烧一点魔法都会造成%damage_per_burn%点物理伤害。<br><br>近战英雄的幻象每次攻击将燃烧%feedback_mana_burn_illusion_melee%点魔法。远程英雄的幻象每次攻击将燃烧%feedback_mana_burn_illusion_ranged%点魔法。"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"
@@ -3385,7 +3385,7 @@
 
 		// 禁忌战刃
 		"DOTA_Tooltip_Ability_item_forbidden_blade"										"<font color='#8B008B'>禁忌战刃</font>"
-		"DOTA_Tooltip_ability_item_forbidden_blade_Description"							"<h1><font color='#8B008B'>主动：忌炼杀狱</font></h1>在目标区域施放忌炼杀狱,对%radius%范围内所有敌人施放一闪，闪电风暴和毁灭终曲。<br><br>一闪眩晕时间：%stun_duration%秒<br>一闪伤害：%active_damage_base%+%active_damage_multi%x[你的主属性](纯粹伤害)<br>闪电风暴伤害：%lightning_damage%<br>毁灭终曲持续时间：%mute_duration%秒<br><br>作用范围：%radius%"
+		"DOTA_Tooltip_ability_item_forbidden_blade_Description"							"<h1><font color='#8B008B'>主动：忌炼杀狱</font></h1>在目标区域施放忌炼杀狱,对目标区域内所有敌人施放一闪，闪电风暴和毁灭终曲。<br><br>一闪眩晕时间：%stun_duration%秒<br>一闪伤害：%active_damage_base%+%active_damage_multi%x[你的主属性](纯粹伤害)<br>闪电风暴伤害：%lightning_damage%<br>毁灭终曲持续时间：%mute_duration%秒<br><br>作用范围：%radius%"
 		"DOTA_Tooltip_ability_item_forbidden_blade_Lore"								"禁忌之刃,斩断一切。"
 		"DOTA_Tooltip_ability_item_forbidden_blade_Note0"								"一闪效果造成纯粹伤害,无视魔法免疫。"
 		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_strength"						"+$str"

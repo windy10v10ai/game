@@ -51,7 +51,7 @@ function parse(language) {
 }
 
 function placeholders(value) {
-  return (value.match(/%[A-Za-z0-9_]+%|%s|\{[A-Za-z0-9_]+\}/g) || []).sort();
+  return (value.match(/%[A-Za-z0-9_]+%|%s|\{[A-Za-z0-9_]+\}|\$[A-Za-z0-9_]+/g) || []).sort();
 }
 
 function tags(value) {
@@ -113,17 +113,25 @@ for (const file of files) {
   }
 }
 
-const commonKeys = files[0].entries
-  .map((entry) => entry.key)
-  .filter((key) => files.every((file) => file.byKey.has(key)));
-for (const key of commonKeys) {
-  const expected = placeholders(files[0].byKey.get(key)[0].value);
-  for (const file of files.slice(1)) {
-    const actual = placeholders(file.byKey.get(key)[0].value);
+const allKeys = new Set(files.flatMap((file) => file.entries.map((entry) => entry.key)));
+for (const key of allKeys) {
+  const translations = files
+    .filter((file) => file.byKey.has(key))
+    .map((file) => ({ language: file.language, value: file.byKey.get(key)[0].value }));
+  if (translations.length < 2) continue;
+
+  const expected = placeholders(translations[0].value);
+  for (const translation of translations.slice(1)) {
+    const actual = placeholders(translation.value);
     if (!sameMultiset(expected, actual)) {
       errors.push(
-        `${key}: placeholder mismatch (schinese: ${expected.join(', ') || 'none'}; ${file.language}: ${actual.join(', ') || 'none'})`,
+        `${key}: placeholder mismatch (${translations
+          .map(
+            (current) => `${current.language}: ${placeholders(current.value).join(', ') || 'none'}`,
+          )
+          .join('; ')})`,
       );
+      break;
     }
   }
 }
