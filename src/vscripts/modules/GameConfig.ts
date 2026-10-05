@@ -1,8 +1,6 @@
 import { ApiClient } from '../api/api-client';
 import { IS_DEBUG_RUN } from './debug/perf-config';
-
-// 与启动器联机开房时给专用服设的服务器名一致
-const LAUNCHER_ROOM_HOSTNAME = 'windy10v10ai-room';
+import { IsLauncherRoom } from './launcher-room';
 
 export class GameConfig {
   public static readonly GAME_VERSION = 'v5.61';
@@ -26,9 +24,7 @@ export class GameConfig {
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 10); // 设置夜魇队伍人数上限
     GameRules.LockCustomGameSetupTeamAssignment(false); // 锁定队伍分配
     // 联机开房要等朋友连进来，由房主手动开始
-    const launcherRoom =
-      IsDedicatedServer() && Convars.GetStr('hostname') === LAUNCHER_ROOM_HOSTNAME;
-    GameRules.EnableCustomGameSetupAutoLaunch(!launcherRoom); // 是否自动开始游戏
+    GameRules.EnableCustomGameSetupAutoLaunch(!IsLauncherRoom()); // 是否自动开始游戏
     GameRules.SetCustomGameSetupAutoLaunchDelay(45); // 游戏设置时间 -30s 为投票时间
     GameRules.SetCustomGameSetupRemainingTime(3); // 游戏设置剩余时间
     // GameRules.SetCustomGameSetupTimeout(3); // 游戏设置阶段超时

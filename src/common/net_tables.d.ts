@@ -47,6 +47,10 @@ declare global {
       // snapshotDate 为离线快照导出日期（YYYY-MM-DD），仅在读取快照时下发
       loading_status: { status: number; snapshotDate?: string };
     };
+    launcher_room: {
+      // 启动器里已连上隧道、还没进入游戏的玩家；loading 为 1 表示正在载入，0 表示还在连接
+      launcher_room: { entering: { name: string; loading: number }[] };
+    };
     server_env: {
       server_env: { is_local_host: number };
     };

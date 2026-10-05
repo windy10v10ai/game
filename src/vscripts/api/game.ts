@@ -167,12 +167,14 @@ export class Game {
         // CustomNetTables.SetTableValue('ending_status', 'ending_status', {
         //   status: 2,
         // });
+        // 启动器联机房间靠这行日志判断结算已结束，改写法要同步启动器
         print(`[Game] end game callback data ${data}`);
       },
       failureFunc: (data: string) => {
         // CustomNetTables.SetTableValue('ending_status', 'ending_status', {
         //   status: 3,
         // });
+        // 启动器联机房间靠这行日志判断结算已结束，改写法要同步启动器
         print(`[Game] end game callback data ${data}`);
       },
     };

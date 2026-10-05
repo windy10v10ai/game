@@ -289,6 +289,36 @@ function OnGameLoadingStatusChange(table, key, value) {
 }
 
 /**
+ * 启动器联机房间的进入状态，只有启动器开房时服务端才会写入
+ */
+function OnLauncherRoomChange(table, key, value) {
+  if (!value) return;
+  const entering = Object.values(value.entering || {});
+  const bar = $('#RoomStatusBar');
+  bar.SetHasClass('Loading', entering.length > 0);
+  bar.SetHasClass('Online', entering.length === 0);
+  if (entering.length === 0) {
+    $('#RoomStatusText').text = $.Localize('#room_status_ready').replace(
+      '{button}',
+      $.Localize('#custom_game_team_select_lock_start'),
+    );
+    return;
+  }
+  const players = entering.map((player) =>
+    $.Localize('#room_status_player')
+      .replace('{name}', player.name)
+      .replace(
+        '{status}',
+        $.Localize(player.loading ? '#room_status_loading' : '#room_status_connecting'),
+      ),
+  );
+  $('#RoomStatusText').text = $.Localize('#room_status_entering').replace(
+    '{players}',
+    players.join($.Localize('#room_status_separator')),
+  );
+}
+
+/**
  * 根据地图名字，设置难度选择
  */
 function SetDifficultyByMapName() {
@@ -541,6 +571,12 @@ function OnGameDifficultyChoiceChange(_table, key, value) {
     null,
     'loading_status',
     CustomNetTables.GetTableValue('loading_status', 'loading_status'),
+  );
+  CustomNetTables.SubscribeNetTableListener('launcher_room', OnLauncherRoomChange);
+  OnLauncherRoomChange(
+    null,
+    'launcher_room',
+    CustomNetTables.GetTableValue('launcher_room', 'launcher_room'),
   );
   CustomNetTables.SubscribeNetTableListener('game_difficulty', OnGameDifficultyChoiceChange);
 
