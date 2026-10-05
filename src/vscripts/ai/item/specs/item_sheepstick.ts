@@ -10,6 +10,7 @@ export const SPECS: ItemSpec[] = [
     itemName: 'item_sheepstick',
     priority: ItemPriority.Control,
     targetSide: TargetSide.EnemyHero,
+    control: true,
     condition: { target: { unitCondition: { notActionable: true } } },
   },
   {

@@ -9,6 +9,7 @@ export const SPECS: AbilitySpec[] = [
   {
     abilityName: 'shadow_shaman_voodoo',
     targetSide: TargetSide.EnemyHero,
+    control: true,
     condition: {
       target: {
         unitCondition: { notActionable: true },

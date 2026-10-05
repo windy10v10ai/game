@@ -34,10 +34,7 @@ export interface AbilitySpec {
   abilityName: string;
   targetSide: TargetSide;
   condition?: CastCoindition;
-  /**
-   * 控制技能但允许叠在已有控制上放，团队分工仍按控制型英雄算。
-   * 跳过已被控目标的规则本身就算控制，不必再标。
-   */
+  /** 控制技能，团队分工据此认定控制型英雄。 */
   control?: boolean;
   /** 持续施法中提前结束的条件，不写则引导到底。 */
   stopChannel?: {

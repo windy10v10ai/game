@@ -4,10 +4,9 @@
  */
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { AbilityRegistry } from '../ability/ability-registry';
-import { AbilitySpec, TargetSide } from '../ability/ability-spec';
+import { TargetSide } from '../ability/ability-spec';
 import { HeroUtil } from '../hero/hero-util';
 import { ItemRegistry } from '../item/item-registry';
-import { ItemSpec } from '../item/item-spec';
 import { CachedBuildings, CachedOutposts, CachedTowers, TowerAttackRange } from './building-cache';
 import { arcSlots, FORMATION_SPACING, lineSlots } from './formation';
 import { shouldUseGlyph } from './glyph';
@@ -1304,7 +1303,7 @@ export class TeamBrain {
     };
   }
 
-  /** 会不会控制、能不能范围清兵，都以施法规则为准：标为控制或跳过已被控目标的算控制，对小兵放的算清兵。 */
+  /** 会不会控制、能不能范围清兵，都以施法规则为准：标为控制的算控制，对小兵放的算清兵。 */
   private RoleOf(hero: CDOTA_BaseNPC_Hero, now: number): { control: boolean; waveClear: boolean } {
     const index = hero.GetEntityIndex();
     const cached = this.roles.get(index);
@@ -1319,7 +1318,7 @@ export class TeamBrain {
         continue;
       }
       for (const spec of AbilityRegistry.get(ability.GetAbilityName()) ?? []) {
-        control = control || IsControlSpec(spec);
+        control = control || spec.control === true;
         waveClear = waveClear || spec.targetSide === TargetSide.EnemyCreep;
       }
     }
@@ -1329,7 +1328,7 @@ export class TeamBrain {
         continue;
       }
       for (const spec of ItemRegistry.get(item.GetAbilityName()) ?? []) {
-        control = control || IsControlSpec(spec);
+        control = control || spec.control === true;
       }
     }
     const role = { control, waveClear, until: now + ROLE_CACHE_SECONDS };
@@ -1606,10 +1605,6 @@ function RoshanDamageTaken(unit: CDOTA_BaseNPC): number | undefined {
   }
   const stacks = unit.FindAllModifiersByName('modifier_roshan_buff').length;
   return 1 + (buff.GetSpecialValueFor('damage_reduction') * stacks) / 100;
-}
-
-function IsControlSpec(spec: AbilitySpec | ItemSpec): boolean {
-  return spec.control === true || spec.condition?.target?.unitCondition?.notActionable === true;
 }
 
 /** 已学的主动技能与身上的主动物品里，现在能放的比例；不区分技能强弱。 */

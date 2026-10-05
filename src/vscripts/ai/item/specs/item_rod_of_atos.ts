@@ -7,6 +7,7 @@ export const SPECS: ItemSpec[] = [
     itemName: 'item_rod_of_atos',
     priority: ItemPriority.Control,
     targetSide: TargetSide.EnemyHero,
+    control: true,
     condition: {
       target: {
         unitCondition: { notActionable: true, noModifier: ['modifier_rod_of_atos_debuff'] },
