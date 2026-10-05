@@ -262,11 +262,11 @@
 		"data_panel_player_property_skill_points_bonus_tooltip"	"Герой будет получать этот эффект каждые 4 уровня, вплоть до максимального уровня."
 		"data_panel_player_property_except_tooltip"				"Герой получает этот эффект на 1-м уровне."
 
-		"data_panel_player_property_value"				"Значение"
-		"data_panel_player_property_level"				"Уровень"
-		"data_panel_player_property_level_up"			"+1 уровень"
-		"data_panel_player_property_level_up_X"			"Улучшить за X очков"
-		"data_panel_player_property_level_up_to_X"		"До уровня X"
+		"data_panel_player_property_value"				"Знач."
+		"data_panel_player_property_level"				"Ур."
+		"data_panel_player_property_level_up"			"+1 ур."
+		"data_panel_player_property_level_up_X"			"За X очков"
+		"data_panel_player_property_level_up_to_X"		"До ур. X"
 
 		///////////////////////////////////////////////////
 		//
@@ -304,7 +304,7 @@
 		//			改键 Key Bindings
 		//
 		///////////////////////////////////////////////////
-		"key_bind"												"Настройка клавиш"
+		"key_bind"												"Клавиши"
 		"key_bind_collapsed"									"Свернуть"
 		"key_bind_placeholder"									"Клавиша"
 		"key_bind_mouseover_tooltop"							"Нажмите, чтобы назначить клавишу способности.<br>Если клавиши конфликтуют или не работают, переподключитесь к игре и назначьте их снова."
@@ -344,13 +344,13 @@
 		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Выбранный герой</font>: потратьте <font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>доступных боевых очков</font> или <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>доступных очков подписки</font>, чтобы навсегда пробудить выбранного героя.<br><font color='#FFD24A'>Случайный розыгрыш</font>: заплатите вдвое меньше — <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>доступных боевых очков</font> или <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>доступных очков подписки</font> — и пробудите одного из 3 случайных героев.<br>Тратятся только доступные очки. Общие очки лишь растут, поэтому боевой уровень, уровень подписки и очки атрибутов не уменьшатся. Постоянное пробуждение нельзя отменить. Даже если способность позже усилят, ослабят или переработают, пробуждение героя сохранится."
 		"awaken_unlock_button"				"Пробудить"
 		"awaken_unlocked_label"				"Пробуждён"
-		"awaken_free_trial_badge"			"БЕСПЛАТНО"
+		"awaken_free_trial_badge"			"Даром"
 		"awaken_free_trial_tooltip"			"Новое пробуждение бесплатно на ограниченное время. Выберите этого героя, и пробуждение применится автоматически."
 		"awaken_unlock_tooltip_insufficient"	"Недостаточно доступных очков."
 		"awaken_unlock_confirm_desc"		"Выберите очки для траты,<br>чтобы навсегда пробудить этого героя?"
 		"awaken_pay_member_button"			"{cost}<br>доступных очков подписки"
 		"awaken_pay_season_button"			"{cost}<br>доступных боевых очков"
-		"awaken_random_title"				"Случайное пробуждение"
+		"awaken_random_title"				"Случайно"
 		"awaken_random_button"				"Розыгрыш"
 		"awaken_random_select_button"		"Выбрать"
 		"awaken_random_candidates_title"	"Выберите героя для пробуждения навсегда (вдвое дешевле)"
