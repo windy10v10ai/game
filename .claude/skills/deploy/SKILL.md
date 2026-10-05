@@ -40,4 +40,4 @@ computer use 的坑：Dota 主窗口常常压在 Workshop Manager 上面，误�
 ## 判断是否成功
 
 - 上传窗口弹出「物品已成功更新至 Steam 创意工坊」
-- Steam 之后会把条目下载到 `C:\Program Files (x86)\Steam\steamapps\workshop\contentŸ\<编号>\`，正常的条目只有 `<编号>.vpk` 和 `publish_data.txt` 两个文件；看到散开的 `maps/`、`scripts/` 等目录，说明是用错误方式上传的，地图会打不开。Dota 开着的时候 Steam 不一定立刻重新下载，重启 Steam 或进游戏前再核对
+- Steam 之后会把条目下载到 `C:\Program Files (x86)\Steam\steamapps\workshop\content\570\<编号>\`，正常的条目只有 `<编号>.vpk` 和 `publish_data.txt` 两个文件；看到散开的 `maps/`、`scripts/` 等目录，说明是用错误方式上传的，地图会打不开。Dota 开着的时候 Steam 不一定立刻重新下载，重启 Steam 或进游戏前再核对
