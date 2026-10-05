@@ -51,3 +51,7 @@ description: 发布地图到 Steam 创意工坊，默认发测试服。触发：
 ## computer use 的坑
 
 Dota 主窗口常压在 Workshop Manager 上，点到主窗口会弹商城广告。在 Asset Browser 里再点一次 Steam 图标，就能把 Workshop Manager 叫回前面。
+
+## 别人的电脑还是旧版
+
+发布成功后，有的电脑上 Steam 的条目信息会过期：`appworkshop_570.acf` 里该编号的 `latest_manifest` 仍是旧值，删图、重新订阅都只会重下旧版，启动器照样提示不是最新版。让对方关掉 Dota，在浏览器打开 `steam://open/console`，输入 `workshop_download_item 570 <编号>` 回车，Steam 会直接拉最新版；下完重开启动器。
