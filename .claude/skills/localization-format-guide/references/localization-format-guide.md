@@ -225,7 +225,8 @@ $.Localize("#my_new_key");
 ## 文件格式
 
 - 格式：Valve KeyValues
-- 编码：UTF-8 with BOM
+- 编码：UTF-8 无 BOM
+- 行尾：CRLF
 
 ## 相关文件
 

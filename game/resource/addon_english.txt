@@ -7,11 +7,11 @@
 		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
 		"DOTA_SHARD"			"Battle Points"
 
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		//
-		// 					Options
+		//			选项 Options
 		//
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		"addon_option_title"		"Game Options"
 		"addon_option_title_br"		""
 
@@ -33,8 +33,6 @@
 
 		"radiant_player_number"		"Radiant Player Count"
 		"dire_player_number"		"Dire Player Count"
-		"confirm_game_options"		"Confirm and Hide Game Options"
-		"show_game_options"			"Show Game Options"
 		"respawn_time_percentage"	"Respawn Time"
 		"max_level"					"Max Level"
 		"tower_power"				"Tower Power"
@@ -59,21 +57,10 @@
 		"respawn_time_percentage_0"						"Instant (Game crash prone)"
 
 		"fixed_ability_none"							"None"
-		"fixed_ability_ability_trigger_on_attacked_name"	"Butterfly Effect - Gold"
-		"fixed_ability_ability_trigger_on_move_name"		"Butterfly Effect - Orange"
-		"fixed_ability_ability_trigger_on_cast_name"		"Butterfly Effect - Red"
-		"fixed_ability_ability_trigger_learned_skills_name"	"Butterfly Effect - Blue"
-		"fixed_ability_ability_trigger_on_active_name"		"Butterfly Effect - Purple"
 		"fixed_ability_ability_trigger_on_spell_reflect_name"	"Butterfly Effect - Green"
 		"fixed_ability_ability_charge_damage_name"			"Butterfly Effect - Cyan"
 
-		// link面板
-		"anime_version_button"			"Anime Version"
-		"dota_survivor_button"			"Also check out: Dota Survivor"
-		"join_qq"						"Click to join the QQ"
-		"join_discord"					"Click to join the Discord"
-
-		// 右侧面板
+		// 难度选择
 		"game_difficulty_choice"		"Choose a difficulty:"
 		"game_preset_remember"			"Save difficulty settings"
 		"custom_game_vote"				"Time to Vote:"
@@ -81,6 +68,11 @@
 		"map_hard_warning"				"Current map cannot select this difficulty. <br>To select N6, N7 or N8 difficulty, please select the 'hard' map before starting the game."
 		"map_custom_warning"			"Current map cannot select this difficulty. <br>To select Custom difficulty, please select the 'custom' map before starting the game."
 
+		///////////////////////////////////////////////////
+		//
+		//			加载状态 Loading
+		//
+		///////////////////////////////////////////////////
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
 		"loading_status_2"				"Online mode. Player data loaded successfully."
 		"loading_status_3"				"Offline mode. Points and stats from this game will not be recorded.\nAttributes, awakening and membership use data as of {date}."
@@ -89,19 +81,37 @@
 		"room_status_waiting"			"Waiting for other players to join"
 		"room_status_ready"				"All players are in"
 		"offline_data_hint"				"Offline mode, data as of {date}. Allocate attribute points, reset attributes, and awaken heroes on the website. Changes apply after the next map update."
-		"end_screen_offline_hint"		"Offline mode. Points and stats from this game were not recorded."
+
+		///////////////////////////////////////////////////
+		//
+		//			启动器与网站 Launcher & Website
+		//
+		///////////////////////////////////////////////////
+		// 启动器
 		"launcher_promo_title"			"Late Game Lag? Try the Launcher"
 		"launcher_promo_desc"			"Run a server on your own PC for a smoother late game"
 		"launcher_promo_multiplayer"		"Multiplayer"
+		"launcher_download_button"			"Download Launcher"
+
+		// 网站
 		"local_host_feature_unsupported_hint"		"To keep account data safe, this cannot be done in game. Click to do it on the website."
 		"website_local_host_notice"		"Attribute points, attribute resets, and awakening cannot be done in game. To protect player data, sign in with Steam on the website to do it. Changes apply next game in online mode, or after the next map update in offline mode."
 		"website_open_button"				"Open Website"
-		"launcher_download_button"			"Download Launcher"
 		"website_open_property_button"		"Manage on Website"
 		"website_open_awaken_button"		"Awaken on Website"
 		"player_info_refresh"				"Refresh"
 
-		// FAQ
+		// 相关链接
+		"anime_version_button"			"Anime Version"
+		"dota_survivor_button"			"Also check out: Dota Survivor"
+		"join_qq"						"Click to join the QQ"
+		"join_discord"					"Click to join the Discord"
+
+		///////////////////////////////////////////////////
+		//
+		//			常见问题 FAQ
+		//
+		///////////////////////////////////////////////////
 		"loading_faq_players_instant_revive_question"	"What tends to cause the game to lag?"
 		"loading_faq_players_instant_revive_answer"		"More than six players, too many illusions or summoned units on the field, or enabling extreme Custom mode settings like instant revive can significantly increase server load and cause lag."
 		"loading_faq_illusions_summons_question"		"Some illusion and summon abilities have been weakened or removed."
@@ -127,11 +137,11 @@
 		"loading_faq_dota_hotkeys_question"		"How do I use traditional Dota hotkeys?"
 		"loading_faq_dota_hotkeys_answer"		"Change the “Disable per unit hotkeys during Custom Games” option in the Dota 2 settings."
 
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		//
-		//            Scoreboard/End Screen
+		//			计分板与结算 Scoreboard & End Screen
 		//
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		"scoreboard_tool_tip_mute_player"	"Mute"
 		"scoreboard_tool_tip_share_unit"	"Share Units"
 		"scoreboard_tool_tip_share_hero"	"Share Hero"
@@ -143,8 +153,8 @@
 		"custom_end_screen_victory_message"	"Radiant Victory!"
 		"custom_end_screen_lose_message"	"Dire Victory!"
 
-		"player_multiplier"	"Player Multiplier"
-		"bot_multiplier"	"Bot Multiplier"
+		"player_multiplier"		"Player Multiplier"
+		"bot_multiplier"		"Bot Multiplier"
 
 		"custom_end_screen_tower_kills"		"Towers"
 		"custom_end_screen_control_time"		"Control"
@@ -155,21 +165,18 @@
 		"conduct_point_light_penalty_tooltip"	"Conduct <font color='#FFA726'>{0}</font> penalty, points ×0.8"
 		"conduct_point_heavy_penalty_tooltip"	"Conduct <font color='#E87D7D'>{0}</font> penalty, points ×0.5"
 
-		"ending_status_1"				"Please do not end the game while game data is uploading."
-		"ending_status_2"				"Game data uploaded successfully!"
-		"ending_status_3"				"Game data upload failed! This could be because cheats were enabled, or the game was not on a dedicated server."
+		"end_screen_offline_hint"		"Offline mode. Points and stats from this game were not recorded."
 
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		//
-		//            Hero Debug Panel
+		//			英雄调试面板 Hero Debug Panel
 		//
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		"SpawnUnits_ButtonCategory"					"Spawn"
 		"EditUnits_ButtonCategory"					"Edit Selected Units"
 		"Global_ButtonCategory"						"Global"
 		"AHD_SpawnToTeam_2"							"To Team: 1"
 		"AHD_SpawnToTeam_3"							"To Team: 2"
-		"DummyTarget_Button"						"+ Dummy Target"
 		"LevelUpSelectedHeroes_Button"				"Up+Gold"
 		"MaxLevelUpSelectedHeroes_Button"			"Max+Gold"
 		"ScepterSelectedHeroes_Button"				"Scepter"
@@ -186,19 +193,16 @@
 		"MoveToCoord_Button"						"Move to Coord"
 		"SpawnTreasure_Button"						"Spawn Chest"
 		"FreeSpells_Button"							"Free Spells"
-		"Refresh_Button"							"Refresh"
 		"ToggleDayNight_Button"						"Toggle Day/Night"
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
 		///////////////////////////////////////////////////
 		//
-		//            Data panel
+		//			数据面板 Data Panel
 		//
 		///////////////////////////////////////////////////
 		"data_panel_button"				"Home"
-		"data_panel_member_point_total"	"Member Points (Total)"
-		"data_panel_season_point_total"	"Battle Points (Total)"
 		"data_panel_member_point"		"Member Points (Usable/Total)"
 		"data_panel_season_point"		"Battle Points (Usable/Total)"
 		"data_panel_property_point"		"Attribute Points (Usable/Total)"
@@ -225,7 +229,7 @@
 		"data_panel_player_property_label"		"Spend Attribute Points to upgrade your hero. Upgrades are permanent and persist between games."
 		"data_panel_player_property_label_2"		"Points cannot be spent on locally hosted games. Please play on a dedicated server to spend points."
 		"data_panel_player_property_label_3"		"One level of the attribute will take effect every 2 hero levels, unless otherwise noted."
-		"data_panel_player_property_label_3_tooltip"		"Hero will gain effects progressively at levels 2, 4, 6, 8, 10, 12, 14, and 16, up to the maximum upgrade level unlocked.<br>For example, if you added 2 levels into Cast Range at +50, all heroes you play will gain +25 cast range at level 2, then +50 cast range at level 4."
+		"data_panel_player_property_label_3_tooltip"		"Hero will gain effects progressively at levels 2, 4, 6, 8, 10, 12, 14, and 16, up to the maximum upgrade level unlocked.<br>For example, if you added 2 levels into Cast Range at +50, all heroes you play will gain +25 cast range at level 2, then +50 cast range at level 4.<br>Some attributes are exceptions."
 
 		"data_panel_player_property_cooldown_percentage"		"Cooldown (%)"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
@@ -266,7 +270,7 @@
 
 		///////////////////////////////////////////////////
 		//
-		//			Lottery Item/Ability
+		//			抽奖 Lottery
 		//
 		///////////////////////////////////////////////////
 		"lottery_expand"										"Expand"
@@ -275,7 +279,6 @@
 		"lottery_passive_ability_title"							"Select passive ability"
 
 		"lottery_tooltip_ability_refresh"						"Members can reroll abilities once for free."
-		"lottery_tooltip_ability_refresh_used"					"Ability has been rerolled."
 		"lottery_tooltip_ability_refresh_picked"				"Ability has been selected."
 		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll abilities once per game. Click this button to open the membership page in your browser."
 		"lottery_tooltip_ability_refresh_paid"					"Spend <font color='#FFD700'>{cost}</font> usable points to reroll<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
@@ -283,7 +286,6 @@
 		"lottery_tooltip_ability_refresh_insufficient"			"Not enough usable points. Click to open the membership page."
 
 		"lottery_tooltip_item_refresh"							"Premium members can reroll items once for free."
-		"lottery_tooltip_item_refresh_used"						"Items have been rerolled."
 		"lottery_tooltip_item_refresh_not_premium"				"Premium members can reroll items. Click to open the membership page."
 		"lottery_tooltip_item_refresh_paid"						"Spend <font color='#FFD700'>{cost}</font> usable points to reroll items<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
 		"lottery_tooltip_item_refresh_limit"					"No available rerolls left.<br>Remaining available rerolls: 0"
@@ -294,6 +296,14 @@
 		"lottery_tooltip_ability_reset_no_count"				"No ability reset charges available"
 		"lottery_tooltip_ability_reset_not_picked"				"No ability picked for this row"
 
+		"lottery_item_header"									"Pick Your Treasure"
+		"lottery_passive_tome_header"							"Choose a Passive Ability"
+
+		///////////////////////////////////////////////////
+		//
+		//			改键 Key Bindings
+		//
+		///////////////////////////////////////////////////
 		"key_bind"												"Key Bind"
 		"key_bind_collapsed"									"Collapse"
 		"key_bind_placeholder"									"Hotkey"
@@ -305,36 +315,29 @@
 		"key_bind_clear_tooltip"								"Clears all hotkeys and quick cast settings.<br>Keys already bound this game stay active until you reconnect."
 		"key_bind_inventory_slot_tooltip"					"Inventory slot %s hotkey. Unlock the slot with the Inventory Expansion Tome before using its item."
 
-		"lottery_item_header"									"Pick Your Treasure"
-		"lottery_passive_tome_header"							"Choose a Passive Ability"
 		///////////////////////////////////////////////////
 		//
-		//			Member
+		//			通用 Common
 		//
 		///////////////////////////////////////////////////
-		"player_member_ship"				"Click to enable your membership."
-		"player_member_null"				"Membership information failed to load. Please reload a new game."
-
-		///////////////////////////////////////////////////
-		//
-		//			pointInfo
-		//
-		///////////////////////////////////////////////////
+		"player_member_ship"			"Click to enable your membership."
 		"point_header_text"				"Notice"
 
 		///////////////////////////////////////////////////
 		//
-		//			profile
+		//			个人资料 Profile
 		//
 		///////////////////////////////////////////////////
 		"profile_title"					"Profile"
 		"profile_tab_stats"				"Stats"
 		"profile_tab_awaken"			"Awaken"
-		"profile_tab_member"					"Member"
+		"profile_tab_member"			"Member"
 		"profile_point_season_tooltip"		"Usable Battle Points: spend on permanent hero awakening.<br>Total Battle Points: determines Battle Level and attribute points. Only ever goes up — spending never lowers it."
 		"profile_point_member_tooltip"		"Usable Member Points: spend on permanent hero awakening, lottery refresh, and more.<br>Total Member Points: determines Member Level and attribute points. Only ever goes up — spending never lowers it."
 		"profile_point_useable_prefix"		"Usable"
 		"profile_point_total_fmt"			"/ Total {n}"
+
+		// 觉醒
 		"awaken_intro_title"				"Awakening Stone"
 		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form for this match only.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one."
 		"awaken_unlock_intro_title"			"Permanent Awaken"
@@ -345,7 +348,6 @@
 		"awaken_free_trial_tooltip"			"New awakening free trial. Pick this hero and the awakening applies automatically."
 		"awaken_unlock_tooltip_insufficient"	"Not enough usable points."
 		"awaken_unlock_confirm_desc"		"Choose the points to spend<br>to permanently awaken this hero?"
-		"awaken_unlock_confirm_button"		"Confirm"
 		"awaken_pay_member_button"			"{cost}<br>usable Member Points"
 		"awaken_pay_season_button"			"{cost}<br>usable Battle Points"
 		"awaken_random_title"				"Random Awaken"
@@ -358,11 +360,10 @@
 		"awaken_random_card_desc"			"Half cost<br>random 1 of 3"
 		"awaken_random_candidates_desc"		"Spend <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>usable Member Points</font>.<br>Awaken one of these 3 randomly drawn heroes."
 
-		// Stat Tab UI
+		// 战绩
 		"profile_stat_games"			"Games"
 		"profile_stat_winrate"			"Win Rate"
 		"profile_stat_conduct"			"Conduct Score"
-		"profile_stat_coming_soon"		"More features coming soon"
 		"profile_stat_lifetime_kills"		"Kills"
 		"profile_stat_lifetime_deaths"		"Deaths"
 		"profile_stat_lifetime_assists"		"Assists"
@@ -378,37 +379,37 @@
 		"profile_stat_conduct_tooltip"	"Conduct Score reflects your in-game behavior. Default 100, cap 120.<br><br><b>Score changes</b><br>• Finish a game: <font color='#7FD47F'>+1</font> (only below 100)<br>• Early disconnect: <font color='#E87D7D'>-10</font> (solo / all quit doesn't count)<br>• Commended <font color='#7FD47F'>+2</font> / Reported <font color='#E87D7D'>-2</font> (same player counts at most once per week)<br><br><b>End-game points multiplier</b> (team games only)<br>• <font color='#7FD47F'>≥110</font>: ×1.1<br>• 80–109: ×1.0<br>• <font color='#F5A623'>60–79</font>: ×0.8<br>• <font color='#E87D7D'>&lt;60</font>: ×0.5"
 		"profile_stat_conduct_net_tooltip"	"Total Commends minus Total Reports"
 
-		// Member Tab UI
-		"member_button_tooltip_active"			"Membership enable. Click to view details."
-		"member_button_tooltip_inactive"		"Membership inactive. Click to view details."
-		"member_subtab_status"					"Member Status"
-		"member_subtab_subscribe"				"Subscribe"
-		"member_subtab_points"					"Buy Points"
-		"member_status_premium"					"Premium Member"
-		"member_status_normal"					"Normal Member"
-		"member_status_none"					"Not a Member"
-		"member_status_card_click_hint"			"Click to subscribe"
-		"member_benefit_click_hint_premium"		"Click to unlock Premium Member benefits"
-		"member_status_expired"					"Expired"
-		"member_expire_date"					"Valid until: {expireDate}"
-		"member_expired_date"					"Expired on {expireDate}"
-		"member_benefit_title_all"				"Premium Member Benefits"
-		"member_benefit_title_base"				"Member Benefits"
-		"member_benefit_title_premium"			"Premium Exclusive Benefits"
-		"member_benefit_revive"					"Respawn time reduced by 5 seconds"
-		"member_benefit_buyback"				"Buyback cooldown reduced to 2 minutes"
-		"member_benefit_reroll"					"Reroll active/passive abilities once at game start"
-		"member_benefit_daily_exp"				"Earn 100 Member Points on first login each day (resets at 00:00 UTC)"
-		"member_benefit_8pick"					"Ability draft expanded to 8 choices; 2 extra abilities have a higher chance of being high-tier"
-		"member_benefit_gold_cap"				"Unlock the 99999 in-game gold cap"
-		"member_benefit_item_refresh"			"Reroll treasure box item lottery once per box"
-		"member_benefit_exp_normal"				"Instantly earn 300 Member Points per subscription"
-		"member_benefit_exp_premium"			"Instantly earn 1000 Member Points per subscription"
-		"member_benefit_buff"					"Member exclusive stats: +10 Attack Damage, +5% Ability Amplification, +300 HP, +200 MP"
-		"member_steam_id"						"Dota2 Friend ID: "
-		"member_steam_id_select_hint"			"(select to copy)"
-		"member_subscribe_hint"					"For Afdian or Ko-fi, fill in your Friend ID above in the order remark, not required for Alipay."
-		"member_subscribe_title"				"Subscribe Premium"
+		// 会员
+		"member_button_tooltip_active"		"Membership enable. Click to view details."
+		"member_button_tooltip_inactive"	"Membership inactive. Click to view details."
+		"member_subtab_status"			"Member Status"
+		"member_subtab_subscribe"		"Subscribe"
+		"member_subtab_points"			"Buy Points"
+		"member_status_premium"			"Premium Member"
+		"member_status_normal"			"Normal Member"
+		"member_status_none"			"Not a Member"
+		"member_status_card_click_hint"		"Click to subscribe"
+		"member_benefit_click_hint_premium"	"Click to unlock Premium Member benefits"
+		"member_status_expired"			"Expired"
+		"member_expire_date"			"Valid until: {expireDate}"
+		"member_expired_date"			"Expired on {expireDate}"
+		"member_benefit_title_all"		"Premium Member Benefits"
+		"member_benefit_title_base"		"Member Benefits"
+		"member_benefit_title_premium"	"Premium Exclusive Benefits"
+		"member_benefit_revive"			"Respawn time reduced by 5 seconds"
+		"member_benefit_buyback"		"Buyback cooldown reduced to 2 minutes"
+		"member_benefit_reroll"			"Reroll active/passive abilities once at game start"
+		"member_benefit_daily_exp"		"Earn 100 Member Points on first login each day (resets at 00:00 UTC)"
+		"member_benefit_8pick"			"Ability draft expanded to 8 choices; 2 extra abilities have a higher chance of being high-tier"
+		"member_benefit_gold_cap"		"Unlock the 99999 in-game gold cap"
+		"member_benefit_item_refresh"	"Reroll treasure box item lottery once per box"
+		"member_benefit_exp_normal"		"Instantly earn 300 Member Points per subscription"
+		"member_benefit_exp_premium"	"Instantly earn 1000 Member Points per subscription"
+		"member_benefit_buff"			"Member exclusive stats: +10 Attack Damage, +5% Ability Amplification, +300 HP, +200 MP"
+		"member_steam_id"				"Dota2 Friend ID: "
+		"member_steam_id_select_hint"	"(select to copy)"
+		"member_subscribe_hint"			"For Afdian or Ko-fi, fill in your Friend ID above in the order remark, not required for Alipay."
+		"member_subscribe_title"		"Subscribe Premium"
 		"member_subscribe_normal_upgrade_hint"	"You are a Normal Member. Remaining time will be converted at 0.6x when upgrading to Premium."
 		"member_platform_alipay"				"Alipay"
 		"member_platform_alipay_desc"			"Scan to Pay in CNY"
@@ -418,41 +419,32 @@
 		"member_platform_kofi_desc"				"Global Users · Pay in USD"
 		"member_platform_subscribe_btn"			"Subscribe "
 		"member_platform_subscribe_month"		"/Month"
-		"member_shop_divider"					"Already a member? Buy Experience to level up faster"
-		"member_shop_title"						"Buy Member Points"
-		"member_other_payment"					"Other Payment Methods"
-		"member_activate"						"Manual Activate"
-		"member_activate_tooltip"				"Only needed if you forgot to enter your Friend ID or entered it incorrectly. Once activated, your account is saved and future subscriptions activate automatically."
-		"member_refresh"						"Refresh Membership & Points"
-		"member_alipay_dialog_title"			"Alipay QR Payment"
-		"member_alipay_status_creating"			"Creating order..."
-		"member_alipay_status_waiting"			"Scan with Alipay to pay"
-		"member_alipay_status_success"			"Payment successful! Membership activated"
-		"member_alipay_status_paid_title"		"Membership Activated"
-		"member_subscribe_paid_title"			"Membership Activated: {duration}"
-		"member_points_paid_title"				"{n} Membership Points Received"
-		"member_alipay_status_closed"			"Order closed, please retry"
-		"member_alipay_status_failed"			"Order failed, please retry"
-		"member_alipay_status_error"			"Network error, please try again"
-		"member_alipay_status_rate_limited"		"Too many requests, please try again next match"
-		"member_alipay_amount_label"			"Amount"
-		"member_alipay_subject_label"			"Item"
-		"member_alipay_retry"					"Retry"
-		"member_alipay_close"					"Close"
-		"member_alipay_cancel"					"Cancel"
-		"member_alipay_discount_fmt"			"Save {n}%"
-		"member_alipay_tier_month_fmt"			"{n} Months"
-		"member_alipay_tier_year_fmt"			"{n} Years"
-		"member_points_title"				"Buy Membership Points"
-		"member_points_usage_hint"			"Membership points are used to raise your membership level and boost your hero attributes."
-		"member_points_amount_fmt"			"{n} Points"
-		"member_points_save_fmt"			"Save ¥{n}"
+		"member_shop_divider"			"Already a member? Buy Experience to level up faster"
+		"member_shop_title"				"Buy Member Points"
+		"member_other_payment"			"Other Payment Methods"
+		"member_activate"				"Manual Activate"
+		"member_activate_tooltip"		"Only needed if you forgot to enter your Friend ID or entered it incorrectly. Once activated, your account is saved and future subscriptions activate automatically."
+		"member_refresh"				"Refresh Membership & Points"
+		"member_alipay_status_creating"		"Creating order..."
+		"member_alipay_status_waiting"		"Scan with Alipay to pay"
+		"member_alipay_status_paid_title"	"Membership Activated"
+		"member_subscribe_paid_title"		"Membership Activated: {duration}"
+		"member_points_paid_title"			"{n} Membership Points Received"
+		"member_alipay_status_closed"		"Order closed, please retry"
+		"member_alipay_status_failed"		"Order failed, please retry"
+		"member_alipay_status_error"		"Network error, please try again"
+		"member_alipay_status_rate_limited"	"Too many requests, please try again next match"
+		"member_alipay_retry"				"Retry"
+		"member_alipay_close"				"Close"
+		"member_alipay_discount_fmt"		"Save {n}%"
+		"member_alipay_tier_month_fmt"		"{n} Months"
+		"member_alipay_tier_year_fmt"		"{n} Years"
+		"member_points_title"			"Buy Membership Points"
+		"member_points_usage_hint"		"Membership points are used to raise your membership level and boost your hero attributes."
+		"member_points_amount_fmt"		"{n} Points"
+		"member_points_save_fmt"		"Save ¥{n}"
 
-		///////////////////////////////////////////////////
-		//
-		//			DailyTask
-		//
-		///////////////////////////////////////////////////
+		// 每日任务
 		"profile_tab_dailytask"			"Tasks"
 		"dailytask_header_title"			"My Daily Tasks"
 		"dailytask_header_subtitle"			"Choose your task for round {round}/{total}"
@@ -862,7 +854,7 @@
 		"DOTA_Tooltip_ability_magnataur_horn_toss2_stun_duration"   			        "STUN DURATION:"
 		//虚空  回到过去
 		"DOTA_Tooltip_ability_faceless_void_backtrack2"				"Backtrack"
-		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"Gain a %backtrack_per_level%%% chance to completely dodge an instance of incoming damage."
+		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"Gain a %dodge_chance_pct%%% chance to completely dodge an instance of incoming damage."
 		//腾焰斗篷
 		"DOTA_Tooltip_ability_lina_flame_cloak2"										"Flame Cloak"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"									"A natural defense equally suited to keeping anything from unwanted sisters to snarling hellbeasts at bay."
@@ -1572,7 +1564,7 @@
 		"DOTA_Tooltip_ability_omniknight_repel_bonus_str"								"STRENGTH:"
 		"DOTA_Tooltip_ability_omniknight_repel_hp_regen"								"HEALTH REGEN:"
 		"DOTA_Tooltip_modifier_omniknight_repel"										"Heavenly Grace"
-		"DOTA_Tooltip_modifier_omniknight_repel_Description"							"Gaining %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance, %dMODIFIER_PROPERTY_BONUS_STATS_STRENGTH% strength, and %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
+		"DOTA_Tooltip_modifier_omniknight_repel_Description"							"Gaining %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance, %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% strength, and %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
 
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"Increases the target's movement speed and health regeneration, and grants flying movement, allowing them to move over any terrain."
@@ -2176,7 +2168,7 @@
 		"DOTA_Tooltip_modifier_goku_kaioken" 	 "Jiewang Boxing"
 		"DOTA_Tooltip_modifier_goku_kaioken_Description" 	 "Receiving %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed. Attacks have a chance to stun the target and summon an illusion of yourself to attack the target again."
 		"DOTA_Tooltip_modifier_goku_super_saiyan_passive" 	 "Super Saiyan: Potential"
-		"DOTA_Tooltip_modifier_goku_super_saiyan_passive_Description" 	 "Gaining %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% all stats."
+		"DOTA_Tooltip_modifier_goku_super_saiyan_passive_Description" 	 "Gaining %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% Strength, %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% Agility, and %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% Intellect."
 		"DOTA_Tooltip_modifier_goku_super_saiyan" 	 "Super Saiyan: Active"
 		"DOTA_Tooltip_modifier_goku_super_saiyan_Description" 	 "Grants %dMODIFIER_PROPERTY_STATUS_RESISTANCE%%% Status Resistance, and regenerating %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% max mana and %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% max health. All of your basic abilities are far stronger."
 
@@ -2245,7 +2237,7 @@
 		"DOTA_Tooltip_ability_ability_yukari_01_factor"		"REPEAT HIT FACTOR:"
 		"DOTA_Tooltip_ability_ability_yukari_01_speed"  "PROJECTILE SPEED:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04"	"Deep Danmaku Barrier -Transient Dreams-"
-		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"CHANNELED - A large teleportation enchantment is created at the targeted location anywhere on the map. The maximum channel time is %AbilityChannelTime% seconds, and the maximum radius of the enchantment is %max)radius%. No matter how long the channel is and even if interrupted, as soon as the channel ends, Yukari will be teleported to the target location afterwards. \nWhile channeling, several magical barrages are scattered at the target location, damaging surrounding enemy units. The teleportation generates spatial shock, inflicting up to %int_bonus% * Yukari's intelligence as magical damage to all enemy units within %wanbaochui_radius% radius and stunning them for up to %stun_duration% seconds, based on how long the spell was channeled for."
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"CHANNELED - A large teleportation enchantment is created at the targeted location anywhere on the map. The maximum channel time is %AbilityChannelTime% seconds, and the maximum radius of the enchantment is %max_radius%. No matter how long the channel is and even if interrupted, as soon as the channel ends, Yukari will be teleported to the target location afterwards. \nWhile channeling, several magical barrages are scattered at the target location, damaging surrounding enemy units. The teleportation generates spatial shock, inflicting up to %int_bonus% * Yukari's intelligence as magical damage to all enemy units within %wanbaochui_radius% radius and stunning them for up to %stun_duration% seconds, based on how long the spell was channeled for."
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"MAX RADIUS:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"DAMAGE PER INTERVAL:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"INTERVAL:"
@@ -2301,7 +2293,7 @@
 
 		// item_moon_shard_datadriven
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"Moon Shard"
-		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed_Description"		"Permanently granted %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed and %dMODIFIER_PROPERTY_BONUS_DAY_VISION% day and night vision."
+		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed_Description"		"Permanently granted %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_BONUS_DAY_VISION% day vision, and %dMODIFIER_PROPERTY_BONUS_NIGHT_VISION% night vision."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven"								"Moon Shard"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Description"				"<h1>Use: Consume</h1> Consume the Moon Shard to permanently gain %consumed_bonus_attack_speed% attack speed, %consumed_bonus_day_vision% day vision, and %consumed_bonus_night_vision% night vision. Can be consumed multiple times, and stacks with itself.\n<h1>Passive: Shade Sight</h1> Grants %bonus_night_vision% bonus night vision."
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_bonus_attack_speed"		"+$attack"
@@ -2731,7 +2723,7 @@
 
 		// item_heavens_halberd_v2 天堂2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"Heaven's Lament"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Heaven's Rage</h1>Disarm all enemy units within %knockback_range% of yourself and knocks them all back.<br>Disarm Duration: %disarm_con_base%s + STR/%disarm_con_per_str% seconds. Max duration is %disarm_con_max% seconds.\n<h1>Passive: Heaven's Wrath</h1>Attacks have a %attch%%% chance of disarming the target. This effect can only be triggered once every 5 seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Heaven's Rage</h1>Disarm all enemy units within %knockback_range% of yourself and knock them back %knockback_distance% units.<br>Disarm Duration: %disarm_con_base%s + STR/%disarm_con_per_str% seconds. Max duration is %disarm_con_max% seconds.\n<h1>Passive: Heaven's Wrath</h1>Attacks have a %attch%%% chance of disarming the target for %disarm% seconds. This effect can only be triggered once every 5 seconds."
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_Lore"							"Behold: Heaven's Arsenal!"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
@@ -2743,7 +2735,7 @@
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Boots"
-		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Fast!</font></h1>Gain %active_sp%%% movement speed for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Fast!</font></h1>Gain %active_sp%%% movement speed and %active_evasion%%% evasion for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"Gotta Go Fast!"
 		"DOTA_Tooltip_ability_item_adi_king_sp"												"+Movement Speed (Stacks)"
 		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
@@ -2757,7 +2749,7 @@
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Boots Plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Faster!</font></h1>Gain %active_sp%%% movement speed for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Faster!</font></h1>Gain %active_sp%%% movement speed and %active_evasion%%% evasion for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"Gotta Go Faster!"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+Movement Speed (Stacks)"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
@@ -2806,7 +2798,7 @@
 		// item_wasp_golden
 		"DOTA_Tooltip_ability_item_wasp_golden"							"<font color='#FFD700'>Golden Wasp</font>"
 		"DOTA_Tooltip_ability_item_wasp_golden_Lore"						"A faint whisper dances around your ears, 'Do you want absolute power?'"
-		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>Active: Overwhelming Tyranny</h1>Critical Chance and Evasion increases to %active_crit_chance%%%, and grants %move_speed%%% Movement Speed, but Critical Damage decreases to %active_crit_multiplier%%%. Lasts for %active_boost_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>Active: Overwhelming Tyranny</h1>Critical Chance increases to %active_crit_chance%%%, Evasion increases to %active_dodge_chance%%%, and grants %move_speed%%% Movement Speed, but Critical Damage decreases to %active_crit_multiplier%%%. Lasts for %active_boost_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_agile"				"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_golden_dodge_chance"				"%+$evasion"
@@ -2824,7 +2816,6 @@
 		// item_shotgun_v2
 		"DOTA_Tooltip_ability_item_shotgun_v2"							"Bullet-Filled Shotgun"
 		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>Passive: Greater Scatterblast (Ranged only)</h1>Deals %attack_percent%%% splash damage to enemies within %attack_radius% radius around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
-		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_shotgun_v2_lore"						"Aim? What's that?"
@@ -3296,7 +3287,7 @@
 
 		// item_disperser_chaos 混沌·散魂剑
 		"DOTA_Tooltip_ability_item_disperser_chaos"				"<font color='#80FFF4'>Chaotic</font> Disperser</font>"
-		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>Active: Suppress</h1> Slows the target for %enemy_effect_duration% seconds if they are an enemy or applies a basic dispell and grants bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds if they are an ally. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>Active: Suppress</h1> Slows the target for %enemy_effect_duration% seconds if they are an enemy or applies a basic dispell and grants bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds if they are an ally. Caster is always granted the ally benefit on cast.<br><br>Cast Range: %abilitycastrange%.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"
