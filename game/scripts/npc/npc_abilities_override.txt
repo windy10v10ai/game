@@ -12134,13 +12134,24 @@
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"40 35 30 25 20"	// 42 34 26 18 差值-5 末档≥20
 		"AbilityManaCost"				"120 130 140 150 160"
+		"AbilityCastRange"				"1200"	// 1000
 		"AbilityValues"
 		{
+			"count"
+			{
+				"value"						"4"	// 6
+				"special_bonus_unique_warlock_fatal_bonds_count"	"+2"	// +5
+			}
 			"damage_share_percentage"
 			{
-				"value"						"16 18 20 20 24"	// 15 18 21 24 差值+2 末档≤24
+				"value"						"24 27 30 33 36"	// 15 18 21 24
 			}
-			"duration"						"15"	// 18
+			"duration"						"10"	// 18
+			"search_aoe"
+			{
+				"value"						"550"	// 700
+				"affected_by_aoe_increase"	"0"	// 1
+			}
 		}
 	}
 	// 暗言术
