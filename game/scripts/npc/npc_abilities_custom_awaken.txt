@@ -239,7 +239,6 @@
 			"axe_damage"
 			{
 				"value"							"80 160 240 320 400"
-				"special_bonus_unique_beastmaster_awaken"	"+100"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"damage_amp"

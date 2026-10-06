@@ -805,7 +805,6 @@
 			"axe_damage"
 			{
 				"value"					"80 160 240 320 400"	// 40 80 120 160 x2
-				"special_bonus_unique_beastmaster_awaken"	"+100"
 			}
 			"damage_amp"
 			{
@@ -885,14 +884,14 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_ms"					"150"	// 15 x10 现在是25级天赋
+			"bonus_ms"					"100"
 		}
 	}
 	"special_bonus_unique_beastmaster_6"
 	{
 		"AbilityValues"
 		{
-			"bonus_hp"				"2000"		// 250 x8 现在是25级天赋
+			"bonus_hp"				"1500"
 		}
 	}
 	// 野性之心（先天技能）
