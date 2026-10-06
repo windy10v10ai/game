@@ -12139,8 +12139,8 @@
 		{
 			"count"
 			{
-				"value"						"5"	// 6
-				"special_bonus_unique_warlock_fatal_bonds_count"	"+3"	// +5
+				"value"						"4"	// 6
+				"special_bonus_unique_warlock_fatal_bonds_count"	"+2"	// +5
 			}
 			"damage_share_percentage"
 			{
