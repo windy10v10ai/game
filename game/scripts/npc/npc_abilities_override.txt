@@ -7802,8 +7802,8 @@
 	"terrorblade_sunder"
 	{
 		"MaxLevel" "4"
-		"AbilityManaCost"				"100 75 50 25"
-		"AbilityCastRange"				"900 1100 1300 1500"	// 475
+		"AbilityManaCost"				"150 175 200 225"	// 100 75 50
+		"AbilityCastRange"				"900 1000 1100 1200"	// 475
 		"AbilityValues"
 		{
 			"hit_point_minimum_pct"
@@ -7814,6 +7814,7 @@
 			"AbilityCooldown"
 			{
 				"value"				"60.0 50.0 40.0 30.0"	// 110.0 75.0 40.0
+				"special_bonus_unique_terrorblade"	"-25"	// -30
 			}
 		}
 	}

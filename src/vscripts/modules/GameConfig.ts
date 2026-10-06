@@ -96,7 +96,33 @@ export class GameConfig {
       GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(3);
       GameRules.SetPreGameTime(5); // 进入游戏后号角吹响前的准备时间
+      this.PickDebugLaunchHero();
     }
+  }
+
+  // 由 `npm run launch -- --hero <英雄名>` 写入，仅工具模式读取
+  // 工具模式下 SetCustomGameForceHero 会让进程在选英雄阶段退出，只能在选英雄阶段代玩家选定
+  private PickDebugLaunchHero() {
+    if (!IsInToolsMode()) return;
+    const requireFn = (_G as unknown as { require: (this: void, name: string) => unknown }).require;
+    const [ok, config] = pcall(requireFn, 'debug_launch_config');
+    if (!ok) return;
+    const hero = (config as { hero?: string }).hero;
+    if (hero === undefined) return;
+    ListenToGameEvent(
+      'game_rules_state_change',
+      () => {
+        if (GameRules.State_Get() !== GameState.HERO_SELECTION) return;
+        for (let playerId = 0 as PlayerID; playerId < DOTA_MAX_TEAM_PLAYERS; playerId++) {
+          if (!PlayerResource.IsValidPlayerID(playerId) || PlayerResource.IsFakeClient(playerId)) {
+            continue;
+          }
+          PlayerResource.GetPlayer(playerId)?.SetSelectedHero(hero);
+          print(`[GameConfig] 调试指定玩家英雄 ${playerId} ${hero}`);
+        }
+      },
+      undefined,
+    );
   }
 
   // 自建专用服没有大厅推进状态，自定义游戏会一直停在 INIT；游廊的大厅在玩家连入前就已推进，INIT 判断不会误触发

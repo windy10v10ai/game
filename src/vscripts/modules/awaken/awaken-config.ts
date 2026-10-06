@@ -18,6 +18,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 恐怖利刃 觉醒
+  {
+    heroName: 'npc_dota_hero_terrorblade',
+    newAbility: 'terrorblade_sunder_awakened_status',
+    newLevel: 1,
+  },
   // 赏金猎人 觉醒
   {
     heroName: 'npc_dota_hero_bounty_hunter',
@@ -288,6 +294,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_terrorblade', // 恐怖利刃
   'npc_dota_hero_bounty_hunter', // 赏金猎人
   'npc_dota_hero_nyx_assassin', // 司夜刺客
   'npc_dota_hero_beastmaster', // 兽王

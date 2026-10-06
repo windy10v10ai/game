@@ -89,6 +89,8 @@ $dota = "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\win6
 
 `-condebug` 把输出写到 `<dota>/game/dota/console.log`，`-conclearlog` 每次启动清空该文件，避免跨会话累积。`-netconport` 打开远程控制台，供 `npm run dota:cmd` 发命令（`npm run launch` 已带上）。`+dota_launch_custom_game` 让地图自动加载，不需要点任何按钮。
 
+要以指定英雄测试时改用 `npm run launch -- --hero <英雄名>`（不带 `npc_dota_hero_` 前缀），开局直接为玩家选定该英雄；不带 `--hero` 启动会清掉上次的指定。没有中途换英雄的命令：替换英雄不预载资源，也不会重建各模块记录的英雄状态。
+
 完成判据：`console.log` 出现且体积在涨。
 
 ### 4. 触发要验的流程

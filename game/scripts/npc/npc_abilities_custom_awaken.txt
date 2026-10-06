@@ -5,6 +5,21 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 恐怖利刃 魂断觉醒
+	"terrorblade_sunder_awakened_status"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/terrorblade_sunder_awakened_status"
+		"AbilityTextureName"			"terrorblade_sunder"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"auto_trigger_health_pct"		"30"
+		}
+	}
+
 	// 赏金猎人 追踪术觉醒
 	// 数值仅供技能面板显示，须与 Dota2 原版数值 + npc_abilities_override.txt 差分之后的内容保持一致
 	"bounty_hunter_track_awaken"

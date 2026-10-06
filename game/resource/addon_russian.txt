@@ -794,6 +794,13 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// 恐怖利刃 魂断觉醒
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Пробуждённый Sunder</font>"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_SummaryDescription"	"Автоматически применяет Sunder по вражескому герою с наибольшим процентом здоровья при низком здоровье, даже под контролем."
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_Description"		"При здоровье ниже <font color='#FFFFFF'><b>30%%</b></font> <font color='#FF0000'>автоматически</font> применяет Sunder по вражескому герою с наибольшим процентом здоровья в радиусе действия.<br><font color='#FF0000'>Срабатывает даже под оглушением, безмолвием, превращением в барана и другим контролем.</font><br>Требует, чтобы Sunder был готов к использованию и хватало маны; не срабатывает, если ни у одного вражеского героя процент здоровья не выше вашего."
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Пробуждённый Sunder</font>"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status_Description"		"При здоровье ниже <font color='#FFFFFF'><b>30%%</b></font> <font color='#FF0000'>автоматически</font> применяет Sunder по вражескому герою с наибольшим процентом здоровья в радиусе действия.<br><font color='#FF0000'>Срабатывает даже под оглушением, безмолвием, превращением в барана и другим контролем.</font><br>Требует, чтобы Sunder был готов к использованию и хватало маны; не срабатывает, если ни у одного вражеского героя процент здоровья не выше вашего."
+
 		// 司夜刺客 钻地觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"					"<font color='#d000ff'>Пробуждённое Закапывание</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"Nyx Assassin может свободно передвигаться с обычной скоростью в состоянии Burrow, сохраняя все остальные эффекты способности."

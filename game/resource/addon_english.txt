@@ -1268,6 +1268,13 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 恐怖利刃 魂断觉醒
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Sunder Awakened</font>"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_SummaryDescription"	"Automatically casts Sunder on the highest-health enemy hero when low on health, even while disabled."
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_Description"		"Below <font color='#FFFFFF'><b>30%%</b></font> health, <font color='#FF0000'>automatically</font> casts Sunder on the enemy hero with the highest health percentage within cast range.<br><font color='#FF0000'>Still triggers while stunned, silenced, hexed, or otherwise disabled.</font><br>Requires Sunder to be off cooldown with enough mana; does not trigger if no enemy hero's health percentage is higher than your own."
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Sunder Awakened</font>"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status_Description"		"Below <font color='#FFFFFF'><b>30%%</b></font> health, <font color='#FF0000'>automatically</font> casts Sunder on the enemy hero with the highest health percentage within cast range.<br><font color='#FF0000'>Still triggers while stunned, silenced, hexed, or otherwise disabled.</font><br>Requires Sunder to be off cooldown with enough mana; does not trigger if no enemy hero's health percentage is higher than your own."
+
 		// 赏金猎人 追踪术觉醒
 		"DOTA_Tooltip_ability_bounty_hunter_track_awaken"							"<font color='#d000ff'>Track Awakened</font>"
 		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_Description"				"Tracks an enemy hero, granting True Sight of the target, increasing the damage they take and providing information on how much gold it is carrying. If the target dies, Bounty Hunter and nearby heroes collect a bonus bounty of gold.<br><br><font color='#00CED1'>AUTOCAST:</font> When enabled, casts automatically whenever an enemy hero is within cast range, prioritizing heroes that are not yet tracked.<br><font color='#d000ff'>AWAKENED:</font> After Track is cast, Bounty Hunter also throws a Shuriken Toss of its current level at the target. This Shuriken ignores cast range and does not trigger its cooldown, but costs Shuriken Toss's mana. It is not thrown if Shuriken Toss is unlearned or mana is insufficient."

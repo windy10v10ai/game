@@ -26,7 +26,6 @@ export enum CMD {
   BOT_THINKING_DISABLE = '-btd', // 开启/关闭 bot
 
   // ---- 当前英雄相关 ----
-  REPLACE_HERO = '-rh', // 替换当前英雄
   /** 重置当前英雄技能 */
   RESET_ABILITY = '-resetAbility',
   REFRESH_BUYBACK = '-refreshBuyback',
