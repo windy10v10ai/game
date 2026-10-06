@@ -794,6 +794,13 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// 敌法师 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Подавление маны: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"Blink сжигает ману ближайших вражеских героев и не даёт её восстанавливать, а Mana Void наносит урон каждому вражескому герою по его собственной недостающей мане."
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink вражеские герои в радиусе <font color='#FFFFFF'><b>600</b></font> мгновенно теряют <font color='#FFFFFF'><b>40%%</b></font> текущей маны и не могут восстанавливать ману <font color='#FFFFFF'><b>4</b></font> сек.<br>Mana Void наносит урон каждому вражескому герою в области по его собственной недостающей мане."
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Подавление маны: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink вражеские герои в радиусе <font color='#FFFFFF'><b>600</b></font> мгновенно теряют <font color='#FFFFFF'><b>40%%</b></font> текущей маны и не могут восстанавливать ману <font color='#FFFFFF'><b>4</b></font> сек.<br>Mana Void наносит урон каждому вражескому герою в области по его собственной недостающей мане."
+
 		// 恐怖利刃 魂断觉醒
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Пробуждённый Sunder</font>"
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_SummaryDescription"	"Автоматически применяет Sunder по вражескому герою с наибольшим процентом здоровья при низком здоровье, даже под контролем."
