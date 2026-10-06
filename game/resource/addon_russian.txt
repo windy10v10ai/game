@@ -796,10 +796,10 @@
 
 		// 敌法师 觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Подавление маны: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"Blink подавляет ману ближайших врагов, а Mana Void наносит урон по недостающей мане каждого вражеского героя."
-		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink враги в радиусе <font color='#FFFFFF'><b>600</b></font> от точки назначения не могут получать и восстанавливать ману <font color='#FFFFFF'><b>4</b></font> сек., а вражеские герои мгновенно теряют <font color='#FFFFFF'><b>40%%</b></font> текущей маны.<br>Урон Mana Void по каждому вражескому герою в области зависит от недостающей маны этого героя."
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"Blink сжигает ману ближайших вражеских героев и не даёт её восстанавливать, а Mana Void наносит урон каждому вражескому герою по его собственной недостающей мане."
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink вражеские герои в радиусе <font color='#FFFFFF'><b>600</b></font> мгновенно теряют <font color='#FFFFFF'><b>40%%</b></font> текущей маны и не могут восстанавливать ману <font color='#FFFFFF'><b>4</b></font> сек.<br>Mana Void наносит урон каждому вражескому герою в области по его собственной недостающей мане."
 		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Подавление маны: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink враги в радиусе <font color='#FFFFFF'><b>600</b></font> от точки назначения не могут получать и восстанавливать ману <font color='#FFFFFF'><b>4</b></font> сек., а вражеские герои мгновенно теряют <font color='#FFFFFF'><b>40%%</b></font> текущей маны.<br>Урон Mana Void по каждому вражескому герою в области зависит от недостающей маны этого героя."
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink вражеские герои в радиусе <font color='#FFFFFF'><b>600</b></font> мгновенно теряют <font color='#FFFFFF'><b>40%%</b></font> текущей маны и не могут восстанавливать ману <font color='#FFFFFF'><b>4</b></font> сек.<br>Mana Void наносит урон каждому вражескому герою в области по его собственной недостающей мане."
 
 		// 恐怖利刃 魂断觉醒
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Пробуждённый Sunder</font>"

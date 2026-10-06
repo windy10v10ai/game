@@ -1265,10 +1265,10 @@
 
 		// 敌法师 觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>法力禁域 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"闪烁压制附近敌人的魔法，法力虚空根据每个敌方英雄自身损失的魔法值造成伤害。"
-		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"施放闪烁后，落点<font color='#FFFFFF'><b>600</b></font>范围内的敌人<font color='#FFFFFF'><b>4</b></font>秒内无法获得或恢复魔法，敌方英雄立刻损失<font color='#FFFFFF'><b>40%%</b></font>当前魔法。<br>法力虚空对范围内每个敌方英雄造成的伤害，按该英雄自身损失的魔法值计算。"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"闪烁使附近敌方英雄损失魔法并无法回复，法力虚空按每个敌方英雄自身损失的魔法造成伤害。"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"施放闪烁后，附近<font color='#FFFFFF'><b>600</b></font>范围内的敌方英雄立刻损失<font color='#FFFFFF'><b>40%%</b></font>当前魔法，<font color='#FFFFFF'><b>4</b></font>秒内无法回复魔法。<br>法力虚空对范围内每个敌方英雄按其自身损失的魔法造成伤害。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>法力禁域 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"施放闪烁后，落点<font color='#FFFFFF'><b>600</b></font>范围内的敌人<font color='#FFFFFF'><b>4</b></font>秒内无法获得或恢复魔法，敌方英雄立刻损失<font color='#FFFFFF'><b>40%%</b></font>当前魔法。<br>法力虚空对范围内每个敌方英雄造成的伤害，按该英雄自身损失的魔法值计算。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"施放闪烁后，附近<font color='#FFFFFF'><b>600</b></font>范围内的敌方英雄立刻损失<font color='#FFFFFF'><b>40%%</b></font>当前魔法，<font color='#FFFFFF'><b>4</b></font>秒内无法回复魔法。<br>法力虚空对范围内每个敌方英雄按其自身损失的魔法造成伤害。"
 
 		// 恐怖利刃 魂断觉醒
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>魂断 觉醒</font>"
