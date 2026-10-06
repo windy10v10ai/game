@@ -590,6 +590,9 @@
 		//
 		///////////////////////////////////////////////////
 
+		// 混沌骑士
+		"DOTA_Tooltip_ability_special_bonus_unique_chaos_knight_4"						"+{s:bonus_duration}с к длительности Army of Chaos"
+
 		//血魔 血雾
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"blood mist"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Пока способность активна, герой разбрызгивает вокруг свою кровь, теряя здоровье, но нанося задетым врагам урон и замедляя их"
@@ -804,9 +807,9 @@
 		// 恐怖利刃 魂断觉醒
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Пробуждённый Sunder</font>"
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_SummaryDescription"	"Автоматически применяет Sunder по вражескому герою с наибольшим процентом здоровья при низком здоровье, даже под контролем."
-		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_Description"		"При здоровье ниже <font color='#FFFFFF'><b>30%%</b></font> <font color='#FF0000'>автоматически</font> применяет Sunder по вражескому герою с наибольшим процентом здоровья в радиусе действия.<br><font color='#FF0000'>Срабатывает даже под оглушением, безмолвием, превращением в барана и другим контролем.</font><br>Требует, чтобы Sunder был готов к использованию и хватало маны; не срабатывает, если ни у одного вражеского героя процент здоровья не выше вашего."
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_Description"		"Разрывает жизнь Terrorblade и целевого героя, меняя местами проценты текущего здоровья обоих. Часть здоровья обязательно остаётся.<br><br><font color='#00CED1'>Автоприменение:</font> При здоровье ниже <font color='#FFFFFF'><b>30%%</b></font> автоматически применяет Sunder по вражескому герою с наибольшим процентом здоровья в радиусе действия.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> Срабатывает даже под оглушением, безмолвием, превращением в барана и другим контролем. Требует, чтобы Sunder был готов к использованию и хватало маны, и не срабатывает, если ни у одного вражеского героя процент здоровья не выше вашего."
 		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Пробуждённый Sunder</font>"
-		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status_Description"		"При здоровье ниже <font color='#FFFFFF'><b>30%%</b></font> <font color='#FF0000'>автоматически</font> применяет Sunder по вражескому герою с наибольшим процентом здоровья в радиусе действия.<br><font color='#FF0000'>Срабатывает даже под оглушением, безмолвием, превращением в барана и другим контролем.</font><br>Требует, чтобы Sunder был готов к использованию и хватало маны; не срабатывает, если ни у одного вражеского героя процент здоровья не выше вашего."
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status_Description"		"<font color='#00CED1'>Автоприменение:</font> При здоровье ниже <font color='#FFFFFF'><b>30%%</b></font> автоматически применяет Sunder по вражескому герою с наибольшим процентом здоровья в радиусе действия.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> Срабатывает даже под оглушением, безмолвием, превращением в барана и другим контролем. Требует, чтобы Sunder был готов к использованию и хватало маны, и не срабатывает, если ни у одного вражеского героя процент здоровья не выше вашего."
 
 		// 司夜刺客 钻地觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"					"<font color='#d000ff'>Пробуждённое Закапывание</font>"
@@ -817,7 +820,7 @@
 
 		// 兽王 野性之斧觉醒
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>Wild Axes: пробуждение</font>"
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Герой швыряет топоры, которые прорубают деревья и противников на своём пути и возвращаются обратно. Каждый топор задевает одного врага лишь единожды и увеличивает урон, получаемый от героя и его существ. Длительность эффекта зависит от сопротивления эффектам.<br><br><font color='#00CED1'>АВТОПРИМЕНЕНИЕ:</font> При включении топоры автоматически летят в самого дальнего вражеского героя, если в радиусе применения есть вражеские единицы.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> Урон топоров увеличен, длительность усиления получаемого урона повышена, топоры почти мгновенно вылетают и возвращаются, а Drums of Slom получает увеличенные урон, лечение и число ударов барабана от Primal Roar."
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Герой швыряет топоры, которые прорубают деревья и противников на своём пути и возвращаются обратно. Каждый топор задевает одного врага лишь единожды и увеличивает урон, получаемый от героя и его существ. Длительность эффекта зависит от сопротивления эффектам.<br><br><font color='#00CED1'>АВТОПРИМЕНЕНИЕ:</font> При включении топоры автоматически летят в самого дальнего вражеского героя, если в радиусе применения есть вражеские единицы.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> Длительность усиления получаемого урона повышена, топоры почти мгновенно вылетают и возвращаются, а Drums of Slom получает увеличенные урон, лечение и число ударов барабана от Primal Roar."
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"УРОН ТОПОРА:"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%ДОП. УРОН ЗА ЭФФЕКТ:"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"

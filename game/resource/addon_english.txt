@@ -1077,6 +1077,7 @@
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"EXTRA ATTACKS:"
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"EXTRA ATTACKS COOLDOWN:"
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"Increases the number of extra attacks and reduces the cooldown between the extra attacks."
+		"DOTA_Tooltip_ability_special_bonus_unique_chaos_knight_4"						"+{s:bonus_duration}s Army of Chaos Duration"
 		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"Army of Chaos"
 		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"Multiple shadow clones are imbued within you! They will attack when you do with a cooldown."
 
@@ -1278,9 +1279,9 @@
 		// 恐怖利刃 魂断觉醒
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Sunder Awakened</font>"
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_SummaryDescription"	"Automatically casts Sunder on the highest-health enemy hero when low on health, even while disabled."
-		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_Description"		"Below <font color='#FFFFFF'><b>30%%</b></font> health, <font color='#FF0000'>automatically</font> casts Sunder on the enemy hero with the highest health percentage within cast range.<br><font color='#FF0000'>Still triggers while stunned, silenced, hexed, or otherwise disabled.</font><br>Requires Sunder to be off cooldown with enough mana; does not trigger if no enemy hero's health percentage is higher than your own."
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_Description"		"Severs the life from both Terrorblade and a target hero, exchanging a percentage of both units' current health. Some health points must remain.<br><br><font color='#00CED1'>Autocast:</font> Below <font color='#FFFFFF'><b>30%%</b></font> health, automatically casts Sunder on the enemy hero with the highest health percentage within cast range.<br><font color='#d000ff'>AWAKENED:</font> Still triggers while stunned, silenced, hexed, or otherwise disabled. Requires Sunder to be off cooldown with enough mana, and does not trigger if no enemy hero's health percentage is higher than your own."
 		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Sunder Awakened</font>"
-		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status_Description"		"Below <font color='#FFFFFF'><b>30%%</b></font> health, <font color='#FF0000'>automatically</font> casts Sunder on the enemy hero with the highest health percentage within cast range.<br><font color='#FF0000'>Still triggers while stunned, silenced, hexed, or otherwise disabled.</font><br>Requires Sunder to be off cooldown with enough mana; does not trigger if no enemy hero's health percentage is higher than your own."
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status_Description"		"<font color='#00CED1'>Autocast:</font> Below <font color='#FFFFFF'><b>30%%</b></font> health, automatically casts Sunder on the enemy hero with the highest health percentage within cast range.<br><font color='#d000ff'>AWAKENED:</font> Still triggers while stunned, silenced, hexed, or otherwise disabled. Requires Sunder to be off cooldown with enough mana, and does not trigger if no enemy hero's health percentage is higher than your own."
 
 		// 赏金猎人 追踪术觉醒
 		"DOTA_Tooltip_ability_bounty_hunter_track_awaken"							"<font color='#d000ff'>Track Awakened</font>"
@@ -1340,7 +1341,7 @@
 
 		// 兽王 野性之斧-觉醒
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>Wild Axes Awakened</font>"
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Beastmaster sends his axes flying and calls them home again, slicing through enemy units and trees along their path. Each axe can hit an enemy once, and amplifies subsequent damage from Beastmaster and his units. Debuff duration is affected by Status Resistance.<br><br><font color='#00CED1'>AUTOCAST:</font> When enabled, throws the axes toward the farthest enemy hero whenever an enemy unit is within cast range.<br><font color='#d000ff'>AWAKENED:</font> Axe damage is increased, damage amplification lasts longer, the axes travel out and back at extreme speed, and Drums of Slom gains increased damage, healing, and drum stacks from Primal Roar."
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Beastmaster sends his axes flying and calls them home again, slicing through enemy units and trees along their path. Each axe can hit an enemy once, and amplifies subsequent damage from Beastmaster and his units. Debuff duration is affected by Status Resistance.<br><br><font color='#00CED1'>AUTOCAST:</font> When enabled, throws the axes toward the farthest enemy hero whenever an enemy unit is within cast range.<br><font color='#d000ff'>AWAKENED:</font> Damage amplification lasts longer, the axes travel out and back at extreme speed, and Drums of Slom gains increased damage, healing, and drum stacks from Primal Roar."
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"DAMAGE PER AXE:"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%DAMAGE AMP PER STACK:"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"DEBUFF DURATION:"
