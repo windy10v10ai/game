@@ -69,19 +69,18 @@ export class modifier_special_bonus_unique_antimage_mana_suppression_awaken exte
       undefined,
       awaken.GetSpecialValueFor('blink_radius'),
       UnitTargetTeam.ENEMY,
-      UnitTargetType.HERO + UnitTargetType.BASIC,
+      UnitTargetType.HERO,
       UnitTargetFlags.NONE,
       FindOrder.ANY,
       false,
     );
 
     for (const enemy of enemies) {
+      if (!enemy.IsRealHero()) continue;
       enemy.AddNewModifier(antiMage, manaBreak, NATIVE_MANA_LOCK_MODIFIER, {
         duration: calculateStatusResistedDuration(duration, enemy),
       });
-      if (enemy.IsRealHero()) {
-        enemy.SetMana(enemy.GetMana() * (1 - manaLossRatio));
-      }
+      enemy.SetMana(enemy.GetMana() * (1 - manaLossRatio));
     }
   }
 
