@@ -307,8 +307,6 @@ export const FREE_TRIAL_HEROES: string[] = [
   'npc_dota_hero_beastmaster', // 兽王
   'npc_dota_hero_earthshaker', // 撼地者
   'npc_dota_hero_abyssal_underlord', // 孽主
-  'npc_dota_hero_slark', // 斯拉克
-  'npc_dota_hero_abaddon', // 亚巴顿
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */
