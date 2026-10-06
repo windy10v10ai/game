@@ -1274,9 +1274,9 @@
 		// 恐怖利刃 魂断觉醒
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>魂断 觉醒</font>"
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_SummaryDescription"	"生命值过低时自动对血量百分比最高的敌人施放魂断，不受控制影响。"
-		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_Description"		"生命值低于<font color='#FFFFFF'><b>30%%</b></font>时，<font color='#FF0000'>自动</font>对施法距离内生命值百分比最高的敌方英雄施放魂断。<br><font color='#FF0000'>被眩晕、沉默、妖术等控制时也会自动施放。</font><br>需要魂断冷却完毕且魔法足够；敌方英雄生命值百分比都低于自己时不触发。"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_Description"		"隔断恐怖利刃以及目标英雄的灵魂并将双方的当前血量百分比进行互换。交换后双方英雄的生命值必定在一定百分比以上。<br><br><font color='#00CED1'>自动施放：</font>生命值低于<font color='#FFFFFF'><b>30%%</b></font>时，自动对施法距离内生命值百分比最高的敌方英雄施放魂断。<br><font color='#d000ff'>觉醒强化：</font>被眩晕、沉默、妖术等控制时也会自动施放。魂断需冷却完毕且魔法足够，敌方英雄生命值百分比都低于自己时不触发。"
 		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>魂断 觉醒</font>"
-		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status_Description"		"生命值低于<font color='#FFFFFF'><b>30%%</b></font>时，<font color='#FF0000'>自动</font>对施法距离内生命值百分比最高的敌方英雄施放魂断。<br><font color='#FF0000'>被眩晕、沉默、妖术等控制时也会自动施放。</font><br>需要魂断冷却完毕且魔法足够；敌方英雄生命值百分比都低于自己时不触发。"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status_Description"		"<font color='#00CED1'>自动施放：</font>生命值低于<font color='#FFFFFF'><b>30%%</b></font>时，自动对施法距离内生命值百分比最高的敌方英雄施放魂断。<br><font color='#d000ff'>觉醒强化：</font>被眩晕、沉默、妖术等控制时也会自动施放。魂断需冷却完毕且魔法足够，敌方英雄生命值百分比都低于自己时不触发。"
 
 		// 赏金猎人 追踪术觉醒
 		"DOTA_Tooltip_ability_bounty_hunter_track_awaken"							"<font color='#d000ff'>追踪术 觉醒</font>"
