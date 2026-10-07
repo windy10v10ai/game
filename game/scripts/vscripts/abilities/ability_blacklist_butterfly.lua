@@ -206,6 +206,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["viper_viper_strike"] = true,              -- 冥界亚龙 蝮蛇突袭
     ["death_prophet_carrion_swarm"] = true,     -- 死亡先知 腐尸群
     ["terrorblade_reflection"] = true,          -- 恐怖利刃 倒影
+    ["terrorblade_metamorphosis"] = true,       -- 恐怖利刃 魔化
     ["goku_kaioken"] = true,                    -- 悟空 界王拳
     ["tusk_snowball"] = true,                   -- 巨牙海民 雪球
     ["muerta_the_calling"] = true,              -- 唤魂
