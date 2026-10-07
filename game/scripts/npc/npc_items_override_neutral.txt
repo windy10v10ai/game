@@ -966,12 +966,12 @@
 		{
 			"status_resistance"
 			{
-				"value"					"60"		//10
+				"value"					"50"		//10
 				"apply_curio_bonus"		"1"
 			}
 			"magic_resistance"
 			{
-				"value"					"60"		//10
+				"value"					"50"		//10
 				"apply_curio_bonus"		"1"
 			}
 		}

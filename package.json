@@ -11,8 +11,6 @@
     "dota:cmd": "node src/scripts/dota-cmd.js",
     "perf": "npm run build:vscripts && node src/scripts/perf.js",
     "bot-anomaly": "node src/scripts/bot-anomaly.js",
-    "predeploy": "npm run build && node src/scripts/deploy.js",
-    "deploy": "node src/scripts/publish.js",
     "build": "run-p build:*",
     "build:panorama": "node --preserve-symlinks node_modules/webpack/bin/webpack.js --config src/panorama/webpack.prod.js",
     "build:vscripts": "tstl --project src/vscripts/tsconfig.json",
@@ -22,9 +20,10 @@
     "start": "npm run launch && npm run dev",
     "test": "jest",
     "prettier-check": "prettier --check .",
-    "lint": "eslint --ext .js,.ts,.tsx \"./src/**/*.{js,ts,tsx}\" && npm run lint:images",
+    "lint": "eslint --ext .js,.ts,.tsx \"./src/**/*.{js,ts,tsx}\" && npm run lint:images && npm run lint:localization",
     "lint:fix": "eslint --ext .js,.ts,.tsx --fix  \"./src/**/*.{js,ts,tsx}\"",
-    "lint:images": "node src/scripts/check-images.js"
+    "lint:images": "node src/scripts/check-images.js",
+    "lint:localization": "node src/scripts/check-localization.js"
   },
   "devDependencies": {
     "@moddota/dota-lua-types": "^4.38.2",

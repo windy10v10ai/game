@@ -3,159 +3,900 @@
 	"Language"		"Russian"
 	"Tokens"
 	{
-		// /////////////////////////////////////////////////////////////////////////////
+		"addon_game_name"		"Dota 10v10 AI by Windy"
+		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
+		"DOTA_SHARD"			"Боевые очки"
+
+		///////////////////////////////////////////////////
 		//
-		// 					Options
+		//			选项 Options
 		//
-		// /////////////////////////////////////////////////////////////////////////////
-		"addon_option_title"	"Game Options"
-		"addon_option_title_br"	""
+		///////////////////////////////////////////////////
+		"addon_option_title"		"Настройки игры"
+		"addon_option_title_br"		""
 
 		"game_difficulty_voting"	"Голосование"
-		"game_difficulty_title"	"Сложность"
-		"game_difficulty_n0"	"Кастомная"
-		"game_difficulty_n1"	"N1"
-		"game_difficulty_n2"	"N2"
-		"game_difficulty_n3"	"N3"
-		"game_difficulty_n4"	"N4"
-		"game_difficulty_n5"	"N5"
-		"game_difficulty_n6"	"N6"
-		"game_difficulty_n7"	"N7"
-		"game_difficulty_n8"	"N8"
+		"game_difficulty_title"		"Сложность"
+		"game_difficulty_n0"		"Пользовательская"
+		"game_difficulty_n1"		"N1"
+		"game_difficulty_n2"		"N2"
+		"game_difficulty_n3"		"N3"
+		"game_difficulty_n4"		"N4"
+		"game_difficulty_n5"		"N5"
+		"game_difficulty_n6"		"N6"
+		"game_difficulty_n7"		"N7"
+		"game_difficulty_n8"		"N8"
 
-		"player_gold_xp_multiplier"	"Золото/уровня Мульти Radiant"
-		"bot_gold_xp_multiplier"	"Золото/уровня Мульти Dire"
+		// 选项名称
+		"player_gold_xp_multiplier"	"Множитель золота/опыта сил Света"
+		"bot_gold_xp_multiplier"	"Множитель золота/опыта сил Тьмы"
 
-		"radiant_player_number"		"Количество игроков Radiant"
-		"dire_player_number"		"Количество игроков Dire"
-		"confirm_game_options"		"Подтведить и скрыть настройки"
-		"show_game_options"			"Показать настройки"
+		"radiant_player_number"		"Число игроков сил Света"
+		"dire_player_number"		"Число игроков сил Тьмы"
 		"respawn_time_percentage"	"Время возрождения"
 		"max_level"					"Максимальный уровень"
 		"tower_power"				"Усиление башен"
 		"starting_gold_player"		"Стартовое золото игроков"
 		"starting_gold_bot"			"Стартовое золото ботов"
-		"force_random_hero"			"Принудительно случайный героя"
-		"enable_player_attribute"	"Enable Player Attribute"
+		"fixed_ability"				"Фиксированная способность"
+		"force_random_hero"			"Случайный выбор героя"
+		"enable_player_attribute"	"Включить атрибуты игроков"
+		"mid_only_mode"				"Только средняя линия"
 		"hide_chat_team"			"Скрыть командный чат"
 		"show_chat_team"			"Показать командный чат"
 
-		"radiant_player_number_1"		"1  (Легко)"
-		"radiant_player_number_10"		"10 (Сложно)"
+		// 下拉菜单
+		"radiant_player_number_1"						"1  (Легко)"
+		"radiant_player_number_10"						"10 (Сложно)"
 
-		"respawn_time_percentage_slow"		"Медленно"
-		"respawn_time_percentage_normal"	"Нормально"
-		"respawn_time_percentage_fast"		"Быстро"
-		"respawn_time_percentage_0"			"Почти мгновенно"
+		"bot_gold_xp_multiplier_40"						"40 (возможны сбои игры)"
 
-		// 右侧面板
+		"respawn_time_percentage_slow"					"Медленно"
+		"respawn_time_percentage_normal"				"Нормально"
+		"respawn_time_percentage_fast"					"Быстро"
+		"respawn_time_percentage_0"						"Мгновенно (возможны сбои игры)"
+
+		"fixed_ability_none"							"Нет"
+		"fixed_ability_ability_trigger_on_spell_reflect_name"	"Эффект бабочки · Зелёный лотос"
+		"fixed_ability_ability_charge_damage_name"			"Эффект бабочки · Лазурная концентрация"
+
+		// 难度选择
 		"game_difficulty_choice"		"Выберите сложность"
 		"game_preset_remember"			"Сохранить настройки сложности"
 		"custom_game_vote"				"Таймер голосования"
+		"map_dota_warning"				"Эта сложность недоступна на текущей карте.<br>Чтобы выбрать сложность N1–N5, перед началом игры выберите карту [Dota]"
+		"map_hard_warning"				"Эта сложность недоступна на текущей карте.<br>Чтобы выбрать сложность N6, N7 или N8, перед началом игры выберите карту [HARD]"
+		"map_custom_warning"			"Эта сложность недоступна на текущей карте.<br>Чтобы настроить сложность вручную, перед началом игры выберите карту [Custom]"
 
-		// link面板
-		"anime_version_button"			"Аниме-версия"
+		///////////////////////////////////////////////////
+		//
+		//			加载状态 Loading
+		//
+		///////////////////////////////////////////////////
+		"loading_status_1"				"Загрузка данных игроков. Дождитесь её завершения, прежде чем начинать игру."
+		"loading_status_2"				"Онлайн-режим. Данные игроков успешно загружены."
+		"loading_status_3"				"Офлайн-режим. Очки и статистика этой игры не будут сохранены.\nАтрибуты, пробуждения и подписка используют данные на {date}."
+		"room_status_entering"			"Подключаются: {players}"
+		"room_status_separator"			", "
+		"room_status_waiting"			"Ожидание остальных игроков"
+		"room_status_ready"				"Все игроки подключились"
+		"offline_data_hint"				"Офлайн-режим, данные на {date}. Распределение и сброс атрибутов, а также пробуждение героев выполняются на сайте. Изменения вступят в силу после следующего обновления карты."
 
-		"loading_status_1"				"Данные игрока загружаются. Пожалуйста, дождитесь окончания загрузки перед стартом"
-		"loading_status_2"				"Онлайн-режим, данные игрока успешно загружены."
-		"loading_status_3"				"Офлайн-режим, очки и статистика за эту игру не записываются.\nХарактеристики, пробуждение и членство используют данные на {date}."
-		"offline_data_hint"				"Офлайн-режим, данные на {date}. Распределяйте характеристики, сбрасывайте их и пробуждайте героев на сайте, изменения вступят в силу после следующего обновления карты."
-		"end_screen_offline_hint"		"Офлайн-режим, очки и статистика этой игры не записаны."
+		///////////////////////////////////////////////////
+		//
+		//			启动器与网站 Launcher & Website
+		//
+		///////////////////////////////////////////////////
+		// 启动器
 		"launcher_promo_title"			"Лаги в конце игры? Попробуйте лаунчер"
-		"launcher_promo_desc"			"Запустите сервер на своём ПК для более плавной игры. Только для одиночной игры."
+		"launcher_promo_desc"			"Запустите сервер на своём ПК для более плавной игры"
+		"launcher_promo_multiplayer"		"Мультиплеер"
+		"launcher_download_button"			"Скачать лаунчер"
+
+		// 网站
 		"local_host_feature_unsupported_hint"		"Для защиты данных аккаунта это действие недоступно в игре. Нажмите, чтобы перейти на сайт."
 		"website_local_host_notice"		"В игре нельзя распределять или сбрасывать характеристики, а также пробуждать героев. Чтобы защитить данные игрока, войдите через Steam на сайте и выполните действие там. В онлайн-режиме изменения появятся в следующей игре, в офлайн-режиме после следующего обновления карты."
 		"website_open_button"				"Открыть сайт"
-		"launcher_download_button"			"Скачать лаунчер"
 		"website_open_property_button"		"Управлять на сайте"
 		"website_open_awaken_button"		"Пробудить на сайте"
 		"player_info_refresh"				"Обновить"
 
-		// FAQ
+		// 相关链接
+		"anime_version_button"			"Аниме-версия"
+		"dota_survivor_button"			"Также попробуйте: Dota Survivor"
+		"join_qq"						"Вступить в группу QQ"
+		"join_discord"					"Присоединиться к Discord"
+
+		///////////////////////////////////////////////////
+		//
+		//			常见问题 FAQ
+		//
+		///////////////////////////////////////////////////
 		"loading_faq_players_instant_revive_question"	"Из-за чего игра может лагать?"
 		"loading_faq_players_instant_revive_answer"		"Более 6 игроков, слишком много иллюзий или призванных существ на поле, либо экстремальные настройки пользовательского режима вроде мгновенного возрождения заметно повышают нагрузку на сервер и вызывают лаги."
-		"loading_faq_illusions_summons_question"		"Некоторые способности иллюзий и призыва ослаблены или удалены."
-		"loading_faq_illusions_summons_answer"			"Иллюзии и большое число призванных существ могут заметно вызывать лаги."
+		"loading_faq_illusions_summons_question"		"Некоторые способности с иллюзиями и призывом ослаблены или удалены"
+		"loading_faq_illusions_summons_answer"			"Иллюзии и большое количество призванных существ заметно усиливают задержки, поэтому связанные с ними способности были ослаблены или удалены."
 		"loading_faq_launch_mode_question"			"Записываются ли очки в играх, запущенных из аркады?"
-		"loading_faq_launch_mode_answer"				"Да. Игры из аркады подключаются к серверу, загружают актуальные данные, а очки за матч и ежедневные задания записываются как обычно. Если подключиться иногда не удаётся, игра идёт в офлайн-режиме с данными из последнего обновления карты, и очки не записываются. В этом случае можно запустить игру через сайт (только в одиночку)."
+		"loading_faq_launch_mode_answer"				"Да. Игры из аркады подключаются к серверу, загружают актуальные данные, а очки за матч и ежедневные задания записываются как обычно. Если подключиться иногда не удаётся, игра идёт в офлайн-режиме с данными из последнего обновления карты, и очки не записываются. В этом случае можно начать игру через лаунчер — в нём можно и создать комнату для друзей."
 		"loading_faq_pause_question"				"Можно ли продлить паузу?"
-		"loading_faq_pause_answer"				"Время паузы на выделенном сервере ограничено Dota 2. Для более гибких пауз используйте локальный хост."
+		"loading_faq_pause_answer"				"Да, если игра запущена из аркады. При запуске через лаунчер игра идёт на выделенном сервере, где паузу продлить нельзя. Для долгой паузы запускайте игру из аркады."
 		"loading_faq_attributes_question"			"Когда начинают действовать очки атрибутов?"
 		"loading_faq_attributes_answer"				"Большинство атрибутов начинают действовать постепенно на уровнях героя 2, 4, 6 и далее. Подробности смотрите в панели атрибутов."
 		"loading_faq_hero_bounty_question"			"Совпадает ли показанная награда с фактически полученным золотом?"
 		"loading_faq_hero_bounty_answer"				"Не всегда. Показанная сумма рассчитана по стандартной формуле Dota 2. При большой разнице в экономике команд награда пересчитывается, ориентируйтесь на фактически полученное золото."
 		"loading_faq_pulse_nova_question"			"Pulse Nova Лешрака не получает бонус к радиусу."
 		"loading_faq_pulse_nova_answer"				"Pulse Nova не получает бонус к радиусу, чтобы предотвратить фарм без участия игрока."
-		"loading_faq_member_checkin_question"		"Что будет, если пропустить ежедневную отметку Member?"
+		"loading_faq_member_checkin_question"		"Что будет, если пропустить ежедневную отметку подписчика?"
 		"loading_faq_member_checkin_answer"			"Пропущенные отметки автоматически восстанавливаются при следующем входе в игру. Они отображаются вместе с очками ежедневной отметки за этот день, можно восстановить до 7 дней."
 		"loading_faq_duplicate_ability_question"	"Складывается ли способность, полученная в лотерее, с такой же способностью героя?"
-		"loading_faq_duplicate_ability_answer"		"Нет. У одинаковой способности действует только самый высокий уровень, поэтому не выбирайте её. Разные версии могут действовать вместе, например Multicast и Multicast (Awakened)."
+		"loading_faq_duplicate_ability_answer"		"Нет. У одинаковых способностей действует только наивысший уровень, поэтому не выбирайте повторную способность. Разные версии могут действовать одновременно, например «Мультикаст» и «Мультикаст (Пробуждение)»."
 		"loading_faq_treasure_rewards_question"		"Где находятся сундуки с сокровищами и как получить лучшую награду?"
 		"loading_faq_treasure_rewards_answer"			"Сундуки с сокровищами появляются в лесах и углах карты. Открытие сундука даёт лотерею предметов всей команде, а открывший получает более ценную награду. Открывайте больше сундуков или убивайте Рошана, чтобы улучшить пул наград."
-		"loading_faq_dragon_balls_question"		"Что делать, если не удаётся объединить все 7 Dragon Balls?"
-		"loading_faq_dragon_balls_answer"			"Dragon Balls и предметы, выпавшие из нейтральных крипов, должны находиться в основном инвентаре, чтобы участвовать в комбинациях. Переместите их из рюкзака или тайника либо выбросьте и подберите снова."
+		"loading_faq_dragon_balls_question"		"Что делать, если не удаётся объединить все 7 драконьих жемчужин?"
+		"loading_faq_dragon_balls_answer"			"Драконьи жемчужины и предметы, выпавшие из нейтральных существ, участвуют в объединении только в основном инвентаре. Переместите их из рюкзака или тайника либо выбросьте и подберите снова."
 		"loading_faq_dota_hotkeys_question"		"Как использовать классические горячие клавиши Dota?"
-		"loading_faq_dota_hotkeys_answer"		"Измените параметр «Disable per unit hotkeys during Custom Games» в настройках Dota 2."
+		"loading_faq_dota_hotkeys_answer"		"Измените параметр «Отключать клавиши управления отдельными юнитами в пользовательских играх» в настройках Dota 2."
 
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		//
-		//            Scoreboard/End Screen
+		//			计分板与结算 Scoreboard & End Screen
 		//
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		"scoreboard_tool_tip_mute_player"	"Заглушить"
-		"scoreboard_tool_tip_share_unit"	"Сущ-ва"
-		"scoreboard_tool_tip_share_hero"	"Герой"
+		"scoreboard_tool_tip_share_unit"	"Передать юнитов"
+		"scoreboard_tool_tip_share_hero"	"Передать героя"
 		"scoreboard_tool_tip_disable_help"	"Отключить помощь"
-		"scoreboard_tool_tip_actived"		"Активировать"
-		"scoreboard_commend_tooltip"		"👍 Одобрить"
-		"scoreboard_report_tooltip"			"👎 Пожаловаться"
+		"scoreboard_tool_tip_actived"		" Активировано"
+		"scoreboard_commend_tooltip"		"Похвалить"
+		"scoreboard_report_tooltip"			"Пожаловаться"
 
-		"custom_end_screen_victory_message"	"Победа Radiant!"
-		"custom_end_screen_lose_message"	"Победа Dire!"
+		"custom_end_screen_victory_message"	"Победа сил Света!"
+		"custom_end_screen_lose_message"	"Победа сил Тьмы!"
 
+		"player_multiplier"		"Множитель игроков"
+		"bot_multiplier"		"Множитель ботов"
+
+		"custom_end_screen_tower_kills"		"Башни"
 		"custom_end_screen_control_time"		"Контроль"
 		"custom_end_screen_control_time_tooltip"	"Включает время оглушения и опутывания"
+		"custom_end_screen_abilities"		"Способности"
 
-		"player_multiplier"	"Player Multiplier"
-		"bot_multiplier"	"Bot Multiplier"
+		"conduct_point_bonus_tooltip"			"Бонус за поведение <font color='#FFD700'>{0}</font>, очки ×1.1"
+		"conduct_point_light_penalty_tooltip"	"Штраф за поведение <font color='#FFA726'>{0}</font>, очки ×0.8"
+		"conduct_point_heavy_penalty_tooltip"	"Штраф за поведение <font color='#E87D7D'>{0}</font>, очки ×0.5"
 
-		"ending_status_1"				"Пожалуйста, не завершайте игру во время загрузки игровых данных."
-		"ending_status_2"				"Игровые данные успешно загружены!"
-		"ending_status_3"				"Ошибка загрузки игровых данных! Возможные причины: включены читы или игра запущена на локальном сервере."
+		"end_screen_offline_hint"		"Офлайн-режим. Очки и статистика этой игры не сохранены."
 
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		//
-		//            Hero Debug Panel
+		//			英雄调试面板 Hero Debug Panel
 		//
-		// /////////////////////////////////////////////////////////////////////////////
-		"SpawnUnits_ButtonCategory"					"Создать"
+		///////////////////////////////////////////////////
+		"SpawnUnits_ButtonCategory"					"Создание"
 		"EditUnits_ButtonCategory"					"Редактировать выбранных"
-		"Global_ButtonCategory"						"Глобально"
+		"Global_ButtonCategory"						"Общие настройки"
 		"AHD_SpawnToTeam_2"							"В команду: 1"
 		"AHD_SpawnToTeam_3"							"В команду: 2"
-		"DummyTarget_Button"						"+ Манекен"
-		"LevelUpSelectedHeroes_Button"				"Up+Gold"
-		"MaxLevelUpSelectedHeroes_Button"			"Max+Gold"
-		"ScepterSelectedHeroes_Button"				"Аганим"
+		"LevelUpSelectedHeroes_Button"				"Уровень + золото"
+		"MaxLevelUpSelectedHeroes_Button"			"Макс. уровень + золото"
+		"ScepterSelectedHeroes_Button"				"Скипетр"
 		"ShardSelectedHeroes_Button"				"Осколок"
-		"AwakenStoneSelectedHeroes_Button"			"Awaken Stone"
-		"BkbSelectedHeroes_Button"					"BKB"
+		"AwakenStoneSelectedHeroes_Button"			"Камень пробуждения"
+		"BkbSelectedHeroes_Button"					"БКБ"
 		"InvulnOn_Button"							"Неуязвимость вкл."
 		"InvulnOff_Button"							"Неуязвимость выкл."
-		"LogModifiers_Button"						"Модификаторы"
+		"LogModifiers_Button"						"Показать модификаторы"
 		"RemoveSpawns_Button"						"Удалить"
 		"AddToUnit_Placeholder"						"Название предмета / способности"
 		"AddItem_Button"							"Добавить предмет"
 		"AddAbility_Button"							"Добавить способность"
+		"MoveToCoord_Button"						"Переместить к координатам"
+		"SpawnTreasure_Button"						"Создать сундук"
 		"FreeSpells_Button"							"Бесплатные заклинания"
-		"Refresh_Button"							"Обновить"
 		"ToggleDayNight_Button"						"День/Ночь"
 		"PauseDemo_Button"							"Пауза"
 		"QuitDemo_Button"							"Выход"
 
+		///////////////////////////////////////////////////
+		//
+		//			数据面板 Data Panel
+		//
+		///////////////////////////////////////////////////
+		"data_panel_button"				"Главная"
+		"data_panel_member_point"		"Очки подписки (доступно/всего)"
+		"data_panel_season_point"		"Боевые очки (доступно/всего)"
+		"data_panel_property_point"		"Очки атрибутов (доступно/всего)"
+		"data_panel_point_total_prefix"	"Всего"
+		"data_panel_season_point_tooltip"	"<font color='#9B5DE0'>Всего боевых очков: {total}</font>. Они определяют боевой уровень и число очков атрибутов. Общая сумма только растёт и не уменьшается при тратах."
+		"data_panel_member_point_tooltip"	"<font color='#FFD700'>Всего очков подписки: {total}</font>. Они определяют уровень подписки и число очков атрибутов. Общая сумма только растёт и не уменьшается при тратах."
+
+		"data_panel_data_button"		"Данные"
+		"data_panel_property_button"	"Атрибуты"
+		"data_panel_property_list"		"Добавить"
+		"data_panel_property_reset"		"Сбросить"
+
+		"data_panel_season_level"		"Боевой уровень"
+		"data_panel_season_level_tooltip"		"Повышайте уровень с помощью <font color='#9B5DE0'>общих боевых очков</font>. Каждый уровень даёт 1 очко атрибутов.<br>Используйте их для усиления героя на панели <font color='#FFD700'>АТРИБУТЫ</font>.<br>С каждым уровнем необходимое число очков увеличивается на <font color='#FFD700'>100</font>."
+		"data_panel_member_level"		"Уровень подписки"
+		"data_panel_member_level_tooltip"		"Повышайте уровень с помощью <font color='#FFD700'>общих очков подписки</font>. Каждый уровень даёт 1 очко атрибутов.<br>Используйте их для усиления героя на панели <font color='#FFD700'>АТРИБУТЫ</font>.<br>С каждым уровнем необходимое число очков увеличивается на <font color='#FFD700'>50</font>."
+		"data_panel_level_progress"		"Прогресс уровня"
+		"data_panel_link_rule"			"Правила очков и атрибутов"
+		"data_panel_member_point_rule_url"		"https://ko-fi.com/post/Points-and-Attribute-Rules-S6S01CTP83"
+
+		"reset_property_use_season_point"		"Сбросить за 2000 доступных боевых очков<br>(уровень не изменится)"
+		"reset_property_use_member_point"		"Сбросить за 1000 доступных очков подписки<br>(уровень не изменится)"
+
+		"data_panel_player_property_label"		"Тратьте очки атрибутов на усиление героя. Улучшения постоянны и действуют в каждой игре."
+		"data_panel_player_property_label_2"		"На локальном сервере нельзя распределять очки. Для этого играйте на выделенном сервере."
+		"data_panel_player_property_label_3"		"Один уровень атрибута будет давать эффект каждые 2 уровня героя, если не указано иначе."
+		"data_panel_player_property_label_3_tooltip"		"Герой получает эффект на уровнях 2, 4, 6, 8, 10, 12, 14 и 16, вплоть до максимального уровня атрибута.<br>Например, если 2 уровня дают +50 к дальности применения, герой получит +25 на уровне 2 и +50 на уровне 4.<br>Некоторые атрибуты являются исключением."
+
+		"data_panel_player_property_cooldown_percentage"		"Перезарядка (%)"
+		"data_panel_player_property_cast_range_bonus_stacking"	"Дальность применения"
+		"data_panel_player_property_aoe_bonus_constant_stacking"	"Радиус действия"
+		"data_panel_player_property_spell_amplify_percentage"	"Усиление заклинаний (%)"
+		"data_panel_player_property_status_resistance_stacking"	"Сопротивление эффектам (%)"
+		"data_panel_player_property_evasion_constant"			"Уклонение (%)"
+		"data_panel_player_property_magical_resistance_bonus"	"Сопротивление магии (%)"
+		"data_panel_player_property_incoming_damage_percentage"	"Снижение урона (%)"
+		"data_panel_player_property_attack_range_bonus"			"Дальность атаки (только дальний бой)"
+		"data_panel_player_property_physical_armor_bonus"		"Физическая броня"
+		"data_panel_player_property_preattack_bonus_damage"		"Урон от атаки"
+		"data_panel_player_property_attackspeed_bonus_constant"	"Скорость атаки"
+		"data_panel_player_property_stats_strength_bonus"		"Сила"
+		"data_panel_player_property_stats_agility_bonus"		"Ловкость"
+		"data_panel_player_property_stats_intellect_bonus"		"Интеллект"
+		"data_panel_player_property_health_regen_percentage"	"Макс. регенерация здоровья (%)"
+		"data_panel_player_property_mana_regen_total_percentage"	"Макс. регенерация маны (%)"
+		"data_panel_player_property_lifesteal"					"Вампиризм (%)"
+		"data_panel_player_property_spell_lifesteal"			"Маг. вампиризм (%)"
+		"data_panel_player_property_movespeed_bonus_constant"	"Скорость передвижения"
+		"data_panel_player_property_ignore_movespeed_limit"		"Без ограничения скорости"
+		"data_panel_player_property_cannot_miss"				"Точный удар"
+		"data_panel_player_property_flying"						"Статус полёта"
+		"data_panel_player_property_slow_immune"				"Невосприимчивость к замедлению"
+		"data_panel_player_property_skill_points_bonus"			"Бонусные очки прокачки"
+		"data_panel_player_property_bonus_vision"				"Бонусный обзор"
+
+		"data_panel_player_property_tooltip"					"Герой будет получать этот эффект каждые 2 уровня, вплоть до максимального уровня."
+		"data_panel_player_property_skill_points_bonus_tooltip"	"Герой будет получать этот эффект каждые 4 уровня, вплоть до максимального уровня."
+		"data_panel_player_property_except_tooltip"				"Герой получает этот эффект на 1-м уровне."
+
+		"data_panel_player_property_value"				"Знач."
+		"data_panel_player_property_level"				"Ур."
+		"data_panel_player_property_level_up"			"+1 ур."
+		"data_panel_player_property_level_up_X"			"За X очков"
+		"data_panel_player_property_level_up_to_X"		"До ур. X"
+
+		///////////////////////////////////////////////////
+		//
+		//			抽奖 Lottery
+		//
+		///////////////////////////////////////////////////
+		"lottery_expand"										"Развернуть"
+		"lottery_collapsed"										"Свернуть"
+		"lottery_active_ability_title"							"Выберите активную способность"
+		"lottery_passive_ability_title"							"Выберите пассивную способность"
+
+		"lottery_tooltip_ability_refresh"						"Подписчики могут один раз бесплатно обновить набор способностей"
+		"lottery_tooltip_ability_refresh_picked"				"Способность уже выбрана"
+		"lottery_tooltip_ability_refresh_not_member"			"Подписчики могут один раз обновить набор способностей. Нажмите, чтобы открыть страницу подписки"
+		"lottery_tooltip_ability_refresh_paid"					"Потратить <font color='#FFD700'>{cost}</font> доступных очков на обновление способностей<br>Осталось обновлений: {remaining}<br>(общие очки и уровень подписки не изменятся)"
+		"lottery_tooltip_ability_refresh_limit"					"Доступные обновления закончились<br>Осталось обновлений: 0"
+		"lottery_tooltip_ability_refresh_insufficient"			"Недостаточно доступных очков. Нажмите, чтобы открыть страницу подписки"
+
+		"lottery_tooltip_item_refresh"							"Премиум-подписчики могут один раз бесплатно обновить набор предметов"
+		"lottery_tooltip_item_refresh_not_premium"				"Премиум-подписчики могут обновлять предметы. Нажмите, чтобы открыть страницу подписки"
+		"lottery_tooltip_item_refresh_paid"						"Потратить <font color='#FFD700'>{cost}</font> доступных очков на обновление предметов<br>Осталось обновлений: {remaining}<br>(общие очки и уровень подписки не изменятся)"
+		"lottery_tooltip_item_refresh_limit"					"Доступные обновления закончились<br>Осталось обновлений: 0"
+		"lottery_tooltip_item_refresh_insufficient"				"Недостаточно доступных очков. Нажмите, чтобы открыть страницу подписки"
+
+		"lottery_button_ability_reset"							"Сбросить"
+		"lottery_tooltip_ability_reset_enable"					"Удалить выбранную способность и получить новый набор"
+		"lottery_tooltip_ability_reset_no_count"				"Нет доступных сбросов способностей"
+		"lottery_tooltip_ability_reset_not_picked"				"В этой строке ещё не выбрана способность"
+
+		"lottery_item_header"									"Сундук открыт! Выберите награду"
+		"lottery_passive_tome_header"							"Выберите пассивную способность"
+
+		///////////////////////////////////////////////////
+		//
+		//			改键 Key Bindings
+		//
+		///////////////////////////////////////////////////
+		"key_bind"												"Клавиши"
+		"key_bind_collapsed"									"Свернуть"
+		"key_bind_placeholder"									"Клавиша"
+		"key_bind_mouseover_tooltop"							"Нажмите, чтобы назначить клавишу способности.<br>Если клавиши конфликтуют или не работают, переподключитесь к игре и назначьте их снова."
+		"key_bind_input_err"									"Недопустимая клавиша. Попробуйте другую"
+		"key_bind_quick_cast"									"Быстрое применение"
+		"key_bind_remember"										"Сохранять клавиши способностей"
+		"key_bind_clear"										"Очистить"
+		"key_bind_clear_tooltip"								"Очищает все бинды и настройки быстрого применения.<br>Уже назначенные в этом матче клавиши перестанут работать после переподключения."
+		"key_bind_inventory_slot_tooltip"					"Горячая клавиша предмета в ячейке %s. Сначала разблокируйте ячейку книгой расширения инвентаря."
+
+		///////////////////////////////////////////////////
+		//
+		//			通用 Common
+		//
+		///////////////////////////////////////////////////
+		"player_member_ship"			"Оформить подписку"
+		"point_header_text"				"Уведомление"
+
+		///////////////////////////////////////////////////
+		//
+		//			个人资料 Profile
+		//
+		///////////////////////////////////////////////////
+		"profile_title"					"Профиль"
+		"profile_tab_stats"				"Статистика"
+		"profile_tab_awaken"			"Пробуждение"
+		"profile_tab_member"			"Подписка"
+		"profile_point_season_tooltip"		"Доступные боевые очки можно потратить на постоянное пробуждение героев.<br>Общие боевые очки определяют боевой уровень и число очков атрибутов. Они только растут и не уменьшаются при тратах."
+		"profile_point_member_tooltip"		"Доступные очки подписки можно потратить на постоянное пробуждение героев, обновление лотереи и другое.<br>Общие очки подписки определяют уровень подписки и число очков атрибутов. Они только растут и не уменьшаются при тратах."
+		"profile_point_useable_prefix"		"Доступно"
+		"profile_point_total_fmt"			"/ Всего {n}"
+
+		// 觉醒
+		"awaken_intro_title"				"Камень пробуждения"
+		"awaken_intro_desc"				"Открывайте сундуки, чтобы получить <font color='#FFD24A'>Камень пробуждения</font>, превращающий одну из способностей героя в пробуждённую форму только на этот матч.<br>Убийство Рошана или открытие большего числа сундуков повышает шанс его получить."
+		"awaken_unlock_intro_title"			"Постоянное пробуждение"
+		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Выбранный герой</font>: потратьте <font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>доступных боевых очков</font> или <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>доступных очков подписки</font>, чтобы навсегда пробудить выбранного героя.<br><font color='#FFD24A'>Случайный розыгрыш</font>: заплатите вдвое меньше — <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>доступных боевых очков</font> или <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>доступных очков подписки</font> — и пробудите одного из 3 случайных героев.<br>Тратятся только доступные очки. Общие очки лишь растут, поэтому боевой уровень, уровень подписки и очки атрибутов не уменьшатся. Постоянное пробуждение нельзя отменить. Даже если способность позже усилят, ослабят или переработают, пробуждение героя сохранится."
+		"awaken_unlock_button"				"Пробудить"
+		"awaken_unlocked_label"				"Пробуждён"
+		"awaken_free_trial_badge"			"Даром"
+		"awaken_free_trial_tooltip"			"Новое пробуждение бесплатно на ограниченное время. Выберите этого героя, и пробуждение применится автоматически."
+		"awaken_unlock_tooltip_insufficient"	"Недостаточно доступных очков."
+		"awaken_unlock_confirm_desc"		"Выберите очки для траты,<br>чтобы навсегда пробудить этого героя?"
+		"awaken_pay_member_button"			"{cost}<br>доступных очков подписки"
+		"awaken_pay_season_button"			"{cost}<br>доступных боевых очков"
+		"awaken_random_title"				"Случайно"
+		"awaken_random_button"				"Розыгрыш"
+		"awaken_random_select_button"		"Выбрать"
+		"awaken_random_candidates_title"	"Выберите героя для пробуждения навсегда (вдвое дешевле)"
+		"awaken_random_confirm_desc"		"Случайный розыгрыш <font color='#FFD24A'>вдвое дешевле</font>.<br>Выберите очки для траты, чтобы навсегда пробудить этого героя?"
+		"awaken_random_tooltip_insufficient_point"	"Недостаточно доступных очков."
+		"awaken_random_tooltip_insufficient_pool"	"Доступно менее 3 героев для пробуждения."
+		"awaken_random_card_desc"			"Вдвое дешевле<br>1 из 3"
+		"awaken_random_candidates_desc"		"Потратьте <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>доступных боевых очков</font> или <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>доступных очков подписки</font>.<br>Навсегда пробудите одного из 3 случайных героев."
+
+		// 战绩
+		"profile_stat_games"			"Игры"
+		"profile_stat_winrate"			"Процент побед"
+		"profile_stat_conduct"			"Очки поведения"
+		"profile_stat_lifetime_kills"		"Убийства"
+		"profile_stat_lifetime_deaths"		"Смерти"
+		"profile_stat_lifetime_assists"		"Помощь"
+		"profile_stat_lifetime_last_hits"	"Добивания"
+		"profile_stat_lifetime_hero_damage"	"Урон героям"
+		"profile_stat_lifetime_damage_taken"	"Полученный урон"
+		"profile_stat_lifetime_healing"		"Лечение"
+		"profile_stat_lifetime_tower_kills"	"Башни"
+		"profile_stat_lifetime_total_gold"	"Заработано золота"
+		"profile_stat_lifetime_stuns"		"Время оглушения"
+		"profile_stat_lifetime_roshan_kills"	"Убийства Рошана"
+		"profile_stat_history_button"		"История матчей"
+		"profile_stat_conduct_tooltip"	"Очки поведения отражают ваши действия в игре. Начальное значение — 100, максимум — 120.<br><br><b>Изменение очков</b><br>• Завершение игры: <font color='#7FD47F'>+1</font> (только до 100)<br>• Ранний выход: <font color='#E87D7D'>-10</font> (не учитывается в одиночной игре или при выходе всех игроков)<br>• Похвала: <font color='#7FD47F'>+2</font> / жалоба: <font color='#E87D7D'>-2</font> (один игрок учитывается не чаще раза в неделю)<br><br><b>Множитель очков за матч</b> (только командные игры)<br>• <font color='#7FD47F'>≥110</font>: ×1.1<br>• 80–109: ×1.0<br>• <font color='#F5A623'>60–79</font>: ×0.8<br>• <font color='#E87D7D'>&lt;60</font>: ×0.5"
+		"profile_stat_conduct_net_tooltip"	"Всего похвал минус всего жалоб"
+
+		// 会员
+		"member_button_tooltip_active"		"Подписка действует. Нажмите, чтобы посмотреть подробности"
+		"member_button_tooltip_inactive"	"Подписка не активна. Нажмите, чтобы посмотреть подробности"
+		"member_subtab_status"			"Статус подписки"
+		"member_subtab_subscribe"		"Оформить подписку"
+		"member_subtab_points"			"Купить очки"
+		"member_status_premium"			"Премиум-подписка"
+		"member_status_normal"			"Обычная подписка"
+		"member_status_none"			"Нет подписки"
+		"member_status_card_click_hint"		"Нажмите, чтобы оформить премиум-подписку"
+		"member_benefit_click_hint_premium"	"Нажмите, чтобы открыть преимущества премиум-подписки"
+		"member_status_expired"			"Срок истёк"
+		"member_expire_date"			"Действует до: {expireDate}"
+		"member_expired_date"			"Срок истёк {expireDate}"
+		"member_benefit_title_all"		"Преимущества премиум-подписки"
+		"member_benefit_title_base"		"Преимущества подписки"
+		"member_benefit_title_premium"	"Эксклюзивные преимущества"
+		"member_benefit_revive"			"Время возрождения уменьшено на 5 секунд"
+		"member_benefit_buyback"		"Перезарядка выкупа уменьшена до 2 минут"
+		"member_benefit_reroll"			"По одному обновлению начального набора активных и пассивных способностей"
+		"member_benefit_daily_exp"		"100 очков подписки за первый вход каждый день (сброс в 00:00 UTC)"
+		"member_benefit_8pick"			"Выбор способности расширен до 8 вариантов, а 2 дополнительных варианта чаще бывают высокого уровня"
+		"member_benefit_gold_cap"		"Снято ограничение в 99 999 золота"
+		"member_benefit_item_refresh"	"Одно обновление предметов для каждого сундука"
+		"member_benefit_exp_normal"		"300 очков подписки сразу за каждую подписку"
+		"member_benefit_exp_premium"	"1000 очков подписки сразу за каждую подписку"
+		"member_benefit_buff"			"Бонус подписчика: +10 к урону, +5% к усилению заклинаний, +300 здоровья и +200 маны"
+		"member_steam_id"				"ID друга в Dota 2: "
+		"member_steam_id_select_hint"	"(можно выделить и скопировать)"
+		"member_subscribe_hint"			"При оплате через Afdian или Ko-fi укажите ID друга выше в примечании к заказу. Для Alipay это не требуется."
+		"member_subscribe_title"		"Оформить премиум-подписку"
+		"member_subscribe_normal_upgrade_hint"	"У вас обычная подписка. При переходе на премиум оставшееся время будет пересчитано с коэффициентом 0,6."
+		"member_platform_alipay"				"Alipay"
+		"member_platform_alipay_desc"			"Оплата в CNY по QR-коду"
+		"member_platform_afdian"				"Afdian"
+		"member_platform_afdian_desc"			"Оплата в CNY"
+		"member_platform_kofi"					"Ko-fi"
+		"member_platform_kofi_desc"				"Для пользователей по всему миру · Оплата в USD"
+		"member_platform_subscribe_btn"			"Подписаться "
+		"member_platform_subscribe_month"		"/месяц"
+		"member_shop_divider"			"Уже подписаны? Купите очки для быстрого повышения уровня"
+		"member_shop_title"				"Купить очки подписки"
+		"member_other_payment"			"Другие способы оплаты"
+		"member_activate"				"Активировать вручную"
+		"member_activate_tooltip"		"Используйте это, если забыли указать ID друга или ввели его неверно. После успешной активации система запомнит аккаунт, и при следующих покупках вводить ID не понадобится."
+		"member_refresh"				"Обновить подписку и очки"
+		"member_alipay_status_creating"		"Создание заказа..."
+		"member_alipay_status_waiting"		"Отсканируйте код в Alipay для оплаты"
+		"member_alipay_status_paid_title"	"Подписка активирована"
+		"member_subscribe_paid_title"		"Подписка активирована: {duration}"
+		"member_points_paid_title"			"Получено очков подписки: {n}"
+		"member_alipay_status_closed"		"Заказ закрыт. Попробуйте снова"
+		"member_alipay_status_failed"		"Не удалось оформить заказ. Попробуйте снова"
+		"member_alipay_status_error"		"Ошибка сети. Повторите попытку позже"
+		"member_alipay_status_rate_limited"	"Слишком много запросов. Попробуйте снова в следующем матче"
+		"member_alipay_retry"				"Повторить"
+		"member_alipay_close"				"Закрыть"
+		"member_alipay_discount_fmt"		"Скидка {n}%"
+		"member_alipay_tier_month_fmt"		"{n} мес."
+		"member_alipay_tier_year_fmt"		"{n} г."
+		"member_points_title"			"Купить очки подписки"
+		"member_points_usage_hint"		"Очки подписки повышают её уровень и усиливают атрибуты героя."
+		"member_points_amount_fmt"		"{n} очков"
+		"member_points_save_fmt"		"Экономия ¥{n}"
+
+		// 每日任务
+		"profile_tab_dailytask"			"Задания"
+		"dailytask_header_title"			"Мои ежедневные задания"
+		"dailytask_header_subtitle"			"Выберите задание для раунда {round}/{total}"
+		"dailytask_header_desc"			"За день можно пройти до 3 раундов заданий. В каждом раунде выберите одно из 3 случайных общих или предназначенных для героя заданий. Один раз за раунд набор можно обновить. Задание засчитывается только при победе, а боевые очки начисляются на экране итогов."
+		"dailytask_reward_hint"			"+{n} боевых очков"
+		"dailytask_settlement_tooltip_prefix"		"Задание дня выполнено: "
+		"dailytask_select_button"			"Принять"
+		"dailytask_selected_label"			"Принято"
+		"dailytask_refresh_button"			"Обновить"
+		"dailytask_refresh_used_label"			"Обновлено"
+		"dailytask_disabled_hint"			"Ежедневные задания недоступны в чит-режиме или при пользовательской сложности с мгновенным возрождением или общим коэффициентом очков ниже 1x"
+		"dailytask_empty_hint"			"Сейчас нет доступных ежедневных заданий, загляните в следующем матче"
+		"dailytask_all_done_hint"			"Все раунды на сегодня завершены: {total}"
+		"dailytask_hud_unclaimed"			"Задание не принято"
+		"dailytask_hud_unclaimed_tip"			"Сегодняшнее задание ещё не принято, нажмите, чтобы выбрать"
+		"dailytask_hud_hero_mismatch"			"Герой не подходит"
+		"dailytask_hud_hero_mismatch_tip"		"Текущий герой не подходит для этого задания, нажмите, чтобы выбрать другое"
+		"dailytask_subtab_candidates"			"Сегодня"
+		"dailytask_subtab_history"			"История"
+		"dailytask_history_today"			"Сегодня"
+		"dailytask_history_empty_hint"			"Пока нет истории. Выполненные задания появятся здесь."
+		"dailytask_history_loading"				"Загрузка истории..."
+		"dailytask_history_col_date"			"Дата"
+		"dailytask_history_col_tasks"			"Выполнено"
+		"dailytask_history_col_points"			"Всего очков"
+		"dailytask_metric_short_kills"			"Убийства"
+		"dailytask_metric_short_assists"			"Помощь"
+		"dailytask_metric_short_last_hits"			"Добивания"
+		"dailytask_metric_short_tower_kills"		"Башни"
+		"dailytask_metric_short_hero_damage"		"Урон"
+		"dailytask_metric_short_healing"			"Лечение"
+		"dailytask_metric_short_total_gold_earned"	"Золото"
+		"dailytask_metric_short_damage_taken"		"Полученный урон"
+		"dailytask_metric_short_stun_duration"		"Оглушение"
+		"dailytask_metric_short_roshan_kills"		"Рошан"
+		"dailytask_task_general_kills"			"Убейте героев: {target}"
+		"dailytask_task_general_assists"			"Помогите убить героев: {target}"
+		"dailytask_task_general_last_hits"			"Добейте существ: {target}"
+		"dailytask_task_general_tower_kills"		"Разрушьте башни: {target}"
+		"dailytask_task_general_hero_damage"		"Нанесите урон вражеским героям: {target}"
+		"dailytask_task_general_healing"			"Восстановите здоровье союзным героям: {target}"
+		"dailytask_task_general_total_gold_earned"	"Заработайте золота: {target}"
+		"dailytask_task_general_damage_taken"		"Получите урон от вражеских героев: {target}"
+		"dailytask_task_general_stun_duration"		"Оглушайте или обездвиживайте вражеских героев в течение {target} сек."
+		"dailytask_task_general_roshan_kills"		"Убейте Рошана: {target}"
+		"dailytask_task_hero_kills"			"Играя за {hero}, убейте героев: {target}"
+		"dailytask_task_hero_assists"			"Играя за {hero}, помогите убить героев: {target}"
+		"dailytask_task_hero_last_hits"			"Играя за {hero}, добейте существ: {target}"
+		"dailytask_task_hero_tower_kills"			"Играя за {hero}, разрушьте башни: {target}"
+		"dailytask_task_hero_hero_damage"			"Играя за {hero}, нанесите урон вражеским героям: {target}"
+		"dailytask_task_hero_healing"			"Играя за {hero}, восстановите здоровье союзным героям: {target}"
+		"dailytask_task_hero_total_gold_earned"	"Играя за {hero}, заработайте золота: {target}"
+		"dailytask_task_hero_damage_taken"			"Играя за {hero}, получите урон от вражеских героев: {target}"
+		"dailytask_task_hero_stun_duration"			"Играя за {hero}, оглушайте или обездвиживайте вражеских героев в течение {target} сек."
+
+		///////////////////////////////////////////////////
+		//
+		//			Creep / Tower
+		//
+		///////////////////////////////////////////////////
+		"DOTA_Tooltip_modifier_tower_power"					"Building Power"
+		"DOTA_Tooltip_modifier_tower_power_Description"		"Урон атаки и максимальное здоровье этого строения увеличены на %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%.<br>Эта постройка также имеет дополнительные %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% восстановления здоровья"
+
+		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonus"
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Герои ближнего боя получают <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%</b></font> дополнительного сопротивления магии и <font color='#FFFFFF'><b>15%%</b></font> сопротивления эффектам."
+
+		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
+		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
+		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%Бонус к снижению урона: "
+
+		"DOTA_Tooltip_ability_creep_buff_upgraded"						"Super Creep Buff"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%Бонус к снижению урона: "
+
+		"DOTA_Tooltip_ability_creep_buff_mega"							"Mega Creep Buff"
+		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%Бонус к снижению урона: "
+
+		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%Бонусный урон не героям: "
+
+		"DOTA_Tooltip_ability_tower_armor_aura"						"Armor Aura"
+		"DOTA_Tooltip_ability_tower_armor_aura_Description"				"Дает %bonus_armor% бонусной брони всем союзным героям поблизости."
+		"DOTA_Tooltip_ability_tower_magical_armor_aura"					"Magical Resistance Aura"
+		"DOTA_Tooltip_ability_tower_magical_armor_aura_Description"			"Дает %bonus_magical_armor%%% сопротивления магии всем союзным героям поблизости."
+
+		"DOTA_Tooltip_ability_tower_split_shot"						"Structure Split Shot"
+		"DOTA_Tooltip_ability_tower_split_shot_Description"				"Это строение может поражать несколько целей при каждой атаке. Стакается с мультишотом Glyph of Fortification"
+		"DOTA_Tooltip_ability_tower_split_shot_arrow_count"				"Доп. выстрелы: "
+
+		"DOTA_Tooltip_ability_tower_ursa_fury_swipes"					"Structure Fury Swipes"
+		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_Description"			"Эта структура наносит больше урона при каждой последующей атаке по одной и той же цели."
+		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_damage_per_stack"			"Урон за эффект: "
+		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_bonus_reset_time"			"Длительность эффекта: "
+
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor"				"Structure Fervor"
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_Description"			"Это строение увеличивает скорость атаки атакую одну и ту же цель. Если строение атакует новую цель, стаки обнуляются "
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_attack_speed"			"Доп. скорость атаки за эффект: "
+		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_max_stacks"			"Максимум эффектов: "
+
+		"DOTA_Tooltip_ability_tower_antimage_mana_break"				"Structure Mana Break"
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_Description"			"Это строение сжигает ману цели при каждой атаке и наносит дополнительный урон, равный проценту от сожженной маны"
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_attack_speed"			"Скорость атаки за эффект: "
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_percent_damage_per_burn"	"%Мана в урон: "
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit"			"Сжигание маны за удар: "
+		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit_pct"		"%Макс. сжигание маны за удар: "
+
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor"				"Structure Reactive Armor"
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_Description"		"Это строение получает дополнительную броню и регенерацию здоровья каждый раз, когда его атакуют. Атаки героев считаюся за %stacks_per_hero_attack%"
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_armor"		"Бонусная броня: "
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_hp_regen"		"Бонусный реген. здоровья: "
+		"DOTA_Tooltip_ability_tower_shredder_stack_duration"				"Длительность эффекта: "
+
+		"DOTA_Tooltip_ability_tower_headshot"						"Structure Mini-Bash"
+		"DOTA_Tooltip_ability_tower_headshot_Description"				"При атаке это сооружение имеет шанс замедлить скорость передвижения и атаки врагов на %slow%%% на короткий промежуток времени, а также оттолкнуть их"
+		"DOTA_Tooltip_ability_tower_headshot_proc_chance"				"%Шанс срабатывания: "
+		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"			"Дастанция отбрасывания: "
+		"DOTA_Tooltip_ability_tower_headshot_slow_duration"				"Длительность замедления: "
+
+		"DOTA_Tooltip_ability_fountain_armor_aura"						"Защитная аура фонтана"
+		"DOTA_Tooltip_ability_fountain_armor_aura_Description"				"Даёт %bonus_armor% брони ближайшим союзникам."
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura"				"Магическая аура фонтана"
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"			"Даёт %bonus_magical_armor%%% сопротивления магии ближайшим союзникам."
+
+
+		// 藏宝箱
+		"npc_treasure_chest"													"Сундук с сокровищами"
+		///////////////////////////////////////////////////
+		//
+		//            itembuilds
+		//
+		///////////////////////////////////////////////////
+		"dota_item_build_windy_consumables_items"	"10v10 Consumable Items"
+		"dota_item_build_windy_physical_core_items"	"10v10 Physical Carry Items"
+		"dota_item_build_windy_magical_core_items"	"10v10 Magical Nuker Items"
+		"dota_item_build_windy_support_items"		"10v10 Supporting Items"
+		"dota_item_build_windy_defense_items"		"10v10 Defensive Items"
+		"dota_item_build_windy_melee_items"		"10v10 Melee Items"
+		"dota_item_build_windy_range_items"		"10v10 Ranged Items"
+
+		///////////////////////////////////////////////////
+		//
+		// 					Abilities 英雄技能
+		//
+		///////////////////////////////////////////////////
+
+		// 混沌骑士
+		"DOTA_Tooltip_ability_special_bonus_unique_chaos_knight_4"						"+{s:bonus_duration}с к длительности Army of Chaos"
+
+		//血魔 血雾
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"blood mist"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Пока способность активна, герой разбрызгивает вокруг свою кровь, теряя здоровье, но нанося задетым врагам урон и замедляя их"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%Урон / потеря здоровья в секунду: "
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"Радиус:"
+		//醉拳
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"Drunken Boxing"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"Пассивно даёт шанс уклониться от атаки и нанести критический урон.<br><br>При активации герой начинает шататься, получает %move_speed_bonus%%% к скорости передвижения, а шансы уклонения и критической атаки увеличиваются в %crit_multiplier% раза на %duration% сек."
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%Критический урон: "
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"Длительность： "
+
+		//长角抛物
+		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "Герой перебрасывает врагов через себя, нанося им урон. Они летят %air_duration% сек. и оглушаются во время полёта и по приземлении."
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_air_duration"			        "ДЛИТЕЛЬНОСТЬ ПОЛЁТА:"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_damage"   			        "УРОН:"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_stun_duration"   			        "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		//虚空  回到过去
+		"DOTA_Tooltip_ability_faceless_void_backtrack2"				"backtrack"
+		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"Даёт %dodge_chance_pct%%% шанс полностью избежать любого получаемого урона."
+		//腾焰斗篷
+		"DOTA_Tooltip_ability_lina_flame_cloak2"											"Flame Cloak"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"									"Врождённая защита от настырных сестёр и зубастых тварей."
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"								"Дарует герою беспрепятственное передвижение. Увеличивает его урон от заклинаний и сопротивление магии. Применение даёт владельцу максимум эффектов способности Fiery Soul."
+		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%ДОП. УРОН ОТ ЗАКЛИНАНИЙ:"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%СОПРОТИВЛЕНИЕ МАГИИ:"
+		//人马 不屈
+		"DOTA_Tooltip_ability_centaur_sturdy"                            "sturdy"
+        "DOTA_Tooltip_ability_centaur_sturdy_Description"                "Увеличивает сопротивление эффектам и силу. "
+        "DOTA_Tooltip_ability_centaur_sturdy_strength"                    "Сила: "
+        "DOTA_Tooltip_ability_centaur_sturdy_status"                    "%Сопротивление эффектам: "
+
+		//贪魔的贪婪
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"Позволяет синтезировать больше золота из врагов и рун. Дополнительное золото за убийство существ состоит из начального бонуса и нарастающего, который увеличивается с каждым существом, убитым в течение %duration% сек. после предыдущего. Также способность умножает золото от рун богатства."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_abilitydraft_note"			"В этом режиме возможность расплавить Aghanim's Scepter, чтобы передать союзному герою все его улучшения, привязана к способности Greevil's Greed, а не Chemical Rage. Сам предмет дарует герою дополнительный урон от атак и заклинаний за каждый расплавленный для союзников Aghanim's Scepter."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"							"Пускай эксперимент с горой и не удался, зато структуры поменьше Раззил легко обращает в звонкую монету."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"						"МАКС. ИНТЕРВАЛ УБИЙСТВ:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold"					"НАЧАЛЬНЫЙ БОНУС:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"НАРАСТАЮЩИЙ БОНУС:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"МАКСИМУМ ДОП. ЗОЛОТА:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"МНОЖИТЕЛЬ РУН БОГАТСТВА:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"Бонус атаки за слой："
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"Улучшение денежного вознаграждения："
+
+		//普通一拳
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"Normal Punch"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Следующая атака героя наносит цели урон, оглушает её и создаёт её иллюзию."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"МАКС. ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"МАКС. ДАЛЬНОСТЬ ТОЛЧКА:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"					"ВРЕМЯ ЖИЗНИ КОПИИ:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"МАКСИМАЛЬНЫЙ УРОН:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"ad ставка："
+		//妙手空空
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"Cutpurse"
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Применяя способность или предмет на вражеского героя, Bounty Hunter крадёт у него %gold_steal% золота."
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"ПОХИЩЕНИЕ ЗОЛОТА:"
+
+		// 黑暗贤者 才思敏捷
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"								"Quick Wit"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"					"За каждую единицу Интеллекта Dark Seer получает %int_to_atkspd% скорости атаки."
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_attack_speed_tooltip"			"БОНУС К СКОРОСТИ АТАКИ:"
+		//炽烈火雨
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"Burning Barrage"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"ПРЕРЫВАЕМАЯ — герой выпускает залп стрел в выбранном направлении. Они пролетают сквозь всех врагов на пути, нанося им долю от обычного урона, а также накладывая эффекты атаки и замедление от способности Tar Bomb."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Lore"										"Трудно сказать, вызвано ли дрожание воздуха вокруг костяного лучника жаром его раскалённого сердца или скоростью, с которой он достаёт стрелы из колчана."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Note0"										"Дальность применения способности увеличивается с дальностью атаки."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_abilitychanneltime"						"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"								"ЧИСЛО СТРЕЛ:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"										"ДАЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%УРОН ОТ АТАКИ:"
+		//冰爆
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"ice_explosion"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Пассивно увеличивает скорость атаки. Каждая атака с вероятностью 35% вызывает ледяной взрыв в случайной области, наносящий урон и замедляющий врагов на 1 секунду."
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"повреждать："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"ad ставка："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"Случайный диапазон："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"Диапазон повреждений от ледяного взрыва："
+		//诅咒之雨
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"dazzle_rain_of_vermin"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Наносит постоянный урон области, с вероятностью 12% превращая ее в цыплят."
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"повреждать："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_duration"		"Длительность："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_radius"			"Радиус："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%Шанс："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"Длительность трансформации："
+
+		//神之愤怒
+		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"Wrath of God"
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"Sven получает дополнительный урон от силы, но его базовый урон уменьшается."
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_base_damage_reduction"	"Снижение базового урона: "
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_bonus_damage_per_str"	"Бонусный урон за силу: "
+		//暴烈之爪
+		"DOTA_Tooltip_ability_ursa_maul2"						"Maul"
+		"DOTA_Tooltip_ability_ursa_maul2_Description"			"Ursa получает бонусный урон, равный проценту от его текущего здоровья"
+		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%Здоровье в урон:"
+		"DOTA_Tooltip_modifier_ursa_maul2"						"Maul"
+		"DOTA_Tooltip_modifier_ursa_maul2_Description"			"Урон увеличен на %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
+		//天生一对
+		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
+		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Атаки Джакиро запускают удар с каждой головы, но каждый наносит меньше урона."
+		//闷烧树脂
+		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
+		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"Атаки героя накладывают эффект, который раз в %tick_rate% сек. наносит %tick_attack_damage_pct%%% урона от его атаки. Длительность: %total_ticks% сек."
+		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff"				"Smoldering Resin"
+		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff_Description"	"Медленно горит от атак Batrider"
+		//一人之军
+		"DOTA_Tooltip_ability_axe_one_man_army2"						"One Man Army"
+		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Когда рядом с героем нет союзников, его сила увеличивается на долю от показателя брони."
+		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%Бонус прочности брони:"
+		//人工神符
+		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Artificial Rune"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Создает случайную руну"
+		//冰霜法球
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"Frost orb"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"Каждая %attack_count%-я атака выпускает ледяную сферу, которая наносит урон по области и ненадолго замедляет основную цель."
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"Радиус： "
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"Урон： "
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"Коэф. от урона героя："
+		//极寒光环
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"					"Freezing aura"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"Снижает восстановление здоровья, вампиризм и лечение врага.<br/><br/>Активно: Наносит урон и замедляет окружающих врагов. Чем ближе они к герою, тем больше урон и замедление."
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_percentage"		"%Снижение лечения： "
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_hp_regen"		"Снижение восстановления здоровья： "
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"Макс. урон： "
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
+
+
 		// 泉水 制裁
 		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Вражеские герои под управлением игроков подвергаются санкции, приближаясь к радиусу атаки фонтана. Действует только в командном режиме.<br><br>Когда герой-бот погибает в этом радиусе, в убийцу выпускается самонаводящийся огненный шар, который проходит сквозь магический иммунитет и наносит урон, равный %retaliation_damage_pct%%% максимального здоровья убийцы."
 
+		///////////////////////////////////////////////////
+		//
+		// 					Awaken Abilities 觉醒技能
+		//
+		///////////////////////////////////////////////////
+// 					Awaken Abilities 觉醒技能
+
+		// 赏金猎人 追踪术觉醒
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken"							"<font color='#d000ff'>Track: пробуждение</font>"
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_Description"				"Помечает вражеского героя, раскрывая его невидимость, увеличивая получаемый им урон и показывая его запас золота. За смерть этого врага владелец способности и союзные герои неподалёку получат дополнительное золото.<br><br><font color='#00CED1'>АВТОПРИМЕНЕНИЕ:</font> При включении способность применяется автоматически, если в радиусе применения есть вражеский герой; в первую очередь по ещё не помеченным героям.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> После применения Track герой также бросает в цель Shuriken Toss текущего уровня. Этот сюрикен игнорирует дальность применения и не уходит на перезарядку, но тратит ману Shuriken Toss. Он не бросается, если Shuriken Toss не изучен или не хватает маны."
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_target_damage_amp"			"%УВЕЛИЧЕНИЕ УРОНА:"
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_bonus_gold"				"ДОП. ЗОЛОТО СОЮЗНИКАМ:"
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_bonus_gold_self"			"ДОП. ЗОЛОТО СЕБЕ:"
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_duration"					"ДЛИТЕЛЬНОСТЬ:"
+
+		// Skywrath Mage Staff of the Scion - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>Посох отпрыска · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Бонус пробуждения:</font> Skywrath Mage получает Staff of the Scion. Каждый раз, когда его способности наносят <font color='#05CAFF'>магический урон</font> вражескому герою, время восстановления всех его способностей сокращается на %cooldown_reduction% сек.<br><br><font color='#00CED1'>Автоприменение:</font> Если включено, Skywrath Mage автоматически применяет Ancient Seal, Concussive Shot, Mystic Flare и Arcane Bolt, когда вражеский герой находится в радиусе применения. Arcane Bolt также применяется по крипам, если героев поблизости нет."
+		// 炸弹人 觉醒
+		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Пробуждение: Squee's Scope</font>"
+		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Каждая единица скорости атаки героя увеличивает его дальность атаки и скорость снарядов на %attack_range_tooltip%."
+		"DOTA_Tooltip_modifier_techies_squees_scope"					"<font color='#d000ff'>Пробуждение: Squee's Scope</font>"
+		"DOTA_Tooltip_modifier_techies_squees_scope_Description"		"Каждая единица скорости атаки героя увеличивает его дальность атаки и скорость снарядов на <font color='#FFFFFF'><b>1</b></font>."
+
+		// 凤凰 烈日炙烤-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Луч Sun Ray наносит больше урона и лечения целям у своего конца. Интенсивность луча начинает расти с %hotspot_start_length_pct%%% его длины и достигает %hotspot_end_multiplier_pct%%% базового урона и лечения на дальности %hotspot_reference_length%. Дальнейшее увеличение длины луча продолжает усиливать эффект на его конце."
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray усиливается после 50%% длины луча и на дальности 1200 наносит 180%% урона и лечения. Более длинный луч продолжает усиливаться у своего конца."
+
+		// Legion Commander Auto Duel - Awakened
+		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Автоматическая дуэль · Пробуждение</font>"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>Автоприменение:</font> Если включено и Duel готова, способность автоматически применяется к ближайшему видимому вражескому герою в радиусе применения Duel плюс %bonus_cast_range%. Иллюзии игнорируются.<br><br>Автоматическая дуэль игнорирует и расходует пассивные эффекты блока и отражения заклинаний цели.<br><br>Длительность Duel фиксирована и не зависит от сопротивления эффектам.<br><br>Во время Duel Legion Commander получает эффект <font color='#FFCC66'>Black King Bar</font>, а цель нельзя выбрать."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Честь не требует приглашения — ближайший враг станет соперником."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"ДОПОЛНИТЕЛЬНАЯ ДАЛЬНОСТЬ АВТОМАТИЧЕСКОЙ ДУЭЛИ:"
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Автоматическая дуэль: цель нельзя выбрать"
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable_Description"	"Во время Duel эту цель нельзя выбрать."
+
+		// 光之守卫 冲击波-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"				"<font color='#d000ff'>Пробуждение Illuminate</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на %base_damage_bonus%, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого Illuminate вражеского героя даётся 1 заряд Фокуса, каждый заряд увеличивает урон Illuminate на %damage_pct_per_stack%%%."
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"МАКС. ЗАРЯДОВ ФОКУСА:"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"ДЛИТЕЛЬНОСТЬ ФОКУСА:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>Пробуждение Illuminate</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на <font color='#FFFFFF'><b>100</b></font>, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого вражеского героя даётся 1 заряд Фокуса, максимум <font color='#FFFFFF'><b>10</b></font> зарядов длительностью <font color='#FFFFFF'><b>20</b></font> сек., каждый заряд увеличивает урон Illuminate на <font color='#FFFFFF'><b>20</b></font>%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"Фокус"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"Урон Illuminate увеличен на <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>."
+
+
+		// 巫妖 寒灾轮回觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Цикл ледяного бедствия</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Description"		"Увеличивает скорость снаряда и радиус отскока Chain Frost, а также продлевает длительность замедления и Frostbound.<br><br>Попадания по герою или Roshan наносят дополнительный магический урон в размере %intelligence_damage_multiplier%x интеллекта и накладывают 1 заряд Frost Calamity длительностью %mark_duration% сек, который взрывается самостоятельно при %mark_max_stacks% зарядах; применение Frost Blast на отмеченного врага также взрывает его досрочно. Взрыв наносит урон в радиусе %detonation_radius% в размере %nova_detonation_multiplier_per_stack%x интеллекта за каждый израсходованный заряд и <font color='#2DD5E4'>оглушает</font> врагов на %freeze_duration% сек.<br><br>Если Ice Spire уже изучена, попадание Chain Frost по единственному вражескому герою поблизости автоматически применяет Ice Spire в позиции этого героя."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note0"		"Иллюзии не считаются настоящими героями. Roshan считается обычным юнитом."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note1"		"Метки Frost Calamity накапливаются только на настоящих героях и Roshan. Roshan получает урон от взрыва, но не замораживается."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note2"		"Frost Blast может досрочно взорвать Frost Calamity, нанося урон в зависимости от текущего числа зарядов."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Цикл ледяного бедствия</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"Увеличивает скорость снаряда и радиус отскока Chain Frost, а также продлевает длительность замедления и Frostbound.<br><br>Попадания по герою или Roshan наносят дополнительный магический урон в размере <font color='#FFFFFF'><b>0.75x</b></font> интеллекта и накладывают 1 заряд Frost Calamity длительностью <font color='#FFFFFF'><b>8</b></font> сек, который взрывается самостоятельно при <font color='#FFFFFF'><b>3</b></font> зарядах; применение Frost Blast на отмеченного врага также взрывает его досрочно. Взрыв наносит урон в радиусе <font color='#FFFFFF'><b>350</b></font> в размере <font color='#FFFFFF'><b>0.75x</b></font> интеллекта за каждый израсходованный заряд и <font color='#2DD5E4'>оглушает</font> врагов на <font color='#FFFFFF'><b>0.6</b></font> сек.<br><br>Если Ice Spire уже изучена, попадание Chain Frost по единственному вражескому герою поблизости автоматически применяет Ice Spire в позиции этого героя."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"Frost Calamity"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"При 3 зарядах срабатывает взрыв Frost Calamity. Lich также может досрочно взорвать метку с помощью Frost Blast."
+
+		// 小小 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Пробуждение Tiny</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Пробуждение Tiny</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
+		// 戴泽 薄葬觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade"					"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
+
+		// 敌法师 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Подавление маны: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"Blink сжигает ману ближайших вражеских героев и не даёт её восстанавливать, а Mana Void наносит урон каждому вражескому герою по его собственной недостающей мане."
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink вражеские герои в радиусе <font color='#FFFFFF'><b>600</b></font> мгновенно теряют <font color='#FFFFFF'><b>40%%</b></font> текущей маны и не могут восстанавливать ману <font color='#FFFFFF'><b>4</b></font> сек.<br>Mana Void наносит урон каждому вражескому герою в области по его собственной недостающей мане."
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Подавление маны: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink вражеские герои в радиусе <font color='#FFFFFF'><b>600</b></font> мгновенно теряют <font color='#FFFFFF'><b>40%%</b></font> текущей маны и не могут восстанавливать ману <font color='#FFFFFF'><b>4</b></font> сек.<br>Mana Void наносит урон каждому вражескому герою в области по его собственной недостающей мане."
+
+		// 恐怖利刃 魂断觉醒
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Пробуждённый Sunder</font>"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_SummaryDescription"	"Автоматически применяет Sunder по вражескому герою с наибольшим процентом здоровья при низком здоровье, даже под контролем."
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_Description"		"Разрывает жизнь Terrorblade и целевого героя, меняя местами проценты текущего здоровья обоих. Часть здоровья обязательно остаётся.<br><br><font color='#00CED1'>Автоприменение:</font> При здоровье ниже <font color='#FFFFFF'><b>30%%</b></font> автоматически применяет Sunder по вражескому герою с наибольшим процентом здоровья в радиусе действия.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> Срабатывает даже под оглушением, безмолвием, превращением в барана и другим контролем. Требует, чтобы Sunder был готов к использованию и хватало маны, и не срабатывает, если ни у одного вражеского героя процент здоровья не выше вашего."
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Пробуждённый Sunder</font>"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status_Description"		"<font color='#00CED1'>Автоприменение:</font> При здоровье ниже <font color='#FFFFFF'><b>30%%</b></font> автоматически применяет Sunder по вражескому герою с наибольшим процентом здоровья в радиусе действия.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> Срабатывает даже под оглушением, безмолвием, превращением в барана и другим контролем. Требует, чтобы Sunder был готов к использованию и хватало маны, и не срабатывает, если ни у одного вражеского героя процент здоровья не выше вашего."
+
+		// 司夜刺客 钻地觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"					"<font color='#d000ff'>Пробуждённое Закапывание</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"Nyx Assassin может свободно передвигаться с обычной скоростью в состоянии Burrow, сохраняя все остальные эффекты способности."
+		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_SummaryDescription"	"Позволяет Nyx Assassin нормально передвигаться в состоянии Burrow, не теряя остальные эффекты."
+		"DOTA_Tooltip_modifier_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"				"<font color='#d000ff'>Пробуждённое Закапывание</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"Nyx Assassin может свободно передвигаться с обычной скоростью в состоянии Burrow, сохраняя все остальные эффекты способности."
+
+		// 兽王 野性之斧觉醒
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>Wild Axes: пробуждение</font>"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Герой швыряет топоры, которые прорубают деревья и противников на своём пути и возвращаются обратно. Каждый топор задевает одного врага лишь единожды и увеличивает урон, получаемый от героя и его существ. Длительность эффекта зависит от сопротивления эффектам.<br><br><font color='#00CED1'>АВТОПРИМЕНЕНИЕ:</font> При включении топоры автоматически летят в самого дальнего вражеского героя, если в радиусе применения есть вражеские единицы.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> Длительность усиления получаемого урона повышена, топоры почти мгновенно вылетают и возвращаются, а Drums of Slom получает увеличенные урон, лечение и число ударов барабана от Primal Roar."
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"УРОН ТОПОРА:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%ДОП. УРОН ЗА ЭФФЕКТ:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_min_throw_duration"		"ВРЕМЯ ПОЛЁТА ТОПОРОВ:"
+		// 撼地者 余震觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>Афтершок: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Каждая цель, задетая Афтершоком, создаёт малый Афтершок в своей точке, наносящий отдельный магический урон врагам поблизости. Несколько малых Афтершоков могут поразить одну цель, но в каждой серии оглушают её только один раз. Малые Афтершоки не создают новые малые Афтершоки."
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_damage_pct"		"%УРОН МАЛОГО АФТЕРШОКА:"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_radius_pct"		"%РАДИУС МАЛОГО АФТЕРШОКА:"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_stun_pct"		"%ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade"					"<font color='#d000ff'>Афтершок: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"Афтершок создаёт малый Афтершок в каждой точке попадания, наносящий <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font> урона Афтершока как <font color='#05CAFF'>магический урон</font> в радиусе <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font> от исходного. Оглушение длится вдвое меньше. Урон малых Афтершоков может накладываться, но в каждой серии цель оглушается только один раз. Малые Афтершоки не создают новые малые Афтершоки."
+
+		// 上古巨神 灵体游魂觉醒
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Астральный дух: пробуждение</font>"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Автоприменение: автоматически посылает духа к самому дальнему вражескому герою и автоматически возвращает его."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"Elder Titan призывает своего астрального духа, который наносит урон любым юнитам на своём пути. Когда дух воссоединяется с Titan, он даёт бонус к урону и скорости передвижения за каждый задетый юнит.\n\nАстральный дух обладает способностями Echo Stomp, Return Spirit и Natural Order.<br><br><font color='#d000ff'>Бонус пробуждения:</font> Сокращённое время восстановления.<br><font color='#00CED1'>Автоприменение:</font> Как только способность готова к использованию и поблизости есть вражеский герой, автоматически посылает духа к самому дальнему вражескому герою, а затем автоматически возвращает его, как только возврат становится доступен, без ручного управления. Пока способность активна, вручную призванный дух также возвращается автоматически."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"ДЛИТЕЛЬНОСТЬ БОНУСА:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"РАДИУС:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (НЕ-ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"БОНУС УРОНА (НЕ-ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"БОНУС УРОНА (ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"Elder Titan получает неуязвимость к дебаффам и %immunity_resist%%% сопротивления магии на %scepter_magic_immune_per_hero% сек. за каждого задетого вражеского героя, когда дух возвращается."
+		// 尸王 血肉腐朽觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в %trigger_cooldown% сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в <font color='#FFFFFF'><b>0.6</b></font> сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
+
+		// 术士 地狱火献祭觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Адское пламя: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на сумму текущих восстановления здоровья и маны Чернокнижника, умноженную на %regen_to_damage_pct%%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Адское пламя: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на <font color='#FFFFFF'><b>150%%</b></font> суммы текущих восстановления здоровья и маны Чернокнижника."
+
+		// 孽主 恶魔之势觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken"					"<font color='#d000ff'>Демонический размах · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_Description"		"Атаки Underlord наносят прорубающий урон, пока он получает дополнительный урон от Atrophy Aura. Дальность прорубания увеличивается с каждой единицей дополнительного урона."
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_SummaryDescription"	"Атаки Underlord наносят прорубающий урон, пока он получает дополнительный урон от Atrophy Aura."
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_damage_pct"		"%УРОН ОТ ПРОРУБАНИЯ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_base"		"ДАЛЬНОСТЬ ПРОРУБАНИЯ (БАЗОВАЯ):"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_per_stack"	"ДАЛЬНОСТЬ ПРОРУБАНИЯ (ЗА ЕДИНИЦУ УРОНА):"
+		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken"				"<font color='#d000ff'>Демонический размах · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"				"Пока Atrophy Aura даёт дополнительный урон от атак, атаки наносят <font color='#FFFFFF'><b>100%%</b></font> прорубающего урона, а дальность прорубания увеличивается с каждой единицей дополнительного урона. Текущая дальность прорубания: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>."
+
+		// 斯拉克 精华侵蚀觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Разъедание сущности · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark убивает вражеского героя, он навсегда забирает %permanent_steal_pct%%% от общего количества атрибутов, похищенных у этого героя его Essence Shift.<br>Базовые атрибуты вражеского героя не опускаются ниже <font color='#FFFFFF'><b>1</b></font>."
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"Когда Slark убивает вражеского героя, он навсегда забирает часть атрибутов, похищенных у этого героя его Essence Shift."
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>Разъедание сущности · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark убивает вражеского героя, он навсегда забирает <font color='#FFFFFF'><b>10%%</b></font> от общего количества атрибутов, похищенных у этого героя его Essence Shift.<br>Навсегда получено <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> ко всем атрибутам."
+
+		// 亚巴顿 畅快淋漓觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>Ускорение · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"Когда юнит умирает в радиусе %radius% от Abaddon, всё его время перезарядки сокращается. Смерть не-героя сокращает его на %cooldown_reduction_creeps% сек., а смерть героя — на %cooldown_reduction_heroes% сек."
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"Смерти поблизости сокращают текущее время перезарядки всех способностей и предметов."
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>Ускорение · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Когда юнит погибает в радиусе <font color='#FFFFFF'><b>900</b></font> от Abaddon, текущее время перезарядки всех его способностей и предметов сокращается. Смерть не-героя сокращает его на <font color='#FFFFFF'><b>0.2</b></font> сек., а смерть героя — на <font color='#FFFFFF'><b>3</b></font> сек."
+
+		// Doom Awakened
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Пробуждённый Doom</font>"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает проклятие, которое развеивает врага и не позволяет ему использовать способности или лечиться, при этом враг постепенно получает урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nС <font color='#92acf5'>Aghanim's Scepter</font> Doom также накладывает <font color='#DD621E'>Разрушение</font> и может применяться к владельцу или <font color='#FFFFFF'>союзному герою</font>, который будет непрерывно накладывать Doom на врагов в радиусе %scepter_aura_radius%, сам не получая Doom.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Devour</font>, автоматически повышаются до максимального уровня."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"ДЛИТЕЛЬНОСТЬ ОБЛАСТИ DOOM:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"УРОН В СЕКУНДУ:"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"Область Doom"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Враги в радиусе %dMODIFIER_PROPERTY_TOOLTIP% непрерывно получают Doom."
+
+		///////////////////////////////////////////////////
+		//
+		//			物品 Items
+		//
+		///////////////////////////////////////////////////
 		// item_sacred_trident 三叉戟
 		"DOTA_Tooltip_Ability_item_sacred_trident"										"Священный трезубец"
 		"DOTA_Tooltip_ability_item_sacred_trident_Description"							"Выкован из Sange, Yasha и Kaya вместе."
@@ -271,587 +1012,5 @@
 		"DOTA_Tooltip_Ability_item_wish_4"				"<font color='#FFFF00'>Желание 4</font>"
 		"DOTA_Tooltip_ability_item_wish_4_Description"		"<h1>Пассивно: Желание</h1>«Я хочу силу пространства», — говорите вы Дракону.\nРошан всегда роняет Dragon Ball при смерти, а нейтральные крипы — с некоторым шансом. Соберите все семь, чтобы получить Благословение дракона, затем объедините его с этим желанием — получится Благословение дракона: Пространство."
 
-		///////////////////////////////////////////////////
-		//
-		//            Data panel
-		//
-		///////////////////////////////////////////////////
-		"data_panel_button"				"Меню"
-		"data_panel_property_point"		"Attribute Points (Доступно/Всего)"
-		"data_panel_point_total_prefix"	"Всего"
-		"data_panel_season_point_tooltip"	"<font color='#9B5DE0'>Всего Battle Points: {total}</font>, определяет Battle Level и очки атрибутов. Только растёт — траты никогда его не уменьшают."
-		"data_panel_member_point_tooltip"	"<font color='#FFD700'>Всего Member Points: {total}</font>, определяет Member Level и очки атрибутов. Только растёт — траты никогда его не уменьшают."
-
-		"data_panel_data_button"		"Инфо"
-		"data_panel_property_button"	"Атрибуты"
-		"data_panel_property_list"		"Добавить"
-		"data_panel_property_reset"		"Сбросить"
-
-		// "data_panel_season_level"		"Battle - уровень"
-		"data_panel_season_level_tooltip"		"Повышение уровня за <font color='#9B5DE0'>всего Battle Experience</font> даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>100</font> за каждый уровень."
-		// "data_panel_member_level"		"Member - уровень"
-		"data_panel_member_level_tooltip"		"Повышение уровня за <font color='#FFD700'>всего Member Experience</font> даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>50</font> за каждый уровень."
-		"data_panel_level_progress"		"Уровень"
-		"data_panel_link_rule"			"Правила опыта и атрибутов"
-
-		"reset_property_use_season_point"		"Сбросить за 2000 Battle Experience<br>(уровень не снизится)"
-		"reset_property_use_member_point"		"Сбросить за 1000 Member Experience<br>(уровень не снизится)"
-
-		"data_panel_player_property_label"		"Тратьте Attribute Points для улучшения героя — улучшения постоянные и сохраняются из игры в игру."
-		"data_panel_player_property_label_2"		"Очки нельзя тратить на локальном сервере — играйте на выделенном сервере от Valve, чтобы использовать и получать бонусы от улучшений."
-		"data_panel_player_property_label_3"		"Один уровень атрибута будет давать эффект каждые 2 уровня героя, если не указано иначе."
-		"data_panel_player_property_label_3_tooltip"		"Герой получает эффект на уровнях 2, 4, 6, 8, 10, 12, 14 и 16, вплоть до максимального уровня. Например, если вы вложили 2 уровня в увеличение дальности заклинаний (+50), все ваши герои получат +25 на 2 уровне и +50 на 4 уровне."
-
-		"data_panel_player_property_cooldown_percentage"		"Перезарядка (%)"
-		"data_panel_player_property_cast_range_bonus_stacking"	"Дальность применения"
-		"data_panel_player_property_aoe_bonus_constant_stacking"	"Радиус способностей"
-		"data_panel_player_property_spell_amplify_percentage"	"Урон от заклинаний (%)"
-		"data_panel_player_property_status_resistance_stacking"	"Сопротивление эффектам (%)"
-		"data_panel_player_property_evasion_constant"			"Уклонение (%)"
-		"data_panel_player_property_magical_resistance_bonus"	"Сопротивление магии (%)"
-		"data_panel_player_property_incoming_damage_percentage"	"Сопротивление урону (%)"
-		"data_panel_player_property_attack_range_bonus"			"Дальность атаки (Дальники)"
-		"data_panel_player_property_physical_armor_bonus"		"Physical Armor"
-		"data_panel_player_property_preattack_bonus_damage"		"Урон от атаки"
-		"data_panel_player_property_attackspeed_bonus_constant"	"Скорость атаки"
-		"data_panel_player_property_stats_strength_bonus"		"Сила"
-		"data_panel_player_property_stats_agility_bonus"		"Ловкость"
-		"data_panel_player_property_stats_intellect_bonus"		"Интелект"
-		"data_panel_player_property_health_regen_percentage"	"Макс. регенерация здоровья (%)"
-		"data_panel_player_property_mana_regen_total_percentage"	"Макс. регенерация маны (%)"
-		"data_panel_player_property_lifesteal"					"Вампиризм (%)"
-		"data_panel_player_property_spell_lifesteal"			"Маг. вампиризм (%)"
-		"data_panel_player_property_movespeed_bonus_constant"	"Скорость передвижения"
-		"data_panel_player_property_ignore_movespeed_limit"		"Unlimited Movement Speed"
-		"data_panel_player_property_cannot_miss"				"True Strike"
-		"data_panel_player_property_flying"						"Статус полёта"
-		"data_panel_player_property_skill_points_bonus"			"Бонусные очки прокачки"
-		"data_panel_player_property_bonus_vision"				"Бонусный обзор"
-
-		"data_panel_player_property_tooltip"					"Герой будет получать этот эффект каждые 2 уровня, вплоть до максимального уровня."
-		"data_panel_player_property_skill_points_bonus_tooltip"	"Герой будет получать этот эффект каждые 4 уровня, вплоть до максимального уровня."
-		"data_panel_player_property_except_tooltip"				"Герой получает этот эффект на 1-м уровне."
-
-		"data_panel_player_property_value"				"Value"
-		"data_panel_player_property_level"				"Уровень"
-
-		///////////////////////////////////////////////////
-		//
-		//			Lottery Item/Ability
-		//
-		///////////////////////////////////////////////////
-		"lottery_expand"										"Expand"
-		"lottery_collapsed"										"Collapse"
-		"lottery_active_ability_title"							"Выберите активную способность"
-		"lottery_passive_ability_title"							"Выберите пассивную способность"
-
-		"lottery_tooltip_ability_refresh"						"Изменить бонусную способность"
-		"lottery_tooltip_ability_refresh_used"					"Способности изменены"
-		"lottery_tooltip_ability_refresh_picked"				"Способность выбрана"
-		"lottery_tooltip_ability_refresh_not_member"			"Поддержавшие разработчика могут изменить способности один раз. Нажмите на эту кнопку, чтобы открыть страницу поддержки в браузере"
-		"lottery_tooltip_ability_refresh_paid"					"Потратить <font color='#FFD700'>{cost}</font> доступных очков на изменение (уровень поддержки не меняется)"
-		"lottery_tooltip_ability_refresh_insufficient"			"Недостаточно доступных очков. Нажмите, чтобы открыть страницу поддержки"
-
-		"lottery_tooltip_item_refresh"							"Нажмите, чтобы изменить предметы"
-		"lottery_tooltip_item_refresh_used"						"Предметы изменены"
-		"lottery_tooltip_item_refresh_not_premium"				"Premium-подписчики могут изменить предметы один раз. Нажмите, чтобы открыть страницу подписки"
-
-		"key_bind"												"Бинды"
-		"key_bind_collapsed"									"Закрыть"
-		"key_bind_placeholder"									"Клавиша"
-		"key_bind_mouseover_tooltop"							"Назначить клавишу для использования способности<br>Если у вас возникли конфликты или сбои в работе горячих клавиш, попробуйте отключиться и снова подключиться, а затем добавить бинд ещё раз"
-		"key_bind_input_err"									"Неверный ввод, попробуйте другой бинд"
-		"key_bind_quick_cast"									"Быстрое применение"
-		"key_bind_remember"										"Сохранить бинды"
-		"key_bind_clear"										"Сброс"
-		"key_bind_clear_tooltip"								"Очищает все бинды и настройки быстрого применения.<br>Уже назначенные в этом матче клавиши перестанут работать после переподключения."
-		"key_bind_inventory_slot_tooltip"					"Горячая клавиша предмета в ячейке %s. Сначала разблокируйте ячейку книгой расширения инвентаря."
-		///////////////////////////////////////////////////
-		//
-		//			Member
-		//
-		///////////////////////////////////////////////////
-		"player_member_ship"			"Нажмите, чтобы активации подписки"
-		"player_member_null"			"Информация о подписке не получена. Пожалуйста, перезагрузите игру...ы"
-
-		///////////////////////////////////////////////////
-		//
-		//			pointInfo
-		//
-		///////////////////////////////////////////////////
-		"point_header_text"				"Уведомление"
-
-		///////////////////////////////////////////////////
-		//
-		//			profile
-		//
-		///////////////////////////////////////////////////
-		"profile_title"					"Профиль"
-		"profile_tab_stats"				"Статистика"
-		"profile_tab_awaken"			"Пробуждение"
-		"profile_point_season_tooltip"		"Доступно Battle Points: тратится на постоянное пробуждение героя.<br>Всего Battle Points: определяет Battle Level и очки атрибутов. Только растёт — траты никогда его не уменьшают."
-		"profile_point_member_tooltip"		"Доступно Member Points: тратится на постоянное пробуждение героя, обновление лотереи и другое.<br>Всего Member Points: определяет Member Level и очки атрибутов. Только растёт — траты никогда его не уменьшают."
-		"profile_point_useable_prefix"		"Доступно"
-		"profile_point_total_fmt"			"/ Всего {n}"
-		"awaken_intro_title"				"Камень пробуждения"
-		"awaken_intro_desc"				"Открывайте сундуки, чтобы получить <font color='#FFD24A'>Камень пробуждения</font>, превращающий одну из способностей героя в пробуждённую форму только на этот матч.<br>Убийство Рошана или открытие большего числа сундуков повышает шанс его получить."
-		"awaken_unlock_intro_title"			"Постоянное пробуждение"
-		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Выбранный герой</font>: потратьте <font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>доступных Battle Points</font>, или <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>доступных Member Points</font>, чтобы навсегда пробудить выбранного героя.<br><font color='#FFD24A'>Случайный розыгрыш</font>: вдвое дешевле, потратьте <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>доступных Battle Points</font>, или <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>доступных Member Points</font>, чтобы пробудить одного из 3 случайно выбранных героев.<br>Тратятся только доступные очки: доступные очки уменьшаются, а общие очки только растут и никогда не снижают ваш Battle/Member Level или очки атрибутов. Навсегда и без возможности отмены — даже если способность будет усилена, ослаблена или переработана позже, пробуждение героя останется в силе."
-		"awaken_unlock_button"				"Пробудить"
-		"awaken_unlocked_label"				"Пробуждён"
-		"awaken_free_trial_badge"			"Free"
-		"awaken_free_trial_tooltip"			"Новое пробуждение бесплатно на ограниченное время. Выберите этого героя, и пробуждение применится автоматически."
-		"awaken_unlock_tooltip_insufficient"	"Недостаточно доступных очков."
-		"awaken_unlock_confirm_desc"		"Выберите очки для траты,<br>чтобы навсегда пробудить этого героя?"
-		"awaken_unlock_confirm_button"		"Подтвердить"
-		"awaken_pay_member_button"			"{cost}<br>доступных Member Points"
-		"awaken_pay_season_button"			"{cost}<br>доступных Battle Points"
-		"awaken_random_title"				"Случайное пробуждение"
-		"awaken_random_button"				"Розыгрыш"
-		"awaken_random_select_button"		"Выбрать"
-		"awaken_random_candidates_title"	"Выберите героя для пробуждения навсегда (вдвое дешевле)"
-		"awaken_random_confirm_desc"		"Случайный розыгрыш <font color='#FFD24A'>вдвое дешевле</font>.<br>Выберите очки для траты, чтобы навсегда пробудить этого героя?"
-		"awaken_random_tooltip_insufficient_point"	"Недостаточно доступных очков."
-		"awaken_random_tooltip_insufficient_pool"	"Доступно менее 3 героев для пробуждения."
-		"awaken_random_card_desc"			"Вдвое дешевле<br>1 из 3"
-		"awaken_random_candidates_desc"		"Потратьте <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>доступных Battle Points</font>, или <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>доступных Member Points</font>.<br>Пробудите одного из этих 3 случайно выбранных героев."
-		"profile_stat_games"			"Игры"
-		"profile_stat_winrate"			"Винрейт"
-		"profile_stat_conduct"			"Очки поведения"
-		"profile_stat_coming_soon"		"Больше функций в разработке"
-		"profile_stat_conduct_tooltip"	"Очки поведения — максимум <font color='#E8C07D'>100</font>, отражают ваше поведение в игре.<br>• Нормальное завершение игры: <font color='#7FD47F'>+1</font><br>• Ранний выход: <font color='#E87D7D'>-5</font><br>Следующее НЕ считается ранним выходом:<br>• Одиночная игра<br>• Все игроки вышли досрочно без экрана результатов<br>Пока только отслеживается — штрафы за низкие очки могут появиться в будущем."
-		"profile_stat_conduct_net_tooltip"	"Всего похвал минус всего жалоб"
-
-		///////////////////////////////////////////////////
-		//
-		//			DailyTask
-		//
-		///////////////////////////////////////////////////
-		"profile_tab_dailytask"			"Задания"
-		"dailytask_header_title"			"Мои ежедневные задания"
-		"dailytask_header_subtitle"			"Выберите задание для раунда {round}/{total}"
-		"dailytask_header_desc"			"Выполняйте до 3 раундов заданий в день, каждый раунд выбирайте одно из 3 случайных заданий (общее или для конкретного героя), одно обновление за раунд, задание засчитывается только при победе в матче, Battle Points начисляются на экране итогов"
-		"dailytask_reward_hint"			"+{n} Battle Points"
-		"dailytask_settlement_tooltip_prefix"		"Задание дня выполнено: "
-		"dailytask_select_button"			"Принять"
-		"dailytask_selected_label"			"Принято"
-		"dailytask_refresh_button"			"Обновить"
-		"dailytask_refresh_used_label"			"Обновлено"
-		"dailytask_disabled_hint"			"Ежедневные задания недоступны в чит-режиме или при пользовательской сложности с мгновенным возрождением или общим коэффициентом очков ниже 1x"
-		"dailytask_empty_hint"			"Сейчас нет доступных ежедневных заданий, загляните в следующем матче"
-		"dailytask_all_done_hint"			"Все {total} раунда на сегодня выполнены"
-		"dailytask_hud_unclaimed"			"Задание не принято"
-		"dailytask_hud_unclaimed_tip"			"Сегодняшнее задание ещё не принято, нажмите чтобы выбрать"
-		"dailytask_hud_hero_mismatch"			"Герой не подходит"
-		"dailytask_hud_hero_mismatch_tip"		"Текущий герой не подходит для этого задания, нажмите чтобы выбрать другое"
-		"dailytask_subtab_candidates"			"Сегодня"
-		"dailytask_subtab_history"			"История"
-		"dailytask_history_today"			"Сегодня"
-		"dailytask_history_empty_hint"			"Пока нет истории. Выполненные задания появятся здесь."
-		"dailytask_history_loading"				"Загрузка истории..."
-		"dailytask_history_col_date"			"Дата"
-		"dailytask_history_col_tasks"			"Выполнено"
-		"dailytask_history_col_points"			"Всего очков"
-		"dailytask_metric_short_kills"			"Киллы"
-		"dailytask_metric_short_assists"			"Ассисты"
-		"dailytask_metric_short_last_hits"			"Добивания"
-		"dailytask_metric_short_tower_kills"		"Башни"
-		"dailytask_metric_short_hero_damage"		"Урон"
-		"dailytask_metric_short_healing"			"Лечение"
-		"dailytask_metric_short_total_gold_earned"	"Золото"
-		"dailytask_metric_short_damage_taken"		"Полученный урон"
-		"dailytask_metric_short_stun_duration"		"Оглушение"
-		"dailytask_metric_short_roshan_kills"		"Рошан"
-		"dailytask_task_general_kills"			"Наберите {target} килла героев за матч"
-		"dailytask_task_general_assists"			"Наберите {target} ассистов за матч"
-		"dailytask_task_general_last_hits"			"Наберите {target} добиваний за матч"
-		"dailytask_task_general_tower_kills"		"Уничтожьте {target} башен за матч"
-		"dailytask_task_general_hero_damage"		"Нанесите {target} урона героям за матч"
-		"dailytask_task_general_healing"			"Вылечите союзных героев на {target} за матч"
-		"dailytask_task_general_total_gold_earned"	"Заработайте {target} золота за матч"
-		"dailytask_task_general_damage_taken"		"Получите {target} урона от героев противника за матч"
-		"dailytask_task_general_stun_duration"		"Оглушайте или сковывайте героев противника суммарно {target} секунд за матч"
-		"dailytask_task_general_roshan_kills"		"Убейте Рошана {target} раз(а) за матч"
-		"dailytask_task_hero_kills"			"Наберите {target} килла героев за матч, играя за {hero}"
-		"dailytask_task_hero_assists"			"Наберите {target} ассистов за матч, играя за {hero}"
-		"dailytask_task_hero_last_hits"			"Наберите {target} добиваний за матч, играя за {hero}"
-		"dailytask_task_hero_tower_kills"			"Уничтожьте {target} башен за матч, играя за {hero}"
-		"dailytask_task_hero_hero_damage"			"Нанесите {target} урона героям за матч, играя за {hero}"
-		"dailytask_task_hero_healing"			"Вылечите союзных героев на {target} за матч, играя за {hero}"
-		"dailytask_task_hero_total_gold_earned"	"Заработайте {target} золота за матч, играя за {hero}"
-		"dailytask_task_hero_damage_taken"			"Получите {target} урона от героев противника за матч, играя за {hero}"
-		"dailytask_task_hero_stun_duration"			"Оглушайте или сковывайте героев противника суммарно {target} секунд за матч, играя за {hero}"
-
-		///////////////////////////////////////////////////
-		//
-		//			Creep / Tower
-		//
-		///////////////////////////////////////////////////
-		"DOTA_Tooltip_modifier_tower_power"					"Building Power"
-		"DOTA_Tooltip_modifier_tower_power_Description"		"Урон атаки и максимальное здоровье этого строения увеличены на %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%.<br>Эта постройка также имеет дополнительные %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% восстановления здоровья"
-
-		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonus"
-		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Герои ближнего боя получают <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%</b></font> дополнительного сопротивления магии и <font color='#FFFFFF'><b>15%%</b></font> сопротивления эффектам."
-
-		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"Бонус к урону"
-		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%Бонус к снижению урона: "
-
-		"DOTA_Tooltip_ability_creep_buff_upgraded"						"Super Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"Бонусный урон: "
-		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%Бонус к снижению урона: "
-
-		"DOTA_Tooltip_ability_creep_buff_mega"							"Mega Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"Бонусный урон: "
-		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%Бонус к снижению урона: "
-
-		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%Бонусный урон не героям: "
-
-		"DOTA_Tooltip_ability_tower_armor_aura"						"Armor Aura"
-		"DOTA_Tooltip_ability_tower_armor_aura_Description"				"Дает %bonus_armor% бонусной брони всем союзным героям поблизости."
-		"DOTA_Tooltip_ability_tower_magical_armor_aura"					"Magical Resistance Aura"
-		"DOTA_Tooltip_ability_tower_magical_armor_aura_Description"			"Дает %bonus_magical_armor%%% сопротивления магии всем союзным героям поблизости."
-
-		"DOTA_Tooltip_ability_tower_split_shot"						"Structure Split Shot"
-		"DOTA_Tooltip_ability_tower_split_shot_Description"				"Это строение может поражать несколько целей при каждой атаке. Стакается с мультишотом Glyph of Fortification"
-		"DOTA_Tooltip_ability_tower_split_shot_arrow_count"				"Доп. выстрелы: "
-
-		"DOTA_Tooltip_ability_tower_ursa_fury_swipes"					"Structure Fury Swipes"
-		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_Description"			"Эта структура наносит больше урона при каждой последующей атаке по одной и той же цели."
-		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_damage_per_stack"			"Урон за эффект: "
-		"DOTA_Tooltip_ability_tower_ursa_fury_swipes_bonus_reset_time"			"Длительность эффекта: "
-
-		"DOTA_Tooltip_ability_tower_troll_warlord_fervor"				"Structure Fervor"
-		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_Description"			"Это строение увеличивает скорость атаки атакую одну и ту же цель. Если строение атакует новую цель, стаки обнуляются "
-		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_attack_speed"			"Доп. скорость атаки за эффект: "
-		"DOTA_Tooltip_ability_tower_troll_warlord_fervor_max_stacks"			"Максимум эффектов: "
-
-		"DOTA_Tooltip_ability_tower_antimage_mana_break"				"Structure Mana Break"
-		"DOTA_Tooltip_ability_tower_antimage_mana_break_Description"			"Это строение сжигает ману цели при каждой атаке и наносит дополнительный урон, равный проценту от сожженной маны"
-		"DOTA_Tooltip_ability_tower_antimage_mana_break_attack_speed"			"Скорость атаки за эффект: "
-		"DOTA_Tooltip_ability_tower_antimage_mana_break_percent_damage_per_burn"	"%Мана в урон: "
-		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit"			"Сжигание маны за удар: "
-		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit_pct"		"%Макс. сжигание маны за удар: "
-
-		"DOTA_Tooltip_ability_tower_shredder_reactive_armor"				"Structure Reactive Armor"
-		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_Description"		"Это строение получает дополнительную броню и регенерацию здоровья каждый раз, когда его атакуют. Атаки героев считаюся за %stacks_per_hero_attack%"
-		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_armor"		"Бонусная броня: "
-		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_hp_regen"		"Бонусный реген. здоровья: "
-		"DOTA_Tooltip_ability_tower_shredder_stack_duration"				"Длительность эффекта: "
-
-		"DOTA_Tooltip_ability_tower_headshot"						"Structure Mini-Bash"
-		"DOTA_Tooltip_ability_tower_headshot_Description"				"При атаке это сооружение имеет шанс замедлить скорость передвижения и атаки врагов на %slow%%% на короткий промежуток времени, а также оттолкнуть их"
-		"DOTA_Tooltip_ability_tower_headshot_proc_chance"				"%Шанс срабатывания: "
-		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"			"Дастанция отбрасывания: "
-		"DOTA_Tooltip_ability_tower_headshot_slow_duration"				"Длительность замедления: "
-
-		"DOTA_Tooltip_ability_fountain_armor_aura"						"Защитная аура фонтана"
-		"DOTA_Tooltip_ability_fountain_armor_aura_Description"				"Даёт %bonus_armor% брони ближайшим союзникам."
-		"DOTA_Tooltip_ability_fountain_magical_armor_aura"				"Магическая аура фонтана"
-		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"			"Даёт %bonus_magical_armor%%% сопротивления магии ближайшим союзникам."
-
-
-		// 藏宝箱
-		"npc_treasure_chest"													"Сундук с сокровищами"
-		///////////////////////////////////////////////////
-		//
-		//            itembuilds
-		//
-		///////////////////////////////////////////////////
-		"dota_item_build_windy_consumables_items"	"10v10 Consumable Items"
-		"dota_item_build_windy_physical_core_items"	"10v10 Physical Carry Items"
-		"dota_item_build_windy_magical_core_items"	"10v10 Magical Nuker Items"
-		"dota_item_build_windy_support_items"		"10v10 Supporting Items"
-		"dota_item_build_windy_defense_items"		"10v10 Defensive Items"
-		"dota_item_build_windy_melee_items"		"10v10 Melee Items"
-		"dota_item_build_windy_range_items"		"10v10 Ranged Items"
-
-		///////////////////////////////////////////////////
-		//
-		// 					Abilities 英雄技能
-		//
-		///////////////////////////////////////////////////
-
-		//血魔 血雾
-		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"blood mist"
-		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Пока способность активна, герой разбрызгивает вокруг свою кровь, теряя здоровье, но нанося задетым врагам урон и замедляя их"
-		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%Урон / потеря здоровья в секунду: "
-		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"Радиус:"
-		//醉拳
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"Drunken Boxing"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss% %% шанс уклонения и нанести критический урон. После активации эффекта скорость передвижения увеличивается на 30%, а шанс уклонения и критической атаки утраивается"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%Критический урон: "
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"Длительность： "
-
-		//长角抛物
-		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
-		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "Герой перебрасывает врагов через себя, нанося им урон. Они летят %air_duration% сек. и оглушаются во время полёта и по приземлении."
-		"DOTA_Tooltip_ability_magnataur_horn_toss2_air_duration"			        "ДЛИТЕЛЬНОСТЬ ПОЛЁТА:"
-		"DOTA_Tooltip_ability_magnataur_horn_toss2_damage"   			        "УРОН:"
-		"DOTA_Tooltip_ability_magnataur_horn_toss2_stun_duration"   			        "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
-		//虚空  回到过去
-		"DOTA_Tooltip_ability_faceless_void_backtrack2"				"backtrack"
-		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"%backtrack_per_level%%% шанс избежать урона"
-		//腾焰斗篷
-		"DOTA_Tooltip_ability_lina_flame_cloak2"											"Flame Cloak"
-		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"									"Врождённая защита от настырных сестёр и зубастых тварей."
-		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"								"Дарует герою беспрепятственное передвижение. Увеличивает его урон от заклинаний и сопротивление магии. Применение даёт владельцу максимум эффектов способности Fiery Soul."
-		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"ДЛИТЕЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%ДОП. УРОН ОТ ЗАКЛИНАНИЙ:"
-		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%СОПРОТИВЛЕНИЕ МАГИИ:"
-		//人马 不屈
-		"DOTA_Tooltip_ability_centaur_sturdy"                            "sturdy"
-        "DOTA_Tooltip_ability_centaur_sturdy_Description"                "Увеличивает сопротивление эффектам и силу. "
-        "DOTA_Tooltip_ability_centaur_sturdy_strength"                    "Сила: "
-        "DOTA_Tooltip_ability_centaur_sturdy_status"                    "%Сопротивление эффектам: "
-
-		//贪魔的贪婪
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"Позволяет синтезировать больше золота из врагов и рун. Дополнительное золото за убийство существ состоит из начального бонуса и нарастающего, который увеличивается с каждым существом, убитым в течение %duration% сек. после предыдущего. Также способность умножает золото от рун богатства."
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_abilitydraft_note"			"В этом режиме возможность расплавить Aghanim's Scepter, чтобы передать союзному герою все его улучшения, привязана к способности Greevil's Greed, а не Chemical Rage. Сам предмет дарует герою дополнительный урон от атак и заклинаний за каждый расплавленный для союзников Aghanim's Scepter."
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"							"Пускай эксперимент с горой и не удался, зато структуры поменьше Раззил легко обращает в звонкую монету."
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"						"МАКС. ИНТЕРВАЛ УБИЙСТВ:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold"					"НАЧАЛЬНЫЙ БОНУС:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"НАРАСТАЮЩИЙ БОНУС:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"МАКСИМУМ ДОП. ЗОЛОТА:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"МНОЖИТЕЛЬ РУН БОГАТСТВА:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"Бонус атаки за слой："
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"Улучшение денежного вознаграждения："
-
-		//普通一拳
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"Normal Punch"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Следующая атака по вражескому герою не промахнётся, создаст его копию от способности Wall of Replica, нанесёт дополнительный урон, а также оглушит и оттолкнёт его. Сила эффекта зависит от того, какое расстояние владелец способности преодолел за %recent_duration% сек. до атаки. Максимальный эффект достигается при расстоянии в %max_distance%."
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"МАКС. ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"МАКС. ДАЛЬНОСТЬ ТОЛЧКА:"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"					"ВРЕМЯ ЖИЗНИ КОПИИ:"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"МАКСИМАЛЬНЫЙ УРОН:"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"ad ставка："
-		//妙手空空
-		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"Cutpurse"
-		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Герой крадёт золото у вражеских героев, ставших целью его способности или предмета."
-		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"ПОХИЩЕНИЕ ЗОЛОТА:"
-
-		// 黑暗贤者 才思敏捷
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2"								"Quick Wit"
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"					"За каждую единицу Интеллекта Dark Seer получает %int_to_atkspd% скорости атаки."
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_attack_speed_tooltip"			"БОНУС К СКОРОСТИ АТАКИ:"
-		//炽烈火雨
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"Burning Barrage"
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"ПРЕРЫВАЕМАЯ — герой выпускает залп стрел в выбранном направлении. Они пролетают сквозь всех врагов на пути, нанося им долю от обычного урона, а также накладывая эффекты атаки и замедление от способности Tar Bomb."
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Lore"										"Трудно сказать, вызвано ли дрожание воздуха вокруг костяного лучника жаром его раскалённого сердца или скоростью, с которой он достаёт стрелы из колчана."
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Note0"										"Дальность применения способности увеличивается с дальностью атаки."
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_abilitychanneltime"						"ДЛИТЕЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"								"ЧИСЛО СТРЕЛ:"
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"										"ДАЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%УРОН ОТ АТАКИ:"
-		//冰爆
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"ice_explosion"
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Увеличивает скорость атаки на %attack_speed% и имеет 35% шанс вызвать ледяной взрыв, который поразит случайную область, нанося урон и замедляя игрока на 1 секунду."
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"повреждать："
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"ad ставка："
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"Случайный диапазон："
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"Диапазон повреждений от ледяного взрыва："
-		//诅咒之雨
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"dazzle_rain_of_vermin"
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Наносит постоянный урон области, с вероятностью 12% превращая ее в цыплят."
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"повреждать："
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_duration"		"Длительность："
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_radius"			"Радиус："
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%Шанс："
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"Длительность трансформации："
-
-		//神之愤怒
-		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"Wrath of God"
-		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"Sven получает дополнительный урон от силы, но его базовый урон уменьшается."
-		"DOTA_Tooltip_ability_sven_wrath_of_god2_base_damage_reduction"	"Снижение базового урона: "
-		"DOTA_Tooltip_ability_sven_wrath_of_god2_bonus_damage_per_str"	"Бонусный урон за силу: "
-		//暴烈之爪
-		"DOTA_Tooltip_ability_ursa_maul2"						"Maul"
-		"DOTA_Tooltip_ability_ursa_maul2_Description"			"Ursa получает бонусный урон, равный проценту от его текущего здоровья"
-		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%Здоровье в урон:"
-		"DOTA_Tooltip_modifier_ursa_maul2"						"Maul"
-		"DOTA_Tooltip_modifier_ursa_maul2_Description"			"Урон увеличен на %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
-		//天生一对
-		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
-		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Атаки Джакиро запускают удар с каждой головы, но каждый наносит меньше урона."
-		//闷烧树脂
-		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
-		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			" Атаки Batrider накладывают дебафф, который наносит %tick_attack_damage_pct%%% урон от атаки каждые %tick_rate% секунды"
-		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff"				"Smoldering Resin"
-		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff_Description"	"Медленно горит от атак Batrider"
-		//一人之军
-		"DOTA_Tooltip_ability_axe_one_man_army2"						"One Man Army"
-		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Когда рядом с героем нет союзников, его сила увеличивается на долю от показателя брони."
-		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%Бонус прочности брони:"
-		//人工神符
-		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Artificial Rune"
-		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Создает случайную руну"
-		//冰霜法球
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"Frost orb"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"Каждые %attack_count% запускает морозную сферу, наносящую урон по области и замедляющую цель на %slow_duration% секунд"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"Радиус： "
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"Урон： "
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"Коэф. от урона героя："
-		//极寒光环
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"					"Freezing aura"
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"Снижает восстановление здоровья, вампиризм и лечение врага.<br/><br/>Активно: Наносит урон и замедляет окружающих врагов. Чем ближе они к герою, тем больше урон и замедление."
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_percentage"		"%Снижение лечения： "
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_hp_regen"		"Снижение восстановления здоровья： "
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"Макс. урон： "
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
-
-
-		///////////////////////////////////////////////////
-		//
-		// 					Awaken Abilities 觉醒技能
-		//
-		///////////////////////////////////////////////////
-// 					Awaken Abilities 觉醒技能
-
-		// 赏金猎人 追踪术觉醒
-		"DOTA_Tooltip_ability_bounty_hunter_track_awaken"							"<font color='#d000ff'>Track: пробуждение</font>"
-		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_Description"				"Помечает вражеского героя, раскрывая его невидимость, увеличивая получаемый им урон и показывая его запас золота. За смерть этого врага владелец способности и союзные герои неподалёку получат дополнительное золото.<br><br><font color='#00CED1'>АВТОПРИМЕНЕНИЕ:</font> При включении способность применяется автоматически, если в радиусе применения есть вражеский герой; в первую очередь по ещё не помеченным героям.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> После применения Track герой также бросает в цель Shuriken Toss текущего уровня. Этот сюрикен игнорирует дальность применения и не уходит на перезарядку, но тратит ману Shuriken Toss. Он не бросается, если Shuriken Toss не изучен или не хватает маны."
-		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_target_damage_amp"			"%УВЕЛИЧЕНИЕ УРОНА:"
-		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_bonus_gold"				"ДОП. ЗОЛОТО СОЮЗНИКАМ:"
-		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_bonus_gold_self"			"ДОП. ЗОЛОТО СЕБЕ:"
-		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_duration"					"ДЛИТЕЛЬНОСТЬ:"
-
-		// Skywrath Mage Staff of the Scion - Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>Посох отпрыска · Пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Бонус пробуждения:</font> Skywrath Mage получает Staff of the Scion. Каждый раз, когда его способности наносят <font color='#05CAFF'>магический урон</font> вражескому герою, время восстановления всех его способностей сокращается на %cooldown_reduction% сек.<br><br><font color='#00CED1'>Автоприменение:</font> Если включено, Skywrath Mage автоматически применяет Ancient Seal, Concussive Shot, Mystic Flare и Arcane Bolt, когда вражеский герой находится в радиусе применения. Arcane Bolt также применяется по крипам, если героев поблизости нет."
-		// 炸弹人 觉醒
-		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Пробуждение: Squee's Scope</font>"
-		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Каждая единица скорости атаки героя увеличивает его дальность атаки и скорость снарядов на %attack_range_tooltip%."
-		"DOTA_Tooltip_modifier_techies_squees_scope"					"<font color='#d000ff'>Пробуждение: Squee's Scope</font>"
-		"DOTA_Tooltip_modifier_techies_squees_scope_Description"		"Каждая единица скорости атаки героя увеличивает его дальность атаки и скорость снарядов на <font color='#FFFFFF'><b>1</b></font>."
-
-		// 凤凰 烈日炙烤-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Луч Sun Ray наносит больше урона и лечения целям у своего конца. Интенсивность луча начинает расти с %hotspot_start_length_pct%%% его длины и достигает %hotspot_end_multiplier_pct%%% базового урона и лечения на дальности %hotspot_reference_length%. Дальнейшее увеличение длины луча продолжает усиливать эффект на его конце."
-		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray усиливается после 50%% длины луча и на дальности 1200 наносит 180%% урона и лечения. Более длинный луч продолжает усиливаться у своего конца."
-
-		// Legion Commander Auto Duel - Awakened
-		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Автоматическая дуэль · Пробуждение</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>Автоприменение:</font> Если включено и Duel готова, способность автоматически применяется к ближайшему видимому вражескому герою в радиусе применения Duel плюс %bonus_cast_range%. Иллюзии игнорируются.<br><br>Автоматическая дуэль игнорирует и расходует пассивные эффекты блока и отражения заклинаний цели.<br><br>Длительность Duel фиксирована и не зависит от сопротивления эффектам.<br><br>Во время Duel Legion Commander получает эффект <font color='#FFCC66'>Black King Bar</font>, а цель нельзя выбрать."
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Честь не требует приглашения — ближайший враг станет соперником."
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"ДОПОЛНИТЕЛЬНАЯ ДАЛЬНОСТЬ АВТОМАТИЧЕСКОЙ ДУЭЛИ:"
-		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Автоматическая дуэль: цель нельзя выбрать"
-		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable_Description"	"Во время Duel эту цель нельзя выбрать."
-
-		// 光之守卫 冲击波-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"				"<font color='#d000ff'>Пробуждение Illuminate</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на %base_damage_bonus%, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого Illuminate вражеского героя даётся 1 заряд Фокуса, каждый заряд увеличивает урон Illuminate на %damage_pct_per_stack%%%."
-		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"МАКС. ЗАРЯДОВ ФОКУСА:"
-		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"ДЛИТЕЛЬНОСТЬ ФОКУСА:"
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>Пробуждение Illuminate</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на <font color='#FFFFFF'><b>100</b></font>, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого вражеского героя даётся 1 заряд Фокуса, максимум <font color='#FFFFFF'><b>10</b></font> зарядов длительностью <font color='#FFFFFF'><b>20</b></font> сек., каждый заряд увеличивает урон Illuminate на <font color='#FFFFFF'><b>20</b></font>%%."
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"Фокус"
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"Урон Illuminate увеличен на <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>."
-
-
-		// 巫妖 寒灾轮回觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Цикл ледяного бедствия</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Description"		"Увеличивает скорость снаряда и радиус отскока Chain Frost, а также продлевает длительность замедления и Frostbound.<br><br>Попадания по герою или Roshan наносят дополнительный магический урон в размере %intelligence_damage_multiplier%x интеллекта и накладывают 1 заряд Frost Calamity длительностью %mark_duration% сек, который взрывается самостоятельно при %mark_max_stacks% зарядах; применение Frost Blast на отмеченного врага также взрывает его досрочно. Взрыв наносит урон в радиусе %detonation_radius% в размере %nova_detonation_multiplier_per_stack%x интеллекта за каждый израсходованный заряд и <font color='#2DD5E4'>оглушает</font> врагов на %freeze_duration% сек.<br><br>Если Ice Spire уже изучена, попадание Chain Frost по единственному вражескому герою поблизости автоматически применяет Ice Spire в позиции этого героя."
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note0"		"Иллюзии не считаются настоящими героями. Roshan считается обычным юнитом."
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note1"		"Метки Frost Calamity накапливаются только на настоящих героях и Roshan. Roshan получает урон от взрыва, но не замораживается."
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note2"		"Frost Blast может досрочно взорвать Frost Calamity, нанося урон в зависимости от текущего числа зарядов."
-		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Цикл ледяного бедствия</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"Увеличивает скорость снаряда и радиус отскока Chain Frost, а также продлевает длительность замедления и Frostbound.<br><br>Попадания по герою или Roshan наносят дополнительный магический урон в размере <font color='#FFFFFF'><b>0.75x</b></font> интеллекта и накладывают 1 заряд Frost Calamity длительностью <font color='#FFFFFF'><b>8</b></font> сек, который взрывается самостоятельно при <font color='#FFFFFF'><b>3</b></font> зарядах; применение Frost Blast на отмеченного врага также взрывает его досрочно. Взрыв наносит урон в радиусе <font color='#FFFFFF'><b>350</b></font> в размере <font color='#FFFFFF'><b>0.75x</b></font> интеллекта за каждый израсходованный заряд и <font color='#2DD5E4'>оглушает</font> врагов на <font color='#FFFFFF'><b>0.6</b></font> сек.<br><br>Если Ice Spire уже изучена, попадание Chain Frost по единственному вражескому герою поблизости автоматически применяет Ice Spire в позиции этого героя."
-		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"Frost Calamity"
-		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"При 3 зарядах срабатывает взрыв Frost Calamity. Lich также может досрочно взорвать метку с помощью Frost Blast."
-
-		// 小小 觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Пробуждение Tiny</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
-		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Пробуждение Tiny</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
-		// 戴泽 薄葬觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade"					"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
-		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
-
-		// 司夜刺客 钻地觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"					"<font color='#d000ff'>Пробуждённое Закапывание</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"Nyx Assassin может свободно передвигаться с обычной скоростью в состоянии Burrow, сохраняя все остальные эффекты способности."
-		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_SummaryDescription"	"Позволяет Nyx Assassin нормально передвигаться в состоянии Burrow, не теряя остальные эффекты."
-		"DOTA_Tooltip_modifier_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"				"<font color='#d000ff'>Пробуждённое Закапывание</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"Nyx Assassin может свободно передвигаться с обычной скоростью в состоянии Burrow, сохраняя все остальные эффекты способности."
-
-		// 兽王 野性之斧觉醒
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>Wild Axes: пробуждение</font>"
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Герой швыряет топоры, которые прорубают деревья и противников на своём пути и возвращаются обратно. Каждый топор задевает одного врага лишь единожды и увеличивает урон, получаемый от героя и его существ. Длительность эффекта зависит от сопротивления эффектам.<br><br><font color='#00CED1'>АВТОПРИМЕНЕНИЕ:</font> При включении топоры автоматически летят в самого дальнего вражеского героя, если в радиусе применения есть вражеские единицы.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> Урон топоров увеличен, длительность усиления получаемого урона повышена, топоры почти мгновенно вылетают и возвращаются, а Drums of Slom получает увеличенные урон, лечение и число ударов барабана от Primal Roar."
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"УРОН ТОПОРА:"
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%ДОП. УРОН ЗА ЭФФЕКТ:"
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_min_throw_duration"		"ВРЕМЯ ПОЛЁТА ТОПОРОВ:"
-		// 撼地者 余震觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>Афтершок: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Каждая цель, задетая Афтершоком, создаёт малый Афтершок в своей точке, наносящий отдельный магический урон врагам поблизости. Несколько малых Афтершоков могут поразить одну цель, но в каждой серии оглушают её только один раз. Малые Афтершоки не создают новые малые Афтершоки."
-		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_damage_pct"		"%УРОН МАЛОГО АФТЕРШОКА:"
-		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_radius_pct"		"%РАДИУС МАЛОГО АФТЕРШОКА:"
-		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_stun_pct"		"%ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
-		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade"					"<font color='#d000ff'>Афтершок: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"Афтершок создаёт малый Афтершок в каждой точке попадания, наносящий <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font> урона Афтершока как <font color='#05CAFF'>магический урон</font> в радиусе <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font> от исходного. Оглушение длится вдвое меньше. Урон малых Афтершоков может накладываться, но в каждой серии цель оглушается только один раз. Малые Афтершоки не создают новые малые Афтершоки."
-
-		// 上古巨神 灵体游魂觉醒
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Астральный дух: пробуждение</font>"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Автоприменение: автоматически посылает духа к самому дальнему вражескому герою и автоматически возвращает его."
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"Elder Titan призывает своего астрального духа, который наносит урон любым юнитам на своём пути. Когда дух воссоединяется с Titan, он даёт бонус к урону и скорости передвижения за каждый задетый юнит.\n\nАстральный дух обладает способностями Echo Stomp, Return Spirit и Natural Order.<br><br><font color='#d000ff'>Бонус пробуждения:</font> Сокращённое время восстановления.<br><font color='#00CED1'>Автоприменение:</font> Как только способность готова к использованию и поблизости есть вражеский герой, автоматически посылает духа к самому дальнему вражескому герою, а затем автоматически возвращает его, как только возврат становится доступен, без ручного управления. Пока способность активна, вручную призванный дух также возвращается автоматически."
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"ДЛИТЕЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"ДЛИТЕЛЬНОСТЬ БОНУСА:"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"УРОН:"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"РАДИУС:"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (НЕ-ГЕРОИ):"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (ГЕРОИ):"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"БОНУС УРОНА (НЕ-ГЕРОИ):"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"БОНУС УРОНА (ГЕРОИ):"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"Elder Titan получает неуязвимость к дебаффам и %immunity_resist%%% сопротивления магии на %scepter_magic_immune_per_hero% сек. за каждого задетого вражеского героя, когда дух возвращается."
-		// 尸王 血肉腐朽觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в %trigger_cooldown% сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в <font color='#FFFFFF'><b>0.6</b></font> сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
-
-		// 术士 地狱火献祭觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Адское пламя: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на сумму текущих восстановления здоровья и маны Чернокнижника, умноженную на %regen_to_damage_pct%%%."
-		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Адское пламя: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на <font color='#FFFFFF'><b>150%%</b></font> суммы текущих восстановления здоровья и маны Чернокнижника."
-
-		// 孽主 恶魔之势觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken"					"<font color='#d000ff'>Демонический размах · Пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_Description"		"Атаки Underlord наносят прорубающий урон, пока он получает дополнительный урон от Atrophy Aura. Дальность прорубания увеличивается с каждой единицей дополнительного урона."
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_SummaryDescription"	"Атаки Underlord наносят прорубающий урон, пока он получает дополнительный урон от Atrophy Aura."
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_damage_pct"		"%УРОН ОТ ПРОРУБАНИЯ:"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_base"		"ДАЛЬНОСТЬ ПРОРУБАНИЯ (БАЗОВАЯ):"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_per_stack"	"ДАЛЬНОСТЬ ПРОРУБАНИЯ (ЗА ЕДИНИЦУ УРОНА):"
-		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken"				"<font color='#d000ff'>Демонический размах · Пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"				"Пока Atrophy Aura даёт дополнительный урон от атак, атаки наносят <font color='#FFFFFF'><b>100%%</b></font> прорубающего урона, а дальность прорубания увеличивается с каждой единицей дополнительного урона. Текущая дальность прорубания: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>."
-
-		// 斯拉克 精华侵蚀觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Разъедание сущности · Пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark убивает вражеского героя, он навсегда забирает %permanent_steal_pct%%% от общего количества атрибутов, похищенных у этого героя его Essence Shift.<br>Базовые атрибуты вражеского героя не опускаются ниже <font color='#FFFFFF'><b>1</b></font>."
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"Когда Slark убивает вражеского героя, он навсегда забирает часть атрибутов, похищенных у этого героя его Essence Shift."
-		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>Разъедание сущности · Пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark убивает вражеского героя, он навсегда забирает <font color='#FFFFFF'><b>10%%</b></font> от общего количества атрибутов, похищенных у этого героя его Essence Shift.<br>Навсегда получено <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> ко всем атрибутам."
-
-		// 亚巴顿 畅快淋漓觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>Ускорение · Пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"Когда юнит умирает в радиусе %radius% от Abaddon, всё его время перезарядки сокращается. Смерть не-героя сокращает его на %cooldown_reduction_creeps% сек., а смерть героя — на %cooldown_reduction_heroes% сек."
-		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"Смерти поблизости сокращают текущее время перезарядки всех способностей и предметов."
-		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>Ускорение · Пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Когда юнит погибает в радиусе <font color='#FFFFFF'><b>900</b></font> от Abaddon, текущее время перезарядки всех его способностей и предметов сокращается. Смерть не-героя сокращает его на <font color='#FFFFFF'><b>0.2</b></font> сек., а смерть героя — на <font color='#FFFFFF'><b>3</b></font> сек."
-
-		// Doom Awakened
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Пробуждённый Doom</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает проклятие, которое развеивает врага и не позволяет ему использовать способности или лечиться, при этом враг постепенно получает урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nС <font color='#92acf5'>Aghanim's Scepter</font> Doom также накладывает <font color='#DD621E'>Разрушение</font> и может применяться к владельцу или <font color='#FFFFFF'>союзному герою</font>, который будет непрерывно накладывать Doom на врагов в радиусе %scepter_aura_radius%, сам не получая Doom.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Devour</font>, автоматически повышаются до максимального уровня."
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"ДЛИТЕЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"ДЛИТЕЛЬНОСТЬ ОБЛАСТИ DOOM:"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"УРОН В СЕКУНДУ:"
-		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"Область Doom"
-		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Враги в радиусе %dMODIFIER_PROPERTY_TOOLTIP% непрерывно получают Doom."
 	}
 }

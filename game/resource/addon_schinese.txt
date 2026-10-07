@@ -7,11 +7,11 @@
 		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
 		"DOTA_SHARD"			"勇士积分"
 
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		//
-		//					Options 选项
+		//			选项 Options
 		//
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		"addon_option_title"		"游戏选项"
 		"addon_option_title_br"		""
 
@@ -33,8 +33,6 @@
 
 		"radiant_player_number"		"天辉玩家人数"
 		"dire_player_number"		"夜魇玩家人数"
-		"confirm_game_options"		"Confirm and Hide Game Options"
-		"show_game_options"			"Show Game Options"
 		"respawn_time_percentage"	"复活时间"
 		"max_level"					"等级上限"
 		"tower_power"				"防御塔增强"
@@ -59,21 +57,10 @@
 		"respawn_time_percentage_0"						"秒活 (游戏容易崩溃)"
 
 		"fixed_ability_none"							"无"
-		"fixed_ability_ability_trigger_on_attacked_name"	"蝴蝶效应 · 金身"
-		"fixed_ability_ability_trigger_on_move_name"		"蝴蝶效应 · 橙影"
-		"fixed_ability_ability_trigger_on_cast_name"		"蝴蝶效应 · 红魔"
-		"fixed_ability_ability_trigger_learned_skills_name"	"蝴蝶效应 · 蓝武"
-		"fixed_ability_ability_trigger_on_active_name"		"蝴蝶效应 · 紫啸"
 		"fixed_ability_ability_trigger_on_spell_reflect_name"	"蝴蝶效应 · 绿莲"
 		"fixed_ability_ability_charge_damage_name"			"蝴蝶效应 · 青凝"
 
-		// link面板
-		"anime_version_button"			"二次元版"
-		"dota_survivor_button"			"联动地图 刀塔幸存者"
-		"join_qq"						"点击加群"
-		"join_discord"					"点击加入Discord"
-
-		// 右侧面板
+		// 难度选择
 		"game_difficulty_choice"		"选择一个难度"
 		"game_preset_remember"			"保存难度设置"
 		"custom_game_vote"				"投票倒计时"
@@ -81,30 +68,58 @@
 		"map_hard_warning"				"当前地图无法选择此难度。<br>想选择N6、N7或N8难度时，请在游戏开始前选择 [HARD] 地图"
 		"map_custom_warning"			"当前地图无法选择此难度。<br>想选择自定义难度时，请在游戏开始前选择 [Custom] 地图"
 
+		///////////////////////////////////////////////////
+		//
+		//			加载状态 Loading
+		//
+		///////////////////////////////////////////////////
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
 		"loading_status_2"				"在线模式，玩家数据加载成功。"
 		"loading_status_3"				"离线模式，本局积分与战绩不会记录。\n属性，觉醒与会员沿用 {date} 的数据。"
+		"room_status_entering"			"玩家正在连接：{players}"
+		"room_status_separator"			"，"
+		"room_status_waiting"			"等待其他玩家加入"
+		"room_status_ready"				"所有玩家都已进入"
 		"offline_data_hint"				"离线模式，数据截至 {date}。加点、重置属性与觉醒请前往网站操作，下次地图更新后生效。"
-		"end_screen_offline_hint"		"离线模式，本局积分与战绩未记录。"
+
+		///////////////////////////////////////////////////
+		//
+		//			启动器与网站 Launcher & Website
+		//
+		///////////////////////////////////////////////////
+		// 启动器
 		"launcher_promo_title"			"后期卡顿？试试启动器"
-		"launcher_promo_desc"			"在本机单独运行服务器，后期更流畅。仅支持单人。"
+		"launcher_promo_desc"			"在本机单独运行服务器，后期更流畅"
+		"launcher_promo_multiplayer"		"支持联机"
+		"launcher_download_button"			"下载启动器"
+
+		// 网站
 		"local_host_feature_unsupported_hint"		"为保护账号数据安全，游戏内无法进行该操作，点击前往网站操作。"
 		"website_local_host_notice"		"游戏内无法加点、重置属性或觉醒，为了保护玩家数据安全，请前往网站用 Steam 登录后操作。在线模式下一局生效，离线模式下次地图更新后生效。"
 		"website_open_button"				"前往网站"
-		"launcher_download_button"			"下载启动器"
 		"website_open_property_button"		"前往网站操作"
 		"website_open_awaken_button"		"前往网站觉醒"
 		"player_info_refresh"				"刷新"
 
-		// FAQ
+		// 相关链接
+		"anime_version_button"			"二次元版"
+		"dota_survivor_button"			"联动地图 刀塔幸存者"
+		"join_qq"						"点击加群"
+		"join_discord"					"点击加入Discord"
+
+		///////////////////////////////////////////////////
+		//
+		//			常见问题 FAQ
+		//
+		///////////////////////////////////////////////////
 		"loading_faq_players_instant_revive_question"	"什么情况容易导致游戏卡顿？"
 		"loading_faq_players_instant_revive_answer"		"玩家数超过 6 名，场上幻象或召唤单位过多，或在自定义模式中选择秒活等极端设置，都会明显增加服务器负担并导致卡顿。"
 		"loading_faq_illusions_summons_question"		"部分幻象和召唤技能已削弱或移除"
 		"loading_faq_illusions_summons_answer"			"幻象和大量召唤单位会明显增加卡顿，因此相关技能已削弱或移除。"
 		"loading_faq_launch_mode_question"			"游廊开局能记录积分吗？"
-		"loading_faq_launch_mode_answer"				"能。游廊开局会连接服务器读取最新数据，结算积分和每日任务正常记录。偶尔连不上时进入离线模式，沿用地图更新时的数据，本局积分不记录，这时可以从网站启动游戏（仅单人）。"
+		"loading_faq_launch_mode_answer"				"能。游廊开局会连接服务器读取最新数据，结算积分和每日任务正常记录。偶尔连不上时进入离线模式，沿用地图更新时的数据，本局积分不记录，这时可以用启动器开局，也能开房和朋友一起玩。"
 		"loading_faq_pause_question"				"暂停时间可以延长吗？"
-		"loading_faq_pause_answer"				"受 Dota 2 服务器主机限制，暂停时间无法延长。需要更灵活的暂停时，请使用本地主机。"
+		"loading_faq_pause_answer"				"从游廊开局可以。用启动器开局时游戏跑在服务器主机上，暂停时间无法延长，需要长时间暂停请从游廊开局。"
 		"loading_faq_attributes_question"			"加的属性点什么时候生效？"
 		"loading_faq_attributes_answer"				"大多数属性会在英雄达到 2、4、6 级等时逐级生效，详情请查看属性面板说明。"
 		"loading_faq_hero_bounty_question"			"击杀英雄提示的金币，和实际到账一致吗？"
@@ -122,11 +137,11 @@
 		"loading_faq_dota_hotkeys_question"		"如何使用 Dota 传统键位？"
 		"loading_faq_dota_hotkeys_answer"		"在 Dota 2 设置中更改「自定义游戏期间禁用分单位快捷键」选项即可。"
 
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		//
-		//            Scoreborad/Ending Screen
+		//			计分板与结算 Scoreboard & End Screen
 		//
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		"scoreboard_tool_tip_mute_player"	"静音"
 		"scoreboard_tool_tip_share_unit"	"共享单位"
 		"scoreboard_tool_tip_share_hero"	"共享英雄"
@@ -137,7 +152,6 @@
 
 		"custom_end_screen_victory_message"	"天辉获胜"
 		"custom_end_screen_lose_message"	"夜魇获胜"
-		"custom_end_screen_abilities"		"技能"
 
 		"player_multiplier"		"玩家倍率"
 		"bot_multiplier"		"电脑倍率"
@@ -145,26 +159,24 @@
 		"custom_end_screen_tower_kills"		"推塔"
 		"custom_end_screen_control_time"		"控制"
 		"custom_end_screen_control_time_tooltip"	"包含眩晕和缠绕时间"
+		"custom_end_screen_abilities"		"技能"
 
 		"conduct_point_bonus_tooltip"			"行为分 <font color='#FFD700'>{0}</font> 奖励，积分 ×1.1"
 		"conduct_point_light_penalty_tooltip"	"行为分 <font color='#FFA726'>{0}</font> 惩罚，积分 ×0.8"
 		"conduct_point_heavy_penalty_tooltip"	"行为分 <font color='#E87D7D'>{0}</font> 惩罚，积分 ×0.5"
 
-		"ending_status_1"				"游戏数据上传中，请勿结束游戏。"
-		"ending_status_2"				"游戏数据上传成功！"
-		"ending_status_3"				"很遗憾由于网络波动，游戏数据上传失败。请尝试更换服务器主机重新进行游戏。"
+		"end_screen_offline_hint"		"离线模式，本局积分与战绩未记录。"
 
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		//
-		//            Hero Debug Panel 英雄调试面板
+		//			英雄调试面板 Hero Debug Panel
 		//
-		// /////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////
 		"SpawnUnits_ButtonCategory"					"召唤"
 		"EditUnits_ButtonCategory"					"编辑所选单位"
 		"Global_ButtonCategory"						"全局设置"
 		"AHD_SpawnToTeam_2"							"到队伍：1"
 		"AHD_SpawnToTeam_3"							"到队伍：2"
-		"DummyTarget_Button"						"+ 假人目标"
 		"LevelUpSelectedHeroes_Button"				"升级加钱"
 		"MaxLevelUpSelectedHeroes_Button"			"满级加钱"
 		"ScepterSelectedHeroes_Button"				"神杖"
@@ -181,19 +193,16 @@
 		"MoveToCoord_Button"						"移动到坐标"
 		"SpawnTreasure_Button"						"生成宝箱"
 		"FreeSpells_Button"							"免费技能"
-		"Refresh_Button"							"刷新"
 		"ToggleDayNight_Button"						"切换昼夜"
 		"PauseDemo_Button"							"暂停"
 		"QuitDemo_Button"							"退出"
 
 		///////////////////////////////////////////////////
 		//
-		//            Data panel
+		//			数据面板 Data Panel
 		//
 		///////////////////////////////////////////////////
 		"data_panel_button"				"主页"
-		"data_panel_member_point_total"	"会员积分 (总数)"
-		"data_panel_season_point_total"	"勇士积分 (总数)"
 		"data_panel_member_point"		"会员积分 (可用/总数)"
 		"data_panel_season_point"		"勇士积分 (可用/总数)"
 		"data_panel_property_point"		"属性点 (可用/总数)"
@@ -261,7 +270,7 @@
 
 		///////////////////////////////////////////////////
 		//
-		//			Lottery Item/Ability
+		//			抽奖 Lottery
 		//
 		///////////////////////////////////////////////////
 		"lottery_expand"										"展开"
@@ -270,7 +279,6 @@
 		"lottery_passive_ability_title"							"选择被动技能"
 
 		"lottery_tooltip_ability_refresh"						"会员可以免费刷新一次技能"
-		"lottery_tooltip_ability_refresh_used"					"技能已刷新"
 		"lottery_tooltip_ability_refresh_picked"				"技能已选择"
 		"lottery_tooltip_ability_refresh_not_member"			"会员可刷新一次技能，点击开通会员"
 		"lottery_tooltip_ability_refresh_paid"					"消耗 <font color='#FFD700'>{cost}</font> 可用积分刷新技能<br>剩余可用刷新次数：{remaining}<br>（不降低总会员积分及会员等级）"
@@ -278,7 +286,6 @@
 		"lottery_tooltip_ability_refresh_insufficient"			"可用积分不足，点击前往会员页"
 
 		"lottery_tooltip_item_refresh"							"会员可以免费刷新一次物品"
-		"lottery_tooltip_item_refresh_used"						"物品已刷新"
 		"lottery_tooltip_item_refresh_not_premium"				"高级会员可刷新物品，点击开通会员"
 		"lottery_tooltip_item_refresh_paid"						"消耗 <font color='#FFD700'>{cost}</font> 可用积分刷新物品<br>剩余可用刷新次数：{remaining}<br>（不降低总会员积分及会员等级）"
 		"lottery_tooltip_item_refresh_limit"					"可用刷新次数已用完<br>剩余可用刷新次数：0"
@@ -289,6 +296,14 @@
 		"lottery_tooltip_ability_reset_no_count"				"没有可用的技能重选次数"
 		"lottery_tooltip_ability_reset_not_picked"				"技能尚未选择"
 
+		"lottery_item_header"									"宝箱开启！选择你的奖励"
+		"lottery_passive_tome_header"							"选择一个被动技能"
+
+		///////////////////////////////////////////////////
+		//
+		//			改键 Key Bindings
+		//
+		///////////////////////////////////////////////////
 		"key_bind"												"改键"
 		"key_bind_collapsed"									"折叠"
 		"key_bind_placeholder"									"快捷键"
@@ -300,26 +315,17 @@
 		"key_bind_clear_tooltip"								"清空所有快捷键与快速施法设置。<br>本局内已生效的按键需断开重连后失效。"
 		"key_bind_inventory_slot_tooltip"					"第%s格装备快捷键；需要先使用扩容之书解锁该格，锁定时按键不会施放。"
 
-		"lottery_item_header"									"宝箱开启！选择你的奖励"
-		"lottery_passive_tome_header"							"选择一个被动技能"
 		///////////////////////////////////////////////////
 		//
-		//			Member
+		//			通用 Common
 		//
 		///////////////////////////////////////////////////
 		"player_member_ship"			"点击开通会员"
-		"player_member_null"			"会员信息获取失败，请重新加载游戏。"
-
-		///////////////////////////////////////////////////
-		//
-		//			pointInfo
-		//
-		///////////////////////////////////////////////////
 		"point_header_text"				"通知"
 
 		///////////////////////////////////////////////////
 		//
-		//			profile
+		//			个人资料 Profile
 		//
 		///////////////////////////////////////////////////
 		"profile_title"					"个人中心"
@@ -330,6 +336,8 @@
 		"profile_point_member_tooltip"		"可用会员积分：可用于永久觉醒英雄、刷新抽奖等。<br>累计会员积分：决定会员等级与属性点，只增不减，任何花费都不会让它下降。"
 		"profile_point_useable_prefix"		"可用"
 		"profile_point_total_fmt"			"/ 累计 {n}"
+
+		// 觉醒
 		"awaken_intro_title"				"觉醒石"
 		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态，仅本局对局内生效。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。"
 		"awaken_unlock_intro_title"			"永久觉醒"
@@ -340,7 +348,6 @@
 		"awaken_free_trial_tooltip"			"新觉醒限时免费体验，选择该英雄时自动生效"
 		"awaken_unlock_tooltip_insufficient"	"可用积分不足"
 		"awaken_unlock_confirm_desc"		"选择消耗的积分，<br>永久觉醒该英雄？"
-		"awaken_unlock_confirm_button"		"确认"
 		"awaken_pay_member_button"			"{cost}<br>可用会员积分"
 		"awaken_pay_season_button"			"{cost}<br>可用勇士积分"
 		"awaken_random_title"				"随机觉醒"
@@ -353,11 +360,10 @@
 		"awaken_random_card_desc"			"消耗积分减半<br>随机3选1"
 		"awaken_random_candidates_desc"		"消耗 <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>可用勇士积分</font>，或 <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>可用会员积分</font>。<br>从随机 3 个候选英雄中选 1 个永久觉醒。"
 
-		// Stat Tab UI
+		// 战绩
 		"profile_stat_games"			"游戏场次"
 		"profile_stat_winrate"			"胜率"
 		"profile_stat_conduct"			"行为分"
-		"profile_stat_coming_soon"		"更多功能开发中"
 		"profile_stat_lifetime_kills"		"击杀"
 		"profile_stat_lifetime_deaths"		"死亡"
 		"profile_stat_lifetime_assists"		"助攻"
@@ -373,7 +379,7 @@
 		"profile_stat_conduct_tooltip"	"行为分反映你的游戏行为，默认 100 分，上限 120 分。<br><br><b>分数变化</b><br>• 完成一局 <font color='#7FD47F'>+1</font>（仅限 100 分以内）<br>• 秒退一局 <font color='#E87D7D'>-10</font>（单人 / 全员退出不计）<br>• 被点赞 <font color='#7FD47F'>+2</font> / 被举报 <font color='#E87D7D'>-2</font>（同一玩家每周对你最多生效一次）<br><br><b>结算积分倍率</b>（仅组队局）<br>• <font color='#7FD47F'>≥110</font>：×1.1<br>• 80–109：×1.0<br>• <font color='#F5A623'>60–79</font>：×0.8<br>• <font color='#E87D7D'>&lt;60</font>：×0.5"
 		"profile_stat_conduct_net_tooltip"	"累计点赞 减 累计举报"
 
-		// Member Tab UI
+		// 会员
 		"member_button_tooltip_active"		"会员已生效，点击查看详情"
 		"member_button_tooltip_inactive"	"会员未激活，点击查看详情"
 		"member_subtab_status"			"会员状态"
@@ -419,10 +425,8 @@
 		"member_activate"				"手动激活"
 		"member_activate_tooltip"		"若订阅时忘记填写好友ID或填写有误，可在此手动激活。激活成功后系统将记录您的账号，之后订阅无需再次填写。"
 		"member_refresh"				"刷新会员状态和积分"
-		"member_alipay_dialog_title"		"支付宝扫码支付"
 		"member_alipay_status_creating"		"正在创建订单..."
 		"member_alipay_status_waiting"		"请使用支付宝扫码支付"
-		"member_alipay_status_success"		"支付成功！会员已开通"
 		"member_alipay_status_paid_title"	"会员已开通"
 		"member_subscribe_paid_title"		"已开通 {duration} 会员"
 		"member_points_paid_title"			"{n} 会员积分已到账"
@@ -430,11 +434,8 @@
 		"member_alipay_status_failed"		"订单失败，请重试"
 		"member_alipay_status_error"		"网络错误，请稍后再试"
 		"member_alipay_status_rate_limited"	"操作过于频繁，请下一局再试"
-		"member_alipay_amount_label"		"金额"
-		"member_alipay_subject_label"		"商品"
 		"member_alipay_retry"				"重试"
 		"member_alipay_close"				"关闭"
-		"member_alipay_cancel"				"取消"
 		"member_alipay_discount_fmt"		"省{n}%"
 		"member_alipay_tier_month_fmt"		"{n}个月"
 		"member_alipay_tier_year_fmt"		"{n}年"
@@ -443,11 +444,7 @@
 		"member_points_amount_fmt"		"{n} 积分"
 		"member_points_save_fmt"		"省¥{n}"
 
-		///////////////////////////////////////////////////
-		//
-		//			DailyTask
-		//
-		///////////////////////////////////////////////////
+		// 每日任务
 		"profile_tab_dailytask"			"每日任务"
 		"dailytask_header_title"			"我的每日任务"
 		"dailytask_header_subtitle"			"请选择第 {round}/{total} 轮任务"
@@ -1001,7 +998,7 @@
 		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_movement_slow_pct"		"移动速度减缓：:"
 
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"冰霜法球"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"每%attack_count%次攻击发射一枚冰霜法球，造成范围伤害，并减速目标%slow_duration%秒"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"每%attack_count%次攻击发射一枚冰霜法球，造成范围伤害，并短暂减速主要目标"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"范围："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"伤害："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"攻击力伤害加成倍率："
@@ -1073,6 +1070,7 @@
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"						"额外攻击次数："
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"					"攻击冷却时间："
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"				"增加大招攻击次数，降低攻击冷却时间。"
+		"DOTA_Tooltip_ability_special_bonus_unique_chaos_knight_4"						"+{s:bonus_duration}秒 混沌之军持续时间"
 		"DOTA_Tooltip_modifier_imba_phantasm_buff"											"混沌之军"
 		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"								"多重影分身之术！"
 
@@ -1245,13 +1243,11 @@
 		"DOTA_Tooltip_ability_bot_power_n6_Description"				"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
 		"DOTA_Tooltip_ability_bot_power_n6_Lore"					"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了 机械救赎 程序，使它们在关键时刻能够激发潜力，扭转战局。"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_damage"			"攻击力："
-		"DOTA_Tooltip_ability_bot_power_n6_bonus_attack_speed"		"攻击速度："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_spell_amplify"		"技能增强："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_cooldown"			"冷却缩减："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_move_speed"		"移动速度："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_armor"				"护甲："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"魔抗："
-		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"全属性："
 
 		// 泉水 制裁
 		"DOTA_Tooltip_ability_fountain_anti_camp"							"泉水制裁"
@@ -1267,6 +1263,20 @@
 		//
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
+
+		// 敌法师 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>法力禁域 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"闪烁使附近敌方英雄损失魔法并无法回复，法力虚空按每个敌方英雄自身损失的魔法造成伤害。"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"施放闪烁后，附近<font color='#FFFFFF'><b>600</b></font>范围内的敌方英雄立刻损失<font color='#FFFFFF'><b>40%%</b></font>当前魔法，<font color='#FFFFFF'><b>4</b></font>秒内无法回复魔法。<br>法力虚空对范围内每个敌方英雄按其自身损失的魔法造成伤害。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>法力禁域 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"施放闪烁后，附近<font color='#FFFFFF'><b>600</b></font>范围内的敌方英雄立刻损失<font color='#FFFFFF'><b>40%%</b></font>当前魔法，<font color='#FFFFFF'><b>4</b></font>秒内无法回复魔法。<br>法力虚空对范围内每个敌方英雄按其自身损失的魔法造成伤害。"
+
+		// 恐怖利刃 魂断觉醒
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>魂断 觉醒</font>"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_SummaryDescription"	"生命值过低时自动对血量百分比最高的敌人施放魂断，不受控制影响。"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_Description"		"隔断恐怖利刃以及目标英雄的灵魂并将双方的当前血量百分比进行互换。交换后双方英雄的生命值必定在一定百分比以上。<br><br><font color='#00CED1'>自动施放：</font>生命值低于<font color='#FFFFFF'><b>30%%</b></font>时，自动对施法距离内生命值百分比最高的敌方英雄施放魂断。<br><font color='#d000ff'>觉醒强化：</font>被眩晕、沉默、妖术等控制时也会自动施放。魂断需冷却完毕且魔法足够，敌方英雄生命值百分比都低于自己时不触发。"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>魂断 觉醒</font>"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status_Description"		"<font color='#00CED1'>自动施放：</font>生命值低于<font color='#FFFFFF'><b>30%%</b></font>时，自动对施法距离内生命值百分比最高的敌方英雄施放魂断。<br><font color='#d000ff'>觉醒强化：</font>被眩晕、沉默、妖术等控制时也会自动施放。魂断需冷却完毕且魔法足够，敌方英雄生命值百分比都低于自己时不触发。"
 
 		// 赏金猎人 追踪术觉醒
 		"DOTA_Tooltip_ability_bounty_hunter_track_awaken"							"<font color='#d000ff'>追踪术 觉醒</font>"
@@ -1326,7 +1336,7 @@
 
 		// 兽王 野性之斧-觉醒
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>野性之斧 觉醒</font>"
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"兽王投出他的斧头然后召回它们，切开飞过的敌人和树木。每把飞斧对同一个敌人只能击中一次，并且使受到来自兽王和其单位的伤害增加。减益持续时间受状态抗性影响。<br><br><font color='#00CED1'>自动施法：</font>开启后，施法距离内出现敌方单位时自动朝最远的敌方英雄投斧。<br><font color='#d000ff'>觉醒强化：</font>飞斧伤害提高，伤害加深持续时间延长，飞斧以极快速度飞出并返回，斯洛姆战鼓的伤害，治疗和原始咆哮提供的敲鼓层数一并提高。"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"兽王投出他的斧头然后召回它们，切开飞过的敌人和树木。每把飞斧对同一个敌人只能击中一次，并且使受到来自兽王和其单位的伤害增加。减益持续时间受状态抗性影响。<br><br><font color='#00CED1'>自动施法：</font>开启后，施法距离内出现敌方单位时自动朝最远的敌方英雄投斧。<br><font color='#d000ff'>觉醒强化：</font>伤害加深持续时间延长，飞斧以极快速度飞出并返回，斯洛姆战鼓的伤害，治疗和原始咆哮提供的敲鼓层数一并提高。"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"每把飞斧伤害："
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%每把加深伤害："
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"负面效果持续时间："
@@ -1902,7 +1912,7 @@
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_visionrange_down"				"%视野范围降低："
 
 		"DOTA_Tooltip_ability_jack_surgery"														"外科手术"
-		"DOTA_Tooltip_ability_jack_surgery_description"											"被杰克攻击的敌人将会获得解体效果，每层解体都会降低敌人的治疗，生命回复\n每个敌人身上最大解体层数为%max_count%，当达到最大层数时，敌人将受到破坏效果\n敌人失去的属性将会附加给杰克"
+		"DOTA_Tooltip_ability_jack_surgery_description"											"被杰克攻击的敌人将会获得解体效果，每层解体都会降低敌人的治疗，生命回复\n每个敌人身上最大解体层数为%max_count%，当达到最大层数时，敌人将受到%duration%秒的破坏效果\n敌人失去的属性将会附加给杰克"
 		"DOTA_Tooltip_ability_jack_surgery_Lore"												"可以使用沾满血的手术刀为Master以及自己治疗。开膛手杰克的牺牲者是以摘除特定脏器这种需要解剖学知识的方式被杀的。"
 		"DOTA_Tooltip_ability_jack_surgery_duration"											"持续时间："
 		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%每层治疗降低："
@@ -2070,7 +2080,7 @@
 		"DOTA_Tooltip_ability_ability_yukari_01_factor"		"重复命中伤害系数:"
 		"DOTA_Tooltip_ability_ability_yukari_01_speed"	"弹幕飞行速度:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04"	"「深弹幕结界 -梦幻泡影-」"
-		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"以任意位置为目标展开大型的传送结界，八云紫将在引导结束后传送到目标位置。引导时间越长，造成的伤害越大。最大引导时间4秒，结界的范围为750。无论引导多久，只要引导一结束（即使是被打断的），传送就会进行。\n引导期间，目标地点会散射出大量的弹幕，对周围的敌方单位造成伤害，传送完成后产生空间震，根据引导时间对%wanbaochui_radius%范围内的敌方单位造成最多%int_bonus%倍智力的魔法伤害与眩晕。"
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"以任意位置为目标展开大型的传送结界，八云紫将在引导结束后传送到目标位置。引导时间越长，造成的伤害越大。最大引导时间%AbilityChannelTime%秒，结界的范围为%max_radius%。无论引导多久，只要引导一结束（即使是被打断的），传送就会进行。\n引导期间，目标地点会散射出大量的弹幕，对周围的敌方单位造成伤害，传送完成后产生空间震，根据引导时间对%wanbaochui_radius%范围内的敌方单位造成最多%int_bonus%倍智力的魔法伤害，并眩晕最多%stun_duration%秒。"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"结界范围："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"弹幕结界单次伤害："
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"弹幕结界伤害间隔："
@@ -2337,7 +2347,7 @@
 
 		// wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"急速之翼"
-		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得 移动速度, 攻击速度, 生命恢复, 魔法恢复加成。"
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE%移动速度，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度，%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%生命恢复和%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%魔法恢复加成。"
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"急速之翼"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>使用：永久升级</h1>消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
@@ -2781,12 +2791,12 @@
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_blue_fantasy_Lore" 								"黄泉之音，闻者命不久矣"
 		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff"  							"残响震荡"
-		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff_Description"  				"装备被禁用，被动技能被禁用，持续驱散增益效果。移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。每秒受到自身4%%的最大生命值的魔法伤害。"
+		"DOTA_Tooltip_modifier_item_blue_fantasy_debuff_Description"  				"装备被禁用，被动技能被禁用，生命恢复和受到的治疗降低%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%，并持续驱散增益效果。移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。每秒受到自身4%%的最大生命值的魔法伤害。"
 
 		// item_wasp_despotic 大核荣耀
 		"DOTA_Tooltip_ability_item_wasp_despotic"					"大核荣耀暴虐"
 		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"黄金大核荣耀被拆分后的产物，代表暴虐的一面。"
-		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>主动：暴虐</h1>%active_boost_duration%秒内致命一击概率为%active_crit_chance%%%，致命一击伤害为%active_crit_multiplier%%%。"
+		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>主动：暴虐</h1>%active_boost_duration%秒内致命一击概率为%active_crit_chance%%%，致命一击伤害为%active_crit_multiplier%%%。\n<h1>被动：致命一击</h1>每次攻击有%crit_chance%%%概率造成%crit_multiplier%%%伤害。"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_despotic_crit_chance"		"%致命一击概率:"
@@ -2795,7 +2805,7 @@
 		// item_wasp_callous
 		"DOTA_Tooltip_ability_item_wasp_callous"						"大核荣耀冷酷"
 		"DOTA_Tooltip_ability_item_wasp_callous_Lore"				"黄金大核荣耀被拆分后的产物，代表冷酷的一面。"
-		"DOTA_Tooltip_ability_item_wasp_callous_Description"			"<h1>主动：冷酷</h1>%active_boost_duration%秒内闪避概率为%active_dodge_chance%%%，移动速度提升%move_speed%%%。"
+		"DOTA_Tooltip_ability_item_wasp_callous_Description"			"<h1>主动：冷酷</h1>%active_boost_duration%秒内闪避概率为%active_dodge_chance%%%，移动速度提升%move_speed%%%。\n<h1>被动：致命一击</h1>每次攻击有%crit_chance%%%概率造成%crit_multiplier%%%伤害。"
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_agile"			"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_callous_dodge_chance"		"%+$evasion"
@@ -2806,7 +2816,7 @@
 		// item_wasp_golden
 		"DOTA_Tooltip_ability_item_wasp_golden"							"黄金大核荣耀"
 		"DOTA_Tooltip_ability_item_wasp_golden_Lore"						"似乎有人在你的耳边低语：“你想拥有绝对的力量吗。”"
-		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>主动：大核荣耀</h1>%active_boost_duration%秒内致命一击概率为%active_crit_chance%%%，致命一击伤害为%active_crit_multiplier%%%；闪避概率为%active_dodge_chance%%%，移动速度提升%move_speed%%%。"
+		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>主动：大核荣耀</h1>%active_boost_duration%秒内致命一击概率为%active_crit_chance%%%，致命一击伤害为%active_crit_multiplier%%%，闪避概率为%active_dodge_chance%%%，移动速度提升%move_speed%%%。\n<h1>被动：致命一击</h1>每次攻击有%crit_chance%%%概率造成%crit_multiplier%%%伤害。"
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_agile"				"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_golden_dodge_chance"				"%+$evasion"
@@ -3298,7 +3308,7 @@
 
 		// item_disperser_chaos 混沌·散魂剑
 		"DOTA_Tooltip_ability_item_disperser_chaos"							"<font color='#FF4500'>混沌·散魂剑</font>"
-		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>主动：抑制</h1>若目标是敌军，会被减速%enemy_effect_duration%秒，若目标是友军则会提升移动速度，施加弱驱散效果并且无法被减速，持续%ally_effect_duration%秒。施法者总是会获得友军的加成效果。<br><br>移动速度减缓和提升效果在状态持续时间内初始均为%phase_movement_speed%%%，并且逐渐减少至0。<br><br>施法距离：%abilitycastrange%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：破法</h1>每次攻击将燃烧目标%feedback_mana_burn%点魔法，而且每燃烧一点魔法都会造成%damage_per_burn%点物理伤害。<br><br>近战英雄的幻象每次攻击将燃烧%feedback_mana_burn_illusion_melee%点魔法。远程英雄的幻象每次攻击将燃烧%feedback_mana_burn_illusion_ranged%点魔法。"
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>主动：抑制</h1>若目标是敌军，会被减速%enemy_effect_duration%秒，若目标是友军则会提升移动速度，施加弱驱散效果并获得%slow_resist%%%减速抗性，持续%ally_effect_duration%秒。施法者总是会获得友军的加成效果。<br><br>移动速度减缓和提升效果在状态持续时间内初始均为%phase_movement_speed%%%，并且逐渐减少至0。<br><br>施法距离：%abilitycastrange%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：破法</h1>每次攻击将燃烧目标%feedback_mana_burn%点魔法，而且每燃烧一点魔法都会造成%damage_per_burn%点物理伤害。<br><br>近战英雄的幻象每次攻击将燃烧%feedback_mana_burn_illusion_melee%点魔法。远程英雄的幻象每次攻击将燃烧%feedback_mana_burn_illusion_ranged%点魔法。"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"
@@ -3388,7 +3398,7 @@
 
 		// 禁忌战刃
 		"DOTA_Tooltip_Ability_item_forbidden_blade"										"<font color='#8B008B'>禁忌战刃</font>"
-		"DOTA_Tooltip_ability_item_forbidden_blade_Description"							"<h1><font color='#8B008B'>主动：忌炼杀狱</font></h1>在目标区域施放忌炼杀狱,对%radius%范围内所有敌人施放一闪，闪电风暴和毁灭终曲。<br><br>一闪眩晕时间：%stun_duration%秒<br>一闪伤害：%active_damage_base%+%active_damage_multi%x[你的主属性](纯粹伤害)<br>闪电风暴伤害：%lightning_damage%<br>毁灭终曲持续时间：%mute_duration%秒<br><br>作用范围：%radius%"
+		"DOTA_Tooltip_ability_item_forbidden_blade_Description"							"<h1><font color='#8B008B'>主动：忌炼杀狱</font></h1>在目标区域施放忌炼杀狱,对目标区域内所有敌人施放一闪，闪电风暴和毁灭终曲。<br><br>一闪眩晕时间：%stun_duration%秒<br>一闪伤害：%active_damage_base%+%active_damage_multi%x[你的主属性](纯粹伤害)<br>闪电风暴伤害：%lightning_damage%<br>毁灭终曲持续时间：%mute_duration%秒<br><br>作用范围：%radius%"
 		"DOTA_Tooltip_ability_item_forbidden_blade_Lore"								"禁忌之刃,斩断一切。"
 		"DOTA_Tooltip_ability_item_forbidden_blade_Note0"								"一闪效果造成纯粹伤害,无视魔法免疫。"
 		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_strength"						"+$str"

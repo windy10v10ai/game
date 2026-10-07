@@ -805,7 +805,6 @@
 			"axe_damage"
 			{
 				"value"					"80 160 240 320 400"	// 40 80 120 160 x2
-				"special_bonus_unique_beastmaster_awaken"	"+100"
 			}
 			"damage_amp"
 			{
@@ -885,14 +884,14 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_ms"					"150"	// 15 x10 现在是25级天赋
+			"bonus_ms"					"100"
 		}
 	}
 	"special_bonus_unique_beastmaster_6"
 	{
 		"AbilityValues"
 		{
-			"bonus_hp"				"2000"		// 250 x8 现在是25级天赋
+			"bonus_hp"				"1500"
 		}
 	}
 	// 野性之心（先天技能）
@@ -7802,8 +7801,8 @@
 	"terrorblade_sunder"
 	{
 		"MaxLevel" "4"
-		"AbilityManaCost"				"100 75 50 25"
-		"AbilityCastRange"				"900 1100 1300 1500"	// 475
+		"AbilityManaCost"				"150 175 200 225"	// 100 75 50
+		"AbilityCastRange"				"900 1000 1100 1200"	// 475
 		"AbilityValues"
 		{
 			"hit_point_minimum_pct"
@@ -7814,6 +7813,7 @@
 			"AbilityCooldown"
 			{
 				"value"				"60.0 50.0 40.0 30.0"	// 110.0 75.0 40.0
+				"special_bonus_unique_terrorblade"	"-25"	// -30
 			}
 		}
 	}
@@ -12134,13 +12134,24 @@
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"40 35 30 25 20"	// 42 34 26 18 差值-5 末档≥20
 		"AbilityManaCost"				"120 130 140 150 160"
+		"AbilityCastRange"				"1200"	// 1000
 		"AbilityValues"
 		{
+			"count"
+			{
+				"value"						"4"	// 6
+				"special_bonus_unique_warlock_fatal_bonds_count"	"+2"	// +5
+			}
 			"damage_share_percentage"
 			{
-				"value"						"16 18 20 20 24"	// 15 18 21 24 差值+2 末档≤24
+				"value"						"24 27 30 33 36"	// 15 18 21 24
 			}
-			"duration"						"15"	// 18
+			"duration"						"10"	// 18
+			"search_aoe"
+			{
+				"value"						"550"	// 700
+				"affected_by_aoe_increase"	"0"	// 1
+			}
 		}
 	}
 	// 暗言术

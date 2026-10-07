@@ -34,6 +34,28 @@ async function ensureThumbnailCachePlaceholders() {
   }
 }
 
+const DEBUG_LAUNCH_CONFIG = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  'game',
+  'scripts',
+  'vscripts',
+  'debug_launch_config.lua',
+);
+
+// 中途替换英雄会漏掉资源预载与各模块记录的英雄状态，测试指定英雄须在开局选定
+function writeDebugLaunchConfig() {
+  const heroIndex = process.argv.indexOf('--hero');
+  const hero = heroIndex >= 0 ? process.argv[heroIndex + 1] : undefined;
+  if (!hero) {
+    fs.rmSync(DEBUG_LAUNCH_CONFIG, { force: true });
+    return;
+  }
+  fs.writeFileSync(DEBUG_LAUNCH_CONFIG, `return { hero = "npc_dota_hero_${hero}" }\n`);
+  console.log(`[launch] player hero: npc_dota_hero_${hero}`);
+}
+
 (async () => {
   // 在启动 Dota2 Tools 之前先放置同名占位目录，阻止 Tools 创建/锁定 tools_thumbnail_cache.sqlite3*，避免发布时因这些缓存文件导致崩溃。
   await ensureThumbnailCachePlaceholders();
@@ -44,6 +66,8 @@ async function ensureThumbnailCachePlaceholders() {
       force: true,
     },
   );
+
+  writeDebugLaunchConfig();
 
   const dotaPath = await getDotaPath();
   const win64 = path.join(dotaPath, 'game', 'bin', 'win64');

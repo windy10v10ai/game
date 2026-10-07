@@ -5,6 +5,38 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 敌法师 觉醒
+	"special_bonus_unique_antimage_mana_suppression_awaken"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_antimage_mana_suppression_awaken"
+		"AbilityTextureName"			"antimage_blink"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"blink_radius"				"600"
+			"mana_lock_duration"		"4"
+			"current_mana_loss_pct"		"40"
+		}
+	}
+
+	// 恐怖利刃 魂断觉醒
+	"terrorblade_sunder_awakened_status"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/terrorblade_sunder_awakened_status"
+		"AbilityTextureName"			"terrorblade_sunder"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"auto_trigger_health_pct"		"30"
+		}
+	}
+
 	// 赏金猎人 追踪术觉醒
 	// 数值仅供技能面板显示，须与 Dota2 原版数值 + npc_abilities_override.txt 差分之后的内容保持一致
 	"bounty_hunter_track_awaken"
@@ -207,7 +239,6 @@
 			"axe_damage"
 			{
 				"value"							"80 160 240 320 400"
-				"special_bonus_unique_beastmaster_awaken"	"+100"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"damage_amp"

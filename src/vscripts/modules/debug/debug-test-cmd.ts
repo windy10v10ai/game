@@ -272,7 +272,7 @@ export function handleTestDebugCommand(
   }
   if (cmd === CMD.GIVE) {
     const item = hero.AddItemByName(args[0]);
-    log(`give ${args[0]} ${item ? 'ok' : 'failed'}`);
+    log(`give ${args[0]} ${item !== undefined ? 'ok' : 'failed'}`);
   }
   if (cmd === CMD.HURT) {
     const dummy = lastDummy();

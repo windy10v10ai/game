@@ -16,6 +16,7 @@
     "player_stats",
     // TS tables
     "loading_status",
+    "launcher_room",
     "server_env",
     "ending_status",
     "player_table",
