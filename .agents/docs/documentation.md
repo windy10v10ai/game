@@ -18,6 +18,10 @@
 
 ## Practical guides
 
+- Keep pages only when they explain a verified project-specific workflow, constraint, or decision.
+  Omit generic tool onboarding, obvious advice, and duplicated setup instructions. Merge short
+  link collections into the relevant guide. Publish troubleshooting remedies only when verified;
+  an old anecdote or a plausible repair is insufficient.
 - For an installation or command sequence, state the required software/version, working directory,
   execution surface (PowerShell, Workshop Tools, or VConsole), expected result, and how to verify it.
   Explain commands that relocate files, create addon links, or may replace existing content before

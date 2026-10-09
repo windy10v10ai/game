@@ -12,9 +12,7 @@ nvm use $(Get-Content .nvmrc)
 node --version
 ```
 
-Clone your fork onto the same disk partition as Dota 2. Optional tools:
-[VS Code](https://code.visualstudio.com/), [GitHub Desktop](https://desktop.github.com/),
-and [Source 2 Viewer](https://valveresourceformat.github.io/).
+Clone your fork onto the same disk partition as Dota 2.
 
 Run from the repository root:
 

@@ -12,9 +12,7 @@ nvm use $(Get-Content .nvmrc)
 node --version
 ```
 
-将自己的 fork 克隆到与 Dota 2 相同的磁盘分区。可选工具：
-[VS Code](https://code.visualstudio.com/)、[GitHub Desktop](https://desktop.github.com/)
-和 [Source 2 Viewer](https://valveresourceformat.github.io/)。
+将自己的 fork 克隆到与 Dota 2 相同的磁盘分区。
 
 在仓库根目录执行：
 

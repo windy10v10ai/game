@@ -48,3 +48,13 @@ host_timescale <float>
 
 修改 TypeScript 源文件，不要修改生成的 Lua。参考[数据流](../architecture/README.md)
 和[贡献指南](../../../.github/CONTRIBUTING.md)；PR 的目标分支为 `develop`。
+
+## 延伸阅读
+
+- [ModDota TypeScript 地图模板](https://github.com/ModDota/TypeScriptAddonTemplate)
+- [X-Template](https://github.com/XavierCHN/x-template)
+- [技能与 modifier 示例](https://github.com/ModDota/TypeScriptAddonTemplate/tree/master/src/vscripts)
+- [TypeScript-to-Lua](https://typescripttolua.github.io/)
+- [VScripts 的 TypeScript 入门](https://moddota.com/scripting/Typescript/typescript-introduction/)
+- [Panorama 的 TypeScript 入门](https://moddota.com/panorama/introduction-to-panorama-ui-with-typescript)
+- [Panorama 中的 React](https://moddota.com/panorama/react)

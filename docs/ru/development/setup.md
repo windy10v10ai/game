@@ -12,9 +12,7 @@ nvm use $(Get-Content .nvmrc)
 node --version
 ```
 
-Клонируйте свой форк на тот же раздел диска, где находится Dota 2. Дополнительные инструменты:
-[VS Code](https://code.visualstudio.com/), [GitHub Desktop](https://desktop.github.com/)
-и [Source 2 Viewer](https://valveresourceformat.github.io/).
+Клонируйте свой форк на тот же раздел диска, где находится Dota 2.
 
 Из корня репозитория выполните:
 

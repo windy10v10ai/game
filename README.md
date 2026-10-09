@@ -13,7 +13,7 @@ Play the original addon on Steam Workshop: [10v10 AI custom by windy](https://st
 
 [Русский](docs/ru/README.md) · [English](docs/en/README.md) · [简体中文](docs/zh-CN/README.md)
 
-Installation, development, resources, AI tools, troubleshooting, and architecture are covered in the language-specific guides.
+Installation, development, resources, Dota reference files, and architecture are covered in the language-specific guides.
 
 ## project status
 
