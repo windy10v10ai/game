@@ -199,7 +199,9 @@ Panorama UI with webpack, TypeScript and React.
 
 ## Data Flow
 
-![Data Flow](docs/drawio/dataflow.png)
+![Data Flow](docs/shared/architecture/dataflow.png)
+
+Documentation: [Русский](docs/ru/README.md) · [English](docs/en/README.md) · [简体中文](docs/zh-CN/README.md).
 
 # 维护指南
 
