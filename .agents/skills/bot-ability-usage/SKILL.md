@@ -21,7 +21,7 @@ description: 为指定技能编写 bot 施法规则（AbilitySpec），让 bot �
 
 ## 第一步：解析技能输入
 
-按 `.claude/CLAUDE.md`「查原版技能」规则处理（支持系统名 / 中文名 / 英雄名-技能名），最终得到 **`abilityName`**（如 `omniknight_purification`）。
+按 `.agents/docs/dota-references.md`规则处理（支持系统名 / 中文名 / 英雄名-技能名），最终得到 **`abilityName`**（如 `omniknight_purification`）。
 
 ---
 

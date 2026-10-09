@@ -10,7 +10,7 @@ disable-model-invocation: true
 
 ## 前置条件
 
-参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」。英雄名 / 技能名查找规则见 `.claude/CLAUDE.md`「查原版技能」。
+参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」。英雄名 / 技能名查找规则见 `.agents/docs/dota-references.md`。
 
 用 `grep` / 片段读取定位，**禁止**一次读入整个 override 文件。
 

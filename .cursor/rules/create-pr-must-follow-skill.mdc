@@ -4,9 +4,9 @@ alwaysApply: true
 
 # Create PR Skill As Supplement
 
-When the user asks to create a pull request (for example: "create PR", "创建PR", "提交PR"), keep Cursor's normal PR workflow as the default path, and use `.claude/skills/create-pr/SKILL.md` as a supplement:
+When the user asks to create a pull request (for example: "create PR", "创建PR", "提交PR"), keep Cursor's normal PR workflow as the default path, and use `.agents/skills/create-pr/SKILL.md` as a supplement:
 
-1. Check `.claude/skills/create-pr/SKILL.md` for extra guardrails and completeness checks.
+1. Check `.agents/skills/create-pr/SKILL.md` for extra guardrails and completeness checks.
 2. Use the skill to fill gaps (for example: release note wording, issue linking, branch naming conventions).
 3. Do not treat the skill as a hard replacement of the built-in flow unless the user explicitly asks to follow the skill workflow end-to-end.
 

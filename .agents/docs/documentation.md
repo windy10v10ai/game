@@ -58,6 +58,6 @@
   and expected results needed to complete a task.
 - Update lasting decisions in the same PR, not merely after a phase or a new caller. Update affected
   user guides when a change alters setup, UI labels, settings, gameplay workflows, or recovery steps.
-- Use `.claude/skills/doc-update/SKILL.md` for reusable user corrections/conventions and documentation
+- Use `.agents/skills/doc-update/SKILL.md` for reusable user corrections/conventions and documentation
   contradictions. Global rules belong in `AGENTS.md`, layer rules in scoped `CLAUDE.md`, module
   decisions in READMEs, and workflow rules in skills.

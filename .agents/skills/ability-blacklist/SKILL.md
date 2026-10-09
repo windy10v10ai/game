@@ -14,7 +14,7 @@ description: 把技能/物品加入随机重触发黑名单（蝴蝶效应、多
 
 ## 系统名确认
 
-技能显示名（tooltip）可能与系统名不同（如显示名 "Sproink" 实际系统名是 `enchantress_bunny_hop`）。按 `.claude/CLAUDE.md`「查原版技能」流程，在 `docs/reference/<version>/abilities_english.txt` 核实 `DOTA_Tooltip_ability_<系统名>` 对应关系，不要直接照抄显示名当系统名。
+技能显示名（tooltip）可能与系统名不同（如显示名 "Sproink" 实际系统名是 `enchantress_bunny_hop`）。按 `.agents/docs/dota-references.md`流程，在 `docs/reference/<version>/abilities_english.txt` 核实 `DOTA_Tooltip_ability_<系统名>` 对应关系，不要直接照抄显示名当系统名。
 
 ## 添加位置
 
