@@ -10,9 +10,16 @@ PVE Dota 2 custom game with 10v10 battles, AI opponents, and an ability lottery.
 - Read applicable parent and scoped `CLAUDE.md` files explicitly; Codex does not discover them as scoped instructions. Project skills live in `.claude/skills/`.
 - Ask unresolved skill decisions with concrete choices, one question per call: ambiguous targets, create versus repair, or vanilla identity/version. Use the client's available question interface.
 
+## Work
+
+- Before writing files, check status, current branch, and worktrees. Branch from latest `develop`; never edit or commit on `develop`, including local design drafts.
+- Merge only on user instruction.
+- Use LF in TypeScript. Do not edit TSTL output in `game/scripts/vscripts/`; legacy handwritten Lua there is editable.
+- Run `npm run build:panorama` and `npm run build:vscripts` before committing.
+
 ## Task rules
 
-- Before changing files or performing Git operations, read [GIT_WORKFLOW.md](GIT_WORKFLOW.md).
-- Before changing or building code, read [DEVELOPMENT.md](DEVELOPMENT.md); for comments, read [CODE_COMMENTS.md](CODE_COMMENTS.md).
-- For vanilla ability lookup, read [DOTA_REFERENCES.md](DOTA_REFERENCES.md).
-- Before writing plans, read [PLANNING.md](PLANNING.md); before changing documentation, read [DOCUMENTATION.md](DOCUMENTATION.md).
+- Before changing files or performing Git operations, read [.agents/docs/git-workflow.md](.agents/docs/git-workflow.md).
+- Before changing or building code, read [.agents/docs/coding.md](.agents/docs/coding.md).
+- For vanilla ability lookup, read [.agents/docs/dota-references.md](.agents/docs/dota-references.md).
+- Before writing plans, read [.agents/docs/planning.md](.agents/docs/planning.md); before changing documentation, read [.agents/docs/documentation.md](.agents/docs/documentation.md).
