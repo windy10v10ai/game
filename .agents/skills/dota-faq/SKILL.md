@@ -34,7 +34,7 @@ or implying a single-player alternative to the fixed 10v10 game.
 Let each label wrap naturally; do not join them with HTML or explicit breaks.
 
 Add corresponding keys under `// FAQ` in all three languages.
-Use $dota-localization-format-guide.
+Follow the [localization reference](../dota-localization-format-guide/references/format.md).
 Run `node --check content/panorama/scripts/custom_game/game_mode.js`,
 check key registration, and inspect wrapping/placement in Tools at wide and
 narrow aspect ratios.

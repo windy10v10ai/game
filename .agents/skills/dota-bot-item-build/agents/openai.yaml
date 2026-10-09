@@ -1,6 +1,6 @@
 interface:
-  display_name: "Bot Item Build"
-  short_description: "Run this project workflow only on explicit request"
-  default_prompt: "Use $dota-bot-item-build for the requested project task."
+  display_name: "Bot Item Pools"
+  short_description: "Expand bot item pools using build statistics"
+  default_prompt: "Use $dota-bot-item-build to analyze the supplied build statistics and propose bot item pool changes."
 policy:
   allow_implicit_invocation: false

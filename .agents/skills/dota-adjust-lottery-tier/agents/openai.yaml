@@ -1,6 +1,6 @@
 interface:
-  display_name: "Adjust Lottery Tier"
-  short_description: "Run this project workflow only on explicit request"
-  default_prompt: "Use $dota-adjust-lottery-tier for the requested project task."
+  display_name: "Lottery Tiers"
+  short_description: "Review lottery tiers using win-rate quantiles"
+  default_prompt: "Use $dota-adjust-lottery-tier to review the supplied win-rate CSVs and propose lottery tier changes."
 policy:
   allow_implicit_invocation: false

@@ -34,6 +34,7 @@ when maintaining them; do not migrate solely for consistency.
   only for autocast, native ability linkage, immunity, or conditional bonuses.
 
 Place KV in the appropriate existing ability file and verify its root inclusion.
-Use $dota-add-image and $dota-localization-format-guide for player-visible assets.
+For player-visible assets, follow the [custom asset rules](../dota-add-image/SKILL.md)
+and [localization reference](../dota-localization-format-guide/references/format.md).
 When part of the request, register lottery membership and bot casting.
 Build vscripts; test owned logic and verify engine-dependent behavior in Dota Tools.

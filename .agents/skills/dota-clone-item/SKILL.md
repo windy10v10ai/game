@@ -48,7 +48,8 @@ clone-specific fields and existing IDs.
 Update Description, Note entries, and stat labels from current vanilla text;
 retain custom Lore. Give new clones a distinctive Chinese name and a fitting
 English name, typically "Upgraded" plus the original name.
-Follow $dota-localization-format-guide and $dota-add-image.
+Follow the [localization reference](../dota-localization-format-guide/references/format.md)
+and the [custom asset rules](../dota-add-image/SKILL.md).
 
 Replace vanilla shop entries with the clone where a writable project shop
 contains them; never edit read-only reference shops.

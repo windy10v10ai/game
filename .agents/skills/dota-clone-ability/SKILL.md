@@ -50,7 +50,7 @@ In lottery KV, append within the appropriate innate, normal-upgrade, or Lua sect
 Rename vanilla tooltip keys to the clone name, including Description and
 attribute labels used by its placeholders. Skip unused facet entries.
 Preserve surrounding localization comments and spacing; follow
-$dota-localization-format-guide for all maintained languages.
+the [localization reference](../dota-localization-format-guide/references/format.md) for all maintained languages.
 If requested for the lottery, update `lottery-abilities.ts` and the applicable
 bot pool under `src/vscripts/modules/lottery/`.
 Use existing definitions such as `dragon_knight_dragon_blood2` as examples,

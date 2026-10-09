@@ -63,7 +63,8 @@ expensive components require an explicit design decision.
 If carrying over an active, synchronize casting KV, script logic, and bot item
 recognition, including hard-coded callers.
 
-Use $dota-add-image and $dota-localization-format-guide.
+Follow the [custom asset rules](../dota-add-image/SKILL.md) and
+[localization reference](../dota-localization-format-guide/references/format.md).
 Build script changes; restart Tools after KV changes.
 For native modifier reuse, verify actual stats with `-stat`, then use
 `-cast` / `-watch` for active effects.

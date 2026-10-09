@@ -54,8 +54,8 @@ New localized entries precede old awakenings in the existing awakening section
 of each language. Titles use `#d000ff`, with "Name Awakened" in English and
 a space before the Chinese awakening suffix.
 Other text colors and numerical markup belong to
-$dota-localization-format-guide; do not duplicate that palette here.
-Use $dota-add-image for custom icons; vanilla/persona textures need no PNG.
+the [localization reference](../dota-localization-format-guide/references/format.md).
+For custom icons, follow the [asset rules](../dota-add-image/SKILL.md); vanilla/persona textures need no PNG.
 
 Read [advanced techniques](references/advanced-techniques.md) only for linked
 levels, autocast, cast events, conditional bonuses, immunity, native hard-coded

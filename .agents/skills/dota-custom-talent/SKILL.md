@@ -23,4 +23,4 @@ For build tiers, `10/15/20/25` choose one talent and
 `27/28/29/30` choose the corresponding other talent.
 Use $dota-update-heroes-custom to verify slot/tier consistency.
 Remove old references when replacing a talent and follow
-$dota-localization-format-guide for maintained language entries.
+the [localization reference](../dota-localization-format-guide/references/format.md) for maintained language entries.
