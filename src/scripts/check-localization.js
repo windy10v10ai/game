@@ -12,16 +12,19 @@ const completedSections = [
   {
     name: 'World & Shop',
     startKey: 'DOTA_Tooltip_modifier_tower_power',
+    headerLines: 5,
     endKey: 'dota_item_build_windy_range_items',
   },
   {
     name: 'Player Buffs',
     startKey: 'DOTA_Tooltip_modifier_global_newbie',
+    headerLines: 5,
     endKey: 'DOTA_Tooltip_modifier_global_member_premium_Description',
   },
   {
     name: 'Player Titles',
     startKey: 'DOTA_Tooltip_modifier_player_lumao',
+    headerLines: 5,
     endKey: 'DOTA_Tooltip_modifier_player_nemesis_Description',
     requireCyrillic: false,
   },
@@ -80,10 +83,12 @@ function tags(value) {
 }
 
 function section(file, config) {
-  const startLine = file.lines.findIndex((line) => {
+  const firstKeyLine = file.lines.findIndex((line) => {
     const match = line.match(/^\s*"([^"]+)"/);
     return match?.[1] === config.startKey;
   });
+  // 分组标题注释写在首个 key 上方，需要一并纳入三语一致检查
+  const startLine = firstKeyLine < 0 ? -1 : firstKeyLine - (config.headerLines || 0);
   const endLine = file.lines.findIndex((line) => {
     const match = line.match(/^\s*"([^"]+)"/);
     return match?.[1] === config.endKey;
