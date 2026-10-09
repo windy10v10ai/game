@@ -1,9 +1,13 @@
 # Windy10v10AI
 
-A PVE Dota 2 custom game with 10v10 battles, AI opponents, and an ability lottery.
-This repository is a fork of [windy10v10ai/game](https://github.com/windy10v10ai/game).
+This a PVE Dota 2 custom game with 10v10 battles, AI opponents, and an ability lottery.
+Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570).
 
 Play the original addon on Steam Workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570).
+
+## License
+
+[GNU GPL v3](LICENSE), with a [Steam/Workshop distribution exception and notes on earlier MIT releases](LICENSE.EXCEPTIONS.md).
 
 ## Documentation
 
@@ -11,9 +15,7 @@ Play the original addon on Steam Workshop: [10v10 AI custom by windy](https://st
 
 Installation, development, resources, AI tools, troubleshooting, and architecture are covered in the language-specific guides.
 
-## Upstream project status
-
-The following badges, contributor image, and activity charts describe the original project.
+## project status
 
 [![Build Status](https://github.com/windy10v10ai/game/actions/workflows/test.yml/badge.svg)](https://github.com/windy10v10ai/game/actions/workflows/test.yml)
 [![Latest release](https://img.shields.io/github/release/windy10v10ai/game)](https://github.com/windy10v10ai/game/releases)
@@ -31,15 +33,9 @@ The following badges, contributor image, and activity charts describe the origin
 
 ## Contributing
 
-See the [contribution guidelines](.github/CONTRIBUTING.md). Contributions target the `develop` branch.
-
 [![Upstream contributors](https://contrib.rocks/image?repo=windy10v10ai/game)](https://github.com/windy10v10ai/game/graphs/contributors)
 
-## License
-
-[GNU GPL v3](LICENSE), with a [Steam/Workshop distribution exception and notes on earlier MIT releases](LICENSE.EXCEPTIONS.md).
-
-## Upstream activity
+## Activity
 
 ![Upstream activity](https://repobeats.axiom.co/api/embed/9528af5cb8e8d8b5f560ac532a775439dcf11b57.svg "Repobeats analytics image")
 
