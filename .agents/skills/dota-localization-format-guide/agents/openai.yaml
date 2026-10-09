@@ -1,0 +1,4 @@
+interface:
+  display_name: "Addon Localization"
+  short_description: "Maintain synchronized localization keys and markup"
+  default_prompt: "Use $dota-localization-format-guide to update the specified localization entries across maintained languages."

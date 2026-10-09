@@ -1,0 +1,4 @@
+interface:
+  display_name: "Workshop Deployment"
+  short_description: "Package and publish the intended Workshop addon"
+  default_prompt: "Use $dota-deploy to prepare the requested Workshop deployment for the specified target."

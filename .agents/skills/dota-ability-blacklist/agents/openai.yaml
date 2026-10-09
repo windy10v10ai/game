@@ -1,0 +1,4 @@
+interface:
+  display_name: "Retrigger Blacklists"
+  short_description: "Exclude abilities and items from random retriggers"
+  default_prompt: "Use $dota-ability-blacklist to exclude the specified ability or item from the requested retrigger system."

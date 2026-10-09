@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image Assets"
+  short_description: "Add and register Dota icons and Panorama images"
+  default_prompt: "Use $dota-add-image to add and register the requested custom image asset."

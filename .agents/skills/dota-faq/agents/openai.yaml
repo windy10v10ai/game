@@ -1,0 +1,4 @@
+interface:
+  display_name: "Player FAQ"
+  short_description: "Maintain localized player FAQ entries in the game"
+  default_prompt: "Use $dota-faq to update the player FAQ for the requested verified game behavior."

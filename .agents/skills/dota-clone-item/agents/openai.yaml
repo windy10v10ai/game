@@ -1,0 +1,4 @@
+interface:
+  display_name: "Clone Item"
+  short_description: "Create upgraded vanilla items and their recipes"
+  default_prompt: "Use $dota-clone-item to create or repair the requested upgraded vanilla item."

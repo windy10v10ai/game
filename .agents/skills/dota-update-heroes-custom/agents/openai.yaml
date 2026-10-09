@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bot Ability Builds"
+  short_description: "Validate bot ability builds and talent selections"
+  default_prompt: "Use $dota-update-heroes-custom to update and validate the specified hero bot ability build."

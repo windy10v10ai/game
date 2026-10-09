@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project PR Review"
+  short_description: "Review changes against project-specific criteria"
+  default_prompt: "Use $dota-review-pr to review the specified PR or branch using project review criteria."

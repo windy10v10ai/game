@@ -1,0 +1,4 @@
+interface:
+  display_name: "Custom Item"
+  short_description: "Implement original items, recipes, and mechanics"
+  default_prompt: "Use $dota-custom-item to implement the requested original custom item."

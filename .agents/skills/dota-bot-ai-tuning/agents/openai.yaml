@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bot Decisions"
+  short_description: "Investigate and improve bot decisions and movement"
+  default_prompt: "Use $dota-bot-ai-tuning to investigate the reported bot behavior using logs and project AI rules."

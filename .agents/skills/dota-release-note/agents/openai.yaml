@@ -1,0 +1,4 @@
+interface:
+  display_name: "Workshop Release Notes"
+  short_description: "Draft localized player-facing Workshop release notes"
+  default_prompt: "Use $dota-release-note to draft Chinese and English release notes for the specified changes."

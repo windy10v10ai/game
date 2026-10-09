@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Pull Request"
+  short_description: "Prepare commits and pull requests for this project"
+  default_prompt: "Use $dota-create-pr to prepare the requested contribution using the project Git workflow."

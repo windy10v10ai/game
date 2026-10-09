@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bot Ability Casting"
+  short_description: "Configure when bots cast a specified ability"
+  default_prompt: "Use $dota-bot-ability-usage to configure bot casting rules for the specified ability."

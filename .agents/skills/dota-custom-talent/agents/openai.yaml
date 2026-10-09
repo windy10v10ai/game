@@ -1,0 +1,4 @@
+interface:
+  display_name: "Custom Talent"
+  short_description: "Implement custom talents and hero slot integration"
+  default_prompt: "Use $dota-custom-talent to implement the requested custom talent and its hero integration."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dota Tools Test"
+  short_description: "Verify engine behavior in Dota Tools using logs"
+  default_prompt: "Use $dota-live-test to verify the requested change in Dota Tools using persisted logs."

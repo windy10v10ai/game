@@ -1,0 +1,4 @@
+interface:
+  display_name: "Clone Ability"
+  short_description: "Create vanilla ability clones with intended deltas"
+  default_prompt: "Use $dota-clone-ability to create or repair the requested vanilla ability clone."

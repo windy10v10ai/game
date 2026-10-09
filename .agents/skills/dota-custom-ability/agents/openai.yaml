@@ -1,0 +1,4 @@
+interface:
+  display_name: "Custom Ability"
+  short_description: "Implement original TypeScript ability mechanics"
+  default_prompt: "Use $dota-custom-ability to implement the requested original custom ability."

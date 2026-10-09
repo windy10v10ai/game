@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hero Awakening"
+  short_description: "Implement awakening effects and slot replacements"
+  default_prompt: "Use $dota-awaken-ability to implement the requested hero awakening."

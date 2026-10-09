@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bot Item Activation"
+  short_description: "Configure when bots activate combat items"
+  default_prompt: "Use $dota-bot-item-usage to configure bot activation rules for the specified combat item."
