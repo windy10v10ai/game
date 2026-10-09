@@ -35,7 +35,7 @@ export function ActivateModules() {
 4. 动作: 在 `ai/action/` 中添加可重用的行为(attack, move, cast)
 5. 物品构建: 在 `ai/build-item/` 中定义，设计与决策见 `ai/build-item/README.md`
 6. 朝地点的位移（赶路、撤退、跳刀切入）登记在 `ai/hero/mobility.ts` 的位移表，不在 `bot-base.ts` 里另写；朝单位施放的位移技能仍走技能/物品 spec
-7. 接管后的团队 AI（`ai/team/` 与 `bot-base.ts` 的交战、回防、推进、站位）按 `bot-ai-tuning` skill 的流程改，设计与决策见 `ai/team/README.md`
+7. 接管后的团队 AI（`ai/team/` 与 `bot-base.ts` 的交战、回防、推进、站位）按 `dota-bot-ai-tuning` skill 的流程改，设计与决策见 `ai/team/README.md`
 
 ## API 调用
 

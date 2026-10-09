@@ -69,7 +69,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 1. 使用 `utils/net-table.ts` 或 `react/shared/hooks/useNetTable` 处理 Net Table 订阅
 2. 通过 `GameEvents.SendCustomGameEventToServer()` 发送服务端事件；UI 间通信用 `GameEvents.SendEventClientSide()`
 3. **HUD 左右自适应用纯 CSS**：玩家开启翻转 HUD（小地图从左换到右）时，Dota 会在 HUD 根节点挂 `HUDFlipped` class。自定义 layout 都挂在 `Hud` 之下，用后代选择器 `.HUDFlipped .xxx { horizontal-align: right; }` 即可跟随，不需要 JS，也不用监听 `hud_flip_changed`，玩家中途改设置自动生效。参考 `content/panorama/layout/custom_game/eyeherodemo/eyeherodemo.css` 的 `.ControlPanel`
-4. 引用图片用 `file://{images}/custom_game/<module>/<file>.png`；新增图片走 `add-image` skill（漏登记 xml 会变紫块）
+4. 引用图片用 `file://{images}/custom_game/<module>/<file>.png`；新增图片走 `dota-add-image` skill（漏登记 xml 会变紫块）
 
 ## 常见陷阱
 

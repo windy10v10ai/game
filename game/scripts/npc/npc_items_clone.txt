@@ -1,4 +1,4 @@
-// DO NOT EDIT MANUALLY. Managed by clone-item skill.
+// DO NOT EDIT MANUALLY. Managed by dota-clone-item skill.
 "DOTAAbilities"
 {
 	//=================================================================================================================

@@ -84,7 +84,7 @@ npc_dota_hero_luna: {
 
 - **template**: 可选,指定使用的模板
 - **targetItemsByTier**: 可选,按 tier 设置目标装备
-  - 每个 tier 可以配置多个装备（数组），候选池需保证足够数量（见 `bot-item-build` skill）
+  - 每个 tier 可以配置多个装备（数组），候选池需保证足够数量（见 `dota-bot-item-build` skill）
   - 系统会从模板中补充空缺的 tier
 
 ## 工作原理

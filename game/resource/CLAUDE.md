@@ -28,8 +28,8 @@
 
 **模块排列顺序**：Custom Abilities（自定义技能）→ Awaken Abilities（觉醒技能）→ Heroes Override（原版英雄技能）。
 
-> 完整规则、对齐示例见 `localization-format-guide` skill。
+> 完整规则、对齐示例见 `dota-localization-format-guide` skill。
 
 ## 图标 png
 
-技能图标放 `flash3/images/spellicons/<name>.png`，物品图标放 `flash3/images/items/<name>.png` 且必须同步 content 副本并登记 xml。完整步骤走 `add-image` skill。
+技能图标放 `flash3/images/spellicons/<name>.png`，物品图标放 `flash3/images/items/<name>.png` 且必须同步 content 副本并登记 xml。完整步骤走 `dota-add-image` skill。
