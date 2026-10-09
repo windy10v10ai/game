@@ -119,8 +119,6 @@ export interface PlanInput {
   enemyPower?: number;
   /** 己方 bot 的总战力，口径同敌方，阵亡的按阵亡前算 */
   teamStrength?: number;
-  /** 上一轮在高地外施压 */
-  siege?: boolean;
   /** 全队合成一路推一波 */
   groupPush?: boolean;
   /** 敌方还有一塔、二塔没推掉，含暂时没有兵线的路 */
@@ -135,6 +133,8 @@ export interface PlanInput {
   resting?: Set<Activity>;
   /** 推太久没进展的路，歇推进期间换别的路 */
   tiredLanes?: Lane[];
+  /** 敌方上一座一塔或二塔被推掉的时间 */
+  outerTowerFellAt?: number;
   now: number;
   /** 0–1 的随机数，选路时用 */
   random: () => number;
@@ -151,7 +151,7 @@ export interface LanePlan {
 export interface PlanResult {
   tasks: Map<number, Task>;
   plan?: LanePlan;
-  /** 碾压敌方，在高地外施压而不直接冲 */
+  /** 高地推不动，退到推进点附近刷野 */
   siege: boolean;
   /** 本轮全队也打不过的交战点 */
   avoid: Point[];
@@ -195,8 +195,8 @@ const MIN_LANE_GROUP = 3;
 const MAX_PUSH_LANES = 2;
 // 只从机会分前几名里抽，太差的路不去
 const LANE_PICK_POOL = 3;
-// 在高地外施压时，实力降到碾压门槛的这个比例以下才改强攻
-const SIEGE_KEEP_RATIO = 0.8;
+// 推掉一座外塔后隔这么久才推下一座，给玩家留发育的空间
+const TOWER_PUSH_INTERVAL = 60;
 // 选定的路线至少保持这么久，否则每秒重算会走到一半掉头
 const PLAN_LOCK_SECONDS = 90;
 // 不要求这一波推掉塔，能把塔血磨下去一些就值得上，只避开上去毫无作用的塔
@@ -575,7 +575,12 @@ function assignPush(
   const group = input.groupPush === true;
   const enemyPower = input.enemyPower ?? 0;
   const outerLeft = outerTowersLeft(input);
-  const held = input.lanes.filter((lane) => lane.highGround && (outerLeft || siege));
+  // 推掉一座外塔后先缓一阵，在前线附近刷野清兵施压，不一路连推；抱团时一样缓，否则掉塔间隔还是很短
+  const cooling =
+    outerLeft &&
+    input.now < (input.outerTowerFellAt ?? -Infinity) + TOWER_PUSH_INTERVAL &&
+    (group || dominates(teamStrength(input), enemyPower));
+  const held = input.lanes.filter((lane) => cooling || (lane.highGround && (outerLeft || siege)));
   // 推太久没进展的路先放一放，换一路推；没别的路可推就去发育或打肉山
   const tired = input.resting?.has('push') ? (input.tiredLanes ?? []) : [];
   const open = input.lanes.filter((lane) => !held.includes(lane) && !tired.includes(lane.lane));
@@ -585,8 +590,8 @@ function assignPush(
       canPushWith(pushPower, lane, assault) &&
       avoid.every((pos) => distance(pos, lane.stagingPos) > AVOID_LANE_RADIUS),
   );
-  // 碾压时不直接上高地，在高地推进点附近刷野清兵施压，玩家露面就被叫来的人围剿
-  const anchors = siege && !outerLeft ? held.map((lane) => lane.stagingPos) : [];
+  // 高地推不动时在推进点附近刷野清兵，玩家露面就被叫来的人围剿，歇完接着上
+  const anchors = cooling || (siege && !outerLeft) ? held.map((lane) => lane.stagingPos) : [];
   if (candidates.length === 0) {
     return { plan: input.plan, unassigned: free, anchors };
   }
@@ -630,15 +635,9 @@ function assignPush(
   };
 }
 
-/** 碾压敌方、又不在抱团推进时，高地外施压而不直接冲；按实力算，不因一时有人阵亡或去打架就改强攻。 */
+/** 外塔推完后默认上高地，推太久没进展才退下来刷野一阵，不一直顶在塔下送，也不一直在高地下等。 */
 function pressing(input: PlanInput): boolean {
-  // 在高地外刷野施压太久没进展就上高地，不一直绕着推进点转
-  if (input.groupPush === true || input.resting?.has('farm')) {
-    return false;
-  }
-  // 已经在施压时降到门槛以下一截才改强攻，不在门槛附近来回切
-  const bar = input.siege ? SIEGE_KEEP_RATIO : 1;
-  return dominates(teamStrength(input) / bar, input.enemyPower ?? 0);
+  return input.groupPush !== true && !outerTowersLeft(input) && input.resting?.has('push') === true;
 }
 
 function teamStrength(input: PlanInput): number {
