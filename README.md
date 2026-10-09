@@ -1,8 +1,6 @@
 # Windy10v10AI
 
-This a PVE Dota 2 custom game with 10v10 battles, AI opponents, and an ability lottery.
-Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570).
-
+This is a PVE Dota 2 custom game with 10v10 battles, AI opponents, and an ability lottery.
 Play the original addon on Steam Workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570).
 
 ## License
@@ -15,7 +13,7 @@ Play the original addon on Steam Workshop: [10v10 AI custom by windy](https://st
 
 Installation, development, resources, Dota reference files, and architecture are covered in the language-specific guides.
 
-## project status
+## Project status
 
 [![Build Status](https://github.com/windy10v10ai/game/actions/workflows/test.yml/badge.svg)](https://github.com/windy10v10ai/game/actions/workflows/test.yml)
 [![Latest release](https://img.shields.io/github/release/windy10v10ai/game)](https://github.com/windy10v10ai/game/releases)
