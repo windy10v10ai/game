@@ -761,10 +761,10 @@ describe('high ground', () => {
   });
 });
 
-describe('tower push interval', () => {
+describe('building push interval', () => {
   const kinds = (input: PlanInput) => [...planTasks(input).tasks.values()];
   const justFell = (overrides: Partial<PlanInput>) =>
-    baseInput({ lanes: [lane('mid', 0)], outerTowerFellAt: 70, ...overrides });
+    baseInput({ lanes: [lane('mid', 0)], laneBuildingFellAt: 70, ...overrides });
 
   it('farms near the front instead of pushing right after an outer tower falls', () => {
     const tasks = kinds(
@@ -792,6 +792,31 @@ describe('tower push interval', () => {
   it('waits during a group push even when the team is not far stronger', () => {
     const tasks = kinds(justFell({ enemyPower: 300, groupPush: true }));
     expect(tasks.every((task) => task.kind === 'farm')).toBe(true);
+  });
+
+  it('farms near the high ground push point after a high ground building falls', () => {
+    const tasks = kinds(
+      justFell({
+        lanes: [{ ...lane('top', -3000), highGround: true }],
+        enemyPower: 50,
+        farms: [
+          { pos: { x: 100, y: 0 }, ancient: false },
+          { pos: { x: -2800, y: 0 }, ancient: false },
+        ],
+      }),
+    );
+    expect(tasks.every((task) => task.kind === 'farm' && task.pos.x === -2800)).toBe(true);
+  });
+
+  it('keeps storming high ground during a group push right after a building falls', () => {
+    const tasks = kinds(
+      justFell({
+        lanes: [{ ...lane('top', -3000), highGround: true }],
+        enemyPower: 50,
+        groupPush: true,
+      }),
+    );
+    expect(tasks.every((task) => task.kind === 'push')).toBe(true);
   });
 });
 
