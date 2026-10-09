@@ -7,7 +7,6 @@ PVE Dota 2 custom game with 10v10 battles, AI opponents, and an ability lottery.
 
 ## Instructions
 
-- Read applicable parent and scoped `CLAUDE.md` files explicitly; Codex does not discover them as scoped instructions. Project skills live in `.claude/skills/`.
 - Ask unresolved skill decisions with concrete choices, one question per call: ambiguous targets, create versus repair, or vanilla identity/version. Use the client's available question interface.
 
 ## Work
