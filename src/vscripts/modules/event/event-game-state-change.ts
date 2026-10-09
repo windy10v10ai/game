@@ -38,6 +38,11 @@ export class EventGameStateChange {
       this.OnPreGame();
     } else if (state === GameState.GAME_IN_PROGRESS) {
       this.OnGameInProgress();
+    } else if (state === GameState.DISCONNECT && IsDedicatedServer()) {
+      // 启动器开服禁用了结算后自动退出，房间解散后引擎会把状态打回 INIT 继续空转，
+      // 教程模式下每帧新建一个 tutorial_networker，几分钟就用满实体上限崩溃
+      print(`[EventGameStateChange] lobby gone, quit server`);
+      SendToServerConsole('quit');
     }
   }
 

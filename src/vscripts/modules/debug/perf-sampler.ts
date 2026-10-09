@@ -176,10 +176,16 @@ function leakCounters(): string[] {
     ent = Entities.Next(ent);
   }
   const thinkers = Entities.FindAllByClassname('npc_dota_thinker').length;
+  const networkers = Entities.FindAllByClassname('tutorial_networker').length;
   let timers = 0;
   const timerTable = (Timers as unknown as { timers?: LuaTable }).timers;
   if (timerTable) for (const [_key] of pairs(timerTable)) timers++;
-  return [`ents=${entities}`, `thinkers=${thinkers}`, `timers=${timers}`];
+  return [
+    `ents=${entities}`,
+    `networkers=${networkers}`,
+    `thinkers=${thinkers}`,
+    `timers=${timers}`,
+  ];
 }
 
 function countUnits() {
