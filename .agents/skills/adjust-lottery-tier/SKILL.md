@@ -1,282 +1,301 @@
 ---
 name: adjust-lottery-tier
-description: 基于技能胜率统计 CSV 复盘抽奖池 Tier 分布，生成升降档与增删建议。
+description: "Review ability lottery tiers from win-rate CSV data and propose tier changes, additions, or removals. Use only on explicit user request."
 disable-model-invocation: true
 ---
 
-# 抽奖池 Tier 复盘与调整
+# lottery pool Tier review and adjustment
 
-基于 CSV 统计数据调整 `src/vscripts/modules/lottery/lottery-abilities.ts` 的 Tier 分布。
+adjusts the Tier distribution of `src/vscripts/modules/lottery/lottery-abilities.ts` based on CSV statistics. For the reference file path of
 
-> 参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」。
-
----
-
-## 设计原则（背景知识）
-
-### 理论权重 vs 实际行为
-
-`BASE_TIER_RATES = [1, 5, 20, 60, 100]`（T5→T1）对应单次抽取权重 1:4:15:40:40。但**玩家"抽 6 选 1"会挑优**，实际选取分布严重偏向高档：
-
-| Tier | 理论权重% | 实际选取%（历史加权） | 目标池占比 |
-|---|---|---|---|
-| T5 | 1  | ~6   | **4–5%** |
-| T4 | 4  | ~18  | **13–15%** |
-| T3 | 15 | ~26  | **21–23%** |
-| T2 | 40 | ~33  | **33–36%** |
-| T1 | 40 | ~17  | **24–27%** |
-
-目标池占比 = 0.35 × 理论 + 0.65 × 实际。主动/被动两池使用**同一套目标占比**。
-
-### 样本量与胜率置信度（p≈0.8，95% CI）
-
-| n | ±pp | 可用性 |
-|---|---|---|
-| 50  | ±11.1 | 不可用 |
-| 100 | ±7.8  | 仅看极端 |
-| 150 | ±6.4  | 需辅助证据 |
-| **200** | **±5.5** | **判档阈值线** |
-| 300 | ±4.5 | 较稳 |
-| 500 | ±3.5 | 稳健 |
+> , see `game/scripts/npc/CLAUDE.md` "vanilla KV Reference".
 
 ---
 
-## 第一步：收集 CSV 输入
+## Design principles (background knowledge)
 
-用 AskUserQuestion 询问用户提供：
-- 主动技能 CSV 路径
-- 被动技能 CSV 路径
+### Theoretical weight vs actual behavior
 
-若只提供一份，只处理该池；两份都有则两池独立分析。
+`BASE_TIER_RATES = [1, 5, 20, 60, 100]` (T5→T1) corresponds to a single extraction weight of 1:4:15:40:40. However, ** players "draw 6 and choose 1" will choose the best**, and the actual selection distribution is seriously biased towards high-end:
 
-CSV 格式：`技能,等级维度,胜率,事件数`（表头行跳过）。
+| Tier | Theoretical weight % | Actual selection % (historical weighting) | Target pool proportion |
+| ---- | -------------------- | ----------------------------------------- | ---------------------- |
+| T5   | 1                    | ~6                                        | **4–5%**               |
+| T4   | 4                    | ~18                                       | **13–15%**             |
+| T3   | 15                   | ~26                                       | **21–23%**             |
+| T2   | 40                   | ~33                                       | **33–36%**             |
+| T1   | 40                   | ~17                                       | **24–27%**             |
 
----
+Target pool ratio = 0.35 × theoretical + 0.65 × actual. Active/passive pools use the same set of target ratios\*\*.
 
-## 第二步：解析与聚合
+### sample size and winning rate confidence (p≈0.8, 95% CI)
 
-对每份 CSV：
-1. 解析每行 → `(name, tier, winrate, events)`。
-2. 按 tier 聚合：
-   - `tier_events[t]` = 该档总事件数
-   - `tier_count[t]` = 该档技能数
-   - `tier_winrate_avg[t]` = 加权均值 `Σ(wr·ev) / Σev`
-   - `tier_winrate_sd[t]` = 事件数加权标准差（用于判"偏离 > Nσ"）
-3. 计算池总事件数、各档实际占比 `tier_events[t] / total`。
-
----
-
-## 第三步：整体样本充分性检查（关键：数据不足必须停止）
-
-按以下规则判断数据是否足够支持本次分析，**任一条触发即停止工作，提示用户补充数据后再运行 skill**：
-
-- 池总事件数 < 5000
-- 任一档的**中位技能事件数 < 100**（整档普遍样本不足）
-- 条数 ≥ 10 的档中，`n ≥ 200` 的技能占比 < 30%
-
-停止时告知用户当前数据量与缺口，不生成 plan。
+| n       | ±pp      | Availability                 |
+| ------- | -------- | ---------------------------- |
+| 50      | ±11.1    | Not available                |
+| 100     | ±7.8     | Only look at extremes        |
+| 150     | ±6.4     | Supporting evidence required |
+| **200** | **±5.5** | **Judgment threshold line**  |
+| 300     | ±4.5     | Relatively stable            |
+| 500     | ±3.5     | Robust                       |
 
 ---
 
-## 第四步：读取当前池状态
+## Step 1: Collect CSV input
+
+Use AskUserQuestion to ask the user to provide:
+
+- activeability CSV path
+- Passive ability CSV path
+
+If only one copy is provided, only that pool will be processed; if both copies are provided, the two pools will be analyzed independently.
+
+CSV format: `技能,等级维度,胜率,事件数` (header row skipped).
+
+---
+
+## Step 2: Parsing and Aggregation
+
+For each CSV:
+
+1. parses each line → `(name, tier, winrate, events)`.
+2. Aggregation by tier:
+   - `tier_events[t]` = total number of events in this file
+   - `tier_count[t]` = the ability number of this file
+   - `tier_winrate_avg[t]` = weighted mean `Σ(wr·ev) / Σev`
+   - `tier_winrate_sd[t]` = event number weighted standard deviation (used to determine "deviation > Nσ")
+3. Calculate the total number of events in the pool and the actual proportion of each file `tier_events[t] / total`.
+
+---
+
+## Step 3: Overall sample adequacy check (Key: Insufficient data must stop)
+
+Use the following rules to determine whether the data is sufficient to support this analysis. **If any one is triggered, it will stop working, and the user will be prompted to supplement the data before running the skill**:
+
+- The total number of events in the pool < 5000
+- The **median number of ability events in any level is < 100** (the entire level is generally undersampled) Among the files with the number of
+- ≥ 10, the ability ratio of `n ≥ 200` is < 30%
+
+When stopping, the user is informed of the current data volume and gap, and no plan is generated.
+
+---
+
+## Step 4: Read the current pool status
 
 `Read src/vscripts/modules/lottery/lottery-abilities.ts`。
 
-解析两个数组 `abilityTiersActive` / `abilityTiersPassive`，统计每档条数与技能列表。注意 lottery 文件中技能带中文注释，保留注释用于 plan 展示。
+parses two arrays `abilityTiersActive` / `abilityTiersPassive`, counting the number of items in each file and the ability list. Note that the ability in the lottery file has Chinese comments, and the comments are reserved for plan display.
 
 ---
 
-## 第五步：计算池形状差距
+## Step 5: Calculate the pool shape gap
 
-对每池：
-- 目标条数（按中点占比 T5 4.5% / T4 14% / T3 22% / T2 34% / T1 25.5% × 当前总条数，取整）
-- 差值 = 目标 − 当前
+for each pool:
 
-输出每档"需增减多少条"。
+- Target number of strips (according to midpoint proportion T5 4.5% / T4 14% / T3 22% / T2 34% / T1 25.5% × current total number of strips, rounded)
+- difference = target − current
 
-### 5.1 关键原则：按**全池胜率分位数**划分理想档位，限速收敛
+outputs "how many lines need to be added or subtracted" for each level.
 
-**档位的本质是"在整个池子里的胜率排名位置"**，不是"配额"也不是"相对当前档均值"。
+### 5.1 Key Principle: Divide the ideal tiers according to the **whole pool winning rate quantiles**, and limit the speed of convergence
 
-#### 5.1.1 错误做法警示
+The essence of **tier is "the winning rate ranking position in the entire pool"**, not "quota" or "relative to the current average value".
 
-- ❌ **按档均值 argmin 判档**：档均值被档内容污染，导致"T5 均值被 T5 尾部差技能拉低" → T4 头部 `|wr−μ_5|` 反而小 → 错判升档。此方法会**放大池形状偏差**，不收敛。
-- ❌ **按"配额决定方向"**：T5 需 −1 就不许升档，T1 需 +3 就不许降档。与胜率实际匹配度脱节，导致明显该升的技能（如 `life_stealer_rage` 91.13%）被压在 T4、明显该降的坐在 T5。
+#### 5.1.1 Wrong practice warning
 
-#### 5.1.2 正确做法：分位数锚定 ideal_tier
+- ❌ **Judgment by tier mean argmin**: The tier mean is contaminated by the tier content, resulting in "the T5 mean is pulled down by the T5 tail difference" → T4 head `|wr−μ_5|` is small instead → misjudgment of upshift. This method will amplify the pool shape deviation and will not converge.
+- ❌ **According to "Quota Determine Direction"**: T5 is not allowed to upshift if it requires −1, and T1 is not allowed to downshift if it requires +3. It is out of touch with the actual matching degree of winning rate, resulting in the ability that obviously needs to be improved (such as `life_stealer_rage` 91.13%) being suppressed in T4, and the ability that obviously needs to be lowered sitting in T5.
 
-**仅用池内 `n ≥ 200` 的技能**计算理想档：
+#### 5.1.2 Correct approach: quantile anchoring ideal_tier
 
-1. 按胜率降序排所有 n ≥ 200 的技能，得到 rank。
-2. 按目标占比切分位数：
-   - 前 4.5%：理想 T5
-   - 接下来 14%：理想 T4
-   - 接下来 22%：理想 T3
-   - 接下来 34%：理想 T2
-   - 剩余 25.5%：理想 T1
-3. 每条技能的 `ideal_tier` = 其 rank 所落分位区间对应的档。
+**Only use the ability** of `n ≥ 200` in the pool to calculate the ideal file:
+
+1. Sort all n ≥ 200 abilities in descending order of winning rate to get rank.
+2. Cut quantiles according to target proportion:
+   - Top 4.5%: Ideal T5
+   - Next 14%: Ideal T4
+   - Next 22%: Ideal T3
+   - Next 34%: Ideal T2
+   - Remaining 25.5%: Ideal T1
+3. `ideal_tier` of each ability = the file corresponding to the quantile interval where its rank falls. Advantages of
 4. `shift = ideal_tier − current_tier`。
 
-分位数法的优点：
-- **自我稳定**：不依赖当前档均值，不会被档内容污染。
-- **自动收敛池形状**：按定义，完全按 ideal_tier 迁移后，池形状就是目标分位。
+quantile method:
 
-#### 5.1.3 保守限速（避免一次大改）
+- **Self-stabilizing**: Does not rely on the current file average and will not be contaminated by file content.
+- **Auto-converge pool shape**: By definition, after migrating completely according to ideal_tier, the pool shape is the target quantile.
 
-但**一次完全按 ideal_tier 迁移可能产生 30+ 条变动**，单版本太激进，容易误伤边界技能，也让玩家一版体验剧变。因此引入**限速规则**：
+#### 5.1.3 Conservative speed limit (avoiding a major change)
 
-- **单档单次变动上限** = `max(3, 当前档条数 × 15%)`。即每档升出 + 降出总数不超过该档 15%（或至少 3 条）。
-- **优先级排序**：按 `|shift|` 降序、胜率偏离原档中位数幅度降序。每档取排序靠前的候选执行，超限部分保留到下版。
-- **跨档 shift ≥ 2**：优先保留这些技能的迁移，因为它们偏离最远、最拖累池结构。
-- **shift = ±1 且边界接近**：若与相邻档分位线距离 ≤ 1pp，优先保留为 shift=0（避免因样本抖动反复升降）。
+However, **a complete ideal_tier migration may produce 30+ changes**. A single version is too radical, and it is easy to accidentally damage the boundary capability, and also allows players to experience drastic changes in one version. Therefore, **speed limiting rules** are introduced:
 
-#### 5.1.4 终态模拟与池形状验证
+- **Single-grade single change upper limit** = `max(3, current_tier_count × 15%)`. That is, the total number of ups and downs for each level does not exceed 15% of that level (or at least 3 items).
+- **Priority sorting**: In descending order of `|shift|`, in descending order of the deviation of the winning rate from the original median. In each stage, the top-ranked candidates are selected for execution, and the over-limit parts are retained for the next version.
+- **Cross-shift shift ≥ 2**: Prioritize migrations that retain these abilities because they deviate farthest and drag down the pool structure the most.
+- **shift = ±1 and the boundary is close**: If the distance from the adjacent bin line is ≤ 1pp, it is preferable to keep shift=0 (to avoid repeated increases and decreases due to sample jitter).
 
-所有迁移候选确定后，用以下公式模拟终态：
+#### 5.1.4 Final state simulation and pool shape verification
+
+After all migration candidates are determined, use the following formula to simulate the final state:
 
 ```
-终态[t] = 初始[t] + Σ(进入该档) − Σ(离开该档) − Σ(该档被移除)
+final_state[t] = initial_state[t] + Σ(entering_tier) − Σ(leaving_tier) − Σ(removed_from_tier)
 ```
 
-**收敛验证**：每档 `|终态 − 目标|` 必须 ≤ `|初始 − 目标|`（即不能反向偏离）。若反向偏离：
-- 检查是否误把 shift=0 的技能移动了（回滚）。
-- 检查该档升出/降出是否失衡——若升出过多但实际需要增加条数，减少升出候选。
+**Convergence Verification**: Each tier `|final_state − target|` must ≤ `|initial_state − target|` (that is, it cannot deviate in the opposite direction). If there is a reverse deviation:
 
-#### 5.1.5 多版本逐步收敛
+- Check whether the ability of shift=0 has been moved (rolled back) by mistake.
+- Check whether the up/down of the tier is unbalanced - if there is too much up but the number of bars actually needs to be increased, reduce the up candidates.
 
-差距大（|初始 − 目标| > 5）时，一次调整通常无法到位。在 plan 末尾明确"本轮收敛 X/Y"与"下版待处理 Z 条"，作为下次运行 skill 的输入锚点。
+#### 5.1.5 multiple versions gradually converge
 
----
-
-## 第六步：逐技能打标签
-
-**核心方法：为每条 n ≥ 200 的技能计算"最匹配档位"（见 5.1.1），根据 `shift = best_tier − current_tier` 决定调整方向。** 同档均值与 σ 用于 T1 特判与极端判定。
-
-| 条件 | 标签 |
-|---|---|
-| n < 50，**且同档其他技能普遍 n ≥ 200** | `询问用户（选择率过低）` |
-| 50 ≤ n < 200 | `观察（样本小）`，仅当 shift ≥ +2 或 shift ≤ −2 时才带"可能需调整"备注 |
-| n ≥ 200 且 shift = +1 | `升 1 档` |
-| n ≥ 200 且 shift = −1，非 T1 | `降 1 档` |
-| n ≥ 300 且 shift ≥ +2 且 偏离原档均值 > 15pp | `升 2 档`（罕见） |
-| n ≥ 300 且 shift ≤ −2 且 偏离原档均值 < −15pp，非 T1 | `降 2 档` |
-| n ≥ 300 且 shift = +1 且 事件数同档 TOP 3 且 原档位 ≥ T4 | `建议削弱`（OP 信号，数值处理，档位可保留） |
-| n ≥ 200 且 事件数同档 TOP 2 且 shift = 0 | `观察（过曝光）` |
-| **T1 档** 且 n ≥ 200 且 胜率 < T1 均值 − 8pp | `询问用户（T1 胜率异常）` |
-| 其他（shift = 0 或无效信号） | `无调整` |
-
-> `best_tier` 取 `argmin(|wr − μ_t|)`。若两档距离接近（差 < 1pp），优先保留在较低档（保守）。
-
-**T1 末档询问规则**：仅当某 T1 技能胜率低于 T1 加权均值 > 8pp 才询问。不是"末尾 10% 必淘汰"——正常偏低的 T1 技能保留。
+When the gap is large (|Initial − Target| > 5), one adjustment usually cannot be in place. At the end of the plan, clarify "Convergence X/Y of this round" and "Z items to be processed in the next version" as the input anchor points for the next run of the skill.
 
 ---
 
-## 第七步：补齐中文名
+## Step 6: Label capabilities one by one
 
-对每条将要**调整或标记**的技能，按顺序查中文名用于 plan 展示：
+**Core method: Calculate the "best matching tier" (see 5.1.1) for each ability n ≥ 200, and determine the adjustment direction based on `shift = best_tier − current_tier`. ** The mean and σ of the same class are used for T1 special judgment and extreme judgment.
 
-1. `Grep` `game/resource/addon_schinese.txt`，模式 `DOTA_Tooltip_ability_{系统名}\s+`，提取下一行的值
-2. 若未命中，`Grep` `docs/reference/<latest-version>/abilities_schinese.txt` 同模式
-3. 两处都找不到 → **跳过中文名**，plan 中只显示系统名（不触发 AskUserQuestion）
+| Conditions                                                                                           | Tags                                                                                                |
+| ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| n < 50, ** and other abilities in the same category are common n ≥ 200**                             | `Ask user (very low pick rate)`                                                                     |
+| 50 ≤ n < 200                                                                                         | `Observe (small sample)`, with "may need to be adjusted" remarks only when shift ≥ +2 or shift ≤ −2 |
+| n ≥ 200 and shift = +1                                                                               | `Raise one tier`                                                                                    |
+| n ≥ 200 and shift = −1, not T1                                                                       | `Lower one tier`                                                                                    |
+| n ≥ 300 and shift ≥ +2 and deviation from the original mean > 15pp                                   | `Raise two tiers` (rare)                                                                            |
+| n ≥ 300 and shift ≤ −2 and deviation from the original mean < −15pp, not T1                          | `Lower two tiers`                                                                                   |
+| n ≥ 300 and shift = +1 and the number of events is in the same tier TOP 3 and the original tier ≥ T4 | `Recommend nerf` (OP signal, numerical processing, tier can be retained)                            |
+| n ≥ 200 and the number of events is in the same category TOP 2 and shift = 0                         | `Observe (overexposure)`                                                                            |
+| **T1 level** and n ≥ 200 and winning rate < T1 mean − 8pp                                            | `Ask user (abnormal T1 win rate)`                                                                   |
+| Others (shift = 0 or invalid signal)                                                                 | `No change`                                                                                         |
 
-`<latest-version>` 取 `docs/reference/` 下最新数字版本目录。
+> `best_tier` takes `argmin(|wr − μ_t|)`. If the distance between the two tiers is close (difference < 1pp), the lower tier is preferred (conservative).
+
+**T1 last tier inquiry rule**: Ask only if the win rate of a certain T1 ability is lower than the T1 weighted average > 8pp. It's not "the last 10% must be eliminated" - the normal low T1 ability is retained.
 
 ---
 
-## 第八步：生成 Plan
+## Step 7: Complete the Chinese name
 
-**写 plan 前必须完成第五·5.1 节的"终态模拟"**，plan 中必须包含"初始→终态→目标"对比表（见下方模板），验证每档都在向目标收敛。
+For each ability that will be adjusted or marked, search the Chinese name in order for plan display:
 
-写入 `C:\Users\windy\.claude\plans\adjust-lottery-tier-<yyyymmdd-hhmm>.md`，结构：
+1. `Grep` `game/resource/addon_schinese.txt`, mode `DOTA_Tooltip_ability_{system_name}\s+`, extract the value of the next line
+2. If miss, `Grep` `docs/reference/<latest-version>/abilities_schinese.txt` same mode
+3. cannot be found in both places → **Skip Chinese name**, only the system name is displayed in the plan (AskUserQuestion is not triggered)
+
+`<latest-version>` Get the latest digital version directory under `docs/reference/`.
+
+---
+
+## Step 8: Generate Plan
+
+**The "Final State Simulation" in Section 5·5.1** must be completed before writing the plan. The plan must include the "Initial→Final State→Target" comparison table (see the template below) to verify that each stage is converging to the target.
+
+writes `C:\Users\windy\.claude\plans\adjust-lottery-tier-<yyyymmdd-hhmm>.md`, structure:
 
 ```markdown
-# 抽奖池 Tier 复盘 - <日期>
+# lottery pool Tier review - <date>
 
-## 数据概览
-### 主动池（总事件 N）
-| Tier | 条数 | 事件数 | 占比% | 加权胜率 | 胜率 σ |
+## Data overview
 
-### 被动池（总事件 N）
-（同上）
+### Active pool (total events N)
 
-## 池形状差距
-| Tier | 目标% | 主动当前/目标条数/差 | 被动当前/目标条数/差 |
+| Tier | Number of items | Number of events | Proportion % | Weighted winning rate | Winning rate σ |
 
-## 主动技能调整清单
+### Passive pool (total events N)
 
-### T5（需增/减 N 条）
-- `system_name` (中文名) | n=XXX | wr=XX% | **升 1 档** → 偏离 +Xpp, 样本充足
+(same as above)
+
+## Pool shape gap
+
+| Tier | target% | Active current/number of target items/difference | Passive current/number of target items/difference |
+
+## Active ability adjustment list
+
+### T5 (need to add/subtract N items)
+
+- `system_name` (Chinese name) | n=XXX | wr=XX% | **Raise one tier** → Deviation +Xpp, sufficient sample
 
 ### T4 / T3 / T2 / T1
-（同上结构）
 
-### 需人工确认（T1 胜率异常）
-- `system_name` | ... | 执行阶段将用 AskUserQuestion 询问
+(same structure as above)
 
-### 需人工确认（选择率过低）
-- `system_name` | n=XX（同档中位 N） | 几乎无人选，询问降档/加强/移除/保留
+### Requires manual confirmation (T1 winning rate is abnormal)
 
-## 被动技能调整清单
-（同上结构）
+- `system_name` | ... | The execution phase will use AskUserQuestion to ask
 
-## 数值调整清单（移交 update-abilities-override）
-- `system_name` | 建议加强 | 理由：胜率 XX% 低于同档均值 Xpp，n=XXX
-- `system_name` | 建议削弱 | 理由：OP 信号
+### Requires manual confirmation (selection rate is too low)
 
-## 汇总
-- 升档：N 条 / 降档：N 条
-- 加强建议：N 条 / 削弱建议：N 条
-- 待询问用户：N 条
-- 无调整：N 条
+- `system_name` | n=XX (median N in the same grade) | Almost no candidates, ask about downshifting/strengthening/Remove/retention
+
+## Passive ability adjustment list
+
+(same structure as above)
+
+## Value adjustment list (transfer update-abilities-override)
+
+- `system_name` | Recommend buff | Reason: The winning rate XX% is lower than the average Xpp of the same level, n=XXX
+- `system_name` | Recommend nerf | Reason: OP signal
+
+## Summary
+
+- Upshift: N items / Downshift: N items
+- Strengthening suggestions: N pieces / Weakening suggestions: N pieces
+- Users to be inquired: N items
+- No change：N items
 ```
 
 ---
 
-## 第九步：用户确认
+## Step 9: User confirmation
 
-输出 plan 文件路径，告知用户查看并确认。等待用户批准后进入执行阶段。
-
----
-
-## 第十步：执行池结构调整（用户批准后）
-
-### 10.1 逐条处理「询问用户」标签
-
-对每条 `询问用户（T1 胜率异常）` 或 `询问用户（选择率过低）` 的技能，**单独**调用一次 AskUserQuestion：
-
-- T1 胜率异常选项：`加强数值` / `移除` / `保留观察`
-- 选择率过低选项：`降一档（提升曝光）` / `加强数值` / `移除` / `保留观察`
-
-### 10.2 修改 lottery-abilities.ts
-
-用 Edit 工具处理每条带"升/降档"标签的技能：
-1. 从旧档 `names` 数组中删除（包括其中文注释行）
-2. 插入新档 `names` 数组，尽量放入相似分区（`// 大招` / `// 小技能` / `// 自定义技能` / `// 法球/开关技能` / `// 单位技能`）
-3. 保留原中文注释
-
-**对移除类**：从数组中删除该行（含注释）。
-
-**不修改** `BASE_TIER_RATES` / `PREMIUM_TIER_RATES`。
-
-### 10.3 数值调整类建议移交
-
-对每条 `建议加强` / `建议削弱` / 被用户选为"加强数值"的技能：
-- 调用 `update-abilities-override` skill 处理对应 KV 数值
-- 每次处理一条技能，单独与用户确认数值改动
-
-### 10.4 验证提示
-
-执行完成后提示：
-- 运行 `npm test`
-- 进游戏实际抽奖验证高档出现频率变化
+outputs the plan file path and informs the user to check and confirm. Wait for user approval before entering the execution phase.
 
 ---
 
-## Skill 交互规范
+## Step 10: Perform pool structure adjustment (after user approval)
 
-- **数据不足 → 停止工作**（第三步），不生成 plan。
-- **T1 胜率异常 / 选择率过低 → AskUserQuestion**，单独一问一答。
-- **中文名查不到 → 跳过**，不询问。
-- **数值加强/削弱 → 移交 `update-abilities-override`**，不在本 skill 内改 KV。
-- **调整幅度**：常规 ±1 档；极端（n≥300 且偏离>15pp）才 ±2 档。
-- **不修改** `BASE_TIER_RATES` / `PREMIUM_TIER_RATES`。
+### 10.1 Process the "Ask User" tag item by item
+
+Call AskUserQuestion **separately** for each ability of `Ask user (abnormal T1 win rate)` or `Ask user (very low pick rate)`:
+
+- T1 abnormal winning rate options: `Buff values` / `Remove` / `Keep and observe`
+- The selection rate is too low: `Lower one tier (increase exposure)` / `Buff values` / `Remove` / `Keep and observe`
+
+### 10.2 Modify lottery-abilities.ts
+
+Use the Edit tool to process the ability of each strip with the "up/down" label:
+
+1. is deleted from the old `names` array (including its Chinese comment lines)
+2. Insert the new file `names` into the array and try to put it into similar partitions (`// 大招` / `// 小技能` / `// 自定义技能` / `// 法球/开关技能` / `// 单位技能`)
+3. retain the original Chinese annotation
+
+**Pair removal class**: Remove the row (with comments) from the array.
+
+**No modification** `BASE_TIER_RATES` / `PREMIUM_TIER_RATES`.
+
+### 10.3 Handover of numerical adjustment suggestions
+
+For each `Recommend buff` / `Recommend nerf` / ability selected by the user as "enhancement value":
+
+- calls `update-abilities-override` skill to process the corresponding KV value
+- processes one ability at a time and confirms the value changes with the user individually.
+
+### 10.4 Verification prompts
+
+prompts after completion of execution:
+
+- runs `npm test`
+- Enter the game and actual draw to verify the frequency changes of high-end occurrences
+
+---
+
+## Skill interaction specification
+
+- **Insufficient data → Stop working** (Step 3), no plan is generated.
+- **T1 The winning rate is abnormal/the selection rate is too low → AskUserQuestion**, one question and one answer.
+- **Chinese name cannot be found → Skip**, do not ask.
+- **Numerical enhancement/weakening → Transferred to `update-abilities-override`**, KV will not be changed in this skill.
+- **Adjustment range**: Normal ±1 level; extreme (n≥300 and deviation >15pp) only ±2 levels.
+- **No modification** `BASE_TIER_RATES` / `PREMIUM_TIER_RATES`.

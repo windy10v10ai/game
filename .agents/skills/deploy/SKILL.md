@@ -1,57 +1,57 @@
 ---
 name: deploy
-description: 发布地图到 Steam 创意工坊，默认发测试服。触发：「发测试版」「发测试服」「发布」「deploy」「更新 Workshop」，包括定时发布。
+description: "Publish the addon to Steam Workshop, defaulting to the beta item. Use when the user requests publishing, Workshop updates, or scheduled deployment."
 ---
 
-# 发布到创意工坊
+# Publish to Steam Workshop
 
-发布靠 Workshop Tools 打包上传，再到网页上补中文更新日志。Workshop Tools 会把地图打成一个 `<编号>.vpk`；SteamCMD 只传散文件，Dota 读不了，地图显示 error，命令行上传已评估过、弃用。
+Publishing relies on Workshop Tools to package and upload it, and then add the Chinese update log on the web page. Workshop Tools packages the addon into a `<id>.vpk`; SteamCMD only transmits scattered files, Dota cannot read them, the map displays an error, and the command line upload has been evaluated and deprecated.
 
-| 目标 | 编号 | Workshop Manager 里的行 |
-|---|---|---|
-| 测试服（默认） | `2636824668` | 10v10 AI windy beta version (test) |
-| 正式服 | `2307479570` | 10v10 AI by windy (Arcade Launch Supported) |
+| Target                | Number       | Row in Workshop Manager                     |
+| --------------------- | ------------ | ------------------------------------------- |
+| Test server (default) | `2636824668` | 10v10 AI windy beta version (test)          |
+| Official server       | `2307479570` | 10v10 AI by windy (Arcade Launch Supported) |
 
-更新日志取当前 PR 的 Release Note 段：上传时填英文块，网页上补中文块。
+The update log takes the Release Note section of the current PR: fill in the English block when uploading, and the Chinese block on the web page.
 
-## 步骤
+## steps
 
-1. **定目标**：用户没点名正式服就发测试服。发正式服前向用户复述中英文日志全文，等用户确认。
-   完成：目标编号和中英文日志都已确定。
+1. **Target setting**: The user sends a test server without naming the official server. Before releasing the official server, repeat the full text of the log in Chinese and English to the user and wait for the user's confirmation.
+   Completed: The target number and Chinese and English logs have been determined.
 
-2. **拿权限**：一次 `request_access` 申请 `["Dota 2", "dota2.exe"]` 两项，Workshop Tools 的窗口属于后者，只申请前者会再弹一次。
-   完成：两项都在已授权列表里。
+2. **Get permission**: `request_access` applies for two items `["Dota 2", "dota2.exe"]` once. The Workshop Tools window belongs to the latter. If you only apply for the former, it will pop up again.
+   Complete: Both items are in the authorized list.
 
-3. **编译**：确认当前分支就是要发的内容，跑 `npm run build`。换机器 clone 后先用 Dota tools 完整编译一次，否则包里缺 Panorama 图片（见 `add-image` skill）。
-   完成：编译无报错。
+3. **Compile**: Confirm that the current branch is the content to be published, run `npm run build`. After changing the machine and cloning, use Dota tools to compile it completely, otherwise the package lacks Panorama pictures (see `add-image` skill).
+   Completed: Compilation without error.
 
-4. **上传**：Dota tools 没开就运行 `game/bin/win64/dota2.exe -novid -tools -addon windy10v10ai`，再用 computer use：
-   - Asset Browser 工具栏点 Steam 图标，打开 Workshop Manager
-   - 选中目标那一行，点工具栏第二个按钮（向上箭头）
-   - 顶部「更新日志」框填英文日志，其他字段保持原样
-   - 点「提交」，等弹窗后点「好的」
+4. **Upload**: Run `game/bin/win64/dota2.exe -novid -tools -addon windy10v10ai` without Dota tools open, then use computer use:
+   - Click the Steam icon in the Asset Browser toolbar to open the Workshop Manager
+   - Select the target row and click the second button on the toolbar (up arrow)
+   - Fill in the "Update Log" box at the top with the English log, and keep other fields as they are.
+   - Click "Submit", wait for the pop-up window and click "OK"
 
-   完成：弹窗显示「物品已成功更新至 Steam 创意工坊」。
+   Completed: The pop-up window displays "The item has been successfully updated to the Steam Workshop".
 
-5. **补中文日志**：用 Claude in Chrome 自动做完，不停下来让用户登录或手动补：
-   - 打开 `https://steamcommunity.com/sharedfiles/filedetails//changelog/<编号>/`（路径里是双斜杠），这个地址带着 Chrome 里的 Steam 登录态。用 `javascript_tool` 读最新一条正文 `<p>` 的 `id`（即这条更新的时间戳），页内的 `editchangelogentry` 链接也能直接取到
-   - 从这个页面进入 `https://steamcommunity.com/sharedfiles/editchangelogentry/<编号>/<时间戳>/`。不要点「登录」：只会跳到社区首页，不会自动登录
-   - 语言下拉框用 `form_input` 选简体中文（值 `6`），页面刷新后重新 `read_page` 拿文本框 ref
-   - 文本框整段换成中文日志，`javascript_tool` 执行 `SaveChanges()`
+5. **Complete Chinese log**: Complete it automatically with Claude in Chrome, without stopping to let the user log in or manually complete it:
+   - Open `https://steamcommunity.com/sharedfiles/filedetails//changelog/<id>/` (double slashes in the path). This address carries the Steam login status in Chrome. Use `javascript_tool` to read the `id` of the latest text `<p>` (that is, the timestamp of this update). The `editchangelogentry` link in the page can also be directly obtained.
+   - Enter `https://steamcommunity.com/sharedfiles/editchangelogentry/<id>/<timestamp>/` from this page. Do not click "Login": it will only jump to the community homepage and will not automatically log in.
+   - Use `form_input` to select Simplified Chinese (value `6`) in the language drop-down box. After refreshing the page, use `read_page` to get the text box ref
+   - replaces the entire text box with Chinese log, `javascript_tool` executes `SaveChanges()`
 
-   完成：改动说明页加 `?l=schinese` 显示中文日志，加 `?l=english` 显示英文日志。
+   completed: Add `?l=schinese` to the change description page to display the Chinese log, and add `?l=english` to display the English log.
 
-6. **核对包**：看 `C:\Program Files (x86)\Steam\steamapps\workshop\content\570\<编号>\`。Dota 开着时 Steam 可能还没重新下载，这一项留给用户在重启 Steam 或进游戏前看，并在汇报里说明。
-   完成：目录里只有 `<编号>.vpk` 和 `publish_data.txt`。
+6. **CHECK PACK**: See `C:\Program Files (x86)\Steam\steamapps\workshop\content\570\<id>\`. Steam may not have been re-downloaded when Dota is open. This is left to the user to check before restarting Steam or entering the game, and will be explained in the report.
+   Complete: There are only `<id>.vpk` and `publish_data.txt` in the directory.
 
-## 定时发布
+## scheduled release
 
-到点时没人能点授权弹窗，所以**设置定时任务的当下**就先做第 2 步拿到 Dota 两项权限，并确认 Chrome 已登录 Steam，再创建任务。任务内容是第 3～6 步，目标和中英文日志在设置时就向用户确认好。
+At this point, no one can click on the authorization pop-up window, so **when setting up the scheduled task**, do step 2 to get the two Dota permissions, and confirm that Chrome has logged into Steam, and then create the task. The task content is steps 3 to 6. The target and Chinese and English logs are confirmed with the user when setting up.
 
-## computer use 的坑
+## computer use pitfalls
 
-Dota 主窗口常压在 Workshop Manager 上，点到主窗口会弹商城广告。在 Asset Browser 里再点一次 Steam 图标，就能把 Workshop Manager 叫回前面。
+The main window of Dota is always on the Workshop Manager. When you click on the main window, the mall advertisement will pop up. Click the Steam icon again in the Asset Browser to bring the Workshop Manager back to the front.
 
-## 别人的电脑还是旧版
+## Someone else’s bot is still an old version After
 
-发布成功后，有的电脑上 Steam 的条目信息会过期：`appworkshop_570.acf` 里该编号的 `latest_manifest` 仍是旧值，删图、重新订阅都只会重下旧版，启动器照样提示不是最新版。让对方关掉 Dota，在浏览器打开 `steam://open/console`，输入 `workshop_download_item 570 <编号>` 回车，Steam 会直接拉最新版；下完重开启动器。
+is successfully released, the Steam entry information on some bots will expire: the number `latest_manifest` in `appworkshop_570.acf` is still the old value. Deleting the image or resubscribing will only re-download the old version, and the launcher will still prompt that it is not the latest version. Ask the other party to close Dota, open `steam://open/console` in the browser, enter `workshop_download_item 570 <id>` and press Enter, Steam will directly pull the latest version; restart the launcher after downloading.

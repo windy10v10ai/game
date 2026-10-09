@@ -1,77 +1,77 @@
 ---
 name: update-heroes-custom
-description: 编写与校验 npc_heroes_custom.txt 里电脑英雄的技能加点（Bot.Build）与天赋档位。触发：用户说「调整 XX 加点」「XX 技能点太晚」「电脑加点优化」「哪些等级没有技能点」；动手改任何英雄的 Bot.Build 之前；update-abilities-override 处理完一个英雄后接力调用。
+description: "Write and validate bot hero ability builds and talent selections in npc_heroes_custom.txt. Use before editing any Bot.Build, for build-order improvements or skill-point constraints, and after update-abilities-override processes a hero."
 ---
 
 # Update Heroes Custom
 
-校验 `npc_heroes_custom.txt` 的 **`Bot.Build`**，确保天赋名存在且档位正确、技能名在有效槽位内、加点不超 `MaxLevel`、等级键结构合规。
+verifies the **`Bot.Build`** of `npc_heroes_custom.txt` to ensure that the talent name exists and the tier is correct, the ability name is in a valid slot, the points added do not exceed `MaxLevel`, and the level key structure is compliant.
 
-## 何时使用
+## When to use
 
-- 新写或调整加点顺序：先按下方「Build 规则」排，改完走「检测流程」。调整已有加点时在规则允许的等级键之间交换，不要往 `17/19/21/22` 填点，也不要清空 `23/26/31`。
-- 版本更新或改 Ability 槽位 / override 后校验 Bot 加点。
-- 用户要求核对 Bot 加点 / 天赋 / 技能等级。
+- New writing or adjusting the order of adding points: first sort according to the "Build Rules" below, and then go through the "Detection Process" after making the changes. When adjusting the existing points, exchange between the level keys allowed by the rules. Do not fill in points to `17/19/21/22`, and do not clear `23/26/31`.
+- Verification Bot points will be added after the version is updated or the Ability slot/override is changed.
+- User requested to check Bot points/talent/ability level.
 
-## 数据来源
+## data source
 
-| 数据 | 优先级：高 → 低 |
-|------|----------------|
-| Ability 槽位 | `npc_heroes_custom.txt` 同名键 → `docs/reference/{version}/npc_heroes.txt` |
-| Ability10–17 天赋 | 同上 |
-| MaxLevel | `npc_abilities_override.txt` → `heroes/npc_dota_hero_<hero>.txt` → 推断（大招 3、其余 4） |
-
----
-
-## 有效技能列表
-
-合并官方与 custom 后，**所有非 `generic_hidden` 的 Ability 槽位**（含 Ability7+ 如 `ogre_magi_multicast`）。
-
-- `npc_abilities_override.txt` 有块 **不代表** 可用——须确认英雄的 Ability 槽位含此技能。
-- `Innate "1"` 的先天技能不可升级，不应出现在 Build 中。
+| Data                | Priority: High → Low                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------ |
+| Ability slot        | `npc_heroes_custom.txt` Key with the same name → `docs/reference/{version}/npc_heroes.txt`             |
+| Ability10–17 Talent | Same as above                                                                                          |
+| MaxLevel            | `npc_abilities_override.txt` → `heroes/npc_dota_hero_<hero>.txt` → Inference (ultimate 3, remaining 4) |
 
 ---
 
-## 有效天赋集合
+## Valid ability list
 
-| 等级档 | Ability 槽位 | Build 首选 | Build 补选 |
-|--------|-------------|-----------|-----------|
-| 10 级 | Ability10 / Ability11 | `"10"` | `"27"` |
-| 15 级 | Ability12 / Ability13 | `"15"` | `"28"` |
-| 20 级 | Ability14 / Ability15 | `"20"` | `"29"` |
-| 25 级 | Ability16 / Ability17 | `"25"` | `"30"` |
+After merging official and custom, **all non-`generic_hidden` Ability slots** (including Ability7+ such as `ogre_magi_multicast`).
 
-天赋名必须与合并后的 Ability10–17 **逐字匹配**。旧版本废弃名无效。
+- `npc_abilities_override.txt` There is a block **does not mean** available - it must be confirmed that the hero's Ability slot contains this ability. The innate ability of
+- `Innate "1"` is not upgradeable and should not appear in Build.
 
 ---
 
-## Build 规则
+## Effective talent set
 
-### 天赋
+| Level Tier | Ability Slot          | Build First Choice | Build Second Selection |
+| ---------- | --------------------- | ------------------ | ---------------------- |
+| Level 10   | Ability10 / Ability11 | `"10"`             | `"27"`                 |
+| Level 15   | Ability12 / Ability13 | `"15"`             | `"28"`                 |
+| Level 20   | Ability14 / Ability15 | `"20"`             | `"29"`                 |
+| Level 25   | Ability16 / Ability17 | `"25"`             | `"30"`                 |
 
-- **`10` / `15` / `20` / `25`**：从**对应档**的两天赋中选一。
-- **`27` / `28` / `29` / `30`**：分别填 **10 / 15 / 20 / 25 档中未选的另一个**。
+Talent name must match the merged Ability10–17 **word for word**. The obsolete name of the old version is invalid.
 
-> **最常见错误**：① 天赋名已改版失效（逐字不匹配）；② 把 A 档天赋填到 B 档键上；③ 28/29 互换（15-other 与 20-other 弄反）。
+---
 
-### 大招
+## Build Rules
 
-- 加点间隔 **≥ 6**，`30` 不升大。
-- 典型 MaxLevel 4：**6 / 12 / 18 / 24**。第四级放 `24`，`31` 留给第五个小技能点。
+### Talent
 
-### 小技能
+- **`10` / `15` / `20` / `25`**: Choose one of the two talents in the **corresponding file**.
+- **`27` / `28` / `29` / `30`**: Fill in the other unselected ** in **10 / 15 / 20 / 25 respectively.
 
-对每个小技能 S，到英雄等级 L 的累计出现次数 **C(L) ≤ ⌊(L+1)/2⌋**（`""` 和天赋不计入）。允许相邻级连点。总次数 **≤ MaxLevel**。
+> **The most common errors**: ① The talent name has been revised and invalid (does not match word for word); ② Fill in the A talent to the B key; ③ 28/29 interchange (15-other and 20-other are reversed).
 
-### 留空
+### ultimate
 
-- **`17` / `19` / `21` / `22`**：必须 `""`。
-- **其余键**（含 `23` / `24` / `26`）：不得 `""`，须填有效技能或天赋。`23` / `24` / `26` 须为非天赋技能。
-- **`32`+**：有加点则写，否则省略。
+- adding point interval **≥ 6**, `30` does not increase.
+- Typical MaxLevel 4: **6/12/18/24**. `24` is placed on the fourth level, and `31` is left for the fifth basic ability point.
 
-### 示例
+### basic ability
 
-三个 MaxLevel 5 小技能 + MaxLevel 4 大招：
+For each basic ability S, the cumulative number of occurrences up to hero level L **C(L) ≤ ⌊(L+1)/2⌋** (`""` and talents are not counted). Adjacent levels are allowed to connect points. Total times **≤ MaxLevel**.
+
+### Leave blank
+
+- **`17` / `19` / `21` / `22`**: `""` is required.
+- **Other keys** (including `23` / `24` / `26`): `""` is not allowed, valid ability or talent must be filled in. `23` / `24` / `26` must be non-talented.
+- **`32`+**: Write if there is a dot, otherwise omit.
+
+### example
+
+Three MaxLevel 5 basic abilities + MaxLevel 4 ultimates:
 
 ```kv
 "Build"
@@ -110,31 +110,31 @@ description: 编写与校验 npc_heroes_custom.txt 里电脑英雄的技能加�
 }
 ```
 
-q 5 点 `1→3→7→9→14`，w 5 点 `2→4→5→11→16`（相邻连点合法），e 5 点 `8→13→23→26→31`，ult 4 点 `6→12→18→24`（间隔 6）。
+q 5 points `1→3→7→9→14`, w 5 points `2→4→5→11→16` (adjacent connected points are legal), e 5 points `8→13→23→26→31`, ult 4 points `6→12→18→24` (interval 6).
 
 ---
 
-## 检测流程
+## detection process
 
-1. **合并槽位** → 有效技能列表 + 有效天赋（八槽）。
-2. **查 MaxLevel**。
-3. **天赋存在**：`10/15/20/25/27/28/29/30` 的值逐字存在于合并后 Ability10–17。
-4. **天赋档位**：首选在对应档内；补选为同档未选的另一个；27=10-other、28=15-other、29=20-other、30=25-other。
-5. **技能存在**：非天赋非空项 ∈ 有效技能列表。
-6. **次数**：总次数 ≤ MaxLevel；C(L) ≤ ⌊(L+1)/2⌋。
-7. **留空**：17/19/21/22 为空，其余非空。
-8. **大招**：间隔 ≥ 6、30 不升大、四级大典型 6/12/18/24。
+1. **Merge slots** → Valid ability list + valid talents (eight slots).
+2. **Check MaxLevel**.
+3. **Talent Exists**: The value of `10/15/20/25/27/28/29/30` exists literally in post-merger Ability10–17.
+4. **Talent tier**: The first choice is in the corresponding tier; the supplementary selection is another unselected in the same tier; 27=10-other, 28=15-other, 29=20-other, 30=25-other.
+5. **ability exists**: non-talent, non-empty item ∈ valid ability list.
+6. **Numbers**: Total times ≤ MaxLevel; C(L) ≤ ⌊(L+1)/2⌋.
+7. **leave blank**: 17/19/21/22 is blank, the rest are not blank.
+8. **Ultimate**: Interval ≥ 6, 30 does not upgrade, level 4 is typical 6/12/18/24.
 
 ---
 
-## 分工
+## Division of labor
 
-| 文件 | 职责 |
-|------|------|
-| `npc_abilities_override.txt` | MaxLevel、数值 |
-| `npc_heroes_custom.txt` | 槽位覆盖、Bot.Build、Ability10–17 |
+| Documents                    | Responsibilities                       |
+| ---------------------------- | -------------------------------------- |
+| `npc_abilities_override.txt` | MaxLevel, value                        |
+| `npc_heroes_custom.txt`      | Slot coverage, Bot.Build, Ability10–17 |
 
-## 汇报
+## Report
 
-- 可列：有效天赋集合、Build 天赋选择、发现的问题。
-- **仅当用户明确要求时再 git commit**。
+- Can list: effective talent set, Build talent selection, discovered problems.
+- **Only git commit** when the user explicitly requests it.

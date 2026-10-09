@@ -1,62 +1,62 @@
 ---
 name: dota-docs-lookup
-description: 查 Dota 2 自定义游戏的官方与社区文档：API 签名、事件名、modifier 绑定、近期版本改动。触发：需要查某个 Dota API 或事件，或用户问某个引擎行为该去哪查。
+description: "Find Dota 2 custom-game documentation for API signatures, events, modifier bindings, and recent engine changes. Use for Dota API or event lookup and choosing an authoritative source for engine behavior."
 ---
 
-# Dota 2 文档查阅路由
+# Dota 2 Document View Route
 
-## 优先级（必须遵守）
+## priority (must comply)
 
-1. **优先 [ModDota API](https://moddota.com/api/)**：社区从客户端整理，**分类清晰、可检索**，适合快速核对类名、方法签名、事件名、Panorama API。
-2. **ModDota 信息仍不足时**，再查 **Valve Developer Wiki**（概念、流程、个别 KV/Action 细节、官方表述）。
-3. **排查官方版本更新后的 API 变更**（如「这个函数最近改了吗」「这次更新引擎 API 有什么变化」）时，查 [robincode.cn](https://www.robincode.cn/)——该站跟踪官方更新后的最新 API 变更内容，ModDota/Wiki 通常滞后于最新版本。
+1. **Priority [ModDota API](https://moddota.com/api/)**: The community is organized from the client, **clearly classified and searchable**, suitable for quick verification of class names, method signatures, event names, and Panorama API.
+2. **When ModDota information is still insufficient**, check the **Valve Developer Wiki** (concepts, processes, individual KV/Action details, official descriptions).
+3. **When checking the API changes after the official version is updated** (such as "Has this function been changed recently?" "What changes have been made to the engine API in this update?"), check [robincode.cn](https://www.robincode.cn/)——This site tracks the latest API changes after official updates. ModDota/Wiki usually lags behind the latest version.
 
-仍按任务类型**只打开对应栏目**，不要无目的地跨站乱搜。
-
----
-
-## 第一优先：ModDota（按任务选入口）
-
-| 你在做什么 | 入口 | 用途简述 |
-| ---------- | ---- | -------- |
-| 服务器 **Lua / VScripts**：`GameRules`、`CDOTA_*` 等**绑定类与方法**、参数个数与类型 | [vscripts](https://moddota.com/api/#/vscripts) | 按类名检索（如 `CDOTAGameRules`、`CDOTA_BaseNPC_Hero`）。 |
-| **游戏内事件**、`ListenToGameEvent`、事件 payload 结构 | [events](https://moddota.com/api/#/events) | **游戏事件**索引（与 Panorama 事件分开）。 |
-| **Panorama 前端** `$` API、面板脚本可调用的 **JS API** | [panorama / api](https://moddota.com/api/#/panorama/api) | 与 VScripts 分离的 **Panorama JavaScript API**。 |
-| **Panorama 事件**（UI 层事件名与用法） | [panorama / events](https://moddota.com/api/#/panorama/events) | **Panorama 侧事件**索引。 |
-
-**ModDota 快速操作**：进入对应 `#/` 页面 → 顶部搜索或左侧分类 → 打开条目核对签名/字段。
+Still **only open the corresponding column** according to the task type, and do not search across sites without purpose.
 
 ---
 
-## 第二优先：Valve 官方 Wiki（补充）
+## First priority: ModDota (select the entrance according to the task)
 
-在 ModDota **搜不到、语义不清、需要官方教程式说明**时再查。
+| What are you doing                                                                                                 | Entrance                                                       | Brief description of use                                                |
+| ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Server **Lua/VScripts**:`GameRules`、`CDOTA_*`etc. **Binding classes and methods**, number and types of parameters | [vscripts](https://moddota.com/api/#/vscripts)                 | Search by class name (such as`CDOTAGameRules`、`CDOTA_BaseNPC_Hero`）。 |
+| **In-game events**,`ListenToGameEvent`, event payload structure                                                    | [events](https://moddota.com/api/#/events)                     | **Game events** index (separate from Panorama events).                  |
+| **Panorama front end**`$`API, panel script callable **JS API**                                                     | [panorama / api](https://moddota.com/api/#/panorama/api)       | **Panorama JavaScript API** separate from VScripts.                     |
+| **Panorama event** (UI layer event name and usage)                                                                 | [panorama / events](https://moddota.com/api/#/panorama/events) | **Panorama side events** index.                                         |
 
-| 你在做什么 | 链接 | 用途简述 |
-| ---------- | ---- | -------- |
-| **Panorama** 工具链、XML/CSS、界面概念总览 | [Workshop Tools / Panorama](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama) | 官方 **UI 层**总览。 |
-| **Data Driven** 技能 KV、`ability_datadriven`、事件与 `RunScript` 等 | [Abilities: Data Driven](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven) | **数据驱动技能** KV 细节。 |
-| 官方 **Panorama JavaScript** 文档入口（与 ModDota panorama/api 可对照） | [Panorama / JavaScript API](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama/Javascript/API) | Wiki 版说明，**检索优先仍建议 ModDota panorama/api**。 |
-| **Scripting** 总览与索引 | [Scripting / API](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API) | 官方脚本文档导航。 |
-| **Modifier Action**、`ApplyAction` 等声明式动作列表 | [Actions and Modifiers](https://developer.valvesoftware.com/wiki/Dota_2_Actions_and_Modifiers) | **动作参考**，常与 DataDriven / KV 配合。 |
+**ModDota Quick Operation**: Enter the page corresponding to `#/` → Search at the top or classify on the left → Open the entry to check the signature/field.
 
 ---
 
-## 第三优先：robincode.cn（版本更新 API 变更追踪）
+## Second priority: Valve official Wiki (supplementary)
 
-| 你在做什么 | 链接 | 用途简述 |
-| ---------- | ---- | -------- |
-| 排查**官方版本更新**后某个 API/字段/行为是否有变化，或不确定某运行时报错是否由新版本引擎改动引起 | [robincode.cn](https://www.robincode.cn/) | 追踪 Dota 2 官方更新后的**最新 API 变更**，ModDota/Valve Wiki 的收录通常滞后于最新版本。 |
+Check again when ModDota **cannot be found, the semantics are unclear, and official tutorial-style instructions** are needed.
 
-## 其他规则
+| What are you doing                                                                     | Link                                                                                                                     | Brief description of purpose                                                             |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| **Panorama** Toolchain, XML/CSS, interface concept overview                            | [Workshop Tools / Panorama](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama)                     | Official **UI layer** overview.                                                          |
+| **Data Driven** ability KV、`ability_datadriven`, events and`RunScript`etc             | [Abilities: Data Driven](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven) | **Data-driven ability** KV details.                                                      |
+| Official **Panorama JavaScript** document entry (comparable with ModDota panorama/api) | [Panorama / JavaScript API](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama/Javascript/API)      | Wiki version description, **Search priority is still recommended ModDota panorama/api**. |
+| **Scripting** Overview and Index                                                       | [Scripting / API](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API)                          | Official script document navigation.                                                     |
+| **Modifier Action**、`ApplyAction`etc. Declarative action list                         | [Actions and Modifiers](https://developer.valvesoftware.com/wiki/Dota_2_Actions_and_Modifiers)                           | **Action Reference**, often used with DataDriven/KV.                                     |
 
-- **TypeScript 类型**：本仓库 `@moddota/dota-lua-types` 与 ModDota/实机不一致时，以 **ModDota + 游戏实测** 为准。
-- **Valve Wiki**：部分页面在自动化抓取时可能被拦截；若工具无法读取，在浏览器中打开链接即可。
-- **版本更新引起的 API 行为变化**（如某个引擎方法的返回值口径在新版本里变了）应优先怀疑并查 robincode.cn 确认，而不是先假设是自己代码的问题。
+---
 
-## 不要做的事
+## Third priority: robincode.cn (version update API change tracking)
 
-- 不要跳过 ModDota 直接去 Wiki **查 Panorama JS 或游戏事件名**（应先 `panorama/api`、`panorama/events` 或 `events`）。
-- 不要用 Panorama 文档去查 **`GameRules` 等服务器 Lua 绑定**（应查 ModDota **vscripts**）。
-- 不要为找一个 API **同时翻遍**所有 Wiki 章节；先锁定 ModDota 对应分区，不够再补官方文档。
-- 不要在排查**版本更新导致的 API 变化**时只查 ModDota/Wiki 就下结论——这两者更新滞后，应补查 robincode.cn。
+| What are you doing                                                                                                                                                                                     | Link                                      | Brief description of purpose                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Check whether a certain API/field/behavior has changed after the **official version update**, or whether it is uncertain whether a runtime error is caused by changes in the new version of the engine | [robincode.cn](https://www.robincode.cn/) | Tracking the **latest API changes** after the official Dota 2 update, the inclusion of the ModDota/Valve Wiki usually lags behind the latest version. |
+
+## Other rules
+
+- **TypeScript type**: If this repository `@moddota/dota-lua-types` is inconsistent with ModDota/actual machine, **ModDota + actual game measurement** shall prevail.
+- **Valve Wiki**: Some pages may be intercepted during automated crawling; if the tool cannot read them, just open the link in the browser.
+- **Changes in API behavior caused by version updates** (for example, the return value criteria of an engine method has changed in the new version). You should give priority to suspicion and check robincode.cn for confirmation, rather than assuming that it is a problem with your own code.
+
+## Things not to do
+
+- Don't skip ModDota and go directly to the Wiki **Look up Panorama JS or game event names** (should be `panorama/api`, `panorama/events` or `events` first).
+- Do not use Panorama documentation to check **`GameRules` and other server Lua bindings** (should check ModDota **vscripts**).
+- Don’t **look through** all Wiki chapters at the same time to find an API; lock the ModDota corresponding partition first, and then supplement the official documentation if it is not enough.
+- When troubleshooting API changes caused by version updates, do not just check ModDota/Wiki and draw conclusions - the updates of these two are lagging behind, so you should check robincode.cn.

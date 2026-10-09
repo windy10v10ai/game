@@ -1,21 +1,21 @@
 ---
 name: ability-blacklist
-description: 把技能/物品加入随机重触发黑名单（蝴蝶效应、多重施法 Multicast）。触发：用户说「XX 加入蝴蝶黑名单」「多重施法别选中 XX」「这个技能不该被随机触发」。
+description: "Add abilities or items to the Butterfly Effect and Multicast random-retrigger blacklists. Use when an ability or item must be excluded from either random-trigger system."
 ---
 
 # Ability Blacklist
 
-两处黑名单，目标不明确时用 `AskUserQuestion` 让用户选一个或两个都加：
+There are two blacklists. When the target is unclear, use `AskUserQuestion` to let the user choose one or both:
 
-| 黑名单 | 文件 | 表名 | 写法 |
-|---|---|---|---|
-| 蝴蝶效应 | `game/scripts/vscripts/abilities/ability_blacklist_butterfly.lua` | `EXCLUDED_ABILITIES_ALLBUTTER`（技能）/ `EXCLUDED_ITEMS`（物品） | `["ability_name"] = true,` |
-| 多重施法 | `game/scripts/vscripts/abilities/ogre_magi_multicast_lua.lua` | `no_support_abilitys`（技能）/ `no_support_items`（物品） | `ability_name = 1,` |
+| Blacklist        | File                                                              | Table name                                                     | Writing method             |
+| ---------------- | ----------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------- |
+| Butterfly Effect | `game/scripts/vscripts/abilities/ability_blacklist_butterfly.lua` | `EXCLUDED_ABILITIES_ALLBUTTER`(ability)/`EXCLUDED_ITEMS`(item) | `["ability_name"] = true,` |
+| Multicast        | `game/scripts/vscripts/abilities/ogre_magi_multicast_lua.lua`     | `no_support_abilitys` (ability) / `no_support_items` (item)    | `ability_name = 1,`        |
 
-## 系统名确认
+## system name confirmation
 
-技能显示名（tooltip）可能与系统名不同（如显示名 "Sproink" 实际系统名是 `enchantress_bunny_hop`）。按 `.agents/docs/dota-references.md`流程，在 `docs/reference/<version>/abilities_english.txt` 核实 `DOTA_Tooltip_ability_<系统名>` 对应关系，不要直接照抄显示名当系统名。
+ability display name (tooltip) may be different from the system name (for example, the display name is "Sproink" but the actual system name is `enchantress_bunny_hop`). Follow the `.agents/docs/dota-references.md` process and verify the corresponding relationship between `DOTA_Tooltip_ability_<system_name>` in `docs/reference/<version>/abilities_english.txt`. Do not directly copy the displayed name as the system name.
 
-## 添加位置
+## Add location
 
-按机制归类插入对应注释分组（位移/隐身/召唤/持续施法/两段式等）；找不到匹配分组就加在文件末尾对应表内。注释写英雄名 + 技能中文名。
+Insert corresponding annotation groups according to mechanism classification (displacement/stealth/summoning/continuous casting/two-stage, etc.); if no matching group is found, add it to the corresponding table at the end of the file. In the comment, write the hero name + ability Chinese name.

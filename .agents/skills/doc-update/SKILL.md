@@ -1,59 +1,59 @@
 ---
 name: doc-update
-description: 把本轮对话中的纠正与新约定沉淀进 CLAUDE.md、模块 README 或 SKILL.md。触发：用户纠正做法且属于可复用约定；发现文档与代码不符；用户补充了推断不出的约定。
+description: "Record reusable user corrections and conventions in scoped instructions, module READMEs, or skills. Use when the user corrects a reusable behavior, supplies a non-inferable convention, or documentation disagrees with code."
 ---
 
 # doc-update
 
-把对话里得到的**可复用约定**沉淀进文档。这些文档的首要读者是模型，每一句都要能改变模型的行为。
+Record reusable conventions from the conversation in documentation. The primary reader of these documents is the model, and every sentence must change the behavior of the model.
 
-## 1. 列候选
+## 1. List candidates
 
-回顾对话，找出以下事件：
+Review the conversation and identify the following events:
 
-| 类型 | 信号 |
-|---|---|
-| 纠正 | 用户否决了做法，根源是文档缺失或写错 |
-| 新约定 | 用户给出了从代码推断不出的规则 |
-| 文档矛盾 | 文档写的路径、字段、规则与代码对不上 |
-| 流程发现 | 某个 skill 的步骤或触发条件在实际使用中需要调整 |
+| Type              | Signal                                                                               |
+| ----------------- | ------------------------------------------------------------------------------------ |
+| Correction        | The user rejected the method because the document was missing or written incorrectly |
+| New convention    | The user gave a rule that cannot be inferred from the code                           |
+| Document conflict | The paths, fields, rules and codes written in the document do not match              |
+| Process discovery | The steps or trigger conditions of a certain skill need to be adjusted in actual use |
 
-只收下次对话还会用到的约束。代码能直接读出的模式归代码，本次进度归 issue，调试过程和修复配方归 commit。
+Keep constraints that will be useful in future conversations. Patterns inferable from code belong in code; current progress belongs in the issue; debugging history and fixes belong in the commit.
 
-完成条件：对话中每一次纠正、每一条新约定都已归入候选，或写明了排除理由。
+Completion conditions: Every correction and every new agreement in the conversation has been classified as a candidate, or the reasons for exclusion have been stated.
 
-## 2. 定位单一真相源
+## 2. Locate the single source of truth
 
-去处按 `.agents/docs/documentation.md`的表就近选；README 与 `CLAUDE.md` 的分界见同文件「Ownership and maintenance」。
+Use the `.agents/docs/documentation.md` table to select the nearest location; the boundaries between README and `CLAUDE.md` are found in the document "Ownership and maintenance".
 
-每条规则只有一个**单一真相源**。落笔前用关键词和同义表述全仓库搜这条规则的旧口径，给每处命中标注：
+There is only one **Single Source of Truth** per rule. Before writing, use keywords and synonyms to express the old standard of the repository-wide rule search, and mark each hit:
 
-- **真相源**：在原条目上改，写全
-- **指针**：同一含义的其他副本（常见于 `CLAUDE.md`、`SKILL.md`、`references/` 各抄一份），改成一句「见 X」或删掉
-- **无关**：只是字面相似
+- **Truth Source**: Change the original entry and write in full
+- **Pointer**: Other copies of the same meaning (common in `CLAUDE.md`, `SKILL.md`, `references/`), change it to "See X" or delete it
+- **Unrelated**: Similar words only
 
-完成条件：搜索命中的每一处都有标注。
+Completion conditions: Every search hit is marked.
 
-## 3. 确认
+## 3. Confirm
 
-用户已在对话中明确说出规则内容时，直接进入第 4 步。
+When the user has clearly stated the content of the rule in the conversation, go directly to step 4.
 
-由 Claude 推断出的候选，逐条用 `AskUserQuestion` 确认：发现了什么、拟写入的内容（不超过 3 行）、目标位置。选项至少含「写入」「跳过」，每次最多 4 条并列。
+Candidates inferred by Claude, use `AskUserQuestion` to confirm one by one: what was found, the content to be written (no more than 3 lines), and the target location. The options include at least "write" and "skip", and a maximum of 4 items can be paralleled at a time.
 
-## 4. 起草
+## 4. Drafting
 
-逐句按以下原则写：
+Write sentence by sentence according to the following principles:
 
-- **写目标行为**：用正向句说该怎么做。禁止句只留给无法正向表述的硬护栏，并紧跟该怎么做
-- **过 no-op 检验**：逐句问「删掉这句，模型会做错吗」，不会就删整句
-- **用关键词收拢**：同一意思在几处换着说法出现时，换成一个模型本来就懂的词（如「单一真相源」「就近」）统一表达
-- **同一概念放一起**：一条规则的定义、例外、例子放在同一标题下
-- **步骤带完成条件**（`SKILL.md`）：每步以可检查的完成条件收尾，能写成「每一处都……」就不写成「给出一份……」
-- **按分支分层**（`SKILL.md`）：每次运行都用到的留在 `SKILL.md`；只有部分分支用到的细则放 `references/`，在 `SKILL.md` 里用一句话写明何时去读
-- **description 只写触发分支**（`SKILL.md`）：一个分支一种说法，同义说法合并；skill 做什么留给正文
+- **Write the target behavior**: Use positive sentences to say what to do. Prohibited sentences leave only hard guardrails that cannot be expressed positively, and follow what to do
+- **Passed no-op test**: Ask sentence by sentence "If you delete this sentence, will the model do something wrong?" If not, delete the entire sentence.
+- **Use keywords to gather**: When the same meaning appears in several places with different expressions, replace it with a word that the model already understands (such as "single source of truth" and "nearby") to express it uniformly
+- **Put the same concept together**: The definition, exceptions and examples of a rule are placed under the same title
+- **Steps with completion conditions** (`SKILL.md`): Each step ends with a checkable completion condition. If you can write "everywhere...", don't write "give a copy..."
+- **Hierarchical by branch** (`SKILL.md`): The details used in each operation are left in `SKILL.md`; only the details used by some branches are put in `references/`, and in `SKILL.md`, use one sentence to indicate when to read it.
+- **description write-only trigger branch** (`SKILL.md`): one statement for each branch, synonymous statements are merged; what the skill does is left to the text
 
-## 5. 实施并修剪
+## 5. Implement and prune
 
-在语义最近的位置做最小修改，同时修剪改动所在段落：被新规则覆盖或推翻的旧句、与代码现实矛盾的句子一并删除，让每个段落只剩一种口径。
+Make minimal changes to the closest semantic position, and at the same time prune the paragraphs where the changes are made: old sentences that are overwritten or overturned by new rules, and sentences that contradict the reality of the code are also deleted, leaving one consistent rule in each paragraph.
 
-完成条件：第 2 步标注的每一处都已处理，改动段落内没有与新规则冲突的句子。
+Completion conditions: Every place marked in step 2 has been processed, and there are no sentences in the changed paragraph that conflict with the new rules.

@@ -1,69 +1,69 @@
 ---
 name: dota-live-test
-description: 在 Dota 2 Tools 里实机跑一局，落盘控制台日志后 grep 验证改动。触发：用户说「实机验证」「跑一局看看」「帮我测一下」，或改动依赖引擎运行时行为（事件收发、modifier 生效、API 链路、电脑 AI 行为）而 jest 覆盖不到。
+description: "Run a real match in Dota 2 Tools and verify changes using persisted console logs. Use for requested live tests or engine-dependent events, modifiers, API flows, and bot behavior that Jest cannot cover."
 ---
 
 # Dota Live Test
 
-实机验证的关键是**日志落盘**：让 Dota 把控制台输出写进文件，用 `grep` 读，而不是截图读 VConsole 窗口。
+is **logging to disk**: let Dota write the console output into a file and read it with `grep` instead of taking a screenshot to read the VConsole window.
 
-`con_logfile` 在 Source 2 不是有效命令，运行时开不了文件日志，只能在**启动参数**里加。
+`con_logfile` is not a valid command in Source 2, and the file log cannot be opened during operation. It can only be added in the **startup parameters**.
 
-## 验 bot AI 行为：用自动对局
+## Check bot AI behavior: use automatic play
 
-验电脑的交战、回防、推进、物品施放时，不手动开局，用 `npm run perf` 跑无人值守的一局（第 3～5 步由脚本代劳），第 1、6 步照常：
+When checking the bot's engagement, defense, advancement, and item casting, do not start the game manually. Use `npm run perf` to run an unattended round (steps 3 to 5 are handled by the script). Steps 1 and 6 are as usual:
 
 ```bash
 npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --minGames 1 --maxGames 1
 ```
 
-按要验的场景加参数（全部选项见 `src/scripts/perf.js` 的 `parseArgs`）：
+Add parameters according to the scene to be tested (see `parseArgs` of `src/scripts/perf.js` for all options):
 
-| 场景 | 参数 |
-|---|---|
-| 1v10 按难度（N5 / N6 / N8） | `--boost false --radiantPlayers 2 --radiantMultiplier 15 --direMultiplier 7 --towerPower 300`；N6 改 `9`、`350`，N8 改 `14`、`500`。天辉 bot 扮演玩家，倍率远高于玩家实际的 1.5，补上真人比 bot 会杀会发育；5、10 倍时天辉 bot 18–21 分钟就被推平，测不到对抗 |
-| 1v10 玩家强势 | 上面任一难度把 `--radiantMultiplier` 提到 `20` |
-| 1v10 玩家碾压 | 上面任一难度加 `--radiantBoost true`：天辉开局满级满钱。天辉 bot 再高倍率也打不过 10 个 bot，要测碾压只能直接给钱给等级；看 bot 有没有犯蠢，不看阵亡数 |
-| 天辉强推电脑高地与基地 | `--boost false --radiantPlayers 5 --radiantMultiplier 10 --direMultiplier 1` |
-| 物品施放 | `--testItems item_a,item_b`：开局发物品并停掉买卖装备 |
-| 指定英雄出场 | `--botHeroes axe,lion` |
+| Scene                                               | Parameters                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1v10 by difficulty (N5 / N6 / N8)                   | `--boost false --radiantPlayers 2 --radiantMultiplier 15 --direMultiplier 7 --towerPower 300`; N6 changes to `9`, `350`, N8 changes to `14`, `500`. The Radiant bot plays the role of a player, and the multiplier is much higher than the player's actual 1.5, which makes up for the real person's bot's ability to kill and develop; at 5 and 10 times, the Radiant bot is leveled in 18-21 minutes, and no confrontation is detected |
+| 1v10 strong players                                 | Any of the above difficulties mention `--radiantMultiplier` to `20`                                                                                                                                                                                                                                                                                                                                                                      |
+| 1v10 player crushing                                | Add any of the above difficulties to `--radiantBoost true`: Radiant starts with full level and full money. The Radiant bot can't beat 10 bots no matter how high the magnification is. To test the crushing effect, you can only directly give money and level; it depends on whether the bot is stupid, not on the number of deaths                                                                                                     |
+| Tianhui strongly recommends bot highlands and bases | `--boost false --radiantPlayers 5 --radiantMultiplier 10 --direMultiplier 1`                                                                                                                                                                                                                                                                                                                                                             |
+| item casting                                        | `--testItems item_a,item_b`: issue items at the beginning and stop buying and selling equipment                                                                                                                                                                                                                                                                                                                                          |
+| Designated hero appears                             | `--botHeroes axe,lion`                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-- 加速不超过 2 倍，更高会拖垮服务器
-- 每局结束在运行目录写 `anomaly-<N>.md`（卡住、远路不传送、挤在一起、打撤来回切、没任务、建筑挨打没人到场），先读它再 grep 细节。手动局用 `npm run bot-anomaly [日志路径]` 出同样的报告
-- 下一局启动会删掉 `console.log`，要留的日志先拷到 scratchpad
-- 天辉满编时玩家英雄也交给 AI；天辉人少时玩家英雄留在泉水，由天辉 bot 扮演玩家，买装备与对线都走现有 bot 逻辑。报告只统计人数多的一方，天辉那侧的行为不代表真实玩家
+- The acceleration does not exceed 2 times. Higher speed will bring down the server.
+- At the end of each game, write `anomaly-<N>.md` in the running directory (stuck, no teleportation over long distances, crowded together, retreat and cutback, no tasks, no one is present when the building is hit), read it first and then grep the details. Manually use `npm run bot-anomaly [log_path]` to produce the same report
+- will delete `console.log` when starting the next round. The logs to be retained should be copied to scratchpad first.
+- When the Radiant is full, the player's hero is also handed over to the AI; when the Radiant is young, the player's hero stays in the spring, and the Radiant bot plays the player, and the existing bot logic is followed for buying equipment and laning. The report only counts the side with the larger number of players. The behavior of Radiant’s side does not represent the real players.
 
-## 验物品与技能：远程发命令
+## Verify item and ability: send commands remotely
 
-验被动属性、主动效果、状态何时上何时掉、对单位和建筑的伤害时，不点界面：启动时带远程控制台端口（第 3 步），之后用 `npm run dota:cmd` 发 `-give` 发物品、`-cast` 代码施法、`-watch` 监视变化，直接读命令返回的日志。备用施法（Ctrl）代码触发不了，要用 computer-use 真实按键。命令清单与标准流程 → `references/remote-commands.md`。
+When testing passive attributes, active effects, when status goes up and down, and damage to units and buildings, do not click on the interface: start with a remote console port (step 3), then use `npm run dota:cmd` to send `-give` to send items, `-cast` to code cast, `-watch` to monitor changes, and directly read the log returned by the command. The backup casting (Ctrl) code cannot be triggered, so you need to use computer-use real keys. Command list and standard procedures → `references/remote-commands.md`.
 
-只有说明文字排版、真实键鼠手感这类必须看画面的，才用 computer-use 截图。
+Only use computer-use screenshots if you need to see the picture for description text layout and real keyboard and mouse feel.
 
-## 派子代理跑
+## Paizi agent running
 
-下面的步骤是照本宣科的固定流程，判断日志算不算通过则要改动的上下文。分工：子代理跑流程并回报观察，主会话做判断。
+The following steps are a fixed process according to the script, and the context needs to be changed to determine whether the log is passed. Division of labor: The sub-agent runs the process and reports observations, and the main session makes judgments.
 
-**实机测试一律派子代理**，只验一两个点、改完顺手回归一下也一样：等加载、发命令、读日志、截图在主会话里来回几轮，消耗远高于写一份交接。用 Agent 工具，照命令序列执行、回报日志行的用 `model: "haiku"`；要读懂日志判断现象或用 computer-use 操作画面的用 `"sonnet"`。**一轮验证派一个**，跑完即结束；要再验一轮就再派一个。子代理是冷启动，交接里写全：改了什么、要不要本地后端、要发的命令、期待哪几行日志和要带回的数字。
+**Always send sub-agents for real-machine testing**, just check one or two points, and then return to it after making changes: waiting for loading, sending commands, reading logs, taking screenshots and going back and forth in the main session for several rounds, the consumption is much higher than writing a handover. Use the Agent tool to execute the command sequence and report log lines using `model: "haiku"`; use `"sonnet"` to read the logs to determine the phenomenon or use computer-use to operate the screen. \*\*One round of verification will be sent, and it will end when the run is over; if there is another round of verification, another one will be sent. The subagent is a cold start, and everything is written in the handover: what has been changed, whether a local backend is needed, the commands to be sent, which lines of logs to expect and the numbers to be brought back.
 
-- **只回报观察**：哪几行出现了、时间戳是多少、断在哪一步。诊断和改代码留给主会话
-- **开工先查端口**，没起的自己起——上一轮的后台进程不一定还活着
-- **不收尾**：关不关由主会话决定，见第 6 步
+- **Only report observations**: which lines appear, what is the timestamp, and at which step it breaks. Diagnostics and code changes are left to the main session
+- **Check the port before starting work**, if you haven’t started, you can do it yourself - the background process in the last round may not be still alive.
+- **No ending**: Whether to close or not is determined by the main session, see step 6
 
-拿到这份 skill 的子代理从第 1 步开始，不再往下派。
+The sub-agents who have obtained this skill will start from step 1 and will not be sent downwards.
 
-## 步骤
+## steps
 
-### 1. 编译改动
+### 1. Compilation changes
 
-改了 `src/vscripts/` 跑一次 `npm run build:vscripts`。`content/panorama/` 下的 `.js` 由 tools 自动编译并热重载，不用手动处理。
+changed `src/vscripts/` and ran `npm run build:vscripts` once. `.js` under `content/panorama/` is automatically compiled and hot-reloaded by tools without manual processing.
 
-完成判据：编译无报错。
+Completion criterion: No error is reported during compilation.
 
-### 2. 决定要不要本地后端
+### 2. Decide whether to use a local backend
 
-只验游戏内逻辑（技能、modifier、AI、UI）跳到第 3 步。要验 API 链路才起后端。
+Only check the in-game logic (ability, modifier, AI, UI) and skip to step 3. The API link must be verified before starting the backend.
 
-后端在 `C:/Users/windy/Documents/GitHub/firebase`（需要 java）：
+backend in `C:/Users/windy/Documents/GitHub/firebase` (requires java):
 
 ```bash
 firebase emulators:start --only firestore,auth --import ./firestore-backup --project windy10v10ai
@@ -73,74 +73,74 @@ firebase emulators:start --only firestore,auth --import ./firestore-backup --pro
 cd api && npm run start
 ```
 
-两条都用 Bash 的 `run_in_background` 起，输出写进任务文件，不要前台轮询。模拟器占 8080 / 9099，API 占 3001，**等 3001 进入 LISTENING 再开局**，否则开局请求会打空。
+Use Bash's `run_in_background` for both of them. The output is written into the task file and no front-end polling is required. The simulator accounts for 8080 / 9099, and the API accounts for 3001. Wait for 3001 to enter LISTENING before starting the game, otherwise the start request will be empty.
 
-同时确认 `src/vscripts/api/api-client.local.ts` 的 `GetApiTarget()` 返回 `'local'`。
+also confirms `GetApiTarget()` of `src/vscripts/api/api-client.local.ts` and returns `'local'`.
 
-完成判据：`netstat -ano | grep -E ":(8080|9099|3001)\b.*LISTENING"` 三个端口都在。
+Completion criterion: `netstat -ano | grep -E ":(8080|9099|3001)\b.*LISTENING"` All three ports are present.
 
-### 3. 启动 Dota
+### 3. Start Dota
 
-Dota 已在运行时直接 `Start-Process` 会开出第二个实例，只弹一个 `Source2 - Warning` 窗口，要先 `Stop-Process -Name dota2 -Force`。
+Dota is running, directly `Start-Process` will open a second instance, and only one `Source2 - Warning` window will pop up. You need to `Stop-Process -Name dota2 -Force` first.
 
 ```powershell
 $dota = "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\win64"; Start-Process -FilePath "$dota\dota2.exe" -WorkingDirectory $dota -ArgumentList '-novid','-tools','-addon','windy10v10ai','-condebug','-conclearlog','-netconport','29000','+dota_launch_custom_game','windy10v10ai','dota'
 ```
 
-`-condebug` 把输出写到 `<dota>/game/dota/console.log`，`-conclearlog` 每次启动清空该文件，避免跨会话累积。`-netconport` 打开远程控制台，供 `npm run dota:cmd` 发命令（`npm run launch` 已带上）。`+dota_launch_custom_game` 让地图自动加载，不需要点任何按钮。
+`-condebug` writes the output to `<dota>/game/dota/console.log` and `-conclearlog`. Clear the file every time it is started to avoid cross-session accumulation. `-netconport` opens the remote console for `npm run dota:cmd` to issue commands (`npm run launch` has been brought along). `+dota_launch_custom_game` allows the map to load automatically without clicking any buttons.
 
-要以指定英雄测试时改用 `npm run launch -- --hero <英雄名>`（不带 `npc_dota_hero_` 前缀），开局直接为玩家选定该英雄；不带 `--hero` 启动会清掉上次的指定。没有中途换英雄的命令：替换英雄不预载资源，也不会重建各模块记录的英雄状态。
+If you want to use `npm run launch -- --hero <hero_name>` (without the `npc_dota_hero_` prefix) when testing with a designated hero, the hero will be directly selected for the player at the start; starting without `--hero` will clear the last designation. There is no command to change heroes midway: replacing a hero does not preload resources, nor does it rebuild the hero status recorded in each module.
 
-完成判据：`console.log` 出现且体积在涨。
+completion criterion: `console.log` appears and the volume is increasing.
 
-### 4. 触发要验的流程
+### 4. Trigger the verification process The
 
-开局流程（`/game/start`、队伍选择、抽奖初始化）在地图加载时自动跑完，第 3 步就已经触发。
+opening process (`/game/start`, team selection, lottery initialization) is automatically completed when the map is loaded, and step 3 has been triggered.
 
-需要再跑一遍时有两种重开方式：
+There are two ways to restart when you need to run it again:
 
-- **重启进程**，参数同上。慢一两分钟，任何环境都能用。
-- **VConsole 命令框**输入 `dota_launch_custom_game windy10v10ai dota`，几秒钟重新加载。需要能操作窗口，即桌面应用的 computer-use MCP；Claude Code CLI 里没有这套工具。
+- **Restart the process**, the parameters are the same as above. Slow it down for a minute or two and it can be used in any environment.
+- **VConsole command box** Enter `dota_launch_custom_game windy10v10ai dota` and reload in a few seconds. Requires a computer-use MCP that can operate windows, i.e. desktop applications; this set of tools is not available in the Claude Code CLI.
 
-重开前记下当前行数（`wc -l < console.log`），之后用 `awk 'NR>N'` 只看新增部分。
+Write down the current line number (`wc -l < console.log`) before restarting, and then use `awk 'NR>N'` to only see the new part.
 
-完成判据：日志里出现目标流程的第一条输出。
+Completion criterion: The first output of the target process appears in the log.
 
-### 5. 读日志
+### 5. Read log
 
 ```bash
 grep -n "ApiHtmlProxy\|GameStartProxy" "C:/Program Files (x86)/Steam/steamapps/common/dota 2 beta/game/dota/console.log"
 ```
 
-两路输出都在同一个文件里，按前缀区分：
+Both outputs are in the same file, distinguished by prefix:
 
-| 前缀 | 来源 |
-|---|---|
-| `[VScript]` | 服务端 `print()` |
-| `[PanoramaScript]` | 客户端 `$.Msg()` |
+| Prefix             | Source           |
+| ------------------ | ---------------- |
+| `[VScript]`        | Server `print()` |
+| `[PanoramaScript]` | Client `$.Msg()` |
 
-每行带 `MM/DD HH:MM:SS` 时间戳，跨端时序（谁先谁后、间隔多久）直接读得出来，是定位握手和时机类问题的主要依据。
+Each line carries the `MM/DD HH:MM:SS` timestamp, and the cross-end timing (who comes first and who comes last, and how long the interval is) can be read directly, which is the main basis for locating handshake and timing issues. When
 
-等日志出现用 Bash 的 `run_in_background` 跑 `until grep -q ...; do sleep 5; done`。
+appears in the log, use Bash's `run_in_background` to run `until grep -q ...; do sleep 5; done`.
 
-完成判据：目标流程的每一步都在日志里找到对应行，或明确指出断在哪一步。
+Completion criterion: Find the corresponding line in the log for each step of the target process, or clearly indicate at which step it breaks.
 
-### 6. 收尾
+### 6. Closing
 
-**关不关由主会话决定，子代理一律不关**——中途关掉，下一轮还要重起一遍。三种情况：
+**Whether it is turned off or not is determined by the main session, and the sub-agent will not be turned off** - it will be turned off in the middle, and it will have to be restarted in the next round. Three situations:
 
-- 全部验证结束 → 关
-- 还要再验一轮 → 留着
-- 用户说开着没事 → 留着
+- All verification completed → Close
+- needs another round of testing → keep it
+- User said it’s fine if it’s on → Keep it
 
-留着的时候要把留了哪些进程告诉用户，别让它们在后台无声占着端口。
+When retaining, you should tell the user which processes have been retained, and do not let them silently occupy the port in the background. When
 
-要关的时候，`TaskStop` 只杀后台任务的外层 shell，模拟器的 java 和 API 的 node 会活下来，要按 PID 补杀，再确认三个端口都已释放。Dota 退出后按需删 `console.log`。
+needs to be shut down, `TaskStop` only kills the outer shell of the background task. The simulator's java and API nodes will survive. You need to kill them by PID, and then confirm that all three ports have been released. Delete `console.log` as needed after exiting Dota. The sub-agent and sub-session sent out by
 
-派出去的子代理与子会话本身也要收尾：它回报完成后就停掉并归档，没提交过东西的 worktree 与分支一并删干净。这是一次派活的最后一步，不要等用户问「怎么又没关」。
+also need to be terminated: they will be stopped and archived after the report is completed, and the worktree and branches that have not submitted anything will be deleted together. This is the last step of a dispatch. Don’t wait for the user to ask “Why is it closed?”
 
-完成判据：关掉时三个端口全部释放；留着时已经把留了什么告诉用户；派出去的会话没有一个还挂着。
+Completion criteria: When shutting down, all three ports are released; when they are kept, the user has been told what has been left; none of the sessions sent out are still hanging.
 
-## 临时调试日志
+## temporary debugging log
 
-为定位问题临时加的 `print` / `$.Msg` 在问题定位完后要删干净，只留下调用与结果两类。判据：一次请求的日志量不随数据量增长（不整条打印响应体）。
+and `print` / `$.Msg` are temporarily added to locate the problem. They should be deleted after locating the problem, leaving only the call and result categories. Criterion: The log volume of a request does not increase with the data volume (the entire response body is not printed).

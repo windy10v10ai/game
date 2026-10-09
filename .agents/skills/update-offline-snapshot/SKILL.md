@@ -1,73 +1,73 @@
 ---
 name: update-offline-snapshot
-description: 从 Firestore 导出会员、积分、觉醒、玩家设置快照到 game/scripts/kv/，发布创意工坊地图前用。
+description: "Export Firestore membership, points, awakening, and player-setting snapshots into game/scripts/kv before Workshop publishing. Use only on explicit user request."
 disable-model-invocation: true
 ---
 
 # Update Offline Snapshot
 
-从 Firestore 导出 KV 快照，直接落到本仓库 `game/scripts/kv/`，随地图发布后由
-`src/vscripts/api/player-snapshot.ts` 在 `/game/start` 失败时读取。
+Export the KV snapshot from Firestore and drop it directly into this repository `game/scripts/kv/`. It will be released with the map by
+`src/vscripts/api/player-snapshot.ts` Read when `/game/start` fails.
 
-导出脚本住在 **firebase 仓库**（`api/scripts/offline-snapshot/export-player-snapshot.ts`），
-不在本仓库。它 import 后端现成的 `PlayerLevelHelper` 算等级，口径与网站一致——
-**不要在本仓库另写一份导出逻辑**。
+export script lives in **firebase repository** (`api/scripts/offline-snapshot/export-player-snapshot.ts`),
+is not in this repository. It imports the ready-made `PlayerLevelHelper` in the backend to calculate the level, and the criteria is the same as the website——
+**Do not write another export logic in this repository**.
 
-## 产出
+## output
 
-| 文件 | 内容 |
-|---|---|
-| `player_snapshot_member.kv` | 会员等级与到期时间戳 |
-| `player_snapshot_player.kv` | 积分、等级、属性加点（体积最大） |
-| `player_snapshot_awaken.kv` | 已解锁觉醒英雄 |
-| `player_snapshot_setting.kv` | 快捷键、快速施法、按地图游戏预设 |
-| `player_snapshot_meta.kv` | 导出时间，游戏内离线提示显示为「截至某日」 |
+| File                         | Content                                                                            |
+| ---------------------------- | ---------------------------------------------------------------------------------- |
+| `player_snapshot_member.kv`  | Membership level and expiration timestamp                                          |
+| `player_snapshot_player.kv`  | Points, levels, attribute points (maximum volume)                                  |
+| `player_snapshot_awaken.kv`  | Unlocked awakening hero                                                            |
+| `player_snapshot_setting.kv` | Shortcut keys, quick spell casting, map game presets                               |
+| `player_snapshot_meta.kv`    | Export time, the offline prompt in the game is displayed as "as of a certain date" |
 
-## 步骤
+## steps
 
-### 1. 定位 firebase 仓库
+### 1. Locate the firebase repository
 
-默认取本仓库的同级目录，即 `<本仓库父目录>/firebase`。该目录不存在时用
-`AskUserQuestion` 问用户路径，**不要猜测其他位置，也不要去 clone**。
+defaults to the same level directory of this repository, that is, `<repository_parent>/firebase`. Used when the directory does not exist
+`AskUserQuestion` Ask the user for the path, **Do not guess other locations, and do not clone**.
 
-### 2. 执行导出
+### 2. Execute export
 
-在 firebase 仓库的 `api/` 下跑，输出目录传本仓库 `game/scripts/kv/` 的**绝对路径**：
+is run under `api/` in the firebase repository, and the output directory is passed to the **absolute path** of this repository `game/scripts/kv/`:
 
 ```bash
-cd <firebase>/api && npm run export:snapshot -- <本仓库绝对路径>/game/scripts/kv
+cd <firebase>/api && npm run export:snapshot -- <absolute_repository_path>/game/scripts/kv
 ```
 
-`--` 不能省，否则参数被 npm 吃掉，文件会落到 firebase 仓库的默认 output 目录。
-输出目录不存在时脚本自己建，不用先 mkdir。
+`--` cannot be omitted, otherwise the parameters will be eaten by npm and the file will fall into the default output directory of the firebase repository.
+If the output directory does not exist, the script will create it by itself without mkdir first.
 
-单次约 2 万次 Firestore 文档读，在每天 5 万次免费额度内，但不要为了试而反复跑。
+can read about 20,000 Firestore documents at a time, within the 50,000 free quota per day, but do not run it repeatedly just to try.
 
-### 3. 校验产出
+### 3. Verification output The
 
-脚本对每个文件打印 `<文件名>: <行数> 行, <字节数> 字节`。逐条核对：
+script prints `<file_name>: <number of lines> lines, <number of bytes> bytes` for each file. Check item by item:
 
-- 五个文件都在且都非空
-- 行数相对上次没有骤降。**骤降先查原因再决定发不发**——通常是查询窗口或字段口径出了问题，
-  发出去会让一批玩家的会员或属性凭空消失
+- All five files exist and are not empty.
+- The number of rows has not dropped sharply compared to the last time. **If there is a sudden drop, first check the cause and then decide whether to send or not** - usually there is a problem with the query window or field criteria. Sending out
+  will cause the membership or attributes of a group of players to disappear out of thin air.
 
-把四行统计原样报给用户，这是判断窗口开得合不合适的唯一反馈。
+reports the four-line statistics to the user as they are. This is the only feedback to judge whether the window is opened appropriately.
 
-## 发布须知
+## Release Notes
 
-- `game/scripts/kv/` **整个目录已 gitignore**（快照含明文 steamId 生产数据）。换机器
-  clone 后必须重跑本 skill 才能发布，否则地图里没有任何玩家数据
-- 五个文件合计约 13MB，直接进地图包。每次发布玩家都要重新下载，体积变化值得留意
+- `game/scripts/kv/` **The entire directory has been gitignore** (the snapshot contains clear text steamId production data). Change machine After
+  clone, you must rerun this skill before it can be released, otherwise there will be no player data in the map.
+- The five files total about 13MB and are directly included in the map package. Players have to re-download every time it is released, and the size changes are worth paying attention to.
 
-## 常见错误
+## Common errors
 
-| 现象 | 原因与处理 |
-|---|---|
-| `Could not load the default credentials` | 该机器没配 ADC，跑 `gcloud auth application-default login` |
-| 文件落到 firebase 仓库的 `output/` | `npm run` 后漏了 `--`，参数没传到脚本 |
-| 游戏内读不到数据但文件存在 | 快照只在 `/game/start` **失败**时读取。Dota Tools 里后端通着就不会触发，要先停本地后端 |
+| Phenomenon                                              | Cause and treatment                                                                                                                                           |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Could not load the default credentials`                | This machine is not equipped with ADC, run `gcloud auth application-default login`                                                                            |
+| The file fell into the firebase repository `output/`    | `npm run` and then `--` was missing, and the parameters were not passed to the script                                                                         |
+| The data cannot be read in the game but the file exists | The snapshot is only read when `/game/start` **failed**. In Dota Tools, if the backend is open, it will not trigger. You need to stop the local backend first |
 
-## 不要写进本 skill 的东西
+## Things not to be included in this skill
 
-窗口天数、字段口径、各集合条数——都在 firebase 仓库的脚本与设计文档里。抄到这里就是
-一份不会跟着更新的过期副本，读的人反而判断不了哪个是真的。
+The number of days in the window, the field diameter, and the number of items in each collection—all are in the scripts and design documents of the firebase repository. Just copy it here
+An expired copy that will not be updated, so the reader cannot tell which one is authentic.

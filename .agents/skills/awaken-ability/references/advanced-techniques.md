@@ -1,122 +1,124 @@
-# 觉醒进阶技法
+# awakening advanced techniques
 
-供 `awaken-ability` 按需查阅，主流程不需要读完。每项都有真实落地参考（斧王、卓尔、PA、影魔、上古巨神等）。
+is for `awaken-ability` to check on demand, and the main process does not need to be read through. Each item has a real implementation reference (Axe, Drow, PA, Shadow Demon, Ancient Titan, etc.).
 
-### 进阶 1：等级与原技能关联（插入/新增也继承等级）
+### Advanced 1: Inherit the original ability level when inserting or adding
 
-替换分支天然继承原技能等级，但**插入/新增**分支默认用 `newLevel`，初始等级不跟随关联技能。需要全程等级关联（如觉醒技能与某个大招同步升级）时，两步配套：
+replacement branch naturally inherits the original ability level, but the **Insert/Add** branch defaults to `newLevel`, and the initial level does not follow the associated ability. When full level correlation is required (such as awakeningability and a certain ultimate being upgraded simultaneously), two-step matching is required:
 
-1. **KV 双向 `LinkedAbility`**（升级时等级同步）——在 `npc_abilities_override.txt` 的关联技能、和 `npc_abilities_custom_awaken.txt` 的觉醒技能，两边各加一行指向对方：
+1. **KV bidirectional `LinkedAbility`** (level synchronization during upgrade) - In the association ability of `npc_abilities_override.txt` and the awakeningability of `npc_abilities_custom_awaken.txt`, add a line on each side to point to the other side:
+
    ```
-   "LinkedAbility"   "对方技能名"   // 双向联动同步升级
+   "LinkedAbility" "Partner ability_name" // Two-way linkage and synchronous upgrade
    ```
-   两个技能的 `MaxLevel` 须一致。
 
-2. **配置 `inheritLevelFrom`**（添加时继承初始等级）——`awaken-config.ts` 该条加：
+   and `MaxLevel` of the two abilities must be consistent.
+
+2. **Configuration `inheritLevelFrom`** (Inherit the initial level when adding) - `awaken-config.ts` Add this article:
    ```ts
-   inheritLevelFrom: '关联技能名',
+   inheritLevelFrom: 'Association ability_name',
    ```
-   `resolveNewLevel` 会在加新技能时取该关联技能当前等级作初始等级（在移除任何技能前求值，故 `inheritLevelFrom` 可以正是被插入槽位的技能）。
+   `resolveNewLevel` will take the current level of the associated ability as the initial level when adding a new ability (evaluated before removing any ability, so `inheritLevelFrom` can be the ability inserted into the slot).
 
-> 参考：斧王 `axe_auto_culling_blade` ↔ `axe_culling_blade`。
+> Reference: Ax `axe_auto_culling_blade` ↔ `axe_culling_blade`.
 
-> **不要用 `Innate "1"` + `DependentOnAbility` 替代 `LinkedAbility`**：官方有「新技能比关联技能多一档等级」的场景用这个组合（古辰山 Absolute Zero 先天、玛尔斯 Sidekick），但那些都是英雄出生自带的先天技能槛位。本项目觉醒技能是运行时用觉醒石 `AddAbility()` 动态加上去的，不是原生先天槛位——给它加 `Innate "1"` 实测会导致技能/buff 图标不显示（卓尔游侠裂影箭觉醒踩过，已放弃改回固定等级）。等级关联场景老老实实用上面的 `LinkedAbility` + `inheritLevelFrom`（要求两边 `MaxLevel` 一致）；如果新技能就是想比关联技能多一档，优先考虑改成固定值/不分级，而不是引入 `DependentOnAbility`。
+> **Do not use `Innate "1"` + `DependentOnAbility` instead of `LinkedAbility`**: Officially, this combination is used in scenarios where "new ability is one level more than related ability" (Guchenshan Absolute Zero innate, Mars Sidekick), but those are the innate ability thresholds that come with the birth of a hero. The awakeningability of this project is dynamically added at runtime using the awakening stone `AddAbility()`. It is not a native innate threshold - adding `Innate "1"` to it. Actual testing will cause the ability/buff icon not to be displayed (Drow Ranger Shadow Arrow has stepped on awakening and has given up and returned to a fixed level). In the level correlation scenario, the above `LinkedAbility` + `inheritLevelFrom` (`MaxLevel` on both sides needs to be consistent); if the new ability wants to be one level more than the correlation ability, the priority is to change it to a fixed value/ungraded rather than introducing `DependentOnAbility`.
 
-### 进阶 2：autocast 自动触发（自动施放）
+### Advanced 2: autocast automatically triggers (automatic casting)
 
-「开 autocast 后自动检测施放」类觉醒，**已有共享基类 `AutoCastAbility`（`src/vscripts/abilities/ts_abilities/shared/auto-cast-ability.ts`），直接继承，不要重复造轮子**：
+"Automatically detect and cast after turning on autocast" class awakening, **there is already a shared base class `AutoCastAbility` (`src/vscripts/abilities/ts_abilities/shared/auto-cast-ability.ts`), inherit it directly, don't reinvent the wheel**:
 
-- KV：`BaseClass ability_lua`、`AbilityBehavior` = `NO_TARGET | IMMEDIATE | AUTOCAST`、`ScriptFile` 指向 `abilities/ts_abilities/...` 编译产物，**不写 `Modifiers`**（intrinsic modifier 由基类提供）。
-- 继承 `AutoCastAbility`，只实现 `OnAutoCastThink(caster)`；需要时覆写 `getThinkInterval()`（默认 0.3）。共享 `modifier_autocast_think` 负责 `IsServer / IsAlive / GetAutoCastState` 守卫后回调。
-- 基类 helper：`getFullCastRange`（含施法距离增强）、`findEnemiesInRange(caster, range, targetType, allowMagicImmune?)`（始终排除迷雾/隐身，可选命中魔免）、`castImmediatelyOnTarget`。
-- 施放用 **`CastAbilityImmediately`**：玩家英雄的背景自动施放**不能**用 order 式（`CastAbilityOnTarget` 等会打断玩家移动/攻击）。新基类/helper 统一放 `ts_abilities/shared/`。
+- KV: `BaseClass ability_lua`, `AbilityBehavior` = `NO_TARGET | IMMEDIATE | AUTOCAST`, `ScriptFile` point to the `abilities/ts_abilities/...` compilation product, **do not write `Modifiers`** (intrinsic modifier is provided by the base class).
+- inherits `AutoCastAbility` and only implements `OnAutoCastThink(caster)`; override `getThinkInterval()` (default 0.3) when needed. Sharing `modifier_autocast_think` is responsible for the callback after guarding `IsServer / IsAlive / GetAutoCastState`.
+- base class helper: `getFullCastRange` (including cast distance enhancement), `findEnemiesInRange(caster, range, targetType, allowMagicImmune?)` (always excludes fog/invisibility, optional magic immunity on hit), `castImmediatelyOnTarget`.
+- is cast with **`CastAbilityImmediately`**: The background of the player's hero is automatically cast **not** in order (`CastAbilityOnTarget`, etc. will interrupt the player's movement/attack). The new base class/helper is unified into `ts_abilities/shared/`.
 
-> 参考：斧王 `ts_abilities/axe_auto_culling_blade.ts`（斩杀线阈值 + 可打魔免）、宙斯 `ts_abilities/special_bonus_unique_zuus_upgrade.ts`（英雄优先、雷击仅英雄、不打魔免）。
+> Reference: Ax `ts_abilities/axe_auto_culling_blade.ts` (kill line threshold + magic immunity), Zeus `ts_abilities/special_bonus_unique_zuus_upgrade.ts` (hero priority, lightning strike only for heroes, no magic immunity).
 
-### 进阶 3：监听某技能施法后触发效果
+### Advanced 3: Monitor an ability to trigger the effect after casting a spell
 
-要在「英雄施放某个特定技能后」附带效果。下面两种实现**不是对等选项**：监听 + 造成伤害是**逻辑**，**从零新增一律走 TS**；DataDriven 一节仅作为「维护已有 datadriven 技能」的范例，不要据此从零新写。
+needs to have an effect "after the hero casts a specific ability". The following two implementations are **not equivalent options**: monitoring + causing damage is **logical**, and **adding new ones from scratch will always use TS**; the DataDriven section is only an example of "maintaining existing datadriven ability", do not write new ones from scratch based on this.
 
-- **TS intrinsic modifier（从零新增首选）**：`@registerModifier` 的 modifier 在 `DeclareFunctions` 声明事件，回调里判 `event.unit == parent` 且 `event.ability.GetAbilityName() == "目标技能名"`。不依赖技能 behavior，最通用。**先想清触发时机选对事件**：
-  - `MODIFIER_EVENT_ON_ABILITY_START` → `OnAbilityStart`：**前摇开始**就触发（玩家可在前摇结束前取消施法）。只适合需要前摇期就生效的效果（如前摇加魔免防打断，见影魔现有觉醒）。**不要**用它结算附加伤害——玩家取消施法即可反复白嫖。
-  - `MODIFIER_EVENT_ON_ABILITY_FULLY_CAST` → `OnAbilityFullyCast`：**前摇走完、真正 OnSpellStart** 才触发，等价「释放完成」。附加伤害/附加效果一律用这个。目标技能是单体指向时，伤害数值可直接 `event.ability.GetSpecialValueFor("xxx")` 读触发技能当前等级的值，天然随其等级/神杖/天赋分级，无需自带 KV 数值。
-  - `MODIFIER_EVENT_ON_ABILITY_END_CHANNEL` → `OnAbilityEndChannel`：**引导结束**触发，读条走完和被打断/主动取消都会推。引导期间才生效的觉醒（如引导期魔免）用 `FULLY_CAST` 开、`END_CHANNEL` 收，**不要写轮询**——`CDOTA_BaseNPC` 上没有 `IsChannelling`（只有 `CDOTABaseAbility.IsChanneling()`），照着轮询思路写会编译不过。时长用 `event.ability.GetChannelTime()` 申请，实际回收交给 `END_CHANNEL`。参考：冰女 `special_bonus_unique_crystal_maiden_upgrade`。
-- **DataDriven modifier（仅维护已有）**：KV `Modifiers` 加 `"Passive" "1"` 常驻 modifier（配 `"RemoveOnDeath" "0"` + `"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"`），用 **`OnAbilityExecuted`** 块 `RunScript`。被施放的技能是 **`keys.event_ability`**（不是 `keys.ability`），施法者 `keys.caster`。主动技（如 `UNIT_TARGET`）上也会常驻触发。
+- **TS intrinsic modifier (first choice added from scratch)**: The modifier of `@registerModifier` declares the event in `DeclareFunctions`, and determines `event.unit == parent` and `event.ability.GetAbilityName() == "targetability_name"` in the callback. Does not rely on ability behavior and is the most versatile. **First think about the triggering time and choose the right event**:
+  - `MODIFIER_EVENT_ON_ABILITY_START` → `OnAbilityStart`: Triggered as soon as the forward shake starts** (the player can cancel the spell before the forward shake ends). It is only suitable for effects that require a pre-roll period to take effect (such as pre-roll adding magic to avoid interruption, see Shadow Demon's existing awakening). **Don't\*\* use it to resolve additional damage - the player can cancel the cast and it will be for nothing.
+  - `MODIFIER_EVENT_ON_ABILITY_FULLY_CAST` → `OnAbilityFullyCast`: **The real OnSpellStart** is not triggered until the forward swing is completed, which is equivalent to "release completed". Always use this for additional damage/additional effects. When the target ability is pointed at a single target, the damage value can be directly `event.ability.GetSpecialValueFor("xxx")` to read the value of the current level of the trigger ability. It will naturally follow its level/scepter/talent grading, and there is no need to bring its own KV value.
+  - `MODIFIER_EVENT_ON_ABILITY_END_CHANNEL` → `OnAbilityEndChannel`: **Boot End** triggers, and will be pushed when the reading bar is completed and interrupted/actively cancelled. For awakening that only takes effect during the boot period (such as the magic exemption during the boot period), use `FULLY_CAST` to open and `END_CHANNEL` to receive. **Do not write polling** - there is no `IsChannelling` on `CDOTA_BaseNPC` (only `CDOTABaseAbility.IsChanneling()`). If you write it according to the polling idea, it will not compile. Use `event.ability.GetChannelTime()` to apply for the duration, and hand over the actual recovery to `END_CHANNEL`. Reference: Ice Girl `special_bonus_unique_crystal_maiden_upgrade`.
+- **DataDriven modifier (only to maintain existing)**: KV `Modifiers` plus `"Passive" "1"` resident modifier (with `"RemoveOnDeath" "0"` + `"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"`), using **`OnAbilityExecuted`** to block `RunScript`. The ability being cast is **`keys.event_ability`** (not `keys.ability`), the caster is `keys.caster`. Active skills (such as `UNIT_TARGET`) will also be permanently triggered.
 
-> **关键坑**：不要为了让 listener 常驻而给主动技 `AbilityBehavior` 叠加 `DOTA_ABILITY_BEHAVIOR_PASSIVE`——实测会使该主动技**无法施放**。DataDriven 的 `Passive` modifier 不依赖技能 behavior 即可常驻，保持原主动 behavior 即可。
+> **Key Pitfall**: Do not superimpose the active skill `AbilityBehavior` on `DOTA_ABILITY_BEHAVIOR_PASSIVE` in order to keep the listener resident - actual testing will make the active skill **unable to be cast**. DataDriven's `Passive` modifier does not rely on ability behavior and can be resident, just maintain the original active behavior.
 
-> **关键坑**：`OnAbilityExecuted` 的 `RunScript` 里若要再给自己加一个**同一技能 KV `Modifiers` 里定义的** DataDriven modifier（如限时减伤 buff），必须用 `ability:ApplyDataDrivenModifier(caster, target, "modifier_name", {})`，**不能**用通用的 `unit:AddNewModifier(...)`——用 `AddNewModifier` 加载 DataDriven 定义的 modifier 时，**modifier 本身不会被加载**（不是 KV 占位符解析失败，是整个 modifier 都没生效），buff 图标不会出现在状态栏。`AddNewModifier` 只适用于借用别的技能/原生 hardcoded modifier（见进阶 7），不适用于自己 KV 里定义的 DataDriven modifier。
+> **Key Pit**: If you want to add another **DataDriven modifier defined in **the same ability KV `Modifiers` in `RunScript` of `OnAbilityExecuted` (such as a limited time damage reduction buff), you must use `ability:ApplyDataDrivenModifier(caster, target, "modifier_name", {})`, and **cannot** use the general `unit:AddNewModifier(...)` - use `AddNewModifier` When loading the modifier defined by DataDriven, the modifier itself will not be loaded (it is not that the KV placeholder parsing fails, but that the entire modifier does not take effect), and the buff icon does not appear in the status bar. `AddNewModifier` is only applicable to borrowing other ability/native hardcoded modifiers (see Advanced 7), and is not applicable to the DataDriven modifier defined in your own KV.
 
-> 参考：影魔 `ability_lua` + `GetIntrinsicModifierName` 监听 `nevermore_requiem`；PA `ability_datadriven`（`UNIT_TARGET`，未加 PASSIVE）的 `modifier_pa_awaken_dagger_listener` 用 `OnAbilityExecuted`；宙斯 `special_bonus_unique_zuus_upgrade` 是 PASSIVE datadriven 监听范例。
+> Reference: Shadow Demon `ability_lua` + `GetIntrinsicModifierName` monitor `nevermore_requiem`; `modifier_pa_awaken_dagger_listener` of PA `ability_datadriven` (`UNIT_TARGET`, without PASSIVE) use `OnAbilityExecuted`; Zeus `special_bonus_unique_zuus_upgrade` Is a PASSIVE datadriven listening example.
 
-### 进阶 4：数值仅觉醒后生效（special_bonus 关联）
+### Advanced 4: The value only takes effect after awakening (special_bonus related)
 
-想让原技能某个 KV 数值「仅在该英雄拥有觉醒技能时改变」（运行时无法干净改的固定值，如投射物速度），用**觉醒技能名**作 `special_bonus` key 写进原技能 override KV：
+If you want a certain KV value of the original ability to "only change when the hero has awakeningability" (a fixed value that cannot be changed cleanly at runtime, such as projectile speed), use the **awakeningability name** as the `special_bonus` key to write the original ability override KV:
 
 ```
 "dagger_speed"
 {
     "value"                                         "1200"
-    "special_bonus_unique_phantom_assassin_upgrade" "=2100"   // 觉醒后覆盖
+"special_bonus_unique_phantom_assassin_upgrade" "=2100" // Overwrite after awakening
 }
 ```
 
-`=值` 覆盖、`+值` 增加，此外还支持 `+N%` 按百分比增加（如 `+100%` 表示翻倍，项目里已有大量原版天赋先例，如 `special_bonus_unique_dragon_knight_9 "+120%"`）——多档位字段要整体等比缩放时用这个，不需要手算每档绝对值再写数组。引擎检测英雄拥有该 key 同名技能时自动应用。
+`=value` covers, `+value` increases, and `+N%` is also supported by percentage increase (for example, `+100%` means doubling. There are a lot of vanilla talent precedents in the project, such as `special_bonus_unique_dragon_knight_9 "+120%"`) - Use this when multi-tier fields need to be scaled proportionally as a whole. There is no need to manually calculate the absolute value of each tier before writing an array. The engine automatically applies it when it detects that the hero has the ability of the key with the same name.
 
-> **关键坑：key 必须是 `special_bonus_` 前缀的技能名**。引擎靠前缀识别哪些子 key 是「bonus 覆盖」，非此前缀的子 key 被当无关元数据**静默忽略**（数值不变，无报错）。觉醒技能即使是普通可学习主动技（如 PA `special_bonus_unique_phantom_assassin_upgrade` 是 `UNIT_TARGET` 主动），只要名字带前缀就能当 key；反之，不带前缀的觉醒技能名（如曾用的 `sniper_assassinate_upgrade`）写进去不生效，须把觉醒技能**重命名**为 `special_bonus_unique_*`（连带改抽奖池引用、Lua 类名、本地化 key；ScriptFile 路径/Lua 文件名可不动，仅同步文件内 ability 类名）。该 key 技能还须被英雄拥有且等级 ≥ 1 才应用。
+> **Key pitfall: key must be the ability name prefixed by `special_bonus_`**. The engine relies on the prefix to identify which subkeys are "bonus overrides". Subkeys other than this prefix are treated as irrelevant metadata and **silently ignored** (the value remains unchanged and no error is reported). Even if awakeningability is a common learnable active skill (such as PA `special_bonus_unique_phantom_assassin_upgrade` is `UNIT_TARGET` active), as long as the name has a prefix, it can be used as a key; on the contrary, if the awakeningability name without a prefix (such as the previously used `sniper_assassinate_upgrade`) is written in, it will not take effect, and the awakeningability** must be renamed** to `special_bonus_unique_*` (along with changing the lottery pool reference, Lua Class name, localization key; ScriptFile path/Lua file name can be left unchanged, only ability class name in the file is synchronized). This key ability must also be owned by the hero and have level ≥ 1 before it can be applied.
 
-> **同一 value 块可以挂多个 `special_bonus_` key，但引擎只应用块内第一个命中的**，所以觉醒键须排在 `value` 之后、其它键之前。动手前先按 `update-abilities-override` skill 的方法读该技能整段（override 差分 + `docs/reference/<version>/heroes/` 原版全集，**原版键会被合并进来，只看 override 会漏**），确认块内已有哪些 `special_bonus_*`（常见来源：原版天赋、魔晶、神杖、其它觉醒）。排首位意味着觉醒后该字段上的其它 bonus 全部失效，若不可接受则换一个干净字段，或改用其它实现方式（DataDriven Modifiers / TS）。
+> **The same value block can be hung with multiple `special_bonus_` keys, but the engine only applies the first hit ** in the block, so the awakening key must be ranked after `value` and before other keys. Before starting, read the entire section of the ability according to the method of `update-abilities-override` skill (override delta override + `docs/reference/<version>/heroes/` vanilla complete set, **vanilla keys will be merged in, only looking at override will leak**), and confirm which `special_bonus_*` are already in the block (common sources: vanilla talents, magic crystals, scepters, other awakenings). Ranking first means that all other bonuses on this field will be invalid after awakening. If it is unacceptable, change to a clean field, or use other implementation methods (DataDriven Modifiers / TS).
 
-> **块内原有的原版键必须在 override 里逐条显式重写，并排在觉醒键之后**。只把觉醒键写进 override 是不够的——override 未显式声明的原版键在合并时会排到觉醒键**前面**，觉醒同样静默失效。这些重写行的唯一作用是固定键序，须加注释说明，避免被后续「删同值差分」当冗余清理掉（写与原版不同的值可再加一层保险）。
+> **The original vanilla keys in the block must be explicitly rewritten one by one in override and ranked after the awakening keys**. Just writing the awakening key into override is not enough - vanilla keys that are not explicitly declared by override will be queued **before** the awakening key when merging, and awakening will also fail silently. The only function of these rewritten lines is to fix the key sequence, and they must be commented to prevent them from being cleared up redundantly by subsequent "delta override" (writing values ​​that are different from vanilla can add an extra layer of insurance).
 
-> 实测：`tiny_tree_grab` 的 `attack_count` 原本挂着原版天赋 `special_bonus_unique_tiny_6` 与魔晶键，觉醒键排第三时**静默失效**（无报错、数值不变）；把觉醒键提到 `value` 之后、并将原版天赋键显式重写在其后，才生效。
+> Actual measurement: `attack_count` of `tiny_tree_grab` originally had the vanilla talent `special_bonus_unique_tiny_6` and the magic crystal key. When the awakening key was ranked third, it **silently failed** (no error, the value remained unchanged); it only took effect after the awakening key was mentioned to `value` and the vanilla talent key was explicitly rewritten after it.
 
-> 参考：PA 觉醒后潜匿之刺 `dagger_speed` 1200→2100；狙击手 `special_bonus_unique_sniper_assassinate_upgrade` 觉醒后爆头 `proc_chance` `=100`。
+> Reference: PA awakening and hidden thorn `dagger_speed` 1200→2100; sniper `special_bonus_unique_sniper_assassinate_upgrade` headshot after awakening `proc_chance` `=100`.
 
-### 进阶 5：加魔免但不顶替真 BKB
+### Advanced 5: Add magic to avoid but does not replace the real BKB
 
-给英雄加魔免时，直接 `AddNewModifier("modifier_black_king_bar_immune")` 会缩短/顶掉玩家自己的 BKB。一律走全局工具函数（`game/scripts/vscripts/util.lua`）：
+When adding magic immunity to a hero, directly `AddNewModifier("modifier_black_king_bar_immune")` will shorten/top off the player's own BKB. Always use the global tool function (`game/scripts/vscripts/util.lua`):
 
 ```lua
 ApplyAwakenMagicImmunity(unit, ability, duration)
 ```
 
-已有相等或更长的 BKB 时跳过，否则加魔免 + 播音效，**返回是否实际施加**。
+Skip when there is equal or longer BKB, otherwise add magic + play sound effect, **return whether it is actually applied**.
 
-**TS 代码优先用已有的 TS 封装**：`src/vscripts/abilities/ts_abilities/shared/awaken-magic-immunity.ts` 导出的 `applyAwakenMagicImmunity(unit, ability, duration)` 是同一逻辑的原生 TS 实现（同样借用 `modifier_black_king_bar_immune` 且不顶替真 BKB），直接 `import` 复用即可，不要再 `declare function` 绑定 Lua 全局。它与 Lua 版的差异是返回值：施加成功返回该 modifier 的句柄（`CDOTA_Buff`），跳过时返回 `undefined`（Lua 版返回布尔值）。
+**TS code is given priority to use the existing TS package**: `applyAwakenMagicImmunity(unit, ability, duration)` exported by `src/vscripts/abilities/ts_abilities/shared/awaken-magic-immunity.ts` is the native TS implementation of the same logic (it also borrows `modifier_black_king_bar_immune` and does not replace the real BKB). Just reuse `import` directly. Do not bind `declare function` to Lua. The big picture. The difference between it and the Lua version is the return value: if the application is successful, it returns the handle of the modifier (`CDOTA_Buff`), if it is skipped, it returns `undefined` (the Lua version returns a Boolean value).
 
-**魔抗必须在自己技能 KV 写 `spell_reduce`**：`modifier_black_king_bar_immune` 自带的只有减益免疫，魔抗数值是引擎从**施加它的那个 ability** 上读 `spell_reduce` 字段（原版即 `item_black_king_bar` 的 `AbilityValues`，值为 `60`）。借到觉醒技能上时，觉醒技能 KV 若没有这个字段，玩家只拿到减益免疫、**魔抗为 0**——不报错、不打日志，只能靠实机看数值发现。字段名须与 `item_black_king_bar` 一致，写进觉醒技能自己的 `AbilityValues`（符合进阶 10），不要塞进原版技能的 override。
+**Magic resistance must be written in its own ability KV `spell_reduce`**: `modifier_black_king_bar_immune` comes with only debuff immunity, the magic resistance value is the engine reading the `spell_reduce` field from the ability** that applies it (vanilla is `AbilityValues` of `item_black_king_bar`, the value is `60`). When borrowing awakeningability, if the awakeningability KV does not have this field, the player will only get debuff immunity and **magic resistance of 0\*\* - no error will be reported, no log will be logged, and the player can only find out by looking at the numerical values ​​on the actual machine. The field name must be consistent with `item_black_king_bar`, write in awakeningability's own `AbilityValues` (in line with Advanced 10), and do not insert vanilla ability override.
 
-**前摇加魔免要防取消刷新**：魔免绑在 `ON_ABILITY_START`（前摇开始）触发时，玩家可在前摇结束前取消再施法反复刷新（取消不进 CD、不耗蓝）。防法：仅当 `ApplyAwakenMagicImmunity` 返回 true 才启动取消检测；`StartIntervalThink` 轮询 `IsInAbilityPhase()`，前摇结束后若 `GetCooldownTimeRemaining() <= 0`（被取消）则移除；**移除前判据**——仅当 `modifier_black_king_bar_immune` 剩余 ≤ 本次魔免时长才 `Destroy()`，**绝不无条件 `RemoveModifierByName`**（同名 modifier 区分不了来源，会误删真 BKB）。
+**Swing forward to add magic, avoid canceling refresh**: Magic avoidance is tied to `ON_ABILITY_START` (start of forward swing) when triggered, the player can cancel before the end of the forward swing and then cast the spell to refresh repeatedly (cancellation will not enter the CD, and does not consume mana). Defense method: Start cancellation detection only when `ApplyAwakenMagicImmunity` returns true; `StartIntervalThink` polls `IsInAbilityPhase()`, and if `GetCooldownTimeRemaining() <= 0` (cancelled) is removed after the end of the forward roll; **Criteria before removal** - `Destroy()` can only be used if `modifier_black_king_bar_immune` remaining ≤ the duration of this magic exemption, ** is never unconditional `RemoveModifierByName`** (The modifier with the same name cannot distinguish the source and will delete the real BKB by mistake).
 
-> 参考：影魔 `special_bonus_unique_nevermore_upgrade.lua` 的 `OnIntervalThink` 取消检测；PA 闪烁/匕首魔免。
+> Reference: `OnIntervalThink` of Shadow Demon `special_bonus_unique_nevermore_upgrade.lua` Cancel detection; PA Blink/Dagger Demon immune.
 
-### 进阶 6：纯被动标记技能改用 Modifier 展示（省技能栏空间）
+### Advanced 6: Use Modifier to display pure passive marking ability (save space in ability column)
 
-纯被动且描述简单的觉醒技能（典型如进阶 4 的「数值仅觉醒后生效」纯 KV 标记技能），不必占技能栏（castbar）一个槛位，可改用常驻 buff 图标展示：
+A purely passive and simple description of awakeningability (typically such as advanced 4's "value only takes effect after awakening" pure KV mark ability), it does not need to occupy a threshold in the ability column (castbar), and can be displayed using the resident buff icon instead:
 
-- KV：`AbilityBehavior` 加 `DOTA_ABILITY_BEHAVIOR_HIDDEN`（不进技能栏），同时加一个 `Modifiers` 子块，子 modifier 设 `"Passive" "1"` + `"IsHidden" "0"`（非隐藏，展示为常驻 buff 图标，自动复用 `AbilityTextureName` 做图标）。
-- 本地化：ability 自身的 `DOTA_Tooltip_ability_<name>` / `_Description` **保留不删**——觉醒预览页 `AwakenTab.tsx` 用 `DOTAAbilityImage` 读取的是 ability 的 tooltip，不是 modifier 的。额外补一组 `DOTA_Tooltip_modifier_<modifier_name>` / `_Description`，内容与 ability 标题/描述完全一致，确保游玩时看到的 buff tooltip 与觉醒页说明一致。
-- modifier 描述里若有写死的字面 `%` 号，**同样要转义成 `%%`**（不要因为是 modifier 就漏掉，规则与正文一致，见 `game/resource/CLAUDE.md`「文案规约」）。
-- **modifier tooltip 不支持直接 `%key%` 读取 ability 的 `AbilityValues`**（会显示空白或吞掉百分号）；ability 自身的描述不受影响，仍可正常用 `%key%`。modifier 这边按实现方式分三种处理：
-  - **DataDriven 且数值挂在内置 `MODIFIER_PROPERTY_*`**（如 `MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE`、`MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT` 等标准属性，`Properties` 块里已声明）：**可以**直接动态取值，本地化写 `%dMODIFIER_PROPERTY_<属性名>%%%` 即可，引擎自动读取该 modifier 当前的属性值，**不需要**任何 RunScript/OnTooltip 代码，也**不需要**手动包白色粗体（项目里已有先例：`monkey_king_defy`、`insight_armor_aura`）。
-  - **DataDriven 且数值不对应任何内置 Property**（纯标记技能、无脚本）：没有代码可补，描述里**写死成具体数字**。
-  - **TS/Lua 脚本类 modifier**（`ability_lua` + `GetIntrinsicModifierName`，如进阶 3 的监听型觉醒）：数值若会变化（随等级、天赋等），**不要写死**——用 `MODIFIER_PROPERTY_TOOLTIP` 动态取值：`DeclareFunctions` 加 `ModifierFunction.TOOLTIP`，实现 `OnTooltip(): number` 返回目标值（如 `this.GetAbility()?.GetSpecialValueFor('xxx') ?? 0`），本地化里用 `%dMODIFIER_PROPERTY_TOOLTIP%%%` 占位（同一 modifier 最多两个动态值，第二个用 `MODIFIER_PROPERTY_TOOLTIP2`/`OnTooltip2`/`%dMODIFIER_PROPERTY_TOOLTIP2%`）。只有真正固定不变的数值才写死。**`%dMODIFIER_PROPERTY_TOOLTIP%` 不会像 ability 的 `%key%` 一样自动套白色粗体**（实测），需要手动包 `<font color='#FFFFFF'><b>...</b></font>`，和写死数值的处理方式一样（这条仅限自定义 `TOOLTIP`/`TOOLTIP2`，内置 Property 不受影响）。
+- KV: `AbilityBehavior` plus `DOTA_ABILITY_BEHAVIOR_HIDDEN` (do not enter the ability column), and at the same time add a `Modifiers` sub-block, the sub-modifier is set to `"Passive" "1"` + `"IsHidden" "0"` (not hidden, displayed as a resident buff icon, automatically reusing `AbilityTextureName` as the icon).
+- Localization: ability itself`DOTA_Tooltip_ability_<name>` / `_Description`**Keep without deleting**——awakening preview page`AwakenTab.tsx`use`DOTAAbilityImage`What is read is the tooltip of the ability, not the modifier. Make up an extra set`DOTA_Tooltip_modifier_<modifier_name>` / `_Description`, the content is completely consistent with the ability title/description, and ensure that the buff tooltip you see during play is consistent with the awakening page description.
+- If there are hard-coded literals in the modifier description,`%`number, ** must also be escaped into`%%`** (Don’t miss it just because it is a modifier. The rules are consistent with the text. See`game/resource/CLAUDE.md`"localization text specification").
+- **modifier tooltip does not support direct `%key%` reading of ability `AbilityValues`** (it will display blank or swallow the percent sign); the description of ability itself is not affected, and `%key%` can still be used normally. The modifier is divided into three types according to the implementation method:
+  - **DataDriven and the value is hung in the built-in `MODIFIER_PROPERTY_*`** (such as `MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE`, `MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT` and other standard attributes, which have been declared in the `Properties` block): **You can** directly dynamically obtain the value, just write `%dMODIFIER_PROPERTY_<property name>%%%` locally, and the engine automatically reads the modifier The current property value does not require any RunScript/OnTooltip code, nor does it need to be manually wrapped in white bold (there are precedents in the project: `monkey_king_defy`, `insight_armor_aura`).
+  - **DataDriven and the value does not correspond to any built-in Property** (pure markability, no script): there is no code to add, and the description is written into specific numbers\*\*.
+  - **TS/Lua script modifier** (`ability_lua` + `GetIntrinsicModifierName`, such as advanced 3 monitoring awakening): If the value will change (with level, talent, etc.), **don’t hard-code it** - use `MODIFIER_PROPERTY_TOOLTIP` to dynamically obtain the value: `DeclareFunctions` plus `ModifierFunction.TOOLTIP` implements `OnTooltip(): number` to return the target value (such as `this.GetAbility()?.GetSpecialValueFor('xxx') ?? 0`), and uses `%dMODIFIER_PROPERTY_TOOLTIP%%%` placeholder in localization (the same modifier can have up to two dynamic values, and the second one uses `MODIFIER_PROPERTY_TOOLTIP2`/`OnTooltip2`/`%dMODIFIER_PROPERTY_TOOLTIP2%`). Only truly fixed values ​​are hard-coded. **`%dMODIFIER_PROPERTY_TOOLTIP%` will not automatically add white bold like ability's `%key%`** (actual measurement), you need to manually package `<font color='#FFFFFF'><b>...</b></font>`, which is the same as the hard-coded value (this is only for custom `TOOLTIP`/`TOOLTIP2`, built-in Property is not affected).
 
-> 参考：寒冬飞龙觉醒 `special_bonus_unique_winter_wyvern_upgrade`（DataDriven 写死数值）；卓尔游侠裂影箭觉醒 `special_bonus_unique_drow_ranger_upgrade`（TS modifier，分裂概率会被天赋提升，用 `OnTooltip` 动态显示而非写死）；发条技师觉醒 `special_bonus_unique_rattletrap_upgrade_shield`（DataDriven 内置 Property 动态取值，`%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%`）。
+> Reference: Winter Wyvern awakening `special_bonus_unique_winter_wyvern_upgrade` (DataDriven write-in value); Drow Ranger Shadow Bolt awakening `special_bonus_unique_drow_ranger_upgrade` (TS modifier, split probability will be increased by talent, use `OnTooltip` to dynamically display instead of write-in); Clockwerk awakening `special_bonus_unique_rattletrap_upgrade_shield` (DataDriven built-in Property Dynamic value, `%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%`).
 
-### 进阶 7：借用原生 hardcoded modifier（如隐身）实现效果
+### Advanced 7: Use native hardcoded modifier (such as invisibility) to achieve effects
 
-某些效果（如隐身）引擎有原生硬编码 modifier 支撑，但目标 KV 里查不到 `Modifiers` 块（完全编译进引擎，无法照抄），仍可在 TS 里直接 `AddNewModifier` 按名字借用：
+Some effects (such as stealth) engines have native hard-coded modifier support, but the `Modifiers` block cannot be found in the target KV (it is fully compiled into the engine and cannot be copied). You can still directly borrow `AddNewModifier` by name in TS:
 
 ```ts
-const invis = parent.AddNewModifier(parent, this.GetAbility(), 'modifier_riki_backstab', {
+const invis = parent.AddNewModifier(parent, this.GetAbility(), "modifier_riki_backstab", {
   duration,
   fade_delay: fadeDelay,
 });
 ```
 
-`duration` 参数通常能让原生 modifier 自动到期（如 `modifier_black_king_bar_immune`）。**若实机验证发现某个借用的原生 modifier 不吃 `duration` 自动移除**，改用 `Timers.CreateTimer(duration, callback)` 手动 `Destroy()`，`callback` 内先 `IsNull()` 判空再 `Destroy()`（防止已被其它途径提前移除时重复调用报错）：
+The `duration` parameter usually causes the native modifier to automatically expire (such as `modifier_black_king_bar_immune`). **If the actual machine verification finds that a borrowed native modifier does not eat `duration`, it will be automatically removed** and use `Timers.CreateTimer(duration, callback)` instead of manual `Destroy()`. In `callback`, first `IsNull()` will be judged empty and then `Destroy()` (to prevent repeated call errors when it has been removed in advance by other means):
 
 ```ts
 if (!invis) return;
@@ -126,35 +128,35 @@ Timers.CreateTimer(duration, () => {
 });
 ```
 
-原生 modifier 内部可能还支持其它同名参数覆写（如本例 `fade_delay`），具体哪些参数生效、哪些字段该从自身觉醒技能 KV 读取（而非硬编码），**没有文档，只能靠实机反复验证**，不要凭一次测试结果下结论。
+The native modifier may also support overwriting of other parameters with the same name (such as `fade_delay` in this example). Specifically, which parameters are effective and which fields should be read from its own awakeningability KV (rather than hard-coded). **There is no documentation and it can only be verified repeatedly by the actual machine**. Do not draw conclusions based on one test result.
 
-> 参考：风行者觉醒 `windrunner_whirlwind_custom`（`GetIntrinsicModifierName` 挂的被动 modifier）借用隐刺 `modifier_riki_backstab`；该被动与技能自身的主动 `OnSpellStart` 共存，二者互不影响——`GetIntrinsicModifierName` 不依赖 `AbilityBehavior`，主动大招可以正常保留 `IMMEDIATE | NO_TARGET` 之类行为。
+> Reference: Windrunner awakening `windrunner_whirlwind_custom` (the passive modifier linked to `GetIntrinsicModifierName`) borrows Hidden Thorn `modifier_riki_backstab`; this passive coexists with ability's own active `OnSpellStart`, and the two do not affect each other - `GetIntrinsicModifierName` is not dependent `AbilityBehavior`, the active ultimate can normally retain behaviors such as `IMMEDIATE | NO_TARGET`.
 
-### 进阶 8：需要读取「施法者当前 AoE/属性加成」等动态值时，优先在自身 KV 声明同名字段
+### Advanced 8: When you need to read dynamic values such as "the caster's current AoE/attribute bonus", give priority to declaring a field with the same name in your own KV
 
-想让觉醒技能的某个数值自动叠加施法者当前的 AoE 加成（或其他类似的引擎内置加成机制）时，**不要**用「哑值探测」手法（如声明一个 `value: "1"` 的占位数值加 `affected_by_aoe_increase: "1"`，再用 `GetSpecialValueFor() - 1` 反推出加成百分比、手动相加到别的数值上）。正确做法是直接在自身 KV 里声明目标字段本身（字段名与原版一致，如 `scepter_aura_radius`），带上同样的 `affected_by_aoe_increase: "1"`，让 `GetSpecialValueFor('scepter_aura_radius')` 直接返回已经计入加成的最终值。这样既不需要跨技能读取原版 KV，也不需要额外的相加逻辑，且能直接用 `%scepter_aura_radius%` 占位符内联进本地化正文（与原版写法一致）。
+When you want a certain value of awakeningability to automatically superimpose the caster's current AoE bonus (or other similar engine built-in bonus mechanisms), **Don't** use the "dumb value detection" technique (such as declaring a placeholder value of `value: "1"` plus `affected_by_aoe_increase: "1"`, then using `GetSpecialValueFor() - 1` to deduct the bonus percentage, and manually adding it to other values). The correct approach is to directly declare the target field itself in its own KV (the field name is consistent with vanilla, such as `scepter_aura_radius`), bring the same `affected_by_aoe_increase: "1"`, and let `GetSpecialValueFor('scepter_aura_radius')` directly return the final value that has been factored in the bonus. In this way, there is no need to read vanilla KV across capabilities, nor additional addition logic, and the `%scepter_aura_radius%` placeholder can be directly inlined into the localized text (consistent with vanilla writing).
 
-### 进阶 9：运行时替换类技能的 `HasScepterUpgrade` + `scepter_description` 不会正常显示
+### Advanced 9: `HasScepterUpgrade` + `scepter_description` will not display normally when replacing ability class at runtime
 
-觉醒技能若是**运行时替换**（通过 `awaken-config.ts` 的 `targetAbility` 把原版技能整体换成新的 `ability_lua`），即使 KV 里带 `HasScepterUpgrade: "1"` 并写了 `_scepter_description`，引擎也不会渲染这个神杖对比预览面板——因为该面板依赖的是"英雄默认自带、原生学习"的技能实例，替换类技能走的是完全不同的运行时挂载路径。神杖相关的效果说明应直接写进主 `_Description` 正文（可加 `<font color='#92acf5'>阿哈利姆神杖</font>` 提示），不要指望 `_scepter_description` 单独显示。（注：常驻挂在英雄默认技能槽的觉醒技能，如 `imba_chaos_knight_phantasm`，`scepter_description` 可以正常显示，问题只出在替换类。）
+awakeningability is **runtime replacement** (replace the overall vanilla ability with the new `ability_lua` through `targetAbility` of `awaken-config.ts`), even if the KV contains `HasScepterUpgrade: "1"` and writes `_scepter_description`, the engine will not render this scepter comparison preview panel - because this panel relies on the ability instance of "heroes come with default, native learning", and the replacement class ability takes a completely different runtime mounting path. The effect description related to the Scepter should be written directly into the main `_Description` text (a `<font color='#92acf5'>Aghanim's Scepter</font>` prompt can be added), and do not expect `_scepter_description` to be displayed separately. (Note: The awakeningability that is permanently hung in the hero's default ability slot, such as `imba_chaos_knight_phantasm`, `scepter_description`, can be displayed normally. The problem only lies in the replacement class.)
 
-### 进阶 10：觉醒专属参数不要塞进原版技能的 override KV
+### Advanced 10: Awakening exclusive parameters should not be stuffed into vanilla ability override KV
 
-觉醒技能若需要「跟随某个原版技能的等级/天赋联动」某个数值（如领域半径随原版技能天赋扩大），**不要**为了图省事把这个觉醒专属的自定义字段直接写进 `npc_abilities_override.txt` 里原版技能自己的 `AbilityValues`——即使代码要通过 `FindAbilityByName(原版技能).GetSpecialValueFor('自定义字段')` 去读、需要蹭同一份天赋绑定，也不能把字段存放在原版技能身上。这样会让原版技能的差分文件里混入一个只有觉醒机制认识的字段，看 override 文件的人无法理解这个字段为什么存在，后续调整原版技能数值平衡时也容易误改或误删。
+awakening ability needs to "follow the level/talent linkage of a certain vanilla ability" a certain value (such as the area radius expanding with the vanilla ability talent), **do not** write this awakening-specific custom field directly into `npc_abilities_override.txt` to save trouble. vanilla ability's own `AbilityValues` - even if the code has to pass `FindAbilityByName(Original Skill).GetSpecialValueFor('Custom Field')` To read it, you need to bind it with the same talent, and you cannot store fields in vanilla ability. This will cause a field that is only recognized by the awakening mechanism to be mixed into the delta override file of vanilla ability. People who read the override file will not be able to understand why this field exists. It is also easy to accidentally change or delete it when adjusting the balance of the vanilla ability value later.
 
-正确做法：字段直接定义在觉醒技能自己的 KV 里；需要联动原版技能当前等级/天赋时，在代码里读取原版技能实例的等级/已生效数值，用公式在觉醒技能侧算出最终值，而不是让原版技能替觉醒机制保管参数。
+Correct approach: The field is directly defined in awakeningability's own KV; when it is necessary to link the current level/talent of vanilla ability, read the level/effective value of the vanilla ability instance in the code, and use a formula to calculate the final value on the awakeningability side, instead of letting vanilla ability save the parameters for the awakening mechanism.
 
-### 进阶 11：目标是「简化原版操作」时，优先包一层自动化外壳，不要重新实现原版机制
+### Advanced 11: When the goal is to "simplify vanilla operations", give priority to wrapping an automated shell instead of re-implementing the vanilla mechanism.
 
-有些觉醒诉求本质是「原版技能手动操作太繁琐，希望自动帮玩家完成」（如某个需要手动施放+手动收尾两步操作的技能，想在自动施法开启后全自动化）。这类需求容易被过度设计成一套全新机制（如引入持续 buff/领域/独立数值体系去模拟"自动化后应有的效果"），实际上完全不需要——原版技能自身的施法逻辑、命中判定、加成效果都不用动，觉醒技能只需要做**一层控制外壳**。
+The essence of some awakening appeals is "manual operation of vanilla ability is too cumbersome, and I hope it can be completed automatically for the player" (for example, an ability that requires two steps of manual casting + manual ending wants to be fully automated after automatic casting is turned on). This kind of demand can easily be over-designed into a new mechanism (such as introducing a continuous buff/domain/independent numerical system to simulate "the effect that should be achieved after automation"). In fact, it is not needed at all - vanilla ability's own casting logic, hit determination, and bonus effects do not need to be touched, and awakeningability only needs to be a layer of control shell.
 
-这个方案还额外解决了英雄技能槽位已满、无法新增独立技能的问题：把原版技能隐藏（`SetHidden(true)`）挂在英雄身上而不是移除，觉醒技能占用同一个槽位对外显示，自身 KV 完整还原原版数值供玩家查看，内部通过代为调用原版技能的 `OnSpellStart()` 复用其全部效果——玩家看到的是"同一个技能位置多了自动施法能力"，而不是"技能被替换成了别的东西"。这是利用引擎已有机制实现最小改动的方式，槽位紧张、又只想加自动化能力时优先考虑这个思路。
+This solution additionally solves the problem that the hero's ability slot is full and cannot add independent abilities: the vanilla ability is hidden (`SetHidden(true)`) on the hero instead of removed. The awakeningability occupies the same slot and is displayed externally. The own KV completely restores the vanilla value for players to view. Internally, the vanilla ability `OnSpellStart()` is called on behalf of the hero. Reuse all its effects - what the player sees is "the same ability slot has the autocast ability added", rather than "the ability is replaced with something else". This is a way to achieve minimal changes using the existing mechanisms of the engine. This idea should be given priority when slots are tight and you just want to add automation capabilities.
 
-- 关闭自动施法：技能栏显示原版技能本体，玩家手动操作，行为与不觉醒时完全一致
-- 打开自动施法：觉醒技能的 intrinsic modifier 用 `OnIntervalThink` 周期检测触发条件（如冷却是否转好、范围内是否有合适目标），满足条件时**代替玩家调用原版技能自身的 `OnSpellStart()`**（而不是重新实现一遍技能效果），原版技能命中判定、加成、伤害全部原样生效；需要玩家原本手动点第二步操作（如某个收尾/确认技能）时，同样在检测循环里判断该技能是否可施放，可施放就代为调用
+- Turn off automatic casting: the ability column displays the vanilla ability body, the player operates manually, and the behavior is exactly the same as when not awakening
+- turns on automatic casting: the intrinsic modifier of awakeningability uses `OnIntervalThink` to periodically detect the triggering conditions (such as whether the cooling has improved, whether there is a suitable target within the range), and when the conditions are met, it will call vanilla ability itself instead of the player. `OnSpellStart()`\*\* (instead of reimplementing the ability effect), vanilla ability hit determination, bonus, and damage all take effect as they are; when the player needs to manually click on the second step operation (such as a certain ending/confirmation of ability), it is also judged in the detection loop whether the ability can be cast, and if it can be cast, it will be called on its behalf.
 
-判断「简化操作」类需求是否走偏了的信号：如果实现过程中出现了原版技能本身没有的新数值字段（半径、持续时间、加成档位）、新的 buff/debuff modifier、或者需要"叠加/覆盖原版效果"的逻辑，那大概率是把"自动化操作"和"改变技能效果"这两件事混在一起了——先回头确认需求到底是哪一种，多数"简化操作"类诉求只需要前者。代码代为触发 `OnSpellStart()` 时须补 `UseResources`，见 `src/vscripts/CLAUDE.md`「常见陷阱」。
+A signal to determine whether the "simplified operation" requirements have gone astray: if new numerical fields (radius, duration, bonus tier), new buff/debuffs that are not included in vanilla ability appear during the implementation process modifier, or the logic that requires "overlaying/overriding vanilla effects", it is most likely that the two things of "automated operation" and "changing ability effects" are mixed together - first go back and confirm which type of demand is, most "simplified operation" appeals only require the former. When the code triggers `OnSpellStart()`, `UseResources` must be added. See `src/vscripts/CLAUDE.md` "Common Traps".
 
-**替换类觉醒仍需完整还原原版技能的 KV 数值和本地化文案**：这层"自动化外壳"不改变原版效果，因此觉醒技能自己的 KV（`AbilityValues`、`AbilityCooldown`、`AbilityManaCost`、`HasScepterUpgrade` 等）和本地化描述都应该与原版技能 + `npc_abilities_override.txt` 差分之后的最终值保持完全一致（玩家在未开自动施法时，看到的技能面板本质就是原版技能本身）。新增的自动施法说明追加在原版描述之后，不要替换掉原版的效果描述。
+**Replacement of class awakening still requires complete restoration of vanilla ability's KV value and localization text**: This layer of "automation shell" does not change the vanilla effect, so awakeningability's own KV (`AbilityValues`, `AbilityCooldown`, `AbilityManaCost`, `HasScepterUpgrade`, etc.) and localization description should be consistent with vanilla ability + The final value after `npc_abilities_override.txt` delta override remains exactly the same (when the player does not turn on automatic casting, the ability panel he sees is essentially vanilla ability itself). The new automatic casting instructions are appended after the vanilla description, and do not replace the vanilla effect description.
 
-> 参考：上古巨神觉醒 `elder_titan_ancestral_spirit_awaken`——自动施法开启后，冷却转好且附近有敌方英雄时自动朝最远的英雄施放先祖之魂（直接调用原版 `elder_titan_ancestral_spirit` 的 `OnSpellStart`），游魂可召回时自动调用原版 `elder_titan_return_spirit`，不新增任何数值/效果，原版命中加成、护甲魔抗削弱、KV 数值、本地化描述全部原样保留。
+> Reference: Ancient Titan awakening `elder_titan_ancestral_spirit_awaken` - After automatic casting is turned on, when the cooldown improves and there are enemy heroes nearby, it will automatically cast the soul of the ancestors to the farthest hero (directly call `OnSpellStart` of vanilla `elder_titan_ancestral_spirit`), and automatically call vanilla when the wandering soul can be recalled. `elder_titan_return_spirit` does not add any new values/effects, and the vanilla hit bonus, armor and magic resistance reduction, KV values, and localized descriptions are all retained as they are.

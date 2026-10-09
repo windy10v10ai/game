@@ -1,276 +1,276 @@
 ---
 name: bot-item-build
-description: 基于出装统计 CSV 扩充 bot 各 tier 的候选装备池。
+description: "Expand candidate item pools for each bot build tier using item-build statistics CSV data. Use only on explicit user request."
 disable-model-invocation: true
 ---
 
-# Bot 出装候选池调整
+# Bot equipment candidate pool adjustment
 
-基于统计 CSV 调整 `src/vscripts/ai/build-item/bot-build-config.ts`（英雄专属候选池）与
-`bot-build-template.ts`（共享模板候选池）的 tier 装备构成。
+adjusts `src/vscripts/ai/build-item/bot-build-config.ts` (hero exclusive candidate pool) based on statistical CSV and The tier equipment composition of
+`bot-build-template.ts` (shared template candidate pool). For the
 
-> 参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」。
+> reference file path, see `game/scripts/npc/CLAUDE.md` "vanilla KV Reference".
 
 ---
 
-## 背景知识
+## Background knowledge
 
-### 候选池抽样机制
+### candidate pool sampling mechanism
 
-`bot-build-state.ts` 里 `MAX_ITEMS_PER_TIER = 6`：每个 tier 初始化时用
-`SampleWeightedWithoutReplacement`（`weighted-pool.ts`）从候选池加权随机抽 6 件进入实际购买列表
-（T5 数量按 `GetT5ItemCount` 难度阶梯浮动，非固定 6）。
+`bot-build-state.ts` in `MAX_ITEMS_PER_TIER = 6`: Used when initializing each tier
+`SampleWeightedWithoutReplacement` (`weighted-pool.ts`) 6 pieces are randomly selected from the candidate pool and entered into the actual purchase list
+(The number of T5 fluctuates according to the `GetT5ItemCount` difficulty ladder, not fixed 6).
 
-**候选池数组的书写顺序对结果没有任何影响**——纯加权随机抽取，权重默认为 1，只有写成
-`{ item, weight }` 才能自定义权重。排序、分组只是给人看的，不影响游戏内行为。
+**The writing order of the candidate pool array has no impact on the result** - pure weighted random extraction, the weight defaults to 1, only if it is written as
+`{ item, weight }` can customize the weight. Sorting and grouping are only for people to see and do not affect in-game behavior.
 
-**候选池 ≤ 6 件时，抽样等于原样返回，没有随机性**；必须明显 **> 6** 件才能让"这把和上把出的不一样"，
-也才能留出以后根据胜率数据继续优化候选池的空间（正好卡在 6 就没有改进余地了）。这是本 skill 每个
-tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本原因。**最佳区间是 8~10**，**不超过 12**——
-超过 12 会稀释每件装备的实际入选概率、增加维护和人工核对成本，此时应按信号强度裁掉最弱的条目；
-但 8~12 之间只要是真实数据支撑的有价值装备，不必为了凑到某个"整数"而强行裁剪。
+**When the candidate pool ≤ 6 pieces, the sampling is equal to returning the original without randomness**; it must be obvious **> 6** pieces to make "this one is different from the previous one",
+can also leave room to continue optimizing the candidate pool based on winning rate data in the future (if it happens to be stuck at 6, there is no room for improvement). This is the skill for each The root reason why the
+tier target quantity is lowered to **at least 8 units** (instead of exactly 6). **The best range is 8~10**, **not more than 12**——
+exceeding 12 will dilute the actual selection probability of each piece of equipment and increase maintenance and manual verification costs. At this time, the weakest entries should be cut according to signal strength;
+However, as long as the numbers between 8 and 12 are valuable equipment supported by real data, there is no need to forcibly cut them to get a certain "integer".
 
-**T5 是例外**：整个装备库里 T5 装备总数只有约 18 件，摊到单个英雄的候选池撑不满 8~10 的区间，
-目标改为 **7~9 件，不超过 10 件**。候选数量是优化目标，不得为了凑足数量加入与英雄定位不符、
-只有基础属性、或数据不足的装备。缺少可靠候选时保留缺口并向用户说明，等待补充数据或确认。
+**T5 is an exception**: There are only about 18 pieces of T5 equipment in the entire equipment library. When spread out, the candidate pool of a single hero cannot support the range of 8~10.
+The target is changed to **7~9 pieces, no more than 10 pieces**. The number of candidates is the optimization goal. It is not allowed to add candidates that are inconsistent with the hero's positioning in order to make up the number.
+Equipment with only basic attributes or insufficient data. In the absence of reliable candidates, gaps are retained and explained to the user, waiting for supplementary data or confirmation.
 
-> 编写 `src/vscripts/ai/item/specs/` 下的战斗使用逻辑（何时对谁使用某物品）是另一件事，
-> 与本 skill 的候选池调整无关，见 [bot-item-usage](../bot-item-usage/SKILL.md) skill。
+> Writing the combat usage logic (when to use an item on whom) under `src/vscripts/ai/item/specs/` is another matter,
+> has nothing to do with the candidate pool adjustment of this skill, see [bot-item-usage](../bot-item-usage/SKILL.md) skill.
 
-### Tier 归属规则（`item-tier-config.ts`）
+### Tier attribution rule (`item-tier-config.ts`)
 
-`ItemTier` 按实际金钱划分，区间为**左开右闭** `(下限, 上限]`：
+`ItemTier` Divided according to actual money, the interval is **left open and right closed** `(lower_bound, upper_bound]`:
 
-| Tier | 区间                 |
-| ---- | -------------------- |
+| Tier | Range                | When |
+| ---- | -------------------- | ---- |
 | T1   | cost ≤ 2000          |
 | T2   | 2000 < cost ≤ 5000   |
 | T3   | 5000 < cost ≤ 10000  |
 | T4   | 10000 < cost ≤ 30000 |
 | T5   | cost > 30000         |
 
-特殊道具需要偏离价格规则时（如 `item_hand_of_midas` 价格属于 T2 区间但特意定为 T1，
-`item_excalibur` 放在 T4 顶级），必须在该条目旁加注释说明原因，**不改规则本身**。
+special props need to deviate from the price rules (for example, the price of `item_hand_of_midas` belongs to the T2 range but is specifically set to T1,
+`item_excalibur` is placed at the top level of T4), a comment must be added next to the entry to explain the reason, **without changing the rule itself**. If the
 
-英雄专属池（`bot-build-config.ts` 的 `targetItemsByTier`）若配置了某个 tier，
-**完全替代**该英雄所用 `HeroTemplate` 的对应 tier 池，不合并。
+hero exclusive pool (`targetItemsByTier` of `bot-build-config.ts`) is configured with a certain tier,
+**completely replaces** the corresponding tier pool of `HeroTemplate` used by this hero and will not be merged.
 
-### HeroTemplate 分类与属性三选一配件
+### HeroTemplate Classification and Attributes Choose One Accessory
 
-`HeroTemplate` 按英雄真实主属性（Dota 官方 `AttributePrimary`，见
-`docs/reference/<version>/npc_heroes.txt` 对应英雄的 `AttributePrimary` 字段）分四种：
-`Strength` / `Agility` / `Intelligence` / `Universal`（ALL）。**新英雄首次配置 `template` 前必须查
-`AttributePrimary` 确认，不要凭"这个英雄玩起来像什么"或历史印象判断**——即使英雄名字听起来像力量/敏捷/
-智力，实际 `AttributePrimary` 也可能是 ALL。已迁移英雄的 `template` 字段以 `bot-build-config.ts`
-当前代码为准，不要仅凭 `AttributePrimary` 反推去"纠正"已有配置——是否重新归类 Universal 需要用户确认。
+`HeroTemplate` According to the true main attributes of the hero (Dota official `AttributePrimary`, see
+`docs/reference/<version>/npc_heroes.txt` corresponding to the hero’s `AttributePrimary` field) is divided into four types:
+`Strength`/`Agility`/`Intelligence`/`Universal` (ALL). **New heroes must be checked before configuring `template` for the first time.
+`AttributePrimary` Confirm, don't judge based on "what does this hero play like" or historical impressions** - even if the hero name sounds like Strength/Agility/
+intelligence, actual `AttributePrimary` may also be ALL. Migrated hero's `template` field ends with `bot-build-config.ts` The current code of
+shall prevail. Do not rely solely on `AttributePrimary` to "correct" the existing configuration - whether to reclassify it as Universal requires user confirmation.
 
-`item_bracer`（护腕）/`item_wraith_band`（怨灵系带）/`item_null_talisman`（空灵挂件）是同价位的
-属性三选一配件，分别主加力量/敏捷/智力（各 +5 主属性 +2 其余两项）。力量、敏捷、智力英雄必须匹配
-真实主属性，不能混入另外两件。全才英雄不强制使用或排除这三件，按其技能定位与数据决定是否保留。
+`item_bracer` (wrist guard)/`item_wraith_band` (wraith lace)/`item_null_talisman` (ethereal pendant) are in the same price range
+Choose one accessory from three attributes, mainly adding strength/agility/intelligence (each +5 main attribute +2 the other two). Strength, agility, and intelligence heroes must match
+is the real main attribute and cannot be mixed with the other two pieces. All-round heroes are not forced to use or exclude these three items. Whether to retain them is determined based on their ability positioning and data.
 
-### T5 装备定位参考
+### T5 equipment positioning reference
 
-部分 T5 装备的英雄适配定位不直接从名字看出，供判断候选时参考：
+The hero adaptation positioning of some T5 equipment is not directly visible from the name. It is provided for reference when judging candidates:
 
-- `item_hawkeye_turret`（鹰眼炮台）：技能实现要求 `IsRangedAttacker()`，只有远程英雄能触发，是远程英雄的核心 T5 装备
-- `item_magic_sword`（魔渊剑）：融合狂战斧 + 绝对破防之刃 + 大冰眼，是力量英雄的核心 T5 装备
-
----
-
-## 第一步：收集 CSV 输入
-
-用 AskUserQuestion 询问用户提供：
-
-- Bot 出装统计 CSV 路径（`...英雄_BOT.csv`）
-- 玩家出装统计 CSV 路径（`...英雄_玩家.csv`）
-
-至少需要一份；两份都有时按下文"数据优先级"处理。CSV 格式：
-`物品,英雄,Average 时长_秒,胜率,事件数,Average 金钱`（表头行跳过）。
-
-确认本次要调整的英雄范围（英雄内部代号，如 `npc_dota_hero_axe`）。若用户给出的是英雄中文名（如
-「风行者」「莱恩」），在 `npc_heroes.txt`（`docs/reference/<version>/`）中查出对应的
-`npc_dota_hero_<id>` 系统名，并在回复中明确列出中文名 → 系统名的对照，供用户确认没有认错英雄。
+- `item_hawkeye_turret` (Eagle Eye Turret): ability implementation requirement `IsRangedAttacker()`, only long-range heroes can trigger, it is the core T5 equipment of long-range heroes
+- `item_magic_sword` (Demon Abyss Sword): Fusion of Battle Fury Ax + Absolute Defense-breaking Blade + Big Ice Eye, it is the core T5 equipment of the power hero
 
 ---
 
-## 第二步：噪音过滤
+## Step 1: Collect CSV input
 
-分析前排除以下几类，不作为候选：
+Use AskUserQuestion to ask the user to provide:
 
-- **消耗品/中立物/仪式类**：信使、守望、烟雾、宝石、tp卷、回复消耗品（tango/flask/clarity/faerie_fire/enchanted_mango/infused_raindrop）、cheese 等
-- **融合/成就类原材料**：`item_fusion_*`、`item_dragon_ball_*`、名称含 `_part` 的中间件
-- **已由 `consumablesByTier` 自动处理的装备**：`item_wings_of_haste`、`item_ultimate_scepter`、
+- Bot item-build statistics CSV path (`...英雄_BOT.csv`)
+- Player item-build statistics CSV path (`...英雄_玩家.csv`)
+
+requires at least one copy; both copies are sometimes processed according to "Data Priority" below. CSV format:
+`物品,英雄,Average 时长_秒,胜率,事件数,Average 金钱` (header row skipped).
+
+confirms the range of heroes to be adjusted this time (internal hero code, such as `npc_dota_hero_axe`). If the user gives the Chinese name of the hero (such as
+"Windrunner" "Ryan"), the corresponding one was found in `npc_heroes.txt` (`docs/reference/<version>/`)
+`npc_dota_hero_<id>` system name, and clearly list the Chinese name → system name in the reply for users to confirm that they have not mistakenly identified the hero.
+
+---
+
+## Step 2: Noise filtering
+
+The following categories are excluded before analysis and are not considered candidates:
+
+- **Consumables/neutral objects/rituals**: messenger, watch, smoke, gems, tp roll, recovery consumables (tango/flask/clarity/faerie_fire/enchanted_mango/infused_raindrop), cheese, etc.
+- **Fusion/achievement raw materials**: `item_fusion_*`, `item_dragon_ball_*`, middleware whose name contains `_part`
+- **Equipment that has been automatically processed by `consumablesByTier`**: `item_wings_of_haste`, `item_ultimate_scepter`,
   `item_ultimate_scepter_2`、`item_aghanims_shard`、`item_moon_shard_datadriven`、
   `item_tome_of_strength`/`item_tome_of_agility`/`item_tome_of_intelligence`。
-  这些不进入 `targetItemsByTier` 候选池提案，混进来会和自动购买逻辑重复。
-- **`ItemQuality: "consumable"` 的装备**：即使 cost 落在某个 tier 区间也不进 `targetItemsByTier`——
-  这类装备本质是用完即耗（如 `item_tome_of_luoshu` 洛书，KV 里 `ItemPermanent: "0"`），塞进装备槽位
-  候选池会占用宝贵的槽位却买了就消失。添加候选前查一下该装备在
-  `docs/reference/<version>/items.txt` 或 `npc_items_custom.txt` 里的 `ItemQuality`。
-- **臂章系列固定候选范围**：`item_armlet` 系列只出 `item_armlet`（基础档）或 `item_armlet_pro_max`
-  （终极档），**不出** `item_armlet_plus`（中间件），也不出 pro_max 之后的平行分支
+  These do not enter the `targetItemsByTier` candidate pool proposals. If they are mixed in, they will overlap with the automatic purchase logic.
+- **`ItemQuality: "consumable"` equipment**: Even if the cost falls within a certain tier range, it will not enter `targetItemsByTier`——
+  This kind of equipment is essentially consumed after use (such as `item_tome_of_luoshu` in Luo Shu, `ItemPermanent: "0"` in KV), and is stuffed into the equipment slot.
+  The candidate pool will occupy valuable slots but disappear after buying them. Before adding candidates, check whether the equipment is available
+  `docs/reference/<version>/items.txt` or `ItemQuality` in `npc_items_custom.txt`.
+- **Fixed candidate range for armband series**: `item_armlet` series only has `item_armlet` (basic file) or `item_armlet_pro_max`
+  (ultimate file), **not available** `item_armlet_plus` (middleware), nor parallel branches after pro_max
   `item_armlet_light`/`item_armlet_dark`/`item_armlet_artifact`。
-- **`sell-item-config.ts` 的 `SellItemCommonJunkList` 里的装备**（`item_magic_wand` 和「消耗品」
-  段落里列出的几件除外——它们是设计上就该用完即扔的一次性/早期消耗品）：这份列表是背包超过出售阈值
-  （7~9件，`SellItem.GetSellThreshold`）时 `SellCommonJunkItems` **无条件**优先出售的清单。
-  `RemoveCurrentTierItems` 只保护"当前正在购买的这一 tier"，一旦出装进度推进到下一 tier，前面买的、
-  但在这份名单里的装备就会在下次背包超阈值时被半价甩卖——不管是不是特意买的。CSV 信号再强也不能用
-  （如 `item_diffusal_blade`、`item_eagle`、`item_talisman_of_evasion`、裸的
-  `item_kaya`/`item_sange`/`item_yasha`）。**每次生成候选池前必须对照这份列表逐条过滤**，不要只凭
-  tier 归属和信号强度判断。
+- **The equipment in `SellItemCommonJunkList` of `sell-item-config.ts`** (`item_magic_wand` and "consumables" Except for a few items listed in the
+  paragraph - they are disposable/early consumable items that are designed to be thrown away): This list is for backpacks that have exceeded the sale threshold
+  (7~9 pieces, `SellItem.GetSellThreshold`) `SellCommonJunkItems` **Unconditional** priority sale list.
+  `RemoveCurrentTierItems` only protects "the tier currently being purchased". Once the build progress is advanced to the next tier, previously purchased,
+  But the equipment on this list will be sold at half price the next time the backpack exceeds the threshold - regardless of whether it was bought specifically. No matter how strong the CSV signal is, it cannot be used.
+  (such as `item_diffusal_blade`, `item_eagle`, `item_talisman_of_evasion`, naked
+  `item_kaya`/`item_sange`/`item_yasha`). **Every time you generate a candidate pool, you must filter it one by one according to this list**. Don’t just rely on
+  tier belonging and signal strength judgment.
 
 ---
 
-## 第三步：按 canonical tier 过滤数据（不是按当前摆放位置）
+## Step 3: Filter data by canonical tier (not by current placement)
 
-读取 `item-tier-config.ts`，取每个装备的 `tier` 字段作为唯一权威依据。**过滤 CSV 数据时用这个字段**，
-不要看装备当前摆在 `bot-build-config.ts` 的哪个 tier 桶里——当前摆放位置可能本身就是待修正的错误
-（例如价格/tier 规则调整后遗留的历史归属）。
+reads `item-tier-config.ts` and takes the `tier` field of each device as the only authoritative basis. **Use this field when filtering CSV data**,
+Don’t look at which tier bucket of `bot-build-config.ts` the equipment is currently placed in - the current placement may itself be an error to be corrected
+(for example, historical attribution left after price/tier rule adjustment).
 
-**CSV 里出现但 `item-tier-config.ts` 完全没收录的装备**（不属于第二步噪音过滤名单，是真实遗漏）：
-不要因为查不到 tier 就直接跳过或换用别的装备顶替。**信号强（事件数明显不低，尤其是多个英雄反复出现同
-一件未收录装备）时直接自动补录，不需要额外用 AskUserQuestion 确认**——先在 `item-tier-config.ts` 里
-补上这条配置：`cost` 取 CSV 的「Average 金钱」列（同一装备各行数值应一致，可与命名/功能相近的同价位
-装备互相印证），`tier` 按该 cost 对照本节的价格区间表得出。补完后再按正常流程把它纳入候选。只有当信号
-很弱（个位数、极低事件数）或明显是过时/已改名的历史装备时才跳过。
+**Equipment that appears in the CSV but is not included in `item-tier-config.ts`** (does not belong to the second step noise filtering list, it is a real omission):
+Don’t just skip or replace it with other equipment just because you can’t find the tier. **Strong signal (the number of events is obviously not low, especially when multiple heroes appear repeatedly at the same time)
+(a piece of equipment that has not been included) will be automatically re-recorded without additional confirmation using AskUserQuestion** - first in `item-tier-config.ts`
+Add this configuration: `cost` Get the "Average money" column of the CSV (the values in each row of the same equipment should be consistent, and can be the same price with similar naming/functions)
+equipment mutually confirms each other), `tier` can be obtained by comparing the cost with the price range table in this section. After completion, follow the normal process to include it as a candidate. only when the signal
+is skipped only if it is very weak (single digits, very low event count) or is clearly obsolete/renamed historical equipment.
 
-**`ItemQuality: "component"` 的装备即使信号很强也跳过**：在 `docs/reference/<version>/items.txt`
-查该装备的 `ItemQuality` 字段——标为 `"component"` 说明官方就把它定位为合成中间件（如
-`item_orb_of_venom`、`item_helm_of_iron_will`、`item_diadem`），不是玩家会长期持有的终局装备，
-不应作为候选池目标，无论 CSV 事件数多高都跳过。`"secret_shop"`、`"artifact"` 等其他 quality 标签
-才是可以正常收录的终局装备。
+**`ItemQuality: "component"` equipment skips even if the signal is strong**: on `docs/reference/<version>/items.txt`
+Check the `ItemQuality` field of the equipment - marked as `"component"`, indicating that the official positions it as a synthetic middleware (such as
+`item_orb_of_venom`, `item_helm_of_iron_will`, `item_diadem`) are not end-game equipment that players will keep for a long time.
+should not be targeted by the candidate pool and is skipped regardless of how high the CSV event count is. `"secret_shop"`, `"artifact"` and other quality tags
+is the final equipment that can be included normally.
 
-**`nameCN` 取值来源，禁止自己猜译名**：优先在现有代码里找权威译名——`item-tier-config.ts` 里若已有
-该装备的 `nameCN` 字段直接用；没有的话查 `game/scripts/vscripts/bot/bot_item_data.lua` 或其他英雄配置
-里出现过的同装备注释。都找不到时，去 `game/resource/addon_schinese.txt` 搜
-`DOTA_Tooltip_Ability_<item_name>` 键取其值。三处都查不到再询问用户，不要凭印象/相似装备名称推测。
-
----
-
-## 第四步：读取当前候选池状态
-
-对每个目标英雄：
-
-- `Read bot-build-config.ts`，取该英雄 `targetItemsByTier` 里各 tier 现有条目
-- 若某 tier 未被英雄专属覆盖，`Read bot-build-template.ts` 查该英雄 `template` 对应的
-  `HeroTemplate` 配置里同 tier 的条目（作为现状基线，也作为后续兜底来源）
+**`nameCN` value source, you are prohibited from guessing the translation name**: Prioritize to find the authoritative translation name in the existing code - `item-tier-config.ts` if it already exists
+Use the `nameCN` field of this equipment directly; if not, check `game/scripts/vscripts/bot/bot_item_data.lua` or other hero configurations Comments on the same equipment that appeared in
+. If you can't find it, go to `game/resource/addon_schinese.txt` to search
+`DOTA_Tooltip_Ability_<item_name>` key to get its value. If you can't find it in three places, ask the user again. Don't make assumptions based on impressions/similar equipment names.
 
 ---
 
-## 第五步：逐 tier 构建扩充候选（数据优先级）
+## Step 4: Read the current candidate pool status
 
-对每个目标英雄的每个 tier，按以下优先级顺序纳入候选，直到数量达到 **至少 8 件**（最佳区间 8~10，
-不超过 12，见下方第 6 条）：
+For each target hero:
 
-1. **保留现有池子里的所有装备**
-2. **Bot 数据优先**：该 tier 下、该英雄的 Bot CSV 里出现过的装备，**全部纳入**（不设事件数阈值，
-   只要 tier 匹配、非噪音就算，因为这是历史实际购买行为，信号本身就有意义）
-3. **玩家数据补充**：若"现有 + Bot"仍不足 8，正常购买装备先按同 tier 的持有时长排序，再以胜率判断，
-事件数只用于确认样本量。位于物品抽选池的装备，事件数/选择率不能视为主动购买偏好，只有持有时长与胜率
-均在同 tier 表现突出的条目才可纳入
-4. **同英雄模板兜底**：若上述来源仍不够、且找不到明显合适的装备，**先按英雄主属性对应的 `HeroTemplate`
-   （Strength/Agility/Intelligence/Universal）里同 tier 尚未使用的条目挑选**，而不是直接跳到纯判断——
-   模板里的条目已经是该属性英雄的通用可用装备，比凭空猜测更可靠。仍不够时才检查角色定位相近的其他
-   tier（如力量模板的 T5 可能被辅助英雄借用）
-5. **纯角色定位判断**：若模板也补不出第 8 件（数据彻底稀薄，模板同 tier 条目已用完），
-   可将一件契合该英雄技能定位、但完全没有数据支撑的装备列为待确认候选（**仍需遵守属性三选一配件的匹配规则**）。
-   不得为了凑数加入只有基础属性或明显不符定位的装备。这类候选必须单独列出，用 AskUserQuestion 请用户确认，
-   未确认前不写入配置
-6. **超过 12 件时按信号强度裁剪，8~12 之间不强行裁剪**：若总数落在 8~12 之间、都是有真实数据支撑的
-   有价值装备，**保留全部**；只有超过 12 件时才按 Bot/玩家事件数之和裁掉信号最弱的条目，裁到 12 件以内
-
-每个候选标注来源（Bot 胜率/事件数、玩家事件数、模板借用、纯判断），供用户在确认阶段判断取舍。
-
-### 5.1 关键约束：同一 tier 不能塞进互斥装备
-
-`resolvedItems[tier]` 是**买光整份清单**，不是"多选一"——`bot-build-manager.ts` 的
-`TryPurchaseNormalItem` 会依次买掉该 tier 抽样命中的每一件，直到全部买完才进入下一 tier。
-所以**同一 tier 候选池里绝不能同时放入功能互斥的装备**，否则英雄会把它们全部买一遍，白白浪费金钱。
-
-最典型的互斥组是**鞋子**：`item_boots`（基础鞋）、`item_power_treads`、`item_arcane_boots`、
-`item_phase_boots`、`item_tranquil_boots` 在 `item-tier-config.ts` 里共享同一个 `baseItems`
-下位装备（`item_boots`），彼此之间**没有互相顶替出售的关系**（每种升级鞋只会顶替 `item_boots`
-本身，不会顶替另一种升级鞋）。**每个英雄的候选池里，鞋子类装备只能保留一种**（且不要把
-`item_boots` 当"安全填充"留着——它是低级鞋，选定了真正要用的鞋之后应直接替换掉，不要与真鞋并存）。
-
-添加候选前，检查该装备在 `item-tier-config.ts` 里的 `baseItems` 链：如果两件候选是同一功能槽位的
-不同分支（如多种鞋子、或共享同一下位装备但互不替代的平行版本），只留其中一件，其余用别的非冲突装备替代。
-
-**同一 `baseItems` 的平行分支同理，不只是鞋子**：`item-tier-config.ts` 里两件装备如果
-`baseItems` 都包含同一个下位装备（如 `item_wasp_callous` 和 `item_wasp_despotic` 都以
-`item_butterfly` 为下位装备，分别升级到蝴蝶的两条不同分支），它们是**互斥的平行分支**，不是互补装备——
-出售替代关系（`GetReplacedItems`）里彼此互不替代，买了不会互相顶替出售，会被同时买下白白浪费金钱。
-添加候选前扫一遍 `item-tier-config.ts` 找出所有共享同一 `baseItems` 条目的装备组，同一 tier 只保留
-其中信号最强的一个（下位装备本身，如 `item_butterfly`，可以和分支之一共存，因为分支会顶替它）。
+- `Read bot-build-config.ts`, take the existing entries in each tier of the hero `targetItemsByTier`
+- If a certain tier is not covered exclusively by a hero, `Read bot-build-template.ts` checks the corresponding hero `template`
+  `HeroTemplate` Entries of the same tier in the configuration (as the current status baseline and also as a source of follow-up information)
 
 ---
 
-## 第六步：展示提案，等待确认
+## Step 5: Build expansion candidates tier by tier (data priority)
 
-按英雄分组、按 tier 列出"现状 → 提案"，标明每个新增装备的来源。改动规模较小（几个英雄、几个 tier）
-时可直接在对话中用表格展示 + 一次性征求确认；改动规模大（批量英雄/多轮迭代）时应按
-`superpowers:writing-plans` 规范写入 plan 文件。
+For each tier of each target hero, candidates are included in the following priority order until the number reaches **at least 8** (the optimal range is 8~10,
+does not exceed 12, see item 6 below):
 
-第五步第 5 条产生的"纯判断"装备，必须在展示时单独高亮，不要和数据支撑的条目混在一起，避免用户误以为
-有数据背书。
+1. **Keep all equipment in the existing pool**
+2. **Bot data priority**: Equipment that appears in the Bot CSV of the hero under the tier will be included\*\* (no event threshold is set,
+   As long as the tier matches and is not noise, it doesn’t matter, because this is the actual historical purchasing behavior, and the signal itself is meaningful)
+3. **Player Data Supplement**: If the "Existing + Bot" is still less than 8, normally purchase equipment first sorted by the holding time of the same tier, and then judged by the winning rate. The number of
+   events is only used to confirm the sample size. For equipment in the item drawing pool, the number of events/selection rate cannot be regarded as active purchase preference, only the holding time and winning rate
+   Only entries with outstanding performance in the same tier can be included
+4. **Same as the hero template**: If the above sources are still not enough and you can’t find obviously suitable equipment, \*\*first press `HeroTemplate` corresponding to the hero’s main attribute Select the unused entries of the same tier in
+   (Strength/Agility/Intelligence/Universal) instead of jumping directly to pure judgment—— The entries in the
+   template are already universally available equipment for heroes of this attribute, which is more reliable than guessing. If it is still not enough, then check other roles with similar role positioning.
+   tier (such as T5 of the power template may be borrowed by auxiliary heroes)
+5. **Pure role positioning judgment**: If the template cannot make up the 8th item (the data is completely thin, and the template and tier entries have been used up),
+   can list an equipment that fits the hero's ability positioning but has no data support as a candidate for confirmation (**it still needs to comply with the matching rules of selecting one accessory from three attributes**).
+   It is not allowed to add equipment with only basic attributes or that obviously does not meet the positioning just to make up the numbers. Such candidates must be listed separately and ask the user for confirmation using an AskUserQuestion.
+   Configuration will not be written before confirmation
+6. **If the number exceeds 12, it will be cut according to the signal strength. If the number is between 8 and 12, it will not be forcibly cut.**: If the total number falls between 8 and 12, it is supported by real data.
+   Valuable equipment, **keep all**; only when there are more than 12 items, the items with the weakest signal will be cut based on the sum of the number of Bot/player events, and the items with the weakest signal will be cut to less than 12 items.
+
+Each candidate annotation source (Bot winning rate/number of events, number of player events, template borrowing, pure judgment) is for users to make decisions during the confirmation phase.
+
+### 5.1 Key constraint: Mutually exclusive equipment cannot be placed in the same tier
+
+`resolvedItems[tier]` is **buy out the entire list**, not "select one more" - `bot-build-manager.ts`
+`TryPurchaseNormalItem` will buy every item hit by sampling in this tier in turn, and will not enter the next tier until all are purchased.
+Therefore, equipment with mutually exclusive functions must not be put into the same tier candidate pool at the same time, otherwise the hero will buy them all, wasting money.
+
+The most typical mutually exclusive group is **shoes**: `item_boots` (basic shoes), `item_power_treads`, `item_arcane_boots`,
+`item_phase_boots` and `item_tranquil_boots` share the same `baseItems` in `item-tier-config.ts`
+lower-level equipment (`item_boots`), there is no relationship between each other's replacement and sale** (each upgraded shoe will only replace `item_boots`
+itself will not replace another upgraded shoe). **In each hero's candidate pool, only one type of footwear equipment can be reserved\*\* (and do not put
+`item_boots` Leave it as "safety filling" - it is a low-end shoe and should be replaced directly after choosing the shoe you really want to use, not to coexist with the real shoe).
+
+Before adding a candidate, check the `baseItems` chain of the equipment in `item-tier-config.ts`: if the two candidates are for the same function slot
+Different branches (such as multiple shoes, or parallel versions that share the same lower equipment but do not replace each other), keep only one of them, and replace the rest with other non-conflicting equipment.
+
+**Parallel branches of the same `baseItems` are the same, not just shoes**: If there are two pieces of equipment in `item-tier-config.ts`
+`baseItems` both contain the same lower equipment (for example, `item_wasp_callous` and `item_wasp_despotic` both start with
+`item_butterfly` are lower-level equipment, which are upgraded to two different branches of Butterfly respectively). They are **mutually exclusive parallel branches**, not complementary equipment——
+does not replace each other in the sale substitution relationship (`GetReplacedItems`). If you buy them, they will not replace each other and sell them. If you buy them at the same time, it will be a waste of money.
+Scan before adding candidates `item-tier-config.ts` Find all equipment groups that share the same `baseItems` entry, only keep the same tier
+The one with the strongest signal (the lower tier itself, such as `item_butterfly`, can coexist with one of the branches, since the branch will replace it).
 
 ---
 
-## 第七步：应用改动（用户确认后）
+## Step 6: Present the proposal and wait for confirmation
 
-- 编辑 `bot-build-config.ts`（或 `bot-build-template.ts`，若某 tier 在模板层本身普遍偏窄、
-  且多个英雄共享该模板均会受益，优先扩模板而不是逐个英雄重复相同装备）
-- 装备条目注释**只写中文名**（如 `// 金手指`），不写"数据信号稀薄的补充""胜率强信号"这类取舍推导过程
-  ——按项目注释规约，讨论过程不进代码注释。**例外**：若是真正的 tier 归属修正（如把某装备从错误的
-  tier 桶挪到正确的桶），可以留一句简短说明（如 `// 从 T5 移入，真实价格属于 T4`）
-- 若 canonical tier 本身需要调整（如某装备价格上偏离价格规则被特意定为另一档），在
-  `item-tier-config.ts` 对应条目旁加注释说明原因
+Lists "Current Status → Proposal" by hero and tier, indicating the source of each new equipment. Small changes (a few heroes, a few tiers)
+can be directly displayed in a table in the dialogue + one-time solicitation for confirmation; when the scale of changes is large (batch of heroes/multiple rounds of iterations), press
+`superpowers:writing-plans` specification is written into the plan file.
 
-### 7.1 首次迁移新英雄时的额外注册
-
-新出装系统已是 `BotBaseAIModifier` 的唯一默认行为——`Init()` 会对 `bot-build-config.ts` 中有配置的英雄无条件调用 `InitializeHeroBuild`，不再有英雄名单开关。老 Lua 出装系统（`modifier_bot_think_strategy`）已随全部英雄迁移完成一并移除。为新英雄首次添加 `bot-build-config.ts` 配置后**不需要**额外注册到任何名单，也**不需要**额外新建 `src/vscripts/ai/hero/hero-<name>.ts`：
-`AI.ts` 的 `getModifierName()` 对没有专属判断分支的英雄会默认落到通用的 `BotBaseAIModifier`，
-已迁移的 abaddon/axe/bane/bloodseeker/bounty_hunter 均无专属文件、全部走这条默认路径。只有当英雄
-需要**自定义技能施法逻辑**（超出通用出装/攻击行为）时才新建专属文件并在 `AI.ts` 的
-`getModifierName()` 里加判断分支，参考 `hero-viper.ts`、`hero-drow-ranger.ts` 等既有实现。
+The "pure judgment" equipment generated in step 5, item 5, must be highlighted separately when displayed, and should not be mixed with data-supported items to avoid misunderstandings by users.
+has data endorsement.
 
 ---
 
-## 第八步：一致性校验
+## Step 7: Apply changes (after user confirmation)
 
-改完后必须确认没有引入新的"摆放 tier 与 canonical tier 不一致"问题：写一个临时脚本（不提交进仓库，
-放 scratchpad 目录即可）解析 `bot-build-config.ts` / `bot-build-template.ts` 里每个
-`[ItemTier.Tn]: [...]` 区块中的装备名，对照 `item-tier-config.ts` 的 `tier` 字段，确认 0 处不一致。
+- Edit `bot-build-config.ts` (or `bot-build-template.ts`, if a certain tier is generally narrow in the template layer itself,
+  and multiple heroes will benefit from sharing this template, giving priority to expanding the template rather than repeating the same equipment for each hero)
+- Equipment entry notes **Only write the Chinese name** (such as `// 金手指`), do not write the derivation process of trade-offs such as "supplementary for weak data signal" and "strong signal of winning rate"
+  - According to the project comment protocol, no code comments are included during the discussion process. **Exception**: If it is a true tier ownership modification (such as moving a piece of equipment from the wrong tier
+    tier bucket to the correct bucket), you can leave a brief description (such as `// 从 T5 移入，真实价格属于 T4`)
+- If the canonical tier itself needs to be adjusted (for example, the price of a piece of equipment deviates from the price rules and is specifically set to another tier), in
+  `item-tier-config.ts` Add a comment next to the corresponding entry to explain the reason.
 
-同时检查第 5.1 节的互斥组问题：脚本里从 `item-tier-config.ts` 解析出所有共享同一 `baseItems`
-条目的装备分组（鞋子互斥组 `item_boots`/`item_power_treads`/`item_arcane_boots`/`item_phase_boots`/
-`item_tranquil_boots` 只是其中一种，`item_wasp_callous`/`item_wasp_despotic` 这类共享同一下位装备的
-平行分支同理），逐组扫描每个英雄每个 tier 是否同时出现 2 件以上，若有则必须修复。
+### 7.1 Additional registration when migrating new heroes for the first time
 
-然后运行：
+The new item-build system is the only default behavior of `BotBaseAIModifier` - `Init()` will unconditionally call `InitializeHeroBuild` for heroes configured in `bot-build-config.ts`, and there is no longer a hero list switch. The old Lua item-build system (`modifier_bot_think_strategy`) has been removed together with the migration of all heroes. Adding `bot-build-config.ts` for the first time to a new hero does not require ** additional registration to any list after configuration, nor does it require ** additional creation of `src/vscripts/ai/hero/hero-<name>.ts`:
+`getModifierName()` of `AI.ts` will fall to the general `BotBaseAIModifier` by default for heroes without exclusive judgment branches.
+The migrated abaddon/axe/bane/bloodseeker/bounty_hunter has no exclusive files and all follow this default path. Only as a hero
+Only when **customized ability casting logic** (beyond the general equipment/attack behavior) are needed can a new exclusive file be created and placed in `AI.ts`
+`getModifierName()` adds the judgment branch, refer to the existing implementations such as `hero-viper.ts` and `hero-drow-ranger.ts`.
+
+---
+
+## Step 8: Consistency Verification
+
+After the modification, you must confirm that no new "placement tier is inconsistent with canonical tier" problem has been introduced: write a temporary script (not submitted to the repository,
+can be placed in the scratchpad directory) to parse each of `bot-build-config.ts` / `bot-build-template.ts`
+The equipment name in the `[ItemTier.Tn]: [...]` block is compared with the `tier` field of `item-tier-config.ts` to confirm that there are 0 inconsistencies.
+
+Also check the mutually exclusive group problem in Section 5.1: the script parses out from `item-tier-config.ts` all sharing the same `baseItems` Equipment grouping of
+entry (shoe mutually exclusive group `item_boots`/`item_power_treads`/`item_arcane_boots`/`item_phase_boots`/
+`item_tranquil_boots` is just one of them, `item_wasp_callous`/`item_wasp_despotic` share the same lower equipment The same applies to
+parallel branches), scan each hero and each tier group by group to see if more than 2 items appear at the same time. If so, they must be repaired.
+
+Then run:
 
 ```bash
-npx eslint <改动文件> --max-warnings=0
+npx eslint <changed_files> --max-warnings=0
 npx jest src/vscripts/ai/build-item
 ```
 
 ---
 
-## Skill 交互规范
+## Skill interaction specification
 
-- **数据优先级固定**：Bot 优先、玩家补充、模板兜底、纯判断兜底，不跳过前面的层级直接用判断。
-- **纯判断类装备必须 AskUserQuestion 确认**，不得自行决定。
-- **目标至少 8 件，最佳区间 8~10，不超过 12**——正好 6 件没有为后续胜率驱动的迭代留出空间。8~12
-  之间只要是真实数据支撑的有价值装备就可以保留，不必强行裁到某个"整数"；超过 12 件才需要按信号
-  强度裁剪。**T5 例外：装备库总量少，目标改为 7~9 件，不超过 10 件**。
-- **不修改** `MAX_ITEMS_PER_TIER`、`GetT5ItemCount` 难度阶梯、tier 边界规则本身。
-- **注释只写装备中文名**，不写数据来源推导过程；tier 归属修正类改动才附简短原因。
-- **同一 tier 内鞋子（及其他无 sell-replacement 关系的同槽位装备）只能保留一种**，`item_boots`
-  不作为"安全填充"与真鞋并存，选定真鞋后应从候选池移除。
-- **属性三选一配件（护腕/怨灵系带/空灵挂件）**：力量、敏捷、智力英雄必须匹配真实主属性，查
-  `docs/reference/<version>/npc_heroes.txt` 的 `AttributePrimary` 确认。Universal 英雄可按技能定位与数据
-  选择其中一件，但不强制使用。
-- **物品抽选池数据**：抽中某装备不代表玩家主动选择购买，不能按事件数/选择率排序。此类装备仅在同 tier 的
-  持有时长与胜率都表现突出时才可纳入候选池，事件数仅用于确认样本量。
-- **臂章系列只出 `item_armlet` 或 `item_armlet_pro_max`**，不出 `item_armlet_plus`，也不出
+- **Data priority is fixed**: Bot priority, player supplementation, template all-inclusive, pure judgment all-in-one, do not skip previous levels and use judgment directly.
+- **Pure judgment equipment must be confirmed by AskUserQuestion** and cannot be decided by oneself.
+- **Aim for at least 8 pieces, optimal range is 8~10, no more than 12** - exactly 6 pieces leaves no room for subsequent win rate driven iterations. 8~12 As long as it is valuable equipment supported by real data between
+  , it can be retained. There is no need to forcibly cut it to a certain "integer"; only if it exceeds 12 pieces, you need to press the signal
+  Strength cut. **T5 exception: The total amount of equipment library is small, the target is changed to 7~9 pieces, no more than 10 pieces**.
+- **Not modified** `MAX_ITEMS_PER_TIER`, `GetT5ItemCount` difficulty ladder, tier boundary rule itself.
+- **Note: only write the Chinese name of the equipment**, do not write the data source derivation process; only a brief reason for the tier attribute modification change is attached.
+- **Shoes in the same tier (and other equipment in the same slot without sell-replacement relationship) can only retain one type**, `item_boots`
+  does not coexist with real shoes as "safety filling", and should be removed from the candidate pool after real shoes are selected.
+- **Choose one accessory from three attributes (wrist guards/wraith belt/ethereal pendant)**: Strength, agility, and intelligence heroes must match the real main attributes, check
+  `AttributePrimary` of `docs/reference/<version>/npc_heroes.txt` confirmed. Universal heroes can be positioned and data by ability
+  Choose one of these, but it is not mandatory.
+- **item lottery pool data**: Winning a piece of equipment does not mean that the player actively chooses to purchase it, and cannot be sorted by the number of events/selection rate. Such equipment is only available in the same tier
+  can be included in the candidate pool only if its holding time and winning rate are both outstanding. The number of events is only used to confirm the sample size.
+- **Armband series only available`item_armlet`or`item_armlet_pro_max`**, not out`item_armlet_plus`, nor out
   `item_armlet_light`/`item_armlet_dark`/`item_armlet_artifact`。

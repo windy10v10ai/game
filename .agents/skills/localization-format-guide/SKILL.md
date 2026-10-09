@@ -1,31 +1,30 @@
 ---
 name: localization-format-guide
-description: 本地化文件（addon_schinese / addon_english / addon_russian）的格式与同步规范。触发：新增或修改任一本地化文件中的键。
+description: "Maintain consistent formatting and synchronized keys in addon_schinese, addon_english, and addon_russian. Use when adding or modifying localization keys or repairing indentation, markup, or placeholders."
 ---
 
 # Localization Format Guide
 
-本技能用于维护 `game/resource/` 下的本地化 KeyValues 文件，确保**中英俄三语内容与格式完全一致、key 顺序与注释一致**，并遵循项目对缩进、注释、HTML 标签、颜色代码与变量占位符的规范。
+This skill is used to maintain the localized KeyValues ​​file under `game/resource/`, ensuring that the Chinese, English and Russian content and format are completely consistent, the key order is consistent with the comments, and the project's specifications for indentation, comments, HTML tags, color codes and variable placeholders are followed.
 
-## 使用时机
+## usage time
 
-- 新增/修改 UI、物品、技能、modifier 的本地化键
-- 同步三语本地化文件内容与格式
-- 修复对齐、缩进、标签、占位符不一致导致的显示问题
+- Add/modify localization keys for UI, item, ability, and modifier
+- synchronizes the content and format of trilingual localization files
+- Fixed display problems caused by inconsistent alignment, indentation, labels, and placeholders
 
-## 参考资料（必须遵循）
+## Reference (must be followed)
 
 - `references/localization-format-guide.md`
 
-## 执行步骤（建议）
+## execution steps (recommendations)
 
-1. 明确要新增/修改的 key 列表与对应文本
-2. 同时在 `addon_schinese.txt`、`addon_english.txt`、`addon_russian.txt` 增删相同 key，三个文件中的位置与先后顺序一致，注释统一用中文
-3. 改动的条目在俄文中原本缺失时，把该条目的全部键（含 modifier、同系列条目）一并补齐；存量中无关条目不必顺手补，已有俄文不得单方面删除
-4. 对齐检查：
-   - 缩进、tab 对齐、空行位置一致
-   - HTML 标签位置一致（包括 `\n` 与 `<br>`）
-   - 占位符（如 `%duration%`、`%dMODIFIER_PROPERTY_XXX%`）一致
-5. 若涉及 modifier：补齐 `Name` 与 `Description` 必需条目
-6. 中文标点使用全角；数字/英文/HTML/占位符保持原样
-
+1. Specify the key list and corresponding text to be added/modified
+2. adds and deletes the same key in `addon_schinese.txt`, `addon_english.txt`, and `addon_russian.txt` at the same time. The positions in the three files are consistent with the order. Comments are uniformly in Chinese.
+3. When the modified entry is originally missing in Russian, all keys of the entry (including modifier, entries in the same series) must be filled in together; irrelevant entries in the inventory do not need to be filled in, and existing Russian entries must not be deleted unilaterally.
+4. alignment check:
+   - indentation, tab alignment, and blank line position are consistent
+   - HTML tags are in the same position (including `\n` and `<br>`)
+   - placeholder (such as `%duration%`, `%dMODIFIER_PROPERTY_XXX%`) is consistent
+5. If modifier is involved: Complete the required entries for `Name` and `Description`
+6. Chinese punctuation uses full width; numbers/English/HTML/placeholders remain the same

@@ -1,91 +1,91 @@
 ---
 name: release-note
-description: 生成 Steam Workshop 中英文更新日志，可写回 open PR。触发：创建 PR 且需要 Release Note 时必须调用本 skill 生成，不要手写；纯内部改动不调用。
+description: "Generate Chinese and English Steam Workshop release notes and optionally update an open PR. Use when a PR needs release notes; do not use for purely internal changes."
 ---
 
 # Changelog
 
-为 Windy10v10AI Steam Workshop 生成中英文更新日志。
+generates Chinese and English update logs for Windy10v10AI Steam Workshop.
 
-## 使用方法
+## How to use
 
-### 手动
+### manual
 
 ```
 /changelog 5.11 修正猴子棒击、新增火焰风暴、同步7.40c
 ```
 
-### 从 GitHub PR
+### PR from GitHub
 
 ```
 /changelog #1234
 ```
 
-从 PR 读取标题、描述、commits，提取更新内容。
+Read the title, description, and commits from the PR and extract the updated content.
 
-### 从 GitHub Issue
+### from GitHub Issue
 
 ```
 /changelog https://github.com/windy10v10ai/game/issues/1952
 ```
 
-URL 含 `/issues/` → Issue；拉取正文分两条路径：
+URL contains `/issues/` → Issue; there are two paths to pull the text:
 
-**A. 标准路径**（正文含 `### 7.41 同步核对` 与 `- [x]` / `- [ ]` 清单）：
+**A. Standard path** (The text contains the lists of `### 7.41 同步核对` and `- [x]` / `- [ ]`):
 
 1. `gh issue view <N> --repo windy10v10ai/game --json body`
-2. 截取 `### 7.41 同步核对` 至首个 `**说明**` 之间的清单行。
-3. 统计已完成 `- [x]` 与未完成 `- [ ]`；总数 = 二者之和。
-4. 已完成英雄名用于「多英雄并列」，末尾缀 `（Issue #N 英雄核对进度 x/总数）` / `(Issue #N hero checklist: x/total)`。
-5. 解析 JSON 时去掉 BOM（`\uFEFF`）。
+2. intercepts the list lines between `### 7.41 同步核对` and the first `**说明**`.
+3. counts completed `- [x]` and unfinished `- [ ]`; the total number = the sum of the two.
+4. The completed hero name is used in "Multiple Heroes Parallel" and ends with `（Issue #N 英雄核对进度 x/总数）` / `(Issue #N hero checklist: x/total)`.
+5. Remove BOM (`\uFEFF`) when parsing JSON.
 
-**B. 回退路径**（无 checklist）：据 Issue 标题与描述写 2–5 条玩家向 bullet，**不**编造 `x/总数`。
+**B. Fallback path** (no checklist): Write 2-5 player bullets according to the Issue title and description, **Do not** make up `x/total`.
 
-## 适用范围
+## applicable scope
 
-纯内部改动（重构、构建、CI、文档、测试，玩家读不出一条更新内容）不调用本 skill，也不需要确定版本号；判定标准见 `create-pr` skill 的「Release Note 三选一」。
+purely internal changes (refactoring, building, CI, documentation, testing, players cannot read a single update content) do not call this skill, and do not need to determine the version number; for the judgment criteria, see the "Release Note Three Select One" of the `create-pr` skill.
 
-## 版本号决策（优先级由上至下，命中即用）
+## version number decision (priority from top to bottom, hit and use) The
 
-版本号须为具体 `v…` 字符串，**禁止**占位符。格式：主版本 `5.00`/`5.10`，补丁 `5.00a`/`5.00b`。
+version number must be the specific `v…` string, and placeholders are prohibited. Format: Main version `5.00`/`5.10`, patch `5.00a`/`5.00b`.
 
-调用方（如 `create-pr`）在参数里已注明本次走「大版本」还是「小版本补丁」时，**不要**重复提问，跳过步骤 3 的二选一，只按该轨道解出具体版本号。
+When the caller (such as `create-pr`) has indicated in the parameters whether to use "major version" or "minor version patch" this time, **do not** repeat the question, skip the choice of one in step 3, and only use this track to solve the specific version number.
 
-### 1. 用户指定
+### 1. Explicit version supplied by the user
 
-参数中出现 `v5.xxa` / `5.xx` 等，直接规范为 `v…` 采用。
+Appears in parameters`v5.xxa` / `5.xx`etc., the direct specification is`v…`use.
 
-### 2. 特殊口令 `版本号+1`
+### 2. Special instruction `版本号+1`
 
-Steam 最新去掉字母后缀 +0.01 得下一主版本（如 `v5.19b` → `v5.20`）。若 open release PR 版本一致则直接采用；不一致则问用户。
+Steam latest removes the letter suffix +0.01 to get the next major version (such as `v5.19b` → `v5.20`). If the open release PR versions are consistent, adopt them directly; if they are inconsistent, ask the user.
 
-### 3. Open release PR 大版本 > Steam（推荐值，须问用户）
+### 3. Open release PR large version > Steam (recommended value, please ask the user)
 
-**必须先 WebFetch** [Steam Workshop Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 取第 1 页首条版本作为当前 Steam 最新版——**每次执行本步骤时都必须重新 fetch，不得使用会话早期的缓存结果。**
+**Must WebFetch first** [Steam Workshop Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570)Take the first version on page 1 as the latest version of current Steam - **You must re-fetch each time you perform this step, and cached results from earlier sessions must not be used. **
 
 ```bash
 gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url
 ```
 
-- **release PR 大版本严格高于 Steam**（Steam `v5.45b`，release PR `v5.46`）→ release PR 版本只是**推荐值**，用 `AskUserQuestion` 让用户二选一（轨道已由调用方注明时直接取对应那条）：
-  - 大版本 `v5.46`（推荐，即 release PR 标题版本）
-  - 小版本补丁 `v5.45c`（步骤 4 递增结果）
-- **Steam 已发布与 release PR 同大版本**（Steam `v5.46`，release PR `v5.46`）→ 进入步骤 4。
-- 多条 release PR → 问用户用哪条。
+- **release PR large version is strictly higher than Steam** (Steam `v5.45b`, release PR `v5.46`) → release PR version is only **recommended value**, use `AskUserQuestion` to let users choose one of the two (directly take the corresponding one when the track has been indicated by the caller):
+  - Large version `v5.46` (recommended, that is, release PR title version)
+  - minor version patch `v5.45c` (incremental result of step 4)
+- **Steam has released the same version as the release PR** (Steam `v5.46`, release PR `v5.46`) → Go to step 4.
+- Multiple release PR → Ask the user which one to use. The recommended value of
 
-> 推荐值不可直接采用：release PR 由 `create_release_pr.yml` 在任意 PR 合入 `develop` 后自动创建（版本 = 最新 tag 大版本 +1），它的存在只说明有过一次合并，不代表本次改动作为大版本发布——用户往往仍在连续补小版本补丁。
+> cannot be used directly: release PR is automatically created by `create_release_pr.yml` after any PR is merged into `develop` (version = latest tag major version + 1). Its existence only indicates that there has been a merge, and does not mean that this change is released as a major version - users are often still patching minor versions continuously.
 
-无论用户选大版本还是小版本补丁，本次条目都要按下文「聚合 release PR」合并进该 PR。
+Regardless of whether the user chooses a major version or a minor version patch, this entry must be merged into the PR according to the "Aggregation Release PR" below.
 
-### 4. 默认：Steam 同大版本递增补丁字母
+### 4. Default: Steam increases patch letters with the same major version
 
-使用步骤 3 已 fetch 到的 Steam 最新版本，在同一大版本下递增字母（`v5.19b` → `v5.19c`；`v5.20` → `v5.20a`）。无字母则下一档为 `a`。无法解析时问用户。
+Use the latest Steam version that has been fetched in step 3, and increment the letters under the same major version (`v5.19b` → `v5.19c`; `v5.20` → `v5.20a`). If there is no letter, the next level is `a`. Unable to parse when asking the user.
 
-> `GAME_VERSION`（`GameConfig.ts`）不含 a/b/c 后缀；只有 Workshop 文案可出现 `v5.xxa`。
+> `GAME_VERSION` (`GameConfig.ts`) does not contain a/b/c suffix; `v5.xxa` can appear only in Workshop localization text.
 
-## 输出格式
+## output format
 
-中文：
+Chinese:
 
 ```
 [b]游戏性更新 v5.20[/b]
@@ -93,7 +93,7 @@ gh pr list --repo windy10v10ai/game --state open --label release --json number,t
 - 更新内容
 ```
 
-英文：
+English:
 
 ```
 [b]Gameplay update v5.20[/b]
@@ -101,158 +101,162 @@ gh pr list --repo windy10v10ai/game --state open --label release --json number,t
 - Update content
 ```
 
-交付时须为真实条目，不得保留占位。
+must be a real entry when delivered and no placeholders may be retained.
 
-### 多英雄并列
+### Multiple heroes tied together
 
-同一条 bullet 列出所有英雄；中文用 **，**（全角逗号）分隔，**禁止**用顿号 **、**；英文用 **, ** 分隔。
+The same bullet lists all heroes; Chinese is separated by **, ** (full-width commas), ** prohibits ** from commas **, **; English is separated by **, **.
 
-**英雄范围确定规则：**
-- **PR**：通过 `gh pr diff <N>` 提取实际改动的技能前缀（如 `pudge_`、`silencer_` 等），只列**本 PR 实际涉及**的英雄，不得包含其他 PR 的英雄
-- **Issue checklist**：只列已勾选 `- [x]` 的英雄
+**Hero range determination rules:**
 
-**进度标注（Issue + checklist 时必须）：**
-- 中文：`（x/总数）` 紧跟在「技能更新」之后，冒号前
-- 英文：`(x/total)` 同位置
+- **PR**: Extract the actual changed ability prefix (such as `pudge_`, `silencer_`, etc.) through `gh pr diff <N>`. Only the heroes actually involved in \*\*this PR are listed, and the heroes of other PRs must not be included.
+- **Issue checklist**: Only heroes with `- [x]` checked are listed
 
-句式模板：
+**Progress mark (required for Issue + checklist):**
+
+- Chinese: `（x/总数）` immediately after "ability update" and before the colon
+- English: `(x/total)` Same location
+
+sentence template:
+
 ```
 - 同步 Dota 2 7.41 英雄的技能更新（x/总数）：英雄A，英雄B，英雄C
 ```
+
 ```
 - Synced Dota 2 7.41 ability updates (x/total): Hero A, Hero B, Hero C
 ```
 
-英雄名称**必须**从本地化文件查找，**禁止**从 `abilities_schinese.txt` / `abilities_english.txt` 猜测：
+hero name **must** be looked up from localization files, **not allowed** from `abilities_schinese.txt` / `abilities_english.txt` guesses:
 
 ```bash
-# 查英雄中文名（以 pugna 为例）
+# Check the Chinese name of the hero (take pugna as an example)
 grep -i "npc_dota_hero_pugna" game/resource/addon_schinese.txt
-# 若无结果，从 docs 参考文件查
+# If there is no result, check from the docs reference file
 grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_schinese.txt
 
-# 查英雄英文名
+# Check the English name of the hero
 grep -i "npc_dota_hero_pugna" game/resource/addon_english.txt
 grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_english.txt
 ```
 
-找不到时用 `docs/reference/<version>/abilities_schinese.txt` 中 `npc_dota_hero_<id>:n` 行的值。
+is not found, the value of the `npc_dota_hero_<id>:n` row in `docs/reference/<version>/abilities_schinese.txt` is used.
 
-## 撰写原则
+## Writing Principles
 
-1. 简洁明了，每条尽量压成 1 句；同一目标的多个改动点用逗号串在这 1 句里，不为每个改动点新开一条
-2. 重要的写在前面
-3. 中文全角标点，英文半角标点
-4. 中英文都直接表述：英文避免 `Fixed an issue where X...` 这类开头，直接写 `Fixed X...`；中文去掉「由于」「本次」等因果连接与指代虚词，直接陈述改动
-5. 物品/技能名及其内部效果/增益名（如"开关"技能的具体称呼）一律从本地化文件查找（中 `addon_schinese.txt`，英 `addon_english.txt`）核实后再用，**禁止凭印象/常见 Dota 术语臆造**——同一件物品在不同 mod 里效果命名可能不同，写错等于编造了一个不存在的机制
-6. 优先用玩家熟悉的简称与主动句式（如"魔免/魔抗"而非"魔法免疫、魔法抗性等效果"；"不再触发X"而非"不再能被X选取"），避免被动语态和书面化长句
+1. Be concise and clear, try to compress each item into one sentence; use commas to string multiple change points for the same goal in this one sentence, do not create a new sentence for each change point
+2. Write the important ones at the front
+3. Chinese full-width punctuation, English half-width punctuation
+4. is expressed directly in both Chinese and English: avoid starting with `Fixed an issue where X...` in English and write directly `Fixed X...`; in Chinese, remove causal connections and referential function words such as "because of" and "this time", and directly state the changes
+5. item/ability names and their internal effect/gain names (such as the specific name of "switch" ability) must be searched from the localization file (`addon_schinese.txt` in Chinese, `addon_english.txt` in English) before use. **It is forbidden to make up based on impressions/common Dota terminology** - the same item may have different effect names in different mods. Wrong writing is equivalent to fabricating a non-existent mechanism.
+6. Prioritize using abbreviations and active sentence patterns that players are familiar with (such as "magic immunity/magic resistance" instead of "magic immunity, magic resistance and other effects"; "no longer triggers X" instead of "can no longer be selected by X"), avoid passive voice and long written sentences
 
-### 玩家向
+### player to
 
-- **禁止**维护向用语：KV、override、对齐参考、注释、AbilityValues、文件路径
-- **避免**技术细节（具体倍率小数等），除非用户要求；玩家需要理解的具体数值（如积分倍率档位）可保留
-- **优先**玩家感知：加强/削弱/修正谁、哪类玩法变了
-- **不写**觉醒限时免费清单的增减（`FREE_TRIAL_HEROES` 加入/移出英雄），即使同一 PR 里改了清单
-- **Bot AI 行为改动（新增/修正 bot 对某物品或技能的使用逻辑）只需说明行为方向本身**（中文"电脑现在会主动使用/开启 XX"、"电脑不再误用 XX"；英文"Bot now actively uses/activates XX"、"Bot no longer misuses XX"），**不需要**连带描述该物品/技能效果是什么、数值多少——这些是物品/技能本身的固有效果，不是本次改动的内容，写出来反而喧宾夺主
-- 多英雄技能跟进时用「多英雄并列」句式
-- **同一目标的多处改动合并成一条**：同一英雄/物品/系统的多个改动点（改名、加成、新机制等）用逗号串成一句，不要每个改动点单独开一条 bullet。真实案例：
-  - 「重做无限手套：更改配方和属性，新增主动技能「灭世响指」，有50%概率直接湮灭敌方英雄」（配方+属性+新技能三处合并一条）
-  - 「齐天大圣大招改为斗战胜佛，新增齐天大圣觉醒：如意金箍棒额外伤害与施法距离提升，并可在被控制状态下施放大招、获得技能免疫」（改名+多个觉醒效果合并一条）
-- **不相关的小改动也可并列合并**：多个独立的小修正各自很短时，允许逗号并列写进同一条，不必逐条展开。真实案例：「修正影魔，幻影刺客觉醒魔法免疫会顶替黑皇杖魔免的问题，狙击手暗杀觉醒附带额外物理伤害，基础A杖眩晕」（三处不相关修正合并一条）
-- **改动琐碎且数量多时用概括性表述**，不逐条列举：「修正一些 bug 和平衡性改动」
-- 整体条数按改动量取舍，通常 1–6 条；优先靠合并压缩条数，不靠多开 bullet 塞下每个改动点
-- **单条内部仍要压成一行一句、尽量短**：去掉括号补充说明、引号内的技能强化名、spell amp/具体机制等次要限定，只留玩家可感知的核心变化。例：写「新增莉娜觉醒：每次释放神灭斩，对目标额外造成等同本次神灭斩伤害的纯粹伤害」，不再补「（受技能增强影响）」
+- **Prohibited** Maintenance-oriented terms: KV, override, alignment reference, comment, AbilityValues, file path
+- **Avoid** technical details (specific multiplier decimals, etc.) unless requested by the user; specific values that players need to understand (such as points multiplier tier) can be retained
+- **Priority** Player perception: Who and what type of gameplay has changed to strengthen/weaken/correct
+- **Do not write**awakening the increase or decrease in the limited-time free list (`FREE_TRIAL_HEROES` adds/removes heroes), even if the list is changed in the same PR
+- **Bot AI behavior changes (add/amend bot's usage logic for a certain item or ability) only need to explain the behavior direction itself** (Chinese "bot now actively uses/activates XX", "bot no longer misuses XX"; English "Bot now actively uses/activates XX", "Bot no longer misuses" XX"), there is no need to describe what the effect of the item/ability is and what the value is - these are the inherent effects of the item/ability itself, not the content of this change. Writing them out will overwhelm the focus.
+- Use the "multi-hero juxtaposition" sentence pattern when following up on multi-hero ability
+- **Multiple changes to the same target are combined into one**: Multiple changes to the same hero/item/system (name changes, bonuses, new mechanisms, etc.) are strung into one sentence with commas. Do not open a separate bullet for each change point. Real case:
+  - "Reworked the Infinity Gauntlet: changed the formula and attributes, added the active ability "Destroying Snap", with a 50% probability of directly annihilating the enemy hero" (recipe + attributes + new ability merged into one)
+  - "The Monkey King's ultimate has been changed to Fighting the Victorious Buddha, and the Monkey King's awakening has been added: Ruyi Golden Cudgel's additional damage and casting distance have been increased, and the ultimate can be cast while being controlled, and the ability immunity is obtained" (renamed + multiple awakening effects merged into one)
+- **Irrelevant small changes can also be merged side by side**: When multiple independent small corrections are very short, commas are allowed to be written side by side in the same article without having to expand them one by one. Real case: "Correction of Shadow Fiend, Phantom Assassin's awakening magic immunity will replace the Black King's Rod's magic immunity, Sniper Assassination's awakening comes with additional physical damage, and basic A staff stun" (Three unrelated corrections merged into one)
+- **When the changes are trivial and numerous, use a general statement** instead of listing them one by one: "Fix some bugs and balance changes"
+- The overall number of items is selected according to the amount of changes, usually 1-6 items; priority is given to merging and compressing the number of items, rather than opening more bullets to plug in each change point
+- **The inside of each line should still be compressed into one line and one sentence and be as short as possible**: Remove the supplementary explanation in brackets, the ability enhancement name in quotation marks, spell amp/specific mechanism and other minor restrictions, leaving only the core changes that players can perceive. Example: Write "Newly added Lina awakening: Each time she releases Divine Slash, she will cause additional pure damage to the target equal to the damage of this Divine Slash", and no longer add "(affected by ability enhancement)"
 
-### 从 PR 提取信息
+### Extract information from PR
 
-- 优先从描述中的更新列表提取；无列表则从 commits 推断 3–5 条
-- 生成聚合 release PR 的大版本块时，已在其保留的小版本块或已发布小版本中出现的改动不重复写入；大版本块只保留本轮待发布内容。
-- 注释同步、KV 对照、纯文档变更若无玩法影响不写入
-- 多英雄技能同步归纳为一条玩家向 bullet
-- 数值改动用定性表述，除非用户指定
+- is first extracted from the update list in the description; if there is no list, 3–5 items are inferred from commits
+- When generating a large version block that aggregates release PRs, changes that have appeared in its reserved small version blocks or published small versions will not be written repeatedly; the large version block only retains the content to be released in this round.
+- Note synchronization, KV comparison, and pure document changes will not be written if there is no gameplay impact.
+- Multi-hero ability synchronization is summarized into a player bullet
+- Numerical changes are expressed in qualitative terms unless specified by the user
 
-## 常用术语对照
+## Common terminology comparison
 
-| 中文 | 英文 |
-|------|------|
-| 同步Dota更新 | Sync Dota update |
-| 修正 | Fix/Fixed |
-| 新增 | Add/Added |
-| 调整 | Adjust/Adjusted |
-| 技能抽选池 | Ability draft pool |
-| 金钱/经验倍率 | Gold/XP multiplier |
-| 中立物品 | Neutral items |
-| 勇士积分 | Battle point |
-| 电脑 | Bot/Bots |
+| Chinese             | English            |
+| ------------------- | ------------------ |
+| Sync Dota update    | Sync Dota update   |
+| Fix                 | Fix/Fixed          |
+| New                 | Add/Added          |
+| Adjustment          | Adjust/Adjusted    |
+| ability draft pool  | Ability draft pool |
+| Money/XP multiplier | Gold/XP multiplier |
+| Neutral items       | Neutral items      |
+| Battle point        | Battle point       |
+| bot                 | Bot/Bots           |
 
-## GAME_VERSION 同步
+## GAME_VERSION sync
 
-文件：`src/vscripts/modules/GameConfig.ts`，不含 a/b/c 后缀（`v5.20` 而非 `v5.20a`）。
+File: `src/vscripts/modules/GameConfig.ts` without a/b/c suffixes (`v5.20` not `v5.20a`).
 
-- **本次所选版本**的大版本（去掉 a/b/c）与 `GAME_VERSION` 不同时 → **必须自动修改** `GameConfig.ts`，**不得遗漏**
-- 选了小版本补丁、大版本未变 → 不改（即使存在更高大版本的 open release PR）
+- The larger version of **the version selected this time** (removing a/b/c) is different from `GAME_VERSION` → **must be automatically modified** `GameConfig.ts`, **cannot be omitted**
+- selected the minor version patch and the major version remains unchanged → No change (even if there is an open release PR of a higher version)
 
-## 更新 open PR 的 Release Note
+## Update Release Note of open PR
 
-生成文案后，用**选项菜单**让用户选择操作（写入功能 PR + 合并进聚合 release PR / 仅写入功能 PR / 仅提交改动 / 跳过），按所选执行。
+After generating the localization text, use the **option menu** to allow the user to select an operation (write function PR + merge into aggregate release PR / only write function PR / only commit changes / skip), and execute as selected.
 
-两处都用同一套编辑流程：`gh pr view <N> --repo windy10v10ai/game --json body -q .body` 取 body → 改 → 写入临时文件（**UTF-8 无 BOM**）→ `gh pr edit <N> --body-file <文件>`。
+uses the same editing process in both places: `gh pr view <N> --repo windy10v10ai/game --json body -q .body` takes body → change → write to temporary file (**UTF-8 without BOM**) → `gh pr edit <N> --body-file <file>`.
 
-### 写入当前功能 PR
+### Write current function PR
 
 ```bash
 gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state open --json number,url
 ```
 
-恰好一条时默认指向；多条时先让用户选号；无 open PR 则只输出文案。
+points by default if there is exactly one; if there are multiple, let the user select the number first; without open PR, only localization text will be output.
 
-保留 `## Release Note` 之上的内容，替换该标题起至文末：拼接 `## Release Note` + 中文围栏块 + 英文围栏块。
+Keep the content above `## Release Note`, replace this title to the end of the article: splicing `## Release Note` + Chinese fence block + English fence block.
 
-### 聚合 release PR
+### Aggregate release PR
 
-标签 `release` 的 open PR（`develop → main`，标题即大版本号）是本轮所有条目的**聚合容器**：大版本条目在上，尚未发布的小版本补丁条目按版本号分块累积在 `---` 之下。本次条目**始终**合并进去，不只留在功能 PR。布局（参考 [#2253](https://github.com/windy10v10ai/game/pull/2253)）：
+Label`release`the open PR(`develop → main`, the title is the major version number) is the **aggregation container** of all entries in this round: the major version entries are on top, and the unreleased minor version patch entries are accumulated in chunks according to version numbers.`---`under. This entry is **always** merged in, not just left in the feature PR. layout (reference [#2253](https://github.com/windy10v10ai/game/pull/2253)）：
 
 ```
 ## Checklist
 
-- [ ] 更新游戏版本号
+- [ ] Update game version number
 
 ## Release Note
 
-<大版本 中文围栏块>
-<大版本 英文围栏块>
+<Large version Chinese fence block>
+<Large version English fence block>
 
 ---
 
-<该补丁版本的关联 PR 链接等 checklist 行，用户手动维护>
+<The patch version’s associated PR link and other checklist lines are manually maintained by the user>
 
-<补丁版本 中文围栏块>
-<补丁版本 英文围栏块>
+<Patch version Chinese fence block>
+<Patch version English fence block>
 ```
 
-- **本次为小版本补丁** → 只动 `---` 之下：该补丁版本号已有围栏块时，中英文条目分别追加到既有列表末尾；是新的补丁版本号时，在文末新起 `---` + 中英文围栏块。大版本围栏块与 `---` 之下的既有 checklist 行保持原样。
-- **本次为大版本** → 替换 `## Release Note` 与首个 `---` 之间的中英文围栏块；`---` 之下的补丁块全部保留（各补丁版本在 Steam 已各自发过一次日志，留档不清理）。
+- **This is a minor version patch** → Only move under `---`: When the patch version number already has a fence block, the Chinese and English entries are appended to the end of the existing list; when it is a new patch version number, `---` + Chinese and English fence blocks are added at the end of the article. The large version fence block remains intact with the existing checklist line under `---`.
+- **This is a major version** → Replace the Chinese and English fence blocks between `## Release Note` and the first `---`; all patch blocks under `---` are retained (each patch version has posted a log on Steam once, and the files will not be cleared).
 
-## 执行步骤
+## execution steps
 
-1. **判断参数类型**（Issue 与 PR 编号独立）：
-   - URL 含 `/issues/` → Issue（有 checklist → 路径 A；无 → 路径 B）
-   - URL 含 `/pull/`，或 `#N` / 纯数字 → PR
-   - 其他 → 手动
-2. **确定版本**：按「版本号决策」1→2→3→4 优先级执行；命中步骤 3 时必须让用户在大版本与小版本补丁间选，调用方已注明轨道则沿用、不再提问。
-3. **生成更新日志**：Issue+checklist 列已完成英雄并附 `x/总数`；PR 列全部英雄；手动按用户列点。
-4. **GAME_VERSION 同步**：大版本变化时**必须立即**修改 `GameConfig.ts`，不得等用户提醒。
-5. **输出**中英文两版，标题含具体版本号。
-6. **写入 PR**：用选项菜单让用户选择操作后执行——写入当前功能 PR，并把条目合并进聚合 release PR 的对应版本块。
+1. **Determine parameter type** (Issue and PR numbers are independent):
+   - URL contains `/issues/` → Issue (with checklist → path A; without → path B)
+   - URL contains `/pull/`, or `#N` / pure number → PR
+   - Others → Manual
+2. **Determine the version**: Execute according to the "Version Number Decision" 1→2→3→4 priority; when step 3 is hit, the user must be allowed to choose between a major version and a minor version patch. If the caller has indicated the track, it will be used and no more questions will be asked.
+3. **Generate update log**: Issue+checklist lists completed heroes and attaches `x/total`; PR lists all heroes; manually lists points by user.
+4. **GAME_VERSION synchronization**: When major version changes, `GameConfig.ts` must be modified immediately and must not wait for user reminders.
+5. **Output** Chinese and English versions, the title contains the specific version number.
+6. **Write PR**: Use the options menu to let the user select the operation and execute it - write the current function PR, and merge the entries into the corresponding version block of the aggregate release PR.
 
-### 交付前自检
+### Self-inspection before delivery
 
-- 版本号为具体字符串，中英文一致
-- open release PR 大版本高于 Steam 时，已用 `AskUserQuestion` 确认走大版本还是小版本补丁；调用方已注明轨道时沿用其选择，没有重复提问
-- 条目已合并进聚合 release PR 的对应版本块，大版本块与其他补丁块保持原样
-- Issue checklist `x/total` 统计正确；无 checklist 不编造
-- 多英雄列表与实际范围一致
-- 无维护向技术用语
-- 同一目标/同一改动主题没有拆成多条 bullet；能合并的都已用逗号并入一条
-- 提到的物品/技能效果名词均已 grep 本地化文件核实存在，没有凭印象臆造的名词
-- Bot AI 行为类改动只写了行为方向，没有顺带描述物品/技能本身的效果或数值
+- version number is a specific string, consistent in Chinese and English
+- open release PR When the major version is higher than Steam, `AskUserQuestion` has been used to confirm whether to use the major version or the minor version patch; if the caller has indicated the track, the choice will be used, and there will be no repeated questions. The
+- entry has been merged into the corresponding version block of the aggregate release PR, and the large version block remains intact with other patch blocks.
+- Issue checklist `x/total` Statistics are correct; no checklist, no fabrication
+- The multi-hero list is consistent with the actual range
+- No maintenance technical term
+- The same goal/same change topic is not split into multiple bullets; those that can be merged have been merged into one bullet with commas.
+- have been verified by grep localization files, and there are no nouns made up based on impressions.
+- Bot AI behavioral changes only describe the behavioral direction, but do not describe the effects or values of the item/ability itself.

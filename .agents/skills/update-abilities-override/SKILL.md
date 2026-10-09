@@ -1,213 +1,221 @@
 ---
 name: update-abilities-override
-description: Dota 版本更新后维护 npc_abilities_override.txt 的差分：按英雄全量重整，或按官方补丁日志逐条同步。
+description: "Maintain npc_abilities_override.txt after Dota updates, either by a full hero review or by synchronizing official patch-note entries. Use only on explicit user request."
 disable-model-invocation: true
 ---
 
 # Update Abilities Override
 
-维护 `game/scripts/npc/npc_abilities_override.txt`：仅写**与当前参考的差分**（扩展等级、有意加强等），引擎从原版合并缺失键。
+Maintenance `game/scripts/npc/npc_abilities_override.txt`: Only write ** with delta override** of the current reference (extended level, intentional enhancement, etc.), the engine merges missing keys from vanilla.
 
-## 前置条件
+## Prerequisites
 
-参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」。英雄名 / 技能名查找规则见 `.agents/docs/dota-references.md`。
+For reference file paths, see `game/scripts/npc/CLAUDE.md` "vanilla KV Reference". For the hero name/ability name search rules, see `.agents/docs/dota-references.md`.
 
-用 `grep` / 片段读取定位，**禁止**一次读入整个 override 文件。
+Use `grep` / fragment read positioning, **disable** to read the entire override file at one time.
 
-判断某技能当前实际生效的数值（如蓝耗）时，**不能只看 docs/reference 原版，也不能只看顶层字段**——override 常把数值写成 `AbilityValues` 内的嵌套子块（如 `AbilityManaCost { "value" "9 10 11 12 13" }`）而非顶层字段。例：`drow_ranger_frost_arrows` 原版 0 蓝，本图 override 里实际是 `AbilityValues` 嵌套的 9-13 蓝/箭，只 grep 顶层 `AbilityManaCost` 会误判为 0 蓝。先精确读该技能整段（到下一个顶层技能名前），同时检查顶层字段和 `AbilityValues` 嵌套块；override 未覆盖时才回落原版。
+When judging the actual current value of an ability (such as mana consumption), you cannot just look at the docs/reference vanilla, nor just the top-level fields\*\* - override often writes the value as a nested sub-block within `AbilityValues` (such as `AbilityManaCost { "value" "9 10 11 12 13" }`) instead of the top-level field. Example: `drow_ranger_frost_arrows` vanilla 0 mana, this addon override is actually `AbilityValues` nested 9–13 mana per arrow, only grep the top layer `AbilityManaCost` will misjudge it as 0 mana. First read the entire section of the ability accurately (before the next top-level ability name), and check the top-level fields and the `AbilityValues` nested block at the same time; fall back to vanilla only when the override is not covered.
 
-两种用法：用户给出**补丁日志**（逐条"旧值→新值"）时走「补丁日志同步」；只给英雄或版本时走「执行顺序（逐英雄）」全量重整。
+has two usages: when the user gives the **patch log** ("old value → new value" one by one), go to "Patch Log Synchronization"; when the user only gives the hero or version, go to "Execution Order (Hero by Hero)" for full reorganization.
 
-## 补丁日志同步
+## patch log synchronization
 
-用户分批贴日志，每批走一遍：
+users post logs in batches, and go through each batch:
 
-1. **核对**：把本批每条改动交给 `model: "sonnet"` 的 subagent，对比上一版与新版 `docs/reference` 目录（布局见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」），返回每条的系统名、KV 键、新旧值，以及新旧 diff 里日志没提到的改动。主会话自己读 override 与 `npc_heroes_custom.txt`（subagent 不判定改法）。
-2. **出核对表**：每条日志一行，标出本图现状与处理——
-   - 本图没写该键 → **自动生效**（基础属性同理：英雄不在 `npc_heroes_custom.txt` 或没写该字段即继承）
-   - override 写了该键 → 按 P1–P3 给出新值
-   - 涉及天赋 → 核实天赋 key 仍在该英雄 `Ability10+` 槽位
-   - 顺带发现的旧偏差（官方本批没动、但 override 与参考不符）→ 每项一道 `AskUserQuestion`（保留补注释 / 同步官方 / 本批不动），不并入本批默认改动
-3. **等用户确认后再改**，改完 `git diff` 确认只动了核对表里的行，**每批单独 commit**。用户发下一批时回到第 1 步。
+1. **Check**: Submit each change in this batch to the subagent of `model: "sonnet"`, compare the previous version and the new version of the `docs/reference` directory (for the layout, see `game/scripts/npc/CLAUDE.md` "vanilla KV Reference"), return the system name, KV key, new and old values of each item, as well as changes not mentioned in the logs in the old and new diffs. The main session reads override and `npc_heroes_custom.txt` by itself (subagent does not determine the modification method).
+2. **Checklist**: One line for each log, marking the status and processing of this addon——
+   - this addon does not write this key → **automatically takes effect** (the same is true for basic attributes: the hero is inherited if it is not in `npc_heroes_custom.txt` or this field is not written)
+   - override writes the key → press P1–P3 to give the new value
+   - involves talents → Verify that the talent key is still in the `Ability10+` slot of the hero
+   - Old deviations discovered by the way (the official batch has not been changed, but the override is inconsistent with the reference) → `AskUserQuestion` for each item (retain supplementary annotation/synchronize the official/do not move in this batch), and will not be incorporated into the default changes of this batch
+3. **Wait for user confirmation before making changes**. After changing `git diff`, only the rows in the check table have been changed. **Each batch is committed separately**. The user returns to step 1 when sending the next batch.
 
-多批并行时，每批的第 1 步各派一个后台 subagent，互不等待；核对表按批次顺序逐批出。开工前与读 override 前确认分支基于最新 `develop`（`git fetch` 后比对），避免与刚合并的同类同步 PR 重复改动。
+When multiple batches are run in parallel, each batch sends a background subagent in the first step without waiting for each other; the checklist is issued one by one in batch order. Before starting work and reading override, confirm that the branch is based on the latest `develop` (compared after `git fetch`) to avoid repeated changes with the same PR that has just been merged.
 
-以 reference 与日志文本对照时：reference 新版值与日志"新值"一致、旧版值与日志"旧值"一致才算核实。reference 尚未包含该次改动（官方公告未上线）时，以日志文本为准，不要拿 reference 当前值反推新旧——同一份快照里不同技能的抓取时间点可能不一致。两边对不上时先向用户确认 reference 版本状态。
+When comparing the reference with the log text: the new version value of reference is consistent with the "new value" of the log, and the old version value is consistent with the "old value" of the log for verification. When the reference does not yet contain the change (the official announcement is not online yet), the log text shall prevail. Do not use the current value of the reference to infer the old and new values ​​- the capture time points of different abilities in the same snapshot may be inconsistent. If the two sides cannot match each other, first confirm the reference version status with the user.
 
-## 技能范围
+## ability range
 
-用户未指定技能时，从参考英雄文件读取槽位：
+When the user does not specify ability, the slot is read from the reference hero file:
 
-| 槽位 | 规则 |
-|------|------|
-| Ability1–3, Ability6 | 一律纳入 |
-| Ability4/5 = `generic_hidden` | 跳过 |
-| Ability4/5 先天技能（`"Innate" "1"`） | 不扩展等级，仅写明确数值差分 |
-| Ability4/5 其它实技能 | 同 Ability1–3 规则 |
+| Slot                                       | Rules                                                            |
+| ------------------------------------------ | ---------------------------------------------------------------- | ---- |
+| Ability1–3, Ability6                       | Include all                                                      |
+| Ability4/5 = `generic_hidden`              | Skip                                                             |
+| Ability4/5 innate ability (`"Innate" "1"`) | Do not extend the level, only write a clear value delta override |
+| Ability4/5 other abilities                 | Same as Ability1–3 rules                                         | When |
 
-> `npc_heroes_custom.txt` 覆盖了槽位时以 custom 为准。
+> `npc_heroes_custom.txt` covers the slot, custom shall prevail.
 
-## 等级规则
+## level rules
 
-| 类型 | 本图 MaxLevel | 参考缺省 |
-|------|--------------|---------|
-| 小招 | 5 | 4 |
-| 大招（`ABILITY_TYPE_ULTIMATE`） | 4 | 3 |
-| 先天技能（`"Innate" "1"`） | 不扩展；若参考显式写明 `MaxLevel "1"`，override 中不得写 `MaxLevel`（删除已有的） | — |
+| Type                               | this addon MaxLevel                                                                                                                   | Reference Default |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| Tips                               | 5                                                                                                                                     | 4                 |
+| Ultimate (`ABILITY_TYPE_ULTIMATE`) | 4                                                                                                                                     | 3                 |
+| Innate ability (`"Innate" "1"`)    | Not extended; if the reference explicitly states `MaxLevel "1"`, `MaxLevel` must not be written in override (delete the existing one) | —                 |
 
-若参考或 override 已显式写明 `MaxLevel`，以显式值为准。
-
----
-
-## 核心规则（按优先级）
-
-维护任一技能时严格按 P1 → P2 → P3 顺序处理，后步不得推翻前步结论。
-
-### P1 删除同值与禁止项
-
-与参考**逐字相同**的键一律不写入 override，已写入的删除。
-
-**同值判定范围：**
-- 单值相同
-- 多档每档与参考对应档相同，包括为凑 MaxLevel 而重复末档（如参考 `"20 20 20"`，本图写 `"20 20 20 20"` 仍属同值）
-- **注意**：「前几档与参考相同、新档按差值延伸」**不是同值**。示例：参考 `"140 150 160 170"`，本图 MaxLevel=5 写 `"140 150 160 170 180"`，第5档180≠参考末档170，必须写入 override
-- `AbilityBehavior`、`SpellImmunityType`、`AbilityCastPoint` 等属性键
-- 与参考相同的 `special_bonus_unique_*` / `special_bonus_scepter` / `special_bonus_shard`
-- **子块内任意键**（`value`、`affected_by_aoe_increase`、`special_bonus_scepter` 等）与参考相同 → 删该行，保留有差分的兄弟键；若子块全无差分则删整块
-
-**绝对禁止项：**
-- `CalculateSpellDamageTooltip`（交给原版）
-- `special_bonus_facet_*`（7.41+ 废弃）；若子键仅有已废 facet 而无 `value`，不得新造 `value`
-- 参考**曾经存在、现已删除**的键：须从 override 中删除
-
-**参考从未有过的键（本图自定义）：**
-- override 里有、历来参考里都不存在的键，且行尾注释**明确写有** `// 原版不存在，手动修改` → **保留**
-- 行尾注释**没有**该说明（如仅写 `// x2.5` 或无注释）的处理：
-  - **仅限 `LinkedAbility` / `AbilityDraftPreAbility` / 自定义天赋键（`special_bonus_*` 参考中不存在）** → 用 `AskUserQuestion` 询问用户是否有意添加；确认有意时补写 `// 原版不存在，手动修改` 保留，否则删除
-  - **原版结构变化导致的失效键**：子块结构发生变化时，按以下规则处理：
-    - 旧格式写了 `value "X"`，新格式改成 `special_bonus_scepter "Y"`（或 `special_bonus_shard`）：**自动迁移**——将旧 `value` 的设计值迁移到新键名上，用原注释推断倍率/差值并重算，写入 `"special_bonus_scepter" "迁移值" // 官方值 [规则标记]`，**无需询问**（规则明确时）；规则不明确时用 `AskUserQuestion` 确认
-    - 旧格式有 `RequiresScepter "1"` 等辅助键，新格式无此键 → 直接删除辅助键，**无需询问**
-    - 子键在参考中已完全消失（非结构迁移）→ **直接删除，无需询问**
-- 版本更新后键名改变（如旧版 `foo_tooltip` → 新版 `foo`）：删旧键名，按新键名走正常 P1/P2/P3 流程
-- **天赋（`special_bonus_unique_*`）改动前必须核实 key 仍然有效**：处理任何涉及天赋的改动前，先去参考文件 `npc_heroes.txt` 中该英雄的 `Ability10-17` 列表核实该天赋 key 是否仍存在——版本更新可能把某个天赋整体替换成另一个 key（甚至换成完全不同的机制），仅凭数值重算发现不了这种情况。key 已不存在则视为被替换，按新 key 重新处理，不要继续在旧 key 上做数值调整
-- **数值内嵌在天赋名里的通用天赋（如 `special_bonus_cast_range_125`、`special_bonus_attack_damage_15`）是引擎原生实现，不需要写任何 KV**：只需在 `Ability10-17` / `Bot.Build` 里正确引用天赋名即可，不要为其新增 `AbilityValues` 块
-
-### P2 差分与 MaxLevel 扩展
-
-#### 读设计意图
-
-- **`延伸` 标记** → 纯等级扩展：用当前参考值重新按差值延伸，注释基数同步为当前参考值
-- **有行尾注释**（`x2`、`+N`、`差值N` 等） → 按该规则在**当前参考值**上重算 value；若重算结果与现有 value 不符，进入「旧版参考缺失处理」流程
-- **无行尾注释**（`延伸` 标记推行前写的旧行）→ 默认仅等级扩展；value 必须与参考相同前几档 + 差值延伸。若与参考不符，视为官方版本更新了数值，**直接同步为官方最新值并补全新档（补 `延伸` 注释，无需询问）**
-
-#### MaxLevel 扩展必扫（强制）
-
-本图 MaxLevel 高于参考时，**以参考该技能整段为全集**扫描所有多档键，禁止只扫 override 已有行：
-
-| 多档键位置 | 说明 |
-|-----------|------|
-| 块顶多档 | `AbilityCooldown`、`AbilityManaCost`、`AbilityDuration`、`AbilityCastRange` 等 |
-| AbilityValues 子块 | `"键" { "value" "a b c" ... }` |
-| AbilityValues 顶层平铺（易漏） | 直接 `"键名" "a b c"` 无子块 |
-
-> **顶层 vs 子块冲突**：若参考将某键（如 `AbilityCooldown`）放在 `AbilityValues` 子块内，而 override 写成顶层，顶层写法**无效**（子块优先）。处理时：删除 override 中的顶层写法，在 `AbilityValues` 子块内按 P1/P2/P3 正常处理。**无需询问，直接处理**。
-
-对**参考全集**中每个多档键（含「参考有 override 无」的差集）依次判定：
-1. **同值多档** → 不写（P1 优先）。判定标准：参考各档与本图各档逐一对应且相同，**或**参考档数不足时末档重复延伸后与本图各档相同（如参考 `20 20 20`，本图 MaxLevel=5 补成 `20 20 20 20 20`，仍属同值）。**注意**：若参考只有 N 档而本图 MaxLevel > N，且按差值延伸后新档的值与参考末档不同，则属于需要写入 override 的扩展，**不是同值**。
-2. **恒定单值**（本图各级同数）→ **单 token**，禁止 `n n n`
-3. **随等级变化** → 档数 = 有效 MaxLevel；新档按相邻差延伸
-
-#### 数值计算
-
-| 情形 | value 处理 | 行尾注释 |
-|------|-----------|---------|
-| 仅等级扩展 | 前几档同参考，新档按差值延伸 | `// 参考各档 延伸` |
-| 固定差值 | 每档 = 参考 + N | `// 参考各档 +N` |
-| 倍数 | 先推参考第 N 档再乘倍率 | `// 参考各档 xN`（基数**必须**写出） |
-| 自定义键（参考从未有过，且已有 `// 原版不存在，手动修改` 注释） | 保留本图值；同样须做 MaxLevel 扩展 | `// 原版不存在，手动修改` |
-| 参考无、且无上述注释 | 删除 | — |
-| CD 末档 | **封顶值**：小招 10s / 大招 60s；参考档位中的最小冷却值 `min`。<br>**大招特殊规则**：若参考 min > 60s，**直接按原差值延伸**（不锁末档，不调首档），无需对齐封顶值。示例：参考 `100 90 80`（min=80 > 60），MaxLevel=4，末档=70 → `100 90 80 70`。<br>**小招 / 大招 min ≤ 60s 时**：末档锁为 `max(min, 封顶值)`，**优先保持等差数列**。步骤：(1) 尝试保持参考首档不变，新公差 = `(末档 - 参考首档) / (MaxLevel - 1)`；(2) 若无法整除，**微调首档**使公差为整数，末档不变。<br>**CD 数值风格**：尽量取 5 或 10 的整数倍（如 10、15、20、25…），若原差值已是 5/10 的倍数则直接延伸，否则就近取整使结果对齐。<br>**情形1 · 大招 min > 60，直接延伸**：参考 `100 90 80`，MaxLevel=4 → `100 90 80 70`。<br>**情形2 · 首档不变即整数公差**：参考 `22 18 14 10`（4 档，min=10），MaxLevel=5，延伸末档 6 < 10 → 末档锁 10，(10-22)/4=-3 整除 → `22 19 16 13 10`。<br>**情形3 · 调首档以保证整数公差**：参考 `20 17 14 11`（4 档，min=11），MaxLevel=5，延伸第5档=8 < 10 → 末档锁 10，保持首档 20 时 (10-20)/4=-2.5 非整数 → 首档下调至 18，公差 -2 → `18 16 14 12 10`。 | 无 |
-| CD 档数不足 | 保持同一档差递减至参考末档，如参考 `12 10 8 6` → `10 9 8 7 6` | 无 |
-| 百分比键封顶 | 键名以 `_pct` 结尾（或其他明确表示百分比的键）：延伸后各档不得超过 100。若参考最大值 > 50 时，差值延伸将超过 100，则**改写差值**使末档恰好等于参考最大值（`max`），差值 = `(max - 首档) / (MaxLevel - 1)`，各档均匀分布；如无法整除则就近取整。示例：参考 `40 60 80 100`，MaxLevel=5，末档延伸为 120 → 改差值 15 → `40 55 70 85 100`。 | `// 参考首档…末档 差值N` |
-
-#### 版本更新后重算（处理已有 override 时必做）
-
-处理任何已有 override 记录的技能时，**先逐一核对所有行尾注释的参考基数是否与当前版本一致**，再执行 P1/P2/P3：
-
-> **注释基数 = 当前官方值时**：说明官方该数值未发生版本更新，无需重算，不触发「旧版参考缺失」询问，直接保留 override 现有 value 和注释，继续 P1/P2 正常流程。
-
-1. 注释有参考基数（如 `// 15 30 45 60 x2`）且**参考基数 ≠ 当前官方值**→ 直接按注释规则用当前版本参考值重算并写入，**无需询问**
-2. 注释无参考基数（仅 `// x2`）→ 直接按最新版官方值 ×N 重算并补全注释基数，**无需询问**
-3. 无注释或 `延伸` 标记，且 value 是官方差值的延伸 → 自动按官方差值补全新档并写 `延伸` 注释，**无需询问**
-4. 无注释，且 value 与参考差值不符 → **官方版本更新了数值，直接同步为官方最新值并补全新档，无需询问**（不保留旧值，补 `延伸` 注释）
-
-#### 旧版参考缺失时的处理
-
-触发条件（满足任一）：
-- 按注释规则重算后结果与现有 value 不符，且旧版参考不存在（无法确认规则是否变更）
-
-**以下情形不触发询问，直接按 P2 规则处理：**
-- **无注释** → 无论 value 与参考是否一致，均直接同步官方最新值，无需询问
-- **有注释规则标记（`xN`、`+N`、`差值N` 等），override 值与按当前官方值重算的结果不符** → 视为官方版本更新了基数，直接用当前官方值按注释规则重算并写入，无需询问
-- **选项显而易见只有一种合理处理方式**（如删除同值、删除无注释的不合规值、P1 禁止项）→ 直接处理，无需询问
-
-**必须使用 `AskUserQuestion` 工具以选项菜单形式询问用户**，不得用文字列出 A/B/C/D，不得自行假设。
-
-**询问规则：**
-- 每个待决策键单独一道问题（`question` 字段），最多4题一批；超过4键分批询问
-- `header` 填系统键名（截短到12字符内）
-- `question` 用中文描述：`「{技能中文名}」{中文属性名}（{系统键名}）：当前官方值 {参考值}，现有 override 值 {当前值}，原注释 {注释}。如何处理？`（**必须在问题开头写出技能中文名**，方便用户区分同名属性归属于哪个技能）
-- `options` 固定提供以下选项（按实际情况选取相关项，无关项可省略）：
-  - `× N 重算`：description 写出具体候选倍数和结果（如 ×2 → 结果值）；若倍数不确定，先用此选项让用户选 Other 填写，再单独一题确认
-  - `+ N 重算`：description 写出具体候选差值和结果
-  - `纯等级扩展`：description 写出按差值延伸的结果值
-  - `保留现有 value`：description 写出修正后的注释内容
-- 若倍数/差值需要二次确认（用户在第一轮选了「×N」但未指定 N），发起第二轮问题列出常见倍数选项
-- 技能中文名：直接使用 override 文件中该技能块上方的注释（如 `// 诅咒`）；若 override 中无该技能块，再从 `docs/reference/{version}/abilities_schinese.txt` 查 `DOTA_Tooltip_ability_{ability_name}`
-- 属性中文名从 `docs/reference/{version}/abilities_schinese.txt` 查找：`DOTA_Tooltip_ability_{ability_name}_{key_name}` 对应的值（去掉末尾冒号）；若查不到则用系统键名
-- 用户选择后按其指示重算并更新 value 和注释
-
-### P3 注释格式
-
-仅在 override 值与参考不同时写行尾注释。格式：`"本图值" // 参考值 [规则标记]`
-
-| 场景 | 示例 |
-|------|------|
-| 单值对照 | `"12" // 18` |
-| 多档对照 | `"90 80 70 60" // 150 130 110` |
-| 纯等级扩展 | `"21 20 19 18 17" // 21 20 19 18 延伸` |
-| 倍数 | `"30 60 90 120 150" // 15 30 45 60 x2` |
-| 固定差值 | `"300 500 700 900" // 200 400 600 800 +100` |
-| 改差值 | `"3 3.5 4 4.5 5" // 3 4 5 6 差值0.5` |
-| 参考值 + 设计说明 | `"=0" // =1 移除 连环霜冻无限弹跳天赋` |
-| 纯设计说明 | `// 原版不存在，手动修改`、`// 百分比伤害，限制上限` |
-
-**规则：**
-- `//` 后**先写当前参考官方数**，倍率/差分标记放**末尾**；参考值后可接**中文设计说明**解释意图，已有的说明应保留
-- 倍数标记 `x2` 等**必须**同时写参考数，禁止 `// x2` 无基数
-- 同值不占坑（`"30" // 30` → 删整行）
-- 纯等级扩展必须带 `延伸` 标记：只写参考值不带标记表示手动设定值，两者不能混用。旧行只在本次改到时补，不全量补
-- **禁止**：分号分隔、命石/facet 名称
-- 增加参考不存在的键 → 行尾 `// 中文原因`
-- 沿用同文件、同英雄区段已有注释风格
+If the reference or override has explicitly stated `MaxLevel`, the explicit value shall prevail.
 
 ---
 
-## 执行顺序（逐英雄）
+## Core Rules (by priority)
 
-1. **定范围**：从参考英雄文件（+ `npc_heroes_custom.txt`）确定技能列表
-2. **逐技能**：
-   a. 读参考整段，列出全部多档键（全集）
-   b. 读 override 该技能块，标出差集（参考有 override 无）
-   c. **P1**：删同值键 + 禁止项
-   d. **P2**：处理差分、扩展新档、重算倍数/差值
-   e. **P3**：校验注释格式
-3. **自检**：
-   - [ ] 无同值抄写、无全相同 token 多档行、恒定值用单 token
-   - [ ] 无 `special_bonus_facet_*`、无 `CalculateSpellDamageTooltip`
-   - [ ] 无参考中已不存在的键（含改名键如旧 `foo_tooltip` → 新 `foo`）
-   - [ ] MaxLevel 扩展已扫参考全文含差集（块顶 + 子块 + 顶层平铺）
-   - [ ] 百分比键（`_pct` 等）：各档不超过 100；参考最大值 > 50 时已改写差值封顶
-   - [ ] 有注释的键：参考基数与当前版本一致，规则标记与 value 重算结果一致
-   - [ ] `延伸` 标记与无注释的键：value 与参考差值延伸完全吻合；本次改到的纯延伸行都带 `延伸` 标记
-4. 所有英雄处理完毕后，调用 `update-heroes-custom` 对本次修改的英雄逐一验证 Bot.Build 合规性（英雄不在 `npc_heroes_custom.txt` 时无 Bot.Build，跳过）。
+When maintaining any ability, strictly follow the order of P1 → P2 → P3, and the subsequent steps must not overturn the conclusion of the previous step.
+
+### P1 Delete the same value and prohibited items
+
+Keys that are literally identical to the reference\*\* will not be written in override, and those that have been written will be deleted.
+
+**Same value judgment range:**
+
+- single value is the same
+- Multiple files. Each file is the same as the reference corresponding file, including repeating the last file to round up the MaxLevel (for example, referring to `"20 20 20"`, this addon writes `"20 20 20 20"`, which still has the same value)
+- **Note**: "The first levels match the reference, and additional levels extend the arithmetic progression" **not the same value**. Example: refer to `"140 150 160 170"`, this addon MaxLevel=5 write `"140 150 160 170 180"`, the fifth tier 180 ≠ refer to the last tier 170, must be written as override
+- `AbilityBehavior`, `SpellImmunityType`, `AbilityCastPoint` and other attribute keys
+- Same as reference `special_bonus_unique_*` / `special_bonus_scepter` / `special_bonus_shard`
+- **Any key in the sub-block** (`value`, `affected_by_aoe_increase`, `special_bonus_scepter`, etc.) is the same as the reference → delete this line and retain the sibling keys with delta override; if the sub-block has no delta override, delete the entire block
+
+**Absolutely prohibited items:**
+
+- `CalculateSpellDamageTooltip` (give it to vanilla)
+- `special_bonus_facet_*` (obsolete in 7.41+); if the subkey only has obsolete facets but no `value`, new `value` is not allowed.
+- refers to the key that once existed and is now deleted: it must be deleted from the override
+
+**Reference to never-before-seen keys (customized by this addon):**
+
+- override that do not exist in the previous reference, and the end-of-line comment **clearly says** `// 原版不存在，手动修改` → **reserved** Processing of
+- end-of-line comment **without** this description (such as just writing `// x2.5` or no comment):
+  - **Only for `LinkedAbility`/`AbilityDraftPreAbility`/Custom talent keys (`special_bonus_*` reference does not exist)** → Use `AskUserQuestion` to ask the user if they intend to add it; if confirmed, write `// 原版不存在，手动修改` and keep it, otherwise delete it
+  - **Invalid key caused by changes in vanilla structure**: When the sub-block structure changes, it is handled according to the following rules:
+    - is written as `value "X"` in the old format, and is changed to `special_bonus_scepter "Y"` (or `special_bonus_shard`) in the new format: **Automatic migration** - Migrate the design value of the old `value` to the new key name, use the original annotation to infer the magnification/difference value and recalculate it, write `"special_bonus_scepter" "migration value" // official value [rule tag]`, **No need to ask** (when the rules are clear); when the rules are unclear, use `AskUserQuestion` to confirm
+    - The old format has auxiliary keys such as `RequiresScepter "1"`, but the new format does not have this key → Delete the auxiliary key directly, **no need to ask**
+    - subkey has completely disappeared in the reference (non-structural migration) → **Delete directly without asking** The key name changes after the
+- version is updated (such as the old version `foo_tooltip` → the new version `foo`): delete the old key name and press the new key name to go through the normal P1/P2/P3 process.
+- **Before changing the talent (`special_bonus_unique_*`), you must verify that the key is still valid**: Before processing any changes involving talents, first refer to the `Ability10-17` list of the hero in the file `npc_heroes.txt` to verify whether the talent key still exists - version updates may replace a talent as a whole with another key (or even a completely different mechanism). This situation cannot be discovered by numerical recalculation alone. If the key no longer exists, it will be deemed to have been replaced. It will be processed again according to the new key. Do not continue to make numerical adjustments on the old key.
+- **General talents whose values are embedded in the talent name (such as `special_bonus_cast_range_125`, `special_bonus_attack_damage_15`) are natively implemented by the engine and do not need to write any KV**: Just quote the talent name correctly in `Ability10-17` / `Bot.Build`, do not add a `AbilityValues` block for it
+
+### P2 delta override and MaxLevel extension
+
+#### Read design intent
+
+- **`延伸` mark** → Pure grade expansion: Use the current reference value to re-extend by the difference, and the annotation base is synchronized to the current reference value
+- **With end-of-line comments** (`x2`, `+N`, `差值N`, etc.) → Recalculate the value on the **current reference value** according to this rule; if the recalculation result does not match the existing value, enter the "Old version reference missing processing" process
+- **No end-of-line comments** (old line written before the `延伸` mark was implemented) → Default is level expansion only; value must be the same as the reference for the first few levels + difference extension. If it is inconsistent with the reference, it is deemed that the official version has updated the value. **Synchronize directly to the latest official value and fill in additional levels (please add `延伸` comment, no need to ask)**
+
+#### MaxLevel extension must be scanned (mandatory)
+
+When the MaxLevel of this addon is higher than the reference, **refer to the entire section of the ability as the complete set** to scan all multi-level keys, and it is prohibited to only scan override existing lines:
+
+| Multi-position key position                   | Description                                                                       |
+| --------------------------------------------- | --------------------------------------------------------------------------------- |
+| Block top with multiple tiers                 | `AbilityCooldown`, `AbilityManaCost`, `AbilityDuration`, `AbilityCastRange`, etc. |
+| AbilityValues subblock                        | `"key" { "value" "a b c" ... }`                                                   |
+| AbilityValues Top-level tiling (easy to leak) | Direct `"key_name" "a b c"` No sub-block                                          |
+
+> **Top vs sub-block conflict**: If a key (such as `AbilityCooldown`) is placed in the `AbilityValues` sub-block, and override is written as top, the top-level writing method is **invalid** (sub-block takes precedence). During processing: Delete the top-level writing method in override, and process normally according to P1/P2/P3 in the `AbilityValues` sub-block. **No need to ask, deal with it directly**.
+
+Determine each multi-level key in **Reference Complete Set** (including the difference set of "reference with override and without") in sequence:
+
+1. **Equal values across all levels** → Do not write (P1 takes priority). Judgment criteria: Each reference level matches the corresponding addon level. If the reference has fewer levels, repeating its last value still matches every addon level (for example, refer to `20 20 20`, this addon MaxLevel=5 to supplement `20 20 20 20 20`, it is still the same value). **Note**: If the reference has only N levels and this addon MaxLevel > N, and the value of the additional level after extending by difference is different from the last reference level, it is an extension that needs to be written in override, **not the same value**.
+2. **Constant single value** (the same number at all levels of this addon) → **Single token**, prohibited `n n n`
+3. **Changes with level** → Number of tiers = valid MaxLevel; new tiers are extended according to adjacent differences
+
+#### Numerical calculation
+
+| situation                                                                                  | value processing                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | end-of-line comments                                       |
+| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| Level expansion only                                                                       | The first few levels are the same as the reference, and the new levels are extended according to the difference                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `// 参考各档 延伸`                                         |
+| Fixed difference                                                                           | Each tier = reference + N                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `// 参考各档 +N`                                           |
+| Multiples                                                                                  | Refer to the Nth tier first and then multiply by the multiples                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `// 参考各档 xN` (the base number **must** be written out) |
+| Custom key (reference has never been made, and there is `// 原版不存在，手动修改` comment) | Keep this addon value; MaxLevel extension must also be done                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `// 原版不存在，手动修改`                                  |
+| Reference None, and no above comments                                                      | Delete                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | —                                                          |
+| CD last level                                                                              | **Cap value**: basic ability 10s / ultimate 60s; refer to the minimum cooldown value in the tier `min`. <br>**Special rules for the ultimate**: If the reference min > 60s, **extend directly according to the original difference** (the last tier is not locked, the first tier is not adjusted), and there is no need to align the cap value. Example: Reference `100 90 80` (min=80 > 60), MaxLevel=4, last tier=70 → `100 90 80 70`. <br>**Basic ability/Ultimate min ≤ 60s**: The last tier lock is `max(min, cap)`, **Priority is given to maintaining the arithmetic sequence**. Steps: (1) Try to keep the reference first tier unchanged, new tolerance = `(last_level - reference_first_level) / (MaxLevel - 1)`; (2) If it cannot be divided evenly, **finely adjust the first tier** so that the tolerance is an integer and the last tier remains unchanged. <br>**CD numerical style**: Try to take integer multiples of 5 or 10 (such as 10, 15, 20, 25...). If the original difference is already a multiple of 5/10, extend it directly. Otherwise, round to the nearest integer to align the results. <br>**Scenario 1 · Ultimate min > 60, direct extension**: Reference `100 90 80`, MaxLevel=4 → `100 90 80 70`. <br>**Case 2 · The first tier remains unchanged, which is an integer tolerance**: Reference `22 18 14 10` (4 tiers, min=10), MaxLevel=5, extend the last tier 6 < 10 → last tier lock 10, (10-22)/4=-3 is evenly divisible → `22 19 16 13 10`. <br>**Case 3 · Adjust first tier to ensure integer tolerance**: Reference `20 17 14 11` (4 tiers, min=11), MaxLevel=5, extend 5th tier=8 < 10 → Last tier lock 10, keep first tier 20 (10-20)/4=-2.5 non-integer → Adjust first tier down to 18, tolerance -2 → `18 16 14 12 10`. | None                                                       |
+| Insufficient CD tiers                                                                      | Keep the same grade difference and decrease to the reference last tier, such as reference `12 10 8 6` → `10 9 8 7 6`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | None                                                       |
+| Percent key capping                                                                        | The key name ends with `_pct` (or other keys that clearly indicate the percentage): each level after extension must not exceed 100. If the reference maximum value > 50, the difference extension will exceed 100, then **rewrite the difference** so that the last tier is exactly equal to the reference maximum value (`max`), the difference = `(max - first_level) / (MaxLevel - 1)`, and each tier is evenly distributed; if it is not divisible, round up to the nearest integer. Example: Refer to `40 60 80 100`, MaxLevel=5, the last tier extension is 120 → change the difference value to 15 → `40 55 70 85 100`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `// 参考首档…末档 差值N`                                   |
+
+#### Recalculate after version update (must be done when dealing with existing overrides)
+
+When processing any ability that has an override record, **first check whether the reference base of all end-of-line comments is consistent with the current version**, and then execute P1/P2/P3:
+
+> **When the annotation base = the current official value**: It means that the official version of this value has not been updated, no recalculation is required, the "Old version reference is missing" query is not triggered, the override existing value and annotation are directly retained, and the normal process of P1/P2 is continued.
+
+1. annotation has a reference base (such as `// 15 30 45 60 x2`) and **reference base ≠ current official value**→ directly recalculate and write with the current version reference value according to the annotation rules, **no need to ask**
+2. annotation has no reference base (only `// x2`) → directly recalculate and complete the annotation base according to the latest official value ×N, **no need to ask**
+3. has no comment or `延伸` mark, and value is an extension of the official difference → automatically fill in the new file according to the official difference and write `延伸` comment, **no need to ask**
+4. has no comment, and the value does not match the reference difference → **The official version has updated the value, directly synchronizes it to the latest official value and adds additional levels, no need to ask** (the old value is not retained, add `延伸` comment)
+
+#### What to do when the old version reference is missing
+
+trigger conditions (meet any one):
+
+- The result after recalculation according to the comment rules does not match the existing value, and the old version reference does not exist (it is impossible to confirm whether the rules have changed)
+
+**The following situations do not trigger inquiries and are handled directly according to P2 rules:**
+
+- **No comment** → Regardless of whether the value is consistent with the reference, the latest official value will be synchronized directly without asking.
+- **There are annotation rule marks (`xN`, `+N`, `差值N`, etc.), and the override value does not match the result of recalculation according to the current official value** → It is considered that the official version has updated the base, and the current official value is directly recalculated according to the annotation rules and written without asking.
+- **The option is obviously only one reasonable way to deal with it** (such as deleting identical values, deleting non-compliant values without comments, P1 prohibited items) → deal with it directly, no need to ask
+
+**Must use the `AskUserQuestion` tool to ask the user in the form of an option menu**, do not list A/B/C/D in words, and do not make assumptions.
+
+**Query rules:**
+
+- Each key to be decided is a separate question (`question` field), with a maximum of 4 questions in one batch; more than 4 keys will be asked in batches
+- `header` Fill in the system key name (truncated to within 12 characters)
+- `question` Description in Chinese: `「{技能中文名}」{中文属性名}（{系统键名}）：当前官方值 {参考值}，现有 override 值 {当前值}，原注释 {注释}。如何处理？` (**The Chinese name of the ability must be written at the beginning of the question** to facilitate users to distinguish which ability the attribute with the same name belongs to)
+- `options` always provides the following options (select the relevant items according to the actual situation, irrelevant items can be omitted):
+  - `× N 重算`: description Write down the specific candidate multiple and result (such as ×2 → result value); if the multiple is uncertain, use this option to let the user select Other to fill in, and then confirm with a separate question
+  - `+ N 重算`: description Write the specific candidate difference and result
+  - `纯等级扩展`: description writes the result value extended by the difference
+  - `保留现有 value`: description Write the revised comment content
+- If the multiple/difference requires a second confirmation (the user selected "×N" but did not specify N in the first round), initiate a second round of questions to list common multiple options
+- ability Chinese name: directly use the comment above the ability block in the override file (such as `// 诅咒`); if there is no such ability block in the override, check `DOTA_Tooltip_ability_{ability_name}` from `docs/reference/{version}/abilities_schinese.txt` The Chinese name of the
+- attribute is searched from `docs/reference/{version}/abilities_schinese.txt`: the value corresponding to `DOTA_Tooltip_ability_{ability_name}_{key_name}` (remove the colon at the end); if it cannot be found, use the system key name
+- After the user selects, recalculate and update the value and comments according to his instructions.
+
+### P3 comment format
+
+Only write end-of-line comments if the override value is different from the reference. Format: `"本图值" // 参考值 [规则标记]`
+
+| Scenario                             | Example                                              |
+| ------------------------------------ | ---------------------------------------------------- |
+| Single value comparison              | `"12" // 18`                                         |
+| Multi-tier comparison                | `"90 80 70 60" // 150 130 110`                       |
+| Pure level expansion                 | `"21 20 19 18 17" // 21 20 19 18 延伸`               |
+| Multiples                            | `"30 60 90 120 150" // 15 30 45 60 x2`               |
+| Fixed difference                     | `"300 500 700 900" // 200 400 600 800 +100`          |
+| Change difference                    | `"3 3.5 4 4.5 5" // 3 4 5 6 差值0.5`                 |
+| Reference value + design description | `"=0" // =1 移除 连环霜冻无限弹跳天赋`               |
+| Pure design description              | `// 原版不存在，手动修改`, `// 百分比伤害，限制上限` |
+
+**Rules:**
+
+- `//` After **write the current reference official number** first, the magnification/delta override mark is placed **at the end**; after the reference value, **Chinese design instructions** can be followed to explain the intention, and the existing instructions should be retained
+- multiple mark `x2` and so on **must** write the reference number at the same time, prohibited `// x2` no base number
+- has the same value and does not occupy any pitfalls (`"30" // 30` → delete the entire row)
+- Pure level expansion must be marked with `延伸`: only writing the reference value without marking indicates manual setting value, and the two cannot be mixed. The old row will only be replenished when it is changed this time, not the full amount.
+- **Forbidden**: semicolon separated, lifestone/facet names
+- Add reference to a non-existent key → end of line `// 中文原因`
+- follows the existing comment style in the same file and hero section
+
+---
+
+## execution order (by hero)
+
+1. **Scope**: Determine the ability list from the reference hero file (+`npc_heroes_custom.txt`)
+2. **by ability**:
+   a. Read the entire reference paragraph and list all multi-speed keys (complete set)
+   b. Read the override ability block and mark the difference set (refer to whether there is override or not)
+   c. **P1**: Delete the same value key + prohibited items
+   d. **P2**: Handle delta override, expand additional levels, recalculate multiples/differences
+   e. **P3**: Verification comment format
+3. **Self-test**:
+   - [ ] No copying of the same value, no identical token, multiple rows, single token for constant value
+   - [ ] None `special_bonus_facet_*`, None `CalculateSpellDamageTooltip`
+   - [ ] No key that no longer exists in the reference (including the renamed key as old `foo_tooltip` → new `foo`)
+   - [ ] MaxLevel extended scanned reference full text including difference set (top of block + sub-block + top tile)
+   - [ ] Percent key (`_pct`, etc.): Each level does not exceed 100; when the reference maximum value > 50, the difference cap has been rewritten
+   - [ ] Annotated key: the reference base is consistent with the current version, the rule mark is consistent with the value recalculation result
+   - [ ] `延伸` mark and uncommented key: value are completely consistent with the reference difference extension; the pure extension lines changed this time all have the `延伸` mark After
+4. all heroes are processed, call `update-heroes-custom` to verify Bot.Build compliance one by one for the heroes modified this time (there is no Bot.Build when the hero is not in `npc_heroes_custom.txt`, skip it).

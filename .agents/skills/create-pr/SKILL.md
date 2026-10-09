@@ -1,25 +1,25 @@
 ---
 name: create-pr
-description: 创建功能分支、commit、push 并发起 Pull Request。触发：用户说「创建 PR」「create pr」「提个 PR」，或实现完成需要发起代码审查。
+description: "Create a feature branch, commit and push changes, and open a pull request. Use when the user requests a PR or completed implementation needs code review."
 ---
 
-# 创建 Pull Request 工作流
+# Create Pull Request workflow
 
-从 `develop` 创建功能分支到发起 PR 的完整流程。
-
----
-
-## 分支命名
-
-- issue 驱动：`feature/{issue-number}-{branch-name}`，如 `feature/123-add-new-hero-ai`
-- 非 issue 驱动：按改动性质用 `fix/` `chore/` `docs/` 前缀，如 `chore/remove-universal-rune`
-- 前缀选择、worktree 与多会话隔离规则见 CLAUDE.md「Git 工作流 › 分支」
+The complete process from creating a function branch to `develop` to initiating a PR.
 
 ---
 
-## Step 1：从 develop 创建分支
+## branch naming
 
-**必须**从最新的 `develop` 切出，不从当前所在分支（可能是别的未合并 feature 分支）派生：
+- issue driver: `feature/{issue-number}-{branch-name}`, such as `feature/123-add-new-hero-ai`
+- non-issue driver: use `fix/` `chore/` `docs/` prefix according to the nature of the change, such as `chore/remove-universal-rune`
+- For prefix selection, worktree and multi-session isolation rules, see CLAUDE.md "Git Workflow › Branch"
+
+---
+
+## Step 1: Create a branch from develop
+
+**must** be cut out from the latest `develop` and not derived from the current branch (which may be other unmerged feature branches):
 
 ```bash
 git checkout develop
@@ -27,31 +27,31 @@ git pull
 git checkout -b <prefix>/{issue-number}-{branch-name}
 ```
 
-本地有要带进新分支的未提交改动时，直接切分支，改动会跟过去。不要用 `git stash` 搬运：stash 没存上时，`git stash pop` 会弹出更早留下的旧存档。
+When there are uncommitted changes that need to be brought into a new branch locally, just cut the branch directly and the changes will follow. Do not use `git stash` to move: when the stash is not saved, `git stash pop` will pop up the old archive left earlier.
 
 ---
 
-## Step 2：开发与提交
+## Step 2: Development and submission
 
-Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`，不写其他说明——详细说明留给 PR description。
+Commit format: short single-line title (≤72 characters) + text only write `Co-Authored-By`, no other description - leave detailed description to PR description.
 
 ```bash
-git add <相关文件>
+git add <relevant_files>
 git commit -m "$(cat <<'EOF'
-<简短标题>
+<short_title>
 
 Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
 EOF
 )"
 ```
 
-只 stage 与本次请求明确相关的文件；若当前分支不符合预期（如本应在 feature 分支却处于 `develop`/`main`），先向用户确认目标分支再提交。
+only stages files that are clearly related to this request; if the current branch does not meet expectations (for example, it should be in the feature branch but is in `develop`/`main`), first confirm the target branch with the user before submitting.
 
 ---
 
 ## Step 3：Push
 
-**推到该分支的上游 remote，不要固定写 `origin`。** 自己新切的分支上游就是 `origin`（首次推带 `-u`）；分支若跟着别人 fork 提的 cross-repo PR，上游是那个 fork 的 remote，推到 `origin` 只会在主仓库多出一个同名分支，PR 收不到新 commit。推之前先确认上游：
+**Push to the upstream remote of this branch. Do not write `origin` permanently. ** The upstream of your newly cut branch is `origin` (`-u` is pushed for the first time); if the branch follows the cross-repo PR raised by someone else's fork, the upstream is the remote of that fork, and pushing to `origin` will only create an additional branch with the same name in the main repository, and the PR will not receive new commits. Before pushing, confirm the upstream:
 
 ```bash
 git rev-parse --abbrev-ref --symbolic-full-name @{u}
@@ -59,75 +59,75 @@ git rev-parse --abbrev-ref --symbolic-full-name @{u}
 
 ---
 
-## Step 4：创建 Pull Request
+## Step 4: Create Pull Request
 
-- **base branch 固定为 `develop`**
-- 使用模板 `.github/pull_request_template.md`
-- **Issue 段**：分支名匹配 `^(feature|fix|chore|docs)/(\d+)` 时，提取该数字填入模板的 `- [ ] fix #<issue-id>`；无匹配则保留占位或删除该行
-- **Release Note 段**：先按下方「Release Note 三选一」判定本次走哪条轨道；需要写时**必须调用 `release-note` skill 生成**，不要手写
-- **PR 标题默认使用英文**，简短概括改动（≤70 字符）
-- **待确认/待验证事项写进 `## Checklist` 段落，用 checkbox 形式**（如 `- [ ] 在 Dota Tools 中验证 bot 是否正确开启臂章`），不要另开"待确认"之类的散文段落——review 时需要能逐项勾选，不是读一段说明文字
-
-```bash
-gh pr create --base develop --title "<英文标题>" --body-file <填充后的模板文件>
-```
-
-### 界面截图
-
-**只在改了界面时放**（Panorama 布局、样式、玩家能看到的文案），纯逻辑、数值、AI 改动不放。
-
-- **默认只拍中文**；改了界面文案时中、英、俄三种语言各拍一组，确认长文本不溢出、不挤掉旁边的元素
-- 只放改动后的画面，要对比时才放改动前
-- **拍图派子代理，用 `model: "sonnet"`**：起服、等加载、截图、裁图都是固定流程，图片在主会话里来回读很贵。交接里写全要拍的状态、裁剪区域、存放目录（会话 scratchpad），子代理回报文件路径和「有没有溢出、截断、白屏」；主会话只看最终裁好的小图。haiku 判断不了排版问题，不用
-- 本机专用服 + 客户端的启动方式与派子代理的分工见 `dota-live-test` skill；客户端加 `-language english` / `-language russian` 切语言，每种语言单独起一次
-
-图片放 `assets` 孤儿分支的 `pr/<PR 编号>/`，不进 `develop` 源码树。路径里有 PR 编号，所以顺序是**先建 PR，再推图，再 `gh pr edit` 更新正文**：
+- **base branch is fixed to `develop`**
+- Using template `.github/pull_request_template.md`
+- **Issue section**: When the branch name matches `^(feature|fix|chore|docs)/(\d+)`, extract the number and fill it in `- [ ] fix #<issue-id>` of the template; if there is no match, keep the placeholder or delete the line
+- **Release Note Section**: First press "Release Note Three Select One" below to determine which track to take this time; when you need to write, you must call the `release-note` skill to generate\*\*, do not write by hand
+- **PR title uses English by default**, brief summary change (≤70 characters)
+- ** Matters to be confirmed/to be verified should be written in the `## Checklist` paragraph, using checkbox format** (such as `- [ ] Verify that the bot opens the armband correctly in Dota Tools`). Do not open another prose paragraph such as "To be confirmed" - when reviewing, you need to be able to check items one by one, not read a paragraph of explanatory text
 
 ```bash
-git worktree add --detach <临时目录>/wt-assets origin/assets
-cd <临时目录>/wt-assets && git checkout -B assets origin/assets
-mkdir -p pr/<PR 编号> && cp <图片> pr/<PR 编号>/
-git add -A && git commit -m "Add screenshots for PR #<PR 编号>" && git push origin assets
+gh pr create --base develop --title "<English_title>" --body-file <filled_template_file>
 ```
 
-用完 `git worktree remove <临时目录>/wt-assets --force`。正文用 `https://raw.githubusercontent.com/windy10v10ai/game/assets/pr/<PR 编号>/<名字>.png` 引用，推完先 `curl -o /dev/null -w '%{http_code}'` 确认 200。重拍的图换新文件名，不覆盖旧文件：GitHub 按网址缓存 PR 里的图，同名覆盖后仍显示旧图。
+### interface screenshot
 
-截图放在 `## Checklist` 之前，单独一段 `## Screenshots`。
+**Only put when the interface is changed** (Panorama layout, style, localization text that players can see), pure logic, numerical values, and AI changes will not be put.
 
-### Release Note 三选一
+- **Only capture Chinese by default**; when changing the interface localization text, capture a set of Chinese, English, and Russian languages to ensure that the long text does not overflow or crowd out the elements next to it.
+- Only show the changed picture, only show the before change if you want to compare.
+- **Picture-taking sub-agent, use `model: "sonnet"`**: Starting the server, waiting for loading, screenshots, and cropping are all fixed processes. It is very expensive to read back the pictures in the main session. In the handover, the state to be photographed, the cropping area, and the storage directory (session scratchpad) are written. The subagent reports the file path and "whether there is overflow, truncation, or white screen"; the main session only sees the final cropped small image. haiku cannot determine the typesetting problem, so don’t use it.
+- Local dedicated service + client startup method and division of labor for sub-agent see `dota-live-test` skill; client plus `-language english` / `-language russian` all languages, start each language separately The
 
-#### 先自行判定是否纯内部改动
+picture is placed in `pr/<PR_number>/` of the `assets` orphan branch, but not in the `develop` source tree. There is a PR number in the path, so the order is **Create the PR first, then push the image, and then `gh pr edit` update the text**:
 
-满足全部两条即是**纯内部改动**：
+```bash
+git worktree add --detach <temporary_directory>/wt-assets origin/assets
+cd <temporary_directory>/wt-assets && git checkout -B assets origin/assets
+mkdir -p pr/<PR_number> && cp <image> pr/<PR_number>/
+git add -A && git commit -m "Add screenshots for PR #<PR_number>" && git push origin assets
+```
 
-1. 改动对象是代码结构、构建、CI、文档、注释、测试或开发调试工具
-2. 玩家在游戏内读不出一条「更新内容」——没有新增或移除玩家可见的内容，没有数值与平衡变化，没有 UI 与本地化文案变化，bot 会不会用某个技能或物品没有改变
+used up `git worktree remove <temporary_directory>/wt-assets --force`. The main text is quoted by `https://raw.githubusercontent.com/windy10v10ai/game/assets/pr/<PR_number>/<name>.png`. After pushing, please confirm by `curl -o /dev/null -w '%{http_code}'` 200. The retaken image has a new file name without overwriting the old file: GitHub caches the image in the PR by URL, and the old image is still displayed after being overwritten with the same name.
 
-重构与代码迁移即使带来细微差异（阈值口径变化、去掉与现有系统重复的逻辑），只要玩家不会把它当成一条更新内容来读，仍算纯内部改动。
+screenshot is placed before `## Checklist`, with a separate section of `## Screenshots`.
 
-**是纯内部改动**：直接跳过，不提问、不查版本号、不调用 `release-note` skill，删掉 PR 模板里的 `## Release Note` 段，并在 PR 描述中说明本次无玩法影响。
+### Release Note Choose one of three
 
-**不是，或无法确定**：按下方三选一提问。
+#### First determine whether the change is purely internal.
 
-#### 无法自行判定时的三选一
+satisfies all two requirements and is **Purely Internal Change**:
 
-用 `AskUserQuestion` 让用户在三条轨道中选一条，选完再去查版本号——选「不写」时完全不必查 Steam 与 release PR：
+1. The object of the change is code structure, build, CI, documentation, comments, testing or development debugging tools
+2. Players cannot read an "update content" in the game - there is no addition or removal of content visible to the player, no numerical and balance changes, no UI and localization text changes, and whether the bot will use a certain ability or item has not changed. Even if the
 
-| 选项 | 适用改动 | 后续动作 |
-|---|---|---|
-| 小版本补丁（默认推荐） | 常规改动，累积在当前大版本下 | 调用 `release-note`，参数注明「小版本补丁」 |
-| 大版本 | 本次作为新大版本发布 | 调用 `release-note`，参数注明「大版本」，由其同步 `GAME_VERSION` |
-| 不写 Release Note | 玩法影响处于边界、用户判断不必公告的改动 | 跳过 skill，并删掉 PR 模板里的 `## Release Note` 段 |
+refactoring and code migration bring about minor differences (changes in threshold criteria, removal of logic that overlaps with the existing system), as long as players do not read it as an update, it is still considered a purely internal change.
 
-具体版本号（`v5.xx` / `v5.xxa`）由 `release-note` skill 在此选择之后确定；本次提问只问轨道，不让用户直接报版本号。
+**Purely internal changes**: skip directly, no questions asked, no version number checked, no calling the `release-note` skill, delete the `## Release Note` segment in the PR template, and state in the PR description that there is no gameplay impact this time.
+
+**No, or cannot be determined**: Click one of the three options below to ask a question.
+
+#### Choose one of three when you can’t decide by yourself
+
+uses `AskUserQuestion` to allow users to select one of the three tracks, and then check the version number after selecting - there is no need to check Steam and release PR when "Don't write" is selected:
+
+| Options                                      | Applicable changes                                                                               | Follow-up actions                                                                                           |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| Minor version patch (recommended by default) | Regular changes, accumulated under the current major version                                     | Call `release-note`, the parameter indicates "minor version patch"                                          |
+| Large version                                | This time released as a new major version                                                        | Call `release-note`, the parameter indicates "large version", and it will be synchronized by `GAME_VERSION` |
+| Do not write Release Note                    | The gameplay impact is at the borderline and the user does not judge the changes to be announced | Skip the skill and delete the `## Release Note` segment in the PR template                                  | The specific version number of |
+
+(`v5.xx` / `v5.xxa`) is determined by `release-note` skill after this selection; this question only asks about the track and does not allow users to report the version number directly.
 
 ---
 
-## 常见陷阱
+## Common Traps
 
-- **推到 `origin` 而非分支真正的上游**：动手前先 `gh pr list --head <branch>` 查该分支是否已有 PR。已有就不再新建，改为推到它的 head 仓库（cross-repo PR 需 `maintainerCanModify` 为 true）后报告原 PR 链接；推错地方的表现是主仓库凭空多出同名分支、而 PR 的 head commit 没变
-- **分支不是从 develop 切出**：若在别的 feature 分支上直接 `checkout -b`，新分支会带着上一个分支未合并的改动，PR diff 会包含无关内容
-- **Release Note 手写**：必须先跑 `release-note` skill，不要直接照抄改动列表拼凑
-- **待确认事项写成独立段落**：应该和 `I have tested the changes works well.` 放在同一个 `## Checklist` 里，各自一个 checkbox
-- **先查版本号再问轨道**：轨道未定就去查 Steam 与 release PR，选「不写 Release Note」时这些查询全是白费，还会把用户拖进不需要的版本号决策
-- **纯内部改动还去提问**：重构、删死代码、构建与文档类改动自行判定跳过即可，问了只是让用户重复确认一遍显而易见的结论
+- **Push to `origin` instead of the real upstream of the branch**: Check `gh pr list --head <branch>` to see if the branch already has a PR before taking action. If it already exists, it will no longer be created. Instead, it will be pushed to its head repository (cross-repo PR requires `maintainerCanModify` to be true) and the original PR link will be reported. The performance of pushing to the wrong place is that the main repository has branches with the same name out of thin air, but the head commit of the PR has not changed.
+- **The branch is not cut out from develop**: If you directly `checkout -b` on another feature branch, the new branch will carry the unmerged changes of the previous branch, and the PR diff will contain irrelevant content
+- **Release Note Handwriting**: You must run the `release-note` skill first, do not directly copy the change list and piece it together
+- **Items to be confirmed should be written as independent paragraphs**: They should be placed in the same `## Checklist` as `I have tested the changes works well.`, each with a checkbox
+- **Check the version number first and then ask about the track**: Check Steam and release PR when the track is not decided. When choosing "Don't write a Release Note", these queries are all in vain and will drag the user into unnecessary version number decisions.
+- **Please ask questions for purely internal changes**: Refactoring, deleting code, building and document changes can be skipped at your own discretion. Asking questions only asks the user to confirm the obvious conclusion again.

@@ -1,60 +1,60 @@
 ---
 name: faq
-description: 维护加载界面的 FAQ 问答，写入加载屏与中英俄本地化。触发：用户说「加一个加载 FAQ」「优化加载页文案」「加载提示加 XX」。
+description: "Maintain loading-screen FAQ questions and answers in the loading UI and Chinese, English, and Russian localization. Use when adding FAQ entries or changing loading-screen wording or tips."
 ---
 
-# 维护加载屏 FAQ
+# Maintenance loading screen FAQ
 
-在自定义加载屏顶部中偏右显示一条随机 FAQ。用户给出原始文本即视为文案与实现授权，直接优化并完成写入；仅当机制事实无法从代码确认，或分类会明显改变用户意图时才询问。
+Displays a random FAQ at the top center right of the custom loading screen. When the user gives the original text, it is regarded as localization text and implementation authorization, and the writing is directly optimized and completed; it is only asked when the mechanism facts cannot be confirmed from the code, or the classification will obviously change the user's intention.
 
-## 固定结构
+## fixed structure
 
-- 布局：[content/panorama/layout/custom_game/custom_loading_screen.xml](content/panorama/layout/custom_game/custom_loading_screen.xml)
-  - 保持 `LoadingFaqPanel` 下的 `LoadingFaqQuestion` 与 `LoadingFaqAnswer` 两个 Label。
-  - 不新增 FAQ 标题，不把问答合并为单个 Label。
-- 样式：[content/panorama/styles/custom_game/custom_loading_screen.css](content/panorama/styles/custom_game/custom_loading_screen.css)
-  - FAQ 是无边框、无背景的嵌入式文字，不做浮窗卡片。
-  - 保持上方中偏右位置，避开左侧游戏选项、右侧队伍面板和中央 Dota 标志。
-  - 问题使用暖色、较大且粗体，答案使用较小的浅色正文。
-- 随机逻辑：[content/panorama/scripts/custom_game/game_mode.js](content/panorama/scripts/custom_game/game_mode.js)
-  - `LOADING_FAQ_GROUPS` 的常见组权重为 `8`，冷门组权重为 `2`，先按组加权，再在组内等概率抽取。
-  - 每条 entry 仅写 key 前缀 `loading_faq_<topic>`，脚本读取 `<prefix>_question` 和 `<prefix>_answer`。
+- Layout: [content/panorama/layout/custom_game/custom_loading_screen.xml](content/panorama/layout/custom_game/custom_loading_screen.xml)
+  - Maintain the two labels `LoadingFaqQuestion` and `LoadingFaqAnswer` under `LoadingFaqPanel`.
+  - Do not add a FAQ title and does not merge the questions and answers into a single Label.
+- style: [content/panorama/styles/custom_game/custom_loading_screen.css](content/panorama/styles/custom_game/custom_loading_screen.css)
+  - FAQ is an embedded text with no borders and no background, and is not a floating card.
+  - Keep the upper center-right position, avoiding the game options on the left, the team panel on the right, and the central Dota logo.
+  - Use warm, larger, and bold text for questions, and smaller, lighter text for answers.
+- Random logic: [content/panorama/scripts/custom_game/game_mode.js](content/panorama/scripts/custom_game/game_mode.js) The common group weight of
+  - `LOADING_FAQ_GROUPS` is `8`, and the unpopular group weight is `2`. They are first weighted by group, and then drawn with equal probability within the group.
+  - Each entry only writes the key prefix `loading_faq_<topic>`, and the script reads `<prefix>_question` and `<prefix>_answer`.
 
-## 文案与分类
+## localization text and classification
 
-1. 先在现有本地化中查术语，再写文案。沿用已存在的名称，例如“藏宝箱”“物品抽奖”“肉山”“多重施法（觉醒）”。
-2. 问题面向新玩家，直接描述玩家看见的现象，避免内部术语和实现细节。
-3. 答案优先 1–2 句，先给结论，再给必要条件或操作。不要使用分号。
-4. 不用 `<br>`、HTML 或文本换行分隔问答，两个 Label 自然换行。
-5. 核心、新玩家高频或全局机制归入常见。仅特定英雄、多人场景、背包边界或高级规则归入冷门。
-6. 涉及实际奖励、奖池、叠加或掉落规则时，先读对应代码验证；不要把“概率更高”写成“奖励档位更高”，或反过来。
-7. Question 位不强制写成疑问句。内容如果是操作建议/技巧而非玩家会主动发问“为什么”的异常现象，直接用陈述式标题更自然（如“藏宝箱抢先开启者奖励更好”），不要为了凑问答格式硬套“…有什么好处？”一类问句。
-8. 不要为制造问句而引入虚假对比条件。本游戏固定 10v10，“多人游戏时…”这类框架会暗示单人场景不成立，而单人场景本不存在。
-9. 新增前检索现有 FAQ 是否已覆盖相同机制，内容重叠时合并进已有条目的回答，不要并列两条相似问答。
-10. “为什么”开头的问句语气偏向责问，整个题库避免让它成为主导句式。改用“什么情况/时候…”“…吗？”“…怎么办？”等更柔和的问法，或按第 7 条改成陈述式标题。新增或修改条目前，通读题库里已有的 Question 措辞，避免连续堆积同一种开头。
+1. First search the terminology in the existing localization, and then write the localization text. Keep the existing names, such as "treasure chest", "item lottery", "roshan" and "awakening". The
+2. question is tiered toward new players and directly describes the phenomena seen by players, avoiding internal jargon and implementation details.
+3. Give priority to answers in 1–2 sentences. Give the conclusion first, and then give the necessary conditions or operations. Don't use semicolons.
+4. Do not use `<br>`, HTML or text breaks to separate questions and answers, and the two Labels wrap naturally.
+5. Core, new player high-frequency or global mechanisms are classified as common. Only specific heroes, multiplayer scenarios, pack boundaries, or advanced rules are classified as upsets.
+6. When it comes to actual rewards, prize pools, stacking or drop rules, read the corresponding code first to verify; do not write "higher probability" as "higher reward tier", or vice versa.
+7. Question bit is not forced to be written as a question sentence. If the content is operational advice/techniques rather than abnormal phenomena where players will actively ask "why", it would be more natural to directly use a declarative title (such as "Those who open the treasure chest first will be rewarded better"). Don't use "What are the benefits of...?" questions just to make up the question and answer format.
+8. Do not introduce false comparison conditions to create questions. The game is fixed at 10v10, and a frame like "When playing in multiplayer..." would imply that the single-player scenario is not true, and the single-player scenario does not exist.
+9. Search existing FAQs to see if they cover the same mechanism before adding new ones. If the content overlaps, merge into the answers to existing entries. Do not juxtapose two similar questions and answers.
+10. The tone of the question starting with "Why" is more accusatory, and the entire question bank should avoid letting it become the dominant sentence pattern. Instead, use softer questions such as "What situation/when..." "...?" "What should I do...?" or change it to a descriptive title according to Article 7. Before adding or modifying items, read through the existing Question wordings in the question bank to avoid stacking the same beginnings in succession.
 
-## 写入本地化
+## write localization
 
-同时修改以下三个文件：
+Modify the following three files at the same time:
 
 - `game/resource/addon_schinese.txt`
 - `game/resource/addon_english.txt`
 - `game/resource/addon_russian.txt`
 
-在 `loading_status_*` 段落之后保留一个空行，以 `// FAQ` 开始 FAQ 段。每条 FAQ 必须在三语文件中使用相同的两条 key：
+Leave a blank line after the `loading_status_*` paragraph and start the FAQ paragraph with `// FAQ`. Each FAQ must use the same two keys in the three language files:
 
 ```text
 loading_faq_<topic>_question
 loading_faq_<topic>_answer
 ```
 
-保持两个 tab 缩进、三语 key 完整对应和相同段落结构。三个文件中的 key 顺序与注释保持一致。
+maintains two-tab indentation, complete three-language key correspondence, and the same paragraph structure. The order of keys in the three files is consistent with the comments.
 
-## 工作流
+## Workflow
 
-1. 读取 `game/resource/CLAUDE.md` 与 `localization-format-guide` skill，查看现有 FAQ 和相关机制代码。
-2. 将用户原始文本优化为中文问答，并依照现有术语翻译为英文和俄文。
-3. 选择常见或冷门组，在 `LOADING_FAQ_GROUPS` 加入对应前缀，并在三语 `// FAQ` 段增加问答 key。
-4. 若修改问答结构或展示样式，同时检查 XML、脚本和 CSS 仍使用两个 Label 的无边框嵌入式设计。
-5. 验证：运行 `git diff --check`、`node --check content/panorama/scripts/custom_game/game_mode.js`，检查每个新增 key 在三语文件中各出现一次，并确认 entry 已注册到脚本。
-6. 提示用户在 Dota Tools 实测 16:9 与窄屏下的位置、换行和随机结果。
+1. Read `game/resource/CLAUDE.md` and `localization-format-guide` skills to view the existing FAQ and related mechanism codes.
+2. Optimize the user's original text into Chinese questions and answers, and translates it into English and Russian according to existing terminology.
+3. Select the common or unpopular group, add the corresponding prefix to `LOADING_FAQ_GROUPS`, and add the question and answer key to the trilingual `// FAQ` segment.
+4. If you modify the Q&A structure or display style, check XML, scripts and CSS at the same time and still use the borderless embedded design of two Labels.
+5. Verification: Run `git diff --check`, `node --check content/panorama/scripts/custom_game/game_mode.js`, check that each new key appears once in the trilingual file, and confirm that the entry has been registered in the script.
+6. Prompt users to measure position, line wrapping and random results in Dota Tools in 16:9 and narrow screens.

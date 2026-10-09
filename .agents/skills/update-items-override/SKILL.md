@@ -1,53 +1,53 @@
 ---
 name: update-items-override
-description: Dota 版本更新后按官方补丁日志同步物品：原版物品差分、克隆上位物品数值、材料改价后的配方费联动。
+description: "Synchronize item changes after a Dota update: vanilla item overrides, upgraded clone values, and recipe costs affected by component price changes. Use only on explicit user request."
 disable-model-invocation: true
 ---
 
 # Update Items Override
 
-按官方补丁日志同步物品改动。一件原版物品的改动会波及三处，每批都要逐处过完：
+Synchronize item changes according to the official patch log. A modification to a vanilla item will affect three places, and each batch must be completed one by one:
 
-| 波及处 | 文件 | 规则 |
-|---|---|---|
-| 原版物品本身 | `npc_items_override.txt`、`npc_items_override_neutral*.txt` | 与技能相同的差分规则 |
-| 克隆上位物品（`BaseClass` = 该原版物品） | `npc_items_clone.txt` 等 | 按行尾注释规则用新原版值重算 |
-| 用到改价材料的配方 | 全部 `npc_items_*.txt` 的 `item_recipe_*` | 配方费抵消价差，上位物品总价不变 |
+| Affected areas                                        | Documents                                                   | Rules                                                                                                |
+| ----------------------------------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| vanilla item itself                                   | `npc_items_override.txt`, `npc_items_override_neutral*.txt` | Same delta override rules as ability                                                                 |
+| Clone the upper item (`BaseClass` = the vanilla item) | `npc_items_clone.txt`, etc.                                 | Recalculate with the new vanilla value according to the end-of-line comment rules                    |
+| Recipes using price-changed materials                 | All `npc_items_*.txt`’s `item_recipe_*`                     | The recipe fee offsets the price difference, and the total price of the upper item remains unchanged |
 
-差分、注释、`延伸` 标记等规则一律沿用 `update-abilities-override` 的 P1–P3，本文件只写物品特有的部分。参考文件为 `docs/reference/<version>/items.txt` 与 `neutral_items.txt`（`<version>` 取法见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」）。用 `grep` / 片段读取定位，不整份读入物品文件。
+delta override, comments, `延伸` tags and other rules will all follow P1–P3 of `update-abilities-override`. This file only writes the item-specific parts. The reference documents are `docs/reference/<version>/items.txt` and `neutral_items.txt` (for the method of obtaining `<version>`, see `game/scripts/npc/CLAUDE.md` "vanilla KV Reference"). Use `grep` / fragment to read and position, and do not read the entire item file.
 
-## 每批流程
+## Each batch process
 
-1. **核对**：交给 `model: "sonnet"` 的后台 subagent 对比上一版与新版 `items.txt`，返回：
-   - 每条日志对应的物品系统名、KV 键、新旧值
-   - **全部** `ItemCost` 变化（物品与 `item_recipe_*`，含因材料涨价而被动变价的原版上位物品），列出价差
-   - 日志没提到的其它数值差异
+1. **Check**: Give it to the background subagent of `model: "sonnet"` to compare the previous version with the new version `items.txt`, return:
+   - The item system name, KV key, old and new values corresponding to each log
+   - **All** `ItemCost` changes (item and `item_recipe_*`, including vanilla high-level items that have been passively changed in price due to material price increases), list the price difference
+   - Other numerical differences not mentioned in the log
 
-   主会话自己读本图物品文件，subagent 不判定改法。
+   The main session reads this addonitem file by itself, and the subagent does not determine the modification method.
 
-2. **原版物品**：本图没写该键 → 自动生效；写了 → 按 P1–P3 给新值。
+2. **vanilla item**: This addon does not write this key → it will take effect automatically; if it writes → press P1–P3 to give a new value.
 
-3. **克隆物品**：对每件改动物品，`grep` 出 `"BaseClass"\s+"<item>"` 的全部上位物品：
-   - 行尾注释带原版值与规则（`// 175`、`// 15 x2`）→ 用新原版值按同一倍率重算，注释基数同步为新值
-   - 注释无法推出倍率，或值与旧原版值相同且无注释 → 用 `AskUserQuestion` 逐项问
-   - 自制物品（`npc_items_custom.txt` 等）整块没有原版值注释 → 视为独立设计，不改，在核对表里列出即可
+3. **Clone item**: For each changed item, `grep` produces all upper items of `"BaseClass"\s+"<item>"`:
+   - end-of-line comments with vanilla values and rules (`// 175`, `// 15 x2`) → recalculate with the new vanilla value at the same rate, and the comment base is synchronized to the new value
+   - comment cannot derive the magnification, or the value is the same as the old vanilla value and there is no comment → Use `AskUserQuestion` to ask item by item
+   - Self-made item (`npc_items_custom.txt`, etc.) does not have vanilla value annotation → regarded as an independent design, no changes, just list it in the checklist
 
-   克隆块不继承原版 `AbilityValues`，原版改了而克隆块写死的键不会自动跟随，必须逐键过完。
+   clone block does not inherit vanilla `AbilityValues`. If vanilla is changed, the hard-coded keys of the clone block will not automatically follow and must be passed key by key.
 
-4. **配方价格联动**：
-   - 材料的**有效价格** = override 写了 `ItemCost` 就用 override 值，否则用参考值。override 钉死了价格的材料，有效价差为 0，不联动
-   - 对每件有效价差 Δ ≠ 0 的材料，`grep` 全部 `npc_items_*.txt` 中 `ItemRequirements` 含该物品的本图配方，把配方的 `ItemCost` 减 Δ，上位物品自身的 `ItemCost` 不动
-   - 同一配方含多件改价材料时，Δ 累加
-   - 新配方费 ≤ 0 → 用 `AskUserQuestion` 逐项问（上位物品加价 / 配方费置 0 并接受总价变化）
-   - 原版上位物品的配方与总价由官方维护，不属于本图配方，不在此步处理
+4. **Recipe price linkage**:
+   - The **effective price** of the material = override. If `ItemCost` is written, the override value will be used, otherwise the reference value will be used. Override is a material with a nailed price. The effective price difference is 0 and there is no linkage.
+   - For each material with effective price difference Δ ≠ 0, `grep` all `npc_items_*.txt` `ItemRequirements` contains this addon formula of the item, subtract Δ from `ItemCost` of the formula, `ItemCost` of the upper item itself does not move
+   - When the same formula contains multiple price-changed materials, Δ is accumulated
+   - New formula fee ≤ 0 → Use `AskUserQuestion` to ask item by item (higher item price increase/recipe fee set to 0 and accept the total price change) The formula and total price of the
+   - vanilla upper item are maintained by the official and do not belong to this addon formula and will not be processed in this step.
 
-5. **出核对表**：每条日志一行，另起一段列出配方联动（配方名、材料、Δ、旧配方费 → 新配方费、上位物品总价）。用户确认后再改。
+5. **Checklist**: Each log has one line, and a new paragraph lists the formula linkage (recipe name, material, Δ, old formula fee → new formula fee, total price of the upper item). Change after user confirmation.
 
-6. **改完自检并 commit**：
-   - `git diff` 只动了核对表里的行
-   - 每个被改的配方：材料有效价格之和 + 配方费 = 上位物品 `ItemCost`。改动前就不相等的（标价写错），出核对表时用 `AskUserQuestion` 逐件问（标价改成实际总价 / 本批不动），不自行反算配方费
-   - 每批单独 commit
+6. **Complete the self-test and commit**:
+   - `git diff` Only the rows in the check table were moved
+   - Each modified formula: the sum of the effective prices of materials + formula fee = upper item `ItemCost`. If it is not equal before the change (the price is wrongly written), use `AskUserQuestion` to ask piece by piece when issuing the checklist (the price is changed to the actual total price / the current batch is unchanged), and the formula fee is not calculated back by yourself.
+   - commit separately for each batch
 
-## 本图配方的写法
+## How to write this addon recipe
 
-上位物品的 `ItemCost` 单独写死总价，与材料价格、配方费之间没有自动关联。材料改价而配方费不动时，逐件合成的实际花费就与标价对不上，所以配方费随材料价差联动，保持上位物品总价不变。
+The total price of the upper item `ItemCost` is written separately, and there is no automatic correlation with the material price and formula fee. When the price of materials changes but the formula fee remains unchanged, the actual cost of synthesizing each piece will not match the marked price, so the formula fee will be linked with the material price difference, keeping the total price of the upper item unchanged.

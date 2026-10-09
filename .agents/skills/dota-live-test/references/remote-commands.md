@@ -1,48 +1,48 @@
-# 远程命令：验物品与技能
+# Remote command: check item and ability
 
-`npm run dota:cmd` 经远程控制台往运行中的 Dota 发命令，发完把这批命令触发的新日志打印出来（默认只留 `[test]` / `[Debug]` / 报错行，`--all` 看全部，`--settle <毫秒>` 调等待时长）。Dota 必须由 `npm run launch` 或带 `-netconport 29000` 的命令启动。
+`npm run dota:cmd` sends commands to the running Dota via the remote console. After sending, the new logs triggered by this batch of commands are printed out (by default, only `[test]` / `[Debug]` / error lines are left, `--all` sees all, `--settle <milliseconds>` adjusts the waiting time). Dota must be started by `npm run launch` or the command with `-netconport 29000`.
 
 ```bash
 npm run dota:cmd -- "say -give item_blink" "say -stat"
 ```
 
-聊天命令要包成 `say <命令>`；控制台命令（`script_reload`、`dota_launch_custom_game`）直接写。
+chat commands should be packaged as `say <command>`; console commands (`script_reload`, `dota_launch_custom_game`) should be written directly.
 
-## 命令
+## command
 
-| 命令                                                                | 用途                                                                      |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `-stat` / `-watch` / `-cast` / `-give` / `-tp` / `-hurt` / `-dummy` | 本仓调试命令，参数以 `src/vscripts/modules/debug/debug-cmd.ts` 的注释为准 |
-| `-m`                                                                | 打印英雄当前全部 modifier                                                 |
-| `-aioff` / `-aion`                                                  | 停掉 / 恢复自定义 AI                                                      |
-| `-g`                                                                | 加钱升满级                                                                |
-| `-clearunits` / `-spawnunits <数量>`                                | 清掉小兵野怪召唤物 / 在中路两侧刷近战兵                                   |
+| Command                                                             | Purpose                                                                                                                    |
+| ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `-stat` / `-watch` / `-cast` / `-give` / `-tp` / `-hurt` / `-dummy` | This repository debugging command, the parameters are subject to the comments of `src/vscripts/modules/debug/debug-cmd.ts` |
+| `-m`                                                                | Print all current hero modifiers                                                                                           |
+| `-aioff` / `-aion`                                                  | Stop / Resume custom AI                                                                                                    |
+| `-g`                                                                | Add money to upgrade to full level                                                                                         |
+| `-clearunits` / `-spawnunits <count>`                               | Clear out minions and wild monster summons / Spawn melee soldiers on both sides of the middle                              |
 
-本仓调试命令只在工具模式生效，输出带 `[test] t=<游戏时间>` 前缀。
+This repository debugging command only takes effect in tool mode, and the output is prefixed with `[test] t=<game time>`.
 
-## 标准流程
+## standard process
 
-1. **准备**：`say -aioff`，英雄留在自家基地（泉水附近之外）
-2. **发物品并看被动**：先 `say -stat` 记下无物品数值，再 `say -give <物品名>` 和 `say -stat`，逐项核对差值与 KV 一致（复用原版 modifier 时数值翻倍是静默的，这一步必须做）
-3. **找目标**：`say -watch <半径>` 的 start 行带坐标，用它找塔与小兵；没有合适目标时 `say -spawnunits 10`，再 `say -tp <x> <y>` 移到附近
-4. **打开监视**：`say -watch <半径>`，以开启那一刻英雄周围的敌人为准
-5. **施法**：`say -cast <物品名> <x偏移> <y偏移>`，偏移相对英雄当前位置
-6. **读结果**：`+modifier dur=` / `-modifier` 看状态何时上、何时掉，`hp a->b (差值)` 看伤害与回复
-7. **收尾**：`say -watch` 关监视，`say -aion` 恢复 AI
+1. **Preparation**: `say -aioff`, the hero stays at his home base (except near the spring)
+2. **Send the item and check the passive**: First `say -stat` records the value of no item, then `say -give <item_name>` and `say -stat`, check the difference item by item to be consistent with KV (the doubling of the value is silent when reusing the vanilla modifier, this step must be done)
+3. **Find target**: The start line of `say -watch <radius>` contains coordinates, use it to find towers and minions; when there is no suitable target, `say -spawnunits 10`, then `say -tp <x> <y>` move nearby
+4. **Turn on monitoring**: `say -watch <radius>`, based on the enemies around the hero at the moment it is turned on
+5. **Casting**: `say -cast <item_name> <x_offset> <y_offset>`, offset relative to the current position of the hero
+6. **Read result**: `+modifier dur=` / `-modifier` depends on when the status goes up and down, `hp a->b (delta)` depends on the damage and recovery
+7. **Ending**: `say -watch` turns off monitoring, `say -aion` restores AI
 
-完成判据：每个要验的效果都在 `[test]` 日志里找到对应行，或明确指出缺哪一行。
+Completion criterion: For each effect to be tested, find the corresponding line in the `[test]` log, or clearly indicate which line is missing.
 
-## 代码做不到、要真实按键的
+## It cannot be done with code and requires real buttons.
 
-**备用施法**（按住 Ctrl 激活）：物品读到的本次施法状态只认玩家真实按键，代码下命令或直接设状态都触发不了。用 computer-use 操作：先点一下游戏窗口取得焦点，`F1` 两次选中英雄并把镜头对准，按 `Ctrl` + 物品快捷键，再点地面，之后照常读 `[test]` 日志。
+**Alternate casting** (press and hold Ctrl to activate): The current casting status read by the item only recognizes the player's actual keystrokes. It cannot be triggered by commands or direct state setting. Use computer-use to operate: first click on the game window to get focus, select the hero `F1` twice and aim the camera, press the `Ctrl` + item shortcut key, then click on the ground, and then read the `[test]` log as usual.
 
-## 陷阱
+## Trap
 
-- **发物品用 `-give`**：原版作弊命令 `-item` 依赖客户端处理，窗口在后台时可能不生效或延迟很久
-- **不用假人**：训练假人是英雄类型单位，会被本模式的电脑 AI 接管跑走，还会被泉水和电脑英雄持续攻击、回满，伤害数据全乱，对它施法也不稳定。验伤害一律用 `-spawnunits` 的小兵和真实的塔
-- **防御符文**：电脑团队看到塔挨打会开防御符文，塔无敌约 7 秒，燃烧跳字会被吞掉。符文冷却 5 分钟，第二次再打
-- **截图是旧画面**：窗口失去焦点后不重绘，截图里的血量、时钟可能停在几分钟前，状态以日志为准，要看画面先点一下窗口
-- **看画面前折叠技能抽选面板**：开局的选技能面板盖在屏幕中间，英雄和落点都被挡住，确认动画、特效前先把它折叠
-- `script_reload` 会清空假人列表，但停不掉重载前开着的监视计时器，旧单位会继续刷日志、同一行打印多次。要干净数据就重启 Dota
-- 只有 `-watch` 时选中的单位才会被盯；之后新刷的假人自动加入，其余单位要关掉重开
-- 生命、魔法的增长只输出超出自然回复的部分，减少一律输出
+- **Use `-give`** to send items: vanilla cheating command `-item` relies on client processing, and may not take effect or be delayed for a long time when the window is in the background.
+- **No need for dummy**: The training dummy is a hero-type unit. It will be taken over by the bot AI in this mode and run away. It will also be continuously attacked and replenished by springs and bot heroes. The damage data is completely messed up, and casting spells on it is unstable. When testing damage, always use `-spawnunits` minions and real towers.
+- **Defense Rune**: When the bot team sees the tower being beaten, the defense rune will be activated. The tower will be invincible for about 7 seconds, and the burning and jumping characters will be swallowed. The rune cools down for 5 minutes, and you can hit it a second time.
+- **The screenshot is an old screen**: The window will not be redrawn after losing focus. The blood volume and clock in the screenshot may have stopped a few minutes ago. The status is based on the log. To see the screen, click on the window first.
+- **Collapse the ability selection panel before viewing the screen**: The ability selection panel at the beginning is covered in the middle of the screen, and the hero and landing point are blocked. Please fold it before confirming the animation and special effects.
+- `script_reload` will clear the dummy list, but it cannot stop the watchdog timer that was on before reloading. The old unit will continue to refresh the log and print the same line multiple times. To clean data, restart Dota
+- Only the units selected when `-watch` are targeted; after that, the newly refreshed dummies will automatically join, and the other units must be turned off and reopened.
+- The growth of life and magic will only output the part that exceeds the natural recovery, and all the decrease will be output.

@@ -1,53 +1,53 @@
-# DataDriven 可表达范围与 `item_apply_modifiers` 用法
+# DataDriven expressible range and `item_apply_modifiers` usage
 
-供 `custom-item` 第二步「选模式」查表使用。官方文档：https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven
+is used for table lookup in the second step of `custom-item` "Select Mode". Official document: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven
 
-## 可写进 `Properties` 的属性
+## can be written into the properties of `Properties`
 
-下列属性可直接写 KV `Properties`（模式 1 写物品自己的 `Modifiers`，模式 2 写 `item_apply_modifiers` 的 `_stats`）。**均为本仓已在用的**，出现次数取自 `npc_items_custom.txt` / `npc_items_artifact.txt` / `npc_items_modifier.txt`：
+The following attributes can be written directly to KV `Properties` (mode 1 writes the item's own `Modifiers`, mode 2 writes `_stats` of `item_apply_modifiers`). **All are already in use in this repository**, and the number of occurrences is taken from `npc_items_custom.txt` / `npc_items_artifact.txt` / `npc_items_modifier.txt`:
 
-**基础属性**
+**Basic attributes**
 
 - `MODIFIER_PROPERTY_STATS_STRENGTH_BONUS` / `_AGILITY_BONUS` / `_INTELLECT_BONUS`
 
-**攻击相关**
+**Attack related**
 
 - `MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE`、`MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT`
 - `MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE`、`MODIFIER_PROPERTY_ATTACK_RANGE_BONUS`
-- `MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE`（暴击倍率；触发概率用 `Random` 事件块，见下）
+- `MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE` (Crit multiplier; trigger probability using `Random` event block, see below)
 
-**防御相关**
+**Defense related**
 
 - `MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS`、`MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS`
 - `MODIFIER_PROPERTY_EVASION_CONSTANT`、`MODIFIER_PROPERTY_MISS_PERCENTAGE`
 - `MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE`
 
-**移动相关**
+**Mobile related**
 
 - `MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT` / `_PERCENTAGE` / `_UNIQUE`、`MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE`
 - `MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE`
 
-**生命 / 魔法 / 视野**
+**Life/Magic/Vision**
 
 - `MODIFIER_PROPERTY_HEALTH_BONUS`、`MODIFIER_PROPERTY_MANA_BONUS`
 - `MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT`、`MODIFIER_PROPERTY_MANA_REGEN_CONSTANT`
 - `MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE`
 - `MODIFIER_PROPERTY_BONUS_DAY_VISION`、`MODIFIER_PROPERTY_BONUS_NIGHT_VISION`
 
-**法术相关**
+**Spell related**
 
 - `MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE`、`MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE`
 
-表里没有的属性名不代表一定不行（DataDriven 支持面比这更宽），但**没有本仓先例**，先在 Dota Tools 验证再铺开。
+The attribute name that is not in the table does not necessarily mean that it will not work (DataDriven support is wider than this), but **there is no precedent in this repository**, so verify it in Dota Tools first and then roll it out.
 
-**已确认不可用**，命中直接留在脚本侧，不要试图下沉：
+**Confirmed to be unavailable**, the hit stays directly on the script side, don't try to sink:
 
 - `MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING`
-- `MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE`（上表的 `HP_REGEN_AMPLIFY_PERCENTAGE` 是回复放大，语义不同，替代不了）
+- `MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE`(The above table`HP_REGEN_AMPLIFY_PERCENTAGE`It’s a reply amplification, the semantics are different and cannot be replaced)
 
-`npc_items_custom.txt` 里那几处 `（不在可优化列表）` 注释指的就是这份名单。
+`npc_items_custom.txt`There are several places in`（不在可优化列表）`The annotation refers to this list.
 
-## 可写进 `States` 的状态
+## can be written into the status of `States`
 
 ```kv
 "States"
@@ -57,52 +57,52 @@
 }
 ```
 
-常用：`ROOTED`（禁锢）、`DISARMED`（缴械）、`SILENCED`、`MUTED`、`STUNNED`、`HEXED`、`INVISIBLE`、`INVULNERABLE`、`MAGIC_IMMUNE`、`FLYING`、`FORCED_FLYING_VISION`、`NO_HEALTH_BAR`、`NO_UNIT_COLLISION`、`ATTACK_IMMUNE`、`UNSELECTABLE`、`CANNOT_MISS`、`BLIND`。值：`MODIFIER_STATE_VALUE_ENABLED` / `_DISABLED`。
+Commonly used: `ROOTED` (confinement), `DISARMED` (disarm), `SILENCED`, `MUTED`, `STUNNED`, `HEXED`, `INVISIBLE`, `INVULNERABLE`, `MAGIC_IMMUNE`, `FLYING`, `FORCED_FLYING_VISION`, `NO_HEALTH_BAR`, `NO_UNIT_COLLISION`, `ATTACK_IMMUNE`, `UNSELECTABLE`, `CANNOT_MISS`, `BLIND`. Value: `MODIFIER_STATE_VALUE_ENABLED`/`_DISABLED`.
 
-## 声明式触发（不写脚本也能做的逻辑）
+## Declarative triggers without scripts
 
-`Modifiers` 内的事件块（`OnAttackStart` / `OnAttackLanded` / `OnSpellStart` / `OnIntervalThink` …）配合 Actions 可以表达一整条概率触发链，无需任何脚本。范例 `item_wasp_despotic`：`OnAttackStart` 里 `RemoveModifier` 清上次结果 → `Random` 掷 `%crit_chance` → `OnSuccess` `ApplyModifier` 挂暴击 modifier → 命中后 `OnAttackLanded` 再 `RemoveModifier` 清掉。
+`Modifiers`event block within (`OnAttackStart` / `OnAttackLanded` / `OnSpellStart` / `OnIntervalThink`...) With Actions, a whole probabilistic trigger chain can be expressed without any scripting. example`item_wasp_despotic`：`OnAttackStart`inside`RemoveModifier`Clear last result →`Random`Throw`%crit_chance` → `OnSuccess` `ApplyModifier`Add critical modifier → after hit`OnAttackLanded`Again`RemoveModifier`Clear it.
 
-判断「这条逻辑能不能纯 KV」时，先看它是不是能拆成「掷骰 → 挂/摘 modifier → 播音效/特效 → 造成伤害」这几步的组合。
+When judging "whether this logic can be pure KV", first see if it can be broken down into a combination of the steps of "rolling dice → hanging/picking modifier → playing sound effects/special effects → causing damage".
 
-## 必须留在脚本侧的部分
+## The part that must be left on the script side
 
-表外的部分按形态决定去哪个模式：
+The part outside the table determines which mode to go to according to the shape:
 
-**「动作」型 → 模式 1 的 `RunScript` 全局函数**
+**"action" type → `RunScript` global function in mode 1**
 
-- 一次性结算：造伤害、生成单位、发金币经验、播特效音效、整理场上实体
-- 挂/摘一个原版 modifier（挂点用 DataDriven modifier 自身的 `OnCreated` / `OnDestroy` 事件块）
-- 逐帧/定时的单步动作（`ThinkInterval` + `OnIntervalThink` 里 `RunScript` 结算一次伤害）
+- One-time settlement: causing damage, generating units, issuing gold experience, playing special sound effects, and organizing entities on the field
+- hangs/picks a vanilla modifier (the hanging point uses the `OnCreated` / `OnDestroy` event block of the DataDriven modifier itself)
+- frame-by-frame/timed single-step action (`RunScript` settles one damage in `ThinkInterval` + `OnIntervalThink`)
 
-**「常驻 modifier」型 → 模式 2 的 TS**
+**"Resident modifier" type → TS for mode 2**
 
-- `MODIFIER_PROPERTY_ABSORB_SPELL`（法术格挡，如清莲宝珠）
-- `MODIFIER_PROPERTY_PROCATTACK_FEEDBACK`（攻击触发反馈）
-- 需要**动态计算**的值（按生命百分比 / 层数 / 目标护甲 / 条件判断，静态 `%value` 表达不了）
-- 带记账的事件回调：内置冷却计时、attack record 跟踪、`OnTakeDamage` 复杂分支
-- 需要跨物品实例同步的状态（多件充能对齐等）
+- `MODIFIER_PROPERTY_ABSORB_SPELL` (spell blocking, such as Qinglian Orb)
+- `MODIFIER_PROPERTY_PROCATTACK_FEEDBACK` (attack trigger feedback)
+- requires **dynamic calculation** of the value (judged by health percentage/number of layers/target armor/conditions, static `%value` cannot express it)
+- Event callback with accounting: built-in cooling timer, attack record tracking, `OnTakeDamage` complex branch
+- Status that requires synchronization across item instances (multiple item charging alignment, etc.)
 
-判据不是代码长度，是**要不要写一个 modifier 类**。模式 1 的 Lua 里一旦出现 `LinkLuaModifier` + `class({})`，就说明选错了模式。
+The criterion is not the code length, but whether to write a modifier class. Once `LinkLuaModifier` + `class({})` appears in Lua in mode 1, it means the wrong mode has been selected.
 
-## 复用原版 modifier：字段冲突排查
+## Reusing vanilla modifier: Field conflict troubleshooting
 
-选型规则与三条机制规则见 SKILL.md 第一步，这里是查证手段。
+See SKILL.md for the selection rules and three mechanism rules. The first step is the verification method.
 
-**排查一个物品有没有踩中「同名字段双倍」**，两步对照：
+**Check whether an item has checked "Double the field with the same name"**, two-step comparison:
 
-1. 从 `docs/reference/<version>/items.txt` 取被复用原版物品的 `AbilityValues` 字段名（键在 4 层 tab 缩进下，按 3 层匹配会漏）
-2. 取本物品 `Modifiers` → `Properties` 里 `%xxx` 引用的字段名
+1. Gets the `AbilityValues` field name of the reused vanilla item from `docs/reference/<version>/items.txt` (the key is under the 4th level tab indentation, and it will be missed if you press the 3rd level matching)
+2. gets the field name referenced by `%xxx` in this item `Modifiers` → `Properties` The intersection of
 
-两者交集非空 = 该属性被原版 modifier 加一次、自己的 `Properties` 再加一次。复用两个以上原版时，还要取那几个原版彼此的字段交集，落在里面的字段会被各读一次。
+and the two is not empty = this attribute is added once by the vanilla modifier and added once by its own `Properties`. When reusing two or more vanillas, the fields of those vanillas must be intersected with each other, and the fields falling within them will be read once.
 
-已核对的先例：`item_beast_shield` / `item_hawkeye_turret` / `item_magic_crit_blade` / `item_forbidden_staff` / `item_shadow_impact` 交集为空；`item_magic_sword` 用 `bonus_damage_passive` 规避了狂战斧与黯灭共有的 `bonus_damage`；`item_beast_armor` 曾在 `bonus_damage` / `bonus_intellect` 上双倍，已改名修正。
+Checked precedents: `item_beast_shield` / `item_hawkeye_turret` / `item_magic_crit_blade` / `item_forbidden_staff` / `item_shadow_impact` The intersection is empty; `item_magic_sword` uses `bonus_damage_passive` to circumvent the common problem between Battle Fury and Obliteration `bonus_damage`; `item_beast_armor` was once doubled on `bonus_damage` / `bonus_intellect`, and has been renamed and corrected.
 
-**永久型原版 modifier 的挂/摘**：
+**Pending/removal of permanent vanilla modifier**:
 
-模式 2 声明 `BaseItemModifier` 的 `vanillaModifierNames` 即可，挂摘由基类全包，不要自己写。
+Mode 2 can declare `BaseItemModifier` and `vanillaModifierNames`. The abstraction is all covered by the base class. Do not write it yourself.
 
-模式 1 在 DataDriven modifier 的 `OnCreated` / `OnDestroy` 事件块里 `RunScript`，**存句柄再 `Destroy()`**：
+mode 1 In the `OnCreated` / `OnDestroy` event block of DataDriven modifier `RunScript`, **save the handle and then `Destroy()`**:
 
 ```lua
 -- OnCreated
@@ -111,11 +111,11 @@ local modifier = caster:AddNewModifier(caster, ability, "modifier_item_eternal_s
 if modifier and not modifier:IsNull() then modifier:Destroy() end
 ```
 
-**不要用 `RemoveModifierByName`**——它按名字删，会连同其他物品实例挂的同名 modifier 一起删掉，多件叠加时表现为静默丢属性。句柄的存放位置见下面的多 modifier 写法。
+**Do not use `RemoveModifierByName`** - it is deleted by name and will be deleted together with the modifier of the same name attached to other item instances. When multiple items are superimposed, the properties will be lost silently. For the storage location of the handle, see the multi-modifier writing method below.
 
-不要在自己 KV 的 `Modifiers` 块里重复定义这个原版 modifier。
+Do not repeatedly define this vanilla modifier in the `Modifiers` block of your own KV.
 
-**同时合并多个原版 modifier 时**，`RemoveModifierByName` 得逐个手写名字，不够通用；改用 `ability` 上挂一个数组记录句柄，`OnDestroy` 统一遍历 `Destroy()`：
+**When merging multiple vanilla modifiers at the same time**, `RemoveModifierByName` has to handwrite the names one by one, which is not versatile enough; instead use `ability` to hang an array record handle, and `OnDestroy` uniformly traverses `Destroy()`:
 
 ```lua
 -- OnCreated
@@ -134,48 +134,48 @@ end
 ability.added_modifiers = nil
 ```
 
-范例：`item_magic_crit_blade.lua`（合并 `modifier_item_devastator`）、`item_beast_armor.lua`（合并 `modifier_item_blade_mail`）。
+Example: `item_magic_crit_blade.lua` (merge `modifier_item_devastator`), `item_beast_armor.lua` (merge `modifier_item_blade_mail`). Three types of scenarios for
 
-## `item_apply_modifiers` 的三类场景
+## `item_apply_modifiers`
 
-`game/scripts/npc/npc_items_modifier.txt` 里的 `item_apply_modifiers`（`BaseClass item_datadriven`）是全局单例物品，存放 `item_lua` 物品「纯数值常量加成」部分的 DataDriven 定义 —— 因为 `item_lua` 的 KV 不支持自己的 `Modifiers` 块。
+`item_apply_modifiers` (`BaseClass item_datadriven`) in `game/scripts/npc/npc_items_modifier.txt` is a global singleton item, which stores the DataDriven definition of the "pure numerical constant bonus" part of the `item_lua` item - because the KV of `item_lua` does not support its own `Modifiers` block.
 
-**只服务模式 2**：27 个 `_stats` 对应的物品 100% 是 `item_lua`。模式 1 的属性写在物品自己的 `Modifiers` 块里，不碰这里。
+**Only service mode 2**: 100% of the items corresponding to 27 `_stats` are `item_lua`. The attributes of mode 1 are written in the item's own `Modifiers` block and are not touched here.
 
-### A. 永久物品基础属性（绑定物品实例，最常见）
+### A. Permanent item basic attributes (binding item instances, the most common)
 
-- 命名 `modifier_item_<name>_stats`，写进 `item_apply_modifiers` 的 `Modifiers` 块
-- 数值真值写进 `item_apply_modifiers` 自己的 `AbilityValues`，键须加 `<物品名>_` 前缀（如 `item_saint_orb_bonus_all_stats`），`Properties` 用 `%<前缀键>` 引用；物品自己的 `AbilityValues` 再补一条 `xxx_tooltip` **镜像值**供 tooltip 显示
-- TS：继承 `src/vscripts/items/ts_items/base_item_modifier.ts` 的 `BaseItemModifier`，只声明 `statsModifierName`，三个生命周期回调已实现
-- 存量原生 Lua：`OnCreated`（必须先调 `OnRefresh`）/ `OnRefresh` / `OnDestroy` 三处都调
+- named `modifier_item_<name>_stats`, written into the `Modifiers` block of `item_apply_modifiers`
+- The canonical value is written into `item_apply_modifiers`'s own `AbilityValues`. The key must be prefixed with `<item_name>_` (such as `item_saint_orb_bonus_all_stats`). `Properties` is referenced by `%<prefixed_key>`; item's own `AbilityValues` is added. `xxx_tooltip` **Image value** for tooltip display
+- TS: `BaseItemModifier` inherits `src/vscripts/items/ts_items/base_item_modifier.ts`, only declares `statsModifierName`, and the three life cycle callbacks have been implemented
+- Stock native Lua: `OnCreated` (`OnRefresh` must be adjusted first)/`OnRefresh`/`OnDestroy` All three places are adjusted
   ```lua
   RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
   ```
-  首参 `_` 是 TSTL 编译产物的隐式 context 参数，Lua 侧必须占位；TS 侧调用不写这一参
-- 该函数按持有者背包里这个物品的**实例数**自动对齐 `_stats` 的叠加层数（多件叠加需 `MODIFIER_ATTRIBUTE_MULTIPLE`）
-- `OnCreated` 里只读脚本**真正要用**的值；仅供 tooltip 显示的值不要读，也不要在 `DeclareFunctions()` / `GetModifier*()` 里保留已下沉属性的重复实现
+  The first parameter `_` is the implicit context parameter of the TSTL compiled product, which must be occupied by the Lua side; this parameter is not written when calling on the TS side.
+- This function automatically aligns the number of overlays of `_stats` according to the **instance number** of the item in the holder's backpack (multiple items require `MODIFIER_ATTRIBUTE_MULTIPLE`)
+- In the read-only script ** in `OnCreated`, you must actually use the ** value; do not read the value that is only displayed by the tooltip, and do not retain the repeated implementation of the sunk attribute in `DeclareFunctions()` / `GetModifier*()`
 
-### B. 永久 BUFF（不绑定物品实例，例如消耗品永久赋予）
+### B. Permanent BUFF (not bound to item instances, such as consumables permanently given)
 
-- 直接在 `npc_items_modifier.txt` 写完整 DataDriven modifier（不需要 `_stats` 后缀，也不需要脚本侧 modifier 类）
-- 消耗物品的脚本里调用：
+- writes the complete DataDriven modifier directly in `npc_items_modifier.txt` (no need for `_stats` suffix, nor script-side modifier class)
+- is called in the script that consumes the item:
   ```lua
   ApplyItemDataDrivenModifier(_, caster, target, "modifier_xxx", {})
   ```
-- 参考：`item_tome_of_luoshu`、`item_ultimate_scepter_2`
+- Reference: `item_tome_of_luoshu`, `item_ultimate_scepter_2`
 
-### C. 临时 Buff / Debuff（有持续时间）
+### C. Temporary Buff / Debuff (with duration)
 
-- 同样写完整 DataDriven modifier（`Properties` 放静态部分；需要逐帧效果时加 `ThinkInterval` + `OnIntervalThink` 的 `RunScript`）
-- 用 `ApplyItemDataDrivenModifier` 附加到目标并传入 `duration`
-- 可见 buff（要出现在状态栏）加 `"IsHidden" "0"` + `"IsBuff" "1"` + `"TextureName"`，值填该物品的 `AbilityTextureName`，且**必须带 `item_` 前缀**
-- 参考：`modifier_item_withered_spring_active`（物品主动 buff）、`modifier_global_member_normal`（无时限的可见全局 buff）
+- also writes the complete DataDriven modifier (`Properties` puts the static part; when frame-by-frame effects are needed, add `ThinkInterval` + `OnIntervalThink`’s `RunScript`)
+- is attached to the target with `ApplyItemDataDrivenModifier` and passed in `duration`
+- visible buff (to appear in the status bar) add `"IsHidden" "0"` + `"IsBuff" "1"` + `"TextureName"`. The value is filled in the `AbilityTextureName` of the item, and **must be prefixed with `item_`**
+- Reference: `modifier_item_withered_spring_active` (item active buff), `modifier_global_member_normal` (unlimited visible global buff)
 
-## 决策口诀
+## Decision-making Tips
 
-- 表外部分是**动作** → 模式 1，`RunScript` 调 Lua 全局函数，属性仍写自己 KV，**不碰 `item_apply_modifiers`**，数值只有一处
-- 表外部分是**常驻 modifier** → 模式 2，纯数值常量属性下沉 `item_apply_modifiers` 的 `_stats`，TS 只手写表外那部分
-- 模式 2 但没有永久属性（消耗品 / 工具类）→ `statsModifierName = ''`，同样不碰 `item_apply_modifiers`
-- 想消掉表外部分 → 先看有没有原版 modifier 能复用，能复用就退回模式 1
-- 不绑定物品实例的永久效果 → `ApplyItemDataDrivenModifier` + 完整 modifier
-- 有持续时间的临时效果 → 完整 DataDriven modifier（+ `RunScript` 处理逐帧逻辑）
+- The external part of the table is **action** → Mode 1, `RunScript` calls Lua global function, the attribute still writes its own KV, **does not touch `item_apply_modifiers`**, there is only one value
+- The part outside the table is **resident modifier** → Mode 2, pure numerical constant attribute sinks `item_apply_modifiers` of `_stats`, TS only writes the part outside the table by hand
+- Mode 2 but no permanent attributes (consumables/tools) → `statsModifierName = ''`, also do not touch `item_apply_modifiers`
+- If you want to eliminate the parts outside the table → first check if there is a vanilla modifier that can be reused. If it can be reused, return to mode 1.
+- Permanent effect without binding item instance → `ApplyItemDataDrivenModifier` + complete modifier
+- Temporary effects with duration → Full DataDriven modifier (+ `RunScript` handles frame-by-frame logic)

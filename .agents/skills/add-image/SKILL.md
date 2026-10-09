@@ -1,70 +1,68 @@
 ---
 name: add-image
-description: >-
-  给游戏加自定义图标或 UI 图片：png 放哪、要不要 content 副本、要不要登记 xml。
-  触发：用户说「加个图标」「加张图」「图标显示成紫块」，或新建技能/物品需要自定义图标时。
+description: "Add custom ability icons, item icons, or Panorama UI images, including PNG placement, content copies, and XML registration. Use when adding images, diagnosing purple placeholder icons, or creating an ability or item that needs a custom icon."
 ---
 
-# 加图片
+# Add images
 
-## 第一步：判断要不要放 png
+## Step 1: Decide whether a PNG is needed
 
-`AbilityTextureName` 引用的若是 **Dota2 已有的原版 texture**（原版技能名 / 物品名），直接写名字引用即可，**不放任何 png、不登记 xml**，到此结束。
+If `AbilityTextureName` references an existing vanilla Dota 2 texture (an ability or item name), use that name directly. **Don't put any png, don't register xml**, and that's the end.
 
-只有**自制或从 Dota2 资源解包提取**的图标才继续往下走。
+Only **homemade or extracted** icons from Dota2 resource unpacking continue down.
 
-## 第二步：按类型选流程
+## Step 2: Select process by type
 
-三类图片的存放规则不同，**不要互相照抄**。
+The storage rules for the three types of pictures are different. **Don't copy each other**.
 
-### A. 技能图标（技能 `ability_xxx` 的 `AbilityTextureName`）
+### A. ability icon (ability `ability_xxx` of `AbilityTextureName`)
 
-放 `game/resource/flash3/images/spellicons/<name>.png`，KV 中用文件名引用：
+Place the icon at `game/resource/flash3/images/spellicons/<name>.png` and reference its filename in KV:
 
 ```
 "AbilityTextureName"    "axe_auto_culling_blade"
 ```
 
-引擎自动在 `spellicons/` 下查同名 `.png`，**不需要**登记 xml，也**不需要** content 副本。
+The engine automatically searches for `.png` with the same name under `spellicons/`. There is no need to register xml or copy the content.
 
-### B. 物品图标（物品 `item_xxx` 的 `AbilityTextureName`）
+### B. item icon (`AbilityTextureName` of item `item_xxx`)
 
-图标名 = 物品名去掉 `item_` 前缀。三步缺一不可，**少任一步都是紫块**：
+The icon name is the item name without `item_` prefix. Three steps are indispensable. **Omitting any step produces a purple placeholder**:
 
 1. `game/resource/flash3/images/items/<name>.png`
-2. 同一张 png 复制到 `content/panorama/images/items/<name>.png`
-3. 在 `content/panorama/layout/custom_game/images_items.xml` 加一行，`id` 与文件名一致：
+2. Copy the same png to `content/panorama/images/items/<name>.png`
+3. Add a line to `content/panorama/layout/custom_game/images_items.xml`, `id` is consistent with the filename:
 
 ```xml
 <Image id="awaken_stone" class="SeqImg" src="file://{images}/items/awaken_stone.png" />
 ```
 
-登记表与 png 不同目录，是因为引擎只允许从 `layout/custom_game/` 加载 layout。
+The registration table is in a different directory than png because the engine only allows layout to be loaded from `layout/custom_game/`.
 
-### C. Panorama UI 图片
+### C. Panorama UI pictures
 
-放 `content/panorama/images/custom_game/<module>/`，按功能模块分二级目录（`lottery/`、`profile/`、`battlepass/` 等）：
+Place UI images in `content/panorama/images/custom_game/<module>/`, grouped by functional module (`lottery/`, `profile/`, `battlepass/`, etc.):
 
-1. 文件命名小写下划线，前缀按类型（`icon_` `bg_` `frame_` `decor_`）
-2. 在 `content/panorama/layout/custom_game/images.xml` 隐藏 Panel 内加一行 `<Image>` 声明（id 在该文件内唯一），用于触发 `.vtex_c` 编译
-3. **不再**为每张图创建单独的 `<name>.xml` 编译壳
+1. file names are lowercase and underscore, prefixed by type (`icon_` `bg_` `frame_` `decor_`)
+2. Add a line of `<Image>` statement (id is unique in the file) in the `content/panorama/layout/custom_game/images.xml` hidden Panel to trigger `.vtex_c` compilation
+3. **no longer** creates a separate `<name>.xml` compilation shell for each image
 
-在 React 或 less 中用 `file://{images}/custom_game/<module>/<file>.png` 引用。
+Reference the image as `file://{images}/custom_game/<module>/<file>.png` in React or less.
 
-## 第三步：校验
+## Step 3: Verification
 
 ```bash
 npm run lint:images
 ```
 
-校验物品图标三处一致（已并入 `npm run lint`）。
+This verifies that item icons are consistent in three places (already merged into `npm run lint`).
 
-## 排查紫块
+## troubleshooting purple blocks
 
-按顺序查：png 是否在对应目录 → 物品图标是否漏了 content 副本或 xml 登记 → 文件名与 KV 中引用是否完全一致 → 是否还没用 Dota tools 编译过。
+Check in order: whether the png is in the corresponding directory → whether the item icon is missing a content copy or xml registration → whether the file name is completely consistent with the reference in KV → whether it has not been compiled with Dota tools.
 
-若整个技能与 modifier 的图标**集体**消失，先怀疑 TS 模块加载失败（见 `src/vscripts/CLAUDE.md`「引擎枚举不要在模块顶层求值」），不是图标资源问题。
+If the entire ability and modifier icons **collectively** disappear, first suspect that the TS module has failed to load (see `src/vscripts/CLAUDE.md` "Do not evaluate engine enumeration at the top level of the module"). It is not an icon resource problem.
 
-## 发布前提醒
+## Pre-release reminder
 
-编译产物 `game/panorama/images/items/*.vtex_c` 已 gitignore，由 Dota tools 本地生成。**换机器 clone 后必须先用 Dota tools 完整编译一次才能发布**，否则 workshop 包会缺图标 —— `custom_game/` 下 lottery、profile、member 等目录同理。
+Compiled assets at `game/panorama/images/items/*.vtex_c` are ignored by Git and generated locally by Dota Tools. **After cloning onto a new machine, you must first use Dota tools to compile it completely before publishing**, otherwise the workshop package will be missing icons - the same is true for the lottery, profile, member and other directories under `custom_game/`.

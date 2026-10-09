@@ -1,20 +1,20 @@
-# 跨 skill 共享参考
+# Shared skill references
 
-放两个以上 skill 都要查的参考资料。**本目录没有 `SKILL.md`，不会被当成 skill 加载**，因此不占每轮 context——只在被 skill 用相对路径指到时才读。
+contains reference materials that must be checked for more than two skills. **This directory does not have `SKILL.md` and will not be loaded as a skill**, so it does not occupy the context of each round - it is only read when pointed to by the skill using a relative path.
 
-| 文件 | 内容 | 被谁引用 |
-| ---- | ---- | ---- |
-| `vanilla-modifiers.md` | 可复用的原版 modifier 清单（通用状态 / 原版物品 / 原版技能三组），含表外查名方法 | `custom-item`、`custom-ability`、`awaken-ability` |
+| File                   | Content                                                                                                                                      | Cited by Who                                      |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| `vanilla-modifiers.md` | List of reusable vanilla modifiers (three groups of common status / vanilla item / vanilla ability), including off-table name lookup methods | `custom-item`, `custom-ability`, `awaken-ability` |
 
-## 什么该放进来
+## What should be put in
 
-只放**两个以上 skill 都会查**的内容。单个 skill 专用的查表放该 skill 自己的 `references/`。
+Include only material that two or more skills need to consult. The lookup table dedicated to a single skill stores the skill's own `references/`.
 
-判据是「不在场会怎样」：
+Choose the owner by asking what would happen if the material were missing:
 
-- 不在场就会写出错误代码的硬约束 → 该层的 `CLAUDE.md`（改那个目录下的文件时自动加载）；真正跨全项目的才进 `AGENTS.md`（每轮必进）
-- 做某类任务时的决策与流程 → 对应 skill 的 `SKILL.md`
-- 只有部分分支才读的查表 → skill 自己的 `references/`
-- 多个 skill 都读的查表 → 本目录
+- Hard constraints whose absence would cause incorrect code → `CLAUDE.md` of this layer (automatically loaded when files in that directory are changed); `AGENTS.md` (must be entered in every round) is the only one that truly spans the entire project.
+- Decision-making and process when doing certain tasks → `SKILL.md` corresponding to skill
+- A lookup table that can only be read by some branches → skill's own `references/`
+- Lookup table read by multiple skills → this directory
 
-新增文件时在上表登记，并在引用它的每个 skill 里加相对路径指路（`../shared-references/<file>.md`）。
+When adding a new file, register it in the above table, and add a relative path guide (`../shared-references/<file>.md`) to each skill that references it.

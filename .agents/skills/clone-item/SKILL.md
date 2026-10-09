@@ -1,119 +1,124 @@
 ---
 name: clone-item
-description: 把原版 Dota 物品克隆成升级版（数值约 2 倍 + 配方 + 文案）。触发：用户说「克隆 XX 物品」「做个强化版 YY」。区别于 custom-item（从零自制）。
+description: "Clone a vanilla Dota item into an upgraded item with approximately doubled values, a recipe, and localization. Use for enhanced vanilla items; use custom-item for original designs."
 ---
 
-# 自定义升级物品（新建 / 更新）
+# Custom upgrade item (new/update)
 
-将原版 Dota 物品克隆为升级版（如 `item_shivas_guard` → `item_shivas_guard_2`），写入
-`game/scripts/npc/npc_items_clone.txt` 并补全本地化。
+clones the vanilla Dota item into an upgraded version (such as `item_shivas_guard` → `item_shivas_guard_2`), write
+`game/scripts/npc/npc_items_clone.txt` and complete localization. For the
 
-> 参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」。
-
----
-
-## 第一步：解析物品输入
-
-用户给出的名字**即为克隆物品系统名**，可能是：
-- **克隆物品系统名**（如 `item_armlet_light`、`item_shivas_guard_2`）→ 直接使用
-- **中文名**（如「圣光臂章」）→ 在 `game/resource/addon_schinese.txt` 中搜索，提取对应系统名
-- 若有多个候选，用 `AskUserQuestion` 让用户确认
-
-克隆物品的命名规则：通常为原版名加后缀（如 `_2`、`_light`、`_dark` 等），**不强制要求 `_2` 结尾**。
-
-**判断「克隆物品」的关键标准**：物品块的 `BaseClass` 不是 `item_datadriven` 也不是 `item_lua`，即继承自某个原版物品（如 `"BaseClass" "item_armlet"`）。
-
-若用户给出的是**原版物品名**（在 `docs/reference/<version>/items.txt` 中能找到，且该名字本身就是顶层 key），则需询问用户克隆版的命名后缀（如 `_2`、`_light` 等）。
+> reference file path, see `game/scripts/npc/CLAUDE.md` "vanilla KV Reference".
 
 ---
 
-## 第二步：存在性检测（决定模式）
+## The first step: parse the item input
 
-解析出克隆物品名后，搜索所有可能的文件：
+The name given by the user is the system name of the cloned item, which may be:
+
+- **Clone item system name** (such as `item_armlet_light`, `item_shivas_guard_2`) → use directly
+- **Chinese name** (such as "Holy Light Armband") → Search in `game/resource/addon_schinese.txt` to extract the corresponding system name
+- If there are multiple candidates, use `AskUserQuestion` to let the user confirm Naming rules for
+
+cloned items: usually the vanilla name plus a suffix (such as `_2`, `_light`, `_dark`, etc.), **not mandatory to end with `_2`**.
+
+**Key criteria for judging "clone item"**: `BaseClass` of the item block is neither `item_datadriven` nor `item_lua`, that is, it is inherited from a vanilla item (such as `"BaseClass" "item_armlet"`).
+
+If the user gives a **vanilla item name** (which can be found in `docs/reference/<version>/items.txt`, and the name itself is the top-level key), the user needs to be asked for the naming suffix of the clone (such as `_2`, `_light`, etc.).
+
+---
+
+## Step 2: Existence detection (decision mode)
+
+After parsing the cloned item name, search all possible files:
 
 ```
-Grep pattern: "<克隆物品名>"
+Grep pattern: "<cloned_item_name>"
 files: game/scripts/npc/npc_items_clone.txt
        game/scripts/npc/npc_items_custom.txt
        game/scripts/npc/npc_items_artifact.txt
 ```
 
-**判断是否为克隆版**：在搜索结果中，找到物品块（`"<克隆物品名>"\n{`），读取其 `BaseClass`：
-- `BaseClass` = `item_datadriven` 或 `item_lua` → **不是克隆版**（是自制物品，改用 `custom-item` skill）
-- `BaseClass` = 其他原版物品名（如 `item_armlet`）→ **是克隆版**
+**Judge whether it is a clone**: In the search results, find the item block (`"<cloned_item_name>"\n{`) and read its `BaseClass`:
 
-| 情况 | 处理 |
-|------|------|
-| **在 npc_items_clone.txt 中找到且是克隆版** | 目标文件 = npc_items_clone.txt；模式 = **更新** |
-| **在旧文件中找到且是克隆版**（npc_items_custom.txt 或 npc_items_artifact.txt） | 提示用户：已在旧文件中找到，将迁移到 npc_items_clone.txt；模式 = **更新** |
-| **所有文件均未找到** | 模式 = **新建** |
-| **找到但 BaseClass 是 item_datadriven/item_lua** | 告知用户该物品是自制物品，不是克隆版，改用 `custom-item` skill |
+- `BaseClass` = `item_datadriven` or `item_lua` → **Not a clone** (It is a self-made item, use `custom-item` skill instead)
+- `BaseClass` = other vanilla item names (such as `item_armlet`) → **is a cloned version**
 
----
-
-## 第三步：确定原版物品名并读取 KV
-
-**原版物品名的确定方式**：
-
-- **更新模式**：从现有克隆块的 `BaseClass` 字段直接读取（如 `"BaseClass" "item_armlet"` → 原版名 = `item_armlet`）
-- **新建模式**：
-  - 若用户给出的克隆名形如 `item_<base>_<suffix>`，尝试在 `docs/reference/<version>/items.txt` 中搜索 `"item_<base>"`
-  - 若找到唯一匹配，使用之；若找不到或有歧义，用 `AskUserQuestion` 询问用户「该克隆物品的原版 BaseClass 是什么？」
-
-从 `docs/reference/<version>/items.txt` 搜索：
-1. 原版 recipe 块：`"item_recipe_<原版名去掉item_前缀>"`
-2. 原版物品块：`"<原版物品名>"`
-
-完整读取两个块的所有字段（`ItemCost`、`AbilityValues`、`AbilityBehavior` 等）。
+| Situation                                                                             | Processing                                                                                      |
+| ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Found in npc_items_clone.txt and is a clone**                                       | Target file = npc_items_clone.txt; Mode = **Update**                                            |
+| **Found in old file and is a clone** (npc_items_custom.txt or npc_items_artifact.txt) | Prompt user: Found in old file, will be migrated to npc_items_clone.txt; Mode = **Update**      |
+| **All files not found**                                                               | Mode = **New**                                                                                  |
+| **Found but BaseClass is item_datadriven/item_lua**                                   | Inform the user that the item is a self-made item, not a clone, use `custom-item` skill instead |
 
 ---
 
-## 第四步：询问配方材料（新建模式）
+## Step 3: Determine the vanilla item name and read the KV
 
-新建时，配方需要包含：
-- **原版物品本身**（必须，即 `BaseClass` 对应的原版物品名，如 `item_armlet`）
-- **其他额外材料**（需问用户）
+**How to determine the vanilla item name**:
 
-> 用 `AskUserQuestion` 询问：「额外配件有哪些？（输入物品系统名，多个用分号分隔，如 `item_platemail;item_vitality_booster`；若无额外材料输入"无"）」
+- **Update mode**: Read directly from the `BaseClass` field of the existing clone block (such as `"BaseClass" "item_armlet"` → vanilla name = `item_armlet`)
+- **New Mode**:
+  - If the clone name given by the user is in the form `item_<base>_<suffix>`, try to search for `"item_<base>"` in `docs/reference/<version>/items.txt`
+  - If a unique match is found, use it; if it cannot be found or there is ambiguity, use `AskUserQuestion` to ask the user "What is the vanilla BaseClass of this cloned item?"
 
-若用户提供了克隆版的物品（如 `item_veil_of_discord_2`），保留该名称；否则使用原版名。
+Search from `docs/reference/<version>/items.txt`:
 
-配方费用：询问用户，或默认计算公式 ≈ 克隆物品目标总价 - 原版物品价格 - 额外材料原版价格之和。
+1. vanilla recipe block: `"item_recipe_<vanilla_name_without_item_prefix>"`
+2. vanilla item block: `"<vanilla_item_name>"`
 
-### 4-A：核实所有材料价格（强制）
+Completely reads all fields of both blocks (`ItemCost`, `AbilityValues`, `AbilityBehavior`, etc.).
 
-**每项材料（含原版物品本身 + 所有额外材料）的价格必须从 `docs/reference/<version>/items.txt` 逐项读取 `ItemCost` 字段核实**，不得凭记忆或训练数据中的价格计算。
+---
 
-执行方式：
+## Step 4: Ask for formula materials (new mode)
+
+is created, the recipe needs to contain:
+
+- **vanilla item itself** (required, that is, the vanilla item name corresponding to `BaseClass`, such as `item_armlet`)
+- **Other additional materials** (need to ask the user)
+
+> Use `AskUserQuestion` to ask: "What are the additional accessories? (Enter the item system name, separate multiple items with semicolons, such as `item_platemail;item_vitality_booster`; if there are no additional materials, enter "none")"
+
+If the user provides a cloned version of the item (such as `item_veil_of_discord_2`), keep this name; otherwise, use the vanilla name.
+
+Recipe cost: Ask the user, or the default calculation formula is ≈ total target price of cloned items - vanilla item price - sum of additional material vanilla prices.
+
+### 4-A: Verify all material prices (mandatory)
+
+**The price of each material (including the vanilla item itself + all additional materials) must be read item by item from `docs/reference/<version>/items.txt` and verified by the `ItemCost` field**, and cannot be calculated based on memory or prices in training data.
+
+execution method:
+
 ```
-对每个材料物品名，在 docs/reference/<version>/items.txt 中搜索该物品块，读取其 ItemCost。
+For each material item_name, search the item block in docs/reference/<version>/items.txt and read its ItemCost.
 ```
 
-记录每项价格后汇总：材料总价 = 原版物品价格 + Σ 各额外材料价格。图纸费 = 用户目标总价 - 材料总价。
+Record the price of each item and summarize it: total material price = vanilla item price + Σ price of each additional material. Drawing fee = total user target price - total material price.
 
-> **常见陷阱**：物品价格会随版本变动（如 `item_ultimate_orb` 在 7.41 为 2800，而非旧版的 2100），切勿依赖训练数据中的记忆值。
+> **Common trap**: The item price will change with the version (for example, `item_ultimate_orb` is 2800 in 7.41, not 2100 in the old version), do not rely on the memory value in the training data.
 
 ---
 
-## 第五步：构建 Recipe KV
+## Step 5: Build Recipe KV
 
-格式参考 `item_recipe_shivas_guard_2`：
+format reference `item_recipe_shivas_guard_2`:
 
 ```kv
 	//=================================================================================================================
-	// <物品英文名> <物品中文名>
+	// <item English name> <item Chinese name>
 	//=================================================================================================================
 	"item_recipe_<name>_2"
 	{
 	    "BaseClass"                     "item_datadriven"
 	    "Model"                         "models/props_gameplay/recipe.vmdl"
 	    "AbilityTextureName"            "item_recipe_<name>_2"
-	    "ItemCost"                      "<配方费用>"
+	    "ItemCost"                      "<recipe_cost>"
 	    "ItemRecipe"                    "1"
 	    "ItemResult"                    "item_<name>_2"
 	    "ItemRequirements"
 	    {
-	        "01"                        "<原版物品名>;<extra_items>"
+	        "01"                        "<vanilla_item_name>;<extra_items>"
 	    }
 	}
 
@@ -123,183 +128,197 @@ files: game/scripts/npc/npc_items_clone.txt
 	}
 ```
 
-> - recipe 块上方加 `//===...===` 分隔注释，格式：`// <物品中文名>`
-> - recipe 与物品本体之间**不加**注释，直接相邻
+> - Add `//===...===` separated comments above the recipe block, format: `// <Chinese item name>`
+> - There is no annotation between the recipe and the item body, they are directly adjacent.
 
-> - `BaseClass` 统一使用 `"item_datadriven"`，避免原版 recipe 不存在的风险
-> - 不需要 `ID` 字段，引擎会自动分配
+> - `BaseClass` use `"item_datadriven"` uniformly to avoid the risk of non-existent vanilla recipe
+> - `ID` field is not required, the engine will automatically assign it
 
 ---
 
-## 第六步：构建物品 KV（数值加强）
+## Step 6: Build item KV (numeric enhancement)
 
-格式严格对照原版，**保持缩进格式完全一致**（tab 宽度、换行位置）。
+is strictly compared to vanilla, **keeping the indentation format completely consistent** (tab width, line break position).
 
-必填字段：
-- `"BaseClass"` → 原版物品名（如 `"item_shivas_guard"`）
-- `"AbilityBehavior"` → 复制原版
+Required fields:
+
+- `"BaseClass"` → vanilla item name (such as `"item_shivas_guard"`)
+- `"AbilityBehavior"` → copy vanilla
 - `"AbilityTextureName"` → `"item_<name>_2"`
-- `"ItemCost"` → 计算新价格（= 原版价格 + 额外材料价格 + 配方费）
-- 其他原版顶层字段（`AbilityCooldown`、`AbilityManaCost`、`FightRecapLevel`、
+- `"ItemCost"` → Calculate new price (= vanilla price + additional material price + recipe fee)
+- Other vanilla top-level fields (`AbilityCooldown`, `AbilityManaCost`, `FightRecapLevel`,
   `SpellDispellableType`、`AbilityCastRange`、`AbilityCastPoint`、
-  `ItemShopTags`、`ItemQuality`、`ItemAliases`、`AbilitySharedCooldown` 等）→ 复制原版
+  `ItemShopTags`, `ItemQuality`, `ItemAliases`, `AbilitySharedCooldown`, etc.) → Copy vanilla
 
-**数值倍率确定**：
-- 倍率 = 克隆物品总价 ÷ 原版物品价格（保留一位小数，如 2.0×、1.5× 等）
-- 若总价已知（用户在第四步给出配方材料和价格）则自动计算
-- **若无法确定倍率，用 `AskUserQuestion` 询问用户**：「该克隆物品的属性倍率是多少？（如 2.0、1.5）」
+**Numerical magnification determination**:
 
-**AbilityValues 数值加强规则**：
-- **可成长属性**（伤害、护甲、属性加成、法力/生命回复、施法范围、范围等）→ × 倍率（取整，优先整数）
-- **固定机制值**（冷却时间、施法时间、移速、减速百分比、持续时间、速度等）→ **不变**，复制原版
-- 每个值右侧用 `//` 注释原版值（例：`"bonus_armor"   "30"   // 15`，倍率 2.0×）
+- magnification = total price of cloned item ÷ price of vanilla item (reserve one decimal place, such as 2.0×, 1.5×, etc.)
+- If the total price is known (the user provides the formula materials and price in the fourth step), it will be automatically calculated.
+- **If the magnification cannot be determined, use `AskUserQuestion` to ask the user**: "What is the attribute magnification of this cloned item? (such as 2.0, 1.5)"
 
-对于含子块的值（如 `aura_radius`），保留子块结构：
+**AbilityValues numerical enhancement rules**:
+
+- **Grownable attributes** (damage, armor, attribute bonus, mana/life recovery, casting range, range, etc.) → × multiplier (rounded, giving priority to integers)
+- **Fixed mechanism values** (cooling time, cast time, movement speed, slowdown percentage, duration, speed, etc.) → **unchanged**, copy vanilla
+- Annotate the vanilla value with `//` on the right side of each value (example: `"bonus_armor"   "30"   // 15`, magnification 2.0×)
+
+For values containing subblocks (such as `aura_radius`), the subblock structure is preserved:
+
 ```kv
 "aura_radius"
 {
-    "value"     "<2x值>"    // <原值>
+    "value"     "<doubled_value>"    // <original_value>
     "affected_by_aoe_increase"  "1"
 }
 ```
 
 ---
 
-## 第七步：更新模式 — 同步原版 KV
+## Step 7: Update mode — Synchronize vanilla KV
 
-更新现有克隆物品时，以最新版本的 `docs/reference/<version>/items.txt` 为基准：
+updates an existing cloned item, the latest version of `docs/reference/<version>/items.txt` is used as the baseline:
 
-1. 读取当前原版物品块的完整字段列表
-2. **删除**克隆块中原版已不存在的字段（已废弃的键）
-3. **补充**原版新增但克隆块缺失的字段（加强规则同第六步）
-4. **保留**仅克隆物品有、原版没有的字段（如 `ItemAliases`、`AbilitySharedCooldown`、`AbilityTextureName`、`ID` 等克隆专属字段）
-5. 重新按加强规则校验所有 `AbilityValues`，对照原版当前值 × 当前倍率（可成长属性，倍率 = 克隆物品总价 ÷ 原版价格，无法确定时询问用户），固定机制值与原版保持一致
-6. **顶层字段**（`AbilityBehavior`、`AbilityCooldown`、`AbilityManaCost`、`FightRecapLevel`、`SpellDispellableType` 等）与原版保持一致
+1. Read the complete field list of the current vanilla item block
+2. **Delete** vanilla fields that no longer exist in the clone block (obsolete keys)
+3. **Supplement** Fields added by vanilla but missing from the clone block (enhanced rules are the same as step 6)
+4. **Reserved** Only fields that are available in clone item but not in vanilla (such as `ItemAliases`, `AbilitySharedCooldown`, `AbilityTextureName`, `ID` and other clone-specific fields)
+5. Re-verify all `AbilityValues` according to the enhanced rules, compare with the current value of vanilla × the current multiplier (growable attributes, multiplier = total price of cloned items ÷ vanilla price, ask the user if unsure), the fixed mechanism value is consistent with vanilla
+6. **Top-level fields** (`AbilityBehavior`, `AbilityCooldown`, `AbilityManaCost`, `FightRecapLevel`, `SpellDispellableType`, etc.) are consistent with vanilla
 
-同时执行**第九步本地化更新**（见下方）。
+Also perform **Step 9 Localization Update** (see below).
 
 ---
 
-## 第八步：图片提醒
+## Step 8: Icon reminder
 
-物品图标要生效必须**三处齐备**（文件名去掉 `item_` 前缀，如 `shivas_guard_2.png`）：
+item icon to take effect, **three places must be present** (remove the `item_` prefix from the file name, such as `shivas_guard_2.png`):
 
 1. `game/resource/flash3/images/items/<name>_2.png`
-2. `content/panorama/images/items/<name>_2.png`（同一张 png 的副本）
-3. `content/panorama/layout/custom_game/images_items.xml` 中一行 `<Image id="<name>_2" class="SeqImg" src="file://{images}/items/<name>_2.png" />`
+2. `content/panorama/images/items/<name>_2.png` (copy of the same png)
+3. `content/panorama/layout/custom_game/images_items.xml` middle row `<Image id="<name>_2" class="SeqImg" src="file://{images}/items/<name>_2.png" />` If
 
-- 若 flash3 下**不存在** → 提醒用户：「请在 `game/resource/flash3/images/items/` 目录下创建 `<name>_2.png` 图片文件。`AbilityTextureName` 已设置为 `item_<name>_2`。」放好后由你补第 2、3 步
-- 若 flash3 下**已存在** → 直接补第 2、3 步
+- **does not exist** under flash3 → remind the user: "Please create the `<name>_2.png` image file in the `game/resource/flash3/images/items/` directory. `AbilityTextureName` has been set to `item_<name>_2`." After placing it, you can complete steps 2 and 3.
+- If ** already exists under flash3 ** → directly complete steps 2 and 3 After
 
-完成后跑 `npm run lint:images` 校验三处一致。
+is completed, run `npm run lint:images` to verify that the three points are consistent.
 
 ---
 
-## 第九步：本地化
+## Step 9: Localization
 
-### 9-A 定位原版本地化键
+### 9-A locates vanilla localization key
 
-从 `docs/reference/<version>/abilities_english.txt` 和 `abilities_schinese.txt` 读取原版物品的所有 Tooltip 键：
+Read all Tooltip keys of vanilla item from `docs/reference/<version>/abilities_english.txt` and `abilities_schinese.txt`:
+
 ```
 Grep pattern: DOTA_Tooltip_ability_item_<name>
 ```
 
-同时在项目本地化文件中检查克隆键是否已存在：
+Also check whether the clone key already exists in the project localization file:
+
 ```
 Grep pattern: item_<name>_2
 files: game/resource/addon_english.txt, game/resource/addon_schinese.txt
 ```
 
-**更新模式**下，必须将克隆物品的中英文说明与原版当前版本对齐：
-- **Description**：以原版当前 Description 为模板，将键名替换为克隆名，内容与原版保持一致（不添加旧版中已删除的占位符）
-- **Note\***：同步原版当前的所有 Note 条目（新增的补上，原版已删除的从克隆中移除）
-- **属性行**（`_bonus_xxx`）：与原版当前 `AbilityValues` 中的键名保持一致（原版删除的属性行也从克隆本地化中删除，原版新增的补上）
-- **Lore**：保留克隆版本的自定义 Lore，不跟随原版更新
+In **update mode**, the Chinese and English description of the cloned item must be aligned with the current version of vanilla:
 
-### 9-B 复制并改写键名
+- **Description**: Use vanilla's current Description as the template, replace the key name with the clone name, and keep the content consistent with vanilla (no placeholders deleted in the old version are added)
+- **Note\***: Synchronize all current Note entries of vanilla (new ones will be added, and deleted ones of vanilla will be removed from the clone)
+- **Attribute row** (`_bonus_xxx`): consistent with the key name in vanilla’s current `AbilityValues` (the attribute row deleted by vanilla is also deleted from the clone localization, and the new one added by vanilla is added)
+- **Lore**: retain the customized Lore of the cloned version and do not follow vanilla updates
 
-将原版键名中的 `item_<name>` 替换为 `item_<name>_2`。
+### 9-B Copy and rewrite the key name
 
-**物品名称命名规则**（参考现有已有克隆物品的命名惯例）：
-- **描述、注释、属性行**：值与原版保持完全一致，不做改动
-- **物品名称行**（`DOTA_Tooltip_Ability_item_<name>_2`）：必须改为新名称，规则如下：
-  - **中文**：起一个有特色的全新名字（不要简单地加「2」或「升级版」），体现更强大、传说级的感觉。例：「雅典娜的守护」「天神杖」「无敌之刃」「神圣斧」「真·撒旦之邪力」。可选用 `<font color='#颜色'>名字</font>` 增加视觉效果。
-  - **英文**：优先使用 `<font color='#颜色'>Upgraded</font> 原版英文名` 格式；若有好的独立名字也可直接使用。
-  - 名称由 Claude **自主创意命名**，风格与现有克隆物品一致，不询问用户。
+Replace `item_<name>` in the vanilla key name with `item_<name>_2`.
 
-至少包含：
-- `DOTA_Tooltip_Ability_item_<name>_2` — 物品名称
-- `DOTA_Tooltip_ability_item_<name>_2_Description` — 描述
-- `DOTA_Tooltip_ability_item_<name>_2_Lore`（若原版有）
-- `DOTA_Tooltip_ability_item_<name>_2_Note*`（若原版有）
-- `DOTA_Tooltip_ability_item_<name>_2_<stat>` — 属性加成行（对应 `AbilityValues` 中的值）
+**item name naming rules** (refer to the naming convention of existing cloned items):
 
-### 9-C 写入本地化文件
+- **Description, comments, attribute lines**: The values ​​are completely consistent with vanilla, no changes are made
+- **item name line** (`DOTA_Tooltip_Ability_item_<name>_2`): must be changed to a new name, the rules are as follows:
+  - **Chinese**: Give it a distinctive new name (do not simply add "2" or "upgraded version") to reflect a more powerful and legendary feeling. Examples: "Athena's Guard", "God's Staff", "Invincible Blade", "Holy Axe", "True Satan's Evil Power". `<font color='#color'>name</font>` can be used to increase visual effects.
+  - **English**: `<font color='#color'>Upgraded</font> original English name` format is preferred; if there is a good independent name, it can also be used directly.
+  - is named by Claude **Independently creative naming**, the style is consistent with the existing clone item, and the user is not asked.
 
-遵循项目本地化格式（tab 缩进）：
+contains at least:
+
+- `DOTA_Tooltip_Ability_item_<name>_2` — item name
+- `DOTA_Tooltip_ability_item_<name>_2_Description` — Description
+- `DOTA_Tooltip_ability_item_<name>_2_Lore` (if vanilla has it)
+- `DOTA_Tooltip_ability_item_<name>_2_Note*` (if vanilla has it)
+- `DOTA_Tooltip_ability_item_<name>_2_<stat>` — attribute bonus row (corresponding to the value in `AbilityValues`)
+
+### 9-C Write localization file
+
+follows the project localization format (tab indentation):
 
 ```
-		// <物品中文名>_2
+		// <item Chinese name>_2
 		"DOTA_Tooltip_Ability_item_<name>_2"    "..."
 		"DOTA_Tooltip_ability_item_<name>_2_Description"    "..."
 		...
 
 ```
 
-同步写入 `game/resource/addon_english.txt` 和 `game/resource/addon_schinese.txt`。
-每组条目前加注释 `// <物品中文名>_2`，条目后留一个空行。
+writes `game/resource/addon_english.txt` and `game/resource/addon_schinese.txt` simultaneously.
+Add the comment `// <Chinese item name>_2` before each group of entries, and leave a blank line after the entry.
 
 ---
 
-## 第十步：Shops 替换
+## Step 10: Shops replacement
 
-在以下位置搜索自定义 shops 文件（`docs/reference/shops.txt` 为只读参考，不修改）：
+Search for custom shops files in the following locations (`docs/reference/shops.txt` is a read-only reference and will not be modified):
+
 ```
 Glob: game/**/shops*.txt
 Glob: game/scripts/npc/shops*.txt
 ```
 
-若找到可写的 shops 文件：
-1. 搜索其中是否包含原版物品名（如 `item_shivas_guard`）
-2. 若存在，**直接将原版物品名替换为克隆版本名**（如 `item_shivas_guard_2`），不需询问用户
+If a writable shops file is found:
 
-若未找到可写的 shops 文件，跳过此步。
+1. Search whether it contains vanilla item name (such as `item_shivas_guard`)
+2. If it exists, **directly replace the vanilla item name with the clone version name** (such as `item_shivas_guard_2`) without asking the user
+
+If no writable shops file is found, skip this step.
 
 ---
 
-## 第十一步：写入目标文件
+## Step 11: Write the target file
 
-目标文件：`game/scripts/npc/npc_items_clone.txt`
+Target file: `game/scripts/npc/npc_items_clone.txt`
 
-若文件不存在，创建并写入文件头：
+If the file does not exist, create and write the file header:
+
 ```kv
 // DO NOT EDIT MANUALLY. Managed by clone-item skill.
 "DOTAAbilities"
 {
 ```
-以及文件尾：
+
+and the end of the file:
+
 ```kv
 }
 ```
 
-在文件中追加（或更新）recipe 块和物品块，格式对照 `item_recipe_shivas_guard_2` /
-`item_shivas_guard_2` 在 `npc_items_custom.txt` 中的写法。
+Append (or update) the recipe block and item block in the file, the format is `item_recipe_shivas_guard_2` /
+`item_shivas_guard_2` is written in `npc_items_custom.txt`.
 
-同时在 `npc_items_custom.txt` 的顶层（若该文件用 `#include` 或引用机制）确认 `npc_items_clone.txt`
-已被包含（若项目中有 `#include` 机制则添加；若无则跳过，后续手动配置）。
+also confirms `npc_items_clone.txt` at the top level of `npc_items_custom.txt` (if the file uses `#include` or the reference mechanism)
+has been included (if there is `#include` mechanism in the project, add it; if not, skip it and configure it manually later).
 
 ---
 
-## 自检清单
+## Self-check list
 
-- [ ] 原版物品 KV 已读取（recipe + 物品主块）
-- [ ] Recipe 块：无 `ID` 字段，BaseClass = `item_datadriven`，ItemResult = `<克隆物品名>`，材料含原版物品（来自 BaseClass）
-- [ ] 物品块：无 `ID` 字段，BaseClass = `<原版物品名>`（非 item_datadriven/item_lua），AbilityTextureName = `<克隆物品名>`
-- [ ] 所有材料价格已从 `docs/reference/<version>/items.txt` 逐项读取 ItemCost 核实（非凭记忆）
-- [ ] AbilityValues：可成长属性 × 2，固定机制值不变，每项附原版值注释
-- [ ] ItemCost = 原版 + 额外材料 + 配方费之和
-- [ ] 图片三处齐备（flash3 png / content png / images_items.xml 登记），或已提醒用户创建 flash3 那张，`npm run lint:images` 通过
-- [ ] addon_english.txt 和 addon_schinese.txt 已同步写入本地化键
-- [ ] 本地化键名前缀与物品系统名完全匹配
-- [ ] npc_items_clone.txt 格式正确（有文件头/尾，KV 块正确嵌套）
-- [ ] 实机按 `dota-live-test` 的「验物品与技能」发物品、`-stat` 核对属性与 KV 一致
+- [ ] vanilla item KV read (recipe + item main block)
+- [ ] Recipe block: No `ID` field, BaseClass = `item_datadriven`, ItemResult = `<cloned_item_name>`, material contains vanilla item (from BaseClass)
+- [ ] item block: None `ID` field, BaseClass = `<vanilla_item_name>` (not item_datadriven/item_lua), AbilityTextureName = `<cloned_item_name>`
+- [ ] All material prices have been verified by reading ItemCost item by item from `docs/reference/<version>/items.txt` (not from memory)
+- [ ] AbilityValues: Growth attributes × 2, fixed mechanism value remains unchanged, each item is accompanied by a vanilla value annotation
+- [ ] ItemCost = sum of vanilla + additional materials + recipe fee
+- [ ] The picture is available in three places (flash3 png / content png / images_items.xml registration), or the user has been reminded to create the flash3 one, `npm run lint:images` passed
+- [ ] addon_english.txt and addon_schinese.txt have been written to the localization key synchronously
+- [ ] The localized key name prefix exactly matches the item system name.
+- [ ] npc_items_clone.txt is in the correct format (with file header/footer, and KV blocks are nested correctly)
+- [ ] According to the "Verify item and ability" of `dota-live-test` on the actual machine, send the item and `-stat` to check that the attributes are consistent with the KV

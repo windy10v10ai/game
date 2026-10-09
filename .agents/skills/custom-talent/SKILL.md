@@ -1,26 +1,26 @@
 ---
 name: custom-talent
-description: 新增或替换英雄天赋，尤其是把通用天赋改成技能联动天赋。触发：用户说「改 XX 的天赋」「给 YY 加个天赋」「这个天赋换成和技能联动的」。
+description: "Add or replace hero talents, especially replacing generic bonuses with ability-specific effects. Use when modifying hero talents or connecting a talent to an ability."
 ---
 
 # Create Custom Talent
 
-为英雄新增或替换天赋时，按以下顺序执行，确保键名、档位和文案一致。
+When adding or replacing talents for heroes, perform the following sequence to ensure that the key name, tier and localization text are consistent.
 
-## 1) 设计天赋系统名
+## 1) Design talent system name
 
-- 使用不绑定数值的系统名：`special_bonus_unique_<hero>_<effect>`
-- 避免在系统名中写固定数值（例如 `_200`、`_50`）
-- 仅在明确复用官方天赋时保留原名；自定义天赋优先新建独立键
+- Use the system name without binding a value: `special_bonus_unique_<hero>_<effect>`
+- Avoid writing fixed values in the system name (such as `_200`, `_50`)
+- Only retain the original name when explicitly reusing official talents; custom talents take priority in creating independent keys
 
-## 2) 修改技能与天赋定义（npc_abilities_override.txt）
+## 2) Modify ability and talent definitions (npc_abilities_override.txt)
 
-- 在目标技能的 `AbilityValues` 中挂接天赋键（例如 `"+200"`、`"-4"`、`"x2"`）
-- 在同英雄区段新增天赋定义块
-- 沿用固定模板：
+- mounts the talent key in `AbilityValues` of the target ability (such as `"+200"`, `"-4"`, `"x2"`)
+- Add talent definition block in the same hero section
+- follows the fixed template:
 
 ```kv
-// 自定义天赋
+// Custom talent
 "special_bonus_unique_<hero>_<effect>"
 {
 	"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
@@ -29,33 +29,33 @@ description: 新增或替换英雄天赋，尤其是把通用天赋改成技能�
 }
 ```
 
-## 3) 更新英雄天赋槽位与 Build（npc_heroes_custom.txt）
+## 3) Update hero talent slots and Build (npc_heroes_custom.txt)
 
-- 在英雄块内覆盖对应天赋槽位（通常 `Ability10-17`）
-- 同步 `Bot.Build` 的天赋键：
-- `10/15/20/25` 填所选天赋
-- `27/28/29/30` 分别填 `10/15/20/25` 的另一个天赋
-- 若替换旧天赋，确保 `Ability 槽位` 与 `Build` 同时替换，不留旧键
+- covers the corresponding talent slot in the hero block (usually `Ability10-17`)
+- synchronizes the talent key of `Bot.Build`:
+- `10/15/20/25` Fill in the selected talent
+- `27/28/29/30` respectively fill in another talent of `10/15/20/25` If
+- replaces the old talent, make sure `Ability slot` and `Build` are replaced at the same time, leaving no old keys
 
-## 4) 更新中英文文案（addon_schinese.txt / addon_english.txt）
+## 4) Update Chinese and English localization text (addon_schinese.txt / addon_english.txt)
 
-- 添加或替换键：`DOTA_Tooltip_ability_<talent_name>`
-- 文案使用变量占位符，不写死数值
-- 例：`"+{s:bonus_heal} 巫毒疗法治疗量"`、`"+{s:bonus_heal} Voodoo Restoration Heal"`
+- Add or replace key: `DOTA_Tooltip_ability_<talent_name>`
+- localization text uses variable placeholders and does not hard-code values.
+- Example: `"+{s:bonus_heal} 巫毒疗法治疗量"`, `"+{s:bonus_heal} Voodoo Restoration Heal"`
 
-## 5) 自检
+## 5) Self-test
 
-- 同一天赋名在 4 个文件中的键完全一致
-- `npc_abilities_override.txt` 已包含：
-- 技能挂接行
-- 天赋定义块
-- `npc_heroes_custom.txt` 已包含：
-- 正确的 Ability10-17 槽位覆盖
-- 正确的 Build 档位（含 27/28/29/30）
-- 本地化中英文都存在对应 tooltip 键
-- 无旧天赋残留引用（替换场景必须清理）
+- The keys of the same talent name in the four files are exactly the same
+- `npc_abilities_override.txt` Contains:
+- ability hook line
+- talent definition block
+- `npc_heroes_custom.txt` Contains:
+- Correct Ability10-17 slot coverage
+- Correct Build tier (including 27/28/29/30)
+- localization has corresponding tooltip keys in both Chinese and English
+- No residual references to old talents (replacement scenes must be cleared)
 
-## 6) 常用检查命令
+## 6) Common inspection commands
 
 ```powershell
 Select-String -Path `

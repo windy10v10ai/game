@@ -1,137 +1,139 @@
 ---
 name: bot-ability-usage
-description: 为指定技能编写 bot 施法规则（AbilitySpec），让 bot 在合适时机自动施放。触发：用户说「让 bot 会用 XX 技能」「给 bot 写 YY 的施法逻辑」。区别于 bot-item-usage（战斗物品）。
+description: "Implement AbilitySpec rules so bots cast a specified ability at the right time. Use when adding or adjusting bot ability casting; use bot-item-usage for combat item activation."
 ---
 
-# 编写 Bot 技能施法 Spec
+# Write Bot ability casting Spec
 
-把"何时何处施放该技能"以数据形式登记到 `AbilityRegistry`，由 `AbilityDispatcher` 在每个 bot tick 自动遍历并执行。
+registers "when and where to cast this ability" in data form to `AbilityRegistry`, which is automatically traversed and executed by `AbilityDispatcher` at every bot tick.
 
-> 架构背景：`AbilityDispatcher`（按 spec 注册表）是 bot 精细主动施法的唯一目标架构。存量 `UseAbilityXxx` 手写逻辑属于迁移债务，修改涉及这些技能时应将规则迁入 spec 并删除重复入口。新技能一律走 spec，不要再往英雄文件加。
+> Architecture background: `AbilityDispatcher` (by spec registry) is the only target architecture for bot fine-tuned active casting. The existing handwritten logic of `UseAbilityXxx` is a migration debt. When modifying these capabilities, the rules should be migrated to spec and duplicate entries should be deleted. All new abilities must be spec-based, and do not add them to the hero file.
 >
-> 关键路径:
-> - 类型: [src/vscripts/ai/ability/ability-spec.ts](src/vscripts/ai/ability/ability-spec.ts)
-> - 注册表: [src/vscripts/ai/ability/ability-registry.ts](src/vscripts/ai/ability/ability-registry.ts)
+> critical path:
+>
+> - Type: [src/vscripts/ai/ability/ability-spec.ts](src/vscripts/ai/ability/ability-spec.ts)
+> - Registry: [src/vscripts/ai/ability/ability-registry.ts](src/vscripts/ai/ability/ability-registry.ts)
 > - dispatcher: [src/vscripts/ai/ability/ability-dispatcher.ts](src/vscripts/ai/ability/ability-dispatcher.ts)
-> - 共享条件 / 过滤: [src/vscripts/ai/action/cast-condition.ts](src/vscripts/ai/action/cast-condition.ts)
-> - spec 目录: [src/vscripts/ai/ability/specs/](src/vscripts/ai/ability/specs/)
-> - 聚合注册: [src/vscripts/ai/ability/specs/index.ts](src/vscripts/ai/ability/specs/index.ts)
+> - Sharing condition/filter: [src/vscripts/ai/action/cast-condition.ts](src/vscripts/ai/action/cast-condition.ts)
+> - spec directory: [src/vscripts/ai/ability/specs/](src/vscripts/ai/ability/specs/)
+> - Aggregation registration: [src/vscripts/ai/ability/specs/index.ts](src/vscripts/ai/ability/specs/index.ts)
 
 ---
 
-## 第一步：解析技能输入
+## Step 1: Parse ability input
 
-按 `.agents/docs/dota-references.md`规则处理（支持系统名 / 中文名 / 英雄名-技能名），最终得到 **`abilityName`**（如 `omniknight_purification`）。
+is processed according to the `.agents/docs/dota-references.md` rules (supports system name/Chinese name/hero name-ability name), and finally gets **`abilityName`** (such as `omniknight_purification`).
 
 ---
 
-## 第二步：检查是否已有 spec
+## Step 2: Check if there is already a spec
 
 ```
 Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 ```
 
-| 情况 | 处理 |
-|------|------|
-| 已存在 | 操作模式 = **修正现有 spec**（读取并按用户需求编辑 SPECS 数组） |
-| 不存在 | 操作模式 = **新建 spec 文件** |
+| Situation      | Processing                                                                                           |
+| -------------- | ---------------------------------------------------------------------------------------------------- |
+| Exists         | Operation mode = **Modify existing spec** (read and edit SPECS array according to user requirements) |
+| Does not exist | Operation mode = **New spec file**                                                                   |
 
-> 同一技能在不同目标场景下条件不同（例如对英雄/对小兵），通过同一文件内 `SPECS` 数组多条 entry 表达，**不要建多个文件**。
-
----
-
-## 第三步：读取技能 KV，提取关键字段
-
-按 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」找到该技能的 KV 块，提取：
-
-| KV 字段 | 用途 | 取值映射 |
-|---|---|---|
-| `AbilityBehavior` | 决定 cast 调用方式 | dispatcher 自动按 `UNIT_TARGET / POINT / AOE / NO_TARGET` 派发，**spec 不用关心** |
-| `AbilityUnitTargetTeam` | 决定 `TargetSide` | `ENEMY` → `EnemyHero/EnemyCreep/EnemyBuilding`；`FRIENDLY` → `FriendlyHero/FriendlyBuilding`；技能仅作用施法者 → `Self` |
-| `AbilityUnitTargetType` | 区分英雄/小兵/建筑 | 含 `HERO` 用 `*Hero`；仅 `BASIC/CREEP` 用 `EnemyCreep`；含 `BUILDING` 用 `*Building`；同一技能多种合法目标且语义合理时**注册多条 spec**（如冰霜魔盾对友方英雄 + 友方建筑） |
-| `AbilityCastRange` | 施法距离 | **dispatcher 会自动按 cast range + 施法距离加成过滤目标**，spec 通常**不要**手写 `range.lte` |
-
-如该技能是 `PASSIVE` 或纯 `NO_TARGET` 自身 buff 不需要选目标 → `TargetSide.Self`。
+> The same ability has different conditions in different target scenarios (for example, against heroes/against minions). It can be expressed through multiple entries of the `SPECS` array in the same file. **Do not create multiple files**.
 
 ---
 
-## 第四步：与用户确认施法条件
+## Step 3: Read ability KV and extract key fields
 
-用 `AskUserQuestion` 与用户确认以下几项中需要的项目（不需要的项直接省略，spec 越简单越好）：
+Press `game/scripts/npc/CLAUDE.md` "vanilla KV Reference" to find the KV block of this ability and extract:
 
-1. **目标血量条件**（最常见）：例如"残血斩杀"`target.unitCondition.healthPercent.lte: 25`；"低血量队友"`lte: 70`；"避开满血"`lte: 95`。
-2. **目标数量条件**：群体技能要求"施法范围内至少 N 个敌人才出手"`target.count.gte: 3`。**计数范围 = 生效的 `range.lte`**（spec 显式写的优先，未写时按 cast range / `rangeFromAbilityValue` 自动补齐），不是固定的 1800 预搜半径。计数只按存活与距离收窄，不受 `target.unitCondition` 影响。若判据需要比施法距离更大的观察范围，注意 `range` 同时决定目标筛选，放大会让 bot 追着远处目标跑。
-3. **施法者条件**：例如"蓝量够才用"`self.unitCondition.manaPercent.gte: 50`，或"血量低才用某保命技能"。
-4. **技能等级 / 充能条件**：`ability.level.gte: 3`、`ability.charges.gte: 1`。
-5. **避免重复施法**：`target.unitCondition.noModifier: ['modifier_xxx']`，常用于持续 debuff/buff。Modifier 名查 `DOTA_Tooltip_modifier_<name>` 取 `<name>`：**优先查项目 `game/resource/addon_schinese.txt`**（自定义/克隆/override 技能以项目本地化为准）；项目搜不到再查 reference 最新版本 `docs/reference/<version>/abilities_schinese.txt`（原版技能兜底）。例：寒霜魔盾 = `modifier_lich_frost_shield`；`lich_frost_armor` 是项目把奥术法师寒冰盔甲克隆给巫妖，原版 lich 无此技能，modifier 名 = `modifier_lich_frost_armor`，仅在项目本地化有定义。
-6. **跳过已被控目标**：`target.unitCondition.notActionable: true`，目标处于眩晕/变羊/噩梦/虚空大等硬控状态则跳过，对已被控的目标使用控制技能通常是浪费。
-7. **附近无敌方英雄才施法**：`self.noEnemyHeroInRange: 900`（距离可自定义），常用于对小兵或建筑施法前确认安全。此字段在 dispatcher `tryCast` 层检查，**不是** `self.unitCondition` 的子字段，直接挂在 `self` 下。
-8. **附近需要足够友方小兵**：`self.friendlyCreepNearby: { count: { gte: 3 } }`，常用于推塔场景（对 `EnemyBuilding` 施法时确认有推线波）。`range` 不填默认 900。此字段也直接挂在 `self` 下，dispatcher inline `FindUnitsInRadius` 检查。
-9. **排除施法者自己**：`target.excludeSelf: true`。友方候选天然包含施法者且距离 0 排在首位，以自身生命为代价的技能（如亚巴顿迷雾缠绕）必须排掉；纯增益给自己用通常合理，不要随手加。
-10. **目标相对朝向**：`target.facing: 'front' | 'back'`，只保留位于施法者正面 / 背面半区的目标（水平面点积取符号，正侧方两者都不满足）。用于带位移的技能区分追击（朝目标跳）与撤退（背对目标跳），如宙斯神圣一跳。
-11. **附近有 / 没有队友**：`self.allyHeroInRange: 1200` / `self.noAllyHeroInRange: 900`，只算真英雄、不含自己。控制与持续施法大招要队友跟进输出或护住引导时用前者（如魔爪、极寒领域）；受到伤害就解除的控制用后者（如噩梦）。与 `noEnemyHeroInRange` 同样直接挂在 `self` 下。
-12. **只选行动受限的目标**：`target.unitCondition.disabled: 'hard' | 'movement'`，是 `notActionable`（被控就跳过）的反面。`hard` 只认眩晕、变羊等硬控；`movement` 还认缠绕和被减速到跑不出范围。用于接控制才打得满的技能（如神秘之耀、魂之挽歌）。
-13. **身前固定位置的圆形区域**：`target.aheadCircle: { distanceValue, radiusValue }`，只选落在施法者身前固定距离处圆内的目标，距离与半径按键名读技能数值。用于朝面前固定位置生效的无目标技能（如毁灭阴影），比 `facing` 准；无目标技能 cast range 为 0，还要显式写 `range.lte`。
-14. **大招没好才放**：`self.ultimateNotReady: true`，大招已学会且能放时跳过。用于放完会被引导锁住的技能（如剧变），让大招先交出去。
-15. **提前结束持续施法**：spec 顶层 `stopChannel: { noEnemyHeroInRange?, graceSeconds?, afterSeconds? }`，`graceSeconds` 让敌人离开范围后再等几秒才停（如初音跳舞，敌人短暂走开不交掉长引导），由英雄执行器在引导中检查。不写就引导到底；只给确实需要的技能加，如剧变在敌人离开后停下、气运之末放出即结束引导让它立刻生效。
-16. **目标身边敌人多才选**：`target.enemiesNearby: { range, count }`，只选身边至少 count 个敌方单位（英雄与小兵一起数）的目标。用于对友方施放、顺带伤害其周围敌人的技能（如暗影波对队友或己方小兵放）。
-17. **目标带某状态才选**：`target.unitCondition.hasModifier: [...]`，带其中任一 modifier 才选，是 `noModifier` 的反面。用于接在别的技能效果之后放（如涤罪之焰只对身上有命运敕令或虚妄之诺的队友放）。
-18. **斩杀阈值倍数**：`healthAbilityValue.multiplier`，阈值乘以倍数，用于冷却短、预计能连放几次的伤害技能（如涤罪之焰取两倍伤害）。
-19. **按打/撤决定选用法**：`self.stance: 'fight' | 'retreat'`，读英雄层已做出的打/撤决定（已接战的坚持、塔的战力、敌人被控都已算在里面），跑不掉的原地还手两者都算。位移、隐身这类既能先手又能脱身的技能按它拆成两条，不要用自身血量代替局势判断。`'fight'` 用于跳进敌人身边、放了就难退的先手（如幻影突袭、神圣一跳朝前、穿刺），还会跳过站在越不了的塔下的目标；`'retreat'` 用于脱身（如神圣一跳背身、影刃）。
-20. **以树为目标**：`targetSide: TargetSide.Tree`，对施法者附近最近的一棵树施放（如抓树），目标条件不适用，只看施法者条件。
-21. **技能交出去后才放**：`self.abilitiesOnCooldown: { seconds, count }`，至少 count 个已学会的主动技能剩余冷却不少于 seconds 才施放，不计物品。与 `cooldownTotal`（技能加物品冷却总和，给刷新类用）不同，用于开了就不能施法或该在技能之后接的增益（如疯狂面具）。
-22. **目标正背对敌人逃跑**：`target.fleeing: <range>`，只选该距离内最近的敌方英雄位于其身后的目标，判断方式与 `facing` 相同但以目标自身朝向为准。用于沿目标朝向推动的效果（如推队友的原力法杖），推错方向会把人送进敌群。
-23. **目标正被塔打**：`target.attackedByTower: true`，只选正被敌方防御塔攻击的目标，配合 `FriendlyCreep` 可给挨塔打的小兵上增益（如炎阳纹章）。
-24. **只打普攻够不着的目标**：`target.outOfAttackRange: true`，距离下限取施法者当前攻击距离。用于施法前摇或引导长、贴脸时不如普攻的单体技能（如暗杀），留给追残血和打远处。
-25. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
-26. **只选中立单位并按绝对生命值筛选**：`target.unitCondition.neutralOnly: true` 限定野怪，`target.unitCondition.health` 按当前绝对生命值筛选。
+| KV field                | Purpose                              | Value mapping                                                                                                                                                                                                                                                                                       |
+| ----------------------- | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AbilityBehavior`       | Determine the cast calling method    | dispatcher automatically dispatches according to `UNIT_TARGET / POINT / AOE / NO_TARGET`, **spec does not need to be concerned**                                                                                                                                                                    |
+| `AbilityUnitTargetTeam` | Decision `TargetSide`                | `ENEMY` → `EnemyHero/EnemyCreep/EnemyBuilding`; `FRIENDLY` → `FriendlyHero/FriendlyBuilding`; ability only affects the caster → `Self`                                                                                                                                                              |
+| `AbilityUnitTargetType` | Distinguish heroes/minions/buildings | Use `*Hero` for `HERO`; use `EnemyCreep` for `BASIC/CREEP` only; use `*Building` for `BUILDING`; register multiple entries for the same ability when there are multiple legal targets and the semantics are reasonable** spec** (such as Frost Shield against friendly heroes + friendly buildings) |
+| `AbilityCastRange`      | Casting range                        | **dispatcher will automatically filter targets** by cast range + casting distance bonus, spec usually **do not** handwrite `range.lte`                                                                                                                                                              |
 
-### 是否补一条对小兵的清兵规则
+If the ability is `PASSIVE` or pure `NO_TARGET` buff itself, there is no need to select the target → `TargetSide.Self`.
 
-对英雄的规则确认完之后，再判断这个技能要不要顺带清兵。**不要自行决定，用 `AskUserQuestion` 问用户**，并在选项说明里带上该技能的冷却与法力消耗，让用户有判断依据。
+---
 
-三个条件全部满足才提问：
+## Step 4: Confirm the casting conditions with the user
 
-1. **范围伤害**。`AbilityBehavior` 含 `AOE`，或是 `POINT` 类技能，或 `UNIT_TARGET` 同时带 `AOE`。
-2. **能作用于普通单位**。`AbilityUnitTargetType` 含 `BASIC` 或 `CREEP`；`POINT` 与 `NO_TARGET` 类天然满足。仅 `HERO` 的单位指定技能选不中小兵，直接排除。
-3. **拿去清兵不亏**。冷却与法力属于关键技能级别的不要提问，直接排除。经验线是冷却 45 秒以上或法力 200 以上；同时看这个技能在英雄战里的地位，核心机动与保命技能即使便宜也不清兵。
+Use `AskUserQuestion` to confirm with the user the required items in the following items (unnecessary items are omitted directly, the simpler the spec, the better):
 
-以下类型任何情况都不提问：单体伤害与单体控制、增益 / 护盾 / 治疗、纯位移、被动。
+1. **Target health condition** (most common): For example, "Kill with residual health" `target.unitCondition.healthPercent.lte: 25`; "Low health teammate" `lte: 70`; "Avoid full health" `lte: 95`.
+2. **Target number conditions**: Group ability requires "at least N enemies within the casting range before taking action" `target.count.gte: 3`. **Counting range = effective `range.lte`** (spec explicitly written takes precedence, if not written, press cast range / `rangeFromAbilityValue` to automatically complete), not a fixed 1800 pre-search radius. The count is only narrowed by survival and distance, and is not affected by `target.unitCondition`. If the criterion requires a larger observation range than the casting distance, please note that `range` also determines target screening. Zooming in will cause the bot to chase distant targets.
+3. **Caster conditions**: For example, "use only when the mana level is sufficient" `self.unitCondition.manaPercent.gte: 50`, or "use a certain life-saving ability only when the blood level is low."
+4. **ability level/charging conditions**: `ability.level.gte: 3`, `ability.charges.gte: 1`.
+5. **Avoid repeated casts**: `target.unitCondition.noModifier: ['modifier_xxx']`, often used for continuous debuff/buff. Modifier name search `DOTA_Tooltip_modifier_<name>` Get `<name>`: **Check the project `game/resource/addon_schinese.txt`** first (customization/clone/override ability is subject to the localization of the project); if the project cannot be found, then check the reference latest version `docs/reference/<version>/abilities_schinese.txt` (vanilla ability). Example: Frost Shield = `modifier_lich_frost_shield`; `lich_frost_armor` is a project that clones arcane mage ice armor to lich. Vanilla lich does not have this ability, modifier name = `modifier_lich_frost_armor`, and is only defined in project localization.
+6. **Skip the controlled target**: `target.unitCondition.notActionable: true`. If the target is in a hard control state such as dizziness/sheep/nightmare/void, it will be skipped. Using control ability on a controlled target is usually a waste.
+7. **Cast spells only when there are no enemy heroes nearby**: `self.noEnemyHeroInRange: 900` (distance can be customized), often used to confirm safety before casting spells on minions or buildings. This field is checked at the dispatcher `tryCast` layer. It is not a subfield of `self.unitCondition` and is directly hung under `self`.
+8. **Enough friendly minions are needed nearby**: `self.friendlyCreepNearby: { count: { gte: 3 } }`, often used in tower push scenarios (confirm that there is a push wave when casting the spell on `EnemyBuilding`). `range` If left blank, the default value is 900. This field is also directly hung under `self` and dispatcher inline `FindUnitsInRadius` checks.
+9. **Excluding the caster himself**: `target.excludeSelf: true`. Friendly candidates naturally include casters and are ranked first with a distance of 0. Abilities that cost one's own life (such as Abaddon's Mist Coil) must be eliminated; it is usually reasonable to use pure buffs for yourself, do not add them casually.
+10. **Relative orientation of the target**: `target.facing: 'front' | 'back'`, only the target located in the front/back half of the caster is retained (the dot product of the horizontal plane takes the sign, neither the front or side is satisfied). Ability with displacement is used to distinguish pursuit (jumping towards the target) and retreat (jumping with your back to the target), such as Zeus's holy jump.
+11. **There are / no teammates nearby**: `self.allyHeroInRange: 1200` / `self.noAllyHeroInRange: 900`, only true heroes are counted, not including yourself. The former is used when the control and continuous casting ultimate skills require teammates to follow up the output or protect and guide (such as Demon's Claw, Extreme Cold Field); the latter is used when the control is released after receiving damage (such as Nightmare). Like `noEnemyHeroInRange`, it is directly hung under `self`.
+12. **Only select targets with restricted movement**: `target.unitCondition.disabled: 'hard' | 'movement'`, the opposite of `notActionable` (skip if charged). `hard` only recognizes hard controls such as stun and sheep transformation; `movement` also recognizes entanglement and being slowed down to the point where it cannot run out of range. It is used to control the full ability (such as Mystic Glory, Soul Elegy).
+13. **Circular area at a fixed position in front of the caster**: `target.aheadCircle: { distanceValue, radiusValue }`. Only targets falling within a circle at a fixed distance in front of the caster are selected. The distance and radius button names read the ability value. For non-target abilities (such as shadows of destruction) that take effect toward a fixed position in front of you, it is more accurate than `facing`; if the non-target ability cast range is 0, you must also explicitly write `range.lte`.
+14. **Last until the ultimate is good**: `self.ultimateNotReady: true`, skip when the ultimate has been learned and can be released. It is used to release abilities that will be locked by the guide (such as Upheaval), so that the ultimate can be handed over first.
+15. **End continuous casting early**: spec top `stopChannel: { noEnemyHeroInRange?, graceSeconds?, afterSeconds? }`, `graceSeconds` Let the enemy leave the range and then wait a few seconds before stopping (such as Hatsune dancing, the enemy briefly walks away without handing over the long guidance), checked by the hero executor during the guidance. If you don't write it, guide it to the end; only add the ability that is really needed. For example, if the drastic change stops after the enemy leaves, or if the end of luck is released, the guide will end and it will take effect immediately.
+16. **Select only if there are many enemies around the target**: `target.enemiesNearby: { range, count }`, only select targets with at least count enemy units (counting heroes and creeps together) around them. Ability to cast on allies and incidentally damage enemies around them (such as Shadow Wave cast on teammates or one's own creeps).
+17. **Select only if the target has a certain status**: `target.unitCondition.hasModifier: [...]`, select only if it has any of the modifiers, which is the opposite of `noModifier`. Used after other ability effects (for example, Flame of Purification can only be cast on teammates who have Edict of Fate or False Promise).
+18. **Killing Threshold Multiple**: `healthAbilityValue.multiplier`, the threshold is multiplied by the multiple, used for the damage ability with short cooldown and expected to be fired several times in a row (such as the Flame of Purification takes twice the damage).
+19. **Usage method of pressing the fight/withdraw decision**: `self.stance: 'fight' | 'retreat'`, read the fight/withdraw decision made by the hero layer (the persistence of the battle, the combat power of the tower, and the enemy's charge are all counted), and fighting back if you can't run are both counted. Abilities that can both strike first and escape, such as displacement and invisibility, are split into two parts. Don't use your own blood volume instead of judging the situation. `'fight'` is used for jumping into the enemy's side, making it difficult to retreat (such as Phantom Assault, Holy Jump forward, Pierce), and jumping over targets standing under insurmountable towers; `'retreat'` is used for escaping (such as Holy Jump Back, Shadow Blade).
+20. **Target a tree**: `targetSide: TargetSide.Tree`, cast on the nearest tree near the caster (such as grabbing a tree), the target conditions are not applicable, only the conditions of the caster are considered.
+21. **Ability will not be released until it is handed over**: `self.abilitiesOnCooldown: { seconds, count }`, at least count active abilities that have been learned will be cast when the remaining cooldown is no less than seconds, excluding items. Different from `cooldownTotal` (sum of ability plus item cooling, used for refresh types), it is used for gains that cannot cast spells when turned on or should be connected after ability (such as crazy mask).
+22. **The target is running away with its back to the enemy**: `target.fleeing: <range>`, only the target with the nearest enemy hero behind it within the distance is selected. The judgment method is the same as `facing` but based on the direction of the target itself. The effect is used to push in the direction of the target (such as pushing a teammate's Force Staff). Pushing in the wrong direction will send the person into the enemy group.
+23. **The target is being attacked by the tower**: `target.attackedByTower: true`, only select the target that is being attacked by the enemy's defense tower. With `FriendlyCreep`, it can give buffs (such as the Flame Crest) to the minions being attacked by the tower.
+24. **Only hits targets that are beyond the reach of normal attacks**: `target.outOfAttackRange: true`, the lower limit of the distance is the current attack distance of the caster. It is used to cast forward or guide long, single-target abilities (such as assassination) that are not as good as normal attacks when close to the face, leaving it to chase residual health and hit from a distance.
+25. **Multiple specs with the same name**: If the heroes/minions/buildings have different target scene conditions (such as a group of snake guards versus heroes/towers), write multiple `AbilitySpec` entries and sort by "put the most important ones first".
+26. **Only select neutral units and filter by absolute health**: `target.unitCondition.neutralOnly: true` is limited to wild monsters, `target.unitCondition.health` is filtered by current absolute health.
 
-用户同意后，在同一文件的 `SPECS` 数组里再加一条 `targetSide: TargetSide.EnemyCreep` 的 entry，排在对英雄的规则之后。默认门槛由 dispatcher 自动套用，通常不需要再写任何条件。
+### Whether to add a clearing rule for minions
 
-`EnemyCreep` 规则只在 `laning`、`push`、`farm`、`defend` 模式尝试；明确的单体用途在 spec 中用 `target.count.gte: 1` 覆盖范围清兵门槛。
+After confirming the rules of the hero, we can then judge whether the ability should be cleared by the way. **Don't make your own decision, use `AskUserQuestion` to ask the user**, and include the cooldown and mana consumption of the ability in the option description, so that the user has a basis for judgment.
 
-> **EnemyCreep 默认条件**（`CREEP_DEFAULT_CONDITION`，由 dispatcher 自动套用，无需在 spec 中重复写）：
+Ask only when all three conditions are met:
+
+1. **Range Damage**. `AbilityBehavior` with `AOE`, or `POINT` with class capability, or `UNIT_TARGET` with `AOE`.
+2. **can act on ordinary units**. `AbilityUnitTargetType` contains `BASIC` or `CREEP`; `POINT` and `NO_TARGET` are naturally satisfying. Only the unit of `HERO` cannot select minions with the specified ability and is directly excluded.
+3. **No loss if used to clear troops**. If cooldown and mana are at critical ability levels, don’t ask questions and just rule them out. The experience line is a cooldown of more than 45 seconds or a mana of more than 200; at the same time, looking at the status of this ability in heroic battles, the core mobility and life-saving ability cannot be eliminated even if it is cheap.
+
+No questions are asked in any of the following types of situations: single-target damage and single-target control, gain/shield/healing, pure displacement, and passive.
+
+After the user agrees, add an entry of `targetSide: TargetSide.EnemyCreep` to the `SPECS` array in the same file, ranked after the rules for heroes. The default threshold is automatically applied by the dispatcher, and there is usually no need to write any conditions.
+
+`EnemyCreep` rules are only tried in `laning`, `push`, `farm`, `defend` modes; clear single use uses `target.count.gte: 1` coverage clearing threshold in spec.
+
+> **EnemyCreep default condition** (`CREEP_DEFAULT_CONDITION`, automatically applied by dispatcher, no need to write it repeatedly in spec):
+>
 > - `self.unitCondition.manaPercent.gte: 40`
 > - `self.unitCondition.healthPercent.gte: 40`
 > - `ability.level.gte: 2`
 > - `self.noEnemyHeroInRange: 900`
 > - `target.count.gte: 2`
 >
-> 远古野由 dispatcher 统一处理，不要为远古另写 spec：`farm` 模式下技能等级达到 `target-dispatch.ts` 的 `ANCIENT_MIN_ABILITY_LEVEL` 时，EnemyCreep 候选自动加入远古；KV `AbilityUnitTargetFlags` 带 `NOT_ANCIENTS` 的技能照引擎口径跳过。个别技能确实不该打远古时，在它的 spec 里写 `target.unitCondition.excludeAncient: true`。
+> Ancient wilds are handled uniformly by the dispatcher, do not write another spec for Ancient: in `farm` mode, when the ability level reaches `target-dispatch.ts` `ANCIENT_MIN_ABILITY_LEVEL`, EnemyCreep candidates are automatically added to Ancient; KV `AbilityUnitTargetFlags` with `NOT_ANCIENTS` ability is skipped according to the engine criteria. When certain abilities really shouldn't be played in ancient times, write `target.unitCondition.excludeAncient: true` in their spec. The same path value explicitly specified in the
 >
-> spec 中显式指定的同路径值会通过 `DeepMerge` 覆盖默认值（NumberRange 整体替换，非 key 级合并）。例如想在自身蓝量低时才吸蓝：`self.unitCondition.manaPercent: { lte: 40 }` 会替换默认的 `gte: 40`。
+> spec will overwrite the default value through `DeepMerge` (NumberRange overall replacement, non-key level merging). For example, if you want to absorb mana only when your mana level is low: `self.unitCondition.manaPercent: { lte: 40 }` will replace the default `gte: 40`.
 
-> 现有条件结构见 [cast-condition.ts](src/vscripts/ai/action/cast-condition.ts) 的 `UnitCondition / AbilityCoindition / NumberRange`。
+> The existing condition structure is found in `UnitCondition / AbilityCoindition / NumberRange` of [cast-condition.ts](src/vscripts/ai/action/cast-condition.ts).
 
-不要发明 `cast-condition.ts` 没有的字段；若用户的诉求超出现有条件能力（例如"距离敌方塔太近不施放"），告知用户当前框架不支持，需要扩展 dispatcher，不要自行加 spec 字段。
+Do not invent fields that `cast-condition.ts` does not have; if the user's request exceeds the existing conditional capabilities (for example, "do not cast when too close to the enemy tower"), inform the user that the current framework does not support it and needs to extend the dispatcher. Do not add the spec field by yourself.
 
 ---
 
-## 第五步：写 spec 文件
+## Step 5: Write spec file
 
-文件名 = `<abilityName>.ts`，路径 `src/vscripts/ai/ability/specs/`。
+file name = `<abilityName>.ts`, path `src/vscripts/ai/ability/specs/`.
 
-模板：
+template:
 
 ```ts
 import { AbilitySpec, TargetSide } from '../ability-spec';
 
 /**
- * <技能中文名>：<原版 behavior / target team 摘录，例如 UNIT_TARGET / ENEMY / HERO>。
+* <Chinese ability name>: <vanilla behavior / target team excerpt, such as UNIT_TARGET / ENEMY / HERO>.
  *
- * <一句话说明何时施放、为什么这样限定。>
+* <One sentence to explain when to cast and why it is so limited. >
  */
 export const SPECS: AbilitySpec[] = [
   {
@@ -146,43 +148,44 @@ export const SPECS: AbilitySpec[] = [
 ];
 ```
 
-可省略的部分尽量省：
-- 无 condition → 直接 `targetSide: TargetSide.Self,` 后不写 `condition`。
-- 没有 `target` / `self` / `ability` 任一分支 → 别写空对象。
+Try to omit the omitted parts:
+
+- no condition → directly `targetSide: TargetSide.Self,` without writing `condition`.
+- None `target` / `self` / `ability` Any branch → Do not write empty objects.
 
 ---
 
-## 第六步：注册
+## Step 6: Registration
 
-按技能名首字母找到 `src/vscripts/ai/ability/specs/index-<起>-<止>.ts`（如 `index-a-d.ts`），在该文件里：
+Find `src/vscripts/ai/ability/specs/index-<start>-<end>.ts` (such as `index-a-d.ts`) by the first letter of the ability name. In this file:
 
-1. 按字母序加 `import { SPECS as <camelName> } from './<abilityName>';`
-2. 在注册函数里按字母序加 `AbilityRegistry.registerAll(<camelName>);`
+1. Add `import { SPECS as <camelName> } from './<abilityName>';` in alphabetical order
+2. Add `AbilityRegistry.registerAll(<camelName>);` in alphabetical order to the registration function
 
-不要把 import 加回 `index.ts`：每个 import 在 Lua 里是顶层局部变量，单文件超过 200 个会报 `main function has more than 200 local variables`，整个技能 AI 加载失败。某个分组文件接近上限（约 90 个 import）时再按字母细分。
+Do not add the import back to `index.ts`: Each import is a top-level local variable in Lua. If a single file exceeds 200, `main function has more than 200 local variables` will be reported, and the entire ability AI will fail to load. When a grouped file is close to the upper limit (about 90 imports), it is subdivided alphabetically. The
 
-> dispatcher 按 `hero.GetAbilityByIndex` 槽位顺序遍历，所以多个技能间的优先级由"技能挂在英雄第几槽"决定；同名多条 spec 的优先级才由 SPECS 数组顺序决定。
-
----
-
-## 第七步：验证
-
-| 检查 | 命令 / 动作 |
-|---|---|
-| 类型 / 编译 | `npm run lint && npm run build:vscripts` |
-| 单元测试 | `npm test`（无需新增 spec 测试，框架本身已有测试覆盖） |
-| 游戏内 | `npm run start` 进 tools，让一个 bot 学到 / 抽到该技能并构造触发条件，观察控制台 `[AI] CastByBehavior <abilityName>` 日志 |
+> dispatcher traverses in the order of `hero.GetAbilityByIndex` slots, so the priority between multiple abilities is determined by "which slot of the hero the ability is hung in"; the priority of multiple specs with the same name is determined by the order of the SPECS array.
 
 ---
 
-## 常见陷阱
+## Step 7: Verification
 
-- **不要在 spec 里手写 `range.lte`**：dispatcher 会用技能 KV 中的 `AbilityCastRange + GetCastRangeBonus` 自动填入。手写反而会覆盖默认值，导致超出施法距离也尝试施放。例外：spec 想要更小的搜索半径才显式覆盖。
-- **不要为 spec 加新的字段类型**：spec 字段只能是 `ability-spec.ts` 中已定义的；新需求先扩展 `cast-condition.ts` 与 dispatcher，再消费。
-- **不要往英雄文件 `UseAbilityXxx` 加新技能**：新技能一律走 spec。遇到已有手写规则时，将有效条件迁入 spec，并在确认行为等价后删除对应英雄覆盖，不能把英雄专属施法保留为长期第二执行层。
-- **toggle / autoCast 类技能**：通过 `condition.action.toggleOn / toggleOff / autoCastOn` 表达。dispatcher 命中 action 条件后只切换到目标状态，不走正常施法派发；已经处于目标状态时返回 false，继续尝试后续规则。
-- **有目标才开着的开关**：`action.toggleByTarget: true`，找到符合条件的目标就开、找不到就关，一条 spec 同时管开和关（如腐烂、巫毒回复术）。`toggleOff` 只能在「找到目标」时关，表达不了「没有目标就关」。
-- **既能指向单位又能点地的技能**：dispatcher 按运行时 behavior 派发，带 UNIT_TARGET 位就指向单位。有些技能运行时同时带 UNIT_TARGET 与 POINT（如有 A 杖的强化图腾、剧变、投掷），指向敌人会被引擎拒绝、每 tick 重试。这类写 `target.castMode: 'targetPosition'` 强制点地。开发模式的 `[bot-cast]` 日志带 `beh=`（运行时 behavior 位），同一技能短时间内反复出现就是命令没执行成功。
-- **TSTL 对象 spread 陷阱**：见 `src/vscripts/CLAUDE.md`「常见陷阱」末条；spec 文件本身用不到 spread，但若需要扩展 dispatcher / cast-condition，**绝对**不能写 `{ ...maybeUndefined }`。
-- **KV 数值字段术语**：Dota 2 现行 KV 中数值字段块名为 `AbilityValues`（旧版 `AbilitySpecial` 已废弃）。在注释、字段命名、文档中统一使用 `AbilityValue` 表述；引擎 API `GetSpecialValueFor(key)` 仍可调用，但变量名和注释应写 `abilityValue` / `rangeFromAbilityValue`，不用 `specialValue`。
-- **spec 文件头部注释不要复述 condition 里的字段/数值**：注释只写意图（"范围内有敌人即用"），不要带上 `range.lte` 等字段的具体值（"900 范围内"）。同一个数值出现两处，后续只改其中一处就会自相矛盾，且无法判断哪个是真相源。此规则同样适用于 ItemSpec（`ai/item/specs/`）文件。发现注释数值与代码不一致时，**不要默认注释代表设计意图、代码是笔误就去改代码**——应先查 git blame / 实机测试确认谁是真相源，再决定改代码还是改注释。
+| Check            | Command/Action                                                                                                                                              |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type/Compilation | `npm run lint && npm run build:vscripts`                                                                                                                    |
+| Unit test        | `npm test` (no need to add new spec test, the framework itself has test coverage)                                                                           |
+| In-game          | `npm run start` Enter tools, let a bot learn/draw the ability and construct trigger conditions, observe the console `[AI] CastByBehavior <abilityName>` log |
+
+---
+
+## Common Traps
+
+- **Do not handwrite `range.lte`** in the spec: the dispatcher will automatically fill in `AbilityCastRange + GetCastRangeBonus` in the ability KV. Instead, handwriting will overwrite the default value, causing attempts to cast beyond the casting distance. Exception: spec wants a smaller search radius before explicitly overriding it.
+- **Do not add new field types to spec**: spec fields can only be those defined in `ability-spec.ts`; new requirements must first extend `cast-condition.ts` and dispatcher before consumption.
+- **Do not add new abilities to the hero file `UseAbilityXxx`**: New abilities will all go to spec. When encountering existing handwritten rules, move the effective conditions into spec, and delete the corresponding hero override after confirming that the behavior is equivalent. Hero-specific spellcasting cannot be retained as a long-term second execution layer.
+- **toggle/autoCast class ability**: Expressed via `condition.action.toggleOn / toggleOff / autoCastOn`. The dispatcher only switches to the target state after hitting the action condition, and does not perform normal casting and dispatch; when it is already in the target state, it returns false and continues to try subsequent rules.
+- **Switch that is only turned on when there is a target**: `action.toggleByTarget: true`, it turns on when it finds a target that meets the conditions, and turns it off when it cannot find it. One spec can turn it on and off at the same time (such as rot, voodoo recovery). `toggleOff` can only be turned off when "finding the target", and cannot express "turn off if there is no target".
+- **Ability to point to both the unit and the ground**: The dispatcher is dispatched according to the runtime behavior, and the UNIT_TARGET bit points to the unit. Some abilities run with UNIT_TARGET and POINT at the same time (such as the enhanced totem of the A staff, upheaval, and throwing). Pointing to the enemy will be rejected by the engine and retried every tick. For this type of writing, `target.castMode: 'targetPosition'` is forced to click the ground. The `[bot-cast]` log in development mode contains `beh=` (runtime behavior bit). If the same ability appears repeatedly in a short period of time, the command is not executed successfully.
+- **TSTL object spread trap**: See the last article of "Common Traps" of `src/vscripts/CLAUDE.md`; the spec file itself does not use spread, but if you need to extend the dispatcher / cast-condition, you **absolutely** cannot write `{ ...maybeUndefined }`.
+- **KV numeric field terminology**: The current numeric field block name in Dota 2 KV is `AbilityValues` (the old version `AbilitySpecial` is obsolete). Use `AbilityValue` expressions uniformly in comments, field naming, and documents; the engine API `GetSpecialValueFor(key)` can still be called, but the variable names and comments should be written as `abilityValue` / `rangeFromAbilityValue` instead of `specialValue`.
+- **Spec file header comments do not repeat the fields/values ​​in condition**: Comments only write the intention ("use if there are enemies within the range"), do not include the specific values ​​of fields such as `range.lte` ("within 900 range"). If the same value appears twice, if only one of them is changed subsequently, it will be self-contradictory, and it will be impossible to determine which one is the source of the truth. This rule also applies to ItemSpec (`ai/item/specs/`) files. When you find that the annotation value is inconsistent with the code, **don't change the code by assuming that the annotation represents the design intention and that the code is a typo** - you should first check git blame/real-machine testing to confirm who is the source of the truth, and then decide whether to change the code or the annotation.

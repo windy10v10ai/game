@@ -1,23 +1,23 @@
-# 本地化文件格式指南
+# Localization File Format Guide
 
-## 概述
+## Overview
 
-本文档记录了 `game/resource/addon_schinese.txt`、`addon_english.txt`、`addon_russian.txt` 三个本地化文件的格式要求、同步规范和维护策略。
+This document records the format requirements, synchronization specifications and maintenance strategies of three localized files: `game/resource/addon_schinese.txt`, `addon_english.txt`, and `addon_russian.txt`. The
 
-语言文件位于 `game/resource/`,使用 Valve 的 KeyValues 格式。
+language file is located at `game/resource/` and uses Valve's KeyValues ​​format.
 
-## 格式要求
+## format requirements
 
-### 1. 缩进和对齐
+### 1. Indentation and alignment
 
-- **统一使用两个 tab 缩进**
-- **键名和值之间使用多个 tab 对齐**，使所有值从同一位置开始
-- **空行保持一致**
+- **Use two tabs for indentation**
+- **Use multiple tabs to align key names and values** so that all values start from the same position
+- **Empty lines remain consistent**
 
-**示例**：
+**Example**:
 
 ```
-		// item_beast_armor 兽化甲
+		// item_beast_armor beast armor
 		"DOTA_Tooltip_Ability_item_beast_armor"											"兽化甲"
 		"DOTA_Tooltip_ability_item_beast_armor_Description"								"<h1>主动：不粘锅</h1>..."
 		"DOTA_Tooltip_ability_item_beast_armor_Lore"									"集四大神器之力于一身的终极护甲..."
@@ -25,84 +25,84 @@
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health"							"+$health"
 ```
 
-### 2. 注释格式
+### 2. Comment format
 
-- **注释使用中文，不翻译**
-- **三语文件中的注释必须完全一致**（直接复制中文注释到英文、俄文文件）
-- 格式：`// item_name 中文名称`
+- **Comments are in Chinese and not translated**
+- **The comments in the three language files must be completely consistent** (copy the Chinese comments directly to the English and Russian files)
+- Format: `// item_name 中文名称`
 
-### 3. HTML 标签同步
+### 3. Synchronize HTML tags
 
-描述文本中的 HTML 标签格式必须在三语版本中保持一致：
+description text must be consistent across the three language versions:
 
-#### 换行符规则
+#### newline character rule
 
-- **使用 `\n` 分隔不同的 `<h1>` 标题部分**
-- **使用 `<br><br>` 用于段落内的换行**
+- **Use `\n` to separate different `<h1>` header sections**
+- **Use `<br><br>` for line breaks within paragraphs**
 
-**一个物品同时有主动+被动时**，两个 `<h1>` 段落之间用 `\n`（或内容较长时用 `\n\n`）分隔，**不要**用 `<br><br>` 衔接——`<br>` 系列只用在同一段落内部换行。参考既有写法：
+**When an item has both active and passive**, use `\n` (or `\n\n` if the content is long) to separate the two `<h1>` paragraphs. **Do not** use `<br><br>` to connect - the `<br>` series only uses line breaks within the same paragraph. Refer to the existing writing method:
 
 ```
 "<h1>主动：伤害反弹</h1>...伤害提升%active_reflection_pct%%%。\n<h1>被动：伤害反弹</h1>...反弹%passive_reflection_constant%..."
 ```
 
-（`item_blade_mail_2`、`item_sphere_2` 等均为此惯例，三语版本的分隔符必须一致）
+(`item_blade_mail_2`, `item_sphere_2`, etc. are all based on this convention, and the delimiters of the three language versions must be consistent)
 
-#### 标签使用规范
+#### label usage specifications
 
-- `<h1>标题</h1>` - 用于主要标题（主动、被动等）
-- `<br>` 或 `<br><br>` - 用于段落内换行
-- `\n` - 用于分隔不同的主要部分
-- `<font color='#RRGGBB'>文本</font>` - 用于颜色文本
+- `<h1>标题</h1>` - for main titles (active, passive, etc.)
+- `<br>` or `<br><br>` - used for line breaks within paragraphs
+- `\n` - used to separate different main sections
+- `<font color='#RRGGBB'>文本</font>` - for color text
 
-#### 颜色代码规范
+#### color code specification
 
-- **不强制大小写**，但同一个色值内部字母大小写需一致（如 `#A74BD1` 或 `#a74bd1`，不要 `#A74Bd1` 这种混写）
+- **uppercase and lowercase is not enforced**, but the letters within the same color value must be in the same case (such as `#A74BD1` or `#a74bd1`, not mixed letters like `#A74Bd1`)
 
-#### 常见术语与颜色对照（参考官方中文本地化归纳）
+#### Common terms and color comparison (refer to the official Chinese localization summary)
 
-来源：`docs/reference/<version>/abilities_schinese.txt` 中官方对高频状态词的着色约定，以及项目内已有文案（莉娜天赋、Artoria 系列技能等）使用的伤害类型着色约定，归纳自高频用法（非穷举）。新增技能/物品描述遇到下列词时，优先沿用对应颜色，保持与官方视觉语言一致。**官方英文文本通常不对这些词加色**，本项目按现有规则三语标签仍需保持一致（见上方"HTML 标签同步"）。
+Source: `docs/reference/<version>/abilities_schinese.txt` The official coloring convention for high-frequency status words, as well as the damage type coloring convention used by localization texts in the project (Lina talent, Artoria series ability, etc.), are summarized from high-frequency usage (non-exhaustive). When the newly added ability/item description encounters the following words, the corresponding color will be used first to maintain consistency with the official visual language. **Official English texts usually do not add color to these words**. According to the existing rules, the trilingual tags of this project still need to be consistent (see "HTML tag synchronization" above).
 
-| 中文术语 | English | 颜色 | 备注 |
-|---|---|---|---|
-| 纯粹伤害 | Pure Damage | `#FFE56E` | 金色，项目既有约定 |
-| 魔法伤害 | Magic Damage | `#05CAFF` | 蓝色，项目既有约定 |
-| 眩晕 / 击晕 | Stun | `#2DD5E4` | 最高频状态色 |
-| 沉默 | Silence | `#6DB6E9` | 禁止施法 |
-| 缴械 | Disarm | `#AFB912` | 禁止普攻 |
-| 锁闭 | Muted（物品） | `#C3E1DB` | 禁止使用物品，常与沉默/缴械三件套连用（如妖术、灭寂） |
-| 破坏 | Break | `#DD621E` | 使被动技能失效 |
-| 减益免疫 | Debuff Immunity | `#D76907` | |
-| 状态抗性 | Status Resistance | `#B99012` | |
-| 减速抗性 | Slow Resistance | `#9EC8E3` | |
-| 隐身 / 隐形 | Invisible | `#D7CCC7` | |
-| 恐惧 | Fear | `#1EDDB7` | |
-| 虚无 | Ethereal | `#57E550` | 无法攻击/被攻击，受到的魔法伤害增加 |
-| 束缚 | Leash | `#E3D59E` | 超出范围会打断的牵制效果 |
-| 缠绕 | Entangle | `#CAE96D` | 生根类禁锢 |
-| 相位移动 | Phased | `#9019E3` | 无视单位碰撞、无法被减速 |
-| 治疗 / 回复 | Heal | `#07D738` | |
-| 作用范围 | AoE / Radius | `#C450E5` | |
-| 护盾（通用/全伤害） | Shield / Barrier | `#B97812` | 吸收任意类型伤害 |
-| 物理伤害护盾 | Physical Damage Barrier | `#B94512` | 仅吸收物理伤害 |
-| 魔法伤害护盾 / 法术护盾 | Magic Damage Barrier / Spell Shield | `#1278B9` | 仅吸收魔法伤害 |
-| 阿哈利姆神杖 / 阿哈利姆魔晶 | Aghanim's Scepter / Shard | `#92ACF5` | |
-| 红色强调（警告或负面属性变动） | — | `#E03E2E` | 用于"无法丢弃/无法摧毁"等警告文案，或攻击力、护甲等属性被削减时的数值强调 |
-| 灰色补充说明 | — | `#7D7D7D` | 圆括号内的补充说明，如"（仅对远程有效）" |
-| 自动施法 / 自动施放 | Autocast | `#00CED1` | 青绿色，标注 autocast 类效果说明段落（项目内曾用红色 `#FF0000`，已统一改为此色以避免与警告类红色语义混淆） |
-| 觉醒强化 | Awakening Bonus | `#d000ff` | 紫色，与技能标题的觉醒标记同色，标注觉醒后新增/强化的效果段落 |
+| Chinese terminology                                  | English                             | Color                                            | Remarks                                                                                                                                                                           |
+| ---------------------------------------------------- | ----------------------------------- | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pure Damage                                          | `#FFE56E`                           | Gold, the project has an agreement               |
+| Magic Damage                                         | `#05CAFF`                           | Blue, project agreement                          |
+| Stun / Stun                                          | Stun                                | `#2DD5E4`                                        | Highest frequency status color                                                                                                                                                    |
+| Silence                                              | Silence                             | `#6DB6E9`                                        | Spellcasting prohibited                                                                                                                                                           |
+| Disarm                                               | Disarm                              | `#AFB912`                                        | Disable basic attacks                                                                                                                                                             |
+| Locked                                               | Muted (item)                        | `#C3E1DB`                                        | The use of item is prohibited, often used in conjunction with the silence/disarm three-piece set (such as sorcery, silence)                                                       |
+| Break                                                | `#DD621E`                           | Disable passive ability                          |
+| Debuff Immunity                                      | `#D76907`                           |                                                  |
+| Status Resistance                                    | `#B99012`                           |                                                  |
+| Slow Resistance                                      | Slow Resistance                     | `#9EC8E3`                                        |                                                                                                                                                                                   |
+| Stealth / Stealth                                    | Invisible                           | `#D7CCC7`                                        |                                                                                                                                                                                   |
+| Fear                                                 | Fear                                | `#1EDDB7`                                        |                                                                                                                                                                                   |
+| Nothingness                                          | Ethereal                            | `#57E550`                                        | Unable to attack/be attacked, magic damage received increased                                                                                                                     |
+| Restraint                                            | Leash                               | `#E3D59E`                                        | Containment effect that will be interrupted when exceeding the range                                                                                                              |
+| Entangle                                             | `#CAE96D`                           | Rooting Confinement                              |
+| Phased                                               | `#9019E3`                           | Ignores unit collision and cannot be slowed down |
+| Treatment / Recovery                                 | Heal                                | `#07D738`                                        |                                                                                                                                                                                   |
+| Range                                                | AoE / Radius                        | `#C450E5`                                        |                                                                                                                                                                                   |
+| Shield (universal/full damage)                       | Shield / Barrier                    | `#B97812`                                        | Absorb any type of damage                                                                                                                                                         |
+| Physical Damage Barrier                              | `#B94512`                           | Only absorbs physical damage                     |
+| Magic Damage Barrier / Spell Shield                  | Magic Damage Barrier / Spell Shield | `#1278B9`                                        | Absorbs magic damage only                                                                                                                                                         |
+| Aghanim's Scepter / Shard                            | `#92ACF5`                           |                                                  |
+| Red emphasis (warning or negative attribute changes) | —                                   | `#E03E2E`                                        | Used for warning localization text such as "cannot be discarded/cannot be destroyed", or numerical emphasis when attributes such as attack power and armor are reduced            |
+| Gray supplementary instructions                      | —                                   | `#7D7D7D`                                        | Supplementary instructions in parentheses, such as "(valid for remote only)"                                                                                                      |
+| Autocast / Autocast                                  | Autocast                            | `#00CED1`                                        | Turquoise, marked autocast effect description paragraph (red `#FF0000` was used in the project, but has been changed to this color to avoid confusion with warning red semantics) |
+| awakening strengthening                              | Awakening Bonus                     | `#d000ff`                                        | Purple, the same color as the awakening mark of the ability title, marking the newly added/enhanced effect paragraph after awakening                                              |
 
-**"标题：说明"同行格式**：`自动施法：`、`觉醒强化：` 这类段落标题统一写成 `<font color='#颜色'>标题：</font>紧跟说明文字`（标题与冒号一起包进 font 标签，说明文字在标签外、同一行），不要让标题单独占一行再换行接说明——参考 `elder_titan_ancestral_spirit_awaken`、`special_bonus_unique_bristleback_upgrade` 的写法。
+**"Title: Description" peer format**: `自动施法：`, `觉醒强化：`. The titles of such paragraphs are uniformly written as `<font color='#颜色'>标题：</font>紧跟说明文字` (the title and colon are included in the font tag, and the description text is outside the tag and on the same line). Do not let the title occupy a separate line and then change the line to add the description - Reference How to write `elder_titan_ancestral_spirit_awaken`, `special_bonus_unique_bristleback_upgrade`.
 
-#### 常用措辞对照
+#### Commonly used wording comparison
 
-- **魔法抗性降低的叠加方式**：不写"（固定值）"，写"（减法叠加）"（英文 `(flat)` → `(additive)`），这是 Dota 术语里区分"减法叠加 vs 乘法叠加"的标准说法，比"固定值"更准确
-- **全属性总和类描述**：中文写`[自身属性总和]`，不写`[你的全属性]`，对齐英文固定写法 `the sum of all your attributes`
-- **"多样施法"和"自动施法"是两个不同的 Dota 机制，不要混用**：「多样施法」指同一技能有多种施法方式可切换（如萨尔岩浆流的点目标/点地面），「自动施法」（autocast）指开关型被动检测自动触发（对应 `AbilityBehavior` 的 `DOTA_ABILITY_BEHAVIOR_AUTOCAST`，如法力之盾、痛苦鞭笞）。技能实际走 `AUTOCAST` 行为时必须写"自动施法"，不能因为效果上有"切换成另一种打法"的观感就套用"多样施法"这个说法
+- **Superposition method of reducing magic resistance**: Instead of writing "(fixed value)", write "(subtractive superposition)" (English `(flat)` → `(additive)`). This is the standard way of distinguishing "subtractive superposition vs multiplicative superposition" in Dota terminology, which is more accurate than "fixed value"
+- **Full attribute sum class description**: Write `[自身属性总和]` in Chinese, do not write `[你的全属性]`, align with the English fixed writing `the sum of all your attributes`
+- **"Various casting" and "automatic casting" are two different Dota mechanisms, do not mix them**: "Various casting" means that the same ability has multiple casting methods that can be switched (such as point target/point ground in Thrall magma flow), "autocast" refers to the automatic triggering of switch-type passive detection (corresponding to `AbilityBehavior` `DOTA_ABILITY_BEHAVIOR_AUTOCAST`, such as Mana Shield, Painful Lash). When ability actually performs the `AUTOCAST` behavior, it must be written as "automatic casting." You cannot use the term "diverse casting" just because the effect has the look and feel of "switching to another style of play."
 
-### 4. 补全 Modifier 说明
+### 4. Complete Modifier description
 
-所有物品和技能的 modifier 都必须包含完整的说明：
+All item and ability modifiers must contain complete descriptions:
 
 ```
 		"DOTA_Tooltip_modifier_item_name_active"										"状态名称"
@@ -115,104 +115,104 @@
 		"DOTA_Tooltip_modifier_item_name_aura_Description"								"Aura描述"
 ```
 
-**modifier 的 `_Description` 要写技能效果本身，不能只写当前数值**——玩家点开 buff 图标往往是想确认这个效果到底做了什么。内容照 ability `_Description` 写一遍，再在末尾接当前累计/动态数值。
+**modifier's `_Description` needs to write the ability effect itself, not just the current value** - players often click on the buff icon to confirm what this effect does. Write the content as ability `_Description`, and then add the current cumulative/dynamic value at the end.
 
-**ability 用「单独成行」展示的数值，modifier 正文里要补回来**——modifier 只有一段正文、没有数值面板，ability 那边靠 `_xxx` 标签行展示的数值在 modifier 上不会出现。这类数值须以 `%dMODIFIER_PROPERTY_TOOLTIP%` / `%dMODIFIER_PROPERTY_TOOLTIP2%` 内联进 modifier 正文（每个 modifier 最多两个，超出的用文字概括或拆成多个 modifier）。
+**The value displayed by **ability in "separate line" must be filled back in the modifier body\*\* - the modifier has only one body text and no value panel. The value displayed by the `_xxx` label line on the ability side will not appear on the modifier. Such values ​​must be inlined into the modifier text as `%dMODIFIER_PROPERTY_TOOLTIP%` / `%dMODIFIER_PROPERTY_TOOLTIP2%` (each modifier has a maximum of two, and any excess should be summarized in text or split into multiple modifiers). Variable usage in
 
-#### Modifier 描述中的变量使用
+#### Modifier description
 
-Modifier 描述中可以使用变量，使用 `%dMODIFIER_PROPERTY_XXX%` 格式：
+Modifier description, using the `%dMODIFIER_PROPERTY_XXX%` format:
 
 ```
 "移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%"
 ```
 
-**坑：`%key%` 引用技能自身 `AbilityValues` 在 modifier 里不生效**——`%dMODIFIER_PROPERTY_XXX%` 之所以能用，是因为它读的是 modifier 自己 KV 声明的 `Properties` 值；而直接照搬 ability 描述里的 `%splinter_targets%` 之类、引用技能 `AbilityValues` 字段的写法，对 `ability_lua`/纯脚本类技能的 modifier（没有 KV `Properties` 块）不生效，会显示空白或吞掉百分号。ability 自身的描述不受影响，仍可正常用 `%key%`。
+** Pitfall: `%key%` refers to the ability itself. `AbilityValues` does not take effect in the modifier** - `%dMODIFIER_PROPERTY_XXX%` works because it reads the `Properties` value declared by the modifier's own KV; it directly copies the `%splinter_targets%` in the ability description. etc., the writing method of quoting the ability `AbilityValues` field will not take effect for the `ability_lua`/pure script ability modifier (without the KV `Properties` block), and will display blank or swallow the percent sign. The description of the ability itself is not affected, and `%key%` can still be used normally.
 
-**modifier 想显示自定义动态数值（非标准 MODIFIER_PROPERTY 枚举），用 `MODIFIER_PROPERTY_TOOLTIP`**：仅对 Lua/TS 脚本类 modifier 有效（DataDriven modifier 没有脚本可实现，只能写死数字）。modifier 脚本里 `DeclareFunctions` 加 `MODIFIER_PROPERTY_TOOLTIP`（TS 写 `ModifierFunction.TOOLTIP`），实现 `OnTooltip(): number` 返回目标值（如读 ability 的 `GetSpecialValueFor`），本地化用 `%dMODIFIER_PROPERTY_TOOLTIP%` 占位。同一 modifier 最多两个动态值，第二个用 `MODIFIER_PROPERTY_TOOLTIP2`/`OnTooltip2`/`%dMODIFIER_PROPERTY_TOOLTIP2%`。数值会随等级/天赋变化时优先用这个，而不是写死（实测：卓尔游侠裂影箭觉醒分裂概率会被天赋提升，改用此机制而非写死数字）。只有真正固定不变的数值才写死。**坑：`OnTooltip` / `OnTooltip2` 里不能现调 `GetSpecialValueFor`**——tooltip 在客户端渲染，客户端侧取技能 `AbilityValues` 会失败，整个 `%dMODIFIER_PROPERTY_TOOLTIP%` 占位符被吞掉、正文里只剩残留的百分号。正确做法是在 `OnCreated` / `OnRefresh` 里（**放在 `if (!IsServer()) return;` 之前**）把值缓存进实例字段，`OnTooltip` 只返回该字段（参考 `windrunner_whirlwind_custom.ts` 的 `refreshValues`）。
+**modifier If you want to display custom dynamic values ​​(non-standard MODIFIER_PROPERTY enumeration), use `MODIFIER_PROPERTY_TOOLTIP`**: only valid for Lua/TS script class modifier (DataDriven modifier has no script to implement, and can only hard-code numbers). In the modifier script, add `DeclareFunctions` to `MODIFIER_PROPERTY_TOOLTIP` (TS writes `ModifierFunction.TOOLTIP`) to implement `OnTooltip(): number` to return the target value (such as `GetSpecialValueFor` that reads ability), and use `%dMODIFIER_PROPERTY_TOOLTIP%` for localization. The same modifier can have up to two dynamic values, and the second one uses `MODIFIER_PROPERTY_TOOLTIP2`/`OnTooltip2`/`%dMODIFIER_PROPERTY_TOOLTIP2%`. When the value changes with level/talent, this will be used first instead of writing to death (actual test: The probability of awakening splitting of the Drow Ranger Shadow Arrow will be increased by the talent, so this mechanism is used instead of writing to death). Only truly fixed values ​​are hard-coded. ** Pitfall: `GetSpecialValueFor` cannot be adjusted in `OnTooltip` / `OnTooltip2`**——The tooltip is rendered on the client side, and the ability to get `AbilityValues` on the client side will fail. The entire `%dMODIFIER_PROPERTY_TOOLTIP%` placeholder is swallowed, and only the remaining percent signs remain in the text. The correct approach is to cache the value into the instance field in `OnCreated` / `OnRefresh` (**put before `if (!IsServer()) return;`**), and `OnTooltip` only returns this field (refer to `refreshValues` of `windrunner_whirlwind_custom.ts`).
 
-**`%dMODIFIER_PROPERTY_TOOLTIP%` 不会自动套白色粗体**（与 ability 的 `%key%` 不同，实测确认），要手动包 `<font color='#FFFFFF'><b>...</b></font>`，和写死数值一样处理。
+**`%dMODIFIER_PROPERTY_TOOLTIP%` will not automatically include white bold** (different from ability `%key%`, confirmed by actual testing). `<font color='#FFFFFF'><b>...</b></font>` needs to be included manually, which is treated the same as hard-coding the value.
 
-### 5. AbilityValues 数值展示方式
+### 5. AbilityValues numerical display method
 
-一条 `AbilityValues` 数值只能选其一种展示方式，不要两处都写：
+A `AbilityValues` value can only be displayed in one way. Do not write it in both places:
 
-- **内联在 Description/Note 正文**：用 `%xxx%` 直接嵌进句子里，不额外定义 `_xxx` 标签行
-- **单独成行**：定义 `_xxx` 标签行（如 `"DOTA_Tooltip_ability_xxx_search_radius" "SEARCH RADIUS:"`），正文不再用 `%xxx%` 复述
+- **Inline in Description/Note body**: Use `%xxx%` to embed directly into the sentence without additional definition of `_xxx` tag line
+- **On a separate line**: Define the `_xxx` label line (such as `"DOTA_Tooltip_ability_xxx_search_radius" "SEARCH RADIUS:"`), and `%xxx%` will no longer be repeated in the text.
 
-**多个关联数值**（同一机制下的若干档位/字段，如持续时间、每秒次数、削减幅度）建议各自单独成行，方便玩家在数值面板逐条对照。**孤立的单个数值**（只影响一处、不成体系）两种方式都可以，按哪种更通顺易读来选，但同一个数值不要既内联又单独成行——那样正文会显得重复。
+**Multiple associated values** (several tiers/fields under the same mechanism, such as duration, times per second, reduction range) are recommended to be placed in separate lines to facilitate player comparison one by one in the value panel. **Isolated single value** (only affects one place and is not systematic) Both methods can be used. Choose whichever is more smooth and easy to read, but the same value should not be both inline and on a separate line - otherwise the text will appear repetitive.
 
-## 三语版本同步要求
+## trilingual version synchronization requirements
 
-### 1. 格式一致性
+### 1. Format consistency
 
-- **所有格式必须完全一致**（缩进、对齐、空行）
-- 英文、俄文版本应严格按照中文版本的格式进行对齐
-- **key 顺序一致**：同一组键在三个文件里位于对应模块、按相同先后排列
+- **All formats must be exactly the same** (indentation, alignment, blank lines)
+- English and Russian versions should be aligned strictly according to the format of the Chinese version
+- **Key sequence is consistent**: The same set of keys is located in the corresponding module in the three files and is arranged in the same order.
 
-### 2. 内容完整性
+### 2. Content integrity
 
-- **所有条目都必须同时存在于三语版本中**
-- 新增条目时，必须同时在三个文件中添加
-- 删除条目时，必须同时在三个文件中删除
+- **All entries must exist in both trilingual versions**
+- When adding a new entry, it must be added to three files at the same time
+- When deleting an entry, it must be deleted in three files at the same time
 
-### 3. 必须完全一致的内容
+### 3. The content must be completely consistent
 
-- **键名（Key）**：必须完全相同
-- **Tab 格式**：缩进和对齐必须完全一致
-- **HTML 标签**：位置和格式必须完全一致
-- **数值占位符**：`%xxx%%%` 格式必须完全一致
-- **注释**：注释内容必须完全一致（使用中文）
+- **Key name**: must be exactly the same
+- **Tab format**: indentation and alignment must be exactly the same
+- **HTML tag**: position and format must be exactly the same
+- **Value placeholder**: `%xxx%%%` format must be exactly the same
+- **Note**: The content of the note must be exactly the same (use Chinese)
 
-### 4. 翻译文本要求
+### 4. Translation text requirements
 
-- **翻译文本保持意思大致相同即可**，不需要逐字翻译
-- 但必须保持核心含义和功能描述准确
+- **Just keep the meaning of the translated text roughly the same**, no word-for-word translation is required
+- But the core meaning and functional description must be kept accurate
 
-### 5. 条目对应关系检查清单
+### 5. Item correspondence check list
 
-- [ ] 注释格式一致（使用中文）
-- [ ] 所有条目都存在
-- [ ] HTML 标签格式一致（特别是 `\n` 和 `<br>` 的使用）
-- [ ] 颜色代码同一色值内部大小写一致
-- [ ] Tab 对齐一致
-- [ ] 空行位置一致
-- [ ] 数值占位符格式一致
+- [ ] The comment format is consistent (use Chinese)
+- [ ] All entries exist
+- [ ] HTML tag format is consistent (especially the use of `\n` and `<br>`)
+- [ ] The same color code and the same color value have the same internal case.
+- [ ] Tab aligned
+- [ ] The blank lines are in the same position
+- [ ] The numerical placeholder format is the same
 
-## 维护注意事项
+## Maintenance Precautions
 
-1. 每次修改本地化文件时，必须同时检查格式和对齐
-2. 添加新条目时，确保格式符合规范
-3. 同步三语版本时，不仅要同步内容，还要同步格式
-4. 提交前检查：检查是否有格式错误
-5. 避免使用 TODO 注释：所有条目都应该完整补全
+1. Every time a localization file is modified, the format and alignment must be checked at the same time
+2. When adding new entries, ensure that the format conforms to the specifications
+3. When synchronizing the trilingual version, not only the content but also the format must be synchronized
+4. Check before submission: Check for format errors
+5. Avoid using TODO Note: All entries should be completed completely
 
-## 语言文件维护策略
+## Language file maintenance strategy
 
-- **中文 (`addon_schinese.txt`)**：必须维护 - 添加所有新键
-- **英文 (`addon_english.txt`)**：必须维护 - 添加所有新键
-- **俄文 (`addon_russian.txt`)**：必须维护 - 所有键（不区分 UI 与技能/物品）。存量缺俄文的键逐步补齐，不做一次性全量补：改动某个技能/物品/UI 模块时，把该条目的全部键（含 modifier、同系列条目）一并补上；已存在的俄文一律保留并跟随中英同步更新，不得删除
+- **Chinese (`addon_schinese.txt`)**: Must be maintained - add all new keys
+- **English (`addon_english.txt`)**: Must be maintained - add all new keys
+- **Russian (`addon_russian.txt`)**: Must maintain - all keys (no distinction between UI and ability/item). The missing Russian keys in the stock will be gradually filled, and no one-time full complement will be made: when changing a certain ability/item/UI module, all the keys of the item (including modifiers and items of the same series) will be filled in together; the existing Russian keys will be retained and updated simultaneously with Chinese and English, and shall not be deleted.
 
-## 添加新的本地化键
+## Add new localization key
 
-1. 添加到中文文件（`addon_schinese.txt`）
-2. 添加到英文文件（`addon_english.txt`）
-3. 添加到俄文文件（`addon_russian.txt`），与中文文件的 key 顺序、注释保持一致
-4. 改动的条目在俄文中原本缺失时，把该条目的全部键一并补齐；已存在的俄文必须与中英同步修改或同步删除
+1. added to Chinese file (`addon_schinese.txt`)
+2. added to English file (`addon_english.txt`)
+3. is added to the Russian file (`addon_russian.txt`), consistent with the key sequence and comments of the Chinese file
+4. When the changed entry is originally missing in Russian, all keys of the entry must be filled in together; the existing Russian must be modified or deleted simultaneously with Chinese and English.
 
-## 中文标点符号规范
+## Chinese punctuation mark specification
 
-**重要**：中文本地化文本必须使用全角标点符号（`，` `。` `：` `？` `！`），不要使用半角标点（`,` `.` `:` `?` `!`）。
+**Important**: Chinese localized text must use full-width punctuation (`，` `。` `：` `？` `！`), do not use half-width punctuation (`,` `.` `:` `?` `!`).
 
-## 查找 Dota 2 官方技能名称
+## Find Dota 2 official ability name
 
-当添加项目语言文件中不存在的 Dota 2 技能时，从参考文件中查找官方翻译（示例路径见文档原文）。
+When adding a Dota 2 ability that does not exist in the project language file, look for the official translation from the reference file (see the original document for an example path).
 
-## 本地化通用规则
+## General rules for localization
 
-尽量使用标准通用变量翻译（如 `$damage`、`$all` 等）替代直接文本。
+Try to use standard universal variable translations (such as `$damage`, `$all`, etc.) instead of direct text.
 
-## 在代码中使用
+## is used in the code
 
 ```xml
 <Label text="#my_new_key" />
@@ -222,15 +222,14 @@ Modifier 描述中可以使用变量，使用 `%dMODIFIER_PROPERTY_XXX%` 格式�
 $.Localize("#my_new_key");
 ```
 
-## 文件格式
+## file format
 
-- 格式：Valve KeyValues
-- 编码：UTF-8 无 BOM
-- 行尾：CRLF
+- Format: Valve KeyValues
+- Encoding: UTF-8 No BOM
+- End of line: CRLF
 
-## 相关文件
+## related documents
 
 - `game/resource/addon_schinese.txt`
 - `game/resource/addon_english.txt`
 - `game/resource/addon_russian.txt`
-
