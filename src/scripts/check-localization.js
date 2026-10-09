@@ -9,6 +9,22 @@ const completedSections = [
     startKey: 'addon_game_name',
     endKey: 'dailytask_task_hero_stun_duration',
   },
+  {
+    name: 'World & Shop',
+    startKey: 'DOTA_Tooltip_modifier_tower_power',
+    endKey: 'dota_item_build_windy_range_items',
+  },
+  {
+    name: 'Player Buffs',
+    startKey: 'DOTA_Tooltip_modifier_global_newbie',
+    endKey: 'DOTA_Tooltip_modifier_global_member_premium_Description',
+  },
+  {
+    name: 'Player Titles',
+    startKey: 'DOTA_Tooltip_modifier_player_lumao',
+    endKey: 'DOTA_Tooltip_modifier_player_nemesis_Description',
+    requireCyrillic: false,
+  },
 ];
 const russianWithoutCyrillic = new Set([
   'addon_game_name',
@@ -27,6 +43,9 @@ const russianWithoutCyrillic = new Set([
   'member_platform_alipay',
   'member_platform_afdian',
   'member_platform_kofi',
+  'DOTA_Tooltip_ability_creep_buff_bonus_damage',
+  'DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage',
+  'DOTA_Tooltip_ability_creep_buff_mega_bonus_damage',
 ]);
 
 function parse(language) {
@@ -176,6 +195,8 @@ for (const config of completedSections) {
       }
     }
   }
+
+  if (config.requireCyrillic === false) continue;
 
   for (const entry of sections[2].entries) {
     if (!/[Ѐ-ӿ]/.test(entry.value) && !russianWithoutCyrillic.has(entry.key)) {
