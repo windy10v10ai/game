@@ -1,14 +1,10 @@
 # Документация
 
+- [Установка](development/setup.md)
+- [Рабочий процесс разработки](development/workflow.md)
+- [Изображения и ресурсы](development/resources.md)
+- [Разработка с ИИ](development/ai-tools.md)
+- [Справочники оригинальной Dota](development/dota-reference.md)
+- [Решение проблем](troubleshooting.md)
+- [Внешние материалы](development/references.md)
 - [Архитектура: потоки данных](architecture/README.md)
-- [Настройка проекта и разработка](../../README.md)
-
-Переводы размещаются по одинаковым путям внутри `docs/<язык>/`, например
-`docs/en/architecture/README.md` и `docs/ru/architecture/README.md`.
-Используйте коды языков `en`, `ru`, `zh-CN`; для нового языка добавьте отдельный каталог.
-Общие схемы и вложения храните в `docs/shared/`, без копирования в каждый перевод.
-`docs/reference/` предназначен для локальных снимков данных Dota и исключён из Git.
-
-Графические исходники находятся в `assets/sources/`, сохранённые скомпилированные материалы —
-в `assets/compiled/`, рабочие заметки о предметах — в `notes/items/`, скрипт компиляции ресурсов —
-в `scripts/compile-resources.bat`. Игровые ресурсы по-прежнему находятся в `content/` и `game/`.
