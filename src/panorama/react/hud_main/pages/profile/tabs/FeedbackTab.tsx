@@ -8,7 +8,7 @@ const MAX_DESCRIPTION_LENGTH = 1000;
 // 固定两行等宽排列，换语言后标签长短不同也不会换行错位
 const TOPIC_ROWS = [
   ['hero', 'ability', 'awaken', 'item', 'bot'],
-  ['balance', 'ui', 'member', 'lag', 'game'],
+  ['balance', 'ui', 'member', 'lag', 'launcher'],
 ];
 
 const RESULT_TEXT: Partial<Record<SendState, string>> = {
@@ -54,7 +54,7 @@ export function FeedbackTab() {
 
   const suggesting = type === 'suggestion';
   const sending = sendState === 'sending';
-  const canSend = !sending && (!suggesting || description.trim() !== '');
+  const canSend = !sending && description.trim() !== '';
   const resultText = RESULT_TEXT[sendState];
   const failed = sendState !== 'idle' && sendState !== 'sending' && sendState !== 'sent';
 
@@ -117,11 +117,7 @@ export function FeedbackTab() {
 
         <Panel className="feedback-row feedback-row-description">
           <Label className="feedback-label" text={$.Localize('#feedback_description')} />
-          <Label
-            className="feedback-required"
-            text="*"
-            style={{ visibility: suggesting ? 'visible' : 'collapse' }}
-          />
+          <Label className="feedback-required" text="*" />
           <Label
             className="feedback-hint feedback-count"
             text={`${description.length} / ${MAX_DESCRIPTION_LENGTH}`}

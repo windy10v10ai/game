@@ -8,7 +8,7 @@ import { GameEndGameOptionsDto } from './analytics/dto/game-end-dto';
 export const FEEDBACK_PATH = '/feedback';
 
 const MAX_TOPICS = 2;
-// 「启动器」「网站」在游戏里无从反馈，界面不给选，这里一并挡掉
+// 「网站」在游戏里无从反馈，界面不给选，这里一并挡掉
 const GAME_TOPICS = [
   'hero',
   'ability',
@@ -19,7 +19,7 @@ const GAME_TOPICS = [
   'ui',
   'member',
   'lag',
-  'game',
+  'launcher',
 ];
 
 interface FeedbackGameState {
@@ -54,7 +54,8 @@ export class FeedbackApi {
     const playerId = event.PlayerID;
     const type = event.type === 'suggestion' ? 'suggestion' : 'problem';
     const description = (event.description ?? '').trim();
-    if (type === 'suggestion' && description === '') {
+    // 游戏里不附带日志，没有描述的报告无从排查，两种类型都要求填写
+    if (description === '') {
       FeedbackApi.Reply(playerId, 'failed');
       return;
     }

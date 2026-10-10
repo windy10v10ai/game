@@ -514,7 +514,7 @@
 		"feedback_topic_ui"								"界面"
 		"feedback_topic_member"							"会员"
 		"feedback_topic_lag"							"卡顿 / 掉线"
-		"feedback_topic_game"							"游戏"
+		"feedback_topic_launcher"					"启动器"
 		"feedback_description"							"描述"
 		"feedback_problem_cue"							"简单说说发生了什么，比如第几分钟，哪个英雄"
 		"feedback_suggestion_cue"						"说说你的想法，比如想加什么功能，哪里太强或太弱"

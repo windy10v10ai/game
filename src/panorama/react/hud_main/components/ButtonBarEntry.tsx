@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FindDotaHudElement, IsInGameHudLayer, IsInHeroSelectionLayer } from '@utils/utils';
 
+const BUTTON_SIZE = '46px';
+
 // 选英雄层的定位由 hud-hero-select-entry-btn 负责
 const BUTTON_BAR_SPACING: Partial<VCSSStyleDeclaration> = {
   marginLeft: '2px',
@@ -12,7 +14,8 @@ interface ButtonBarEntryProps {
   id: string;
   icon: string;
   tooltip: string;
-  size: number;
+  /** 图案铺满整张图的图标缩小一些，与自带留白的图标看起来一样大、间距一样宽 */
+  iconScale?: number;
   onActivate: () => void;
   /** 选英雄阶段按钮栏不可见，需要时改在本层左上角显示 */
   showInHeroSelect?: boolean;
@@ -23,7 +26,7 @@ export function ButtonBarEntry({
   id,
   icon,
   tooltip,
-  size,
+  iconScale = 100,
   onActivate,
   showInHeroSelect = false,
 }: ButtonBarEntryProps) {
@@ -60,11 +63,12 @@ export function ButtonBarEntry({
       ref={buttonRef}
       className={inHeroSelect ? 'hud-hero-select-entry-btn' : ''}
       style={{
-        width: `${size}px`,
-        height: `${size}px`,
+        width: BUTTON_SIZE,
+        height: BUTTON_SIZE,
         ...(inHeroSelect ? {} : BUTTON_BAR_SPACING),
         backgroundImage: `url('${icon}')`,
-        backgroundSize: '100% 100%',
+        backgroundSize: `${iconScale}% ${iconScale}%`,
+        backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         // 按钮栏子按钮默认半透明，图标偏暗时不易辨认
         opacity: '1',

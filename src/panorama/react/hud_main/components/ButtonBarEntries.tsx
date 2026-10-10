@@ -27,7 +27,6 @@ export function ButtonBarEntries() {
         id="OpenProfileButton"
         icon={PROFILE_ICON}
         tooltip={$.Localize('#profile_title')}
-        size={50}
         showInHeroSelect={true}
         // 每日任务候选在选英雄阶段就已下发，此时直接打开每日任务
         onActivate={() => toggleProfile(heroSelect ? 'dailytask' : 'awaken')}
@@ -38,7 +37,6 @@ export function ButtonBarEntries() {
         tooltip={$.Localize(
           memberActive ? '#member_button_tooltip_active' : '#member_button_tooltip_inactive',
         )}
-        size={46}
         onActivate={() =>
           currentPage === 'profile' && currentParam === 'member'
             ? closePage()
@@ -49,14 +47,14 @@ export function ButtonBarEntries() {
         id="websiteButton"
         icon={WEBSITE_ICON}
         tooltip={$.Localize('#website_open_button')}
-        size={42}
+        iconScale={84}
         onActivate={() => $.DispatchEvent('ExternalBrowserGoToURL', WEBSITE_URL)}
       />
       <ButtonBarEntry
         id="feedbackButton"
         icon={FEEDBACK_ICON}
         tooltip={$.Localize('#feedback_open_button')}
-        size={42}
+        iconScale={84}
         onActivate={() => toggleProfile('feedback')}
       />
     </>

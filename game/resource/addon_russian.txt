@@ -514,7 +514,7 @@
 		"feedback_topic_ui"								"Интерфейс"
 		"feedback_topic_member"							"Подписка"
 		"feedback_topic_lag"							"Лаги / вылеты"
-		"feedback_topic_game"							"Игра"
+		"feedback_topic_launcher"					"Лаунчер"
 		"feedback_description"							"Описание"
 		"feedback_problem_cue"							"Кратко опишите, что случилось: например, на какой минуте или какой герой"
 		"feedback_suggestion_cue"						"Расскажите, что думаете: например, какую функцию добавить или что слишком сильное или слабое"
