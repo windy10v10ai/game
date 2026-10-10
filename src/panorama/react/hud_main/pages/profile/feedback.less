@@ -5,7 +5,14 @@
   .stats-card;
   width: 100%;
   height: fill-parent-flow(1);
-  padding: @spacing-lg @spacing-xl;
+  padding: @spacing-xl 0px;
+}
+
+// 两侧留白收窄表单，描述框不至于横跨整页
+.feedback-form {
+  width: 760px;
+  height: 100%;
+  horizontal-align: center;
   flow-children: down;
 }
 
@@ -14,12 +21,12 @@
   flow-children: right;
   border: 1px solid @color-gold-muted-soft;
   border-radius: @radius-md;
-  margin-bottom: @spacing-lg;
+  margin-bottom: 22px;
 }
 
 .feedback-type-btn {
   width: 50%;
-  height: 40px;
+  height: 44px;
   background-color: @color-bg-tint;
 
   Label {
@@ -76,21 +83,25 @@
   horizontal-align: right;
 }
 
-.feedback-topics {
+.feedback-row-description {
+  margin-top: 12px;
+}
+
+.feedback-topic-row {
   width: 100%;
-  flow-children: right-wrap;
-  margin-bottom: @spacing-lg;
+  flow-children: right;
+  margin-bottom: 10px;
 }
 
 .feedback-chip {
-  height: 32px;
-  padding: 0px 14px;
-  margin: 0px @spacing-sm @spacing-sm 0px;
+  width: fill-parent-flow(1);
+  height: 36px;
   border: 1px solid @color-gold-muted-soft;
-  border-radius: 16px;
+  border-radius: 18px;
   background-color: @color-bg-tint;
 
   Label {
+    horizontal-align: center;
     vertical-align: center;
     font-size: @font-size-sm;
     color: @color-text;
@@ -99,6 +110,10 @@
   &:hover {
     brightness: 1.3;
   }
+}
+
+.feedback-chip-gap {
+  margin-left: 10px;
 }
 
 .feedback-chip-selected {
