@@ -1,4 +1,4 @@
-[English](../../.github/CONTRIBUTING.md) · [简体中文](CONTRIBUTING.md)
+[English](CONTRIBUTING.md) | 简体中文
 
 # 参与开发 Windy10v10AI
 
@@ -29,7 +29,7 @@
 ## 关于贡献的授权
 
 本项目采用 **GNU GPL version 3** 协议（附带 Steam/创意工坊分发例外，详见
-[`LICENSE.EXCEPTIONS.md`](../../LICENSE.EXCEPTIONS.md)）。
+[`LICENSE.EXCEPTIONS.md`](../LICENSE.EXCEPTIONS.md)）。
 
 当你提交贡献（pull request、补丁或任何代码）时，即表示你同意：
 

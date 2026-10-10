@@ -1,4 +1,4 @@
-[English](CONTRIBUTING.md) · [简体中文](../docs/zh-CN/CONTRIBUTING.md)
+English | [简体中文](CONTRIBUTING_ZH.md)
 
 # Contributing to Windy10v10AI
 

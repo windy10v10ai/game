@@ -1,6 +1,38 @@
-[English](../en/README.md) · [简体中文](README.md)
+# Windy10v10AI
 
-# Windy10v10AI 开发指南
+[English](README.md) | 简体中文
+
+这是一个 PVE Dota2 自定义游戏项目。<br>
+游戏发布在 Steam 创意工坊：[10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
+
+## 📊 Project Status
+
+[![Build Status](https://github.com/windy10v10ai/game/actions/workflows/test.yml/badge.svg)](https://github.com/windy10v10ai/game/actions/workflows/test.yml)
+[![](https://img.shields.io/github/release/windy10v10ai/game)](https://github.com/windy10v10ai/game/releases)
+[![License: GPL v3](https://img.shields.io/badge/license-GPLv3-blue.svg)](LICENSE)
+[![CodeFactor](https://www.codefactor.io/repository/github/windy10v10ai/game/badge)](https://www.codefactor.io/repository/github/windy10v10ai/game)
+
+[![Last Commit](https://img.shields.io/github/last-commit/windybirth/windy10v10ai)](https://github.com/windybirth/windy10v10ai/commits)
+[![Commit Activity](https://img.shields.io/github/commit-activity/m/windybirth/windy10v10ai)](https://github.com/windybirth/windy10v10ai/graphs/commit-activity)
+[![GitHub issues](https://img.shields.io/github/issues/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/pulls)
+
+[![GitHub contributors](https://img.shields.io/github/contributors/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/network)
+
+## License
+
+本项目采用 **GNU GPL v3** 协议（见 [`LICENSE`](LICENSE)），并附带 Steam/创意工坊
+分发例外，相关说明及此前 MIT 版本的处理见 [`LICENSE.EXCEPTIONS.md`](LICENSE.EXCEPTIONS.md)。
+
+## Contributors
+
+[![Contributors](https://contrib.rocks/image?repo=windy10v10ai/game)](https://github.com/windy10v10ai/game)
+
+### 参与开发
+
+如果你想参与 Windy10v10AI 的开发，请参考我们的[参与指南](.github/CONTRIBUTING_ZH.md)。
 
 ## 开始
 
@@ -17,7 +49,7 @@
 ### 环境配置
 
 1. 安装 Dota2 和 [Dota 2 Workshop Tools](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Installing_and_Launching_Tools)。
-2. 安装 [node.js](https://nodejs.org/)。所需版本固定在 [`.nvmrc`](../../.nvmrc)（`v24`）中。
+2. 安装 [node.js](https://nodejs.org/)。所需版本固定在 [`.nvmrc`](.nvmrc)（`v24`）中。
    推荐使用 [nvm](https://github.com/coreybutler/nvm-windows/releases) 安装 node。
 
    在仓库根目录的 PowerShell 中运行。`nvm-windows` 不会直接读取 `.nvmrc`，
@@ -88,8 +120,8 @@ host_timescale <float>
 
 如果 png 在 xml 中被引用了，则会自动编译。对于独立的 png 文件，采用以下方式编译。
 
-1. 将 png 文件放到 [`content/panorama/images`](../../content/panorama/images) 目录。
-2. 在 [`content/panorama/layout/custom_game/images.xml`](../../content/panorama/layout/custom_game/images.xml) 中添加该图片。
+1. 将 png 文件放到 [`content/panorama/images`](content/panorama/images) 目录。
+2. 在 [`content/panorama/layout/custom_game/images.xml`](content/panorama/layout/custom_game/images.xml) 中添加该图片。
 
 运行 `npm run start` 时，png 会被自动编译为 vtex_c。
 
@@ -125,7 +157,7 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 
 ### 数据流
 
-![Data Flow](../drawio/dataflow.png)
+![Data Flow](docs/drawio/dataflow.png)
 
 ## 参考资料
 
@@ -137,6 +169,10 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 - [TypeScript for Panorama](https://moddota.com/panorama/introduction-to-panorama-ui-with-typescript)
 - [React in Panorama 教程](https://moddota.com/panorama/react)
 
-## 参与开发
+# Activity
 
-请参考[参与指南](CONTRIBUTING.md)。
+![Alt](https://repobeats.axiom.co/api/embed/9528af5cb8e8d8b5f560ac532a775439dcf11b57.svg "Repobeats analytics image")
+
+[![Star History Chart](https://api.star-history.com/svg?repos=windybirth/windy10v10ai&type=Date)](https://star-history.com/#windybirth/windy10v10ai&Date)
+
+![](https://api.moedog.org/count/@windybirth.readme)
