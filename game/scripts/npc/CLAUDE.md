@@ -75,7 +75,7 @@ comm -12 /tmp/ours.txt /tmp/valve.txt   # 有输出即冲突
 | 原版物品 | `docs/reference/<version>/items.txt` |
 | 官方 ability/item ID 占用表 | `docs/reference/<version>/npc_ability_ids.txt` |
 
-技能名的中文↔系统名互查见 `.claude/CLAUDE.md`「查原版技能」。
+技能名的中文↔系统名互查见 `.claude/CLAUDE.md`「Looking Up Vanilla Abilities」。
 
 ## 图标
 

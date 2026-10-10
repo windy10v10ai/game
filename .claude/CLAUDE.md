@@ -1,53 +1,53 @@
 # CLAUDE.md
 
-本文件为 Claude Code (claude.ai/code) 提供在此代码库中工作时的指导。
+This file guides Claude Code (claude.ai/code) when working in this repository.
 
-## 语言偏好
+## Language Preference
 
-**重要提示:所有响应默认使用用户的默认语言**(用户用什么语言提问就用什么语言回复),除非:
+**Important: always reply in the user's language** (answer in whatever language the user writes in), unless:
 
-- 用户明确要求使用其他语言回复
-- 你正在编写代码、代码注释或提交信息(这些应保持英文)
-- 你正在引用技术术语、API 名称或函数名称(这些应保持原始英文形式)
+- The user explicitly asks for a different language
+- You are writing code, code comments, or commit messages (these stay in English)
+- You are quoting technical terms, API names, or function names (keep their original English form)
 
-与用户沟通时:
+When talking to the user:
 
-- 使用用户的语言进行解释、总结和一般性交流
-- 使用英文编写代码片段、变量名、函数名和技术标识符
-- 在讨论代码时可以混合使用用户的语言和英文(解释用用户的语言,代码引用用英文)
+- Use the user's language for explanations, summaries, and general communication
+- Use English for code snippets, variable names, function names, and technical identifiers
+- Mixing the user's language and English is fine when discussing code (explanations in the user's language, code references in English)
 
-## 回复风格
+## Reply Style
 
-读者每天处理大量事务、精力有限。回复必须做到：
+The reader handles many things every day and has limited attention. Replies must:
 
-- **先说结论，再展开**。重点放第一句，细节往后放
-- **短**。短词、短句、短段落，段落之间用标题或列表分层
-- **说人话**。不用生僻词和行话，常见技术词（缓存、接口、轮询）可以用
-- **少提代码名字**。函数名、变量名先用中文说清它是干什么的，代码名只作为补充。路径和命令除外
-- **给出行动**。告诉用户下一步该做什么，不要只罗列现象
-- **砍掉不重要的细节**，不写客套和铺垫
-- **短不等于省略背景**。下结论前先交代清楚这是什么、发生在什么情况下。宁可多写一段背景，也不要让读者看不懂结论从哪来
-- **解释改动按固定顺序展开**：原来是什么 → 改成什么 → 代码要做的事 → 问题在哪 → 用户要做什么。跳过第一步读者就接不上
+- **Lead with the conclusion, then expand.** Put the key point in the first sentence, details after
+- **Be short.** Short words, short sentences, short paragraphs; separate sections with headings or lists
+- **Use plain language.** No obscure words or jargon; common technical terms (cache, interface, polling) are fine
+- **Mention code names sparingly.** First say in the user's language what a function or variable does; the code name is only a supplement. Paths and commands are exempt
+- **Give actions.** Tell the user what to do next instead of only listing symptoms
+- **Cut unimportant details.** No pleasantries or preamble
+- **Short does not mean dropping context.** Before a conclusion, explain what this is and under what circumstances it happens. Better one extra paragraph of context than a reader who cannot tell where the conclusion came from
+- **Explain changes in a fixed order:** what it was → what it becomes → what the code has to do → where the problem is → what the user needs to do. Skip the first step and the reader loses the thread
 
-这条规则约束的是**写给用户看的内容**：对话回复、review 报告、总结与说明文档。
+This rule governs **content written for the user to read**: conversation replies, review reports, summaries, and explanatory documents.
 
-以下各有自己的规约，冲突时以各自规约为准：
+The following have their own conventions, which win on conflict:
 
-- 代码注释（见「注释规约」）、提交信息（英文单行标题）、本地化文案（见 `game/resource/CLAUDE.md`）
-- CLAUDE.md / SKILL.md 这类规则文档：首要读者是模型，**准确优先于通俗**，该写全的字段名、API 名、路径要写全，不为了好懂而模糊化
+- Code comments (see "Comment Conventions"), commit messages (single-line English title), localization text (see `game/resource/CLAUDE.md`)
+- Rule documents such as CLAUDE.md / SKILL.md: the primary reader is a model, so **precision beats readability**. Write field names, API names, and paths in full; do not blur them for the sake of readability
 
-## 项目概述
+## Project Overview
 
-Windy10v10AI 是一个 PVE Dota 2 自定义游戏,具有 10v10 对战、AI 对手和独特的技能抽奖系统。代码库使用 TypeScript 编译为 Lua 作为游戏逻辑(VScripts),使用 React + TypeScript 作为 UI(Panorama)。
+Windy10v10AI is a PVE Dota 2 custom game with 10v10 matches, AI opponents, and a unique ability lottery system. The codebase uses TypeScript compiled to Lua for game logic (VScripts) and React + TypeScript for the UI (Panorama).
 
-- **VScripts (后端)**: TypeScript → Lua,通过 TypeScript-to-Lua (TSTL) 编译
-- **Panorama UI (前端)**: React 16.14 + TypeScript → JavaScript,通过 Webpack 构建
-- **通信机制**: Custom Net Tables (双向同步) 和 Custom Game Events (客户端→服务器)
-- **共享类型**: `src/common/` 中的 TypeScript 接口定义了各层之间的契约
+- **VScripts (backend)**: TypeScript → Lua, compiled with TypeScript-to-Lua (TSTL)
+- **Panorama UI (frontend)**: React 16.14 + TypeScript → JavaScript, built with Webpack
+- **Communication**: Custom Net Tables (two-way sync) and Custom Game Events (client → server)
+- **Shared types**: TypeScript interfaces in `src/common/` define the contract between layers
 
-## 开发命令
+## Development Commands
 
-### 安装与设置
+### Install and Setup
 
 ```bash
 # Install dependencies and link game/content directories to Dota 2 addon folder
@@ -56,14 +56,14 @@ npm install
 # Note: Code must be on the same hard drive partition as Dota 2
 ```
 
-### 开发工作流
+### Development Workflow
 
 ```bash
 # Start Dota 2 Tools and watch mode (most common command)
 npm run start
 ```
 
-### 测试与质量检查
+### Tests and Quality Checks
 
 ```bash
 # Run Jest tests
@@ -78,34 +78,34 @@ npm run build:panorama   # Webpack build for Panorama UI
 npm run build:vscripts   # TSTL build for VScripts (TypeScript → Lua)
 ```
 
-## 目录导航
+## Directory Map
 
-各层的详细规约写在**该层目录下的 `CLAUDE.md`**，读写那些目录下的文件时会自动加载，不必手动去读：
+Detailed conventions for each layer live in **the `CLAUDE.md` inside that layer's directory**. They load automatically when you read or write files in those directories; no need to read them manually:
 
-| 目录 | 内容 | 细则 |
+| Directory | Contents | Rules |
 |---|---|---|
-| `src/` | 跨层契约：共享类型、Net Table / Custom Event 数据流 | `src/CLAUDE.md` |
-| `src/vscripts/` | 游戏逻辑、模块单例、AI、API 调用、jest 测试、TSTL 陷阱 | `src/vscripts/CLAUDE.md` |
-| `src/panorama/` | React UI、两类 entry、hud_main 页面拆分、less 陷阱 | `src/panorama/CLAUDE.md` |
-| `game/scripts/npc/` | 所有 NPC KV（技能/物品/单位/英雄）、`#base` 结构、ID 号段、格式 | `game/scripts/npc/CLAUDE.md` |
-| `game/resource/` | 中英俄本地化文案规约、图标 png 位置 | `game/resource/CLAUDE.md` |
-| `game/scripts/vscripts/` | TSTL 编译产物（自动生成，不要手改）+ 少量遗留纯 Lua | — |
-| `docs/reference/<version>/` | Dota 2 原版 KV 与说明文本快照 | — |
-| `launcher/` | 只有一个 README：本机专用服启动器已搬到 firebase 仓库的 `launcher/` | — |
+| `src/` | Cross-layer contract: shared types, Net Table / Custom Event data flow | `src/CLAUDE.md` |
+| `src/vscripts/` | Game logic, module singletons, AI, API calls, jest tests, TSTL pitfalls | `src/vscripts/CLAUDE.md` |
+| `src/panorama/` | React UI, the two entry types, hud_main page split, less pitfalls | `src/panorama/CLAUDE.md` |
+| `game/scripts/npc/` | All NPC KV (abilities/items/units/heroes), `#base` structure, ID ranges, format | `game/scripts/npc/CLAUDE.md` |
+| `game/resource/` | Chinese/English/Russian localization conventions, icon png locations | `game/resource/CLAUDE.md` |
+| `game/scripts/vscripts/` | TSTL build output (auto-generated, never edit by hand) + a little legacy plain Lua | — |
+| `docs/reference/<version>/` | Snapshots of vanilla Dota 2 KV and tooltip text | — |
+| `launcher/` | Only a README: the local dedicated-server launcher moved to `launcher/` in the firebase repo | — |
 
-模块级的设计与决策放该模块目录下的 `README.md`（如 `src/vscripts/api/README.md` 讲客户端 HTTP 代发、`src/vscripts/ai/build-item/README.md` 讲出装）。
+Module-level design and decisions go in a `README.md` in that module's directory (e.g. `src/vscripts/api/README.md` covers client-proxied HTTP, `src/vscripts/ai/build-item/README.md` covers item builds).
 
-**唯一的全局陷阱**：TypeScript 文件行尾符用 LF (Unix) 而不是 CRLF (Windows)。
+**The only global pitfall**: TypeScript files use LF (Unix) line endings, not CRLF (Windows).
 
-## 查原版技能
+## Looking Up Vanilla Abilities
 
-用户给出**技能系统名**（如 `dragon_knight_dragon_blood`）时直接使用。`<version>` 取 `docs/reference/` 下最新版本目录（含字母后缀，如 `7.41f`），文件布局见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」。
+When the user gives an **ability system name** (e.g. `dragon_knight_dragon_blood`), use it directly. `<version>` is the latest version directory under `docs/reference/` (including the letter suffix, e.g. `7.41f`); the file layout is described in `game/scripts/npc/CLAUDE.md`, section "原版 KV 参考".
 
-给出**中文名**（如「龙血」）或**英雄名-技能名**（如「幻影刺客-幻影之矛」）时，在 `abilities_schinese.txt` 中搜中文名，从匹配行的 key 提取系统名（`DOTA_Tooltip_ability_{系统名}`）。多个候选用 `AskUserQuestion` 让用户确认。
+When given a **Chinese name** (e.g. 「龙血」) or **hero name–ability name** (e.g. 「幻影刺客-幻影之矛」), search the Chinese name in `abilities_schinese.txt` and extract the system name from the matching line's key (`DOTA_Tooltip_ability_{system_name}`). If there are multiple candidates, ask the user to confirm with `AskUserQuestion`.
 
-给出**英雄名**时，从 `heroes/` 下的文件名或 `abilities_schinese.txt` 定位英雄 ID，再从 `heroes/npc_dota_hero_<hero>.txt` 读技能槽位。
+When given a **hero name**, locate the hero ID from file names under `heroes/` or from `abilities_schinese.txt`, then read the ability slots from `heroes/npc_dota_hero_<hero>.txt`.
 
-编写自定义技能/物品说明时参考官方文本以保持术语一致：
+When writing custom ability/item tooltips, refer to the official text to keep terminology consistent:
 
 ```bash
 grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/abilities_schinese.txt
@@ -114,108 +114,108 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 ## Implementation Style
 
-代码改动保持最小化，优先用最简单的机制实现，遵循 DRY（不重复自己）、KISS（保持简单）、YAGNI（不做用不上的设计）：
+Keep code changes minimal, prefer the simplest mechanism, and follow DRY (Don't Repeat Yourself), KISS (Keep It Simple), and YAGNI (You Aren't Gonna Need It):
 
-- 复用一个字符串事件，而不是新增自定义事件
-- 避免过度还原、过度分析
-- 布尔方法名用常见且直接的动词，避免抽象词和重复所属类或文件已经表达的语境，例如 `CanCast` 优于 `IsEligible` 或 `CanUseGenericFallback`
-- 多处需要相同逻辑（尤其是要求口径一致的计算）时提取共享函数，不要各自维护一份；调用方各自实现一遍容易在后续修改时只改一处、悄悄产生口径分歧
+- Reuse a string event instead of adding a new custom event
+- Avoid over-replicating and over-analyzing
+- Boolean method names use common, direct verbs; avoid abstract words and avoid repeating context already expressed by the owning class or file. E.g. `CanCast` beats `IsEligible` or `CanUseGenericFallback`
+- When several places need the same logic (especially calculations that must stay consistent), extract a shared function instead of maintaining separate copies; if each caller implements it separately, later edits tend to change only one place and silently diverge
 
-## 注释规约
+## Comment Conventions
 
-代码注释只写**为什么这样做**，不写**这行代码做了什么**。读者能从代码本身读懂的，就不要再用注释复述一遍。**一条注释如果只是对代码/细节的单纯复述，宁可不写这条注释**——数值、字段名、行为这些会随代码演进，注释复述的副本不会跟着自动更新，两者一旦不一致，读者反而无法判断谁是真相源。
+Code comments only say **why it is done this way**, never **what this line does**. If the reader can understand it from the code itself, do not restate it in a comment. **If a comment merely restates code or details, do not write it at all** — values, field names, and behavior evolve with the code, but a restated copy in a comment does not update itself; once they disagree, the reader cannot tell which one is the source of truth.
 
-不写：
-- KV 字段、behavior、cast range 等可以直接查 KV 文件得到的事实
-- "移植自 xxx.lua 的 yyy 函数"之类来源说明（git 历史会保留）
-- 单行字段含义的复述（`// 覆盖默认 level >= 3` 跟在 `ability: { level: { gte: 2 } }` 后面就是冗余）
-- 段落式罗列"对英雄做什么 / 对小兵做什么"，代码已经表达得很清楚
-- **技能/物品的具体效果与数值描述**（会随版本变动，属于本地化文案的职责）。配置表/代码注释只标英雄名或技能系统名（如 `// 齐天大圣 觉醒`），不要复述"+100% 攻击力、施法距离 +700"这类效果——它们一变就和注释脱节
-- **禁止**把讨论中出现的任何具体场景 / 边界 case / 取舍过程 / 例子（具体语言、单词、数值、变量名等）原样搬进注释。哪怕讨论时反复提到这些细节，注释里也只留一句概括性的设计意图，一个具体例子都不写——写了就是过度注释，必须删
-- **"A 曾经是 X，现在/这里改成 Y"这种对比句式本身就是信号**，不管内容是否属实都要删——即使把话术改得更"技术化"（去掉"这次""沿用"等词），只要结构上是在拿过去和现在做对比，就还是在叙述变更过程而不是陈述设计事实，必须整句删掉，不是重新措辞
-- **"为什么某项被排除/没有实现"这类逐项列举默认不写**，属于 PR 描述的职责，不是改写得更精炼就行
+Do not write:
+- Facts that can be looked up directly in KV files: KV fields, behavior, cast range, etc.
+- Provenance notes like "ported from function yyy in xxx.lua" (git history keeps that)
+- Restating the meaning of a single field (`// override default level >= 3` after `ability: { level: { gte: 2 } }` is redundant)
+- Paragraph-style lists of "what it does to heroes / what it does to creeps" when the code already says it clearly
+- **Concrete effects and numbers of abilities/items** (they change between versions and belong to localization text). Config tables / code comments only name the hero or ability system name (e.g. `// 齐天大圣 觉醒`); do not restate effects like "+100% attack damage, +700 cast range" — they drift from the comment as soon as they change
+- **Never** copy any concrete scenario / edge case / trade-off process / example from the discussion (specific languages, words, numbers, variable names, etc.) verbatim into comments. Even if those details came up repeatedly in discussion, the comment keeps only a one-sentence generalized design intent, with not a single concrete example — writing one is over-commenting and must be deleted
+- **The "A used to be X, now/here it becomes Y" contrast pattern is itself the signal**: delete it regardless of whether it is true — even if reworded to sound more "technical" (dropping words like "this time" or "kept from"), as long as it structurally contrasts past and present it narrates a change process rather than stating a design fact. Delete the whole sentence; do not reword it
+- **Itemized "why X was excluded / not implemented" lists are not written by default**; they belong in the PR description, and making them more concise does not change that
 
-写完注释后自查一遍是否出现这些词：**旧 / 原版 / Lua / 沿用 / 这里 / 本次 / 此次 / 额外 / 改为**——出现即说明在叙述过程，删掉重写或整句删除。
+After writing comments, check them for these words: **old / original / vanilla / Lua / kept from / here / this time / this change / additional / changed to** (in Chinese comments: **旧 / 原版 / Lua / 沿用 / 这里 / 本次 / 此次 / 额外 / 改为**). Any of them means you are narrating a process — delete and rewrite, or delete the whole sentence.
 
-写：
-- 选择某个数值/方案的**原因**（"1 级伤害太低、蓝耗占比高，2 级起才用"）
-- 与默认/约定不一致的**特殊处理**（"AoE 半径远大于 cast range，需要 castMode 投影到边缘"）
-- 一两句话点出技能中文名 / 设计目的
-- 公开方法（模块对外接口）的注释先用一句话说明**功能**，不点名具体文件/函数/API 端点等技术名词；边界情况和技术细节写成相应代码行上方的行内注释，不要堆进顶部方法说明——且只写不明显的边界情况，代码本身能读出来的分支不再注释
+Do write:
+- The **reason** for choosing a value/approach ("level 1 damage is too low and the mana cost ratio too high, so only use from level 2")
+- **Special handling** that differs from the default/convention ("AoE radius is far larger than cast range, so castMode must project to the edge")
+- One or two sentences naming the ability's Chinese name / design purpose
+- Comments on public methods (a module's external interface) start with one sentence describing **what it does**, without naming specific files/functions/API endpoints or other technical terms; edge cases and technical details go in inline comments above the relevant code lines, not piled into the top method description — and only non-obvious edge cases; branches readable from the code itself get no comment
 
-整个文件一个 `/** 一两行 */` JSDoc 即可，不需要分段、不需要 bullet 列表。
+One `/** one or two lines */` JSDoc per file is enough; no sections, no bullet lists.
 
-## Plan 规范
+## Plan Conventions
 
-Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节：
+The plan phase focuses on **design reasoning and data flow**, not code details:
 
-- **先设计，后细节**：Plan 应包含：背景/目标、设计决策（为什么这样做）、数据流（谁读谁写、字段名、经过哪些层）、修改文件列表（一行描述）、验证方式。
-- **不写代码**：Plan 中不应出现具体函数签名、完整代码块、参数列表。这些留给实现阶段。
-- **文件列表简洁**：每个文件一行，说明"改什么"即可，不说"怎么改"。
+- **Design first, details later**: a plan contains background/goal, design decisions (why this way), data flow (who reads and writes what, field names, which layers it passes through), the list of files to change (one-line description each), and how to verify.
+- **No code**: a plan must not contain concrete function signatures, full code blocks, or parameter lists. Those belong to the implementation phase.
+- **Concise file list**: one line per file saying "what changes", not "how".
 
-### 设计文档位置
+### Design Document Location
 
-设计文档统一放 `docs/superpowers/specs/<YYYY-MM-DD>-<主题>-<用途>.md`，**只在本地留档，不进版本控制**（`docs/superpowers/` 整个目录已被 gitignore）：
+Design documents go in `docs/superpowers/specs/<YYYY-MM-DD>-<topic>-<purpose>.md`, **kept locally only, not under version control** (the whole `docs/superpowers/` directory is gitignored):
 
-- `<用途>` 区分同主题的多篇，方案设计用 `design`，实现记录用具体范围（如 `game-read`）
-- 不要新建 `docs/design/`，该目录已废弃删除
+- `<purpose>` distinguishes several documents on the same topic: `design` for the solution design, a concrete scope for implementation notes (e.g. `game-read`)
+- Do not create `docs/design/`; that directory is deprecated and deleted
 
-上面那份是方案过程稿，会话结束就没人再看。**留得住的设计思路与决策要另外写进版本控制**：模块级的放该模块目录下的 `README.md`（如 `src/vscripts/api/README.md`、`src/vscripts/ai/build-item/README.md`），只影响一两处实现的写成代码注释。
+The document above is a working draft that nobody reads after the session ends. **Design reasoning and decisions worth keeping must also be written into version control**: module-level ones go in that module's `README.md` (e.g. `src/vscripts/api/README.md`, `src/vscripts/ai/build-item/README.md`); ones affecting only one or two spots become code comments.
 
-issue 只管理整体目标、统一规范、进度与验证结论，不放具体文件、key 清单、实施步骤或设计细节。实施过程留在本地 spec，长期约束跟随代码放在就近文档；有版本控制中的相关文档时，issue 用链接指向它。
+Issues only track the overall goal, shared conventions, progress, and verification results — no specific files, key lists, implementation steps, or design details. The implementation process stays in the local spec; long-lived constraints live in the nearest document next to the code. When a relevant document exists under version control, the issue links to it.
 
-模块 `README.md` 是**框架性文档**：写系统现在长什么样、为什么这样搭、放弃了什么，长期维护。
+A module `README.md` is a **framework document**: it describes what the system looks like now, why it is built this way, and what was given up. It is maintained long-term.
 
-- **按读者写，越短越好**。面向玩家或外部读者的目录只写做什么、怎么用、怎么编译发布，不写设计取舍
-- **只记用户拍板的关键决定**。AI 实现时自行选定、以后可能调整的细节（超时、重试间隔、文案位置等）不写，也不要写成用户的决定
-- **不按阶段、批次组织**。逐段问「这段会不会因为某个阶段做完就失效？」——会失效的（阶段划分、进度、本阶段改了哪些文件、排查过程与证据、实测数字）进 issue、PR 或本地 spec，不进 README
-- **已实现的做法不复述，一切以代码为准**。调用链、常量名与取值、某个函数做了什么、字段怎么拼，都从代码读，抄进文档只会先过期（口径同「注释规约」）。README 只留代码里读不出来的东西：约束、决定和它的理由
-- **每个决定一句理由**。没选的方案值得提时，在理由里带半句「没选 X，因为 Y」；方案比较表、试算过程留在 PR
-- **只在决策变更时更新，不因阶段完成而增删**。一次改动新增或推翻了长期决定，就在同一个 PR 里改 README，不要等用户催；只是按既有决定多接了一处，README 不动
+- **Write for the reader, as short as possible.** Directories aimed at players or external readers only say what it does, how to use it, and how to build and release it — no design trade-offs
+- **Only record key decisions the user signed off on.** Details the AI chose during implementation that may change later (timeouts, retry intervals, text placement, etc.) are not written, and must not be presented as the user's decisions
+- **Do not organize by phase or batch.** Ask of each paragraph: "will this become invalid once some phase is done?" — anything that will (phase breakdown, progress, files changed in this phase, debugging process and evidence, measured numbers) goes in the issue, PR, or local spec, not the README
+- **Do not restate what is already implemented; the code is the source of truth.** Call chains, constant names and values, what a function does, how fields are assembled — read them from the code; copying them into docs only makes the docs go stale first (same rule as "Comment Conventions"). The README keeps only what the code cannot tell you: constraints, decisions, and their reasons
+- **One sentence of reasoning per decision.** When a rejected option is worth mentioning, add half a sentence in the reasoning: "did not pick X because Y"; comparison tables and trial calculations stay in the PR
+- **Update only when a decision changes, not when a phase completes.** If a change adds or overturns a long-lived decision, update the README in the same PR without waiting to be asked; if it merely wires one more spot under an existing decision, leave the README alone
 
-判断一句话放 README 还是 `CLAUDE.md`：违反它是「这次改动做错了」，进对应目录的 `CLAUDE.md`；是「系统的结构变了」，进 README。
+Deciding whether a sentence goes in the README or `CLAUDE.md`: if violating it means "this change was done wrong", it goes in the relevant directory's `CLAUDE.md`; if it means "the system's structure changed", it goes in the README.
 
-## Git 工作流
+## Git Workflow
 
-### 分支
+### Branches
 
-- issue 驱动的改动命名 `feature/<issue-id>-<short-kebab-summary>`（3–6 个英文小写单词，如 `feature/2411-web-link-refresh`）；非 issue 驱动用 `fix/` `chore/` `docs/` 前缀，命名规则同上
-- 一律从最新 `develop` 切出。**不要在 `develop` 上直接修改或 commit 任何文件**，包括 skill 产出的设计文档——一旦确定要写文件，先切好分支
-- 动手前检查 `git status --short`、`git branch --show-current` 和 `git worktree list`。当前 checkout 干净且没有其他会话或进行中的分支占用时，直接在这里从最新 `develop` 切新分支，不因可能存在其他会话而建 worktree
-- 当前在已合并的旧分支时，核实 PR 已合并、本地 HEAD 与 PR 末尾提交一致、没有未提交改动；再切回 `develop`、删除旧本地分支并切新分支。远端显示 `gone` 不等于已合并；squash merge 后 `git branch --merged` 也可能查不到旧分支
-- 只有当前 checkout 有未提交改动、未合并分支仍在使用，或确有多个会话共用这个 checkout 时，才用 worktree 隔离；不切换其他会话正在使用的 checkout 或分支
+- Issue-driven changes are named `feature/<issue-id>-<short-kebab-summary>` (3–6 lowercase English words, e.g. `feature/2411-web-link-refresh`); non-issue-driven changes use the `fix/` `chore/` `docs/` prefixes with the same naming rule
+- Always branch from the latest `develop`. **Never modify or commit any file directly on `develop`**, including design documents produced by skills — once you know you will write files, create the branch first
+- Before starting, check `git status --short`, `git branch --show-current`, and `git worktree list`. If the current checkout is clean and not occupied by another session or an in-progress branch, create the new branch from the latest `develop` right here; do not create a worktree just because other sessions might exist
+- When on an old branch that was already merged, verify the PR is merged, the local HEAD matches the PR's last commit, and there are no uncommitted changes; then switch back to `develop`, delete the old local branch, and create the new one. A remote shown as `gone` does not mean merged; after a squash merge, `git branch --merged` may also not list the old branch
+- Use a worktree for isolation only when the current checkout has uncommitted changes, an unmerged branch is still in use, or several sessions genuinely share this checkout; never switch a checkout or branch another session is using
 
-### 提交与 PR
+### Commits and PRs
 
-- PR 的 base branch 固定为 `develop`；标题默认英文；纯内部改动（重构、构建、CI、文档、测试）自行判定跳过 Release Note，不提问也不查版本号，其余情况问用户走「小版本补丁 / 大版本 / 不写 Release Note」，需要写时必须调用 `release-note` skill 生成，不要手写
-- 只有 PR 完成 issue 的全部范围时，才在 Issue 段写 `Fixes #<issue-id>`，让 PR 合并后自动关闭该 issue；issue 分为多个 PR 时，各 PR 仅写 `#<issue-id>` 关联，最后完成全部范围的 PR 才使用 `Fixes`
-- Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`
-- `docs/superpowers/` 整个目录已被 `.gitignore` 排除，brainstorming skill 产出的 spec 文档仅本地留档，不进版本控制，无需尝试 `git add`
+- The PR base branch is always `develop`; titles are in English by default. For purely internal changes (refactoring, build, CI, docs, tests) decide on your own to skip the Release Note, without asking or checking the version number; otherwise ask the user to choose "patch / major version / no Release Note". When one is needed it must be generated with the `release-note` skill, never written by hand
+- Write `Fixes #<issue-id>` in the Issue section only when the PR completes the entire scope of the issue, so merging closes it automatically; when an issue is split across several PRs, each PR only references `#<issue-id>`, and only the last PR that completes the full scope uses `Fixes`
+- Commit format: a short single-line title (≤72 characters) + a body containing only `Co-Authored-By`
+- The whole `docs/superpowers/` directory is excluded by `.gitignore`; spec documents produced by the brainstorming skill are kept locally only, not under version control — do not try to `git add` them
 
-只 stage 与本次请求明确相关的文件，commit 前先看 `git status`，不带入其他会话或用户自己的改动，无需逐个列给用户确认。但提交前若当前分支不符合预期（如本应在 feature 分支却处于 `develop`/`main`），先提示用户确认目标分支再提交。
+Only stage files clearly related to the current request; check `git status` before committing and do not include changes from other sessions or the user's own work. No need to list them for the user to confirm one by one. But if the current branch is not what you expect before committing (e.g. you should be on a feature branch but are on `develop`/`main`), ask the user to confirm the target branch first.
 
-### 小改动搭车
+### Riding Along Small Changes
 
-手上有未合并的 PR 时，文档措辞、注释、规约补充这类小改动直接并进去，不为每条单开 PR，并在 PR 正文补一句说明。以下任一条成立就另开分支：
+When you have an unmerged PR in hand, small changes like doc wording, comments, or convention additions go straight into it instead of opening a PR for each, with one sentence noting it in the PR body. Open a separate branch if any of these holds:
 
-- 与当前 PR 的主题冲突
-- 当前 PR 已合并
-- 一两句话说不清
+- It conflicts with the current PR's topic
+- The current PR is already merged
+- It cannot be explained in a sentence or two
 
-没有开着的 PR 时先攒着等下一个 PR；只有改动有时效性（挡着别人、线上有问题）才单开。
+With no open PR, hold them until the next PR; only open a separate one when the change is time-sensitive (blocking others, a live issue).
 
-### 合并与清理
+### Merging and Cleanup
 
-用户给出合并指令时直接执行，没有指令不主动合并：
+Execute merges directly when the user gives a merge instruction; never merge on your own initiative:
 
-| PR | 命令 |
+| PR | Command |
 |---|---|
-| `feature` / `fix` / `chore` / `docs` → `develop` | `gh pr merge <编号> --squash` |
-| `develop` → `main`（release PR） | `gh pr merge <编号> --merge` |
+| `feature` / `fix` / `chore` / `docs` → `develop` | `gh pr merge <number> --squash` |
+| `develop` → `main` (release PR) | `gh pr merge <number> --merge` |
 
-CI 还没跑完时加 `--auto`，不要用 `--admin` 绕过分支保护。
+Add `--auto` when CI has not finished; never use `--admin` to bypass branch protection.
 
-合并后立刻清理本地分支，远端分支由仓库设置自动删除。squash 合并后 git 认不出分支已合并，必须用 `-D`：
+Clean up the local branch immediately after merging; remote branches are deleted automatically by repository settings. Git does not recognize squash-merged branches as merged, so `-D` is required:
 
 ```bash
 git checkout develop
@@ -223,35 +223,35 @@ git pull
 git branch -D <branch-name>
 ```
 
-分支在 worktree 里时，先 `git worktree remove <path> --force`，删完分支再 `git worktree prune`。
+If the branch is in a worktree, first `git worktree remove <path> --force`, then delete the branch, then `git worktree prune`.
 
-> 完整流程（分支创建、commit、push、PR 模板填写）见 `create-pr` skill。
+> For the full flow (branch creation, commit, push, filling in the PR template) see the `create-pr` skill.
 
-## 文档自维护规范
+## Documentation Self-Maintenance
 
-当用户纠正 Claude 的做法、发现文档与实际代码矛盾、或用户补充了新约定时，触发 `doc-update` skill 将有价值的内容沉淀到文档中。
+When the user corrects Claude's approach, a document is found to contradict the actual code, or the user adds a new convention, trigger the `doc-update` skill to capture the valuable parts in documentation.
 
-沉淀位置按作用范围选，**就近优先**：
+Choose where to put it by scope, **nearest first**:
 
-| 内容 | 去处 |
+| Content | Destination |
 |---|---|
-| 只在某一层成立的规则 | 该层的 `CLAUDE.md`（`src/vscripts/`、`src/panorama/`、`game/scripts/npc/`、`game/resource/`） |
-| 某个模块的设计与决策 | 该模块的 `README.md` |
-| 某类任务的流程与决策 | 对应 `SKILL.md` |
-| 真正跨全项目的规则 | 本文件 |
+| Rules that hold only within one layer | That layer's `CLAUDE.md` (`src/vscripts/`, `src/panorama/`, `game/scripts/npc/`, `game/resource/`) |
+| A module's design and decisions | That module's `README.md` |
+| Flow and decisions for a type of task | The corresponding `SKILL.md` |
+| Rules that truly span the whole project | This file |
 
-本文件只保留项目级通用规则。文档更新应作为完成一次改动的一部分（自维护），不要等用户催促。
+This file keeps only project-wide general rules. Updating docs is part of completing a change (self-maintenance); do not wait for the user to ask.
 
-## 节约用量
+## Saving Usage
 
-跑测试、等对局结束、翻日志统计这类机械、耗时的活，交给 SubAgent 并指定便宜的模型（`model: "haiku"`，需要判断时用 `"sonnet"`），主对话只接收结论。给 SubAgent 的提示里写全命令、判定标准和要带回的数字，它不会继承主对话的上下文。设计取舍与改代码仍在主对话里做。
+Mechanical, time-consuming work like running tests, waiting for a match to end, or tallying logs goes to a SubAgent with a cheap model (`model: "haiku"`, or `"sonnet"` when judgment is needed); the main conversation only receives the conclusion. Write the full commands, pass criteria, and numbers to bring back in the SubAgent prompt — it does not inherit the main conversation's context. Design trade-offs and code changes still happen in the main conversation.
 
-## Skill 交互规范
+## Skill Interaction Conventions
 
-执行 skill 时，**遇到不明确的决策点必须用 `AskUserQuestion` 工具以选项菜单形式询问用户**，不得自行假设。适用场景包括但不限于：
+When running a skill, **any unclear decision point must be asked as an option menu with the `AskUserQuestion` tool**; never assume. This applies to, but is not limited to:
 
-- 目标文件有多个候选（如抽奖池 vs 单位专属）
-- 操作模式不明确（新建 vs 修正）
-- 原版技能信息无法确定（多个候选、版本差异等）
+- Multiple candidate target files (e.g. lottery pool vs. unit-specific)
+- Unclear operation mode (create vs. fix)
+- Vanilla ability information that cannot be determined (multiple candidates, version differences, etc.)
 
-每道问题单独一次 `AskUserQuestion` 调用，`options` 列出具体候选项并附简短说明。
+Each question is a separate `AskUserQuestion` call, with `options` listing concrete candidates and a short description for each.
