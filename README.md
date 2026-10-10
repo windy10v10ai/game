@@ -1,5 +1,7 @@
 # Windy10v10AI
 
+[English](docs/en/README.md) · [简体中文](docs/zh-CN/README.md)
+
 This is a PVE Dota2 custom game project.<br>
 Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
 
@@ -36,182 +38,12 @@ distribution exception and notes on prior MIT releases in
 
 If you would like to contribute to Windy10v10AI, please see our [contributing guidelines](.github/CONTRIBUTING.md).
 <br>
-如果你想参与Windy10v10AI的开发，请参考我们的[参与指南](.github/CONTRIBUTING.md#参与开发-windy10v10ai)。
+如果你想参与Windy10v10AI的开发，请参考我们的[参与指南](docs/zh-CN/CONTRIBUTING.md)。
 
-# Get Start
+# Development 开发文档
 
-## OS Requirement
-
-`Windows 10/11`
-
-## Develop Tool
-
-- [Github Desktop](https://desktop.github.com/)
-- [VS Code](https://code.visualstudio.com/)
-- [Source 2 Viewer](https://valveresourceformat.github.io/)
-
-## Setup
-
-1. Install Dota2 and [Dota 2 Workshop Tools](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Installing_and_Launching_Tools).
-2. Install [node.js](https://nodejs.org/). The required version is pinned in [`.nvmrc`](.nvmrc) (`v24`).
-   Recommend install node use [nvm](https://github.com/coreybutler/nvm-windows/releases)
-
-   Run in PowerShell from the repository root. `nvm-windows` does not read `.nvmrc` directly,
-   so pipe its content in via `$(Get-Content .nvmrc)`:
-
-```powershell
-# set/update node version
-nvm install $(Get-Content .nvmrc)
-nvm use $(Get-Content .nvmrc)
-```
-
-3. Clone this repository to local. **It must be on the same hard drive partition as Dota2.** 仓库必须和 Dota2 在同一块硬盘分区上。
-4. Run `npm install` in the repository root directory. Content and game folder will be linked to dota2 dota_addons directory.
-
-```bash
-npm install
-```
-
-## Claude Code (Optional)
-
-This project ships with Claude Code configuration (`.claude/`) for AI-assisted development. Two ways to use it:
-
-1. **Official subscription** — install [Claude Code](https://claude.com/claude-code) and sign in.
-2. **Third-party API** — install the [Claude Code VS Code extension](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code), then set the endpoint and key in [`.claude/settings.local.json`](.claude/settings.local.json) (git-ignored):
-
-```json
-{
-  "env": {
-    "ANTHROPIC_BASE_URL": "https://your-api-endpoint",
-    "ANTHROPIC_AUTH_TOKEN": "your-api-key"
-  }
-}
-```
-
-Recommend installing the [GitHub CLI](https://cli.github.com/) and running `gh auth login`, so Claude Code can create pull requests and manage issues for you.
-
-本项目自带 Claude Code 配置（`.claude/`）用于 AI 辅助开发，有两种使用方式：
-
-1. **官网订阅** — 安装 [Claude Code](https://claude.com/claude-code) 并登录。
-2. **第三方 API** — 安装 [Claude Code VS Code 插件](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)，在 [`.claude/settings.local.json`](.claude/settings.local.json)（已被 git 忽略）中配置上面的 API 地址与密钥。
-
-建议安装 [GitHub CLI](https://cli.github.com/) 并运行 `gh auth login`，以便 Claude Code 帮你创建 PR、管理 issue。
-
-## Dota2 Reference Files (Optional)
-
-Some development tasks (editing ability/item KV, localization, AI tuning) reference the vanilla Dota 2 files under `docs/reference/<version>/`. This directory is git-ignored, so you need to build it yourself with [Source 2 Viewer](https://valveresourceformat.github.io/): open `dota 2 beta/game/dota/pak01_dir.vpk` and extract the `scripts/npc/` folder together with the two localization files `abilities_english.txt` and `abilities_schinese.txt` into `docs/reference/<version>/`.
-
-部分开发任务（编辑技能/物品 KV、本地化、AI 调参）需要参考 `docs/reference/<version>/` 下的原版 Dota2 文件。该目录已被 git 忽略，需用 [Source 2 Viewer](https://valveresourceformat.github.io/) 自行解压：打开 `dota 2 beta/game/dota/pak01_dir.vpk`，将 `scripts/npc/` 目录以及 `abilities_english.txt`、`abilities_schinese.txt` 两个本地化文件解压到 `docs/reference/<版本>/` 下。
-
-# Develop
-
-## Launch Dota2 devTools and build the project
-
-> Run in windows powershell/cmd
-
-```bash
-npm run start
-```
-
-## VConsole Command
-
-> Run in Dota2 VConsole
-
-```bash
-# launch/relaunch custom game
-dota_launch_custom_game windy10v10ai dota
-dota_launch_custom_game windy10v10ai custom
-# show game end panel
-dota_custom_ui_debug_panel 7
-# reload lua
-script_reload
-# Speeds the game up to that number 加速游戏到指定倍速
-host_timescale <float>
-```
-
-### How to compile png to vtex_c (Recommended) 如何编译图片png文件
-
-If a PNG is referenced within an XML file, it will be compiled automatically. For standalone PNG files, use the following method to compile.
-如果png在xml中被引用了，则会自动编译。对于独立的png文件，采用以下方式编译。
-
-1. Add png file to [`content/panorama/images`](/content/panorama/images) folder.
-2. Add image to [`content/panorama/layout/custom_game/images.xml`](/content/panorama/layout/custom_game/images.xml) file.
-
-png will be compiled to vtex_c automatically when you run `npm run start`.
-
-## Troubleshooting
-
-This code needs to be on the same hard drive partition as dota2.<br>
-Reinstall solve most of the problems.<br>
-
-代码需要和dota2在同一块硬盘分区上。<br>
-重新安装可以解决大部分问题。
-
-```bash
-rm -r ./node_modules
-npm install
-```
-
-# Documentation
-
-## Supported by ModDota template and x-template
-
-### ModDota template
-
-https://github.com/ModDota/TypeScriptAddonTemplate
-
-### X-Template
-
-https://github.com/XavierCHN/x-template
-
-## Typescript to lua
-
-- sample modifiers and abilities:
-  https://github.com/ModDota/TypeScriptAddonTemplate/tree/master/src/vscripts
-
-## ModDota template README
-
-Panorama UI with webpack, TypeScript and React.
-
-- [TypeScript for VScripts](https://typescripttolua.github.io/) Check out [Typescript Introduction](https://moddota.com/scripting/Typescript/typescript-introduction/) for more information.
-- [TypeScript for Panorama](https://moddota.com/panorama/introduction-to-panorama-ui-with-typescript)
-- [React in Panorama tutorial](https://moddota.com/panorama/react)
-
-## Contents 文件夹内容说明
-
-- **[src/common]:** TypeScript .d.ts type declaration files with types that can be shared between Panorama and VScripts
-- **[src/vscripts]:** TypeScript code for Dota addon (Lua) vscripts. Compiles lua to game/scripts/vscripts.
-- **[src/panorama]:** TypeScript code for panorama UI. Compiles js to content/panorama/scripts/custom_game
-  <br>
-  <br>
-- **[game/*]:** Dota game directory containing files such as npc kv files and compiled lua scripts.
-- **[content/*]:** Dota content directory containing panorama sources other than scripts (xml, css, compiled js)
-
----
-
-- **[src/vscripts]:** 用来写`tstl`代码，lua脚本会被编译到`game/scripts/vscripts`目录下
-  - **[src/vscripts/shared]:** 用来写`panorama ts`和`tstl`公用的声明，如`custom_net_tables`等
-- **[src/scripts]:** 各种 node 脚本，用来完成各种辅助功能
-  <br>
-  <br>
-- **[game/*]:** 会和 `dota 2 beta/game/dota_addons/your_addon_name` 同步更新
-- **[content/*]:** 会和 `dota 2 beta/content/dota_addons/your_addon_name` 同步更新
-
-## Data Flow
-
-![Data Flow](docs/drawio/dataflow.png)
-
-# 维护指南
-
-## Console报错
-
-console中有如下报错时，技能特效会消失，需要删除对应的文件，然后重新启动Dota2即可。
-
-```
-Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare_ambient.vpcf_c" (ERROR_BADREQUEST: Code error - bad request)
-```
-
-<br>
+- [English development guide](docs/en/README.md)
+- [简体中文开发指南](docs/zh-CN/README.md)
 
 # Activity
 
