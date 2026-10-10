@@ -8,19 +8,19 @@ description: 为指定战斗物品编写 bot 使用规则（ItemSpec），让 bo
 把"何时对谁使用该物品"以数据形式登记到 `ItemRegistry`，由 `ItemDispatcher` 在每个 bot tick 自动遍历背包并执行。
 
 > 架构背景：物品与技能共用同一套目标筛选 + 施法派发核心 `TryCastBySpec`
-> （[target-dispatch.ts](src/vscripts/ai/action/target-dispatch.ts)），`AbilityDispatcher` 与
+> （[target-dispatch.ts](../../../src/vscripts/ai/action/target-dispatch.ts)），`AbilityDispatcher` 与
 > `ItemDispatcher` 只是两个不同的"候选来源"——技能遍历 `hero.GetAbilityByIndex`，物品遍历
 > `hero.GetItemInSlot(0~8)`。写 ItemSpec 时能力边界和 AbilitySpec 完全一致，见
 > [bot-ability-usage](../bot-ability-usage/SKILL.md) 里对 `cast-condition.ts` 字段的详细说明，本文档
 > 只讲物品特有的部分。
 >
 > 关键路径:
-> - 类型: [src/vscripts/ai/item/item-spec.ts](src/vscripts/ai/item/item-spec.ts)
-> - 注册表: [src/vscripts/ai/item/item-registry.ts](src/vscripts/ai/item/item-registry.ts)
-> - dispatcher: [src/vscripts/ai/item/item-dispatcher.ts](src/vscripts/ai/item/item-dispatcher.ts)
-> - 共享条件 / 派发核心: [src/vscripts/ai/action/target-dispatch.ts](src/vscripts/ai/action/target-dispatch.ts)、[cast-condition.ts](src/vscripts/ai/action/cast-condition.ts)
-> - spec 目录: [src/vscripts/ai/item/specs/](src/vscripts/ai/item/specs/)
-> - 聚合注册: [src/vscripts/ai/item/specs/index.ts](src/vscripts/ai/item/specs/index.ts)
+> - 类型: [src/vscripts/ai/item/item-spec.ts](../../../src/vscripts/ai/item/item-spec.ts)
+> - 注册表: [src/vscripts/ai/item/item-registry.ts](../../../src/vscripts/ai/item/item-registry.ts)
+> - dispatcher: [src/vscripts/ai/item/item-dispatcher.ts](../../../src/vscripts/ai/item/item-dispatcher.ts)
+> - 共享条件 / 派发核心: [src/vscripts/ai/action/target-dispatch.ts](../../../src/vscripts/ai/action/target-dispatch.ts)、[cast-condition.ts](../../../src/vscripts/ai/action/cast-condition.ts)
+> - spec 目录: [src/vscripts/ai/item/specs/](../../../src/vscripts/ai/item/specs/)
+> - 聚合注册: [src/vscripts/ai/item/specs/index.ts](../../../src/vscripts/ai/item/specs/index.ts)
 
 ---
 
@@ -49,7 +49,7 @@ Glob pattern: src/vscripts/ai/item/specs/<itemName>.ts
 | 已存在 | 操作模式 = **修正现有 spec**（读取并按用户需求编辑 SPECS 数组） |
 | 不存在 | 操作模式 = **新建 spec 文件** |
 
-**新建前先查 `item-tier-config.ts` 的 `baseItems` 字段**：若该物品与另一个已有 spec 的物品构成明确升级链（如 `item_wasp_callous` → `item_wasp_golden`），且使用条件完全相同，**合并进对方文件**（以链条起点物品命名），不要新建文件。参考 [item_dagon.ts](src/vscripts/ai/item/specs/item_dagon.ts)（达贡 1~5 级）、[item_wasp_callous.ts](src/vscripts/ai/item/specs/item_wasp_callous.ts)（大核荣耀系列）、[item_refresher.ts](src/vscripts/ai/item/specs/item_refresher.ts)（刷新球系列）等既有写法。
+**新建前先查 `item-tier-config.ts` 的 `baseItems` 字段**：若该物品与另一个已有 spec 的物品构成明确升级链（如 `item_wasp_callous` → `item_wasp_golden`），且使用条件完全相同，**合并进对方文件**（以链条起点物品命名），不要新建文件。参考 [item_dagon.ts](../../../src/vscripts/ai/item/specs/item_dagon.ts)（达贡 1~5 级）、[item_wasp_callous.ts](../../../src/vscripts/ai/item/specs/item_wasp_callous.ts)（大核荣耀系列）、[item_refresher.ts](../../../src/vscripts/ai/item/specs/item_refresher.ts)（刷新球系列）等既有写法。
 
 只有逻辑不同的平行分支（共享同一 `baseItems` 但效果不同，如各类鞋子）才应该分开成独立文件或干脆不共用。
 
@@ -70,9 +70,9 @@ Glob pattern: src/vscripts/ai/item/specs/<itemName>.ts
 
 很多物品是 `NO_TARGET` 行为（自身 buff、群体效果），但仍需要"周围有敌人/友军才用"这类判断。**不要**因为是 NO_TARGET 就用 `TargetSide.Self`——`TargetSide.Self` 会跳过所有 `target` 条件检查（`pickTarget` 对 Self 直接返回自身，见 target-dispatch.ts）。
 
-正确写法：`targetSide` 照样填 `EnemyHero` / `FriendlyHero` 等真实检测对象，靠 `target.count`/`target.range` 做检测；由于实际行为是 NO_TARGET，`CastAbilityOnTargetByBehavior` 最终会忽略选中的 target，直接 `CastAbilityNoTarget`。参考 [item_magic_scepter.ts](src/vscripts/ai/item/specs/item_magic_scepter.ts)、[item_wasp_callous.ts](src/vscripts/ai/item/specs/item_wasp_callous.ts)。
+正确写法：`targetSide` 照样填 `EnemyHero` / `FriendlyHero` 等真实检测对象，靠 `target.count`/`target.range` 做检测；由于实际行为是 NO_TARGET，`CastAbilityOnTargetByBehavior` 最终会忽略选中的 target，直接 `CastAbilityNoTarget`。参考 [item_magic_scepter.ts](../../../src/vscripts/ai/item/specs/item_magic_scepter.ts)、[item_wasp_callous.ts](../../../src/vscripts/ai/item/specs/item_wasp_callous.ts)。
 
-只有真正"不需要检测任何东西，CD 好了就用"的纯 buff 物品（如阿迪王）才用 `TargetSide.Self` 且不写 `condition`，参考 [item_adi_king.ts](src/vscripts/ai/item/specs/item_adi_king.ts)。
+只有真正"不需要检测任何东西，CD 好了就用"的纯 buff 物品（如阿迪王）才用 `TargetSide.Self` 且不写 `condition`，参考 [item_adi_king.ts](../../../src/vscripts/ai/item/specs/item_adi_king.ts)。
 
 **这个 trick 下 `ignoresMagicImmune: true` 几乎总要加**：NO_TARGET 物品自身没有 `MAGIC_IMMUNE_ENEMIES` flag，若不显式设置，魔免的敌人会被 `FilterTargetWithCondition` 过滤掉导致找不到目标、放不出技能。
 
@@ -82,14 +82,14 @@ Glob pattern: src/vscripts/ai/item/specs/<itemName>.ts
 
 除了 [bot-ability-usage](../bot-ability-usage/SKILL.md) 已列出的通用条件（血量、数量、等级、`notActionable`、`noModifier` 等）外，物品场景常见的还有：
 
-0. **对小兵的规则要写全门槛**：技能的 `EnemyCreep` 默认门槛与模式过滤由 `AbilityDispatcher` 叠加，`ItemDispatcher` 不叠加。物品对小兵的 spec 显式写 `target.count`、`self.noEnemyHeroInRange` 与蓝量，参考 [item_meteor_hammer.ts](src/vscripts/ai/item/specs/item_meteor_hammer.ts)。
+0. **对小兵的规则要写全门槛**：技能的 `EnemyCreep` 默认门槛与模式过滤由 `AbilityDispatcher` 叠加，`ItemDispatcher` 不叠加。物品对小兵的 spec 显式写 `target.count`、`self.noEnemyHeroInRange` 与蓝量，参考 [item_meteor_hammer.ts](../../../src/vscripts/ai/item/specs/item_meteor_hammer.ts)。
 
 1. **排除远古野**：`target.unitCondition.excludeAncient: true`（团队之手/无限手套等对小兵使用的物品，即使候选池本身不含远古野也建议保留，属于防御性写法）。
 2. **附近没有敌方英雄/建筑才用**（安全场景判断，如烟雾）：`self.noEnemyHeroInRange` / `self.noEnemyBuildingInRange`，语义是"存在则跳过"，与"要求敌人存在"相反，不要混淆。
 3. **身上没有对应 buff 才用**（避免重复施放同一效果，如烟雾自身的隐身 buff）：`self.unitCondition.noModifier: '<modifier名>'`。
 4. **技能+物品总冷却压力**（刷新球类）：`self.cooldownTotal: { gte: N }`，统计范围是全部技能 + 主栏（0~5号槽）物品的剩余冷却之和。
 5. **开关类**（切换形态/模式）：`condition.action.toggleOn: true`。
-6. **激进/保守 OR 逻辑**：同一物品写两条 spec，一条近距离无条件、一条远距离+残血，参考 B2 组写法（如 [item_blade_mail_2.ts](src/vscripts/ai/item/specs/item_blade_mail_2.ts)）。
+6. **激进/保守 OR 逻辑**：同一物品写两条 spec，一条近距离无条件、一条远距离+残血，参考 B2 组写法（如 [item_blade_mail_2.ts](../../../src/vscripts/ai/item/specs/item_blade_mail_2.ts)）。
 
 ---
 
@@ -141,7 +141,7 @@ export const SPECS: ItemSpec[] = [
 
 ## 第七步：在 index.ts 中注册
 
-修改 [src/vscripts/ai/item/specs/index.ts](src/vscripts/ai/item/specs/index.ts)：
+修改 [src/vscripts/ai/item/specs/index.ts](../../../src/vscripts/ai/item/specs/index.ts)：
 
 1. 顶部加 `import { SPECS as <camelName> } from './<itemName>';`（按字母序）
 2. 在 `registerItemSpecs()` 内对应分组段落调用 `ItemRegistry.registerAll(<camelName>);`（沿用文件内已有的 B1/B2/.../拾取物 分组注释，找不到合适分组再新加）
@@ -165,7 +165,7 @@ export const SPECS: ItemSpec[] = [
 - **不要把需要目标检测的 NO_TARGET 物品写成 `TargetSide.Self`**：见第三步"检测技巧"一节，这是最容易写错的地方。
 - **不要在 spec 里手写 `range.lte`，除非物品 `AbilityCastRange` 为 0**：dispatcher 会自动用 KV 施法距离填入；NO_TARGET 物品这个值通常是 0，不写会导致搜索半径永远是 0（等于找不到任何目标），必须显式写。
 - **升级链且逻辑相同的物品默认合并成一个文件**：新建前先查 `prerequisite`/`upgrades`，见第二步。
-- **合并进同一文件时，链条起点（base）物品也要有自己的 entry**：bot 出装可能停在某个中间/起点档位，只写最高档会导致持有低档位的 bot 永远不触发使用逻辑（dispatcher 按 `item.GetName()` 精确匹配 spec，没有 fallback）。参考 [item_adi_king.ts](src/vscripts/ai/item/specs/item_adi_king.ts)、[item_dagon.ts](src/vscripts/ai/item/specs/item_dagon.ts)：链条上每个 bot 实际可能持有的档位都要有条目。
+- **合并进同一文件时，链条起点（base）物品也要有自己的 entry**：bot 出装可能停在某个中间/起点档位，只写最高档会导致持有低档位的 bot 永远不触发使用逻辑（dispatcher 按 `item.GetName()` 精确匹配 spec，没有 fallback）。参考 [item_adi_king.ts](../../../src/vscripts/ai/item/specs/item_adi_king.ts)、[item_dagon.ts](../../../src/vscripts/ai/item/specs/item_dagon.ts)：链条上每个 bot 实际可能持有的档位都要有条目。
 - **`usableFromBackpack` 只改 TS 不改 KV 不会生效**：见第五步，两处必须同时满足。
 - **不要把"购买后立即消耗"的物品塞进 ItemSpec**：那类物品走 `consume-item.ts`，不需要战斗决策，混进 ItemSpec 是过度设计。
 - **spec 文件头部注释不要复述 condition 里的具体数值**（同 bot-ability-usage 的规则）：只写意图，不写"900 范围""≥60秒"这类会随数值调整而与代码脱节的具体值。

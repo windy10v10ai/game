@@ -10,12 +10,12 @@ description: 为指定技能编写 bot 施法规则（AbilitySpec），让 bot �
 > 架构背景：`AbilityDispatcher`（按 spec 注册表）是 bot 精细主动施法的唯一目标架构。存量 `UseAbilityXxx` 手写逻辑属于迁移债务，修改涉及这些技能时应将规则迁入 spec 并删除重复入口。新技能一律走 spec，不要再往英雄文件加。
 >
 > 关键路径:
-> - 类型: [src/vscripts/ai/ability/ability-spec.ts](src/vscripts/ai/ability/ability-spec.ts)
-> - 注册表: [src/vscripts/ai/ability/ability-registry.ts](src/vscripts/ai/ability/ability-registry.ts)
-> - dispatcher: [src/vscripts/ai/ability/ability-dispatcher.ts](src/vscripts/ai/ability/ability-dispatcher.ts)
-> - 共享条件 / 过滤: [src/vscripts/ai/action/cast-condition.ts](src/vscripts/ai/action/cast-condition.ts)
-> - spec 目录: [src/vscripts/ai/ability/specs/](src/vscripts/ai/ability/specs/)
-> - 聚合注册: [src/vscripts/ai/ability/specs/index.ts](src/vscripts/ai/ability/specs/index.ts)
+> - 类型: [src/vscripts/ai/ability/ability-spec.ts](../../../src/vscripts/ai/ability/ability-spec.ts)
+> - 注册表: [src/vscripts/ai/ability/ability-registry.ts](../../../src/vscripts/ai/ability/ability-registry.ts)
+> - dispatcher: [src/vscripts/ai/ability/ability-dispatcher.ts](../../../src/vscripts/ai/ability/ability-dispatcher.ts)
+> - 共享条件 / 过滤: [src/vscripts/ai/action/cast-condition.ts](../../../src/vscripts/ai/action/cast-condition.ts)
+> - spec 目录: [src/vscripts/ai/ability/specs/](../../../src/vscripts/ai/ability/specs/)
+> - 聚合注册: [src/vscripts/ai/ability/specs/index.ts](../../../src/vscripts/ai/ability/specs/index.ts)
 
 ---
 
@@ -113,7 +113,7 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 >
 > spec 中显式指定的同路径值会通过 `DeepMerge` 覆盖默认值（NumberRange 整体替换，非 key 级合并）。例如想在自身蓝量低时才吸蓝：`self.unitCondition.manaPercent: { lte: 40 }` 会替换默认的 `gte: 40`。
 
-> 现有条件结构见 [cast-condition.ts](src/vscripts/ai/action/cast-condition.ts) 的 `UnitCondition / AbilityCoindition / NumberRange`。
+> 现有条件结构见 [cast-condition.ts](../../../src/vscripts/ai/action/cast-condition.ts) 的 `UnitCondition / AbilityCoindition / NumberRange`。
 
 不要发明 `cast-condition.ts` 没有的字段；若用户的诉求超出现有条件能力（例如"距离敌方塔太近不施放"），告知用户当前框架不支持，需要扩展 dispatcher，不要自行加 spec 字段。
 
