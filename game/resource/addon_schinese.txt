@@ -956,7 +956,7 @@
 
 		// 龙骑 龙族血统
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2"								"龙族血统"
-		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_Description"					"神龙的生命之血提升了龙骑士的生命恢复和护甲。<br><br>在古龙形态下生命恢复和护甲均提升%regen_and_armor_multiplier_during_dragon_form%%%。"
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_Description"					"神龙的生命之血提升了龙骑士的生命恢复和护甲。"
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_armor"							"护甲提升："
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_health_regen"					"额外生命恢复："
 		// 黑暗贤者 才思敏捷

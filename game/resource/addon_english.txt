@@ -954,7 +954,7 @@
 
 		// 龙骑 龙族血统
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2"								"Dragon Blood"
-		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_Description"					"The life blood of the Dragon improves Dragon Knight's health regeneration and armor.  <br><br>Regen and armor are increased by %regen_and_armor_multiplier_during_dragon_form%%% during Elder Dragon Form."
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_Description"					"The life blood of the Dragon improves Dragon Knight's health regeneration and armor."
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_armor"							"BONUS ARMOR:"
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_health_regen"					"BONUS HP REGEN:"
 		// 黑暗贤者 才思敏捷
