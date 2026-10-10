@@ -7,6 +7,8 @@ import { ApiHtmlProxy } from '../api/api-html-proxy';
 import { ConductApi } from '../api/conduct';
 import { FeedbackApi } from '../api/feedback';
 import { FeedbackProxy } from '../api/feedback-proxy';
+import { PlayerStatsRadarApi } from '../api/player-stats-radar';
+import { PlayerStatsRadarProxy } from '../api/player-stats-radar-proxy';
 import { DailyTaskProxy } from '../api/daily-task-proxy';
 import { GameProbeProxy } from '../api/game-probe-proxy';
 import { GameEndProxy } from '../api/game-end-proxy';
@@ -79,6 +81,7 @@ export function ActivateModules() {
     new AlipayApi();
     new ConductApi();
     new FeedbackApi();
+    new PlayerStatsRadarApi();
 
     // 玩家语言统计：监听 player_language 事件，收到即发 GA4 并缓存供 mid-only-mode 查询
     new GA4PlayerLanguageTracker();
@@ -93,6 +96,7 @@ export function ActivateModules() {
     PlayerWriteProxy.Register();
     AlipayProxy.Register();
     FeedbackProxy.Register();
+    PlayerStatsRadarProxy.Register();
   }
 
   if (GameRules.AI == null) GameRules.AI = new AI();

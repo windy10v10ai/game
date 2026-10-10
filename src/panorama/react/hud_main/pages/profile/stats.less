@@ -122,8 +122,7 @@
   height: 100%;
   flow-children: down;
   margin-right: 36px;
-  /* 只有三行，比右栏矮很多；覆盖 .stats-container 的居中，改成贴顶对齐，
-     按钮才能落在紧跟着行为分下面的空白里，而不是被推到整块居中后的位置 */
+  // 覆盖 .stats-container 的居中，概览贴顶、按钮贴底
   vertical-align: top;
 }
 
@@ -133,12 +132,76 @@
   flow-children: down;
 }
 
-/* 概览三行占不满整栏高度，按钮落在左栏剩下的空白里，不额外撑高整个卡片 */
+/* 撑开概览与按钮之间的空白，按钮贴在栏底 */
+.stats-summary-spacer {
+  width: 100%;
+  height: fill-parent-flow(1);
+}
+
 .stats-history-btn {
   width: 200px;
   height: 40px;
-  margin-top: 8px;
+  horizontal-align: center;
   font-size: @font-size-sm;
+}
+
+.stats-radar-block {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.stats-radar-header {
+  flow-children: down;
+  margin-left: 8px;
+}
+
+.stats-radar-title {
+  color: @color-gold-muted;
+  font-size: @font-size-lg;
+  font-weight: bold;
+}
+
+.stats-radar-matches {
+  color: @color-text-muted;
+  font-size: @font-size-sm;
+}
+
+.stats-radar {
+  horizontal-align: center;
+}
+
+.stats-radar-axis {
+  flow-children: down;
+}
+
+.stats-radar-axis-name {
+  width: 100%;
+  color: @color-text-muted;
+  font-size: @font-size-sm;
+}
+
+.stats-radar-axis-value {
+  width: 100%;
+  color: @color-text;
+  font-size: @font-size-lg;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000000cc;
+}
+
+.stats-radar-axis-empty {
+  color: #ffffff55;
+}
+
+.stats-radar-center {
+  // 俄文提示比底板还宽，限宽折行
+  max-width: 170px;
+  horizontal-align: center;
+  text-align: center;
+  vertical-align: center;
+  color: @color-text;
+  font-size: @font-size-md;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000000cc;
 }
 
 .stat-row {

@@ -4,6 +4,7 @@ import { useNetTable } from '../../../../shared/hooks/useNetTable';
 import { formatStatNumberParts } from '../../../../shared/utils/format-stat-number';
 import { isMemberActive } from '../../../../shared/utils/member';
 import { GetLocalPlayerSteamAccountID, GetWebsiteProfileUrl } from '@utils/utils';
+import { RecentFormRadar } from './RecentFormRadar';
 
 const AVATAR_BORDER_GOLD =
   'url("s2r://panorama/images/custom_game/profile/avatar-square-gold-border.png")';
@@ -124,6 +125,8 @@ export function StatsTab() {
               onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
             />
           </Panel>
+          <RecentFormRadar />
+          <Panel className="stats-summary-spacer" />
           <PrimaryButton
             className="stats-history-btn"
             variant="ghost"
