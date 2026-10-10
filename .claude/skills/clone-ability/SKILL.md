@@ -7,13 +7,13 @@ description: 继承原版 Dota 技能做差分克隆（BaseClass = 原版技能�
 
 将原版 Dota 技能（先天或普通）克隆为自定义技能名，写入本图 KV 并补全本地化。
 
-> 参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」，技能系统名查找规则见 `.claude/CLAUDE.md`「Looking Up Vanilla Abilities」。
+> 参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」，技能系统名查找规则见 `AGENTS.md`「Looking Up Vanilla Abilities」。
 
 ---
 
 ## 第一步：解析技能输入
 
-按 `.claude/CLAUDE.md`「Looking Up Vanilla Abilities」规则处理（支持系统名 / 中文名 / 英雄名-技能名）。
+按 `AGENTS.md`「Looking Up Vanilla Abilities」规则处理（支持系统名 / 中文名 / 英雄名-技能名）。
 
 ---
 
