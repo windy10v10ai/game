@@ -25,10 +25,10 @@ const AXES: { key: Corner; deg: number; side: LabelSide }[] = [
 ];
 
 const WIDTH = 440;
-const HEIGHT = 290;
+const HEIGHT = 305;
 const CENTER_X = 220;
-const CENTER_Y = 142;
-const RADIUS = 105;
+const CENTER_Y = 152;
+const RADIUS = 115;
 const LABEL_WIDTH = 140;
 // 落后的玩家也要画得出形状，百分位 0 落在中心底的边上而不是圆心
 const FLOOR_RATIO = 0.2;
