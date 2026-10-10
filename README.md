@@ -150,8 +150,8 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 
 | Directory | Contents |
 |---|---|
-| `src/vscripts/` | Game logic in TypeScript, compiled to Lua in `game/scripts/vscripts/` (do not edit the output). Includes abilities, items, modifiers, modules, AI and API calls. |
-| `src/panorama/` | UI in React + TypeScript, built with webpack into `content/panorama/scripts/custom_game/` |
+| `src/vscripts/` | Game logic in TypeScript, compiled to Lua. Includes abilities, items, modifiers, modules, AI and API calls. |
+| `src/panorama/` | UI in React + TypeScript |
 | `src/common/` | Type declarations shared by VScripts and Panorama (net tables, custom events, DTOs) |
 | `src/scripts/` | Node helper scripts (launch, install, lint checks, bot analysis, ...) behind the `npm run` commands |
 | `game/` | Synced with `dota 2 beta/game/dota_addons/<addon>`: NPC KV files (`game/scripts/npc/`), localization (`game/resource/`), and compiled Lua |

@@ -149,8 +149,8 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 
 | 目录 | 内容 |
 |---|---|
-| `src/vscripts/` | 用 TypeScript 编写的游戏逻辑，编译为 Lua 输出到 `game/scripts/vscripts/`（不要手改输出）。包含技能、物品、modifier、模块、AI 和 API 调用 |
-| `src/panorama/` | 用 React + TypeScript 编写的 UI，由 webpack 构建到 `content/panorama/scripts/custom_game/` |
+| `src/vscripts/` | 用 TypeScript 编写的游戏逻辑，编译为 Lua。包含技能、物品、modifier、模块、AI 和 API 调用 |
+| `src/panorama/` | 用 React + TypeScript 编写的 UI |
 | `src/common/` | VScripts 与 Panorama 共用的类型声明（net tables、自定义事件、DTO） |
 | `src/scripts/` | `npm run` 命令背后的 node 辅助脚本（启动、安装、检查、bot 分析等） |
 | `game/` | 与 `dota 2 beta/game/dota_addons/<addon>` 同步：NPC KV 文件（`game/scripts/npc/`）、本地化文案（`game/resource/`）和编译后的 Lua |
