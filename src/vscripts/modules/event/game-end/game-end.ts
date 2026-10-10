@@ -36,16 +36,8 @@ export class GameEnd {
   }
 
   private static BuildGameEndDto(winnerTeamId: DotaTeam): GameEndDto {
-    const gameOptionsData = CustomNetTables.GetTableValue('game_options', 'game_options');
     const difficulty = CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty ?? 0;
-    const gameOptions: GameEndGameOptionsDto = {
-      multiplierRadiant: gameOptionsData.multiplier_radiant,
-      multiplierDire: gameOptionsData.multiplier_dire,
-      playerNumberRadiant: gameOptionsData.player_number_radiant,
-      playerNumberDire: gameOptionsData.player_number_dire,
-      towerPowerPct: gameOptionsData.tower_power_pct,
-      respawnTimePct: gameOptionsData.respawn_time_pct,
-    };
+    const gameOptions = this.BuildGameOptions()!;
 
     // 从号角吹响算起，与游戏内计时器、结算界面显示的时长一致，不含选人与准备阶段
     const dotaTime = GameRules.GetDOTATime(false, false);
@@ -182,8 +174,28 @@ export class GameEnd {
     return gameEndDto;
   }
 
+  /** 游戏选项，房主还没设置时为空 */
+  public static BuildGameOptions(): GameEndGameOptionsDto | undefined {
+    const gameOptionsData = CustomNetTables.GetTableValue('game_options', 'game_options');
+    if (!gameOptionsData) return undefined;
+    return {
+      multiplierRadiant: gameOptionsData.multiplier_radiant,
+      multiplierDire: gameOptionsData.multiplier_dire,
+      playerNumberRadiant: gameOptionsData.player_number_radiant,
+      playerNumberDire: gameOptionsData.player_number_dire,
+      towerPowerPct: gameOptionsData.tower_power_pct,
+      respawnTimePct: gameOptionsData.respawn_time_pct,
+    };
+  }
+
   /** 采集结算界面展示的出装与抽选技能 */
-  private static FillLoadout(playerDto: GameEndPlayerDto, hero: CDOTA_BaseNPC_Hero): void {
+  public static FillLoadout(
+    playerDto: Pick<
+      GameEndPlayerDto,
+      'steamId' | 'items' | 'neutralItem' | 'neutralPassiveItem' | 'abilities'
+    >,
+    hero: CDOTA_BaseNPC_Hero,
+  ): void {
     const items: string[] = [];
     for (let slot = 0; slot <= InventorySlot.SLOT_6; slot++) {
       items.push(this.GetItemName(hero, slot));

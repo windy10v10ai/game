@@ -498,6 +498,35 @@
 		"dailytask_task_hero_damage_taken"			"使用 {hero} 单局承受敌方英雄伤害达到 {target} 点"
 		"dailytask_task_hero_stun_duration"			"使用 {hero} 单局眩晕/缠绕敌方英雄时长达到 {target} 秒"
 
+		// 反馈
+		"profile_tab_feedback"							"反馈"
+		"feedback_open_button"							"反馈问题 / 建议"
+		"feedback_type_problem"							"报告问题"
+		"feedback_type_suggestion"						"提出建议"
+		"feedback_related_to"							"相关内容"
+		"feedback_up_to_two"							"最多 2 个"
+		"feedback_topic_hero"							"英雄"
+		"feedback_topic_ability"						"技能"
+		"feedback_topic_awaken"							"觉醒"
+		"feedback_topic_item"							"物品"
+		"feedback_topic_bot"							"电脑 AI"
+		"feedback_topic_balance"						"平衡"
+		"feedback_topic_ui"								"界面"
+		"feedback_topic_member"							"会员"
+		"feedback_topic_lag"							"卡顿 / 掉线"
+		"feedback_topic_launcher"					"启动器"
+		"feedback_description"							"描述"
+		"feedback_problem_cue"							"简单说说发生了什么，比如第几分钟，哪个英雄"
+		"feedback_suggestion_cue"						"说说你的想法，比如想加什么功能，哪里太强或太弱"
+		"feedback_game_state_hint"						"发送时会附带本局的英雄，出装和难度等信息"
+		"feedback_send"									"发送"
+		"feedback_sending"								"发送中…"
+		"feedback_resend"								"重新发送"
+		"feedback_failed"								"发送失败，请检查网络后再试一次。"
+		"feedback_too_many"								"反馈太频繁了，请过一会儿再试。"
+		"feedback_daily_limit"							"今天收到的反馈太多了，请明天再试。"
+		"feedback_thanks"								"已收到你的反馈，谢谢！"
+
 		///////////////////////////////////////////////////
 		//
 		//			战斗效果
