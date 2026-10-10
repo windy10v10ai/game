@@ -1,6 +1,6 @@
 # Windy10v10AI
 
-English | [简体中文](README_ZH.md)
+English | [简体中文](docs/README_ZH.md)
 
 This is a PVE Dota2 custom game project.<br>
 Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
