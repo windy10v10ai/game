@@ -147,13 +147,19 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 
 ## 文件夹内容说明
 
-- **[src/common]:** TypeScript .d.ts 类型声明文件，可在 Panorama 和 VScripts 之间共享
-- **[src/vscripts]:** 用来写 `tstl` 代码，lua 脚本会被编译到 `game/scripts/vscripts` 目录下
-  - **[src/vscripts/shared]:** 用来写 `panorama ts` 和 `tstl` 公用的声明，如 `custom_net_tables` 等
-- **[src/panorama]:** 用来写 panorama UI 的 TypeScript 代码，js 会被编译到 `content/panorama/scripts/custom_game`
-- **[src/scripts]:** 各种 node 脚本，用来完成各种辅助功能
-- **[game/*]:** 会和 `dota 2 beta/game/dota_addons/your_addon_name` 同步更新，包含 npc kv 文件和编译后的 lua 脚本等
-- **[content/*]:** 会和 `dota 2 beta/content/dota_addons/your_addon_name` 同步更新，包含脚本以外的 panorama 源文件（xml、css、编译后的 js）
+| 目录 | 内容 |
+|---|---|
+| `src/vscripts/` | 用 TypeScript 编写的游戏逻辑，编译为 Lua 输出到 `game/scripts/vscripts/`（不要手改输出）。包含技能、物品、modifier、模块、AI 和 API 调用 |
+| `src/panorama/` | 用 React + TypeScript 编写的 UI，由 webpack 构建到 `content/panorama/scripts/custom_game/` |
+| `src/common/` | VScripts 与 Panorama 共用的类型声明（net tables、自定义事件、DTO） |
+| `src/scripts/` | `npm run` 命令背后的 node 辅助脚本（启动、安装、检查、bot 分析等） |
+| `game/` | 与 `dota 2 beta/game/dota_addons/<addon>` 同步：NPC KV 文件（`game/scripts/npc/`）、本地化文案（`game/resource/`）和编译后的 Lua |
+| `content/` | 与 `dota 2 beta/content/dota_addons/<addon>` 同步：脚本以外的 Panorama 源文件（xml、less、图片）、地图、特效和音效 |
+| `assets/` | 可编辑的美术源文件（psd、sai2），仅作留存 |
+| `docs/` | 文档：各语言 README、数据流图（`drawio/`），以及需要自行解压的 Dota 2 原版参考文件（`reference/`，已被 git 忽略） |
+| `.claude/` | Claude Code 配置与项目 skill（见 [Claude Code](#claude-code可选)） |
+
+`src/vscripts/`、`src/panorama/`、`game/scripts/npc/`、`game/resource/` 下各有一个 `CLAUDE.md`，写明该层的规则。
 
 ### 数据流
 

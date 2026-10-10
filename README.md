@@ -148,13 +148,19 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 
 ## Project Structure
 
-- **[src/common]:** TypeScript .d.ts type declaration files with types that can be shared between Panorama and VScripts
-- **[src/vscripts]:** TypeScript code for Dota addon (Lua) vscripts. Compiles lua to game/scripts/vscripts.
-  - **[src/vscripts/shared]:** Declarations shared by `panorama ts` and `tstl`, such as `custom_net_tables`
-- **[src/panorama]:** TypeScript code for panorama UI. Compiles js to content/panorama/scripts/custom_game
-- **[src/scripts]:** Node scripts for various helper tasks
-- **[game/*]:** Dota game directory containing files such as npc kv files and compiled lua scripts. Synced with `dota 2 beta/game/dota_addons/your_addon_name`
-- **[content/*]:** Dota content directory containing panorama sources other than scripts (xml, css, compiled js). Synced with `dota 2 beta/content/dota_addons/your_addon_name`
+| Directory | Contents |
+|---|---|
+| `src/vscripts/` | Game logic in TypeScript, compiled to Lua in `game/scripts/vscripts/` (do not edit the output). Includes abilities, items, modifiers, modules, AI and API calls. |
+| `src/panorama/` | UI in React + TypeScript, built with webpack into `content/panorama/scripts/custom_game/` |
+| `src/common/` | Type declarations shared by VScripts and Panorama (net tables, custom events, DTOs) |
+| `src/scripts/` | Node helper scripts (launch, install, lint checks, bot analysis, ...) behind the `npm run` commands |
+| `game/` | Synced with `dota 2 beta/game/dota_addons/<addon>`: NPC KV files (`game/scripts/npc/`), localization (`game/resource/`), and compiled Lua |
+| `content/` | Synced with `dota 2 beta/content/dota_addons/<addon>`: Panorama sources other than scripts (xml, less, images), maps, particles and sounds |
+| `assets/` | Editable art sources (psd, sai2) kept for reference |
+| `docs/` | Documentation: language READMEs, the data flow diagram (`drawio/`), and vanilla Dota 2 reference files you extract yourself (`reference/`, git-ignored) |
+| `.claude/` | Claude Code configuration and project skills (see [Claude Code](#claude-code-optional)) |
+
+Each of `src/vscripts/`, `src/panorama/`, `game/scripts/npc/` and `game/resource/` has its own `CLAUDE.md` with the rules for that layer.
 
 ### Data Flow
 
