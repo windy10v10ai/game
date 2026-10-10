@@ -2,10 +2,18 @@
 
 Windy10v10AI is a PVE Dota 2 custom game: 10v10 matches against AI opponents with an ability lottery. Game logic (VScripts) is TypeScript compiled to Lua; the UI (Panorama) is React + TypeScript. Layers communicate through Custom Net Tables (two-way sync) and Custom Game Events (client → server); interfaces in `src/common/` are the contract between them.
 
+## Rules
+
+- Never hardcode, commit, or log secrets: server keys come from `GetDedicatedServerKeyV3` at runtime, GA4 credentials from the backend. `game/scripts/kv/` holds production player data with plaintext steamIds; never commit it or copy its contents into replies, PRs, or issues.
+- Never report an unrun or skipped check as passed; run checks after the last change.
+- When docs, config, code, and tests disagree, report the contradiction instead of choosing.
+
 ## Language
 
 - Code, code comments, and commit messages are in English, whatever language the conversation uses. Translate non-English comments you touch to English.
 - Technical terms, API names, and function names keep their original English form in any language.
+- Agent-facing files (`AGENTS.md`, `CLAUDE.md`, skills, `.claude/docs/`) are in English.
+- Human docs (`README.md`, `.github/CONTRIBUTING.md`) have English, Chinese, and Russian versions; change this only when the user asks.
 
 ## Reply Style
 
@@ -29,9 +37,12 @@ These have their own conventions, which win on conflict:
 
 - Code must be on the same drive partition as Dota 2; `npm install` links `game/` and `content/` into the Dota 2 addon folder.
 - Run `npm run build:panorama` and `npm run build:vscripts` before committing to catch compile errors.
+- Fastest checks while working: `npx jest <test-file>`, `npx eslint <files>`, `npx tsc --noEmit -p src/vscripts/tsconfig.json`. Panorama has no standalone type check; use `npm run build:panorama`.
 - TypeScript files use LF line endings, not CRLF.
 
 ## Directory Map
+
+Read a directory's `CLAUDE.md` before reading or writing files there; Claude Code loads it automatically.
 
 - `src/`: cross-layer contract, shared types, Net Table / Custom Event data flow → `src/CLAUDE.md`
 - `src/vscripts/`: game logic, module singletons, AI, API calls, jest tests, TSTL pitfalls → `src/vscripts/CLAUDE.md`
@@ -51,6 +62,10 @@ When the user names a Dota ability or hero, or when writing ability/item tooltip
 
 ## Implementation Style
 
+- Make the smallest correct change. Prefer, in order: no change, existing code, the standard library, an installed dependency, new code. Stay in scope.
+- Read narrowly: focused search, bounded reads, `git diff --stat` before diffs, quiet test output.
+- Never read or search `node_modules/`, `package-lock.json`, `game/scripts/kv/`, or the Panorama, React, and TSTL build output listed in `.gitignore`.
+- Do not create plan, summary, or notes files unless the user asks or a skill requires one.
 - Reuse a string event instead of adding a new custom event.
 - Name boolean methods with common, direct verbs; avoid abstract words and context the owning class or file already expresses (`CanCast`, not `IsEligible` or `CanUseGenericFallback`).
 - When several places need the same logic, especially calculations that must stay consistent, extract a shared function; separate copies drift when only one gets edited.
