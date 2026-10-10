@@ -9,9 +9,10 @@ import { AwakenTab } from './tabs/AwakenTab';
 import { MemberTab } from './tabs/member';
 import { MemberSubTab } from './tabs/member/constants';
 import { DailyTaskTab } from './tabs/dailytask';
+import { FeedbackTab } from './tabs/FeedbackTab';
 import { OfflineHint } from './OfflineHint';
 
-export type ProfileTabId = 'stats' | 'awaken' | 'member' | 'dailytask';
+export type ProfileTabId = 'stats' | 'awaken' | 'member' | 'dailytask' | 'feedback';
 
 interface ProfilePageProps {
   // 支持 'tab' 或 'tab:subTab'（如 'member:points'）定位到一级 tab 内的子页
@@ -23,6 +24,7 @@ const PROFILE_TABS: { id: ProfileTabId; label: string }[] = [
   { id: 'awaken', label: $.Localize('#profile_tab_awaken') },
   { id: 'member', label: $.Localize('#profile_tab_member') },
   { id: 'dailytask', label: $.Localize('#profile_tab_dailytask') },
+  { id: 'feedback', label: $.Localize('#profile_tab_feedback') },
 ];
 
 export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
@@ -132,6 +134,7 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
             <MemberTab initialSubTab={subTab as MemberSubTab | undefined} />
           )}
           {activeTab === 'dailytask' && <DailyTaskTab />}
+          {activeTab === 'feedback' && <FeedbackTab />}
         </Panel>
       </Panel>
     </Panel>

@@ -195,7 +195,8 @@ export class TeamBrain {
   private readonly buildingHealth = new Map<EntityIndex, { time: number; health: number }[]>();
   private outerTowers = -1;
   private enemyOuterTowers = -1;
-  private outerTowerFellAt = -Infinity;
+  private enemyLaneBuildings = -1;
+  private laneBuildingFellAt = -Infinity;
   private fights: FightView[] = [];
   // 每路敌方最前面还没推掉的建筑，按己方视角的前进距离记
   private readonly fronts = new Map<Lane, number>();
@@ -386,13 +387,19 @@ export class TeamBrain {
     const enemyOuter = buildings.filter(
       (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 2,
     ).length;
-    if (enemyOuter < this.enemyOuterTowers) {
-      this.outerTowerFellAt = now;
+    const enemyLane = buildings.filter(
+      (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 4,
+    ).length;
+    if (enemyLane < this.enemyLaneBuildings) {
+      this.laneBuildingFellAt = now;
       if (IS_DEBUG_RUN) {
         const time = Math.floor(GameRules.GetDOTATime(false, true));
-        print(`[bot-ai] team=${this.team} t=${time} outer-tower-fell left=${enemyOuter}`);
+        print(
+          `[bot-ai] team=${this.team} t=${time} building-fell left=${enemyLane} outer=${enemyOuter}`,
+        );
       }
     }
+    this.enemyLaneBuildings = enemyLane;
     this.enemyOuterTowers = enemyOuter;
     const roshan = FindRoshan();
     const squadBefore = this.RoshanSquad();
@@ -401,9 +408,8 @@ export class TeamBrain {
       enemyPower: enemyStrength,
       groupPush: this.groupPush?.activeSince !== undefined,
       teamStrength: this.TeamStrength(),
-      siege: this.siege,
       outerTowersLeft: enemyOuter > 0,
-      outerTowerFellAt: this.outerTowerFellAt,
+      laneBuildingFellAt: this.laneBuildingFellAt,
       roshanSquad: squadBefore,
       avoided: this.avoided.map((entry) => entry.pos),
       resting,
@@ -847,6 +853,7 @@ export class TeamBrain {
    */
   private CanDiveAt(pos: Vector, enemies: CDOTA_BaseNPC[], allies: CDOTA_BaseNPC_Hero[]): boolean {
     let towerDps = 0;
+    let highGroundOnly = true;
     for (const unit of CachedBuildings()) {
       if (
         unit.GetTeamNumber() === this.enemyTeam &&
@@ -854,7 +861,12 @@ export class TeamBrain {
         distance(unit.GetAbsOrigin(), pos) <= TowerAttackRange(unit) + FIGHT_TOWER_MARGIN
       ) {
         towerDps += damagePerSecond(UnitStats(unit));
+        highGroundOnly = highGroundOnly && BuildingTier(unit.GetUnitName()) === 3;
       }
+    }
+    // 外塔推完后高地塔下敢越，玩家守塔才有反杀的机会；四塔与基地仍要抢在塔前打死人，不追进泉水
+    if (this.enemyOuterTowers === 0 && towerDps > 0 && highGroundOnly) {
+      return true;
     }
     const divers = allies.filter(
       (ally) =>
