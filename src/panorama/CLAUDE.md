@@ -81,6 +81,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **`@keyframes` 不能写在 `@import` 进来的页面/组件 less 里（如 `hud_main/pages/*/*.less`）**: webpack `additionalData` 会给 keyframe 名加 Valve 必需的引号（`@keyframes 'Name'`），但**只作用于 layout.xml 直接引用的那个 styles.less**；`@import` 进来的子 less 内容由 less 编译器后续合并，拿不到这层转换，keyframe 名未加引号被 Valve 拒绝，**导致整张 styles.css 解析失败、该页所有样式丢失**（图标变紫块等）。hud_lottery 的 keyframe 能用是因为它写在 entry 直载的 `styles.less` 里。**结论：hud_main 页面的动画一律用 JS 驱动**（如 `$.Schedule` 定时改 prop），不要在页面 less 写 `@keyframes`。另注：`transform`/`scale3d` 等属性 Panorama 本就不支持，更不能用
 - **`TextEntry` 的 `placeholder` `multiline` `maxchars` 只在创建时生效**：react-panorama-x 把它们标为 initial，渲染后改值会抛错，整个 hud_main 跟着崩（按钮栏入口一起消失）。要随状态变的，给 `TextEntry` 换 `key` 让它重建
 - **`TextEntry` 用 ref 写入初值，不用 `text` 属性受控**：每次渲染回写会打断输入法组字。代码改 `text` 也会触发 `ontextentrychange`，回调里要分清是不是玩家在输入
+- **画图形用 `<GenericPanel type="UICanvas">`，脚本只开放 `ClearJS` 与 `DrawSoftLinePointsJS`**：没有多边形填充，填充用逐行 1px 横线铺满（参考 `pages/profile/tabs/RecentFormRadar.tsx`）。多于两个点的折线一次画会整体错位，描边要逐段画两点线。`ClearJS` 只传全透明色
 
 ## 构建
 
