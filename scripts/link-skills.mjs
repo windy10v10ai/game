@@ -1,14 +1,14 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'node:fs';
+import path from 'node:path';
 
-const root = path.resolve(__dirname, '..');
+const root = path.resolve(import.meta.dirname, '..');
 const source = path.join(root, '.agents', 'skills');
 const link = path.join(root, '.claude', 'skills');
 const args = process.argv.slice(2);
 
 try {
   if (args.some((arg) => arg !== '--junction') || args.length > 1) {
-    throw new Error('Usage: node scripts/link-skills.js [--junction]');
+    throw new Error('Usage: node scripts/link-skills.mjs [--junction]');
   }
   const junction = args.includes('--junction');
   if (junction && process.platform !== 'win32') {
@@ -42,7 +42,7 @@ try {
   console.error(error.message);
   if (process.platform === 'win32' && ['EPERM', 'EACCES'].includes(error.code)) {
     console.error(
-      'Enable Windows Developer Mode or run with symlink privileges, then retry. Alternatively, explicitly use: node scripts/link-skills.js --junction',
+      'Enable Windows Developer Mode or run with symlink privileges, then retry. Alternatively, explicitly use: node scripts/link-skills.mjs --junction',
     );
   }
   process.exitCode = 1;

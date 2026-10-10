@@ -5,14 +5,14 @@ ignored by Git, so the repository never stores a second copy or a machine-specif
 After cloning or moving the checkout, create the link from the repository root:
 
 ```text
-node scripts/link-skills.js
+node scripts/link-skills.mjs
 ```
 
 This creates a relative symlink. Windows requires Developer Mode or symlink privileges.
 When those are unavailable, explicitly choose a local junction:
 
 ```text
-node scripts/link-skills.js --junction
+node scripts/link-skills.mjs --junction
 ```
 
 Junctions use an absolute target; recreate the link if the checkout is moved. The script refuses
