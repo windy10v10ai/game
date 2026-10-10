@@ -70,12 +70,17 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 2. 通过 `GameEvents.SendCustomGameEventToServer()` 发送服务端事件；UI 间通信用 `GameEvents.SendEventClientSide()`
 3. **HUD 左右自适应用纯 CSS**：玩家开启翻转 HUD（小地图从左换到右）时，Dota 会在 HUD 根节点挂 `HUDFlipped` class。自定义 layout 都挂在 `Hud` 之下，用后代选择器 `.HUDFlipped .xxx { horizontal-align: right; }` 即可跟随，不需要 JS，也不用监听 `hud_flip_changed`，玩家中途改设置自动生效。参考 `content/panorama/layout/custom_game/eyeherodemo/eyeherodemo.css` 的 `.ControlPanel`
 4. 引用图片用 `file://{images}/custom_game/<module>/<file>.png`；新增图片走 `add-image` skill（漏登记 xml 会变紫块）
+5. **新界面先出设计稿，用户确认后再写代码**：设计稿以实机截图为底图、用仓库里的真实图标，只替换要改的区域，配色取 `shared/styles/tokens.less`。凭印象画的示意图对不上游戏画面，会被打回重做
+6. **个人主页弹窗的底色是半透明的**：tab 内容放在 `.stats-card` 深色卡片上，直接铺在弹窗上会被游戏画面透出来干扰阅读
+7. 左上角按钮栏的入口在 `components/ButtonBarEntries.tsx` 的列表里加一项，列表先后即按钮栏先后
 
 ## 常见陷阱
 
 - **Webpack 缓存**: 如果构建输出看起来过时，删除 `node_modules/.cache`
 - **React Panorama 条件返回不同 panel 结构会渲染失败**: 在 React 组件中根据状态返回**完全不同的 JSX 结构**（例如 `if (empty) return <Panel collapse />; return <Panel>...复杂子树...</Panel>;`）会导致 panel 在 Panorama DOM 中始终缺失。改为**始终渲染同一 panel 树**，用 `style={{ visibility: cond ? 'visible' : 'collapse' }}` 切换显隐
 - **`@keyframes` 不能写在 `@import` 进来的页面/组件 less 里（如 `hud_main/pages/*/*.less`）**: webpack `additionalData` 会给 keyframe 名加 Valve 必需的引号（`@keyframes 'Name'`），但**只作用于 layout.xml 直接引用的那个 styles.less**；`@import` 进来的子 less 内容由 less 编译器后续合并，拿不到这层转换，keyframe 名未加引号被 Valve 拒绝，**导致整张 styles.css 解析失败、该页所有样式丢失**（图标变紫块等）。hud_lottery 的 keyframe 能用是因为它写在 entry 直载的 `styles.less` 里。**结论：hud_main 页面的动画一律用 JS 驱动**（如 `$.Schedule` 定时改 prop），不要在页面 less 写 `@keyframes`。另注：`transform`/`scale3d` 等属性 Panorama 本就不支持，更不能用
+- **`TextEntry` 的 `placeholder` `multiline` `maxchars` 只在创建时生效**：react-panorama-x 把它们标为 initial，渲染后改值会抛错，整个 hud_main 跟着崩（按钮栏入口一起消失）。要随状态变的，给 `TextEntry` 换 `key` 让它重建
+- **`TextEntry` 用 ref 写入初值，不用 `text` 属性受控**：每次渲染回写会打断输入法组字。代码改 `text` 也会触发 `ontextentrychange`，回调里要分清是不是玩家在输入
 
 ## 构建
 
