@@ -99,6 +99,7 @@ tinker_rearm_lua.AbitilyException = {
 	["terrorblade_reflection"] = true,
 	["hoodwink_decoy"] = true,
 	["grimstroke_dark_portrait"] = true,
+	["skeleton_king_reincarnation"] = true,
 	-- 额外眼：rearm 刷新会重置守卫充能与 CD，导致无限真假眼
 	["ability_ward_observer_slot"] = true,
 	["ability_ward_sentry_slot"] = true,
