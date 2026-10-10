@@ -5,7 +5,7 @@
 这是一个 PVE Dota2 自定义游戏项目。<br>
 游戏发布在 Steam 创意工坊：[10v10 AI custom by windy](https://steamcommunity.com/sharedfiles/filedetails/?id=2307479570)
 
-## 📊 Project Status
+## 📊 项目状态
 
 [![Build Status](https://github.com/windy10v10ai/game/actions/workflows/test.yml/badge.svg)](https://github.com/windy10v10ai/game/actions/workflows/test.yml)
 [![](https://img.shields.io/github/release/windy10v10ai/game)](https://github.com/windy10v10ai/game/releases)
@@ -21,12 +21,12 @@
 [![GitHub stars](https://img.shields.io/github/stars/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/network)
 
-## License
+## 许可证
 
 本项目采用 **GNU GPL v3** 协议（见 [`LICENSE`](LICENSE)），并附带 Steam/创意工坊
 分发例外，相关说明及此前 MIT 版本的处理见 [`LICENSE.EXCEPTIONS.md`](LICENSE.EXCEPTIONS.md)。
 
-## Contributors
+## 贡献者
 
 [![Contributors](https://contrib.rocks/image?repo=windy10v10ai/game)](https://github.com/windy10v10ai/game)
 
@@ -169,7 +169,7 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 - [TypeScript for Panorama](https://moddota.com/panorama/introduction-to-panorama-ui-with-typescript)
 - [React in Panorama 教程](https://moddota.com/panorama/react)
 
-# Activity
+## 项目活动
 
 ![Alt](https://repobeats.axiom.co/api/embed/9528af5cb8e8d8b5f560ac532a775439dcf11b57.svg "Repobeats analytics image")
 

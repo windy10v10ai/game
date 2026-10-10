@@ -170,7 +170,7 @@ This project is based on the ModDota template and x-template.
 - [TypeScript for Panorama](https://moddota.com/panorama/introduction-to-panorama-ui-with-typescript)
 - [React in Panorama tutorial](https://moddota.com/panorama/react)
 
-# Activity
+## Activity
 
 ![Alt](https://repobeats.axiom.co/api/embed/9528af5cb8e8d8b5f560ac532a775439dcf11b57.svg "Repobeats analytics image")
 
