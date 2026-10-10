@@ -39,6 +39,9 @@ interface CustomGameEventDeclarations {
 
   player_conduct: PlayerConductEventData;
 
+  feedback_submit: FeedbackSubmitEventData;
+  feedback_result: FeedbackResultEventData;
+
   debug_panel_add_to_unit: DebugPanelAddToUnitEventData;
 
   dailytask_select_candidate: DailyTaskSelectCandidateEventData;
@@ -54,6 +57,19 @@ interface CustomGameEventDeclarations {
 
 interface CustomGameEventDataBase {
   PlayerID: PlayerID;
+}
+
+interface FeedbackSubmitEventData {
+  type: 'problem' | 'suggestion';
+  /** 逗号拼接：数组过事件会变成以下标为键的对象 */
+  topics: string;
+  description: string;
+}
+
+type FeedbackResult = 'sent' | 'failed' | 'too_many_reports' | 'daily_limit_reached';
+
+interface FeedbackResultEventData {
+  result: FeedbackResult;
 }
 
 interface ChooseDifficultyEventData {

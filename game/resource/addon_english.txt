@@ -498,6 +498,35 @@
 		"dailytask_task_hero_damage_taken"			"Take {target} damage from enemy heroes this match as {hero}"
 		"dailytask_task_hero_stun_duration"			"Stun or root enemy heroes for {target} seconds this match as {hero}"
 
+		// 反馈
+		"profile_tab_feedback"							"Feedback"
+		"feedback_open_button"							"Report / Suggest"
+		"feedback_type_problem"							"Report a problem"
+		"feedback_type_suggestion"						"Suggest an idea"
+		"feedback_related_to"							"Related to"
+		"feedback_up_to_two"							"Up to 2"
+		"feedback_topic_hero"							"Hero"
+		"feedback_topic_ability"						"Ability"
+		"feedback_topic_awaken"							"Awakening"
+		"feedback_topic_item"							"Item"
+		"feedback_topic_bot"							"Bot AI"
+		"feedback_topic_balance"						"Balance"
+		"feedback_topic_ui"								"UI"
+		"feedback_topic_member"							"Membership"
+		"feedback_topic_lag"							"Lag / Disconnect"
+		"feedback_topic_game"							"Game"
+		"feedback_description"							"Description"
+		"feedback_problem_cue"							"Briefly say what happened, e.g. which minute or which hero"
+		"feedback_suggestion_cue"						"Tell us your idea, e.g. a feature you want or something too strong or too weak"
+		"feedback_game_state_hint"						"Your hero, items, difficulty and other game info are sent along"
+		"feedback_send"									"Send"
+		"feedback_sending"								"Sending..."
+		"feedback_resend"								"Send again"
+		"feedback_failed"								"Could not send. Check your network and try again."
+		"feedback_too_many"								"Too many reports. Please try again in a while."
+		"feedback_daily_limit"							"We received too many reports today. Please try again tomorrow."
+		"feedback_thanks"								"Feedback received, thank you!"
+
 		///////////////////////////////////////////////////
 		//
 		//			战斗效果

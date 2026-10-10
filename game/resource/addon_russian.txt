@@ -498,6 +498,35 @@
 		"dailytask_task_hero_damage_taken"			"Играя за {hero}, получите урон от вражеских героев: {target}"
 		"dailytask_task_hero_stun_duration"			"Играя за {hero}, оглушайте или обездвиживайте вражеских героев в течение {target} сек."
 
+		// 反馈
+		"profile_tab_feedback"							"Отзыв"
+		"feedback_open_button"							"Отзыв"
+		"feedback_type_problem"							"Сообщить о проблеме"
+		"feedback_type_suggestion"						"Предложить идею"
+		"feedback_related_to"							"Касается"
+		"feedback_up_to_two"							"Не больше 2"
+		"feedback_topic_hero"							"Герой"
+		"feedback_topic_ability"						"Способность"
+		"feedback_topic_awaken"							"Пробуждение"
+		"feedback_topic_item"							"Предмет"
+		"feedback_topic_bot"							"ИИ ботов"
+		"feedback_topic_balance"						"Баланс"
+		"feedback_topic_ui"								"Интерфейс"
+		"feedback_topic_member"							"Подписка"
+		"feedback_topic_lag"							"Лаги / вылеты"
+		"feedback_topic_game"							"Игра"
+		"feedback_description"							"Описание"
+		"feedback_problem_cue"							"Кратко опишите, что случилось: например, на какой минуте или какой герой"
+		"feedback_suggestion_cue"						"Расскажите, что думаете: например, какую функцию добавить или что слишком сильное или слабое"
+		"feedback_game_state_hint"						"Вместе с отзывом отправятся герой, предметы, сложность и другие данные игры"
+		"feedback_send"									"Отправить"
+		"feedback_sending"								"Отправка…"
+		"feedback_resend"								"Отправить снова"
+		"feedback_failed"								"Не удалось отправить. Проверьте сеть и попробуйте снова."
+		"feedback_too_many"								"Слишком много отзывов. Попробуйте чуть позже."
+		"feedback_daily_limit"							"Сегодня пришло слишком много отзывов. Попробуйте завтра."
+		"feedback_thanks"								"Отзыв получен, спасибо!"
+
 		///////////////////////////////////////////////////
 		//
 		//			战斗效果
