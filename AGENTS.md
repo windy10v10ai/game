@@ -56,18 +56,7 @@ The only global pitfall: TypeScript files use LF (Unix) line endings, not CRLF (
 
 ## Looking Up Vanilla Abilities
 
-When the user gives an ability system name (e.g. `dragon_knight_dragon_blood`), use it directly. `<version>` is the latest version directory under `docs/reference/` (including the letter suffix, e.g. `7.41f`); the file layout is described in `game/scripts/npc/CLAUDE.md`, section "原版 KV 参考".
-
-When given a Chinese name (e.g. 「龙血」) or hero name–ability name (e.g. 「幻影刺客-幻影之矛」), search the Chinese name in `abilities_schinese.txt` and extract the system name from the matching line's key (`DOTA_Tooltip_ability_{system_name}`). If there are multiple candidates, ask the user to confirm with `AskUserQuestion`.
-
-When given a hero name, locate the hero ID from file names under `heroes/` or from `abilities_schinese.txt`, then read the ability slots from `heroes/npc_dota_hero_<hero>.txt`.
-
-When writing custom ability/item tooltips, refer to the official text to keep terminology consistent:
-
-```bash
-grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/abilities_schinese.txt
-grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/abilities_english.txt
-```
+When the user names a Dota ability or hero, or when writing ability/item tooltips, read `.claude/docs/vanilla-abilities.md` first.
 
 ## Implementation Style
 
@@ -116,18 +105,7 @@ Design documents go in `docs/superpowers/specs/<YYYY-MM-DD>-<topic>-<purpose>.md
 
 The document above is a working draft that nobody reads after the session ends. Design reasoning and decisions worth keeping must also be written into version control: module-level ones go in that module's `README.md` (e.g. `src/vscripts/api/README.md`, `src/vscripts/ai/build-item/README.md`); ones affecting only one or two spots become code comments.
 
-Issues only track the overall goal, shared conventions, progress, and verification results — no specific files, key lists, implementation steps, or design details. The implementation process stays in the local spec; long-lived constraints live in the nearest document next to the code. When a relevant document exists under version control, the issue links to it.
-
-A module `README.md` is a framework document: it describes what the system looks like now, why it is built this way, and what was given up. It is maintained long-term.
-
-- Write for the reader, as short as possible. Directories aimed at players or external readers only say what it does, how to use it, and how to build and release it — no design trade-offs
-- Only record key decisions the user signed off on. Details the AI chose during implementation that may change later (timeouts, retry intervals, text placement, etc.) are not written, and must not be presented as the user's decisions
-- Do not organize by phase or batch. Ask of each paragraph: "will this become invalid once some phase is done?" — anything that will (phase breakdown, progress, files changed in this phase, debugging process and evidence, measured numbers) goes in the issue, PR, or local spec, not the README
-- Do not restate what is already implemented; the code is the source of truth. Call chains, constant names and values, what a function does, how fields are assembled — read them from the code; copying them into docs only makes the docs go stale first (same rule as "Comment Conventions"). The README keeps only what the code cannot tell you: constraints, decisions, and their reasons
-- One sentence of reasoning per decision. When a rejected option is worth mentioning, add half a sentence in the reasoning: "did not pick X because Y"; comparison tables and trial calculations stay in the PR
-- Update only when a decision changes, not when a phase completes. If a change adds or overturns a long-lived decision, update the README in the same PR without waiting to be asked; if it merely wires one more spot under an existing decision, leave the README alone
-
-Deciding whether a sentence goes in the README or `CLAUDE.md`: if violating it means "this change was done wrong", it goes in the relevant directory's `CLAUDE.md`; if it means "the system's structure changed", it goes in the README.
+Before writing a module `README.md` or an issue, or deciding whether a rule goes in a README or a `CLAUDE.md`, read `.claude/docs/readme-and-issues.md`.
 
 ## Git Workflow
 
@@ -139,45 +117,9 @@ Deciding whether a sentence goes in the README or `CLAUDE.md`: if violating it m
 - When on an old branch that was already merged, verify the PR is merged, the local HEAD matches the PR's last commit, and there are no uncommitted changes; then switch back to `develop`, delete the old local branch, and create the new one. A remote shown as `gone` does not mean merged; after a squash merge, `git branch --merged` may also not list the old branch
 - Use a worktree for isolation only when the current checkout has uncommitted changes, an unmerged branch is still in use, or several sessions genuinely share this checkout; never switch a checkout or branch another session is using
 
-### Commits and PRs
+### Commits, PRs, and Merging
 
-- The PR base branch is always `develop`; titles are in English by default. For purely internal changes (refactoring, build, CI, docs, tests) decide on your own to skip the Release Note, without asking or checking the version number; otherwise ask the user to choose "patch / major version / no Release Note". When one is needed it must be generated with the `release-note` skill, never written by hand
-- Write `Fixes #<issue-id>` in the Issue section only when the PR completes the entire scope of the issue, so merging closes it automatically; when an issue is split across several PRs, each PR only references `#<issue-id>`, and only the last PR that completes the full scope uses `Fixes`
-- Commit format: a short single-line title (≤72 characters) + a body containing only `Co-Authored-By`
-- The whole `docs/superpowers/` directory is excluded by `.gitignore`; spec documents produced by the brainstorming skill are kept locally only, not under version control — do not try to `git add` them
-
-Only stage files clearly related to the current request; check `git status` before committing and do not include changes from other sessions or the user's own work. No need to list them for the user to confirm one by one. But if the current branch is not what you expect before committing (e.g. you should be on a feature branch but are on `develop`/`main`), ask the user to confirm the target branch first.
-
-### Riding Along Small Changes
-
-When you have an unmerged PR in hand, small changes like doc wording, comments, or convention additions go straight into it instead of opening a PR for each, with one sentence noting it in the PR body. Open a separate branch if any of these holds:
-
-- It conflicts with the current PR's topic
-- The current PR is already merged
-- It cannot be explained in a sentence or two
-
-With no open PR, hold them until the next PR; only open a separate one when the change is time-sensitive (blocking others, a live issue).
-
-### Merging and Cleanup
-
-Execute merges directly when the user gives a merge instruction; never merge on your own initiative:
-
-- `feature` / `fix` / `chore` / `docs` → `develop`: `gh pr merge <number> --squash`
-- `develop` → `main` (release PR): `gh pr merge <number> --merge`
-
-Add `--auto` when CI has not finished; never use `--admin` to bypass branch protection.
-
-Clean up the local branch immediately after merging; remote branches are deleted automatically by repository settings. Git does not recognize squash-merged branches as merged, so `-D` is required:
-
-```bash
-git checkout develop
-git pull
-git branch -D <branch-name>
-```
-
-If the branch is in a worktree, first `git worktree remove <path> --force`, then delete the branch, then `git worktree prune`.
-
-For the full flow (branch creation, commit, push, filling in the PR template) see the `create-pr` skill.
+Before committing, opening a PR, or merging, read `.claude/docs/commits-and-prs.md`.
 
 ## Documentation Self-Maintenance
 
