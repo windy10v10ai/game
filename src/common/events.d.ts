@@ -42,6 +42,9 @@ interface CustomGameEventDeclarations {
   feedback_submit: FeedbackSubmitEventData;
   feedback_result: FeedbackResultEventData;
 
+  player_stats_radar_request: Record<string, never>;
+  player_stats_radar_result: PlayerStatsRadarResultEventData;
+
   debug_panel_add_to_unit: DebugPanelAddToUnitEventData;
 
   dailytask_select_candidate: DailyTaskSelectCandidateEventData;
@@ -70,6 +73,28 @@ type FeedbackResult = 'sent' | 'failed' | 'too_many_reports' | 'daily_limit_reac
 
 interface FeedbackResultEventData {
   result: FeedbackResult;
+}
+
+/** 各项是近期各局在同难度玩家中百分位的平均，0–100，越大越好 */
+interface PlayerStatsRadar {
+  damage: number;
+  gold: number;
+  participation: number;
+  push: number;
+  /** 已反过来算，死得越少越高 */
+  deaths: number;
+  tank: number;
+  healing: number;
+  assists: number;
+  stuns: number;
+}
+
+interface PlayerStatsRadarResultEventData {
+  status: 'ready' | 'failed';
+  matchCount: number;
+  minMatchCount: number;
+  /** 局数不够或还没有基准时没有 */
+  radar?: PlayerStatsRadar;
 }
 
 interface ChooseDifficultyEventData {

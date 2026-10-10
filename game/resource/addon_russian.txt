@@ -376,6 +376,17 @@
 		"profile_stat_history_button"		"История матчей"
 		"profile_stat_conduct_tooltip"	"Очки поведения отражают ваши действия в игре. Начальное значение — 100, максимум — 120.<br><br><b>Изменение очков</b><br>• Завершение игры: <font color='#7FD47F'>+1</font> (только до 100)<br>• Ранний выход: <font color='#E87D7D'>-10</font> (не учитывается в одиночной игре или при выходе всех игроков)<br>• Похвала: <font color='#7FD47F'>+2</font> / жалоба: <font color='#E87D7D'>-2</font> (один игрок учитывается не чаще раза в неделю)<br><br><b>Множитель очков за матч</b> (только командные игры)<br>• <font color='#7FD47F'>≥110</font>: ×1.1<br>• 80–109: ×1.0<br>• <font color='#F5A623'>60–79</font>: ×0.8<br>• <font color='#E87D7D'>&lt;60</font>: ×0.5"
 		"profile_stat_conduct_net_tooltip"	"Всего похвал минус всего жалоб"
+		"profile_radar_title"				"Текущая форма"
+		"profile_radar_matches"				"Матчей: {n}"
+		"profile_radar_need_more"			"Ещё матчей до открытия: {n}"
+		"profile_radar_failed"				"Данные сейчас недоступны"
+		"profile_radar_loading"				"Загрузка данных…"
+		"profile_radar_axis_damage"			"Урон"
+		"profile_radar_axis_participation"	"Бои"
+		"profile_radar_axis_gold"			"Фарм"
+		"profile_radar_axis_push"			"Пуш"
+		"profile_radar_axis_survival"		"Выживание"
+		"profile_radar_axis_support"		"Поддержка"
 
 		// 会员
 		"member_button_tooltip_active"		"Подписка действует. Нажмите, чтобы посмотреть подробности"

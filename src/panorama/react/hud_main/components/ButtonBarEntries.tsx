@@ -28,8 +28,8 @@ export function ButtonBarEntries() {
         icon={PROFILE_ICON}
         tooltip={$.Localize('#profile_title')}
         showInHeroSelect={true}
-        // 每日任务候选在选英雄阶段就已下发，此时直接打开每日任务
-        onActivate={() => toggleProfile(heroSelect ? 'dailytask' : 'awaken')}
+        // 选英雄阶段先看觉醒；每日任务在选英雄界面上已有单独的选择面板
+        onActivate={() => toggleProfile(heroSelect ? 'awaken' : 'stats')}
       />
       <ButtonBarEntry
         id="memberButton"

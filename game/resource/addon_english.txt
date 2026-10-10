@@ -376,6 +376,17 @@
 		"profile_stat_history_button"		"Match History"
 		"profile_stat_conduct_tooltip"	"Conduct Score reflects your in-game behavior. Default 100, cap 120.<br><br><b>Score changes</b><br>• Finish a game: <font color='#7FD47F'>+1</font> (only below 100)<br>• Early disconnect: <font color='#E87D7D'>-10</font> (solo / all quit doesn't count)<br>• Commended <font color='#7FD47F'>+2</font> / Reported <font color='#E87D7D'>-2</font> (same player counts at most once per week)<br><br><b>End-game points multiplier</b> (team games only)<br>• <font color='#7FD47F'>≥110</font>: ×1.1<br>• 80–109: ×1.0<br>• <font color='#F5A623'>60–79</font>: ×0.8<br>• <font color='#E87D7D'>&lt;60</font>: ×0.5"
 		"profile_stat_conduct_net_tooltip"	"Total Commends minus Total Reports"
+		"profile_radar_title"				"Recent Form"
+		"profile_radar_matches"				"Last {n} matches"
+		"profile_radar_need_more"			"Play {n} more to unlock"
+		"profile_radar_failed"				"Data unavailable right now"
+		"profile_radar_loading"				"Loading data…"
+		"profile_radar_axis_damage"			"Damage"
+		"profile_radar_axis_participation"	"Fights"
+		"profile_radar_axis_gold"			"Farm"
+		"profile_radar_axis_push"			"Push"
+		"profile_radar_axis_survival"		"Survival"
+		"profile_radar_axis_support"		"Support"
 
 		// 会员
 		"member_button_tooltip_active"		"Membership enable. Click to view details."
