@@ -13,7 +13,7 @@ description: 创建功能分支、commit、push 并发起 Pull Request。触发�
 
 - issue 驱动：`feature/{issue-number}-{branch-name}`，如 `feature/123-add-new-hero-ai`
 - 非 issue 驱动：按改动性质用 `fix/` `chore/` `docs/` 前缀，如 `chore/remove-universal-rune`
-- 前缀选择、worktree 与多会话隔离规则见 CLAUDE.md「Git 工作流 › 分支」
+- 前缀选择、worktree 与多会话隔离规则见 `AGENTS.md`「Git Workflow › Branches」
 
 ---
 

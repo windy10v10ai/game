@@ -9,14 +9,14 @@ description: 维护加载界面的 FAQ 问答，写入加载屏与中英俄本�
 
 ## 固定结构
 
-- 布局：[content/panorama/layout/custom_game/custom_loading_screen.xml](content/panorama/layout/custom_game/custom_loading_screen.xml)
+- 布局：[content/panorama/layout/custom_game/custom_loading_screen.xml](../../../content/panorama/layout/custom_game/custom_loading_screen.xml)
   - 保持 `LoadingFaqPanel` 下的 `LoadingFaqQuestion` 与 `LoadingFaqAnswer` 两个 Label。
   - 不新增 FAQ 标题，不把问答合并为单个 Label。
-- 样式：[content/panorama/styles/custom_game/custom_loading_screen.css](content/panorama/styles/custom_game/custom_loading_screen.css)
+- 样式：[content/panorama/styles/custom_game/custom_loading_screen.css](../../../content/panorama/styles/custom_game/custom_loading_screen.css)
   - FAQ 是无边框、无背景的嵌入式文字，不做浮窗卡片。
   - 保持上方中偏右位置，避开左侧游戏选项、右侧队伍面板和中央 Dota 标志。
   - 问题使用暖色、较大且粗体，答案使用较小的浅色正文。
-- 随机逻辑：[content/panorama/scripts/custom_game/game_mode.js](content/panorama/scripts/custom_game/game_mode.js)
+- 随机逻辑：[content/panorama/scripts/custom_game/game_mode.js](../../../content/panorama/scripts/custom_game/game_mode.js)
   - `LOADING_FAQ_GROUPS` 的常见组权重为 `8`，冷门组权重为 `2`，先按组加权，再在组内等概率抽取。
   - 每条 entry 仅写 key 前缀 `loading_faq_<topic>`，脚本读取 `<prefix>_question` 和 `<prefix>_answer`。
 

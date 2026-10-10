@@ -1,6 +1,6 @@
 ---
 name: doc-update
-description: 把本轮对话中的纠正与新约定沉淀进 CLAUDE.md、模块 README 或 SKILL.md。触发：用户纠正做法且属于可复用约定；发现文档与代码不符；用户补充了推断不出的约定。
+description: 把本轮对话中的纠正与新约定沉淀进 AGENTS.md、各层 CLAUDE.md、模块 README 或 SKILL.md。触发：用户纠正做法且属于可复用约定；发现文档与代码不符；用户补充了推断不出的约定。
 ---
 
 # doc-update
@@ -24,7 +24,7 @@ description: 把本轮对话中的纠正与新约定沉淀进 CLAUDE.md、模块
 
 ## 2. 定位单一真相源
 
-去处按 `.claude/CLAUDE.md`「文档自维护规范」的表就近选；README 与 `CLAUDE.md` 的分界见同文件「设计文档位置」末段。
+去处按 `AGENTS.md`「Documentation Self-Maintenance」的表就近选；README 与 `CLAUDE.md` 的分界见同文件「Design Document Location」末段。
 
 每条规则只有一个**单一真相源**。落笔前用关键词和同义表述全仓库搜这条规则的旧口径，给每处命中标注：
 
