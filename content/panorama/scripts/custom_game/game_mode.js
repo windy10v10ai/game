@@ -37,7 +37,6 @@ var LOADING_FAQ_GROUPS = [
     weight: 2,
     entries: [
       'loading_faq_hero_bounty',
-      'loading_faq_pulse_nova',
       'loading_faq_member_checkin',
       'loading_faq_duplicate_ability',
       'loading_faq_dragon_balls',

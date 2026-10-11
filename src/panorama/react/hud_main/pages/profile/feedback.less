@@ -1,0 +1,169 @@
+@import "../../../shared/styles/tokens.less";
+
+/* ========== 反馈 Tab ========== */
+.feedback-tab {
+  .stats-card;
+  width: 100%;
+  height: fill-parent-flow(1);
+  padding: @spacing-xl 0px;
+}
+
+// 两侧留白收窄表单，描述框不至于横跨整页
+.feedback-form {
+  width: 760px;
+  height: 100%;
+  horizontal-align: center;
+  flow-children: down;
+}
+
+.feedback-type-bar {
+  width: 100%;
+  flow-children: right;
+  border: 1px solid @color-gold-muted-soft;
+  border-radius: @radius-md;
+  margin-bottom: 22px;
+}
+
+.feedback-type-btn {
+  width: 50%;
+  height: 44px;
+  background-color: @color-bg-tint;
+
+  Label {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: @font-size-md;
+    color: @color-text-muted;
+  }
+
+  &:hover {
+    brightness: 1.3;
+  }
+}
+
+.feedback-type-btn-active {
+  background-color: @color-primary-btn;
+
+  Label {
+    color: @color-text;
+    font-weight: bold;
+  }
+}
+
+.feedback-row {
+  width: 100%;
+  flow-children: right;
+  margin-bottom: @spacing-sm;
+}
+
+.feedback-label {
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
+}
+
+.feedback-required {
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-danger;
+  margin-left: 2px;
+}
+
+.feedback-hint {
+  font-size: @font-size-sm;
+  color: @color-text-muted;
+  vertical-align: center;
+}
+
+.feedback-row .feedback-hint {
+  horizontal-align: right;
+}
+
+.feedback-count {
+  horizontal-align: right;
+}
+
+.feedback-row-description {
+  margin-top: 12px;
+}
+
+.feedback-topic-row {
+  width: 100%;
+  flow-children: right;
+  margin-bottom: 10px;
+}
+
+.feedback-chip {
+  width: fill-parent-flow(1);
+  height: 36px;
+  border: 1px solid @color-gold-muted-soft;
+  border-radius: 18px;
+  background-color: @color-bg-tint;
+
+  Label {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: @font-size-sm;
+    color: @color-text;
+  }
+
+  &:hover {
+    brightness: 1.3;
+  }
+}
+
+.feedback-chip-gap {
+  margin-left: 10px;
+}
+
+.feedback-chip-selected {
+  border: 1px solid @color-gold;
+  background-color: #3b2a0c;
+
+  Label {
+    color: @color-gold-muted;
+    font-weight: bold;
+  }
+}
+
+.feedback-chip-full Label {
+  color: #ffffff40;
+}
+
+.feedback-entry {
+  width: 100%;
+  height: fill-parent-flow(1);
+  min-height: 120px;
+  padding: @spacing-sm @spacing-md;
+  border: 1px solid @color-gold-muted-soft;
+  border-radius: @radius-md;
+  background-color: @color-bg-tint-strong;
+  font-size: @font-size-md;
+  color: @color-text;
+}
+
+.feedback-result {
+  width: 100%;
+  margin-top: @spacing-sm;
+  font-size: @font-size-md;
+  color: @color-safe;
+}
+
+.feedback-result-failed {
+  color: @color-danger;
+}
+
+.feedback-footer {
+  width: 100%;
+  flow-children: right;
+  margin-top: @spacing-md;
+}
+
+.feedback-footer .feedback-hint {
+  width: fill-parent-flow(1);
+}
+
+.feedback-send-btn {
+  min-width: 140px;
+  margin-left: @spacing-md;
+}

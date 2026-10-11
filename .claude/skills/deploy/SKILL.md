@@ -33,9 +33,9 @@ description: 发布地图到 Steam 创意工坊，默认发测试服。触发：
 
    完成：弹窗显示「物品已成功更新至 Steam 创意工坊」。
 
-5. **补中文日志**：用 Claude in Chrome：
-   - 打开 `https://steamcommunity.com/sharedfiles/filedetails/changelog/<编号>`，用 `javascript_tool` 读最新一条正文 `<p>` 的 `id`，它就是这条更新的时间戳
-   - 打开 `https://steamcommunity.com/sharedfiles/editchangelogentry/<编号>/<时间戳>/`；显示未登录就点「登录」，Chrome 里的 Steam 会话会把页面刷成已登录
+5. **补中文日志**：用 Claude in Chrome 自动做完，不停下来让用户登录或手动补：
+   - 打开 `https://steamcommunity.com/sharedfiles/filedetails//changelog/<编号>/`（路径里是双斜杠），这个地址带着 Chrome 里的 Steam 登录态。用 `javascript_tool` 读最新一条正文 `<p>` 的 `id`（即这条更新的时间戳），页内的 `editchangelogentry` 链接也能直接取到
+   - 从这个页面进入 `https://steamcommunity.com/sharedfiles/editchangelogentry/<编号>/<时间戳>/`。不要点「登录」：只会跳到社区首页，不会自动登录
    - 语言下拉框用 `form_input` 选简体中文（值 `6`），页面刷新后重新 `read_page` 拿文本框 ref
    - 文本框整段换成中文日志，`javascript_tool` 执行 `SaveChanges()`
 

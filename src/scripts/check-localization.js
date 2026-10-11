@@ -9,6 +9,25 @@ const completedSections = [
     startKey: 'addon_game_name',
     endKey: 'dailytask_task_hero_stun_duration',
   },
+  {
+    name: 'World & Shop',
+    startKey: 'DOTA_Tooltip_modifier_tower_power',
+    headerLines: 5,
+    endKey: 'dota_item_build_windy_range_items',
+  },
+  {
+    name: 'Player Buffs',
+    startKey: 'DOTA_Tooltip_modifier_global_newbie',
+    headerLines: 5,
+    endKey: 'DOTA_Tooltip_modifier_global_member_premium_Description',
+  },
+  {
+    name: 'Player Titles',
+    startKey: 'DOTA_Tooltip_modifier_player_lumao',
+    headerLines: 5,
+    endKey: 'DOTA_Tooltip_modifier_player_nemesis_Description',
+    requireCyrillic: false,
+  },
 ];
 const russianWithoutCyrillic = new Set([
   'addon_game_name',
@@ -27,6 +46,9 @@ const russianWithoutCyrillic = new Set([
   'member_platform_alipay',
   'member_platform_afdian',
   'member_platform_kofi',
+  'DOTA_Tooltip_ability_creep_buff_bonus_damage',
+  'DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage',
+  'DOTA_Tooltip_ability_creep_buff_mega_bonus_damage',
 ]);
 
 function parse(language) {
@@ -61,10 +83,12 @@ function tags(value) {
 }
 
 function section(file, config) {
-  const startLine = file.lines.findIndex((line) => {
+  const firstKeyLine = file.lines.findIndex((line) => {
     const match = line.match(/^\s*"([^"]+)"/);
     return match?.[1] === config.startKey;
   });
+  // 分组标题注释写在首个 key 上方，需要一并纳入三语一致检查
+  const startLine = firstKeyLine < 0 ? -1 : firstKeyLine - (config.headerLines || 0);
   const endLine = file.lines.findIndex((line) => {
     const match = line.match(/^\s*"([^"]+)"/);
     return match?.[1] === config.endKey;
@@ -176,6 +200,8 @@ for (const config of completedSections) {
       }
     }
   }
+
+  if (config.requireCyrillic === false) continue;
 
   for (const entry of sections[2].entries) {
     if (!/[Ѐ-ӿ]/.test(entry.value) && !russianWithoutCyrillic.has(entry.key)) {

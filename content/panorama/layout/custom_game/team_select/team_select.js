@@ -11,6 +11,9 @@ var g_TEAM_SPECATOR = 1;
 
 var g_DifficultyChosen = false;
 
+// 开始前确认的文案，空串表示直接开始
+var g_StartConfirmText = '';
+
 // 按地图保存预设相关状态
 var g_userInteracted = false; // 玩家是否手动点过难度（避免预设覆盖手动选择）
 var g_presetApplied = false; // 预设是否已应用（仅应用一次）
@@ -25,11 +28,29 @@ function OnLockAndStartPressed() {
   if (Game.GetUnassignedPlayerIDs().length > 0) {
     return;
   }
+  if (!g_DifficultyChosen && Game.GetAutoLaunchEnabled()) {
+    return;
+  }
+  // 开始后别人就进不来，正在连接的人也可能来不及选英雄，所以只有人齐了才直接开始
+  if (g_StartConfirmText) {
+    $('#StartConfirm').SetHasClass('Open', true);
+    return;
+  }
+  StartGame();
+}
+
+function OnStartConfirmWait() {
+  $('#StartConfirm').SetHasClass('Open', false);
+}
+
+function OnStartConfirmStart() {
+  $('#StartConfirm').SetHasClass('Open', false);
+  StartGame();
+}
+
+function StartGame() {
   if (!g_DifficultyChosen) {
     // 关掉自动开始时投票不会超时定稿，房主开始就是投票结束
-    if (Game.GetAutoLaunchEnabled()) {
-      return;
-    }
     GameEvents.SendCustomGameEventToServer('vote_end', {});
   }
 
@@ -297,6 +318,25 @@ function OnLauncherRoomChange(table, key, value) {
   const connecting = entering.length > 0;
   // 公开房间不知道还会来多少人，只有主机时用中性的灰色，不暗示可以开始了
   const alone = !connecting && value.inGame <= 1;
+  g_StartConfirmText = connecting
+    ? '#room_start_confirm_entering'
+    : alone
+      ? '#room_start_confirm_alone'
+      : '';
+  if (g_StartConfirmText) {
+    $('#StartConfirmText').text = $.Localize(g_StartConfirmText);
+    // 有人正在连接时要房主等，主次对调：等待成为绿色主按钮，开始降为灰色的「仍然开始」
+    $('#StartConfirmHint').visible = connecting;
+    $('#StartConfirmWaitButton').SetHasClass('PlayButton', connecting);
+    $('#StartConfirmWaitButton').SetHasClass('ButtonBevel', !connecting);
+    $('#StartConfirmStartButton').SetHasClass('PlayButton', !connecting);
+    $('#StartConfirmStartButton').SetHasClass('ButtonBevel', connecting);
+    $('#StartConfirmStartLabel').text = $.Localize(
+      connecting ? '#room_start_confirm_start_anyway' : '#room_start_confirm_start',
+    );
+  } else {
+    $('#StartConfirm').SetHasClass('Open', false);
+  }
   const bar = $('#RoomStatusBar');
   bar.SetHasClass('Loading', connecting);
   bar.SetHasClass('Offline', alone);
