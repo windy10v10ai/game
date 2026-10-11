@@ -80,6 +80,12 @@
 		"room_status_separator"			"，"
 		"room_status_waiting"			"等待其他玩家加入"
 		"room_status_ready"				"所有玩家都已进入"
+		"room_start_confirm_alone"		"还没有其他玩家加入，开始后别人就不能加入了"
+		"room_start_confirm_entering"	"有玩家正在连接，请等他们进来再开始"
+		"room_start_confirm_entering_hint"	"现在开始，他们可能无法正常选英雄"
+		"room_start_confirm_wait"		"继续等待"
+		"room_start_confirm_start"		"开始游戏"
+		"room_start_confirm_start_anyway"	"仍然开始"
 		"offline_data_hint"				"离线模式，数据截至 {date}。加点、重置属性与觉醒请前往网站操作，下次地图更新后生效。"
 
 		///////////////////////////////////////////////////

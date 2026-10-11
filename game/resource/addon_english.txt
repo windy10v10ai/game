@@ -80,6 +80,12 @@
 		"room_status_separator"			", "
 		"room_status_waiting"			"Waiting for other players to join"
 		"room_status_ready"				"All players are in"
+		"room_start_confirm_alone"		"No one else has joined yet. Once the game starts, no one else can join."
+		"room_start_confirm_entering"	"Players are still connecting. Please wait for them to join."
+		"room_start_confirm_entering_hint"	"If you start now, they may not be able to pick a hero."
+		"room_start_confirm_wait"		"Keep waiting"
+		"room_start_confirm_start"		"Start game"
+		"room_start_confirm_start_anyway"	"Start anyway"
 		"offline_data_hint"				"Offline mode, data as of {date}. Allocate attribute points, reset attributes, and awaken heroes on the website. Changes apply after the next map update."
 
 		///////////////////////////////////////////////////
