@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-type Corner = 'damage' | 'participation' | 'gold' | 'push' | 'survival' | 'support';
+import { combineCorners, Corner } from './recent-form-radar';
+
 type LabelSide = 'top' | 'bottom' | 'left' | 'right';
 
 interface CanvasPanel extends Panel {
@@ -34,11 +35,7 @@ const LABEL_WIDTH = 140;
 const FLOOR_RATIO = 0.2;
 const GRID_RATIOS = [1 / 3, 2 / 3].map((part) => FLOOR_RATIO + (1 - FLOOR_RATIO) * part);
 
-// 与网站的六边形同一套比例和配色
-// 承伤与死亡各占一半：只看死亡，躲在后排不上前的人得分最高
-const SURVIVAL_TANK_WEIGHT = 0.5;
-// 治疗和助攻最能分出辅助；控制单人局也打得出来，单人玩家这一项不至于是 0
-const SUPPORT_WEIGHTS = { healing: 0.4, assists: 0.4, stuns: 0.2 } as const;
+// 与网站的六边形同一套配色
 const COLOR_PLATE = '#23292f';
 const COLOR_FLOOR = '#a3a8b033';
 const COLOR_OUTLINE = '#a3a8b04d';
@@ -49,22 +46,6 @@ const COLOR_LINE = '#f59a46';
 
 // 一局内结果不变，关掉主页再打开不再重新请求
 let cachedResult: PlayerStatsRadarResultEventData | undefined;
-
-function combineCorners(radar: PlayerStatsRadar): Record<Corner, number> {
-  const survival = SURVIVAL_TANK_WEIGHT * radar.tank + (1 - SURVIVAL_TANK_WEIGHT) * radar.deaths;
-  const support =
-    SUPPORT_WEIGHTS.healing * radar.healing +
-    SUPPORT_WEIGHTS.assists * radar.assists +
-    SUPPORT_WEIGHTS.stuns * radar.stuns;
-  return {
-    damage: Math.round(radar.damage),
-    participation: Math.round(radar.participation),
-    gold: Math.round(radar.gold),
-    push: Math.round(radar.push),
-    survival: Math.round(survival),
-    support: Math.round(support),
-  };
-}
 
 function ratioOfPercentile(percentile: number): number {
   return FLOOR_RATIO + ((1 - FLOOR_RATIO) * Math.min(100, Math.max(0, percentile))) / 100;
