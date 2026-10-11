@@ -16,7 +16,6 @@ import { SPECS as slarkSaltwaterShiv } from './slark_saltwater_shiv';
 import { SPECS as sniperAssassinate } from './sniper_assassinate';
 import { SPECS as sniperShrapnel } from './sniper_shrapnel';
 import { SPECS as sniperTakeAim } from './sniper_take_aim';
-import { SPECS as spectreHaunt } from './spectre_haunt';
 import { SPECS as spectreSpectralDagger } from './spectre_spectral_dagger';
 import { SPECS as svenGodsStrength } from './sven_gods_strength';
 import { SPECS as svenWarcry } from './sven_warcry';
@@ -72,7 +71,6 @@ export function registerAbilitySpecsSToZ(): void {
   AbilityRegistry.registerAll(sniperAssassinate);
   AbilityRegistry.registerAll(sniperShrapnel);
   AbilityRegistry.registerAll(sniperTakeAim);
-  AbilityRegistry.registerAll(spectreHaunt);
   AbilityRegistry.registerAll(spectreSpectralDagger);
   AbilityRegistry.registerAll(svenGodsStrength);
   AbilityRegistry.registerAll(svenWarcry);
