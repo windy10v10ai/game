@@ -723,14 +723,6 @@
         "BountyGoldMax"				"24"		// 8
     }
 
-	// 育母蜘蛛 小蜘蛛
-	"npc_dota_broodmother_spiderling"
-	{
-		"BountyXP"					"27"		// 9
-		"BountyGoldMin"				"27"		// 9
-		"BountyGoldMax"				"27"		// 9
-	}
-
 	// 祈求者 熔炉精灵
 	"npc_dota_invoker_forged_spirit"
 	{
