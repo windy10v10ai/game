@@ -10,6 +10,7 @@ import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
 import { isAwakened } from '../../awaken/awaken-replacer';
 import { GameConfig } from '../../GameConfig';
+import { LagTelemetry } from '../../lag-telemetry/lag-telemetry';
 import { NetTableHelper } from '../../helper/net-table-helper';
 import { PlayerHelper } from '../../helper/player-helper';
 import { GameEndPoint } from './game-end-point';
@@ -166,9 +167,11 @@ export class GameEnd {
       gameOptions,
       winnerTeamId,
       gameTimeMsec: Math.round(dotaTime * 1000),
+      dotaTimeMsec: Math.round(dotaTime * 1000),
       countryCode: GA4.countryCode,
       playerCount: Math.max(1, players.filter((player) => player.steamId > 0).length),
       players,
+      perf: LagTelemetry.Finish(),
     };
 
     return gameEndDto;

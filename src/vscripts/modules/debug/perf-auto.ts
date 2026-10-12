@@ -23,7 +23,8 @@ import { HeroPick } from '../hero/hero-pick';
 import { PerfProfiler } from './perf-profiler';
 import { PERF_CONFIG } from './perf-config';
 import { modifier_perf_melee_stack } from './perf-melee-stack';
-import { findAllUnits, PerfSampler } from './perf-sampler';
+import { PerfSampler } from './perf-sampler';
+import { findAllUnits } from '../helper/unit-helper';
 
 export interface PerfAutoConfig {
   phaseSeconds: number;
