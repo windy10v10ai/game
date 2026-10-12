@@ -205,9 +205,9 @@ function modifier_item_swift_glove:GetModifierBaseAttackTimeConstant()
     end
 end
 
--- 在 modifier_item_swift_glove 中添加
+-- 低于原版技能（如炼金术士化学狂暴，默认 NORMAL），避免手套覆盖技能自带的攻击间隔
 function modifier_item_swift_glove:GetPriority()
-    return MODIFIER_PRIORITY_HIGH -- 比鹰眼炮台更高的优先级
+    return MODIFIER_PRIORITY_LOW
 end
 
 if modifier_item_swift_glove_chain_lightning == nil then modifier_item_swift_glove_chain_lightning = class({}) end
