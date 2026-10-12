@@ -197,20 +197,24 @@ describe('Treasure', () => {
       expect(merged).toContain(point);
     });
 
-    it('spawnCount === 6 切到 JUNGLE 池', () => {
-      advance(6);
-      const point = treasure.getRandomSpawnPoint();
-      expect(Treasure.SPAWN_POINTS_RADIANT_JUNGLE).toContain(point);
+    // RandomInt 取 max 时选中池子最后一个点，用来判断 HARD 是否已并入
+    const pickLastOfPool = () => {
+      (RandomInt as jest.Mock).mockImplementationOnce((_min: number, max: number) => max);
+      return treasure.getRandomSpawnPoint();
+    };
+
+    it('spawnCount === 11 仍是 EASY+JUNGLE 池，不刷 HARD', () => {
+      advance(11);
+      const jungle = Treasure.SPAWN_POINTS_RADIANT_JUNGLE;
+      expect(treasure.getRandomSpawnPoint()).toBe(Treasure.SPAWN_POINTS_RADIANT_EASY[0]);
+      expect(pickLastOfPool()).toBe(jungle[jungle.length - 1]);
     });
 
-    it('spawnCount === 8 进入 JUNGLE+HARD 合并池', () => {
-      advance(8);
-      const point = treasure.getRandomSpawnPoint();
-      const merged = [
-        ...Treasure.SPAWN_POINTS_RADIANT_JUNGLE,
-        ...Treasure.SPAWN_POINTS_RADIANT_HARD,
-      ];
-      expect(merged).toContain(point);
+    it('spawnCount === 12 进入 EASY+JUNGLE+HARD 全池', () => {
+      advance(12);
+      const hard = Treasure.SPAWN_POINTS_RADIANT_HARD;
+      expect(treasure.getRandomSpawnPoint()).toBe(Treasure.SPAWN_POINTS_RADIANT_EASY[0]);
+      expect(pickLastOfPool()).toBe(hard[hard.length - 1]);
     });
   });
 
