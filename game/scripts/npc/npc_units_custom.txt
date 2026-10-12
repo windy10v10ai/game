@@ -302,6 +302,12 @@
 		"AttackDamageMin"			"200"			// 50
 		"AttackDamageMax"			"200"			// 50
 		"AttackRate"				"1.0"			// 1.5
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"93"		// 31
+		"BountyGoldMin"				"60"		// 20
+		"BountyGoldMax"				"78"		// 26
 	}
 
 	"npc_dota_shadow_shaman_ward_2"
@@ -324,6 +330,35 @@
 		"AttackDamageMin"			"400"			// 120
 		"AttackDamageMax"			"400"			// 120
 		"AttackRate"				"1.0"			// 1.5
+	}
+
+	// tinker_turret 修补匠炮台
+	"npc_dota_tinker_turret1"
+	{
+		"BountyXP"					"15"		// 5
+		"BountyGoldMin"				"15"		// 5
+		"BountyGoldMax"				"15"		// 5
+	}
+
+	"npc_dota_tinker_turret2"
+	{
+		"BountyXP"					"30"		// 10
+		"BountyGoldMin"				"30"		// 10
+		"BountyGoldMax"				"30"		// 10
+	}
+
+	"npc_dota_tinker_turret3"
+	{
+		"BountyXP"					"45"		// 15
+		"BountyGoldMin"				"45"		// 15
+		"BountyGoldMax"				"45"		// 15
+	}
+
+	"npc_dota_tinker_turret4"
+	{
+		"BountyXP"					"60"		// 20
+		"BountyGoldMin"				"60"		// 20
+		"BountyGoldMax"				"60"		// 20
 	}
 
 	// beastmaster_boar 兽王野猪
