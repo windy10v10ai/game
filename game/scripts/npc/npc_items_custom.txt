@@ -3810,8 +3810,8 @@
 				"mana_regen_multiplier"	"50"	//25
 
 				"burn_dps_buildings"	"60"	//50
-				"burn_dps_units"		"150"	//50
-				"burn_slow"			"50"		//20
+				"burn_dps_units"		"100"	//50
+				"burn_slow"			"40"		//20
 				"burn_duration"		"6"			//6
 				"stun_duration"		"1.0"		//0.75
 				"burn_interval"			"1.0"	//1.0
@@ -3823,7 +3823,7 @@
 				}
 				"max_duration"		"1.5"			//2
 				"impact_damage_buildings"	"120"	//90
-				"impact_damage_units"		"400"	//130
+				"impact_damage_units"		"300"	//130
 				"enemy_particles_visible"		"0"
 		}
 	}
@@ -3898,7 +3898,7 @@
 			"impact_stat_pct_buildings"	"15"
 			"burn_dps_units"			"200"
 			"burn_dps_buildings"		"75"
-			"burn_slow"				"50"
+			"burn_slow"				"40"
 			"burn_duration"			"6"
 			"burn_interval"			"1.0"
 

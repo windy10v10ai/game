@@ -200,12 +200,12 @@
 			"speed"					"2200"				// 1100
 			"radius"
 			{
-				"value"		"450"						// 300
+				"value"		"350"						// 300
 			}
 			"movespeed_slow"		"-25"				// -15
 			"bonus_health"			"200"				// 50
 
-			"damage_over_time"		"30"				// 15
+			"damage_over_time"		"20"				// 15
 			"impact_damage"			"100"				// 50
 		}
 	}
