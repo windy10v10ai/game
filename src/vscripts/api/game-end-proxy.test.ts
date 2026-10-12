@@ -107,7 +107,7 @@ describe('splitGameEndByPlayer perf', () => {
       playerCount: 10,
       players: [fullPlayer],
       perf: {
-        host: 'dedicated',
+        host: 'launcher',
         realSec: 8888.8,
         units: 9999,
         modifiers: 99999,

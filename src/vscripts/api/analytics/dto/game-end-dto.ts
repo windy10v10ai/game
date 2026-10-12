@@ -53,8 +53,8 @@ export class GameEndPlayerDto {
   dailyTask?: DailyTaskResultDto;
 }
 
-/** 主机类型：启动器开房的专用服、其他专用服、游廊本地主机 */
-export type GameHost = 'launcher' | 'dedicated' | 'local';
+/** 主机类型：启动器开出的专用服、游廊本地主机 */
+export type GameHost = 'launcher' | 'local';
 
 export class GamePerfSegmentDto {
   /** 这一段的真实时长 ÷ DOTA 时长，扣除暂停 */

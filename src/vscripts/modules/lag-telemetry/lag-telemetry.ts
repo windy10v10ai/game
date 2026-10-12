@@ -1,6 +1,5 @@
 import { GameHost, GamePerfDto } from '../../api/analytics/dto/game-end-dto';
 import { findAllUnits } from '../helper/unit-helper';
-import { IsLauncherRoom } from '../launcher-room';
 import { LagTracker, UnitCount, roundTo } from './lag-tracker';
 
 // 线上常驻，只求暂停边界误差在秒级，不需要逐 tick 采样
@@ -56,7 +55,7 @@ function countUnitsAndModifiers(): UnitCount {
   return { units: units.length, modifiers };
 }
 
+// 自定义游戏的专用服都由启动器开出，单人与联机靠结算里的真人数区分
 function getHost(): GameHost {
-  if (!IsDedicatedServer()) return 'local';
-  return IsLauncherRoom() ? 'launcher' : 'dedicated';
+  return IsDedicatedServer() ? 'launcher' : 'local';
 }
