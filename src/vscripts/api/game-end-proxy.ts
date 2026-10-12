@@ -22,11 +22,15 @@ export type GameEndPlayerRequest = Omit<GameEndDto, 'players'> & {
 
 /** 把整场结算按真人玩家拆成自包含请求，bot 行只在这里丢弃 */
 export function splitGameEndByPlayer(gameEnd: GameEndDto): GameEndPlayerRequest[] {
+  const { perf, ...shared } = gameEnd;
   const requests: GameEndPlayerRequest[] = [];
   for (const player of gameEnd.players) {
     if (player.steamId <= 0) continue;
     const { playerId: _playerId, ...playerPayload } = player;
-    requests.push({ ...gameEnd, players: [playerPayload] });
+    const request: GameEndPlayerRequest = { ...shared, players: [playerPayload] };
+    // 整局只有一份，后端靠逐人冷却去重，各条都带会让每个玩家各写一行
+    if (requests.length === 0 && perf) request.perf = perf;
+    requests.push(request);
   }
   return requests;
 }

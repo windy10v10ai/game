@@ -12,6 +12,7 @@ import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroBuyback } from '../hero/hero-buyback';
 import { HeroPick } from '../hero/hero-pick';
+import { LagTelemetry } from '../lag-telemetry/lag-telemetry';
 import { CreepBuffManager } from './game-in-progress/creep-buff-manager';
 import { MidOnlyMode } from './pre-game/mid-only-mode';
 
@@ -138,6 +139,7 @@ export class EventGameStateChange {
   private OnGameInProgress(): void {
     // 记录游戏开始时间用于 GA4 统计
     GA4.RecordGameStartTime();
+    LagTelemetry.Start();
     // 初始化 bot 团队调度，挂载到 GameRules.AI 供英雄 AI 访问
     GameRules.AI.BotTeam = new BotTeam();
     if (IS_DEBUG_RUN) {

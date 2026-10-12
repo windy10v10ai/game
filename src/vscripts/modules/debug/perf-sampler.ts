@@ -1,3 +1,5 @@
+import { findAllUnits } from '../helper/unit-helper';
+
 const THINK_NAME = 'perf_sampler';
 // 小于一个 tick（1/30s），保证每个 tick 都进一次，才能量到相邻 tick 的真实间隔
 const THINK_INTERVAL = 0.01;
@@ -143,28 +145,6 @@ function flushClientWindow(endedPhase: string, nextPhase: string) {
     'perf_client',
     { enabled: 1, flush: endedPhase, next: nextPhase },
   );
-}
-
-// 敌方单位在战争迷雾里查不到，只能按阵营各查一次友方再合并
-const ALL_TEAMS = [DotaTeam.GOODGUYS, DotaTeam.BADGUYS, DotaTeam.NEUTRALS];
-
-export function findAllUnits(unitType: UnitTargetType): CDOTA_BaseNPC[] {
-  const units: CDOTA_BaseNPC[] = [];
-  for (const team of ALL_TEAMS) {
-    const found = FindUnitsInRadius(
-      team,
-      Vector(0, 0, 0),
-      undefined,
-      FIND_UNITS_EVERYWHERE,
-      UnitTargetTeam.FRIENDLY,
-      unitType,
-      UnitTargetFlags.INVULNERABLE + UnitTargetFlags.OUT_OF_WORLD,
-      FindOrder.ANY,
-      false,
-    );
-    for (const unit of found) units.push(unit);
-  }
-  return units;
 }
 
 // 只增不减的数量就是泄漏的直接证据；计时器库每帧遍历全部计时器，数量本身就决定开销
