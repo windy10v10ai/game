@@ -224,6 +224,8 @@ git branch -D <branch-name>
 
 分支在 worktree 里时，先 `git worktree remove <path> --force`，删完分支再 `git worktree prune`。
 
+worktree 里不要跑 `npm install`：它的 postinstall（`src/scripts/install.js`）会把 Dota 的 `game/` `content/` addon 目录改链到这个 worktree，删掉 worktree 后主目录的链接就断了。依赖改用 junction 借主目录的：`powershell -c "New-Item -ItemType Junction -Path <path>\node_modules -Target <主目录>\node_modules"`。删 worktree 前先用 `cmd //c rmdir` 拆掉 `<path>/node_modules` 这个 junction，否则 `--force` 会顺着它把主目录的 `node_modules` 一起清空。Dota 只加载主目录的 `game/`，要实机测 worktree 里的改动，先把分支搬回主目录。
+
 > 完整流程（分支创建、commit、push、PR 模板填写）见 `create-pr` skill。
 
 ## 文档自维护规范

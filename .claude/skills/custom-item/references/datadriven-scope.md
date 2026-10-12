@@ -4,48 +4,7 @@
 
 ## 可写进 `Properties` 的属性
 
-下列属性可直接写 KV `Properties`（模式 1 写物品自己的 `Modifiers`，模式 2 写 `item_apply_modifiers` 的 `_stats`）。**均为本仓已在用的**，出现次数取自 `npc_items_custom.txt` / `npc_items_artifact.txt` / `npc_items_modifier.txt`：
-
-**基础属性**
-
-- `MODIFIER_PROPERTY_STATS_STRENGTH_BONUS` / `_AGILITY_BONUS` / `_INTELLECT_BONUS`
-
-**攻击相关**
-
-- `MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE`、`MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT`
-- `MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE`、`MODIFIER_PROPERTY_ATTACK_RANGE_BONUS`
-- `MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE`（暴击倍率；触发概率用 `Random` 事件块，见下）
-
-**防御相关**
-
-- `MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS`、`MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS`
-- `MODIFIER_PROPERTY_EVASION_CONSTANT`、`MODIFIER_PROPERTY_MISS_PERCENTAGE`
-- `MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE`
-
-**移动相关**
-
-- `MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT` / `_PERCENTAGE` / `_UNIQUE`、`MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE`
-- `MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE`
-
-**生命 / 魔法 / 视野**
-
-- `MODIFIER_PROPERTY_HEALTH_BONUS`、`MODIFIER_PROPERTY_MANA_BONUS`
-- `MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT`、`MODIFIER_PROPERTY_MANA_REGEN_CONSTANT`
-- `MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE`
-- `MODIFIER_PROPERTY_BONUS_DAY_VISION`、`MODIFIER_PROPERTY_BONUS_NIGHT_VISION`
-
-**法术相关**
-
-- `MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE`、`MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE`
-
-表里没有的属性名不代表一定不行（DataDriven 支持面比这更宽），但**没有本仓先例**，先在 Dota Tools 验证再铺开。
-
-**已确认不可用**，命中直接留在脚本侧，不要试图下沉：
-
-- `MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING`
-- `MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE`（上表的 `HP_REGEN_AMPLIFY_PERCENTAGE` 是回复放大，语义不同，替代不了）
-
-`npc_items_custom.txt` 里那几处 `（不在可优化列表）` 注释指的就是这份名单。
+哪些 `MODIFIER_PROPERTY_*` 能写进 KV `Properties`、哪些已确认不行，统一记在 [`../../shared-references/datadriven-properties.md`](../../shared-references/datadriven-properties.md)（玩家属性也查同一份）。模式 1 写物品自己的 `Modifiers`，模式 2 写 `item_apply_modifiers` 的 `_stats`。
 
 ## 可写进 `States` 的状态
 

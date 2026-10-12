@@ -56,14 +56,10 @@ export class PropertyController {
     print('PropertyController init');
     // lua modifier
     PropertyController.propertyLuaModiferMap.set(property_cast_range_bonus_stacking.name, 25);
-    PropertyController.propertyLuaModiferMap.set(property_spell_amplify_percentage.name, 5);
     PropertyController.propertyLuaModiferMap.set(property_status_resistance_stacking.name, 4);
-    PropertyController.propertyLuaModiferMap.set(property_incoming_damage_percentage.name, -4);
     PropertyController.propertyLuaModiferMap.set(property_attack_range_bonus.name, 25);
     PropertyController.propertyLuaModiferMap.set(property_lifesteal.name, 10);
     PropertyController.propertyLuaModiferMap.set(property_spell_lifesteal.name, 8);
-    PropertyController.propertyLuaModiferMap.set(property_health_regen_percentage.name, 0.3);
-    PropertyController.propertyLuaModiferMap.set(property_mana_regen_total_percentage.name, 0.3);
     PropertyController.propertyLuaModiferMap.set(property_ignore_movespeed_limit.name, 0.125);
     PropertyController.propertyLuaModiferMap.set(property_slow_immune.name, 0.125);
     PropertyController.propertyLuaModiferMap.set(property_aoe_bonus_constant_stacking.name, 15);
@@ -113,6 +109,22 @@ export class PropertyController {
     PropertyController.propertyDataDrivenModifierMap.set(
       property_stats_intellect_bonus.name,
       'modifier_player_property_stats_intellect_bonus_level_',
+    );
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_spell_amplify_percentage.name,
+      'modifier_player_property_spell_amplify_percentage_level_',
+    );
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_incoming_damage_percentage.name,
+      'modifier_player_property_incoming_damage_percentage_level_',
+    );
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_health_regen_percentage.name,
+      'modifier_player_property_health_regen_percentage_level_',
+    );
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_mana_regen_total_percentage.name,
+      'modifier_player_property_mana_regen_total_percentage_level_',
     );
     PropertyController.propertyDataDrivenModifierMap.set(
       property_cannot_miss.name,
