@@ -18,6 +18,7 @@ import {
 import { GameConfig } from '../GameConfig';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
+import { PropertyController } from '../property/property_controller';
 import { HeroPick } from '../hero/hero-pick';
 import { PerfProfiler } from './perf-profiler';
 import { PERF_CONFIG } from './perf-config';
@@ -512,7 +513,7 @@ function addProperties(properties: [string, number][]) {
       const modifier = hero.AddNewModifier(hero, undefined, name, {
         value: perLevel * PROPERTY_LEVELS,
       });
-      if (modifier) addedProperties.push(modifier);
+      if (modifier !== undefined) addedProperties.push(modifier);
     }
   });
   print(`[perf] properties added=${addedProperties.length}`);
@@ -539,6 +540,61 @@ const KV_PROPERTIES = [
   'stats_agility_bonus',
   'stats_intellect_bonus',
 ].map((name) => `modifier_player_property_${name}_level_${PROPERTY_LEVELS}`);
+
+// 玩家全部数值属性走属性系统自己的加点流程挂上，属性改写法前后用同一条件对比；飞行、必中会改变行为，吸血另有条件
+const PLAYER_PROPERTIES = [
+  'cast_range_bonus_stacking',
+  'spell_amplify_percentage',
+  'status_resistance_stacking',
+  'incoming_damage_percentage',
+  'attack_range_bonus',
+  'health_regen_percentage',
+  'mana_regen_total_percentage',
+  'ignore_movespeed_limit',
+  'slow_immune',
+  'aoe_bonus_constant_stacking',
+  'cooldown_percentage',
+  'movespeed_bonus_constant',
+  'bonus_vision',
+  'evasion_constant',
+  'magical_resistance_bonus',
+  'physical_armor_bonus',
+  'preattack_bonus_damage',
+  'attackspeed_bonus_constant',
+  'stats_strength_bonus',
+  'stats_agility_bonus',
+  'stats_intellect_bonus',
+];
+
+function playerPropertyModifierNames(name: string): string[] {
+  const names = [`property_${name}`];
+  for (let level = 1; level <= PROPERTY_LEVELS; level++) {
+    names.push(`modifier_player_property_${name}_level_${level}`);
+  }
+  return names;
+}
+
+function addPlayerProperties() {
+  let added = 0;
+  forEachHero((hero) => {
+    for (const name of PLAYER_PROPERTIES) {
+      PropertyController.LevelupHeroProperty(hero, {
+        name: `property_${name}`,
+        level: PROPERTY_LEVELS,
+      });
+      if (playerPropertyModifierNames(name).some((modifier) => hero.HasModifier(modifier))) added++;
+    }
+  });
+  print(`[perf] player properties added=${added}`);
+}
+
+function removePlayerProperties() {
+  forEachHero((hero) => {
+    for (const name of PLAYER_PROPERTIES) {
+      for (const modifier of playerPropertyModifierNames(name)) hero.RemoveModifierByName(modifier);
+    }
+  });
+}
 
 let kvPropertyItem: CDOTA_Item_DataDriven | undefined;
 
@@ -638,7 +694,7 @@ function addItemModifier(itemName: string, modifierName: string) {
     if (!item) return;
     itemModifierSources.push(item);
     const modifier = hero.AddNewModifier(hero, item, modifierName, {});
-    if (modifier) itemModifiers.push(modifier);
+    if (modifier !== undefined) itemModifiers.push(modifier);
   });
   print(`[perf] item modifier=${modifierName} added=${itemModifiers.length}`);
 }
@@ -710,6 +766,7 @@ const CONDITIONS: Condition[] = [
     teardown: removeProperties,
   },
   { name: 'prop_kv', setup: addKvProperties, teardown: removeKvProperties },
+  { name: 'prop_player', setup: addPlayerProperties, teardown: removePlayerProperties },
   { name: 'nobotpower', setup: removeBotPower, teardown: restoreBotPower },
   { name: 'botpassives', setup: restoreBotPassives, teardown: stripBotPassives },
   {
