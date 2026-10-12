@@ -26,6 +26,7 @@ function parseRun(text) {
   const prof = {};
   const frames = {};
   const slices = {};
+  const vprof = {};
   let clientStalls = 0;
   let clientRestarts = 0;
   let phase = 'before';
@@ -55,15 +56,35 @@ function parseRun(text) {
       (windows[f.phase] ??= []).push(f);
     } else if (body.startsWith('[perf-auto] step')) {
       steps[f.name] = { ref: f.ref, timescale: Number(f.timescale) };
+    } else if (body.startsWith('[perf-vprof] ')) {
+      (vprof[f.phase] ??= {})[f.scope] = {
+        calls: Number(f.calls),
+        timeChild: Number(f.timeChild),
+        time: Number(f.time),
+      };
     } else if (body.startsWith('[perf-prof] ') && f.level) {
       ((prof[f.phase] ??= {})[f.level] ??= []).push({ name: f.name, ms: Number(f.ms) });
     }
   }
-  return { lines, windows, steps, prof, frames, slices, clientStalls, clientRestarts };
+  return { lines, windows, steps, prof, frames, slices, vprof, clientStalls, clientRestarts };
 }
 
-function statOf(windows, frames = {}) {
+const SERVER_TICK_SCOPE = 'BeginServerTick';
+
+// 剖析器按作用域累计真实耗时，除以服务器 tick 数就是平均每 tick 花在这里的计算时间，不含 tick 之间的空等
+function vprofPerTick(scopes) {
+  const ticks = scopes?.[SERVER_TICK_SCOPE]?.calls;
+  if (!ticks) return undefined;
+  const perTick = {};
+  for (const [scope, row] of Object.entries(scopes)) {
+    perTick[scope] = { total: row.timeChild / ticks, self: row.time / ticks };
+  }
+  return perTick;
+}
+
+function statOf(windows, frames = {}, vprof = {}) {
   return (phase) => {
+    const perTick = vprofPerTick(vprof[phase]);
     const ws = windows[phase] ?? [];
     const num = (k) => ws.map((w) => Number(w[k]));
     const fs = frames[phase] ?? [];
@@ -87,6 +108,10 @@ function statOf(windows, frames = {}) {
       creeps: mean(num('creeps')),
       mods: mean(num('mods')),
       mem: mean(num('mem')),
+      // 发快照在 tick 结束段，也算服务器每 tick 的工作
+      serverMs: perTick
+        ? perTick[SERVER_TICK_SCOPE].total + (perTick.EndServerTick?.total ?? 0)
+        : NaN,
     };
   };
 }
@@ -98,20 +123,28 @@ function conditionGroups(steps, stat) {
     (groups[baseName(name)] ??= []).push({ name, ...meta });
   }
   return Object.entries(groups).map(([group, runs]) => {
-    const deltasOf = (key) =>
+    const deltasOf = (key, absolute = false) =>
       runs
         .map((r) => {
           if (r.ref === r.name) return NaN;
           // 对照可以是前后两段基线，取均值抵消同一局里的累积漂移
           const ref = mean(r.ref.split(',').map((name) => stat(name)[key]));
-          return ((stat(r.name)[key] - ref) / ref) * 100;
+          const diff = stat(r.name)[key] - ref;
+          return absolute ? diff : (diff / ref) * 100;
         })
         .filter(Number.isFinite);
     const tickDeltas = deltasOf('msPerTick');
     const frameDeltas = deltasOf('frameMs');
-    // 帧时间是玩家直接感受到的，有客户端数据时以它判断稳定与否
-    const deltas = frameDeltas.length ? frameDeltas : tickDeltas;
-    return { group, runs, tickDeltas, frameDeltas, deltas };
+    const serverDeltas = deltasOf('serverMs');
+    // 打团基线会随局势漂移，同样的绝对开销换算成百分比忽大忽小，比较条件时看毫秒差
+    const serverMsDeltas = deltasOf('serverMs', true);
+    // 剖析器给出的是服务器纯计算时间，判定基准以它为准；没有时退回画面帧时间，再退回 tick 耗时
+    const deltas = serverDeltas.length
+      ? serverDeltas
+      : frameDeltas.length
+        ? frameDeltas
+        : tickDeltas;
+    return { group, runs, tickDeltas, frameDeltas, serverDeltas, serverMsDeltas, deltas };
   });
 }
 
@@ -119,6 +152,13 @@ function deltaText(deltas, spreadLimit) {
   if (!deltas.length) return '-';
   const each = deltas.length > 1 ? `（${deltas.map(pct).join(' / ')}）` : '';
   return `${isUnstable(deltas, spreadLimit) ? '不稳定 ' : ''}${pct(mean(deltas))}${each}`;
+}
+
+function msDeltaText(deltas) {
+  if (!deltas.length) return '-';
+  const signed = (v) => `${v >= 0 ? '+' : ''}${v.toFixed(2)}`;
+  const each = deltas.length > 1 ? `（${deltas.map(signed).join(' / ')}）` : '';
+  return `${signed(mean(deltas))}${each}`;
 }
 
 // 各次变化方向不一致或极差超过阈值（百分点），说明波动盖过了条件本身的效果
@@ -130,16 +170,16 @@ function isUnstable(deltas, spreadLimit) {
 
 /** 返回各次结果还不一致的条件名，多局测试据此决定是否加局。 */
 function unstableConditions(text, spreadLimit) {
-  const { windows, steps, frames } = parseRun(text);
-  return conditionGroups(steps, statOf(windows, frames))
+  const { windows, steps, frames, vprof } = parseRun(text);
+  return conditionGroups(steps, statOf(windows, frames, vprof))
     .filter(({ deltas }) => isUnstable(deltas, spreadLimit))
     .map(({ group }) => group);
 }
 
 function summarize(text, { spreadLimit = 10 } = {}) {
-  const { lines, windows, steps, prof, frames, slices, clientStalls, clientRestarts } =
+  const { lines, windows, steps, prof, frames, slices, vprof, clientStalls, clientRestarts } =
     parseRun(text);
-  const stat = statOf(windows, frames);
+  const stat = statOf(windows, frames, vprof);
 
   const out = [];
   out.push('# 性能自动测试汇总', '');
@@ -161,24 +201,33 @@ function summarize(text, { spreadLimit = 10 } = {}) {
 
   out.push('## 第一层：条件对照', '');
   out.push(
-    '| 条件 | 对照 | 倍率 | 次数 | 帧时间变化 | tick 耗时变化 | 画面 FPS | 帧 ms | 最长帧 ms | tick/s | ms/tick | 速度比 | maxGap ms | 尖峰/分 | AI ms/tick | 单位 | modifier |',
+    '| 条件 | 对照 | 倍率 | 次数 | 服务器计算变化 | 每 tick ms 差 | 计算 ms/tick | 帧时间变化 | tick 耗时变化 | 画面 FPS | 帧 ms | 最长帧 ms | tick/s | ms/tick | 速度比 | maxGap ms | 尖峰/分 | AI ms/tick | 单位 | modifier |',
   );
-  out.push('|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|');
-  for (const { group, runs, tickDeltas, frameDeltas } of conditionGroups(steps, stat)) {
+  out.push('|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|');
+  for (const {
+    group,
+    runs,
+    tickDeltas,
+    frameDeltas,
+    serverDeltas,
+    serverMsDeltas,
+  } of conditionGroups(steps, stat)) {
     const stats = runs.map((r) => stat(r.name));
     const isRef = runs.every((r) => r.ref === r.name);
     const m = (k) => mean(stats.map((s) => s[k]));
     // tick 率达不到倍率要求才说明服务器跑满，ms/tick 才是处理耗时；没跑满时 ms/tick 被封顶在 33ms 附近
-    const saturated = m('tick') < 30 * runs[0].timescale * 0.97;
+    // 有剖析器数据时计算时间直接可读，跑没跑满不再影响结论
+    const saturated = Number.isFinite(m('serverMs')) || m('tick') < 30 * runs[0].timescale * 0.97;
     out.push(
-      `| ${group} | ${runs[0].ref.includes(',') ? '前后基线' : baseName(runs[0].ref)} | ${runs[0].timescale}${saturated ? '' : '（未跑满）'} | ${runs.length} | ${isRef ? '对照组' : deltaText(frameDeltas, spreadLimit)} | ${isRef ? '对照组' : deltaText(tickDeltas, spreadLimit)} | ${fmt(m('fps'))} | ${fmt(m('frameMs'))} | ${fmt(Math.max(...stats.map((s) => s.maxFrame)), 0)} | ${fmt(m('tick'))} | ${fmt(m('msPerTick'), 2)} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...stats.map((s) => s.maxGap)), 0)} | ${fmt(m('hitchPerMin'))} | ${fmt(m('aiMsPerTick'), 2)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} |`,
+      `| ${group} | ${runs[0].ref.includes(',') ? '前后基线' : baseName(runs[0].ref)} | ${runs[0].timescale}${saturated ? '' : '（未跑满）'} | ${runs.length} | ${isRef ? '对照组' : deltaText(serverDeltas, spreadLimit)} | ${isRef ? '对照组' : msDeltaText(serverMsDeltas)} | ${fmt(m('serverMs'), 2)} | ${isRef ? '对照组' : deltaText(frameDeltas, spreadLimit)} | ${isRef ? '对照组' : deltaText(tickDeltas, spreadLimit)} | ${fmt(m('fps'))} | ${fmt(m('frameMs'))} | ${fmt(Math.max(...stats.map((s) => s.maxFrame)), 0)} | ${fmt(m('tick'))} | ${fmt(m('msPerTick'), 2)} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...stats.map((s) => s.maxGap)), 0)} | ${fmt(m('hitchPerMin'))} | ${fmt(m('aiMsPerTick'), 2)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} |`,
     );
   }
   out.push(
     '',
-    `「帧时间变化」是画面平均帧时间相对对照组的变化，玩家直接感受到的就是它，排名以它为准；「tick 耗时变化」是服务器每 tick 耗时的变化。负数表示关掉该条件后省下的时间，括号里是逐次的值。服务器没跑满（tick 已到 30）时 tick 耗时被封顶，差值偏小。标「不稳定」的条件各次方向不一致或相差超过 ${spreadLimit} 个百分点，不作结论。`,
+    `「服务器计算变化」是引擎剖析器量到的服务器每 tick 纯计算时间（不含空等，1 倍速也有效）相对对照组的变化，有这一列时以它为准，「每 tick ms 差」是同一差值的毫秒数，打团基线漂移时百分比失真，比较条件看它；「帧时间变化」是画面平均帧时间相对对照组的变化，即玩家直接感受到的；「tick 耗时变化」是服务器每 tick 耗时的变化。负数表示关掉该条件后省下的时间，括号里是逐次的值。服务器没跑满（tick 已到 30）时 tick 耗时被封顶，差值偏小。标「不稳定」的条件各次方向不一致或相差超过 ${spreadLimit} 个百分点，不作结论。`,
     '',
   );
+  out.push(...summarizeVprof(steps, stat, vprof));
 
   const profPhases = Object.keys(prof);
   if (profPhases.length) {
@@ -306,6 +355,57 @@ function gameTimeRange(stats) {
 }
 
 // 只有 1 倍速段反映玩家真实感受，放在报告最前面
+const VPROF_TOP = 6;
+
+// 每个条件相对前后基线，按作用域自身耗时（不含子作用域，避免层层重复计算）列出变化最大的几项，看开销落在引擎哪一块
+function summarizeVprof(steps, stat, vprof) {
+  const groups = conditionGroups(steps, stat).filter(({ runs }) =>
+    runs.some((r) => r.ref !== r.name && vprof[r.name]),
+  );
+  if (!groups.length) return [];
+  const out = [
+    '## 服务器分模块（引擎剖析器）',
+    '',
+    '每 tick 毫秒数，条件段与前后基线均值之差；按作用域自身耗时，列变化最大的几项。',
+    '',
+    '| 条件 | 每 tick 计算 ms（基线 → 条件） | 变化最大的作用域（自身 ms/tick 差） |',
+    '|---|---|---|',
+  ];
+  for (const { group, runs } of groups) {
+    const diffs = {};
+    const pairs = [];
+    for (const run of runs) {
+      const cond = vprofPerTick(vprof[run.name]);
+      const refs = run.ref
+        .split(',')
+        .map((name) => vprofPerTick(vprof[name]))
+        .filter(Boolean);
+      if (!cond || !refs.length) continue;
+      pairs.push([
+        mean(run.ref.split(',').map((name) => stat(name).serverMs)),
+        stat(run.name).serverMs,
+      ]);
+      for (const scope of new Set([...Object.keys(cond), ...refs.flatMap(Object.keys)])) {
+        const ref = mean(refs.map((r) => r[scope]?.self ?? 0));
+        (diffs[scope] ??= []).push((cond[scope]?.self ?? 0) - ref);
+      }
+    }
+    if (!pairs.length) continue;
+    const top = Object.entries(diffs)
+      .map(([scope, ds]) => [scope, mean(ds)])
+      .filter(([, d]) => Math.abs(d) >= 0.001)
+      .sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]))
+      .slice(0, VPROF_TOP)
+      .map(([scope, d]) => `${scope} ${d >= 0 ? '+' : ''}${d.toFixed(3)}`)
+      .join('；');
+    out.push(
+      `| ${group} | ${fmt(mean(pairs.map((p) => p[0])), 2)} → ${fmt(mean(pairs.map((p) => p[1])), 2)} | ${top} |`,
+    );
+  }
+  out.push('');
+  return out;
+}
+
 function summarizeKeyMetrics(steps, stat) {
   const groups = {};
   for (const [name, meta] of Object.entries(steps)) {

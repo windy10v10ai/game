@@ -1,10 +1,28 @@
+import { HeroUtil } from '../../ai/hero/hero-util';
 import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
+import {
+  property_aoe_bonus_constant_stacking,
+  property_attack_range_bonus,
+  property_cast_range_bonus_stacking,
+  property_health_regen_percentage,
+  property_ignore_movespeed_limit,
+  property_incoming_damage_percentage,
+  property_lifesteal,
+  property_mana_regen_total_percentage,
+  property_slow_immune,
+  property_spell_amplify_percentage,
+  property_spell_lifesteal,
+  property_status_resistance_stacking,
+} from '../../modifiers/property/property_declare';
 import { GameConfig } from '../GameConfig';
+import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
+import { PropertyController } from '../property/property_controller';
 import { HeroPick } from '../hero/hero-pick';
 import { PerfProfiler } from './perf-profiler';
 import { PERF_CONFIG } from './perf-config';
+import { modifier_perf_melee_stack } from './perf-melee-stack';
 import { findAllUnits, PerfSampler } from './perf-sampler';
 
 export interface PerfAutoConfig {
@@ -43,10 +61,19 @@ export interface PerfAutoConfig {
   botHeroes: string;
   // 逗号分隔的物品名，开局轮流发给每个英雄并停掉 bot 买卖装备，用于验证物品施放
   testItems?: string;
+  // 逗号分隔的场景，同一局里按顺序各跑一遍全部条件：idle 全员停在泉水、不出兵，只剩属性与常驻逻辑的开销；
+  // fight 只开自定义 AI 打团。为空时沿用热身到后期再测的旧流程
+  scenes?: string;
+  // 逗号分隔的威压层数，每个层数一个条件，看开销是否随层数线性增长
+  buffStacks?: string;
+  // 逗号分隔的物品名，每件一个条件：全员第 6 格换成该物品，和发的原版物品比
+  swapItems?: string;
+  itemModifiers?: string;
 }
 
 interface PerfStep {
   name: string;
+  scene?: string;
   // 对照组：汇总时拿本段和它比，破坏性的步骤只能和上一段比
   ref: string;
   profile?: boolean;
@@ -59,6 +86,8 @@ interface PerfStep {
 
 // 条件切换后等单位行为稳定下来再开始计数
 const SETTLE_SECONDS = 5;
+// 从泉水走到交战位置并打起来要一段时间
+const FIGHT_SETTLE_SECONDS = 60;
 const EARLY_SECONDS = 30;
 const REALTIME_SECONDS = 120;
 const PROPERTY_MODIFIER_PREFIX = 'modifier_player_property_';
@@ -126,11 +155,11 @@ if (bootConfig && bootConfig.maxLevel > 0) {
 }
 
 // 经验溢出由引擎截到满级；避开开局暂停的那一秒
-function boostHeroes(team?: DotaTeam) {
+function boostHeroes(team?: DotaTeam, withGold = true) {
   afterRealSeconds(2, () =>
     forEachHero((hero) => {
       if (team !== undefined && hero.GetTeamNumber() !== team) return;
-      hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
+      if (withGold) hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
       hero.AddExperience(BOOST_XP, ModifyXpReason.UNSPECIFIED, false, false, 0);
     }),
   );
@@ -147,6 +176,49 @@ function lockForts() {
   }
 }
 
+// 电脑开局随机抽的两个被动每局不同，各局的属性查询频率因此不一：开局先去掉，再作为条件按原等级加回来单独量
+let botPassives: [CDOTA_BaseNPC_Hero, string, number][] = [];
+
+function stripBotPassives() {
+  let removed = 0;
+  for (const [hero, name] of botPassives) {
+    const ability = hero.FindAbilityByName(name);
+    if (!ability) continue;
+    for (const modifier of hero.FindAllModifiers()) {
+      if (modifier.GetAbility() === ability) modifier.Destroy();
+    }
+    hero.RemoveAbilityByHandle(ability);
+    removed++;
+  }
+  print(`[perf-auto] bot passives removed=${removed}`);
+}
+
+function removeBotPassives() {
+  botPassives = [];
+  forEachHero((hero, playerId) => {
+    const record = CustomNetTables.GetTableValue('bot_passive_abilities', playerId.toString());
+    if (!record) return;
+    for (const name of [record.passiveAbilityName1, record.passiveAbilityName2]) {
+      const ability = hero.FindAbilityByName(name);
+      if (ability) botPassives.push([hero, name, ability.GetLevel()]);
+    }
+  });
+  stripBotPassives();
+}
+
+function restoreBotPassives() {
+  let added = 0;
+  for (const [hero, name, level] of botPassives) {
+    if (!IsValidEntity(hero) || hero.HasAbility(name)) continue;
+    hero.AddAbility(name).SetLevel(level);
+    added++;
+  }
+  print(`[perf] bot passives added=${added}`);
+}
+
+// 物品名写成它表示这一格留空：底装空出换装格，测试物品放进去的差值就是它的完整开销
+const EMPTY_SLOT = 'empty';
+
 // 每人拿满主物品栏，轮流错开起点，让每件物品落在不同英雄身上
 function grantTestItems(list: string) {
   const items = list.split(',');
@@ -158,7 +230,8 @@ function grantTestItems(list: string) {
         if (item) UTIL_Remove(item);
       }
       for (let i = 0; i < 6; i++) {
-        hero.AddItemByName(items[next % items.length]);
+        const name = items[next % items.length];
+        if (name !== EMPTY_SLOT) hero.AddItemByName(name);
         next++;
       }
     }),
@@ -166,10 +239,26 @@ function grantTestItems(list: string) {
   print(`[perf-auto] testItems=${list}`);
 }
 
-export function clearUnits() {
+// 自定义 AI 见到测试物品就不买卖，原版 bot 只要有钱就会买，钱一直清零才能保证测量期间装备不变
+function freezeGold() {
+  Timers.CreateTimer({
+    endTime: 1,
+    useGameTime: false,
+    callback: () => {
+      PlayerHelper.ForEachPlayer((playerId) => {
+        PlayerResource.SetGold(playerId, 0, true);
+        PlayerResource.SetGold(playerId, 0, false);
+      });
+      return 1;
+    },
+  });
+}
+
+export function clearUnits(keepNeutrals = false) {
   let removed = 0;
   for (const unit of findAllUnits(UnitTargetType.BASIC)) {
     if (unit.IsHero() || unit.IsBuilding() || unit.IsCourier()) continue;
+    if (keepNeutrals && unit.IsNeutralUnitType()) continue;
     if (!unit.IsCreep() && !unit.IsNeutralUnitType() && !unit.IsSummoned()) continue;
     UTIL_Remove(unit);
     removed++;
@@ -261,6 +350,366 @@ function restoreMagicResist() {
   });
 }
 
+const MELEE_RESISTANCE_MODIFIER = 'modifier_global_melee_resistance';
+let meleeBuffs: CDOTA_Buff[] = [];
+let meleeBuffHeroes: CDOTA_BaseNPC_Hero[] = [];
+let meleeBuffCalls = 0;
+let meleeBuffStart = 0;
+
+// 威压平时只给近战玩家，这里给全员挂上，状态抗性那一半按层数叠加放大开销；回调次数说明引擎多久查一次这个属性
+function addMeleeBuff(stacks: number) {
+  meleeBuffs = [];
+  meleeBuffHeroes = [];
+  meleeBuffCalls = 0;
+  meleeBuffStart = Plat_FloatTime();
+  forEachHero((hero) => {
+    if (!hero.HasModifier(MELEE_RESISTANCE_MODIFIER)) {
+      ModifierHelper.applyGlobalModifier(hero, MELEE_RESISTANCE_MODIFIER);
+      meleeBuffHeroes.push(hero);
+    }
+    for (let i = 0; i < stacks; i++) {
+      const modifier = hero.AddNewModifier(hero, undefined, modifier_perf_melee_stack.name, {}) as
+        | modifier_perf_melee_stack
+        | undefined;
+      if (!modifier) continue;
+      // 方法在注册时已复制到全局表，计数只能覆盖在实例上
+      const original = modifier.GetModifierStatusResistanceStacking;
+      modifier.GetModifierStatusResistanceStacking = function (this: typeof modifier) {
+        meleeBuffCalls++;
+        return original.call(this);
+      };
+      meleeBuffs.push(modifier);
+    }
+  });
+}
+
+function removeMeleeBuff() {
+  for (const modifier of meleeBuffs) {
+    if (!modifier.IsNull()) modifier.Destroy();
+  }
+  for (const hero of meleeBuffHeroes) {
+    if (IsValidEntity(hero)) hero.RemoveModifierByName(MELEE_RESISTANCE_MODIFIER);
+  }
+  const seconds = Plat_FloatTime() - meleeBuffStart;
+  print(
+    `[perf] meleebuff instances=${meleeBuffs.length} calls_per_sec=${string.format('%.1f', meleeBuffCalls / seconds)}`,
+  );
+  meleeBuffs = [];
+  meleeBuffHeroes = [];
+}
+
+// 金钱清零前的空档里辅助 bot 仍会买到守卫，落进空着的换装格，每段开始前收走
+function clearWards(hero: CDOTA_BaseNPC_Hero) {
+  for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_9; slot++) {
+    const item = hero.GetItemInSlot(slot);
+    if (item?.GetName() === 'item_ward_observer') UTIL_Remove(item);
+  }
+}
+
+// 停掉自定义 AI、不再出兵并清掉兵线，全员复活后拉回各自泉水。
+// 野怪整分钟才刷新，清掉会让各段单位数忽多忽少，留在营地里不动反而稳定
+function parkHeroes() {
+  respawnInPlace = false;
+  PerfSampler.aiThinkDisabled = true;
+  SendToServerConsole('dota_creeps_no_spawning 1');
+  clearUnits(true);
+  forEachHero((hero) => {
+    if (!hero.IsAlive()) hero.RespawnHero(false, false);
+    clearWards(hero);
+    const fountain = HeroUtil.GetTeamFountainPosition(hero.GetTeamNumber());
+    if (fountain) FindClearSpaceForUnit(hero, fountain, true);
+    hero.Stop();
+  });
+  print(`[perf-auto] idle parked`);
+}
+
+// 两队隔着中路河道对排，每段从同一个站位开打；英雄间距让 10 人排开不挤成一团
+const FIGHT_LINE: Record<number, Vector> = {
+  [DotaTeam.GOODGUYS]: Vector(-600, -600, 0),
+  [DotaTeam.BADGUYS]: Vector(600, 600, 0),
+};
+const FIGHT_SPACING = 120;
+
+// 自由打团几十秒后会追到高地或散到各路，各段的交战位置、兵线与技能冷却都不同；每段开始前清兵线、回满状态与冷却并拉回固定站位
+function stageFight() {
+  clearUnits(true);
+  const index: Record<number, number> = {};
+  forEachHero((hero) => {
+    const team = hero.GetTeamNumber();
+    const line = FIGHT_LINE[team];
+    if (!line) return;
+    if (!hero.IsAlive()) hero.RespawnHero(false, false);
+    clearWards(hero);
+    hero.SetHealth(hero.GetMaxHealth());
+    hero.SetMana(hero.GetMaxMana());
+    for (let i = 0; i < hero.GetAbilityCount(); i++) hero.GetAbilityByIndex(i)?.EndCooldown();
+    for (let itemSlot = InventorySlot.SLOT_1; itemSlot <= InventorySlot.SLOT_6; itemSlot++) {
+      hero.GetItemInSlot(itemSlot)?.EndCooldown();
+    }
+    const slot = (index[team] ?? 0) - 4.5;
+    index[team] = (index[team] ?? 0) + 1;
+    FindClearSpaceForUnit(
+      hero,
+      line.__add(Vector(slot * FIGHT_SPACING, -slot * FIGHT_SPACING, 0)),
+      true,
+    );
+    hero.Stop();
+  });
+  print(`[perf-auto] fight staged`);
+}
+
+// 打团中阵亡会让场上人数与交战强度在各段之间起伏，原地复活让团战一直持续
+let respawnInPlace = false;
+const RESPAWN_DELAY = 0.1;
+
+function respawnOnDeath(keys: GameEventProvidedProperties & EntityKilledEvent) {
+  if (!respawnInPlace) return;
+  const killed = EntIndexToHScript(keys.entindex_killed) as CDOTA_BaseNPC | undefined;
+  if (!killed || !killed.IsBaseNPC() || !killed.IsRealHero() || killed.IsReincarnating()) return;
+  const hero = killed as CDOTA_BaseNPC_Hero;
+  const position = hero.GetAbsOrigin();
+  Timers.CreateTimer(RESPAWN_DELAY, () => {
+    if (!IsValidEntity(hero) || hero.IsAlive()) return;
+    hero.RespawnHero(false, false);
+    FindClearSpaceForUnit(hero, position, true);
+  });
+}
+
+// 原生 bot 保持关闭，等同后期接管后由自定义 AI 打团的局面
+function releaseHeroes() {
+  respawnInPlace = true;
+  PerfSampler.aiThinkDisabled = false;
+  SendToServerConsole('dota_creeps_no_spawning 0');
+  print(`[perf-auto] fight released`);
+}
+
+// 玩家属性里走 Lua 回调的部分，按每级数值乘 8 级挂上；数值大小不影响回调开销
+const PROPERTY_LEVELS = 8;
+const VALUE_PROPERTIES: [string, number][] = [
+  [property_cast_range_bonus_stacking.name, 25],
+  [property_spell_amplify_percentage.name, 5],
+  [property_status_resistance_stacking.name, 4],
+  [property_incoming_damage_percentage.name, -4],
+  [property_attack_range_bonus.name, 25],
+  [property_health_regen_percentage.name, 0.3],
+  [property_mana_regen_total_percentage.name, 0.3],
+  [property_ignore_movespeed_limit.name, 0.125],
+  [property_slow_immune.name, 0.125],
+  [property_aoe_bonus_constant_stacking.name, 15],
+];
+// 受伤事件对全场每次伤害都回调一次，与只在查属性时回调的分开量
+const DAMAGE_EVENT_PROPERTIES: [string, number][] = [
+  [property_lifesteal.name, 10],
+  [property_spell_lifesteal.name, 8],
+];
+
+let addedProperties: CDOTA_Buff[] = [];
+
+// 真实对局只有玩家带属性，这里全员都挂，量到的是上限
+function addProperties(properties: [string, number][]) {
+  addedProperties = [];
+  forEachHero((hero) => {
+    for (const [name, perLevel] of properties) {
+      const modifier = hero.AddNewModifier(hero, undefined, name, {
+        value: perLevel * PROPERTY_LEVELS,
+      });
+      if (modifier !== undefined) addedProperties.push(modifier);
+    }
+  });
+  print(`[perf] properties added=${addedProperties.length}`);
+}
+
+function removeProperties() {
+  for (const modifier of addedProperties) {
+    if (!modifier.IsNull()) modifier.Destroy();
+  }
+  addedProperties = [];
+}
+
+// 同一组数值属性里走 KV 原生求值的部分，与上面的 Lua 部分对照；会改变行为的飞行、必中不挂
+const KV_PROPERTIES = [
+  'cooldown_percentage',
+  'movespeed_bonus_constant',
+  'bonus_vision',
+  'evasion_constant',
+  'magical_resistance_bonus',
+  'physical_armor_bonus',
+  'preattack_bonus_damage',
+  'attackspeed_bonus_constant',
+  'stats_strength_bonus',
+  'stats_agility_bonus',
+  'stats_intellect_bonus',
+].map((name) => `modifier_player_property_${name}_level_${PROPERTY_LEVELS}`);
+
+// 玩家全部数值属性走属性系统自己的加点流程挂上，属性改写法前后用同一条件对比；飞行、必中会改变行为，吸血另有条件
+const PLAYER_PROPERTIES = [
+  'cast_range_bonus_stacking',
+  'spell_amplify_percentage',
+  'status_resistance_stacking',
+  'incoming_damage_percentage',
+  'attack_range_bonus',
+  'health_regen_percentage',
+  'mana_regen_total_percentage',
+  'ignore_movespeed_limit',
+  'slow_immune',
+  'aoe_bonus_constant_stacking',
+  'cooldown_percentage',
+  'movespeed_bonus_constant',
+  'bonus_vision',
+  'evasion_constant',
+  'magical_resistance_bonus',
+  'physical_armor_bonus',
+  'preattack_bonus_damage',
+  'attackspeed_bonus_constant',
+  'stats_strength_bonus',
+  'stats_agility_bonus',
+  'stats_intellect_bonus',
+];
+
+function playerPropertyModifierNames(name: string): string[] {
+  const names = [`property_${name}`];
+  for (let level = 1; level <= PROPERTY_LEVELS; level++) {
+    names.push(`modifier_player_property_${name}_level_${level}`);
+  }
+  return names;
+}
+
+function addPlayerProperties() {
+  let added = 0;
+  forEachHero((hero) => {
+    for (const name of PLAYER_PROPERTIES) {
+      PropertyController.LevelupHeroProperty(hero, {
+        name: `property_${name}`,
+        level: PROPERTY_LEVELS,
+      });
+      if (playerPropertyModifierNames(name).some((modifier) => hero.HasModifier(modifier))) added++;
+    }
+  });
+  print(`[perf] player properties added=${added}`);
+}
+
+function removePlayerProperties() {
+  forEachHero((hero) => {
+    for (const name of PLAYER_PROPERTIES) {
+      for (const modifier of playerPropertyModifierNames(name)) hero.RemoveModifierByName(modifier);
+    }
+  });
+}
+
+let kvPropertyItem: CDOTA_Item_DataDriven | undefined;
+
+function addKvProperties() {
+  kvPropertyItem ??= CreateItem(
+    'item_player_modifiers',
+    undefined,
+    undefined,
+  ) as CDOTA_Item_DataDriven;
+  let added = 0;
+  forEachHero((hero) => {
+    for (const name of KV_PROPERTIES) {
+      kvPropertyItem!.ApplyDataDrivenModifier(hero, hero, name, { duration: -1 });
+      if (hero.HasModifier(name)) added++;
+    }
+  });
+  print(`[perf] kv properties added=${added}`);
+}
+
+function removeKvProperties() {
+  forEachHero((hero) => {
+    for (const name of KV_PROPERTIES) hero.RemoveModifierByName(name);
+  });
+}
+
+// 机械救赎：电脑高难度自带的纯 KV 属性被动
+const BOT_POWER_ABILITY = 'bot_power_n6';
+const BOT_POWER_MODIFIER = 'modifier_bot_power';
+
+function removeBotPower() {
+  let removed = 0;
+  forEachHero((hero) => {
+    if (!hero.HasModifier(BOT_POWER_MODIFIER)) return;
+    hero.RemoveModifierByName(BOT_POWER_MODIFIER);
+    removed++;
+  });
+  print(`[perf] bot power removed=${removed}`);
+}
+
+function restoreBotPower() {
+  forEachHero((hero) => {
+    const ability = hero.FindAbilityByName(BOT_POWER_ABILITY) as
+      | CDOTA_Ability_DataDriven
+      | undefined;
+    if (ability && ability.GetLevel() > 0 && !hero.HasModifier(BOT_POWER_MODIFIER)) {
+      ability.ApplyDataDrivenModifier(hero, hero, BOT_POWER_MODIFIER, {});
+    }
+  });
+}
+
+const SWAP_SLOT = InventorySlot.SLOT_6;
+let swappedOut: [CDOTA_BaseNPC_Hero, string | undefined][] = [];
+
+// 两种空白对照：换回同名物品，验证换装动作本身不带开销；只拿掉不补，量出底装这一件自身的开销，
+// 换装条件的差值减去它才是测试物品的完整开销。换装格本来空着时两者都不动，只剩空白段
+const SAME_ITEM = 'same';
+
+function swapItem(itemName: string) {
+  swappedOut = [];
+  let added = 0;
+  forEachHero((hero) => {
+    const old = hero.GetItemInSlot(SWAP_SLOT);
+    const oldName = old?.GetName();
+    swappedOut.push([hero, oldName]);
+    if (old) UTIL_RemoveImmediate(old);
+    const name = itemName === SAME_ITEM ? oldName : itemName;
+    if (name === undefined || name === EMPTY_SLOT) return;
+    const item = hero.AddItemByName(name);
+    if (!item) return;
+    added++;
+    if (item.GetItemSlot() !== SWAP_SLOT) hero.SwapItems(item.GetItemSlot(), SWAP_SLOT);
+  });
+  print(`[perf] swap item=${itemName} heroes=${swappedOut.length} added=${added}`);
+}
+
+function restoreSwappedItem() {
+  for (const [hero, name] of swappedOut) {
+    if (!IsValidEntity(hero)) continue;
+    const current = hero.GetItemInSlot(SWAP_SLOT);
+    if (current) UTIL_RemoveImmediate(current);
+    if (name === undefined) continue;
+    const item = hero.AddItemByName(name);
+    if (item && item.GetItemSlot() !== SWAP_SLOT) hero.SwapItems(item.GetItemSlot(), SWAP_SLOT);
+  }
+  swappedOut = [];
+}
+
+// 主动与触发效果在打团中出现的频率难控，直接以物品为来源给全员常驻挂上，量到的是上限
+let itemModifierSources: CDOTA_Item[] = [];
+let itemModifiers: CDOTA_Buff[] = [];
+
+function addItemModifier(itemName: string, modifierName: string) {
+  itemModifierSources = [];
+  itemModifiers = [];
+  forEachHero((hero) => {
+    const item = CreateItem(itemName, hero.GetPlayerOwner(), hero);
+    if (!item) return;
+    itemModifierSources.push(item);
+    const modifier = hero.AddNewModifier(hero, item, modifierName, {});
+    if (modifier !== undefined) itemModifiers.push(modifier);
+  });
+  print(`[perf] item modifier=${modifierName} added=${itemModifiers.length}`);
+}
+
+function removeItemModifier() {
+  for (const modifier of itemModifiers) {
+    if (!modifier.IsNull()) modifier.Destroy();
+  }
+  for (const item of itemModifierSources) {
+    if (IsValidEntity(item)) UTIL_Remove(item);
+  }
+  itemModifiers = [];
+  itemModifierSources = [];
+}
+
 function setBotThinking(enabled: boolean) {
   GameRules.AI.BotTeam?.SetNativeThinking(enabled);
 }
@@ -311,6 +760,49 @@ const CONDITIONS: Condition[] = [
     teardown: restoreItems,
   })),
   { name: 'nomagicres', setup: removeMagicResist, teardown: restoreMagicResist },
+  {
+    name: 'prop_lua',
+    setup: () => addProperties(VALUE_PROPERTIES),
+    teardown: removeProperties,
+  },
+  { name: 'prop_kv', setup: addKvProperties, teardown: removeKvProperties },
+  { name: 'prop_player', setup: addPlayerProperties, teardown: removePlayerProperties },
+  { name: 'nobotpower', setup: removeBotPower, teardown: restoreBotPower },
+  { name: 'botpassives', setup: restoreBotPassives, teardown: stripBotPassives },
+  {
+    name: 'prop_takedamage',
+    setup: () => addProperties(DAMAGE_EVENT_PROPERTIES),
+    teardown: removeProperties,
+  },
+  ...[SAME_ITEM, EMPTY_SLOT].map((mode) => ({
+    name: `swap_${mode}`,
+    setup: () => swapItem(mode),
+    teardown: restoreSwappedItem,
+  })),
+  ...(PERF_CONFIG?.itemModifiers ?? '')
+    .split(',')
+    .filter((entry) => entry !== '')
+    .map((entry) => {
+      const [itemName, modifierName] = entry.split(':');
+      return {
+        name: `mod_${modifierName}`,
+        setup: () => addItemModifier(itemName, modifierName),
+        teardown: removeItemModifier,
+      };
+    }),
+  ...(PERF_CONFIG?.swapItems ?? '')
+    .split(',')
+    .filter((itemName) => itemName !== '')
+    .map((itemName) => ({
+      name: `swap_${itemName}`,
+      setup: () => swapItem(itemName),
+      teardown: restoreSwappedItem,
+    })),
+  ...(PERF_CONFIG?.buffStacks ?? '1').split(',').map((stacks) => ({
+    name: `meleebuff_x${stacks}`,
+    setup: () => addMeleeBuff(Number(stacks)),
+    teardown: removeMeleeBuff,
+  })),
   // 暂停时画面照常渲染、游戏逻辑停止，和基线的帧时间差就是随游戏运行产生的每帧开销
   { name: 'paused', setup: () => PauseGame(true), teardown: () => PauseGame(false) },
 ];
@@ -330,17 +822,26 @@ function buildSteps(
   reps: number,
   repStart: number,
   includeTail: boolean,
+  scene?: { name: string },
 ): PerfStep[] {
   const steps: PerfStep[] = [];
+  // 场景名作前缀，汇总时同名条件在两个场景下各成一行
+  const prefix = scene ? `${scene.name}-` : '';
+  const extra = scene ? { scene: scene.name } : {};
   let baselineIndex = 0;
-  const nextBaseline = (rep: number) => `baseline#${rep}.${++baselineIndex}`;
+  const nextBaseline = (rep: number) => `${prefix}baseline#${rep}.${++baselineIndex}`;
   for (let rep = repStart; rep < repStart + reps; rep++) {
     let before = nextBaseline(rep);
-    steps.push({ name: before, ref: before });
+    steps.push({ name: before, ref: before, ...extra });
     for (const condition of shuffled(conditions)) {
       const after = nextBaseline(rep);
-      steps.push({ ...condition, name: `${condition.name}#${rep}`, ref: `${before},${after}` });
-      steps.push({ name: after, ref: after });
+      steps.push({
+        ...condition,
+        ...extra,
+        name: `${prefix}${condition.name}#${rep}`,
+        ref: `${before},${after}`,
+      });
+      steps.push({ name: after, ref: after, ...extra });
       before = after;
     }
   }
@@ -378,13 +879,24 @@ export class PerfAuto {
         if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) GameRules.AI.EnableAI(hero);
       });
     }
+    const hasTestItems = config.testItems !== undefined && config.testItems !== '';
     if (config.boost) {
-      boostHeroes();
+      boostHeroes(undefined, !hasTestItems);
       lockForts();
     } else if (config.radiantBoost === true) {
-      boostHeroes(DotaTeam.GOODGUYS);
+      boostHeroes(DotaTeam.GOODGUYS, !hasTestItems);
     }
-    if (config.testItems !== undefined && config.testItems !== '') grantTestItems(config.testItems);
+    if (hasTestItems) {
+      grantTestItems(config.testItems as string);
+      freezeGold();
+    }
+    // 分场景测试不热身，开局就停掉原生 bot 与自定义 AI，由各场景自己决定谁在动
+    if (config.scenes !== undefined && config.scenes !== '') {
+      setBotThinking(false);
+      PerfSampler.aiThinkDisabled = true;
+      afterRealSeconds(3, removeBotPassives);
+      ListenToGameEvent('entity_killed', (keys) => respawnOnDeath(keys), undefined);
+    }
     // 结算阶段计时器可能不再推进，轮询发现不了游戏结束，直接听状态切换
     ListenToGameEvent(
       'game_rules_state_change',
@@ -475,15 +987,24 @@ export class PerfAuto {
       | 'repStart'
       | 'includeTail'
       | 'conditions'
+      | 'scenes'
     >,
   ) {
     if (this.running) return;
     this.running = true;
     PerfSampler.start();
+    // 引擎剖析器直接给出每 tick 的计算时间并按引擎模块拆开，1 倍速下也量得到，不必加速跑满
+    SendToServerConsole('vprof_on');
     const wanted =
       config.conditions && config.conditions !== 'all' ? config.conditions.split(',') : undefined;
     const conditions = wanted ? CONDITIONS.filter((c) => wanted.includes(c.name)) : CONDITIONS;
-    const steps = buildSteps(conditions, config.reps, config.repStart, config.includeTail);
+    const scenes =
+      config.scenes !== undefined && config.scenes !== '' ? config.scenes.split(',') : undefined;
+    const steps = scenes
+      ? scenes.flatMap((name) =>
+          buildSteps(conditions, config.reps, config.repStart, false, { name }),
+        )
+      : buildSteps(conditions, config.reps, config.repStart, config.includeTail);
     print(
       `[perf-auto] begin phaseSeconds=${config.phaseSeconds} reps=${config.reps} measureTimescale=${config.measureTimescale} steps=${steps.length}`,
     );
@@ -503,10 +1024,15 @@ export class PerfAuto {
     }
     const timescale = step.timescale ?? config.measureTimescale;
     SendToServerConsole(`host_timescale ${timescale}`);
+    // 团队 AI 的回线任务不归单体思考管，可能把人带出泉水，每段开始前重新拉回
+    if (step.scene === 'idle') parkHeroes();
+    const enteringFight = step.scene === 'fight' && steps[index - 1]?.scene !== 'fight';
+    if (enteringFight) releaseHeroes();
+    if (step.scene === 'fight') stageFight();
     step.setup?.();
     PerfSampler.setPhase(`settle`);
     // 按真实时间计时：服务器跟不上时游戏时间会变慢，暂停时游戏时间不走，都会让各段长短不一
-    afterRealSeconds(SETTLE_SECONDS, () => {
+    afterRealSeconds(enteringFight ? FIGHT_SETTLE_SECONDS : SETTLE_SECONDS, () => {
       print(`[perf-auto] step name=${step.name} ref=${step.ref} timescale=${timescale}`);
       const next = () => {
         step.teardown?.();
@@ -517,9 +1043,13 @@ export class PerfAuto {
         return;
       }
       PerfSampler.setPhase(step.name);
+      SendToServerConsole('vprof_reset');
       if (step.profile) PerfProfiler.start();
       afterRealSeconds(config.phaseSeconds, () => {
         if (step.profile) PerfProfiler.stop(step.name);
+        // 报告在下一帧才打印，标记先出，启动脚本据此把报告归到这一段
+        print(`[perf-vprof-mark] phase=${step.name}`);
+        SendToServerConsole('vprof_generate_report');
         next();
       });
     });
@@ -570,12 +1100,18 @@ function runFlipSlices(rep: string, index: number, done: () => void) {
   });
 }
 
+// 计时器库的非游戏时间也随 host_timescale 缩放，加速测量时各段会被压短，只能按系统时钟轮询
+const REAL_TIMER_POLL = 0.1;
+
 function afterRealSeconds(seconds: number, callback: () => void) {
+  const deadline = Plat_FloatTime() + seconds;
   Timers.CreateTimer({
-    endTime: seconds,
+    endTime: 0,
     useGameTime: false,
     callback: () => {
+      if (Plat_FloatTime() < deadline) return REAL_TIMER_POLL;
       callback();
+      return undefined;
     },
   });
 }

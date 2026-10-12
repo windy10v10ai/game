@@ -49,6 +49,14 @@ function parseArgs() {
     botHeroes: '',
     // 逗号分隔的物品名，开局轮流发给每个英雄并停掉 bot 买卖装备，用于验证物品施放
     testItems: '',
+    // 逗号分隔的场景（idle 泉水挂机、fight 自定义 AI 打团），同一局里按顺序各测一遍，开局即测、不热身；别和 botoff、aioff 等条件同跑
+    scenes: '',
+    // 逗号分隔的威压层数，每个层数一个条件
+    buffStacks: '1',
+    // 逗号分隔的物品名，每件一个条件：全员第 6 格换成该物品
+    swapItems: '',
+    // 逗号分隔的「物品名:modifier 名」，每项一个条件：以该物品为来源给全员挂上这个 modifier，模拟主动或触发效果
+    itemModifiers: '',
     // 先跑 minGames 局；有条件各局结果不一致就逐局追加，最多 maxGames 局
     // 逗号分隔的条件名，只复测其中几项时用
     conditions: 'all',
@@ -64,7 +72,19 @@ function parseArgs() {
     if (!(key in options)) throw new Error(`unknown option --${key}`);
     const value = argv[i + 1];
     if (['quitOnDone', 'boost', 'radiantBoost'].includes(key)) options[key] = value !== 'false';
-    else if (['mode', 'conditions', 'botHeroes', 'testItems', 'server'].includes(key))
+    else if (
+      [
+        'mode',
+        'conditions',
+        'botHeroes',
+        'testItems',
+        'server',
+        'scenes',
+        'buffStacks',
+        'swapItems',
+        'itemModifiers',
+      ].includes(key)
+    )
       options[key] = value;
     else options[key] = Number(value);
   }
@@ -115,6 +135,35 @@ function logTail(file) {
 // 汇总脚本需要的行：自身输出、Lua 报错、客户端未登记的 modifier、引擎慢思考警告
 const KEEP_LINE =
   /\[perf|\[bot-ai\] (glyph|team=\d+ lanes|\S+ buyback)|Script Runtime Error|\[bot-team\] think error|unknown modifier type|thinking for [\d.]+ ms/;
+
+// 引擎剖析报告的一行：作用域名（右对齐、可能含空格）后跟 10 列数字
+const VPROF_ROW =
+  /^(?:\d\d\/\d\d \d\d:\d\d:\d\d )?\s*(.+?)\s+(\d+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s*$/;
+
+// 一份报告两千多行、五张表内容重复，只把第一张表（按含子作用域总耗时排序）转成一行一个作用域
+function vprofReader() {
+  let phase;
+  let table = 0;
+  return (line) => {
+    const mark = line.match(/\[perf-vprof-mark\] phase=(\S+)/);
+    if (mark) {
+      [, phase] = mark;
+      table = 0;
+      return undefined;
+    }
+    if (!phase) return undefined;
+    if (line.includes('END VPROF REPORT')) {
+      phase = undefined;
+      return undefined;
+    }
+    if (line.includes('-- Profile scopes sorted by')) table++;
+    if (table !== 1) return undefined;
+    const row = line.match(VPROF_ROW);
+    if (!row) return undefined;
+    const scope = row[1].trim().replace(/\s+/g, '_');
+    return `[perf-vprof] phase=${phase} scope=${scope} calls=${row[2]} timeChild=${row[4]} time=${row[6]}`;
+  };
+}
 
 // 显示器休眠后 Dota 不再出画面，客户端帧数据全部失效；测试期间向系统申请保持常亮，进程退出即失效，不改电源设置
 function keepDisplayAwake() {
@@ -231,7 +280,10 @@ async function runGame(options, gameConfig, label) {
     );
   }
   // 专用服的脚本输出在服务器日志，客户端帧数据仍在客户端日志
-  const tails = dedicated ? [logTail(serverLog), logTail(logFile)] : [logTail(logFile)];
+  const tails = (dedicated ? [serverLog, logFile] : [logFile]).map((file) => ({
+    read: logTail(file),
+    vprof: vprofReader(),
+  }));
   const kept = [];
   // 验证物品施放时还要留下施法日志
   const castLine = /\[bot-cast\]|\[bot-ai\] \S+ force_staff/;
@@ -244,8 +296,10 @@ async function runGame(options, gameConfig, label) {
   while (Date.now() < deadline && !finished && !broken) {
     await sleep(POLL_MS);
     for (const tail of tails) {
-      for (const line of tail()) {
+      for (const line of tail.read()) {
         if (keep(line)) kept.push(line);
+        const vprofLine = tail.vprof(line);
+        if (vprofLine) kept.push(vprofLine);
         if (FINISHED.test(line)) finished = true;
         if (BROKEN.test(line)) broken = line;
         const step = line.match(/\[perf-auto\] step name=(\S+)/);
