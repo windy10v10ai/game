@@ -199,8 +199,10 @@ describe('Treasure', () => {
 
     // RandomInt 取 max 时选中池子最后一个点，用来判断 HARD 是否已并入
     const pickLastOfPool = () => {
-      (RandomInt as jest.Mock).mockImplementationOnce((_min: number, max: number) => max);
-      return treasure.getRandomSpawnPoint();
+      global.RandomInt = jest.fn((_min: number, max: number) => max);
+      const point = treasure.getRandomSpawnPoint();
+      global.RandomInt = jest.fn((min: number, _max: number) => min);
+      return point;
     };
 
     it('spawnCount === 11 仍是 EASY+JUNGLE 池，不刷 HARD', () => {
