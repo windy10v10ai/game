@@ -62,6 +62,8 @@ function parseArgs() {
     moonStacks: '1,10,30',
     // 逗号分隔的 modifier 名，换装与挂 modifier 的段末统计全场实例数（光环等）
     countModifiers: '',
+    // 每段末统计全场 modifier 与实体数，排查随时间累积的东西
+    census: false,
     // 先跑 minGames 局；有条件各局结果不一致就逐局追加，最多 maxGames 局
     // 逗号分隔的条件名，只复测其中几项时用
     conditions: 'all',
@@ -76,7 +78,7 @@ function parseArgs() {
     const key = argv[i].replace(/^--/, '');
     if (!(key in options)) throw new Error(`unknown option --${key}`);
     const value = argv[i + 1];
-    if (['quitOnDone', 'boost', 'radiantBoost'].includes(key)) options[key] = value !== 'false';
+    if (['quitOnDone', 'boost', 'radiantBoost', 'census'].includes(key)) options[key] = value !== 'false';
     else if (
       [
         'mode',
