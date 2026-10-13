@@ -19,7 +19,7 @@ import { GameConfig } from '../GameConfig';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { PropertyController } from '../property/property_controller';
-import { HeroPick } from '../hero/hero-pick';
+import { BotPick } from '../../ai/bot-pick/bot-pick';
 import { PerfProfiler } from './perf-profiler';
 import { PERF_CONFIG } from './perf-config';
 import { modifier_perf_melee_stack } from './perf-melee-stack';
@@ -98,16 +98,19 @@ const BOOST_XP = 250000;
 // 选英雄早于自动测试启动，只能在模块加载时调整英雄池顺序
 const bootConfig = PERF_CONFIG;
 if (bootConfig && bootConfig.botOffset > 0) {
-  const pool = HeroPick.BotNameList;
+  const pool = BotPick.HeroPool;
   const offset = bootConfig.botOffset % pool.length;
-  HeroPick.BotNameList = [...pool.slice(offset), ...pool.slice(0, offset)];
-  print(`[perf-auto] botOffset=${offset} first=${HeroPick.BotNameList[0]}`);
+  BotPick.HeroPool = [...pool.slice(offset), ...pool.slice(0, offset)];
+  print(`[perf-auto] botOffset=${offset} first=${BotPick.HeroPool[0].name}`);
 }
 
 if (bootConfig && bootConfig.botHeroes !== '') {
   const wanted = bootConfig.botHeroes.split(',').map((name) => `npc_dota_hero_${name}`);
-  const rest = HeroPick.BotNameList.filter((name) => !wanted.includes(name));
-  HeroPick.BotNameList = [...wanted, ...rest];
+  const rest = BotPick.HeroPool.filter((hero) => !wanted.includes(hero.name));
+  const wantedHeroes = wanted.map(
+    (name) => BotPick.HeroPool.find((hero) => hero.name === name) ?? { name, roles: [] },
+  );
+  BotPick.HeroPool = [...wantedHeroes, ...rest];
   print(`[perf-auto] botHeroes=${bootConfig.botHeroes}`);
 }
 
@@ -120,8 +123,8 @@ if (
     (bootConfig.towerPower ?? 0) > 0)
 ) {
   const config = bootConfig;
-  const originalPickBotHeroes = HeroPick.PickBotHeroes;
-  HeroPick.PickBotHeroes = function (this: typeof HeroPick) {
+  const originalPickBotHeroes = BotPick.PickBotHeroes;
+  BotPick.PickBotHeroes = function (this: typeof BotPick) {
     if (config.radiantPlayers > 0) GameRules.Option.radiantPlayerNumber = config.radiantPlayers;
     if (config.radiantMultiplier > 0) {
       GameRules.Option.radiantGoldXpMultiplier = config.radiantMultiplier;

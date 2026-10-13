@@ -1,0 +1,55 @@
+import { BotHeroEntry, HeroRole } from './balanced-pick';
+
+const { Control, Support, Tank, Carry } = HeroRole;
+
+/**
+ * 电脑可选英雄及定位标签。标签按英雄本身定位定，参考结算里电脑的控制时长、治疗、承伤与伤害补漏；
+ * 每个英雄最多两个标签，标多了同队定位上限会频繁被迫超出。
+ */
+export const BOT_HERO_POOL: BotHeroEntry[] = [
+  { name: 'npc_dota_hero_abaddon', roles: [Support, Tank] },
+  { name: 'npc_dota_hero_axe', roles: [Control, Tank] },
+  { name: 'npc_dota_hero_bane', roles: [Control, Support] },
+  { name: 'npc_dota_hero_bounty_hunter', roles: [Support] },
+  { name: 'npc_dota_hero_bloodseeker', roles: [Carry] },
+  { name: 'npc_dota_hero_bristleback', roles: [Tank] },
+  { name: 'npc_dota_hero_chaos_knight', roles: [Control, Carry] },
+  { name: 'npc_dota_hero_crystal_maiden', roles: [Control, Support] },
+  { name: 'npc_dota_hero_dazzle', roles: [Support] },
+  { name: 'npc_dota_hero_death_prophet', roles: [Carry] },
+  { name: 'npc_dota_hero_dragon_knight', roles: [Tank, Carry] },
+  { name: 'npc_dota_hero_drow_ranger', roles: [Carry] },
+  { name: 'npc_dota_hero_earthshaker', roles: [Control] },
+  { name: 'npc_dota_hero_jakiro', roles: [Control, Support] },
+  { name: 'npc_dota_hero_juggernaut', roles: [Carry] },
+  { name: 'npc_dota_hero_kunkka', roles: [Control, Tank] },
+  { name: 'npc_dota_hero_lich', roles: [Support] },
+  { name: 'npc_dota_hero_lina', roles: [Control, Carry] },
+  { name: 'npc_dota_hero_lion', roles: [Control, Support] },
+  { name: 'npc_dota_hero_luna', roles: [Carry] },
+  { name: 'npc_dota_hero_medusa', roles: [Carry] },
+  { name: 'npc_dota_hero_meepo', roles: [Control, Carry] },
+  { name: 'npc_dota_hero_necrolyte', roles: [Tank, Support] },
+  { name: 'npc_dota_hero_nevermore', roles: [Carry] },
+  { name: 'npc_dota_hero_ogre_magi', roles: [Control, Support] },
+  { name: 'npc_dota_hero_omniknight', roles: [Support, Tank] },
+  { name: 'npc_dota_hero_oracle', roles: [Support] },
+  { name: 'npc_dota_hero_phantom_assassin', roles: [Carry] },
+  { name: 'npc_dota_hero_pudge', roles: [Control, Tank] },
+  { name: 'npc_dota_hero_riki', roles: [Carry] },
+  { name: 'npc_dota_hero_sand_king', roles: [Control, Tank] },
+  { name: 'npc_dota_hero_shadow_shaman', roles: [Control, Support] },
+  { name: 'npc_dota_hero_skywrath_mage', roles: [Support] },
+  { name: 'npc_dota_hero_sniper', roles: [Carry] },
+  { name: 'npc_dota_hero_spectre', roles: [Carry] },
+  { name: 'npc_dota_hero_sven', roles: [Tank, Carry] },
+  { name: 'npc_dota_hero_tinker', roles: [Carry] },
+  { name: 'npc_dota_hero_tiny', roles: [Control, Tank] },
+  { name: 'npc_dota_hero_vengefulspirit', roles: [Control, Support] },
+  { name: 'npc_dota_hero_viper', roles: [Carry] },
+  { name: 'npc_dota_hero_warlock', roles: [Control, Support] },
+  { name: 'npc_dota_hero_windrunner', roles: [Carry] },
+  { name: 'npc_dota_hero_witch_doctor', roles: [Control, Support] },
+  { name: 'npc_dota_hero_skeleton_king', roles: [Tank, Carry] },
+  { name: 'npc_dota_hero_zuus', roles: [Carry] },
+];
