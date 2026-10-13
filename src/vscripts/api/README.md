@@ -81,3 +81,10 @@ Dota 2 不再给自定义游戏提供专用服务器，每一局都是玩家自�
 - GA4 埋点与 cloudflare 取时间：不走统一的 API 客户端，代发对局接受丢失
 - 签名：主机本来就不可信，防线是限额不是签名
 - 只认网页登录态的写入，理由见「写入型代理路由」
+
+## 已确认不可用的客户端接口
+
+二进制与实机双重确认，不要再写探针重测：
+
+- `GameUI.SavePersistentEventGameData` / `LoadPersistentEventGameData`：属于大厅与 GC 的活动赛季管线，游廊地图没有赛季 ID，写入静默丢弃、读回 undefined
+- `$.AsyncWebRequest`：Valve 已移除（`panorama.dll` 里有 `AsyncWebRequest has been removed`），调用不报错但回调永远不触发

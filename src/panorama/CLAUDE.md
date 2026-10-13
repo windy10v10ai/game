@@ -77,6 +77,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 ## 常见陷阱
 
 - **Webpack 缓存**: 如果构建输出看起来过时，删除 `node_modules/.cache`
+- **外部网页一律用 `ExternalBrowserGoToURL` 打开外部浏览器，不要改成内置浏览器 `BrowserGoToURL`**：已实机否决，内置浏览器里网页的外链点了打不开，国内网络下 Steam 授权页能否打开也没验证。自建 `DOTAHTMLPanel` 可行性：左上角移动手柄是子图片 `MousePanningImage`，设 `visibility: collapse` 可隐藏；面板内 `target=_blank` 外链会触发 `HTMLOpenLinkInNewTab`（参数带完整网址），可转给 `ExternalBrowserGoToURL`。重提前要先有外链与国内网络的新证据
 - **React Panorama 条件返回不同 panel 结构会渲染失败**: 在 React 组件中根据状态返回**完全不同的 JSX 结构**（例如 `if (empty) return <Panel collapse />; return <Panel>...复杂子树...</Panel>;`）会导致 panel 在 Panorama DOM 中始终缺失。改为**始终渲染同一 panel 树**，用 `style={{ visibility: cond ? 'visible' : 'collapse' }}` 切换显隐
 - **`@keyframes` 不能写在 `@import` 进来的页面/组件 less 里（如 `hud_main/pages/*/*.less`）**: webpack `additionalData` 会给 keyframe 名加 Valve 必需的引号（`@keyframes 'Name'`），但**只作用于 layout.xml 直接引用的那个 styles.less**；`@import` 进来的子 less 内容由 less 编译器后续合并，拿不到这层转换，keyframe 名未加引号被 Valve 拒绝，**导致整张 styles.css 解析失败、该页所有样式丢失**（图标变紫块等）。hud_lottery 的 keyframe 能用是因为它写在 entry 直载的 `styles.less` 里。**结论：hud_main 页面的动画一律用 JS 驱动**（如 `$.Schedule` 定时改 prop），不要在页面 less 写 `@keyframes`。另注：`transform`/`scale3d` 等属性 Panorama 本就不支持，更不能用
 - **`TextEntry` 的 `placeholder` `multiline` `maxchars` 只在创建时生效**：react-panorama-x 把它们标为 initial，渲染后改值会抛错，整个 hud_main 跟着崩（按钮栏入口一起消失）。要随状态变的，给 `TextEntry` 换 `key` 让它重建

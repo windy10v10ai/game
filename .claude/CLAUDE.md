@@ -94,7 +94,13 @@ npm run build:vscripts   # TSTL build for VScripts (TypeScript → Lua)
 
 模块级的设计与决策放该模块目录下的 `README.md`（如 `src/vscripts/api/README.md` 讲客户端 HTTP 代发、`src/vscripts/ai/build-item/README.md` 讲出装）。
 
-**唯一的全局陷阱**：TypeScript 文件行尾符用 LF (Unix) 而不是 CRLF (Windows)。
+**全局陷阱**：
+
+- TypeScript 文件行尾符用 LF (Unix) 而不是 CRLF (Windows)
+- **不要对通配符跑 `prettier --write`**：`npm run lint` 不含 prettier 检查，仓库里有一批文件从没按 `.prettierrc` 格式化过，全量跑会混进几百行无关 diff。只格式化本次改动的文件；误跑了用 `git add -A` 归一化换行后看 `git diff --cached --stat`，逐个 `git checkout HEAD --` 还原，不要 `git reset --hard`（`src/vscripts/api/api-client.local.ts` 带 skip-worktree，工作区存着真实 key）
+- 检索代码默认跳过 `docs/reference/tenvten-*`：那是项目自身的历史快照，结构和 `game/` 一样，会混进过时的匹配结果。用户明确要看或做版本对比时才查
+
+**相关仓库**：官网（`web/`）与后端 API（`api/`）在本机 `../firebase`，用户已授权直接修改，动手前先读该仓库自己的 CLAUDE.md / AGENTS.md。
 
 ## 查原版技能
 
@@ -150,6 +156,7 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 
 - **先设计，后细节**：Plan 应包含：背景/目标、设计决策（为什么这样做）、数据流（谁读谁写、字段名、经过哪些层）、修改文件列表（一行描述）、验证方式。
 - **不写代码**：Plan 中不应出现具体函数签名、完整代码块、参数列表。这些留给实现阶段。
+- brainstorming 的书面 spec 经用户确认后直接按 spec 执行，不再调用 writing-plans，除非用户当次要求写正式 plan
 - **文件列表简洁**：每个文件一行，说明"改什么"即可，不说"怎么改"。
 
 ### 设计文档位置
@@ -161,7 +168,7 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 
 上面那份是方案过程稿，会话结束就没人再看。**留得住的设计思路与决策要另外写进版本控制**：模块级的放该模块目录下的 `README.md`（如 `src/vscripts/api/README.md`、`src/vscripts/ai/build-item/README.md`），只影响一两处实现的写成代码注释。
 
-issue 只管理整体目标、统一规范、进度与验证结论，不放具体文件、key 清单、实施步骤或设计细节。实施过程留在本地 spec，长期约束跟随代码放在就近文档；有版本控制中的相关文档时，issue 用链接指向它。
+issue 只管理整体目标、统一规范、进度与验证结论，不放具体文件、key 清单、实施步骤或设计细节；「规划 issue」只授权讨论方案和更新 issue，不等于开始实现。实施过程留在本地 spec，长期约束跟随代码放在就近文档；有版本控制中的相关文档时，issue 用链接指向它。
 
 模块 `README.md` 是**框架性文档**：写系统现在长什么样、为什么这样搭、放弃了什么，长期维护。
 
@@ -186,7 +193,8 @@ issue 只管理整体目标、统一规范、进度与验证结论，不放具�
 
 ### 提交与 PR
 
-- PR 的 base branch 固定为 `develop`；标题默认英文；纯内部改动（重构、构建、CI、文档、测试）自行判定跳过 Release Note，不提问也不查版本号，其余情况问用户走「小版本补丁 / 大版本 / 不写 Release Note」，需要写时必须调用 `release-note` skill 生成，不要手写
+- issue 标题与 PR 正文用中文；PR 标题与 commit 用英文
+- PR 的 base branch 固定为 `develop`；纯内部改动（重构、构建、CI、文档、测试）自行判定跳过 Release Note，不提问也不查版本号，其余情况问用户走「小版本补丁 / 大版本 / 不写 Release Note」，需要写时必须调用 `release-note` skill 生成，不要手写
 - 只有 PR 完成 issue 的全部范围时，才在 Issue 段写 `Fixes #<issue-id>`，让 PR 合并后自动关闭该 issue；issue 分为多个 PR 时，各 PR 仅写 `#<issue-id>` 关联，最后完成全部范围的 PR 才使用 `Fixes`
 - Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`
 - `docs/superpowers/` 整个目录已被 `.gitignore` 排除，brainstorming skill 产出的 spec 文档仅本地留档，不进版本控制，无需尝试 `git add`
@@ -256,3 +264,5 @@ worktree 里不要跑 `npm install`：它的 postinstall（`src/scripts/install.
 - 原版技能信息无法确定（多个候选、版本差异等）
 
 每道问题单独一次 `AskUserQuestion` 调用，`options` 列出具体候选项并附简短说明。
+
+**例外：用户明确要求「不要停、自主做到最后」时**，skill 自带的确认停顿点（澄清问题、方案二选一、review 后问怎么处理）一律跳过，已有设计文档就当作已拍板的设计。不阻塞主线的待判断问题记下来，最后写进 draft PR 的 Checklist；只有方案自相矛盾、无法安全判断时才停下。
