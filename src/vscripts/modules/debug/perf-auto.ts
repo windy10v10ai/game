@@ -70,6 +70,10 @@ export interface PerfAutoConfig {
   // 逗号分隔的物品名，每件一个条件：全员第 6 格换成该物品，和发的原版物品比
   swapItems?: string;
   itemModifiers?: string;
+  // 逗号分隔的银月个数，每个个数一个条件
+  moonStacks?: string;
+  // 逗号分隔的 modifier 名，换装与挂 modifier 的段末统计全场实例数
+  countModifiers?: string;
 }
 
 interface PerfStep {
@@ -671,7 +675,23 @@ function swapItem(itemName: string) {
   print(`[perf] swap item=${itemName} heroes=${swappedOut.length} added=${added}`);
 }
 
+// 光环这类由别的单位施加的 modifier 在条件里数不到，段末按名字统计全场实例数
+function printModifierCounts() {
+  for (const name of (PERF_CONFIG?.countModifiers ?? '').split(',')) {
+    if (name === '') continue;
+    let units = 0;
+    let instances = 0;
+    for (const unit of findAllUnits(UnitTargetType.HERO + UnitTargetType.BASIC)) {
+      const count = unit.FindAllModifiersByName(name).length;
+      if (count > 0) units++;
+      instances += count;
+    }
+    print(`[perf] count modifier=${name} units=${units} instances=${instances}`);
+  }
+}
+
 function restoreSwappedItem() {
+  printModifierCounts();
   for (const [hero, name] of swappedOut) {
     if (!IsValidEntity(hero)) continue;
     const current = hero.GetItemInSlot(SWAP_SLOT);
@@ -685,30 +705,91 @@ function restoreSwappedItem() {
 
 // 主动与触发效果在打团中出现的频率难控，直接以物品为来源给全员常驻挂上，量到的是上限
 let itemModifierSources: CDOTA_Item[] = [];
-let itemModifiers: CDOTA_Buff[] = [];
+let itemModifierName = '';
 
-function addItemModifier(itemName: string, modifierName: string) {
+function countHeroModifiers(modifierName: string): number {
+  let count = 0;
+  forEachHero((hero) => (count += hero.FindAllModifiersByName(modifierName).length));
+  return count;
+}
+
+function addItemModifier(itemName: string, modifierName: string, scriptFile?: string) {
   itemModifierSources = [];
-  itemModifiers = [];
+  itemModifierName = modifierName;
+  // DataDriven 物品的 Lua modifier 要等 RunScript 第一次执行才登记，测试时直接挂会报未知 modifier
+  if (scriptFile !== undefined && scriptFile !== '') {
+    LinkLuaModifier(modifierName, scriptFile, LuaModifierMotionType.NONE);
+  }
   forEachHero((hero) => {
     const item = CreateItem(itemName, hero.GetPlayerOwner(), hero);
     if (!item) return;
     itemModifierSources.push(item);
-    const modifier = hero.AddNewModifier(hero, item, modifierName, {});
-    if (modifier !== undefined) itemModifiers.push(modifier);
+    // KV 写的 modifier 只能由 DataDriven 物品自己挂
+    if (item.GetClassname() === 'item_datadriven') {
+      (item as CDOTA_Item_DataDriven).ApplyDataDrivenModifier(hero, hero, modifierName, {
+        duration: -1,
+      });
+    } else {
+      hero.AddNewModifier(hero, item, modifierName, {});
+    }
   });
-  print(`[perf] item modifier=${modifierName} added=${itemModifiers.length}`);
+  print(`[perf] item modifier=${modifierName} added=${countHeroModifiers(modifierName)}`);
 }
 
 function removeItemModifier() {
-  for (const modifier of itemModifiers) {
-    if (!modifier.IsNull()) modifier.Destroy();
-  }
+  printModifierCounts();
+  // 少于 added 说明效果在段内自行消失，这段量到的开销偏低
+  print(`[perf] item modifier=${itemModifierName} alive=${countHeroModifiers(itemModifierName)}`);
+  forEachHero((hero) => {
+    for (const modifier of hero.FindAllModifiersByName(itemModifierName)) modifier.Destroy();
+  });
   for (const item of itemModifierSources) {
     if (IsValidEntity(item)) UTIL_Remove(item);
   }
-  itemModifiers = [];
   itemModifierSources = [];
+}
+
+/** @noSelf */
+declare function AddStacks(
+  ability: CDOTABaseAbility,
+  caster: CDOTA_BaseNPC,
+  unit: CDOTA_BaseNPC,
+  modifier: string,
+  stackAmount: number,
+  refresh: boolean,
+): void;
+
+const MOON_SHARD_MODIFIER = 'modifier_item_moon_shard_datadriven_consumed';
+let moonShards: CDOTA_Item[] = [];
+
+// 走吃银月的同一个函数，每吃一个都会重挂一次 modifier 再加层数；玩家反馈吃多了卡
+function addMoonShards(count: number) {
+  moonShards = [];
+  forEachHero((hero) => {
+    const item = CreateItem('item_moon_shard_datadriven', hero.GetPlayerOwner(), hero);
+    if (!item) return;
+    moonShards.push(item);
+    for (let i = 0; i < count; i++) AddStacks(item, hero, hero, MOON_SHARD_MODIFIER, 1, true);
+  });
+  let stacks = 0;
+  let attackSpeed = 0;
+  forEachHero((hero) => {
+    stacks += hero.GetModifierStackCount(MOON_SHARD_MODIFIER, hero);
+    attackSpeed = math.max(attackSpeed, hero.GetDisplayAttackSpeed());
+  });
+  print(
+    `[perf] moonshard x${count} instances=${countHeroModifiers(MOON_SHARD_MODIFIER)} stacks=${stacks} max_attack_speed=${attackSpeed}`,
+  );
+}
+
+function removeMoonShards() {
+  forEachHero((hero) => {
+    for (const modifier of hero.FindAllModifiersByName(MOON_SHARD_MODIFIER)) modifier.Destroy();
+  });
+  for (const item of moonShards) {
+    if (IsValidEntity(item)) UTIL_Remove(item);
+  }
+  moonShards = [];
 }
 
 function setBotThinking(enabled: boolean) {
@@ -766,6 +847,12 @@ const CONDITIONS: Condition[] = [
     setup: () => addProperties(VALUE_PROPERTIES),
     teardown: removeProperties,
   },
+  // 逐项单挂，找出整组里哪几项最贵
+  ...VALUE_PROPERTIES.map((property) => ({
+    name: `lua_${property[0].replace('property_', '')}`,
+    setup: () => addProperties([property]),
+    teardown: removeProperties,
+  })),
   { name: 'prop_kv', setup: addKvProperties, teardown: removeKvProperties },
   { name: 'prop_player', setup: addPlayerProperties, teardown: removePlayerProperties },
   { name: 'nobotpower', setup: removeBotPower, teardown: restoreBotPower },
@@ -784,10 +871,10 @@ const CONDITIONS: Condition[] = [
     .split(',')
     .filter((entry) => entry !== '')
     .map((entry) => {
-      const [itemName, modifierName] = entry.split(':');
+      const [itemName, modifierName, scriptFile] = entry.split(':');
       return {
         name: `mod_${modifierName}`,
-        setup: () => addItemModifier(itemName, modifierName),
+        setup: () => addItemModifier(itemName, modifierName, scriptFile),
         teardown: removeItemModifier,
       };
     }),
@@ -803,6 +890,11 @@ const CONDITIONS: Condition[] = [
     name: `meleebuff_x${stacks}`,
     setup: () => addMeleeBuff(Number(stacks)),
     teardown: removeMeleeBuff,
+  })),
+  ...(PERF_CONFIG?.moonStacks ?? '1,10,30').split(',').map((count) => ({
+    name: `moonshard_x${count}`,
+    setup: () => addMoonShards(Number(count)),
+    teardown: removeMoonShards,
   })),
   // 暂停时画面照常渲染、游戏逻辑停止，和基线的帧时间差就是随游戏运行产生的每帧开销
   { name: 'paused', setup: () => PauseGame(true), teardown: () => PauseGame(false) },
