@@ -14,7 +14,7 @@ background: false
 
 参数包含三项：
 
-- **来源**：`#1234`、纯数字或含 `/pull/` 的 URL → PR：读标题、描述、commits；含 `/issues/` 的 URL → Issue：按 `references/from-issue.md`；其他 → 按调用方列的点写
+- **来源**（缺失时停下回报，不从当前分支猜）：`#1234`、纯数字或含 `/pull/` 的 URL → PR：读标题、描述、commits；含 `/issues/` 的 URL → Issue：按 `references/from-issue.md`；其他 → 按调用方列的点写
 - **轨道**：小版本补丁 / 大版本，可直接给版本号
 - **写回**：写入功能 PR 并合并进聚合 release PR / 仅写入功能 PR / 仅写入聚合 release PR / 仅提交改动 / 跳过
 
