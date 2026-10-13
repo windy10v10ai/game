@@ -27,6 +27,7 @@ TSTL 编译为 Lua，输出到 `game/scripts/vscripts/`。跨层契约见 `src/C
 - **枚举用 normalized 成员名**：`UnitFilterResult.FAIL_CUSTOM`，不带 `UF_` / `DOTA_` 前缀，TSTL 会内联回 Lua 原生名
 - **引擎枚举只在函数体内求值**：normalized 枚举编译成 Lua 全局名，模块顶层的 `const FLAGS = DamageFlag.A + DamageFlag.B` 在 `require` 阶段读全局，某个全局不存在时整个模块加载失败，文件里所有 `@registerAbility` / `@registerModifier` 都不执行。症状是技能和 modifier 图标集体消失、没有崩溃弹窗，容易误判成图标问题
 - **本地常量避开引擎全局名**：`DamageTypes.PURE` 编译成全局 `DAMAGE_TYPE_PURE`，同文件里同名的 `const`/`local` 会遮蔽它，编译不报错，运行时取到错误数值（如 `ApplyDamage` 静默不生效）
+- **TS 函数默认多一个 self 参数**：没标 `this: void` 的函数（含挂到 `_G` 的全局函数、作为参数传递的回调）编译后第一个参数是 self，Lua 侧调用要占位，如 `TsLifeStealOnAttackLanded(_, event, ...)`（`items/item_vladmir_2.lua`）。给 Lua 调用或接收 Lua 函数的新接口，在函数类型和回调类型上都写 `this: void`，Lua 侧就按普通参数调用（如 `modules/modifier-event/` 的全局入口）
 - **Lua 里空字符串和 0 都为真**：判断可选字符串、数字「有值」显式写 `!== undefined && !== ''`
 
 ## 测试与验证
