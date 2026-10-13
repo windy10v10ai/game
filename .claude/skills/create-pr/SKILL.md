@@ -57,4 +57,6 @@ git checkout -b <prefix>/<issue-id>-<summary>
 | 大版本 | 本次作为新大版本发布 | 调用 `release-note`，参数注明「大版本」 |
 | 不写 Release Note | 玩法影响处于边界、用户判断不必公告 | 删掉 `## Release Note` 段 |
 
-具体版本号由 `release-note` 在轨道选定后确定，本次只问轨道。
+选了前两项时，再用一次 `AskUserQuestion` 问写回方式：写入功能 PR 并合并进聚合 release PR（推荐）/ 仅写入功能 PR / 仅提交改动 / 跳过。`release-note` 在 SubAgent 里运行、不能提问，所以两项都在这里问齐，PR 创建后再调用，参数写 PR 号、轨道、写回方式。它回报待选项时问用户，带着答案重新调用。
+
+具体版本号由 `release-note` 在轨道选定后确定，本次不问。
