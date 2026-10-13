@@ -77,4 +77,5 @@ export enum CMD {
   REFRESH = '-refresh', // 英雄技能全部升满级，技能与物品冷却全部刷新，用于同一技能连续对照
   GIVE = '-give', // 服务端直接给英雄发物品，不依赖客户端处理：-give <物品名>
   HURT = '-hurt', // 最近刷的假人对英雄造成纯粹伤害，模拟敌方英雄攻击：-hurt [伤害]
+  RUN = '-run', // 执行 vscripts 下的临时 Lua 脚本：-run <模块路径>，可重复执行
 }

@@ -5,6 +5,7 @@
 | 文件 | 内容 | 被谁引用 |
 | ---- | ---- | ---- |
 | `vanilla-modifiers.md` | 可复用的原版 modifier 清单（通用状态 / 原版物品 / 原版技能三组），含表外查名方法 | `custom-item`、`custom-ability`、`awaken-ability` |
+| `datadriven-properties.md` | 哪些 `MODIFIER_PROPERTY_*` 能写进 KV `Properties`、哪些已确认不行 | `custom-item`；玩家属性 `src/vscripts/modules/property/` |
 
 ## 什么该放进来
 
