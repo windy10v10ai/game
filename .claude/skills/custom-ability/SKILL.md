@@ -1,6 +1,7 @@
 ---
 name: custom-ability
 description: 从零自制新技能（TS 实现，非克隆、非觉醒）。
+---
 
 # 自定义技能（从零自制）
 
