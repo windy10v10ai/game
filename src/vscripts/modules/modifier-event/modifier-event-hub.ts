@@ -13,7 +13,7 @@ export class ModifierEventHub {
   static RegisterDamageByAttacker(
     attacker: CDOTA_BaseNPC,
     owner: object,
-    handler: (event: ModifierInstanceEvent) => void,
+    handler: (this: void, event: ModifierInstanceEvent) => void,
   ): void {
     this.damageByAttacker.Add(attacker.entindex(), owner, handler);
     if (this.damageListener === undefined || this.damageListener.IsNull()) {
@@ -64,3 +64,23 @@ export class modifier_damage_event_listener extends BaseModifier {
     ModifierEventHub.DispatchDamage(event);
   }
 }
+
+declare global {
+  /** 供 Lua 物品登记攻击者造成伤害时的处理 */
+  function ModifierEventRegisterDamageByAttacker(
+    this: void,
+    attacker: CDOTA_BaseNPC,
+    owner: object,
+    handler: (this: void, event: ModifierInstanceEvent) => void,
+  ): void;
+  function ModifierEventUnregisterDamageByAttacker(
+    this: void,
+    attacker: CDOTA_BaseNPC,
+    owner: object,
+  ): void;
+}
+
+_G.ModifierEventRegisterDamageByAttacker = (attacker, owner, handler) =>
+  ModifierEventHub.RegisterDamageByAttacker(attacker, owner, handler);
+_G.ModifierEventUnregisterDamageByAttacker = (attacker, owner) =>
+  ModifierEventHub.UnregisterDamageByAttacker(attacker, owner);

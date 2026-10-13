@@ -1,9 +1,12 @@
 /** 按单位登记事件处理者，供全局监听拿事件里的单位查表分发 */
 export class UnitHandlerRegistry<TEvent> {
-  private readonly byUnit = new Map<EntityIndex, Map<object, (event: TEvent) => void>>();
+  private readonly byUnit = new Map<
+    EntityIndex,
+    Map<object, (this: void, event: TEvent) => void>
+  >();
 
   /** 同一 owner 重复登记时覆盖处理函数 */
-  Add(unit: EntityIndex, owner: object, handler: (event: TEvent) => void): void {
+  Add(unit: EntityIndex, owner: object, handler: (this: void, event: TEvent) => void): void {
     let handlers = this.byUnit.get(unit);
     if (handlers === undefined) {
       handlers = new Map();

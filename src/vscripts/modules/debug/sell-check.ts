@@ -1,10 +1,11 @@
-/** 卖出场景实机核对：权杖主动效果在物品被卖后的表现，以及魔法暴击刃共享监听在持有者陆续卖出时的暴击与清理。 */
+/** 卖出场景实机核对：权杖主动效果在物品被卖后的表现，以及魔龙狂舞共享监听在持有者陆续卖出时的暴击。 */
+
+import { modifier_damage_event_listener } from '../modifier-event/modifier-event-hub';
 
 const TAG = '[sell-check]';
 const HITS_PER_ATTACKER = 40;
 const HIT_INTERVAL = 0.15;
 const HIT_DAMAGE = 200;
-const LISTENER_MODIFIER = 'modifier_item_magic_crit_blade_listener';
 
 function out(line: string): void {
   print(`${TAG} ${line}`);
@@ -44,7 +45,8 @@ function checkScepter(hero: CDOTA_BaseNPC_Hero, itemName: string, done: () => vo
 
 function countListeners(): number {
   const thinkers = Entities.FindAllByClassname('npc_dota_thinker') as CDOTA_BaseNPC[];
-  return thinkers.filter((thinker) => thinker.HasModifier(LISTENER_MODIFIER)).length;
+  return thinkers.filter((thinker) => thinker.HasModifier(modifier_damage_event_listener.name))
+    .length;
 }
 
 type Counts = Record<string, number>;
@@ -100,7 +102,7 @@ function checkCritBlade(
   const nameB = String(b.entindex());
 
   Timers.CreateTimer(0.5, () => {
-    out(`phase1 listeners=${countListeners()} (expect 1)`);
+    verdict(countListeners() === 1, `phase1 one shared listener (count=${countListeners()})`);
     runPhase([a, b], target, (p1) => {
       out(
         `phase1 both hold: A(${nameA})=${p1[nameA]} B(${nameB})=${p1[nameB]} of ${HITS_PER_ATTACKER} each`,
@@ -110,7 +112,7 @@ function checkCritBlade(
 
       a.RemoveItem(itemA);
       Timers.CreateTimer(0.5, () => {
-        out(`phase2 listeners=${countListeners()} (expect 1)`);
+        verdict(countListeners() === 1, `phase2 one shared listener (count=${countListeners()})`);
         runPhase([a, b], target, (p2) => {
           out(`phase2 A sold: A=${p2[nameA]} B=${p2[nameB]} of ${HITS_PER_ATTACKER} each`);
           verdict(p2[nameB] > 0, 'phase2 B still crits');
@@ -122,8 +124,9 @@ function checkCritBlade(
               out(`phase3 both sold: A=${p3[nameA]} B=${p3[nameB]} of ${HITS_PER_ATTACKER} each`);
               verdict(p3[nameB] === 0, 'phase3 B has no crits');
               verdict(p3[nameA] === 0, 'phase3 A has no crits');
+              // 玩家吸血属性也登记在同一个监听上，卖光后监听可能保留，只要求不重复
               const left = countListeners();
-              verdict(left === 0, `phase3 listener removed (remaining=${left})`);
+              verdict(left <= 1, `phase3 no duplicated listener (count=${left})`);
               out('done');
             });
           });
