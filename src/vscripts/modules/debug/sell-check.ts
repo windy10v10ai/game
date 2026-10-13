@@ -1,6 +1,10 @@
-/** 卖出场景实机核对：权杖主动效果在物品被卖后的表现，以及魔龙狂舞共享监听在持有者陆续卖出时的暴击。 */
+/** 实机核对：权杖主动效果在物品被卖后的表现，吸血属性与魔龙狂舞经共享监听的触发，以及持有者陆续卖出时的暴击。 */
 
-import { modifier_damage_event_listener } from '../modifier-event/modifier-event-hub';
+import {
+  property_lifesteal,
+  property_spell_lifesteal,
+} from '../../modifiers/property/property_declare';
+import { DAMAGE_LISTENER_MODIFIER } from '../modifier-event/modifier-event-hub';
 
 const TAG = '[sell-check]';
 const HITS_PER_ATTACKER = 40;
@@ -46,10 +50,42 @@ function checkScepter(hero: CDOTA_BaseNPC_Hero, itemName: string, done: () => vo
   });
 }
 
+// 吸血与法术吸血都靠共享监听分发，能回血说明分发到了属性 modifier
+function checkLifesteal(
+  hero: CDOTA_BaseNPC_Hero,
+  target: CDOTA_BaseNPC_Hero,
+  done: () => void,
+): void {
+  const added: string[] = [];
+  for (const name of [property_lifesteal.name, property_spell_lifesteal.name]) {
+    if (hero.HasModifier(name)) continue;
+    hero.AddNewModifier(hero, undefined, name, { value: 50 });
+    added.push(name);
+  }
+  target.SetHealth(target.GetMaxHealth());
+  hero.SetHealth(hero.GetMaxHealth() / 2);
+  const before = hero.GetHealth();
+  ApplyDamage({ victim: target, attacker: hero, damage: 300, damage_type: DamageTypes.PHYSICAL });
+  const afterAttack = hero.GetHealth();
+  ApplyDamage({
+    victim: target,
+    attacker: hero,
+    damage: 300,
+    damage_type: DamageTypes.MAGICAL,
+    ability: hero.GetAbilityByIndex(0),
+  });
+  const afterSpell = hero.GetHealth();
+  out(`lifesteal hp before=${before} after attack=${afterAttack} after spell=${afterSpell}`);
+  verdict(afterAttack > before, 'attack lifesteal heals');
+  verdict(afterSpell > afterAttack, 'spell lifesteal heals');
+  added.forEach((name) => hero.RemoveModifierByName(name));
+  hero.SetHealth(hero.GetMaxHealth());
+  done();
+}
+
 function countListeners(): number {
   const thinkers = Entities.FindAllByClassname('npc_dota_thinker') as CDOTA_BaseNPC[];
-  return thinkers.filter((thinker) => thinker.HasModifier(modifier_damage_event_listener.name))
-    .length;
+  return thinkers.filter((thinker) => thinker.HasModifier(DAMAGE_LISTENER_MODIFIER)).length;
 }
 
 type Counts = Record<string, number>;
@@ -148,15 +184,15 @@ if (!player) {
     (hero) => hero.entindex() !== player.entindex() && hero.IsRealHero(),
   );
   out(`heroes found=${others.length + 1}`);
-  const ally = others[0];
-  const enemy = others[1];
+  const enemy = others.find((hero) => hero.GetTeam() !== player.GetTeam()) ?? others[0];
+  const ally = others.find((hero) => hero !== enemy);
   checkScepter(player, 'item_magic_scepter', () => {
     checkScepter(player, 'item_hallowed_scepter', () => {
       if (!ally || !enemy) {
         verdict(false, 'need two other heroes for crit blade check');
-      } else {
-        checkCritBlade(player, ally, enemy);
+        return;
       }
+      checkLifesteal(player, enemy, () => checkCritBlade(player, ally, enemy));
     });
   });
 }
