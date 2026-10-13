@@ -1,6 +1,6 @@
 ---
 name: update-heroes-custom
-description: 编写与校验 npc_heroes_custom.txt 里电脑英雄的技能加点（Bot.Build）与天赋档位。触发：用户说「调整 XX 加点」「XX 技能点太晚」「电脑加点优化」「哪些等级没有技能点」；动手改任何英雄的 Bot.Build 之前；update-abilities-override 处理完一个英雄后接力调用。
+description: 编写或校验电脑英雄的技能加点（Bot.Build）与天赋档位。
 ---
 
 # Update Heroes Custom

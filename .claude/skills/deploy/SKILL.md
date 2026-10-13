@@ -1,6 +1,7 @@
 ---
 name: deploy
-description: 发布地图到 Steam 创意工坊，默认发测试服。触发：「发测试版」「发测试服」「发布」「deploy」「更新 Workshop」，包括定时发布。
+description: 发布地图到 Steam 创意工坊（默认测试服），可定时发布。
+disable-model-invocation: true
 ---
 
 # 发布到创意工坊

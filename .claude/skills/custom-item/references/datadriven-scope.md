@@ -4,7 +4,7 @@
 
 ## 可写进 `Properties` 的属性
 
-哪些 `MODIFIER_PROPERTY_*` 能写进 KV `Properties`、哪些已确认不行，统一记在 [`../../shared-references/datadriven-properties.md`](../../shared-references/datadriven-properties.md)（玩家属性也查同一份）。模式 1 写物品自己的 `Modifiers`，模式 2 写 `item_apply_modifiers` 的 `_stats`。
+哪些 `MODIFIER_PROPERTY_*` 能写进 KV `Properties`、哪些已确认不行，统一记在 [`../../../references/datadriven-properties.md`](../../../references/datadriven-properties.md)（玩家属性也查同一份）。模式 1 写物品自己的 `Modifiers`，模式 2 写 `item_apply_modifiers` 的 `_stats`。
 
 ## 可写进 `States` 的状态
 
@@ -46,7 +46,15 @@
 
 ## 复用原版 modifier：字段冲突排查
 
-选型规则与三条机制规则见 SKILL.md 第一步，这里是查证手段。
+三条机制规则见 SKILL.md 第一步，这里是冲突的处理与查证手段。
+
+**冲突时默认让原版提供**：保持原版字段名，自己不写 `Properties`，行数最少、字段名自解释（`item_beast_armor` 的 `bonus_armor` 交给刃甲）。命中下面任一条才**改名规避**，换个原版读不到的字段名由自己 `Properties` 提供：
+
+- 多个原版共有同名字段，必须拆开（`item_magic_sword` 复用狂战斧 + 黯灭，两者都有 `bonus_damage`，改用 `bonus_damage_passive`）
+- 原版该字段值为 `0` 或明显是遗留字段，版本同步时可能被删，属性会静默消失
+- 该数值属于本物品自己的一组属性，不想被原版行为左右（`item_beast_armor` 的 `bonus_intellect_passive` 与 `bonus_strength` / `bonus_agility` 同属全属性三件套）
+
+改名连带本地化：stat tooltip 的 key 是 `DOTA_Tooltip_ability_<物品名>_<字段名>`。
 
 **排查一个物品有没有踩中「同名字段双倍」**，两步对照：
 
@@ -99,8 +107,6 @@ ability.added_modifiers = nil
 
 `game/scripts/npc/npc_items_modifier.txt` 里的 `item_apply_modifiers`（`BaseClass item_datadriven`）是全局单例物品，存放 `item_lua` 物品「纯数值常量加成」部分的 DataDriven 定义 —— 因为 `item_lua` 的 KV 不支持自己的 `Modifiers` 块。
 
-**只服务模式 2**：27 个 `_stats` 对应的物品 100% 是 `item_lua`。模式 1 的属性写在物品自己的 `Modifiers` 块里，不碰这里。
-
 ### A. 永久物品基础属性（绑定物品实例，最常见）
 
 - 命名 `modifier_item_<name>_stats`，写进 `item_apply_modifiers` 的 `Modifiers` 块
@@ -129,12 +135,3 @@ ability.added_modifiers = nil
 - 用 `ApplyItemDataDrivenModifier` 附加到目标并传入 `duration`
 - 可见 buff（要出现在状态栏）加 `"IsHidden" "0"` + `"IsBuff" "1"` + `"TextureName"`，值填该物品的 `AbilityTextureName`，且**必须带 `item_` 前缀**
 - 参考：`modifier_item_withered_spring_active`（物品主动 buff）、`modifier_global_member_normal`（无时限的可见全局 buff）
-
-## 决策口诀
-
-- 表外部分是**动作** → 模式 1，`RunScript` 调 Lua 全局函数，属性仍写自己 KV，**不碰 `item_apply_modifiers`**，数值只有一处
-- 表外部分是**常驻 modifier** → 模式 2，纯数值常量属性下沉 `item_apply_modifiers` 的 `_stats`，TS 只手写表外那部分
-- 模式 2 但没有永久属性（消耗品 / 工具类）→ `statsModifierName = ''`，同样不碰 `item_apply_modifiers`
-- 想消掉表外部分 → 先看有没有原版 modifier 能复用，能复用就退回模式 1
-- 不绑定物品实例的永久效果 → `ApplyItemDataDrivenModifier` + 完整 modifier
-- 有持续时间的临时效果 → 完整 DataDriven modifier（+ `RunScript` 处理逐帧逻辑）

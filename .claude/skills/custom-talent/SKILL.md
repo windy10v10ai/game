@@ -1,11 +1,10 @@
 ---
 name: custom-talent
-description: 新增或替换英雄天赋，尤其是把通用天赋改成技能联动天赋。触发：用户说「改 XX 的天赋」「给 YY 加个天赋」「这个天赋换成和技能联动的」。
+description: 新增或替换英雄天赋（含技能联动天赋）。
+disable-model-invocation: true
 ---
 
 # Create Custom Talent
-
-为英雄新增或替换天赋时，按以下顺序执行，确保键名、档位和文案一致。
 
 ## 1) 设计天赋系统名
 
@@ -37,22 +36,22 @@ description: 新增或替换英雄天赋，尤其是把通用天赋改成技能�
 - `27/28/29/30` 分别填 `10/15/20/25` 的另一个天赋
 - 若替换旧天赋，确保 `Ability 槽位` 与 `Build` 同时替换，不留旧键
 
-## 4) 更新中英文文案（addon_schinese.txt / addon_english.txt）
+## 4) 更新三语文案（addon_schinese / addon_english / addon_russian）
 
 - 添加或替换键：`DOTA_Tooltip_ability_<talent_name>`
 - 文案使用变量占位符，不写死数值
-- 例：`"+{s:bonus_heal} 巫毒疗法治疗量"`、`"+{s:bonus_heal} Voodoo Restoration Heal"`
+- 例：`"+{s:bonus_heal} 巫毒疗法治疗量"`、`"+{s:bonus_heal} Voodoo Restoration Heal"`；格式按 `game/resource/CLAUDE.md`
 
 ## 5) 自检
 
-- 同一天赋名在 4 个文件中的键完全一致
+- 同一天赋名在 5 个文件中的键完全一致
 - `npc_abilities_override.txt` 已包含：
 - 技能挂接行
 - 天赋定义块
 - `npc_heroes_custom.txt` 已包含：
 - 正确的 Ability10-17 槽位覆盖
 - 正确的 Build 档位（含 27/28/29/30）
-- 本地化中英文都存在对应 tooltip 键
+- 本地化三语都存在对应 tooltip 键
 - 无旧天赋残留引用（替换场景必须清理）
 
 ## 6) 常用检查命令
@@ -62,6 +61,7 @@ Select-String -Path `
   game\scripts\npc\npc_abilities_override.txt,`
   game\scripts\npc\npc_heroes_custom.txt,`
   game\resource\addon_schinese.txt,`
-  game\resource\addon_english.txt `
+  game\resource\addon_english.txt,`
+  game\resource\addon_russian.txt `
   -Pattern 'special_bonus_unique_<hero>_<effect>|DOTA_Tooltip_ability_special_bonus_unique_<hero>_<effect>'
 ```
