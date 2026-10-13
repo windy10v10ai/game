@@ -1,3 +1,4 @@
+import { ModifierEventHub } from '../../modules/modifier-event/modifier-event-hub';
 import { registerModifier } from '../../utils/dota_ts_adapter';
 import { PropertyBaseModifier } from './property_base';
 
@@ -193,24 +194,36 @@ export class property_mana_regen_total_percentage extends PropertyBaseModifier {
   }
 }
 
-@registerModifier('modifiers/property/property_declare')
-export class property_lifesteal extends PropertyBaseModifier {
-  DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.ON_TAKEDAMAGE];
+/** 只关心自己造成的伤害，交给全场共用的监听分发 */
+abstract class AttackerDamagePropertyModifier extends PropertyBaseModifier {
+  abstract OnAttackerDamage(event: ModifierInstanceEvent): void;
+
+  OnCreated(kv: { value: number }) {
+    super.OnCreated(kv);
+    if (IsClient()) return;
+
+    ModifierEventHub.RegisterDamageByAttacker(this.GetParent(), this, (event) =>
+      this.OnAttackerDamage(event),
+    );
   }
 
-  OnTakeDamage(event: ModifierInstanceEvent): void {
+  OnDestroy() {
+    if (IsClient()) return;
+
+    ModifierEventHub.UnregisterDamageByAttacker(this.GetParent(), this);
+  }
+}
+
+@registerModifier('modifiers/property/property_declare')
+export class property_lifesteal extends AttackerDamagePropertyModifier {
+  OnAttackerDamage(event: ModifierInstanceEvent): void {
     TsLifeStealOnAttackLanded(event, this.value, this.GetParent());
   }
 }
 
 @registerModifier('modifiers/property/property_declare')
-export class property_spell_lifesteal extends PropertyBaseModifier {
-  DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.ON_TAKEDAMAGE];
-  }
-
-  OnTakeDamage(event: ModifierInstanceEvent): void {
+export class property_spell_lifesteal extends AttackerDamagePropertyModifier {
+  OnAttackerDamage(event: ModifierInstanceEvent): void {
     TsSpellLifeSteal(event, this.value, this.GetParent());
   }
 }
