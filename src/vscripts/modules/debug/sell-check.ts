@@ -16,6 +16,7 @@ function verdict(ok: boolean, text: string): void {
 }
 
 function checkScepter(hero: CDOTA_BaseNPC_Hero, itemName: string, done: () => void): void {
+  const ampBase = hero.GetSpellAmplification(false);
   const item = hero.AddItemByName(itemName);
   if (!item) {
     verdict(false, `${itemName} could not be added`);
@@ -23,6 +24,7 @@ function checkScepter(hero: CDOTA_BaseNPC_Hero, itemName: string, done: () => vo
     return;
   }
   const activeName = `modifier_${itemName}_active`;
+  const activeBoost = item.GetSpecialValueFor('active_boost') / 100;
   (item as unknown as { OnSpellStart(): void }).OnSpellStart();
   const ampBefore = hero.GetSpellAmplification(false);
   const hasBefore = hero.HasModifier(activeName);
@@ -31,11 +33,12 @@ function checkScepter(hero: CDOTA_BaseNPC_Hero, itemName: string, done: () => vo
     const hasAfter = hero.HasModifier(activeName);
     const ampAfter = hero.GetSpellAmplification(false);
     out(
-      `${itemName} amp before sell=${ampBefore} after 1s=${ampAfter} active before=${hasBefore} after=${hasAfter}`,
+      `${itemName} amp base=${ampBase} before sell=${ampBefore} after 1s=${ampAfter} boost=${activeBoost} active before=${hasBefore} after=${hasAfter}`,
     );
     verdict(hasBefore && hasAfter, `${itemName} active modifier survives sale`);
+    // 卖出会带走物品自身的被动增强，只要求主动加成仍在
     verdict(
-      ampAfter > 0 && ampAfter >= ampBefore - 0.0001,
+      ampAfter >= ampBase + activeBoost - 0.0001,
       `${itemName} spell amp keeps active boost after sale`,
     );
     hero.RemoveModifierByName(activeName);
@@ -140,13 +143,17 @@ const player = PlayerResource.GetSelectedHeroEntity(0);
 if (!player) {
   out('FAIL player 0 hero missing');
 } else {
-  const heroes = HeroList.GetAllHeroes();
-  const ally = heroes.find((hero) => hero !== player && hero.GetTeam() === player.GetTeam());
-  const enemy = heroes.find((hero) => hero.GetTeam() !== player.GetTeam());
+  // 暴击判定不看阵营，另取两个任意英雄当第二持有者和靶子
+  const others = HeroList.GetAllHeroes().filter(
+    (hero) => hero.entindex() !== player.entindex() && hero.IsRealHero(),
+  );
+  out(`heroes found=${others.length + 1}`);
+  const ally = others[0];
+  const enemy = others[1];
   checkScepter(player, 'item_magic_scepter', () => {
     checkScepter(player, 'item_hallowed_scepter', () => {
       if (!ally || !enemy) {
-        verdict(false, 'ally or enemy hero missing for crit blade check');
+        verdict(false, 'need two other heroes for crit blade check');
       } else {
         checkCritBlade(player, ally, enemy);
       }
