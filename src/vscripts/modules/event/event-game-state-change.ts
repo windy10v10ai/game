@@ -1,3 +1,4 @@
+import { BotPick } from '../../ai/bot-pick/bot-pick';
 import { InitializeItemReplaceMap } from '../../ai/build-item/item-tier-config';
 import { BotTeam } from '../../ai/team/bot-team';
 import { GA4 } from '../../api/analytics/ga4/ga4';
@@ -62,7 +63,7 @@ export class EventGameStateChange {
     Timers.CreateTimer({
       endTime: 0.1,
       useGameTime: false,
-      callback: () => HeroPick.PickBotHeroes(),
+      callback: () => BotPick.PickBotHeroes(),
     });
   }
 
