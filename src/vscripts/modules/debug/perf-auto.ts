@@ -74,6 +74,8 @@ export interface PerfAutoConfig {
   moonStacks?: string;
   // 逗号分隔的 modifier 名，换装与挂 modifier 的段末统计全场实例数
   countModifiers?: string;
+  // 每段末统计全场 modifier 与实体，找随时间累积的东西
+  census?: boolean;
 }
 
 interface PerfStep {
@@ -654,7 +656,8 @@ function restoreBotPower() {
 }
 
 const SWAP_SLOT = InventorySlot.SLOT_6;
-let swappedOut: [CDOTA_BaseNPC_Hero, string | undefined][] = [];
+// 打团时 bot 会按施放优先级重排物品格，还原时按句柄删换上的那件，不能按格子删
+let swappedOut: [CDOTA_BaseNPC_Hero, string | undefined, CDOTA_Item | undefined][] = [];
 
 // 两种空白对照：换回同名物品，验证换装动作本身不带开销；只拿掉不补，量出底装这一件自身的开销，
 // 换装条件的差值减去它才是测试物品的完整开销。换装格本来空着时两者都不动，只剩空白段
@@ -666,11 +669,10 @@ function swapItem(itemName: string) {
   forEachHero((hero) => {
     const old = hero.GetItemInSlot(SWAP_SLOT);
     const oldName = old?.GetName();
-    swappedOut.push([hero, oldName]);
     if (old) UTIL_RemoveImmediate(old);
     const name = itemName === SAME_ITEM ? oldName : itemName;
-    if (name === undefined || name === EMPTY_SLOT) return;
-    const item = hero.AddItemByName(name);
+    const item = name === undefined || name === EMPTY_SLOT ? undefined : hero.AddItemByName(name);
+    swappedOut.push([hero, oldName, item]);
     if (!item) return;
     added++;
     if (item.GetItemSlot() !== SWAP_SLOT) hero.SwapItems(item.GetItemSlot(), SWAP_SLOT);
@@ -693,12 +695,58 @@ function printModifierCounts() {
   }
 }
 
+const CENSUS_TOP = 30;
+
+function topCounts(counts: Map<string, number>): string {
+  const entries: [string, number][] = [];
+  counts.forEach((count, name) => entries.push([name, count]));
+  entries.sort((a, b) => b[1] - a[1]);
+  return entries
+    .slice(0, CENSUS_TOP)
+    .map(([name, count]) => `${name}:${count}`)
+    .join(',');
+}
+
+function addCount(counts: Map<string, number>, name: string) {
+  counts.set(name, (counts.get(name) ?? 0) + 1);
+}
+
+function printCensus(tag: string) {
+  let total = 0;
+  let onHeroes = 0;
+  const byName = new Map<string, number>();
+  const units = findAllUnits(UnitTargetType.HERO + UnitTargetType.BASIC);
+  for (const unit of units) {
+    for (const modifier of unit.FindAllModifiers()) {
+      total++;
+      if (unit.IsRealHero()) onHeroes++;
+      addCount(byName, modifier.GetName());
+    }
+  }
+  let entities = 0;
+  const byClass = new Map<string, number>();
+  for (
+    let entity: CBaseEntity | undefined = Entities.First();
+    entity;
+    entity = Entities.Next(entity)
+  ) {
+    entities++;
+    const className = entity.GetClassname();
+    // 自制物品的类名都一样，按物品名计数才看得出是哪件没删干净
+    const isCustomItem = className === 'item_lua' || className === 'item_datadriven';
+    addCount(byClass, isCustomItem ? (entity as CDOTA_Item).GetAbilityName() : className);
+  }
+  print(
+    `[perf] census tag=${tag} units=${units.length} total=${total} heroes=${onHeroes} top=${topCounts(byName)}`,
+  );
+  print(`[perf] census tag=${tag} entities=${entities} top=${topCounts(byClass)}`);
+}
+
 function restoreSwappedItem() {
   printModifierCounts();
-  for (const [hero, name] of swappedOut) {
+  for (const [hero, name, swapped] of swappedOut) {
     if (!IsValidEntity(hero)) continue;
-    const current = hero.GetItemInSlot(SWAP_SLOT);
-    if (current) UTIL_RemoveImmediate(current);
+    if (swapped && IsValidEntity(swapped)) UTIL_RemoveImmediate(swapped);
     if (name === undefined) continue;
     const item = hero.AddItemByName(name);
     if (item && item.GetItemSlot() !== SWAP_SLOT) hero.SwapItems(item.GetItemSlot(), SWAP_SLOT);
@@ -1131,6 +1179,7 @@ export class PerfAuto {
     afterRealSeconds(enteringFight ? FIGHT_SETTLE_SECONDS : SETTLE_SECONDS, () => {
       print(`[perf-auto] step name=${step.name} ref=${step.ref} timescale=${timescale}`);
       const next = () => {
+        if (PERF_CONFIG?.census === true) printCensus(step.name);
         step.teardown?.();
         this.runStep(steps, index + 1, config);
       };
