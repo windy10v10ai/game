@@ -70,12 +70,20 @@ comm -12 /tmp/ours.txt /tmp/valve.txt   # 有输出即冲突
 | 原版技能（非英雄技能） | `docs/reference/<version>/npc_abilities.txt` |
 | 英雄基础属性、技能槽位、技能 KV | `docs/reference/<version>/heroes/npc_dota_hero_<hero>.txt` |
 | 英雄列表 | `docs/reference/<version>/npc_heroes.txt` |
-
-7.41f 起英雄数据全部并入 `heroes/npc_dota_hero_<hero>.txt`，`npc_heroes.txt` 只剩 `#base` 列表，`npc_abilities.txt` 里查不到英雄技能；更早版本英雄属性与槽位在 `npc_heroes.txt`，`heroes/` 下只有技能。
 | 原版物品 | `docs/reference/<version>/items.txt` |
 | 官方 ability/item ID 占用表 | `docs/reference/<version>/npc_ability_ids.txt` |
+| 官方说明文本 | `docs/reference/<version>/abilities_schinese.txt` / `abilities_english.txt` |
 
-技能名的中文↔系统名互查见 `.claude/CLAUDE.md`「查原版技能」。
+7.41f 起英雄数据全部并入 `heroes/npc_dota_hero_<hero>.txt`，`npc_heroes.txt` 只剩 `#base` 列表，`npc_abilities.txt` 里查不到英雄技能；更早版本英雄属性与槽位在 `npc_heroes.txt`，`heroes/` 下只有技能。
+
+### 查原版技能
+
+- **系统名**（如 `dragon_knight_dragon_blood`）：直接使用
+- **中文名**（如「龙血」）或**英雄名-技能名**（如「幻影刺客-幻影之矛」）：在 `abilities_schinese.txt` 搜中文名，从匹配行的 key `DOTA_Tooltip_ability_<系统名>` 取系统名；多个候选用 `AskUserQuestion` 让用户确认
+- **英雄名**：从 `heroes/` 文件名或 `abilities_schinese.txt` 定位英雄 ID，再从 `heroes/npc_dota_hero_<hero>.txt` 读技能槽位
+- 显示名可能与系统名不同（显示名 "Sproink" 的系统名是 `enchantress_bunny_hop`），以 `DOTA_Tooltip_ability_<系统名>` 的对应关系为准
+
+编写自定义技能/物品说明时 grep 两份官方说明文本里的 `DOTA_Tooltip_ability_<系统名>`，对齐术语。
 
 ## 图标
 

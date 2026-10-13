@@ -37,7 +37,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 
 ## 常见陷阱
 
-- **Net Table 类型不匹配**: 布尔值以 0/1 传输，使用辅助转换
-- **新建 Net Table 必须双注册**: 在 `src/common/net_tables.d.ts` 的 `CustomNetTableDeclarations` 加类型只是 TS 契约，引擎运行时还要在 `game/scripts/custom_net_tables.txt` 注册表名，否则服务端 `SetTableValue` 会报 `Unknown custom nettable` 且客户端永远收不到。改完后必须**重启 Dota Tools**（script_reload 不重读 KV）
-- **Net Table 清行不能传 nil**: `CustomNetTables.SetTableValue(table, key, nil)` 在 Dota 引擎下是 **noop**，不会删除或同步空值给客户端。如需清行，传**空 table**（数组类用 `[]`、对象类用 `{}`），客户端 `Object.values(value).length === 0` 即可识别为空
-- **jest 用的是 vscripts 的 tsconfig，测不了引用 `$` 的 panorama 模块**: `package.json` 的 `jest.globals` 指定 `src/vscripts/tsconfig.json`，其中没有 panorama 类型。任何在**模块顶层**引用 `$` 的文件（如各 tab 的 `constants.ts` 用 `$.Localize` 初始化标签表）都不能被待测模块 import，否则报 `Cannot find name '$'`。要写单测的纯逻辑必须放在 `$`-free 的模块里；发现待测模块需要某个常量而它恰好和 `$.Localize` 混在同一文件时，把常量挪到同目录的 `$`-free 模块，而不是给 jest 加全局 stub
+- **布尔值以 0/1 传输**，用辅助函数转换
+- **新建 Net Table 要双注册**：`src/common/net_tables.d.ts` 的类型只是 TS 契约，引擎还要在 `game/scripts/custom_net_tables.txt` 注册表名，否则 `SetTableValue` 报 `Unknown custom nettable`、客户端收不到。改完重启 Dota Tools（`script_reload` 不重读 KV）
+- **清行传空 table**（数组 `[]`、对象 `{}`）：`SetTableValue(table, key, nil)` 是 noop，不会同步给客户端。客户端用 `Object.values(value).length === 0` 判空
+- **要单测的 Panorama 纯逻辑放在不引用 `$` 的模块里**：jest 用 `src/vscripts/tsconfig.json`，没有 panorama 类型，待测模块 import 了顶层引用 `$` 的文件（如用 `$.Localize` 初始化标签表的 `constants.ts`）就报 `Cannot find name '$'`。需要的常量挪到同目录不引用 `$` 的模块，不给 jest 加全局 stub

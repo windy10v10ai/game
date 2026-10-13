@@ -1,6 +1,6 @@
 ---
 name: dota-live-test
-description: 在 Dota 2 Tools 里实机跑一局，落盘控制台日志后 grep 验证改动。触发：用户说「实机验证」「跑一局看看」「帮我测一下」，或改动依赖引擎运行时行为（事件收发、modifier 生效、API 链路、电脑 AI 行为）而 jest 覆盖不到。
+description: 在 Dota 2 Tools 实机跑一局，用落盘日志验证 jest 覆盖不到的运行时行为（含电脑 AI）。
 ---
 
 # Dota Live Test
@@ -64,23 +64,9 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 ### 2. 决定要不要本地后端
 
-只验游戏内逻辑（技能、modifier、AI、UI）跳到第 3 步。要验 API 链路才起后端。
+只验游戏内逻辑（技能、modifier、AI、UI）跳过。要验 API 链路时按 `references/local-backend.md` 起后端。
 
-后端在 `C:/Users/windy/Documents/GitHub/firebase`（需要 java）：
-
-```bash
-firebase emulators:start --only firestore,auth --import ./firestore-backup --project windy10v10ai
-```
-
-```bash
-cd api && npm run start
-```
-
-两条都用 Bash 的 `run_in_background` 起，输出写进任务文件，不要前台轮询。模拟器占 8080 / 9099，API 占 3001，**等 3001 进入 LISTENING 再开局**，否则开局请求会打空。
-
-同时确认 `src/vscripts/api/api-client.local.ts` 的 `GetApiTarget()` 返回 `'local'`。
-
-完成判据：`netstat -ano | grep -E ":(8080|9099|3001)\b.*LISTENING"` 三个端口都在。
+完成判据：不需要后端，或三个端口都在 LISTENING。
 
 ### 3. 启动 Dota
 
