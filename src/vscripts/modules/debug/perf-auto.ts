@@ -757,6 +757,7 @@ function restoreSwappedItem() {
 // 主动与触发效果在打团中出现的频率难控，直接以物品为来源给全员常驻挂上，量到的是上限
 let itemModifierSources: CDOTA_Item[] = [];
 let itemModifierName = '';
+const NATIVE_MODIFIER = 'native';
 
 function countHeroModifiers(modifierName: string): number {
   let count = 0;
@@ -768,15 +769,17 @@ function addItemModifier(itemName: string, modifierName: string, scriptFile?: st
   itemModifierSources = [];
   itemModifierName = modifierName;
   // DataDriven 物品的 Lua modifier 要等 RunScript 第一次执行才登记，测试时直接挂会报未知 modifier
-  if (scriptFile !== undefined && scriptFile !== '') {
+  const isNative = scriptFile === NATIVE_MODIFIER;
+  const hasScript = scriptFile !== undefined && scriptFile !== '' && !isNative;
+  if (hasScript) {
     LinkLuaModifier(modifierName, scriptFile, LuaModifierMotionType.NONE);
   }
   forEachHero((hero) => {
     const item = CreateItem(itemName, hero.GetPlayerOwner(), hero);
     if (!item) return;
     itemModifierSources.push(item);
-    // KV 写的 modifier 只能由 DataDriven 物品自己挂
-    if (item.GetClassname() === 'item_datadriven') {
+    // KV 写的 modifier 只能由 DataDriven 物品自己挂；Lua 与引擎原生 modifier 即使来源是 DataDriven 物品也直接挂
+    if (item.GetClassname() === 'item_datadriven' && !hasScript && !isNative) {
       (item as CDOTA_Item_DataDriven).ApplyDataDrivenModifier(hero, hero, modifierName, {
         duration: -1,
       });
