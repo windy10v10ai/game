@@ -92,6 +92,7 @@ tinker_rearm_lua.AbitilyException = {
 	["enigma_demonic_conversion"] = true,
 	["faceless_void_chronosphere"] = true,
 	["undying_tombstone"] = true,
+	["undying_ceaseless_dirge"] = true,
 	["venomancer_plague_ward"] = true,
 	["arc_warden_tempest_double"] = true,
 	["shadow_demon_disruption"] = true,
