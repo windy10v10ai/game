@@ -103,12 +103,6 @@ function modifier_item_magic_crit_blade_passive:DeclareFunctions()
     }
 end
 
--- 受伤事件会回调场上每一个声明了它的 modifier，持有者越多开销越大；
--- 所有持有者共用一个监听者，按攻击者查表分发
-local crit_holders = {}
-local crit_holder_count = 0
-local crit_listener = nil
-
 function modifier_item_magic_crit_blade_passive:OnCreated()
     local ability = self:GetAbility()
     if ability then
@@ -118,30 +112,15 @@ function modifier_item_magic_crit_blade_passive:OnCreated()
 
     if not IsServer() then return end
 
-    local index = self:GetParent():entindex()
-    if crit_holders[index] == nil then
-        crit_holder_count = crit_holder_count + 1
-    end
-    crit_holders[index] = self
-
-    if crit_listener == nil or crit_listener:IsNull() then
-        crit_listener = CreateModifierThinker(nil, nil, "modifier_item_magic_crit_blade_listener", {},
-            Vector(0, 0, 0), DOTA_TEAM_NOTEAM, false)
-    end
+    ModifierEventRegisterDamageByAttacker(self:GetParent(), self, function(params)
+        self:OnAttackerDamage(params)
+    end)
 end
 
 function modifier_item_magic_crit_blade_passive:OnDestroy()
     if not IsServer() then return end
 
-    local index = self:GetParent():entindex()
-    if crit_holders[index] ~= self then return end
-
-    crit_holders[index] = nil
-    crit_holder_count = crit_holder_count - 1
-    if crit_holder_count <= 0 and crit_listener ~= nil and not crit_listener:IsNull() then
-        UTIL_Remove(crit_listener)
-        crit_listener = nil
-    end
+    ModifierEventUnregisterDamageByAttacker(self:GetParent(), self)
 end
 
 -- ========================================
@@ -165,33 +144,13 @@ end
 -- ========================================
 -- 龙息爆发 - 法术暴击 被动
 -- ========================================
-LinkLuaModifier("modifier_item_magic_crit_blade_listener", "items/item_magic_crit_blade.lua", LUA_MODIFIER_MOTION_NONE)
-
-modifier_item_magic_crit_blade_listener = class({})
-
-function modifier_item_magic_crit_blade_listener:IsHidden() return true end
-
-function modifier_item_magic_crit_blade_listener:IsPurgable() return false end
-
-function modifier_item_magic_crit_blade_listener:DeclareFunctions()
-    return {
-        MODIFIER_EVENT_ON_TAKEDAMAGE,
-    }
-end
-
-function modifier_item_magic_crit_blade_listener:OnTakeDamage(params)
-    local attacker = params.attacker
-    if not attacker then return end
-
-    local passive = crit_holders[attacker:entindex()]
-    if not passive then return end
-
+function modifier_item_magic_crit_blade_passive:OnAttackerDamage(params)
     local original_damage = params.original_damage
 
     -- 性能优化 - 伤害过低不处理
     if original_damage < 50 then return end
 
-    local ability = passive:GetAbility()
+    local ability = self:GetAbility()
 
     if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) == DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION then
         return
@@ -207,19 +166,19 @@ function modifier_item_magic_crit_blade_listener:OnTakeDamage(params)
 
     -- 内置CD,避免AOE多目标同一瞬间重复触发
     local now = GameRules:GetGameTime()
-    if now < (passive.last_crit_time or 0) + 0.1 then return end
+    if now < (self.last_crit_time or 0) + 0.1 then return end
 
     local crit_chance = ability:GetSpecialValueFor("spell_crit_chance")
     if RandomFloat(0, 100) > crit_chance then return end
 
-    passive.last_crit_time = now
+    self.last_crit_time = now
 
     local multiplier = ability:GetSpecialValueFor("spell_crit_multiplier") / 100
     local extra_damage = original_damage * (multiplier - 1)
 
     ApplyDamage({
         victim = target,
-        attacker = attacker,
+        attacker = params.attacker,
         damage = extra_damage,
         damage_type = params.damage_type,
         damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_REFLECTION,

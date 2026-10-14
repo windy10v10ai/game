@@ -433,6 +433,44 @@ function parkHeroes() {
   print(`[perf-auto] idle parked`);
 }
 
+// 打团里交战量随局势起伏，几 ms 的差异被淹没；固定频率互相造成伤害，只量伤害事件链路本身的开销
+const BENCH_DAMAGE = 100;
+let benchActive = false;
+let benchTicking = false;
+
+function startDamageBench() {
+  benchActive = true;
+  if (benchTicking) return;
+  benchTicking = true;
+  let magical = false;
+  Timers.CreateTimer(0, () => {
+    if (!benchActive) {
+      benchTicking = false;
+      return undefined;
+    }
+    magical = !magical;
+    const heroes: CDOTA_BaseNPC_Hero[] = [];
+    forEachHero((hero) => heroes.push(hero));
+    heroes.forEach((attacker, index) => {
+      const target =
+        heroes.find(
+          (hero, offset) => offset > index && hero.GetTeamNumber() !== attacker.GetTeamNumber(),
+        ) ?? heroes.find((hero) => hero.GetTeamNumber() !== attacker.GetTeamNumber());
+      if (!target || !attacker.IsAlive() || !target.IsAlive()) return;
+      target.SetHealth(target.GetMaxHealth());
+      ApplyDamage({
+        victim: target,
+        attacker,
+        damage: BENCH_DAMAGE,
+        damage_type: magical ? DamageTypes.MAGICAL : DamageTypes.PHYSICAL,
+        ability: magical ? attacker.GetAbilityByIndex(0) : undefined,
+      });
+    });
+    return FrameTime();
+  });
+  print(`[perf-auto] damage bench started`);
+}
+
 // 两队隔着中路河道对排，每段从同一个站位开打；英雄间距让 10 人排开不挤成一团
 const FIGHT_LINE: Record<number, Vector> = {
   [DotaTeam.GOODGUYS]: Vector(-600, -600, 0),
@@ -755,8 +793,6 @@ function restoreSwappedItem() {
 }
 
 // 主动与触发效果在打团中出现的频率难控，直接以物品为来源给全员常驻挂上，量到的是上限
-let itemModifierSources: CDOTA_Item[] = [];
-let itemModifierName = '';
 const NATIVE_MODIFIER = 'native';
 
 function countHeroModifiers(modifierName: string): number {
@@ -765,9 +801,12 @@ function countHeroModifiers(modifierName: string): number {
   return count;
 }
 
-function addItemModifier(itemName: string, modifierName: string, scriptFile?: string) {
-  itemModifierSources = [];
-  itemModifierName = modifierName;
+function addItemModifier(
+  itemName: string,
+  modifierName: string,
+  scriptFile?: string,
+): CDOTA_Item[] {
+  const sources: CDOTA_Item[] = [];
   // DataDriven 物品的 Lua modifier 要等 RunScript 第一次执行才登记，测试时直接挂会报未知 modifier
   const isNative = scriptFile === NATIVE_MODIFIER;
   const hasScript = scriptFile !== undefined && scriptFile !== '' && !isNative;
@@ -777,7 +816,7 @@ function addItemModifier(itemName: string, modifierName: string, scriptFile?: st
   forEachHero((hero) => {
     const item = CreateItem(itemName, hero.GetPlayerOwner(), hero);
     if (!item) return;
-    itemModifierSources.push(item);
+    sources.push(item);
     // KV 写的 modifier 只能由 DataDriven 物品自己挂；Lua 与引擎原生 modifier 即使来源是 DataDriven 物品也直接挂
     if (item.GetClassname() === 'item_datadriven' && !hasScript && !isNative) {
       (item as CDOTA_Item_DataDriven).ApplyDataDrivenModifier(hero, hero, modifierName, {
@@ -788,19 +827,19 @@ function addItemModifier(itemName: string, modifierName: string, scriptFile?: st
     }
   });
   print(`[perf] item modifier=${modifierName} added=${countHeroModifiers(modifierName)}`);
+  return sources;
 }
 
-function removeItemModifier() {
+function removeItemModifier(modifierName: string, sources: CDOTA_Item[]) {
   printModifierCounts();
   // 少于 added 说明效果在段内自行消失，这段量到的开销偏低
-  print(`[perf] item modifier=${itemModifierName} alive=${countHeroModifiers(itemModifierName)}`);
+  print(`[perf] item modifier=${modifierName} alive=${countHeroModifiers(modifierName)}`);
   forEachHero((hero) => {
-    for (const modifier of hero.FindAllModifiersByName(itemModifierName)) modifier.Destroy();
+    for (const modifier of hero.FindAllModifiersByName(modifierName)) modifier.Destroy();
   });
-  for (const item of itemModifierSources) {
+  for (const item of sources) {
     if (IsValidEntity(item)) UTIL_Remove(item);
   }
-  itemModifierSources = [];
 }
 
 /** @noSelf */
@@ -926,10 +965,12 @@ const CONDITIONS: Condition[] = [
     .filter((entry) => entry !== '')
     .map((entry) => {
       const [itemName, modifierName, scriptFile] = entry.split(':');
+      // 每个条件各记各的来源物品，组合条件同时挂几种时互不覆盖
+      let sources: CDOTA_Item[] = [];
       return {
         name: `mod_${modifierName}`,
-        setup: () => addItemModifier(itemName, modifierName, scriptFile),
-        teardown: removeItemModifier,
+        setup: () => (sources = addItemModifier(itemName, modifierName, scriptFile)),
+        teardown: () => removeItemModifier(modifierName, sources),
       };
     }),
   ...(PERF_CONFIG?.swapItems ?? '')
@@ -953,6 +994,19 @@ const CONDITIONS: Condition[] = [
   // 暂停时画面照常渲染、游戏逻辑停止，和基线的帧时间差就是随游戏运行产生的每帧开销
   { name: 'paused', setup: () => PauseGame(true), teardown: () => PauseGame(false) },
 ];
+
+// 「a+b」同时挂多个条件，量共用同一机制的几项叠加后的总开销
+function findCondition(name: string): Condition | undefined {
+  if (!name.includes('+')) return CONDITIONS.find((c) => c.name === name);
+  const parts = name.split('+').map((part) => CONDITIONS.find((c) => c.name === part));
+  if (parts.some((part) => part === undefined)) return undefined;
+  const found = parts as Condition[];
+  return {
+    name,
+    setup: () => found.forEach((part) => part.setup?.()),
+    teardown: () => [...found].reverse().forEach((part) => part.teardown?.()),
+  };
+}
 
 function shuffled<T>(items: T[]): T[] {
   const result = [...items];
@@ -1144,7 +1198,9 @@ export class PerfAuto {
     SendToServerConsole('vprof_on');
     const wanted =
       config.conditions && config.conditions !== 'all' ? config.conditions.split(',') : undefined;
-    const conditions = wanted ? CONDITIONS.filter((c) => wanted.includes(c.name)) : CONDITIONS;
+    const conditions = wanted
+      ? wanted.map(findCondition).filter((c): c is Condition => c !== undefined)
+      : CONDITIONS;
     const scenes =
       config.scenes !== undefined && config.scenes !== '' ? config.scenes.split(',') : undefined;
     const steps = scenes
@@ -1172,7 +1228,9 @@ export class PerfAuto {
     const timescale = step.timescale ?? config.measureTimescale;
     SendToServerConsole(`host_timescale ${timescale}`);
     // 团队 AI 的回线任务不归单体思考管，可能把人带出泉水，每段开始前重新拉回
-    if (step.scene === 'idle') parkHeroes();
+    if (step.scene === 'idle' || step.scene === 'dmgbench') parkHeroes();
+    if (step.scene === 'dmgbench') startDamageBench();
+    else benchActive = false;
     const enteringFight = step.scene === 'fight' && steps[index - 1]?.scene !== 'fight';
     if (enteringFight) releaseHeroes();
     if (step.scene === 'fight') stageFight();
