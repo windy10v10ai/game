@@ -23,6 +23,8 @@ caster:AddNewModifier(caster, ability, "modifier_item_devastator", {})
 
 传进去的 `ability` 决定这个 modifier 读谁的 `AbilityValues`——**这就是「连属性一起复用」的来源**，也是同名字段双倍的来源。字段规则见 SKILL.md 第一步。
 
+**来源直接传自己的技能或物品，不要 `CreateItem` 造隐藏的原版物品**：数值由传入 `ability` 的 `AbilityValues` 提供，在自己的 KV 里按原版字段名写好即可（如觉醒魔免 `awaken-magic-immunity.ts` 传觉醒技能本身）。用隐藏原版物品当来源时，部分原版 modifier 不生效，容易误判成「原版 modifier 只能在物品栏用」。
+
 ## 通用状态
 
 不绑定任何物品/技能，任何地方都能直接挂。
