@@ -1,6 +1,9 @@
 import { BotBaseAIModifier } from '../ai/hero/bot-base';
 import { tinker_ai_modifier } from '../ai/hero/hero-tinker';
-import { modifier_damage_event_listener } from '../modules/modifier-event/modifier-event-listener';
+import {
+  modifier_damage_event_listener,
+  modifier_modifier_added_event_listener,
+} from '../modules/modifier-event/modifier-event-listener';
 import { modifier_global_melee_status_resistance } from './global/melee_status_resistance';
 import {
   property_aoe_bonus_constant_stacking,
@@ -21,6 +24,11 @@ export function RegisterModifiers() {
   LinkLuaModifier(tinker_ai_modifier.name, 'ai/hero/hero-tinker', LuaModifierMotionType.NONE);
   LinkLuaModifier(
     modifier_damage_event_listener.name,
+    'modules/modifier-event/modifier-event-listener',
+    LuaModifierMotionType.NONE,
+  );
+  LinkLuaModifier(
+    modifier_modifier_added_event_listener.name,
     'modules/modifier-event/modifier-event-listener',
     LuaModifierMotionType.NONE,
   );

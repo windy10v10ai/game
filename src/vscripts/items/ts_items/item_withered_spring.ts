@@ -1,3 +1,4 @@
+import { ModifierEventHub } from '../../modules/modifier-event/modifier-event-hub';
 import { BaseItem, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
 import { BaseItemModifier } from './base_item_modifier';
 
@@ -85,20 +86,30 @@ export class ModifierItemWitheredSpringPassive extends BaseItemModifier {
     if (ability) {
       this.healthRegenPct = ability.GetSpecialValueFor('health_regen_pct');
     }
+
+    if (IsServer()) {
+      ModifierEventHub.RegisterModifierAdded(this.GetParent(), this, (event) =>
+        this.OnParentModifierAdded(event),
+      );
+    }
+  }
+
+  OnDestroy(): void {
+    super.OnDestroy();
+    if (IsServer()) {
+      ModifierEventHub.UnregisterModifierAdded(this.GetParent(), this);
+    }
   }
 
   DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.HEALTH_REGEN_PERCENTAGE_UNIQUE, ModifierFunction.ON_MODIFIER_ADDED];
+    return [ModifierFunction.HEALTH_REGEN_PERCENTAGE_UNIQUE];
   }
 
   GetModifierHealthRegenPercentageUnique(): number {
     return this.healthRegenPct;
   }
 
-  OnModifierAdded(event: ModifierAddedEvent): void {
-    if (!IsServer()) {
-      return;
-    }
+  OnParentModifierAdded(event: ModifierAddedEvent): void {
     if (event.added_buff.GetName() !== AEON_DISK_BUFF) {
       return;
     }
