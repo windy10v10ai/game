@@ -755,8 +755,6 @@ function restoreSwappedItem() {
 }
 
 // 主动与触发效果在打团中出现的频率难控，直接以物品为来源给全员常驻挂上，量到的是上限
-let itemModifierSources: CDOTA_Item[] = [];
-let itemModifierName = '';
 const NATIVE_MODIFIER = 'native';
 
 function countHeroModifiers(modifierName: string): number {
@@ -765,9 +763,12 @@ function countHeroModifiers(modifierName: string): number {
   return count;
 }
 
-function addItemModifier(itemName: string, modifierName: string, scriptFile?: string) {
-  itemModifierSources = [];
-  itemModifierName = modifierName;
+function addItemModifier(
+  itemName: string,
+  modifierName: string,
+  scriptFile?: string,
+): CDOTA_Item[] {
+  const sources: CDOTA_Item[] = [];
   // DataDriven 物品的 Lua modifier 要等 RunScript 第一次执行才登记，测试时直接挂会报未知 modifier
   const isNative = scriptFile === NATIVE_MODIFIER;
   const hasScript = scriptFile !== undefined && scriptFile !== '' && !isNative;
@@ -777,7 +778,7 @@ function addItemModifier(itemName: string, modifierName: string, scriptFile?: st
   forEachHero((hero) => {
     const item = CreateItem(itemName, hero.GetPlayerOwner(), hero);
     if (!item) return;
-    itemModifierSources.push(item);
+    sources.push(item);
     // KV 写的 modifier 只能由 DataDriven 物品自己挂；Lua 与引擎原生 modifier 即使来源是 DataDriven 物品也直接挂
     if (item.GetClassname() === 'item_datadriven' && !hasScript && !isNative) {
       (item as CDOTA_Item_DataDriven).ApplyDataDrivenModifier(hero, hero, modifierName, {
@@ -788,19 +789,19 @@ function addItemModifier(itemName: string, modifierName: string, scriptFile?: st
     }
   });
   print(`[perf] item modifier=${modifierName} added=${countHeroModifiers(modifierName)}`);
+  return sources;
 }
 
-function removeItemModifier() {
+function removeItemModifier(modifierName: string, sources: CDOTA_Item[]) {
   printModifierCounts();
   // 少于 added 说明效果在段内自行消失，这段量到的开销偏低
-  print(`[perf] item modifier=${itemModifierName} alive=${countHeroModifiers(itemModifierName)}`);
+  print(`[perf] item modifier=${modifierName} alive=${countHeroModifiers(modifierName)}`);
   forEachHero((hero) => {
-    for (const modifier of hero.FindAllModifiersByName(itemModifierName)) modifier.Destroy();
+    for (const modifier of hero.FindAllModifiersByName(modifierName)) modifier.Destroy();
   });
-  for (const item of itemModifierSources) {
+  for (const item of sources) {
     if (IsValidEntity(item)) UTIL_Remove(item);
   }
-  itemModifierSources = [];
 }
 
 /** @noSelf */
@@ -926,10 +927,12 @@ const CONDITIONS: Condition[] = [
     .filter((entry) => entry !== '')
     .map((entry) => {
       const [itemName, modifierName, scriptFile] = entry.split(':');
+      // 每个条件各记各的来源物品，组合条件同时挂几种时互不覆盖
+      let sources: CDOTA_Item[] = [];
       return {
         name: `mod_${modifierName}`,
-        setup: () => addItemModifier(itemName, modifierName, scriptFile),
-        teardown: removeItemModifier,
+        setup: () => (sources = addItemModifier(itemName, modifierName, scriptFile)),
+        teardown: () => removeItemModifier(modifierName, sources),
       };
     }),
   ...(PERF_CONFIG?.swapItems ?? '')
