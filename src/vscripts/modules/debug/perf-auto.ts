@@ -954,6 +954,19 @@ const CONDITIONS: Condition[] = [
   { name: 'paused', setup: () => PauseGame(true), teardown: () => PauseGame(false) },
 ];
 
+// 「a+b」同时挂多个条件，量共用同一机制的几项叠加后的总开销
+function findCondition(name: string): Condition | undefined {
+  if (!name.includes('+')) return CONDITIONS.find((c) => c.name === name);
+  const parts = name.split('+').map((part) => CONDITIONS.find((c) => c.name === part));
+  if (parts.some((part) => part === undefined)) return undefined;
+  const found = parts as Condition[];
+  return {
+    name,
+    setup: () => found.forEach((part) => part.setup?.()),
+    teardown: () => [...found].reverse().forEach((part) => part.teardown?.()),
+  };
+}
+
 function shuffled<T>(items: T[]): T[] {
   const result = [...items];
   for (let i = result.length - 1; i > 0; i--) {
@@ -1144,7 +1157,9 @@ export class PerfAuto {
     SendToServerConsole('vprof_on');
     const wanted =
       config.conditions && config.conditions !== 'all' ? config.conditions.split(',') : undefined;
-    const conditions = wanted ? CONDITIONS.filter((c) => wanted.includes(c.name)) : CONDITIONS;
+    const conditions = wanted
+      ? wanted.map(findCondition).filter((c): c is Condition => c !== undefined)
+      : CONDITIONS;
     const scenes =
       config.scenes !== undefined && config.scenes !== '' ? config.scenes.split(',') : undefined;
     const steps = scenes
