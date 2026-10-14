@@ -433,13 +433,16 @@ function parkHeroes() {
   print(`[perf-auto] idle parked`);
 }
 
-// 打团里交战量随局势起伏，几 ms 的差异被淹没；固定频率互相造成伤害，只量伤害事件链路本身的开销
+// 打团里交战量随局势起伏，几 ms 的差异被淹没；固定频率互相造成伤害，只量伤害事件链路本身的开销。
+// 真普攻版本走完整攻击结算，普攻命中类事件与攻击触发才会被调用
 const BENCH_DAMAGE = 100;
 let benchActive = false;
 let benchTicking = false;
+let benchRealAttack = false;
 
-function startDamageBench() {
+function startDamageBench(realAttack: boolean) {
   benchActive = true;
+  benchRealAttack = realAttack;
   if (benchTicking) return;
   benchTicking = true;
   let magical = false;
@@ -458,6 +461,10 @@ function startDamageBench() {
         ) ?? heroes.find((hero) => hero.GetTeamNumber() !== attacker.GetTeamNumber());
       if (!target || !attacker.IsAlive() || !target.IsAlive()) return;
       target.SetHealth(target.GetMaxHealth());
+      if (benchRealAttack) {
+        attacker.PerformAttack(target, true, true, true, true, false, false, true);
+        return;
+      }
       ApplyDamage({
         victim: target,
         attacker,
@@ -468,7 +475,7 @@ function startDamageBench() {
     });
     return FrameTime();
   });
-  print(`[perf-auto] damage bench started`);
+  print(`[perf-auto] damage bench started realAttack=${realAttack}`);
 }
 
 // 两队隔着中路河道对排，每段从同一个站位开打；英雄间距让 10 人排开不挤成一团
@@ -1228,8 +1235,9 @@ export class PerfAuto {
     const timescale = step.timescale ?? config.measureTimescale;
     SendToServerConsole(`host_timescale ${timescale}`);
     // 团队 AI 的回线任务不归单体思考管，可能把人带出泉水，每段开始前重新拉回
-    if (step.scene === 'idle' || step.scene === 'dmgbench') parkHeroes();
-    if (step.scene === 'dmgbench') startDamageBench();
+    const bench = step.scene === 'dmgbench' || step.scene === 'atkbench';
+    if (step.scene === 'idle' || bench) parkHeroes();
+    if (bench) startDamageBench(step.scene === 'atkbench');
     else benchActive = false;
     const enteringFight = step.scene === 'fight' && steps[index - 1]?.scene !== 'fight';
     if (enteringFight) releaseHeroes();
