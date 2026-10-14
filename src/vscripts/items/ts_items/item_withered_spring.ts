@@ -13,16 +13,14 @@ export class ItemWitheredSpring extends BaseItem {
   }
 
   OnSpellStart(): void {
-    this.Replenish();
+    this.Replenish(this.GetCaster());
   }
 
   // 被动触发路径由原版 modifier 自行开冷却，因此不在这里 UseResources
-  Replenish(): void {
+  Replenish(caster: CDOTA_BaseNPC): void {
     if (!IsServer()) {
       return;
     }
-
-    const caster = this.GetCaster();
 
     caster.EmitSound('Item.GuardianGreaves.Activate');
     const casterFx = ParticleManager.CreateParticle(
@@ -121,6 +119,7 @@ export class ModifierItemWitheredSpringPassive extends BaseItemModifier {
       return;
     }
 
-    (ability as ItemWitheredSpring | undefined)?.Replenish();
+    // 持有者取 modifier 的 parent：物品不在背包时取不到施法者
+    (ability as ItemWitheredSpring | undefined)?.Replenish(this.GetParent());
   }
 }

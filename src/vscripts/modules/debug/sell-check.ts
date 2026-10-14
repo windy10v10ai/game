@@ -150,12 +150,15 @@ function checkWitheredSpring(
   }
   Timers.CreateTimer(0.2, () => {
     const holding = countListeners(MODIFIER_ADDED_LISTENER_MODIFIER);
+    // 新获得的物品带初始冷却，清掉才会触发永恒之盘；伤害要让血量低于阈值而不是恰好等于
+    first.EndCooldown();
+    second.EndCooldown();
     hero.SetHealth(hero.GetMaxHealth());
     hero.SetMana(0);
     ApplyDamage({
       victim: hero,
       attacker,
-      damage: hero.GetMaxHealth() * 0.6,
+      damage: hero.GetMaxHealth() * 0.7,
       damage_type: DamageTypes.PURE,
     });
     Timers.CreateTimer(0.2, () => {
