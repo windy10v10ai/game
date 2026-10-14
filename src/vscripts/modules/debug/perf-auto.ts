@@ -433,6 +433,44 @@ function parkHeroes() {
   print(`[perf-auto] idle parked`);
 }
 
+// 打团里交战量随局势起伏，几 ms 的差异被淹没；固定频率互相造成伤害，只量伤害事件链路本身的开销
+const BENCH_DAMAGE = 100;
+let benchActive = false;
+let benchTicking = false;
+
+function startDamageBench() {
+  benchActive = true;
+  if (benchTicking) return;
+  benchTicking = true;
+  let magical = false;
+  Timers.CreateTimer(0, () => {
+    if (!benchActive) {
+      benchTicking = false;
+      return undefined;
+    }
+    magical = !magical;
+    const heroes: CDOTA_BaseNPC_Hero[] = [];
+    forEachHero((hero) => heroes.push(hero));
+    heroes.forEach((attacker, index) => {
+      const target =
+        heroes.find(
+          (hero, offset) => offset > index && hero.GetTeamNumber() !== attacker.GetTeamNumber(),
+        ) ?? heroes.find((hero) => hero.GetTeamNumber() !== attacker.GetTeamNumber());
+      if (!target || !attacker.IsAlive() || !target.IsAlive()) return;
+      target.SetHealth(target.GetMaxHealth());
+      ApplyDamage({
+        victim: target,
+        attacker,
+        damage: BENCH_DAMAGE,
+        damage_type: magical ? DamageTypes.MAGICAL : DamageTypes.PHYSICAL,
+        ability: magical ? attacker.GetAbilityByIndex(0) : undefined,
+      });
+    });
+    return FrameTime();
+  });
+  print(`[perf-auto] damage bench started`);
+}
+
 // 两队隔着中路河道对排，每段从同一个站位开打；英雄间距让 10 人排开不挤成一团
 const FIGHT_LINE: Record<number, Vector> = {
   [DotaTeam.GOODGUYS]: Vector(-600, -600, 0),
@@ -1190,7 +1228,9 @@ export class PerfAuto {
     const timescale = step.timescale ?? config.measureTimescale;
     SendToServerConsole(`host_timescale ${timescale}`);
     // 团队 AI 的回线任务不归单体思考管，可能把人带出泉水，每段开始前重新拉回
-    if (step.scene === 'idle') parkHeroes();
+    if (step.scene === 'idle' || step.scene === 'dmgbench') parkHeroes();
+    if (step.scene === 'dmgbench') startDamageBench();
+    else benchActive = false;
     const enteringFight = step.scene === 'fight' && steps[index - 1]?.scene !== 'fight';
     if (enteringFight) releaseHeroes();
     if (step.scene === 'fight') stageFight();
