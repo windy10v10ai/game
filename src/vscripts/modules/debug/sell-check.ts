@@ -1,10 +1,11 @@
-/** 实机核对：权杖主动效果在物品被卖后的表现，吸血属性与魔龙狂舞经共享监听的触发，以及持有者陆续卖出时的暴击，生命之心经共享监听在永恒之盘触发时的回复。 */
+/** 实机核对：权杖主动效果在物品被卖后的表现，吸血属性与魔龙狂舞经共享监听的触发，以及持有者陆续卖出时的暴击，生命之心经共享监听在永恒之盘触发时的回复，天堂之戟 v2 / 六道轮回枪经共享监听的法术吸血与普攻触发。 */
 
 import {
   property_lifesteal,
   property_spell_lifesteal,
 } from '../../modifiers/property/property_declare';
 import {
+  ATTACK_LANDED_LISTENER_MODIFIER,
   DAMAGE_LISTENER_MODIFIER,
   MODIFIER_ADDED_LISTENER_MODIFIER,
 } from '../modifier-event/modifier-event-hub';
@@ -92,6 +93,78 @@ function physicalHeal(hero: CDOTA_BaseNPC_Hero, target: CDOTA_BaseNPC_Hero): num
   const before = hero.GetHealth();
   ApplyDamage({ victim: target, attacker: hero, damage: 300, damage_type: DamageTypes.PHYSICAL });
   return hero.GetHealth() - before;
+}
+
+function spellHeal(hero: CDOTA_BaseNPC_Hero, target: CDOTA_BaseNPC_Hero): number {
+  target.SetHealth(target.GetMaxHealth());
+  hero.SetHealth(hero.GetMaxHealth() / 2);
+  const before = hero.GetHealth();
+  ApplyDamage({
+    victim: target,
+    attacker: hero,
+    damage: 300,
+    damage_type: DamageTypes.MAGICAL,
+    ability: hero.GetAbilityByIndex(0),
+  });
+  return hero.GetHealth() - before;
+}
+
+// 普攻触发带概率，连续攻击到出现 debuff 为止
+function attackUntilDebuff(
+  hero: CDOTA_BaseNPC_Hero,
+  target: CDOTA_BaseNPC_Hero,
+  debuffName: string,
+  maxAttacks: number,
+): number {
+  target.RemoveModifierByName(debuffName);
+  for (let attack = 1; attack <= maxAttacks; attack++) {
+    target.SetHealth(target.GetMaxHealth());
+    hero.PerformAttack(target, true, true, true, true, false, false, true);
+    if (target.HasModifier(debuffName)) {
+      target.RemoveModifierByName(debuffName);
+      return attack;
+    }
+  }
+  return 0;
+}
+
+// 法术吸血与普攻触发都经共享监听，卖出后应随之停止、普攻监听随之移除
+function checkAttackItem(
+  hero: CDOTA_BaseNPC_Hero,
+  target: CDOTA_BaseNPC_Hero,
+  itemName: string,
+  debuffName: string,
+  done: () => void,
+): void {
+  const without = spellHeal(hero, target);
+  const item = hero.AddItemByName(itemName);
+  if (!item) {
+    verdict(false, `${itemName} could not be added`);
+    done();
+    return;
+  }
+  Timers.CreateTimer(0.2, () => {
+    const holding = spellHeal(hero, target);
+    const listeners = countListeners(ATTACK_LANDED_LISTENER_MODIFIER);
+    const procAt = attackUntilDebuff(hero, target, debuffName, 100);
+    hero.RemoveItem(item);
+    Timers.CreateTimer(0.2, () => {
+      const sold = spellHeal(hero, target);
+      const soldProc = attackUntilDebuff(hero, target, debuffName, 30);
+      const soldListeners = countListeners(ATTACK_LANDED_LISTENER_MODIFIER);
+      out(
+        `${itemName} spell heal without=${without} holding=${holding} sold=${sold} proc at attack=${procAt} after sale=${soldProc} listeners holding=${listeners} sold=${soldListeners}`,
+      );
+      verdict(holding > without, `${itemName} spell lifesteal heals`);
+      verdict(sold < holding, `${itemName} spell lifesteal stops after sale`);
+      verdict(procAt > 0, `${itemName} attack applies debuff`);
+      verdict(soldProc === 0, `${itemName} attack debuff stops after sale`);
+      verdict(listeners === 1, `${itemName} uses one attack-landed listener`);
+      verdict(soldListeners === 0, `${itemName} attack-landed listener removed after sale`);
+      hero.SetHealth(hero.GetMaxHealth());
+      done();
+    });
+  });
 }
 
 // 生命之盔被动吸血经共享监听触发，卖出后应随之停止
@@ -293,7 +366,22 @@ if (!player) {
       checkLifesteal(player, enemy, () =>
         checkDraculaMask(player, enemy, () =>
           checkCritBlade(player, ally, enemy, () =>
-            checkWitheredSpring(player, enemy, () => out('done')),
+            checkWitheredSpring(player, enemy, () =>
+              checkAttackItem(
+                player,
+                enemy,
+                'item_heavens_halberd_v2',
+                'modifier_heavens_halberd_debuff',
+                () =>
+                  checkAttackItem(
+                    player,
+                    enemy,
+                    'item_six_paths_reincarnation_gun',
+                    'modifier_item_six_paths_reincarnation_gun_debuff',
+                    () => out('done'),
+                  ),
+              ),
+            ),
           ),
         ),
       );
