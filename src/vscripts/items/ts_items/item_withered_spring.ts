@@ -1,3 +1,4 @@
+import { ModifierEventHub } from '../../modules/modifier-event/modifier-event-hub';
 import { BaseItem, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
 import { BaseItemModifier } from './base_item_modifier';
 
@@ -12,16 +13,14 @@ export class ItemWitheredSpring extends BaseItem {
   }
 
   OnSpellStart(): void {
-    this.Replenish();
+    this.Replenish(this.GetCaster());
   }
 
   // 被动触发路径由原版 modifier 自行开冷却，因此不在这里 UseResources
-  Replenish(): void {
+  Replenish(caster: CDOTA_BaseNPC): void {
     if (!IsServer()) {
       return;
     }
-
-    const caster = this.GetCaster();
 
     caster.EmitSound('Item.GuardianGreaves.Activate');
     const casterFx = ParticleManager.CreateParticle(
@@ -85,20 +84,30 @@ export class ModifierItemWitheredSpringPassive extends BaseItemModifier {
     if (ability) {
       this.healthRegenPct = ability.GetSpecialValueFor('health_regen_pct');
     }
+
+    if (IsServer()) {
+      ModifierEventHub.RegisterModifierAdded(this.GetParent(), this, (event) =>
+        this.OnParentModifierAdded(event),
+      );
+    }
+  }
+
+  OnDestroy(): void {
+    super.OnDestroy();
+    if (IsServer()) {
+      ModifierEventHub.UnregisterModifierAdded(this.GetParent(), this);
+    }
   }
 
   DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.HEALTH_REGEN_PERCENTAGE_UNIQUE, ModifierFunction.ON_MODIFIER_ADDED];
+    return [ModifierFunction.HEALTH_REGEN_PERCENTAGE_UNIQUE];
   }
 
   GetModifierHealthRegenPercentageUnique(): number {
     return this.healthRegenPct;
   }
 
-  OnModifierAdded(event: ModifierAddedEvent): void {
-    if (!IsServer()) {
-      return;
-    }
+  OnParentModifierAdded(event: ModifierAddedEvent): void {
     if (event.added_buff.GetName() !== AEON_DISK_BUFF) {
       return;
     }
@@ -110,6 +119,7 @@ export class ModifierItemWitheredSpringPassive extends BaseItemModifier {
       return;
     }
 
-    (ability as ItemWitheredSpring | undefined)?.Replenish();
+    // 持有者取 modifier 的 parent：物品不在背包时取不到施法者
+    (ability as ItemWitheredSpring | undefined)?.Replenish(this.GetParent());
   }
 }

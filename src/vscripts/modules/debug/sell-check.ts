@@ -1,10 +1,13 @@
-/** 实机核对：权杖主动效果在物品被卖后的表现，吸血属性与魔龙狂舞经共享监听的触发，以及持有者陆续卖出时的暴击。 */
+/** 实机核对：权杖主动效果在物品被卖后的表现，吸血属性与魔龙狂舞经共享监听的触发，以及持有者陆续卖出时的暴击，生命之心经共享监听在永恒之盘触发时的回复。 */
 
 import {
   property_lifesteal,
   property_spell_lifesteal,
 } from '../../modifiers/property/property_declare';
-import { DAMAGE_LISTENER_MODIFIER } from '../modifier-event/modifier-event-hub';
+import {
+  DAMAGE_LISTENER_MODIFIER,
+  MODIFIER_ADDED_LISTENER_MODIFIER,
+} from '../modifier-event/modifier-event-hub';
 
 const TAG = '[sell-check]';
 const HITS_PER_ATTACKER = 40;
@@ -128,9 +131,57 @@ function checkDraculaMask(
   });
 }
 
-function countListeners(): number {
+function countListeners(modifierName: string = DAMAGE_LISTENER_MODIFIER): number {
   const thinkers = Entities.FindAllByClassname('npc_dota_thinker') as CDOTA_BaseNPC[];
-  return thinkers.filter((thinker) => thinker.HasModifier(DAMAGE_LISTENER_MODIFIER)).length;
+  return thinkers.filter((thinker) => thinker.HasModifier(modifierName)).length;
+}
+
+function checkWitheredSpring(
+  hero: CDOTA_BaseNPC_Hero,
+  attacker: CDOTA_BaseNPC_Hero,
+  done: () => void,
+): void {
+  const first = hero.AddItemByName('item_withered_spring');
+  const second = hero.AddItemByName('item_withered_spring');
+  if (!first || !second) {
+    verdict(false, 'item_withered_spring could not be added');
+    done();
+    return;
+  }
+  Timers.CreateTimer(0.2, () => {
+    const holding = countListeners(MODIFIER_ADDED_LISTENER_MODIFIER);
+    // 新获得的物品带初始冷却，清掉才会触发永恒之盘；伤害要让血量低于阈值而不是恰好等于
+    first.EndCooldown();
+    second.EndCooldown();
+    hero.SetHealth(hero.GetMaxHealth());
+    hero.SetMana(0);
+    ApplyDamage({
+      victim: hero,
+      attacker,
+      damage: hero.GetMaxHealth() * 0.7,
+      damage_type: DamageTypes.PURE,
+    });
+    Timers.CreateTimer(0.2, () => {
+      const triggered = hero.HasModifier('modifier_item_aeon_disk_buff');
+      const replenished = hero.HasModifier('modifier_item_withered_spring_active');
+      const mana = hero.GetMana();
+      hero.RemoveItem(first);
+      hero.RemoveItem(second);
+      Timers.CreateTimer(0.2, () => {
+        const sold = countListeners(MODIFIER_ADDED_LISTENER_MODIFIER);
+        out(
+          `withered aeon=${triggered} active=${replenished} mana=${mana} listeners holding=${holding} sold=${sold}`,
+        );
+        verdict(holding === 1, 'withered spring uses one modifier-added listener');
+        verdict(triggered, 'aeon disk buff triggered');
+        verdict(replenished && mana > 0, 'withered spring replenishes on aeon disk');
+        verdict(sold === 0, 'modifier-added listener removed after sale');
+        hero.RemoveModifierByName('modifier_item_withered_spring_active');
+        hero.SetHealth(hero.GetMaxHealth());
+        done();
+      });
+    });
+  });
 }
 
 type Counts = Record<string, number>;
@@ -171,6 +222,7 @@ function checkCritBlade(
   a: CDOTA_BaseNPC_Hero,
   b: CDOTA_BaseNPC_Hero,
   target: CDOTA_BaseNPC_Hero,
+  done: () => void,
 ): void {
   // 目标血量放大到不会被连续命中打死
   target.SetBaseMaxHealth(1000000);
@@ -180,6 +232,7 @@ function checkCritBlade(
   const itemB = b.AddItemByName('item_magic_crit_blade');
   if (!itemA || !itemB) {
     verdict(false, 'crit blade could not be added to both holders');
+    done();
     return;
   }
   const nameA = String(a.entindex());
@@ -211,7 +264,7 @@ function checkCritBlade(
               // 玩家吸血属性也登记在同一个监听上，卖光后监听可能保留，只要求不重复
               const left = countListeners();
               verdict(left <= 1, `phase3 no duplicated listener (count=${left})`);
-              out('done');
+              done();
             });
           });
         });
@@ -238,7 +291,11 @@ if (!player) {
         return;
       }
       checkLifesteal(player, enemy, () =>
-        checkDraculaMask(player, enemy, () => checkCritBlade(player, ally, enemy)),
+        checkDraculaMask(player, enemy, () =>
+          checkCritBlade(player, ally, enemy, () =>
+            checkWitheredSpring(player, enemy, () => out('done')),
+          ),
+        ),
       );
     });
   });
