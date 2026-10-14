@@ -8,6 +8,7 @@ import { UnitHandlerRegistry } from './unit-handler-registry';
 // 因此监听放在单独文件、按名字引用
 export const DAMAGE_LISTENER_MODIFIER = 'modifier_damage_event_listener';
 export const MODIFIER_ADDED_LISTENER_MODIFIER = 'modifier_modifier_added_event_listener';
+export const ATTACK_LANDED_LISTENER_MODIFIER = 'modifier_attack_landed_event_listener';
 
 type Handler<TEvent> = (this: void, event: TEvent) => void;
 
@@ -58,6 +59,11 @@ export class ModifierEventHub {
     (event) => event.attacker,
   );
 
+  private static readonly attackLandedByAttacker = new EventChannel<ModifierAttackEvent>(
+    ATTACK_LANDED_LISTENER_MODIFIER,
+    (event) => event.attacker,
+  );
+
   private static readonly modifierAddedByUnit = new EventChannel<ModifierAddedEvent>(
     MODIFIER_ADDED_LISTENER_MODIFIER,
     (event) => event.unit,
@@ -78,6 +84,23 @@ export class ModifierEventHub {
 
   static DispatchDamage(event: ModifierInstanceEvent): void {
     this.damageByAttacker.Dispatch(event);
+  }
+
+  /** 登记攻击者普攻命中时的处理 */
+  static RegisterAttackLandedByAttacker(
+    attacker: CDOTA_BaseNPC,
+    owner: object,
+    handler: Handler<ModifierAttackEvent>,
+  ): void {
+    this.attackLandedByAttacker.Register(attacker, owner, handler);
+  }
+
+  static UnregisterAttackLandedByAttacker(attacker: CDOTA_BaseNPC, owner: object): void {
+    this.attackLandedByAttacker.Unregister(attacker, owner);
+  }
+
+  static DispatchAttackLanded(event: ModifierAttackEvent): void {
+    this.attackLandedByAttacker.Dispatch(event);
   }
 
   /** 登记单位身上被加 modifier 时的处理 */

@@ -1,6 +1,7 @@
 import { BotBaseAIModifier } from '../ai/hero/bot-base';
 import { tinker_ai_modifier } from '../ai/hero/hero-tinker';
 import {
+  modifier_attack_landed_event_listener,
   modifier_damage_event_listener,
   modifier_modifier_added_event_listener,
 } from '../modules/modifier-event/modifier-event-listener';
@@ -29,6 +30,11 @@ export function RegisterModifiers() {
   );
   LinkLuaModifier(
     modifier_modifier_added_event_listener.name,
+    'modules/modifier-event/modifier-event-listener',
+    LuaModifierMotionType.NONE,
+  );
+  LinkLuaModifier(
+    modifier_attack_landed_event_listener.name,
     'modules/modifier-event/modifier-event-listener',
     LuaModifierMotionType.NONE,
   );

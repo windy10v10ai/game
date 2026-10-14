@@ -1,5 +1,6 @@
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 import {
+  ATTACK_LANDED_LISTENER_MODIFIER,
   DAMAGE_LISTENER_MODIFIER,
   MODIFIER_ADDED_LISTENER_MODIFIER,
   ModifierEventHub,
@@ -46,5 +47,25 @@ export class modifier_modifier_added_event_listener extends BaseModifier {
 
   OnModifierAdded(event: ModifierAddedEvent): void {
     ModifierEventHub.DispatchModifierAdded(event);
+  }
+}
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
+@registerModifier('modules/modifier-event/modifier-event-listener', ATTACK_LANDED_LISTENER_MODIFIER)
+export class modifier_attack_landed_event_listener extends BaseModifier {
+  IsHidden(): boolean {
+    return true;
+  }
+
+  IsPurgable(): boolean {
+    return false;
+  }
+
+  DeclareFunctions(): ModifierFunction[] {
+    return [ModifierFunction.ON_ATTACK_LANDED];
+  }
+
+  OnAttackLanded(event: ModifierAttackEvent): void {
+    ModifierEventHub.DispatchAttackLanded(event);
   }
 }
