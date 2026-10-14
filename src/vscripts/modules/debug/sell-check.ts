@@ -83,6 +83,41 @@ function checkLifesteal(
   done();
 }
 
+function physicalHeal(hero: CDOTA_BaseNPC_Hero, target: CDOTA_BaseNPC_Hero): number {
+  target.SetHealth(target.GetMaxHealth());
+  hero.SetHealth(hero.GetMaxHealth() / 2);
+  const before = hero.GetHealth();
+  ApplyDamage({ victim: target, attacker: hero, damage: 300, damage_type: DamageTypes.PHYSICAL });
+  return hero.GetHealth() - before;
+}
+
+// 生命之盔被动吸血经共享监听触发，卖出后应随之停止
+function checkDraculaMask(
+  hero: CDOTA_BaseNPC_Hero,
+  target: CDOTA_BaseNPC_Hero,
+  done: () => void,
+): void {
+  const without = physicalHeal(hero, target);
+  const item = hero.AddItemByName('item_dracula_mask');
+  if (!item) {
+    verdict(false, 'item_dracula_mask could not be added');
+    done();
+    return;
+  }
+  Timers.CreateTimer(0.2, () => {
+    const holding = physicalHeal(hero, target);
+    hero.RemoveItem(item);
+    Timers.CreateTimer(0.2, () => {
+      const sold = physicalHeal(hero, target);
+      out(`dracula heal without=${without} holding=${holding} sold=${sold}`);
+      verdict(holding > without, 'dracula mask lifesteal heals');
+      verdict(sold < holding, 'dracula mask lifesteal stops after sale');
+      hero.SetHealth(hero.GetMaxHealth());
+      done();
+    });
+  });
+}
+
 function countListeners(): number {
   const thinkers = Entities.FindAllByClassname('npc_dota_thinker') as CDOTA_BaseNPC[];
   return thinkers.filter((thinker) => thinker.HasModifier(DAMAGE_LISTENER_MODIFIER)).length;
@@ -192,7 +227,9 @@ if (!player) {
         verdict(false, 'need two other heroes for crit blade check');
         return;
       }
-      checkLifesteal(player, enemy, () => checkCritBlade(player, ally, enemy));
+      checkLifesteal(player, enemy, () =>
+        checkDraculaMask(player, enemy, () => checkCritBlade(player, ally, enemy)),
+      );
     });
   });
 }
