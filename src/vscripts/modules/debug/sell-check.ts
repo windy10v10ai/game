@@ -106,11 +106,21 @@ function checkDraculaMask(
   }
   Timers.CreateTimer(0.2, () => {
     const holding = physicalHeal(hero, target);
+    const active = hero.AddNewModifier(hero, item, 'modifier_item_dracula_mask_active', {
+      duration: 5,
+    });
+    const activeHeal = physicalHeal(hero, target);
+    active.Destroy();
+    const afterActive = physicalHeal(hero, target);
     hero.RemoveItem(item);
     Timers.CreateTimer(0.2, () => {
       const sold = physicalHeal(hero, target);
-      out(`dracula heal without=${without} holding=${holding} sold=${sold}`);
+      out(
+        `dracula heal without=${without} holding=${holding} active=${activeHeal} afterActive=${afterActive} sold=${sold}`,
+      );
       verdict(holding > without, 'dracula mask lifesteal heals');
+      verdict(activeHeal > holding, 'dracula mask active lifesteal heals more');
+      verdict(afterActive < activeHeal, 'dracula mask active lifesteal stops when it ends');
       verdict(sold < holding, 'dracula mask lifesteal stops after sale');
       hero.SetHealth(hero.GetMaxHealth());
       done();
