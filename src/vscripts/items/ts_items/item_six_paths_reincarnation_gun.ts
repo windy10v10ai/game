@@ -1,3 +1,4 @@
+import { ModifierEventHub } from '../../modules/modifier-event/modifier-event-hub';
 import { calculateStatusResistedDuration } from '../../utils/damage-calculation';
 import { BaseItem, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
 import { BaseItemModifier } from './base_item_modifier';
@@ -71,23 +72,36 @@ export class ModifierItemSixPathsReincarnationGun extends BaseItemModifier {
       this.pureDamageCapMultiplier = ability.GetSpecialValueFor('pure_damage_cap_multiplier');
     }
     super.OnCreated();
+
+    if (IsServer()) {
+      const parent = this.GetParent();
+      ModifierEventHub.RegisterDamageByAttacker(parent, this, (event) =>
+        this.OnAttackerDamage(event),
+      );
+      ModifierEventHub.RegisterAttackLandedByAttacker(parent, this, (event) =>
+        this.OnParentAttackLanded(event),
+      );
+    }
   }
 
   OnRefresh(): void {
     this.OnCreated();
   }
 
-  DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.ON_ATTACK_LANDED, ModifierFunction.ON_TAKEDAMAGE];
+  OnDestroy(): void {
+    super.OnDestroy();
+    if (IsServer()) {
+      const parent = this.GetParent();
+      ModifierEventHub.UnregisterDamageByAttacker(parent, this);
+      ModifierEventHub.UnregisterAttackLandedByAttacker(parent, this);
+    }
   }
 
-  OnTakeDamage(event: ModifierInstanceEvent): void {
+  OnAttackerDamage(event: ModifierInstanceEvent): void {
     TsSpellLifeSteal(event, this.spellLifesteal, this.GetParent());
   }
 
-  OnAttackLanded(event: ModifierAttackEvent): void {
-    if (!IsServer()) return;
-
+  OnParentAttackLanded(event: ModifierAttackEvent): void {
     const parent = this.GetParent();
     const ability = this.GetAbility();
     const target = event.target;
