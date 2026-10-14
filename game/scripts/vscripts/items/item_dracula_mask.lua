@@ -57,6 +57,9 @@ function modifier_item_dracula_mask:OnCreated(params)
 
     if IsServer() then
         self:StartIntervalThink(0.1) -- 每0.1秒检查生命值
+        ModifierEventRegisterDamageByAttacker(self:GetParent(), self, function(params)
+            self:OnAttackerDamage(params)
+        end)
     end
 end
 
@@ -68,14 +71,9 @@ function modifier_item_dracula_mask:OnRefresh(params)
     end
 end
 
-function modifier_item_dracula_mask:DeclareFunctions()
-    return {
-        MODIFIER_EVENT_ON_TAKEDAMAGE,
-    }
-end
-
 function modifier_item_dracula_mask:OnDestroy()
     if IsServer() then
+        ModifierEventUnregisterDamageByAttacker(self:GetParent(), self)
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
@@ -99,7 +97,7 @@ function modifier_item_dracula_mask:OnIntervalThink()
 end
 
 -- 被动双吸血效果(物理+法术)
-function modifier_item_dracula_mask:OnTakeDamage(params)
+function modifier_item_dracula_mask:OnAttackerDamage(params)
     if not IsServer() then return end
 
     -- 伤害小于10不不处理，优化性能
@@ -174,6 +172,16 @@ function modifier_item_dracula_mask_active:OnCreated()
 
     -- 服务器端逻辑
     self.damage_reduction = self:GetAbility():GetSpecialValueFor("damage_reduction") or -100 -- 100%减伤 = 不受任何伤害
+
+    ModifierEventRegisterDamageByAttacker(self:GetParent(), self, function(params)
+        self:OnAttackerDamage(params)
+    end)
+end
+
+function modifier_item_dracula_mask_active:OnDestroy()
+    if not IsServer() then return end
+
+    ModifierEventUnregisterDamageByAttacker(self:GetParent(), self)
 end
 
 function modifier_item_dracula_mask_active:DeclareFunctions()
@@ -182,12 +190,11 @@ function modifier_item_dracula_mask_active:DeclareFunctions()
         MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
         MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
         MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
-        MODIFIER_EVENT_ON_TAKEDAMAGE,
     }
 end
 
 -- 主动期间增强双吸血效果
-function modifier_item_dracula_mask_active:OnTakeDamage(params)
+function modifier_item_dracula_mask_active:OnAttackerDamage(params)
     if not IsServer() then return end
 
     -- 伤害小于10不不处理，优化性能
