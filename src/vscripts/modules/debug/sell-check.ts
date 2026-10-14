@@ -136,6 +136,8 @@ function checkAttackItem(
   debuffName: string,
   done: () => void,
 ): void {
+  // 上一项永恒之盘留下的保护期内英雄造成的伤害为 0
+  hero.RemoveModifierByName('modifier_item_aeon_disk_buff');
   const without = spellHeal(hero, target);
   const item = hero.AddItemByName(itemName);
   if (!item) {
