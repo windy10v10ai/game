@@ -793,13 +793,22 @@
 									"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"			"%aura_attack_speed"
 							}
 
-							"OnAttackLanded"
+							"OnCreated"
 							{
 								"RunScript"
 								{
 									"ScriptFile"	"items/item_vladmir_2"
-									"Function"		"VampiricAuraApply"
-									"attack_damage"	"%attack_damage"
+									"Function"		"VampiricAuraCreated"
+									"Target"		"TARGET"
+								}
+							}
+							"OnDestroy"
+							{
+								"RunScript"
+								{
+									"ScriptFile"	"items/item_vladmir_2"
+									"Function"		"VampiricAuraDestroyed"
+									"Target"		"TARGET"
 								}
 							}
 					}

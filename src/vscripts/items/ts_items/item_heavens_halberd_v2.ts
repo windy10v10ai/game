@@ -1,3 +1,4 @@
+import { Lifesteal } from '../../modules/lifesteal/lifesteal';
 import { ModifierEventHub } from '../../modules/modifier-event/modifier-event-hub';
 import { calculateStatusResistedDuration } from '../../utils/damage-calculation';
 import { BaseItem, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
@@ -104,9 +105,7 @@ export class ModifierItemHeavensHalberdV2 extends BaseItemModifier {
 
     if (IsServer()) {
       const parent = this.GetParent();
-      ModifierEventHub.RegisterDamageByAttacker(parent, this, (event) =>
-        this.OnAttackerDamage(event),
-      );
+      Lifesteal.Set(parent, this, 0, this.spellLifesteal);
       ModifierEventHub.RegisterAttackLandedByAttacker(parent, this, (event) =>
         this.OnParentAttackLanded(event),
       );
@@ -117,13 +116,9 @@ export class ModifierItemHeavensHalberdV2 extends BaseItemModifier {
     super.OnDestroy();
     if (IsServer()) {
       const parent = this.GetParent();
-      ModifierEventHub.UnregisterDamageByAttacker(parent, this);
+      Lifesteal.Remove(parent, this);
       ModifierEventHub.UnregisterAttackLandedByAttacker(parent, this);
     }
-  }
-
-  OnAttackerDamage(event: ModifierInstanceEvent): void {
-    TsSpellLifeSteal(event, this.spellLifesteal, this.GetParent());
   }
 
   OnIntervalThink(): void {
