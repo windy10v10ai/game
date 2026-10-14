@@ -56,7 +56,7 @@ function parseArgs() {
     // 逗号分隔的物品名，每件一个条件：全员第 6 格换成该物品
     swapItems: '',
     // 逗号分隔的「物品名:modifier 名[:Lua 脚本路径]」，每项一个条件：以该物品为来源给全员挂上这个 modifier，模拟主动或触发效果；
-    // DataDriven 物品的 Lua modifier 要带第三段脚本路径先登记
+    // DataDriven 物品的 Lua modifier 要带第三段脚本路径先登记；引擎原生 modifier（来源物品是 DataDriven 时）第三段写 native
     itemModifiers: '',
     // 逗号分隔的银月个数，每个个数一个条件：全员按吃银月的流程叠到该个数
     moonStacks: '1,10,30',
