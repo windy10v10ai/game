@@ -10,6 +10,8 @@ export const DAMAGE_LISTENER_MODIFIER = 'modifier_damage_event_listener';
 export const MODIFIER_ADDED_LISTENER_MODIFIER = 'modifier_modifier_added_event_listener';
 export const ATTACK_LANDED_LISTENER_MODIFIER = 'modifier_attack_landed_event_listener';
 
+const MIN_DISPATCH_DAMAGE = 10;
+
 type Handler<TEvent> = (this: void, event: TEvent) => void;
 
 /** 一种全局事件：一张按单位的登记表加一个按需创建的隐藏监听 */
@@ -20,6 +22,7 @@ class EventChannel<TEvent> {
   constructor(
     private readonly listenerModifier: string,
     private readonly unitOf: (this: void, event: TEvent) => CDOTA_BaseNPC | undefined,
+    private readonly accept?: (this: void, event: TEvent) => boolean,
   ) {}
 
   Register(unit: CDOTA_BaseNPC, owner: object, handler: Handler<TEvent>): void {
@@ -47,6 +50,7 @@ class EventChannel<TEvent> {
   }
 
   Dispatch(event: TEvent): void {
+    if (this.accept !== undefined && !this.accept(event)) return;
     const unit = this.unitOf(event);
     if (unit === undefined) return;
     this.registry.Dispatch(unit.entindex(), event);
@@ -57,6 +61,8 @@ export class ModifierEventHub {
   private static readonly damageByAttacker = new EventChannel<ModifierInstanceEvent>(
     DAMAGE_LISTENER_MODIFIER,
     (event) => event.attacker,
+    // 高频低伤的持续伤害每跳都会进来，小伤害对各处理都没有意义，查表前先挡掉
+    (event) => event.damage >= MIN_DISPATCH_DAMAGE,
   );
 
   private static readonly attackLandedByAttacker = new EventChannel<ModifierAttackEvent>(
