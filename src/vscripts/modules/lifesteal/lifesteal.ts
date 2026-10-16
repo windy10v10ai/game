@@ -4,6 +4,8 @@ import { ModifierEventHub } from '../modifier-event/modifier-event-hub';
 // 打非英雄单位时的折算（DOTA_ATTACK_LIFESTEAL_CREEP_FACTOR 与法术吸血的小兵折算）
 const ATTACK_CREEP_FACTOR = 0.6;
 const SPELL_CREEP_FACTOR = 0.2;
+// 高频伤害下每次回血都播特效开销大且看不出区别，同一单位限频播放
+const PARTICLE_INTERVAL = 0.3;
 
 type Rates = { attack: number; spell: number };
 
@@ -12,6 +14,7 @@ type UnitLifesteal = {
   sources: Map<CDOTA_Buff, Rates>;
   attack: number;
   spell: number;
+  particleAt: number;
 };
 
 const byUnit = new Map<EntityIndex, UnitLifesteal>();
@@ -21,13 +24,17 @@ function canLifestealFrom(target: CDOTA_BaseNPC): boolean {
 }
 
 function heal(
-  owner: CDOTA_BaseNPC,
+  entry: UnitLifesteal,
   amount: number,
   event: ModifierInstanceEvent,
   isSpell: boolean,
 ) {
   if (amount <= 0) return;
+  const owner = entry.unit;
   owner.HealWithParams(amount, event.inflictor ?? {}, true, true, owner, isSpell);
+  const now = GameRules.GetGameTime();
+  if (now - entry.particleAt < PARTICLE_INTERVAL) return;
+  entry.particleAt = now;
   const particle = ParticleManager.CreateParticle(
     isSpell
       ? 'particles/items3_fx/octarine_core_lifesteal.vpcf'
@@ -52,7 +59,7 @@ function onDamage(entry: UnitLifesteal, event: ModifierInstanceEvent): void {
     if ((flags & DamageFlag.SECONDARY_PROJECTILE_ATTACK) !== 0) return;
     if (!canLifestealFrom(target)) return;
     const factor = target.IsHero() ? 1 : ATTACK_CREEP_FACTOR;
-    heal(owner, (event.damage * entry.attack * factor) / 100, event, false);
+    heal(entry, (event.damage * entry.attack * factor) / 100, event, false);
     return;
   }
 
@@ -60,7 +67,7 @@ function onDamage(entry: UnitLifesteal, event: ModifierInstanceEvent): void {
   if ((flags & DamageFlag.NO_SPELL_LIFESTEAL) !== 0) return;
   if (target.IsIllusion() || !canLifestealFrom(target)) return;
   const factor = target.IsHero() ? 1 : SPELL_CREEP_FACTOR;
-  heal(owner, (event.damage * entry.spell * factor) / 100, event, true);
+  heal(entry, (event.damage * entry.spell * factor) / 100, event, true);
 }
 
 // 每次都按登记表整体重算，并丢掉已失效的来源，漏注销也不会一直多吸
@@ -94,7 +101,13 @@ export class Lifesteal {
     const unitIndex = unit.entindex();
     let entry = byUnit.get(unitIndex);
     if (entry === undefined) {
-      const created: UnitLifesteal = { unit, sources: new Map(), attack: 0, spell: 0 };
+      const created: UnitLifesteal = {
+        unit,
+        sources: new Map(),
+        attack: 0,
+        spell: 0,
+        particleAt: -PARTICLE_INTERVAL,
+      };
       ModifierEventHub.RegisterDamageByAttacker(unit, created, (event) => onDamage(created, event));
       byUnit.set(unitIndex, created);
       entry = created;

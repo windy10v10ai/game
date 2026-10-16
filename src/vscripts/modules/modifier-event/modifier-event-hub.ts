@@ -10,7 +10,8 @@ export const DAMAGE_LISTENER_MODIFIER = 'modifier_damage_event_listener';
 export const MODIFIER_ADDED_LISTENER_MODIFIER = 'modifier_modifier_added_event_listener';
 export const ATTACK_LANDED_LISTENER_MODIFIER = 'modifier_attack_landed_event_listener';
 
-const MIN_DISPATCH_DAMAGE = 10;
+// 持续伤害的零碎小跳占伤害事件的大头，触发效果收益很小；后期普攻与暴击基本都高于此值
+const MIN_DISPATCH_DAMAGE = 20;
 
 type Handler<TEvent> = (this: void, event: TEvent) => void;
 
