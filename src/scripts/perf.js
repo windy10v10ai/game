@@ -64,6 +64,8 @@ function parseArgs() {
     countModifiers: '',
     // 每段末统计全场 modifier 与实体数，排查随时间累积的东西
     census: false,
+    // 伤害基准里出手的英雄数，0 为全员；降负载避免服务器跑满后开销不再线性
+    benchAttackers: 0,
     // 先跑 minGames 局；有条件各局结果不一致就逐局追加，最多 maxGames 局
     // 逗号分隔的条件名，只复测其中几项时用
     conditions: 'all',

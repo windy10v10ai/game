@@ -18,6 +18,7 @@ TSTL 编译为 Lua，输出到 `game/scripts/vscripts/`。跨层契约见 `src/C
 - **代码直接调 `OnSpellStart()` 代为施放时补 `this.UseResources(mana, useHealth, gold, cooldown)`**：绕过了引擎施法管线，不会自动扣资源、进 CD。玩家手动施放的回调引擎已经结算过，不再调用
 - **负面状态时长先过 `utils/damage-calculation.ts` 的 `calculateStatusResistedDuration(duration, target)`**：`AddNewModifier` 不按目标状态抗性缩短 `duration`（已实测），原版 modifier 同样适用。给友方或自己的增益不折算
 - **永久增减属性用 `ModifyStrength` / `ModifyAgility` / `ModifyIntellect` 改基础值**（负数即减，自行兜底下限）：一次生效、零持续开销（参考 `game/scripts/vscripts/items/item_tome_of_luoshu.lua`）。声明 `MODIFIER_PROPERTY_STATS_*_BONUS` 的自定义 modifier 每次重算属性都要回调 Lua，还得 `SetHasCustomTransmitterData` 同步才能在 tooltip 显示。要 buff 图标时另挂一个不声明属性回调的纯显示 modifier，数值放 stack count
+- **全局事件走共享分发**：受伤（按攻击者）、普攻命中（按攻击者）、单位被加 modifier 三类监听经 `modules/modifier-event/modifier-event-hub.ts` 的 `ModifierEventHub` 按单位登记，不在自己的 modifier 里声明 `MODIFIER_EVENT_ON_TAKEDAMAGE` / `ON_ATTACK_LANDED` / `ON_MODIFIER_ADDED`：引擎对全场每次事件都回调一次每个声明者，只要有一个就有固定开销。伤害通道入口统一跳过伤害 < 20 的事件（持续伤害零碎小跳），新处理不必自己再过滤。吸血与法术吸血用 `modules/lifesteal/` 的 `Lifesteal.Set(unit, modifier, 普攻%, 法术%)` / `Remove` 登记百分比，不另写回血处理
 - KV 数值块叫 `AbilityValues`（`AbilitySpecial` 已废弃），变量名与注释写 `abilityValue` / `rangeFromAbilityValue`；引擎 API `GetSpecialValueFor` 照常调用
 - 开发期间在 VConsole 用 `script_reload` 热重载
 

@@ -27,6 +27,10 @@ caster:AddNewModifier(caster, ability, "modifier_item_devastator", {})
 
 **表现差异不妨碍复用**：原版 modifier 在状态栏多出一个原版图标（如原版光环 buff）这类差异可以接受，原版能提供的效果（属性、光环、普攻吸血）照样交给原版，自制部分只补原版没有的。
 
+**光环优先用原版**：光环 modifier 的挂摘、属性求值、光环里的普攻吸血全由引擎处理，单位再多也不进 Lua。小兵混战实测（两队各 24 个兵对砍）原版光环比「KV 光环 + Lua 登记吸血」每帧少约 0.5 ms，且没有单位被移除后登记残留的报错。原版光环覆盖不到的效果（如攻速光环）再用 KV 光环补，不用 Lua/TS 写 `IsAura` 光环（实测挂不稳）。
+
+**原版吸血只认真实普攻**：脚本 `ApplyDamage` 造的物理伤害不触发原版吸血 modifier，核对回血用 `PerformAttack`，并延迟一帧再读血量。
+
 ## 通用状态
 
 不绑定任何物品/技能，任何地方都能直接挂。
@@ -68,6 +72,7 @@ caster:AddNewModifier(caster, ability, "modifier_item_devastator", {})
 | `modifier_item_meteor_hammer` | 陨星锤 | 被动属性（三维 / 技能增强 / 魔法恢复增强） | `item_jump_jump_jump` |
 | `modifier_item_meteor_hammer_burn` | 陨星锤 | 燃烧伤害 + 减速，单位与建筑分别读 `burn_dps_units` / `burn_dps_buildings`（带 `duration`） | `item_jump_jump_jump` |
 | `modifier_item_blink_dagger` | 跳刀 | 受敌方英雄或肉山伤害后让整件物品进入 `blink_damage_cooldown` 冷却，`item_lua` 物品也生效 | `item_jump_jump_jump` |
+| `modifier_item_vladmir` | 弗拉迪米尔的祭品 | 光环：吸血、基础攻击力、回蓝、护甲，对英雄与范围内友方小兵生效（小兵吸血 ×0.6），读 `lifesteal_aura` / `damage_aura` / `mana_regen_aura` / `armor_aura` / `aura_radius` | `item_vladmir_2` |
 | `modifier_item_ultimate_scepter` | 阿哈利姆神杖 | 神杖效果（`duration = -1` 为永久） | `item_ultimate_scepter_2` |
 | `modifier_item_buff_ward` | 侦察守卫 | 眼位存在状态 | `ability_ward_observer_slot.ts` |
 | `modifier_item_ward_true_sight` | 岗哨守卫 | 真视 | `ability_ward_sentry_slot.ts` |

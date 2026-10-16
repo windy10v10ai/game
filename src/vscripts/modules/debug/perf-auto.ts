@@ -76,6 +76,7 @@ export interface PerfAutoConfig {
   countModifiers?: string;
   // 每段末统计全场 modifier 与实体，找随时间累积的东西
   census?: boolean;
+  benchAttackers?: number;
 }
 
 interface PerfStep {
@@ -436,13 +437,22 @@ function parkHeroes() {
 // 打团里交战量随局势起伏，几 ms 的差异被淹没；固定频率互相造成伤害，只量伤害事件链路本身的开销。
 // 真普攻版本走完整攻击结算，普攻命中类事件与攻击触发才会被调用
 const BENCH_DAMAGE = 100;
+// 高频小额伤害：模拟持续伤害每跳，一帧多次、每次伤害很低
+const DOT_HITS = 5;
+type BenchMode = 'damage' | 'attack' | 'dot' | 'dotbig';
+const BENCH_SCENES: Record<string, BenchMode> = {
+  dmgbench: 'damage',
+  atkbench: 'attack',
+  dotbench: 'dot',
+  dotbigbench: 'dotbig',
+};
 let benchActive = false;
 let benchTicking = false;
-let benchRealAttack = false;
+let benchMode: BenchMode = 'damage';
 
-function startDamageBench(realAttack: boolean) {
+function startDamageBench(mode: BenchMode) {
   benchActive = true;
-  benchRealAttack = realAttack;
+  benchMode = mode;
   if (benchTicking) return;
   benchTicking = true;
   let magical = false;
@@ -454,15 +464,32 @@ function startDamageBench(realAttack: boolean) {
     magical = !magical;
     const heroes: CDOTA_BaseNPC_Hero[] = [];
     forEachHero((hero) => heroes.push(hero));
+    const limit = PERF_CONFIG?.benchAttackers ?? 0;
+    const attackers = limit > 0 ? limit : heroes.length;
     heroes.forEach((attacker, index) => {
+      if (index >= attackers) return;
       const target =
         heroes.find(
           (hero, offset) => offset > index && hero.GetTeamNumber() !== attacker.GetTeamNumber(),
         ) ?? heroes.find((hero) => hero.GetTeamNumber() !== attacker.GetTeamNumber());
       if (!target || !attacker.IsAlive() || !target.IsAlive()) return;
       target.SetHealth(target.GetMaxHealth());
-      if (benchRealAttack) {
+      if (benchMode === 'attack') {
         attacker.PerformAttack(target, true, true, true, true, false, false, true);
+        return;
+      }
+      if (benchMode === 'dot' || benchMode === 'dotbig') {
+        // 低于与高于分发门槛各一档，看门槛挡掉了多少
+        const damage = benchMode === 'dot' ? 15 : 50;
+        for (let hit = 0; hit < DOT_HITS; hit++) {
+          ApplyDamage({
+            victim: target,
+            attacker,
+            damage,
+            damage_type: DamageTypes.MAGICAL,
+            ability: attacker.GetAbilityByIndex(0),
+          });
+        }
         return;
       }
       ApplyDamage({
@@ -475,7 +502,7 @@ function startDamageBench(realAttack: boolean) {
     });
     return FrameTime();
   });
-  print(`[perf-auto] damage bench started realAttack=${realAttack}`);
+  print(`[perf-auto] damage bench started mode=${mode} realAttack=${mode === 'attack'}`);
 }
 
 // 两队隔着中路河道对排，每段从同一个站位开打；英雄间距让 10 人排开不挤成一团
@@ -511,6 +538,83 @@ function stageFight() {
     hero.Stop();
   });
   print(`[perf-auto] fight staged`);
+}
+
+// 光环在小兵多时的开销：两队小兵面对面排成一条横排，几乎每个都打得到对面；天辉英雄站在己方排后，
+// 横排长度控制在光环半径内。全员定时回满、小兵血量放大，兵数不起伏
+// 小兵碰撞体积撑开间距才排得成单排；兵数按光环半径能覆盖的长度取
+const CREEP_BENCH_COUNT = 24;
+const CREEP_BENCH_HEALTH = 1000000;
+const CREEP_BENCH_CENTER = Vector(-400, -400, 0);
+const CREEP_BENCH_SPACING = 64;
+const CREEP_BENCH_ROW_GAP = 60;
+const CREEP_BENCH_HERO_BACK = 160;
+// 统计光环覆盖：KV 光环与原版光环在小兵身上的 buff
+const CREEP_BENCH_AURAS = [
+  'modifier_item_vladmir_2_general_aura',
+  'modifier_item_vladmir_aura',
+  'modifier_item_vladmir_2_enemy_aura',
+];
+let creepBenchActive = false;
+let creepBenchTicking = false;
+
+function printCreepAuraCoverage() {
+  const creeps = findAllUnits(UnitTargetType.BASIC).filter(
+    (unit) => unit.IsCreep() && !unit.IsNeutralUnitType(),
+  );
+  const counts = CREEP_BENCH_AURAS.map(
+    (name) => `${name}=${creeps.filter((creep) => creep.HasModifier(name)).length}`,
+  );
+  print(`[perf-auto] creep bench aura creeps=${creeps.length} ${counts.join(' ')}`);
+}
+
+function startCreepBench() {
+  creepBenchActive = true;
+  const along = Vector(1, -1, 0).Normalized();
+  const towardDire = Vector(1, 1, 0).Normalized();
+  forEachHero((hero) => {
+    if (hero.GetTeamNumber() !== DotaTeam.GOODGUYS) return;
+    // 玩家英雄没有关掉自动攻击，留在泉水不参与
+    if (hero.GetPlayerOwnerID() === 0) return;
+    FindClearSpaceForUnit(
+      hero,
+      CREEP_BENCH_CENTER.__sub(towardDire.__mul(CREEP_BENCH_HERO_BACK)),
+      true,
+    );
+    hero.Stop();
+  });
+  const sides: [DotaTeam, string, number][] = [
+    [DotaTeam.GOODGUYS, 'npc_dota_creep_goodguys_melee', -CREEP_BENCH_ROW_GAP],
+    [DotaTeam.BADGUYS, 'npc_dota_creep_badguys_melee', CREEP_BENCH_ROW_GAP],
+  ];
+  for (const [team, unitName, offset] of sides) {
+    for (let i = 0; i < CREEP_BENCH_COUNT; i++) {
+      const slot = (i - (CREEP_BENCH_COUNT - 1) / 2) * CREEP_BENCH_SPACING;
+      const position = CREEP_BENCH_CENTER.__add(towardDire.__mul(offset)).__add(along.__mul(slot));
+      const creep = CreateUnitByName(unitName, position, true, undefined, undefined, team);
+      // 英雄攻击力远高于小兵血量，血量放大到打不死，兵数才稳定
+      creep.SetBaseMaxHealth(CREEP_BENCH_HEALTH);
+      creep.SetMaxHealth(CREEP_BENCH_HEALTH);
+      creep.SetHealth(CREEP_BENCH_HEALTH);
+    }
+  }
+  print(`[perf-auto] creep bench started count=${CREEP_BENCH_COUNT * 2}`);
+  Timers.CreateTimer(3, () => {
+    if (creepBenchActive) printCreepAuraCoverage();
+  });
+  if (creepBenchTicking) return;
+  creepBenchTicking = true;
+  Timers.CreateTimer(0.5, () => {
+    if (!creepBenchActive) {
+      creepBenchTicking = false;
+      return undefined;
+    }
+    for (const unit of findAllUnits(UnitTargetType.HERO + UnitTargetType.BASIC)) {
+      if (unit.IsBuilding() || !unit.IsAlive()) continue;
+      unit.SetHealth(unit.GetMaxHealth());
+    }
+    return 0.5;
+  });
 }
 
 // 打团中阵亡会让场上人数与交战强度在各段之间起伏，原地复活让团战一直持续
@@ -1235,10 +1339,14 @@ export class PerfAuto {
     const timescale = step.timescale ?? config.measureTimescale;
     SendToServerConsole(`host_timescale ${timescale}`);
     // 团队 AI 的回线任务不归单体思考管，可能把人带出泉水，每段开始前重新拉回
-    const bench = step.scene === 'dmgbench' || step.scene === 'atkbench';
-    if (step.scene === 'idle' || bench) parkHeroes();
-    if (bench) startDamageBench(step.scene === 'atkbench');
+    const benchScene = step.scene === undefined ? undefined : BENCH_SCENES[step.scene];
+    const bench = benchScene !== undefined;
+    const creepBench = step.scene === 'creepbench';
+    if (step.scene === 'idle' || bench || creepBench) parkHeroes();
+    if (benchScene !== undefined) startDamageBench(benchScene);
     else benchActive = false;
+    if (creepBench) startCreepBench();
+    else creepBenchActive = false;
     const enteringFight = step.scene === 'fight' && steps[index - 1]?.scene !== 'fight';
     if (enteringFight) releaseHeroes();
     if (step.scene === 'fight') stageFight();

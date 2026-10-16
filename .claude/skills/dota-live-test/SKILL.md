@@ -33,6 +33,8 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 - 下一局启动会删掉 `console.log`，要留的日志先拷到 scratchpad
 - 天辉满编时玩家英雄也交给 AI；天辉人少时玩家英雄留在泉水，由天辉 bot 扮演玩家，买装备与对线都走现有 bot 逻辑。报告只统计人数多的一方，天辉那侧的行为不代表真实玩家
 
+比某个物品、modifier 或机制的每帧开销时，场景选择与结果可信度核对 → `references/perf-bench.md`。
+
 ## 验物品与技能：远程发命令
 
 验被动属性、主动效果、状态何时上何时掉、对单位和建筑的伤害时，不点界面：启动时带远程控制台端口（第 3 步），之后用 `npm run dota:cmd` 发 `-give` 发物品、`-cast` 代码施法、`-watch` 监视变化，直接读命令返回的日志。备用施法（Ctrl）代码触发不了，要用 computer-use 真实按键。命令清单与标准流程 → `references/remote-commands.md`。
