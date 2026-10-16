@@ -1,6 +1,7 @@
 export interface ItemUsageDto {
   itemName: string;
   durationSec: number;
+  lateDurationSec: number;
 }
 
 export interface HeroItemUsageDto {

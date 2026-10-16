@@ -21,6 +21,7 @@ describe('splitHeroItemUsage', () => {
     items: Array.from({ length: 200 }, (_, index) => ({
       itemName: `item_${index}_${'x'.repeat(70)}`,
       durationSec: 999999,
+      lateDurationSec: 999999,
     })),
   };
 

@@ -5,6 +5,8 @@ import { ItemUsageCounter } from './item-usage-counter';
 
 const SAMPLE_INTERVAL_SECONDS = 30;
 const SAMPLING_CONVAR = 'hero_item_usage_sampling';
+// Lag rises sharply from 30 minutes after the horn, so late holdings are tracked separately.
+export const LATE_GAME_START_SEC = 1800;
 
 /** Samples selected heroes without issuing requests during the match. */
 export class HeroItemUsage {
@@ -57,6 +59,7 @@ export class HeroItemUsage {
   private static Sample(): void {
     const dotaTime = Math.max(0, GameRules.GetDOTATime(false, false));
     const elapsedSec = Math.max(0, dotaTime - this.lastDotaTime);
+    const lateSec = Math.max(0, dotaTime - Math.max(this.lastDotaTime, LATE_GAME_START_SEC));
     this.lastDotaTime = dotaTime;
     if (Convars.GetInt(SAMPLING_CONVAR) === 0) return;
 
@@ -77,7 +80,7 @@ export class HeroItemUsage {
         const item = hero.GetItemInSlot(slot);
         if (item) items.push(item.GetAbilityName());
       }
-      counter.Add(items, elapsedSec);
+      counter.Add(items, elapsedSec, lateSec);
     });
   }
 }
