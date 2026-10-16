@@ -29,7 +29,8 @@ export class Game {
 
   public static StartGame() {
     if (Game.customMatchId === '') {
-      Game.customMatchId = `${Math.floor(Math.random() * 1000000000)}-${Math.floor(Math.random() * 1000000000)}`;
+      // Lua's math.random is unseeded and repeats the same IDs on every launch.
+      Game.customMatchId = `${RandomInt(0, 999999999)}-${RandomInt(0, 999999999)}`;
     }
     CustomNetTables.SetTableValue('loading_status', 'loading_status', {
       status: 1,
