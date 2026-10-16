@@ -1,4 +1,4 @@
-import { ModifierEventHub } from '../../modules/modifier-event/modifier-event-hub';
+import { Lifesteal } from '../../modules/lifesteal/lifesteal';
 import { registerModifier } from '../../utils/dota_ts_adapter';
 import { PropertyBaseModifier } from './property_base';
 
@@ -194,37 +194,36 @@ export class property_mana_regen_total_percentage extends PropertyBaseModifier {
   }
 }
 
-/** 只关心自己造成的伤害，交给全场共用的监听分发 */
-abstract class AttackerDamagePropertyModifier extends PropertyBaseModifier {
-  abstract OnAttackerDamage(event: ModifierInstanceEvent): void;
+/** 把属性值登记为单位的吸血来源 */
+abstract class LifestealPropertyModifier extends PropertyBaseModifier {
+  abstract Rates(): [attack: number, spell: number];
 
   OnCreated(kv: { value: number }) {
     super.OnCreated(kv);
     if (IsClient()) return;
 
-    ModifierEventHub.RegisterDamageByAttacker(this.GetParent(), this, (event) =>
-      this.OnAttackerDamage(event),
-    );
+    const [attack, spell] = this.Rates();
+    Lifesteal.Set(this.GetParent(), this, attack, spell);
   }
 
   OnDestroy() {
     if (IsClient()) return;
 
-    ModifierEventHub.UnregisterDamageByAttacker(this.GetParent(), this);
+    Lifesteal.Remove(this.GetParent(), this);
   }
 }
 
 @registerModifier('modifiers/property/property_declare')
-export class property_lifesteal extends AttackerDamagePropertyModifier {
-  OnAttackerDamage(event: ModifierInstanceEvent): void {
-    TsLifeStealOnAttackLanded(event, this.value, this.GetParent());
+export class property_lifesteal extends LifestealPropertyModifier {
+  Rates(): [number, number] {
+    return [this.value, 0];
   }
 }
 
 @registerModifier('modifiers/property/property_declare')
-export class property_spell_lifesteal extends AttackerDamagePropertyModifier {
-  OnAttackerDamage(event: ModifierInstanceEvent): void {
-    TsSpellLifeSteal(event, this.value, this.GetParent());
+export class property_spell_lifesteal extends LifestealPropertyModifier {
+  Rates(): [number, number] {
+    return [0, this.value];
   }
 }
 

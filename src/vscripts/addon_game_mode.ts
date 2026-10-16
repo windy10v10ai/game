@@ -2,7 +2,7 @@ import 'utils/index';
 // import './ai_game_mode';
 import { ActivateModules } from './modules';
 import { RegisterModifiers } from './modifiers/register-modifiers';
-import './utils/lifesteal';
+import './modules/lifesteal/lifesteal';
 import Precache from './utils/precache';
 
 Object.assign(getfenv(), {

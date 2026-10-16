@@ -18,6 +18,7 @@ TSTL 编译为 Lua，输出到 `game/scripts/vscripts/`。跨层契约见 `src/C
 - **代码直接调 `OnSpellStart()` 代为施放时补 `this.UseResources(mana, useHealth, gold, cooldown)`**：绕过了引擎施法管线，不会自动扣资源、进 CD。玩家手动施放的回调引擎已经结算过，不再调用
 - **负面状态时长先过 `utils/damage-calculation.ts` 的 `calculateStatusResistedDuration(duration, target)`**：`AddNewModifier` 不按目标状态抗性缩短 `duration`（已实测），原版 modifier 同样适用。给友方或自己的增益不折算
 - **永久增减属性用 `ModifyStrength` / `ModifyAgility` / `ModifyIntellect` 改基础值**（负数即减，自行兜底下限）：一次生效、零持续开销（参考 `game/scripts/vscripts/items/item_tome_of_luoshu.lua`）。声明 `MODIFIER_PROPERTY_STATS_*_BONUS` 的自定义 modifier 每次重算属性都要回调 Lua，还得 `SetHasCustomTransmitterData` 同步才能在 tooltip 显示。要 buff 图标时另挂一个不声明属性回调的纯显示 modifier，数值放 stack count
+- **全局事件走共享分发**：受伤（按攻击者）、普攻命中（按攻击者）、单位被加 modifier 三类监听经 `modules/modifier-event/modifier-event-hub.ts` 的 `ModifierEventHub` 按单位登记，不在自己的 modifier 里声明 `MODIFIER_EVENT_ON_TAKEDAMAGE` / `ON_ATTACK_LANDED` / `ON_MODIFIER_ADDED`：引擎对全场每次事件都回调一次每个声明者，只要有一个就有固定开销。伤害通道入口统一跳过伤害 < 20 的事件（持续伤害零碎小跳），新处理不必自己再过滤。吸血与法术吸血用 `modules/lifesteal/` 的 `Lifesteal.Set(unit, modifier, 普攻%, 法术%)` / `Remove` 登记百分比，不另写回血处理
 - KV 数值块叫 `AbilityValues`（`AbilitySpecial` 已废弃），变量名与注释写 `abilityValue` / `rangeFromAbilityValue`；引擎 API `GetSpecialValueFor` 照常调用
 - 开发期间在 VConsole 用 `script_reload` 热重载
 
@@ -27,7 +28,7 @@ TSTL 编译为 Lua，输出到 `game/scripts/vscripts/`。跨层契约见 `src/C
 - **枚举用 normalized 成员名**：`UnitFilterResult.FAIL_CUSTOM`，不带 `UF_` / `DOTA_` 前缀，TSTL 会内联回 Lua 原生名
 - **引擎枚举只在函数体内求值**：normalized 枚举编译成 Lua 全局名，模块顶层的 `const FLAGS = DamageFlag.A + DamageFlag.B` 在 `require` 阶段读全局，某个全局不存在时整个模块加载失败，文件里所有 `@registerAbility` / `@registerModifier` 都不执行。症状是技能和 modifier 图标集体消失、没有崩溃弹窗，容易误判成图标问题
 - **本地常量避开引擎全局名**：`DamageTypes.PURE` 编译成全局 `DAMAGE_TYPE_PURE`，同文件里同名的 `const`/`local` 会遮蔽它，编译不报错，运行时取到错误数值（如 `ApplyDamage` 静默不生效）
-- **TS 函数默认多一个 self 参数**：没标 `this: void` 的函数（含挂到 `_G` 的全局函数、作为参数传递的回调）编译后第一个参数是 self，Lua 侧调用要占位，如 `TsLifeStealOnAttackLanded(_, event, ...)`（`items/item_vladmir_2.lua`）。给 Lua 调用或接收 Lua 函数的新接口，在函数类型和回调类型上都写 `this: void`，Lua 侧就按普通参数调用（如 `modules/modifier-event/` 的全局入口）
+- **TS 函数默认多一个 self 参数**：没标 `this: void` 的函数（含挂到 `_G` 的全局函数、作为参数传递的回调）编译后第一个参数是 self，Lua 侧调用要在第一个参数位置传 `_` 占位。给 Lua 调用或接收 Lua 函数的新接口，在函数类型和回调类型上都写 `this: void`，Lua 侧就按普通参数调用（如 `modules/modifier-event/` 的全局入口）
 - **有模块级状态的文件不要放 `@registerModifier`**：`LinkLuaModifier` 登记的脚本在引擎创建该 modifier 时会再执行一遍，文件顶层的单例、静态字段、`_G` 赋值都会多出一份，与 `require` 拿到的那份互不相通（症状：登记了却收不到回调、监听建了两个）。modifier 放单独文件，通过 `import` 引用状态模块（如 `modules/modifier-event/`）
 - **Lua 里空字符串和 0 都为真**：判断可选字符串、数字「有值」显式写 `!== undefined && !== ''`
 

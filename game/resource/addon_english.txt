@@ -2456,13 +2456,13 @@
 
 		// item_vladmir_2
 		"DOTA_Tooltip_ability_item_vladmir_2"								"Vladmir's Assault Cuirass"
-		"DOTA_Tooltip_ability_item_vladmir_2_Description"					"<h1>Passive: Vladmir's Assault Aura</h1>Grants %vampiric_aura%%% lifesteal, %damage_aura%%% bonus damage, %mana_regen_aura% mana regeneration, %aura_attack_speed% attack speed, and %aura_positive_armor% armor to nearby allies and structures.<br>Allied structures only gain the attack speed and armor.<br>Decreases nearby enemy unit and structure armor by %aura_negative_armor%.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_vladmir_2_Description"					"<h1>Passive: Vladmir's Assault Aura</h1>Grants %lifesteal_aura%%% lifesteal, %damage_aura%%% bonus damage, %mana_regen_aura% mana regeneration, %aura_attack_speed% attack speed, and %aura_positive_armor% armor to nearby allies and structures.<br>Allied structures only gain the attack speed and armor.<br>Decreases nearby enemy unit and structure armor by %aura_negative_armor%.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_vladmir_2_Lore"							"Forged in the depths of the nether reaches, this hellish mail is imbued with the malice of a fallen vampire."
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_armor"					"+$armor"
 
 		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura"					"Vladmir's Assault Aura"
-		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura_Description"		"Gaining 25%% lifesteal, %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% damage, %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
+		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura_Description"		"Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% and attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura"				"Vladmir's Assault Aura"
 		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura_Description"	"Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% and attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."

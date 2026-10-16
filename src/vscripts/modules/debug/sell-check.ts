@@ -79,9 +79,21 @@ function checkLifesteal(
     ability: hero.GetAbilityByIndex(0),
   });
   const afterSpell = hero.GetHealth();
-  out(`lifesteal hp before=${before} after attack=${afterAttack} after spell=${afterSpell}`);
+  ApplyDamage({
+    victim: target,
+    attacker: hero,
+    damage: 300,
+    damage_type: DamageTypes.MAGICAL,
+    damage_flags: DamageFlag.NO_SPELL_LIFESTEAL,
+    ability: hero.GetAbilityByIndex(0),
+  });
+  const afterFlagged = hero.GetHealth();
+  out(
+    `lifesteal hp before=${before} after attack=${afterAttack} after spell=${afterSpell} after flagged=${afterFlagged}`,
+  );
   verdict(afterAttack > before, 'attack lifesteal heals');
   verdict(afterSpell > afterAttack, 'spell lifesteal heals');
+  verdict(afterFlagged === afterSpell, 'no-spell-lifesteal damage does not heal');
   added.forEach((name) => hero.RemoveModifierByName(name));
   hero.SetHealth(hero.GetMaxHealth());
   done();
@@ -202,6 +214,55 @@ function checkDraculaMask(
       verdict(sold < holding, 'dracula mask lifesteal stops after sale');
       hero.SetHealth(hero.GetMaxHealth());
       done();
+    });
+  });
+}
+
+// 原版吸血只认真实普攻，回血在下一帧才落到血量上
+function attackHeal(
+  hero: CDOTA_BaseNPC_Hero,
+  target: CDOTA_BaseNPC_Hero,
+  done: (heal: number) => void,
+): void {
+  target.SetHealth(target.GetMaxHealth());
+  hero.SetHealth(hero.GetMaxHealth() / 2);
+  const before = hero.GetHealth();
+  hero.PerformAttack(target, true, true, true, true, false, false, true);
+  Timers.CreateTimer(0.2, () => done(hero.GetHealth() - before));
+}
+
+function checkVladmir(
+  hero: CDOTA_BaseNPC_Hero,
+  target: CDOTA_BaseNPC_Hero,
+  done: () => void,
+): void {
+  attackHeal(hero, target, (without) => {
+    const item = hero.AddItemByName('item_vladmir_2');
+    if (!item) {
+      verdict(false, 'item_vladmir_2 could not be added');
+      done();
+      return;
+    }
+    // 光环 buff 由光环周期性挂上，等它到位
+    Timers.CreateTimer(1, () => {
+      const auraHolding = hero.HasModifier('modifier_item_vladmir');
+      attackHeal(hero, target, (holding) => {
+        hero.RemoveItem(item);
+        Timers.CreateTimer(1.5, () => {
+          attackHeal(hero, target, (sold) => {
+            out(`vladmir heal without=${without} holding=${holding} sold=${sold}`);
+            verdict(auraHolding, 'vladmir native aura added while holding');
+            verdict(
+              !hero.HasModifier('modifier_item_vladmir'),
+              'vladmir native aura removed after sale',
+            );
+            verdict(holding > without, 'vladmir aura lifesteal heals');
+            verdict(sold < holding, 'vladmir aura lifesteal stops after sale');
+            hero.SetHealth(hero.GetMaxHealth());
+            done();
+          });
+        });
+      });
     });
   });
 }
@@ -367,21 +428,23 @@ if (!player) {
       }
       checkLifesteal(player, enemy, () =>
         checkDraculaMask(player, enemy, () =>
-          checkCritBlade(player, ally, enemy, () =>
-            checkWitheredSpring(player, enemy, () =>
-              checkAttackItem(
-                player,
-                enemy,
-                'item_heavens_halberd_v2',
-                'modifier_heavens_halberd_debuff',
-                () =>
-                  checkAttackItem(
-                    player,
-                    enemy,
-                    'item_six_paths_reincarnation_gun',
-                    'modifier_item_six_paths_reincarnation_gun_debuff',
-                    () => out('done'),
-                  ),
+          checkVladmir(player, enemy, () =>
+            checkCritBlade(player, ally, enemy, () =>
+              checkWitheredSpring(player, enemy, () =>
+                checkAttackItem(
+                  player,
+                  enemy,
+                  'item_heavens_halberd_v2',
+                  'modifier_heavens_halberd_debuff',
+                  () =>
+                    checkAttackItem(
+                      player,
+                      enemy,
+                      'item_six_paths_reincarnation_gun',
+                      'modifier_item_six_paths_reincarnation_gun_debuff',
+                      () => out('done'),
+                    ),
+                ),
               ),
             ),
           ),
