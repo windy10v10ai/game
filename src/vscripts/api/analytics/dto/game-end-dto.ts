@@ -76,6 +76,7 @@ export class GamePerfDto {
 }
 
 export class GameEndDto extends EventBaseDto {
+  customMatchId: string;
   gameOptions: GameEndGameOptionsDto;
   winnerTeamId: number;
   // FIXME: 值其实是号角起算的 DOTA 时间，名字有误；后端改读 dotaTimeMsec 后删除

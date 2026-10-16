@@ -4,6 +4,7 @@ import {
   GameEndPlayerDto,
 } from '../../../api/analytics/dto/game-end-dto';
 import { GA4 } from '../../../api/analytics/ga4/ga4';
+import { HeroItemUsage } from '../../../api/analytics/hero-item-usage';
 import { GA4DailyTaskTracker } from '../../../api/analytics/ga4/ga4-daily-task-tracker';
 import { GA4PickAbilityTracker } from '../../../api/analytics/ga4/ga4-pick-ability-tracker';
 import { Game } from '../../../api/game';
@@ -31,6 +32,11 @@ export class GameEnd {
 
     // send game end dto
     Game.EndGame(gameEndDto);
+    try {
+      HeroItemUsage.Finish(gameEndDto);
+    } catch (error) {
+      print(`[HeroItemUsage] failed: ${error}`);
+    }
     CustomNetTables.SetTableValue('ending_status', 'ending_data', { winner_team_id: winnerTeamId });
 
     this.SendAnalyticsEvent(gameEndDto);
@@ -161,6 +167,7 @@ export class GameEnd {
     const gameEndDto: GameEndDto = {
       isWin: winnerTeamId === DotaTeam.GOODGUYS,
       matchId: GameRules.Script_GetMatchID().toString(),
+      customMatchId: Game.customMatchId,
       version: GameConfig.GAME_VERSION,
       difficulty,
       steamId: 0, // 非玩家单位的事件，固定0

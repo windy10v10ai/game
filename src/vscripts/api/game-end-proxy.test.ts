@@ -10,6 +10,7 @@ function player(steamId: number): GameEndPlayerDto {
 describe('splitGameEndByPlayer', () => {
   const gameEnd = {
     matchId: 'm1',
+    customMatchId: 'custom-m1',
     winnerTeamId: 2,
     players: [player(111), player(0), player(222), player(-1)],
   } as unknown as GameEndDto;
@@ -22,6 +23,7 @@ describe('splitGameEndByPlayer', () => {
   it('keeps match-level fields and strips playerId', () => {
     const [request] = splitGameEndByPlayer(gameEnd);
     expect(request.matchId).toBe('m1');
+    expect(request.customMatchId).toBe('custom-m1');
     expect(request.winnerTeamId).toBe(2);
     expect(request.players[0]).not.toHaveProperty('playerId');
     expect(request.players[0].heroName).toBe('npc_dota_hero_axe');
@@ -89,6 +91,7 @@ describe('splitGameEndByPlayer perf', () => {
     const gameEnd = {
       isWin: true,
       matchId: '8123456789012',
+      customMatchId: '999999999-999999999',
       version: 'v4.99',
       difficulty: 6,
       steamId: 0,

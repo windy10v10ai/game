@@ -19,6 +19,7 @@ export class Game {
   public static readonly GAME_START_URL = '/game/start';
   public static readonly GAME_END_URL = '/game/end';
   public static readonly LOCAL_GAME_END_URL = '/game/end/local';
+  public static customMatchId = '';
 
   constructor() {}
 
@@ -27,6 +28,9 @@ export class Game {
   private static offline = false;
 
   public static StartGame() {
+    if (Game.customMatchId === '') {
+      Game.customMatchId = `${Math.floor(Math.random() * 1000000000)}-${Math.floor(Math.random() * 1000000000)}`;
+    }
     CustomNetTables.SetTableValue('loading_status', 'loading_status', {
       status: 1,
     });
