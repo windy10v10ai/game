@@ -218,32 +218,51 @@ function checkDraculaMask(
   });
 }
 
+// 原版吸血只认真实普攻，回血在下一帧才落到血量上
+function attackHeal(
+  hero: CDOTA_BaseNPC_Hero,
+  target: CDOTA_BaseNPC_Hero,
+  done: (heal: number) => void,
+): void {
+  target.SetHealth(target.GetMaxHealth());
+  hero.SetHealth(hero.GetMaxHealth() / 2);
+  const before = hero.GetHealth();
+  hero.PerformAttack(target, true, true, true, true, false, false, true);
+  Timers.CreateTimer(0.2, () => done(hero.GetHealth() - before));
+}
+
 function checkVladmir(
   hero: CDOTA_BaseNPC_Hero,
   target: CDOTA_BaseNPC_Hero,
   done: () => void,
 ): void {
-  const without = physicalHeal(hero, target);
-  const item = hero.AddItemByName('item_vladmir_2');
-  if (!item) {
-    verdict(false, 'item_vladmir_2 could not be added');
-    done();
-    return;
-  }
-  // 光环 buff 由光环周期性挂上，等它到位
-  Timers.CreateTimer(1, () => {
-    const holding = physicalHeal(hero, target);
-    const auraHolding = hero.HasModifier('modifier_item_vladmir');
-    hero.RemoveItem(item);
-    Timers.CreateTimer(1.5, () => {
-      const sold = physicalHeal(hero, target);
-      out(`vladmir heal without=${without} holding=${holding} sold=${sold}`);
-      verdict(auraHolding, 'vladmir native aura added while holding');
-      verdict(!hero.HasModifier('modifier_item_vladmir'), 'vladmir native aura removed after sale');
-      verdict(holding > without, 'vladmir aura lifesteal heals');
-      verdict(sold < holding, 'vladmir aura lifesteal stops after sale');
-      hero.SetHealth(hero.GetMaxHealth());
+  attackHeal(hero, target, (without) => {
+    const item = hero.AddItemByName('item_vladmir_2');
+    if (!item) {
+      verdict(false, 'item_vladmir_2 could not be added');
       done();
+      return;
+    }
+    // 光环 buff 由光环周期性挂上，等它到位
+    Timers.CreateTimer(1, () => {
+      const auraHolding = hero.HasModifier('modifier_item_vladmir');
+      attackHeal(hero, target, (holding) => {
+        hero.RemoveItem(item);
+        Timers.CreateTimer(1.5, () => {
+          attackHeal(hero, target, (sold) => {
+            out(`vladmir heal without=${without} holding=${holding} sold=${sold}`);
+            verdict(auraHolding, 'vladmir native aura added while holding');
+            verdict(
+              !hero.HasModifier('modifier_item_vladmir'),
+              'vladmir native aura removed after sale',
+            );
+            verdict(holding > without, 'vladmir aura lifesteal heals');
+            verdict(sold < holding, 'vladmir aura lifesteal stops after sale');
+            hero.SetHealth(hero.GetMaxHealth());
+            done();
+          });
+        });
+      });
     });
   });
 }
