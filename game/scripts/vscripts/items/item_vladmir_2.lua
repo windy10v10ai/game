@@ -1,27 +1,21 @@
--- 吸血光环：光环 buff 出现时登记为单位的吸血来源
-local AURA_MODIFIER = "modifier_item_vladmir_2_general_aura"
+-- 原版光环按本物品的同名字段提供吸血、攻击力、回蓝
+local NATIVE_AURA = "modifier_item_vladmir"
 
-function VampiricAuraCreated(event)
-    local target = event.target
-    local ability = event.ability
-    if not target or not ability then return end
-
-    for _, aura in pairs(target:FindAllModifiersByName(AURA_MODIFIER)) do
-        if aura:GetAbility() == ability then
-            LifestealSet(target, aura, ability:GetSpecialValueFor("vampiric_aura"), 0)
-            return
-        end
-    end
+function NativeAuraCreated(event)
+    local caster = event.caster
+    if not caster or not event.ability then return end
+    caster:AddNewModifier(caster, event.ability, NATIVE_AURA, {})
 end
 
--- 光环结束时物品可能已不在，拿不到对应 buff，等 buff 失效后再剔除
-function VampiricAuraDestroyed(event)
-    local target = event.target
-    if not target then return end
+-- 物品卖掉时来源可能已失效，失效来源的光环一并清掉
+function NativeAuraDestroyed(event)
+    local caster = event.caster
+    if not caster or caster:IsNull() then return end
 
-    Timers:CreateTimer(0, function()
-        if not target:IsNull() then
-            LifestealPrune(target)
+    for _, aura in pairs(caster:FindAllModifiersByName(NATIVE_AURA)) do
+        local source = aura:GetAbility()
+        if not source or source:IsNull() or source == event.ability then
+            aura:Destroy()
         end
-    end)
+    end
 end

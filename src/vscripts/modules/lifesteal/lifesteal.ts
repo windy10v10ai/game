@@ -105,15 +105,10 @@ export class Lifesteal {
 
   /** 注销某个来源，重复注销无副作用 */
   static Remove(unit: CDOTA_BaseNPC, source: CDOTA_Buff): void {
-    byUnit.get(unit.entindex())?.sources.delete(source);
-    this.Prune(unit);
-  }
-
-  /** 剔除单位已失效的来源，供拿不到来源句柄的注销时机使用 */
-  static Prune(unit: CDOTA_BaseNPC): void {
     const unitIndex = unit.entindex();
     const entry = byUnit.get(unitIndex);
     if (entry === undefined) return;
+    entry.sources.delete(source);
     recompute(entry);
     if (entry.sources.size === 0) {
       release(unitIndex, entry);
@@ -126,20 +121,3 @@ export class Lifesteal {
     return { attack: entry?.attack ?? 0, spell: entry?.spell ?? 0 };
   }
 }
-
-declare global {
-  /** 供 Lua 物品登记吸血来源 */
-  function LifestealSet(
-    this: void,
-    unit: CDOTA_BaseNPC,
-    source: CDOTA_Buff,
-    attack: number,
-    spell: number,
-  ): void;
-  function LifestealRemove(this: void, unit: CDOTA_BaseNPC, source: CDOTA_Buff): void;
-  function LifestealPrune(this: void, unit: CDOTA_BaseNPC): void;
-}
-
-_G.LifestealSet = (unit, source, attack, spell) => Lifesteal.Set(unit, source, attack, spell);
-_G.LifestealRemove = (unit, source) => Lifesteal.Remove(unit, source);
-_G.LifestealPrune = (unit) => Lifesteal.Prune(unit);

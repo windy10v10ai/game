@@ -233,10 +233,13 @@ function checkVladmir(
   // 光环 buff 由光环周期性挂上，等它到位
   Timers.CreateTimer(1, () => {
     const holding = physicalHeal(hero, target);
+    const auraHolding = hero.HasModifier('modifier_item_vladmir');
     hero.RemoveItem(item);
     Timers.CreateTimer(1.5, () => {
       const sold = physicalHeal(hero, target);
       out(`vladmir heal without=${without} holding=${holding} sold=${sold}`);
+      verdict(auraHolding, 'vladmir native aura added while holding');
+      verdict(!hero.HasModifier('modifier_item_vladmir'), 'vladmir native aura removed after sale');
       verdict(holding > without, 'vladmir aura lifesteal heals');
       verdict(sold < holding, 'vladmir aura lifesteal stops after sale');
       hero.SetHealth(hero.GetMaxHealth());

@@ -25,6 +25,8 @@ caster:AddNewModifier(caster, ability, "modifier_item_devastator", {})
 
 **来源直接传自己的技能或物品，不要 `CreateItem` 造隐藏的原版物品**：数值由传入 `ability` 的 `AbilityValues` 提供，在自己的 KV 里按原版字段名写好即可（如觉醒魔免 `awaken-magic-immunity.ts` 传觉醒技能本身）。用隐藏原版物品当来源时，部分原版 modifier 不生效，容易误判成「原版 modifier 只能在物品栏用」。
 
+**表现差异不妨碍复用**：原版 modifier 在状态栏多出一个原版图标（如原版光环 buff）这类差异可以接受，原版能提供的效果（属性、光环、普攻吸血）照样交给原版，自制部分只补原版没有的。
+
 ## 通用状态
 
 不绑定任何物品/技能，任何地方都能直接挂。
