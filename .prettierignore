@@ -1,8 +1,9 @@
 # 第三方文件，保持上游原样
 content/panorama/scripts/custom_game/long.js
-src/panorama/types/qrcode-generator.d.ts
-src/vscripts/utils/md5.d.ts
-src/vscripts/utils/timers.d.ts
+
+# 类型声明与 node 辅助脚本，与 .eslintignore 一致
+*.d.ts
+src/scripts
 
 # 文档主要由 AI 编写，空格与表格对齐不影响渲染，不做格式检查
 *.md
