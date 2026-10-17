@@ -3920,6 +3920,109 @@
 		}
 	}
 	//=================================================================================================================
+	// Fall!Fall!Fall! 落！落！落！刀：跳！跳！跳！刀施放方式对调，两者经转换来回合成
+	//=================================================================================================================
+	"item_exchange"
+	{
+		"ID"							"10465"
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"exchange"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemAliases"					"exchange;swap"
+	}
+	"item_recipe_fall_fall_fall"
+	{
+		"ID"							"10466"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe_jump_jump_jump"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_fall_fall_fall"
+		"ItemRequirements"
+		{
+			"01"						"item_jump_jump_jump;item_exchange"
+		}
+	}
+	"item_recipe_jump_jump_jump_swap"
+	{
+		"ID"							"10468"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe_jump_jump_jump"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_jump_jump_jump"
+		"ItemRequirements"
+		{
+			"01"						"item_fall_fall_fall;item_exchange"
+		}
+	}
+	"item_fall_fall_fall"
+	{
+		"ID"							"10467"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/ts_items/item_jump_jump_jump"
+		"AbilityTextureName"			"fall_fall_fall"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"200"
+		"AbilitySharedCooldown"			"blink"
+
+		"ItemCost"						"18600"
+		"ItemAliases"					"blink dagger;arcane blink;swift blink;overwhelming blink;fallen sky;meteor hammer"
+
+		// 与 item_jump_jump_jump 同步
+		"AbilityValues"
+		{
+			"bonus_strength"			"60"
+			"bonus_agility"			"60"
+			"bonus_intellect"		"60"
+			"spell_amp"				"36"
+			"mana_regen_multiplier"	"50"
+
+			"blink_range"			"1600"
+			"blink_damage_cooldown"	"0.2"
+			"meteor_fall_time"		"0.3"
+			"remote_cast_range"		"900"
+			"remote_land_time"		"0.5"
+
+			"impact_radius"
+			{
+				"value"		"400"
+				"affected_by_aoe_increase"	"1"
+			}
+			"stun_duration"			"1.0"
+			"impact_damage_units"	"300"
+			"impact_damage_buildings"	"150"
+			"impact_stat_pct_units"	"30"
+			"impact_stat_pct_buildings"	"15"
+			"burn_dps_units"			"200"
+			"burn_dps_buildings"		"75"
+			"burn_slow"				"40"
+			"burn_duration"			"6"
+			"burn_interval"			"1.0"
+
+			"movement_slow"			"80"
+			"attack_slow"			"100"
+			"slow_duration"			"6"
+			"bonus_movement"			"60"
+			"bonus_agi_active"		"70"
+			"buff_duration"			"7"
+			"heal_amount"			"1000"
+			"mana_amount"			"400"
+			"cast_pct_improvement"	"50"
+			"manacost_reduction"	"25"
+		}
+	}
+	//=================================================================================================================
 	// gungir_2 风暴之锤
 	//=================================================================================================================
 	"item_recipe_gungir_2"
