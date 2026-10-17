@@ -6321,7 +6321,7 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityManaCost"				"85 90 95 100 105"
-		// 不覆盖 AbilityCastPoint：替换的 TI7 特效时间轴依赖 0.4 秒抬手，缩短后挥棒特效晚于伤害，看起来方向歪
+		// AbilityCastPoint 保持 0.4，缩短会导致方向歪
 		"AbilityValues"
 		{
 			"stun_duration"
