@@ -15,6 +15,7 @@ TSTL 编译为 Lua，输出到 `game/scripts/vscripts/`。跨层契约见 `src/C
   - **常驻开销**：只要挂着，即使什么函数都不声明，全图每次伤害结算（`CDOTA_BaseNPC::DamageImpact`）也会多花时间，随实例数增长（实测见 issue #2468）
 
   只有原版和 KV 都表达不了的逻辑才写 Lua modifier，常驻在大量单位上的（每个英雄、每座建筑都挂的）尤其要避免
+- **优化存量物品的卡顿先拆部件测，再选改法**：分别测原版部件（合成材料的原版物品、原版 modifier）和自制 Lua 部分各占多少，找出关键开销。功能不变的改写（迁共享监听、改 KV）能省就做；关键开销在原版部件或机制本身时，优先出方案调整物品功能、配方或用新物品替代，不为保持功能完全不变去硬改。调整功能、配方属于玩法改动，只出方案交用户拍板
 - 扩展 `utils/dota_ts_adapter.ts` 的 `BaseModifier` / `BaseAbility` / `BaseItem`，用 `@registerModifier()` / `@registerAbility()` 注册
 - **modifier 类名用 snake_case**：不传 name 时类名就是注册到 Lua 的 modifier 名，与 Dota 原生命名一致（如 `modifier_fountain_anti_camp_watcher`）。类声明上方加 `// eslint-disable-next-line @typescript-eslint/naming-convention`。存量 PascalCase AI modifier（`BotBaseAIModifier` 等）是历史遗留
 - **引用自己定义的 modifier/ability 名写 `SomeModifierClass.name`**，与类名同步；引擎原生 hardcoded modifier（如 `modifier_black_king_bar_immune`）没有本地类，写字符串字面量
