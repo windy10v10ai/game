@@ -722,7 +722,7 @@
 					"bonus_armor"			"20"
 					"mana_regen_aura"		"6"
 					"damage_aura"			"20"
-					"vampiric_aura"			"25"
+					"lifesteal_aura"		"25"
 					"aura_radius"			"900"
 					"aura_positive_armor"	"10"
 					"aura_attack_speed"		"50"
@@ -741,6 +741,23 @@
 							{
 									"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"			"%bonus_attack_speed"
 									"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"				"%bonus_armor"
+							}
+							// 吸血、攻击力、回蓝光环交给原版强袭祭品光环
+							"OnCreated"
+							{
+								"RunScript"
+								{
+									"ScriptFile"	"items/item_vladmir_2"
+									"Function"		"NativeAuraCreated"
+								}
+							}
+							"OnDestroy"
+							{
+								"RunScript"
+								{
+									"ScriptFile"	"items/item_vladmir_2"
+									"Function"		"NativeAuraDestroyed"
+								}
 							}
 					}
 					"modifier_item_vladmir_2_building_aura_emitter"  //We use two aura emitters because the lifesteal part only affects melee units.
@@ -787,20 +804,8 @@
 
 							"Properties"
 							{
-									"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"		"%damage_aura"
 									"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"				"%aura_positive_armor"
-									"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"%mana_regen_aura"
 									"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"			"%aura_attack_speed"
-							}
-
-							"OnAttackLanded"
-							{
-								"RunScript"
-								{
-									"ScriptFile"	"items/item_vladmir_2"
-									"Function"		"VampiricAuraApply"
-									"attack_damage"	"%attack_damage"
-								}
 							}
 					}
 
@@ -3810,8 +3815,8 @@
 				"mana_regen_multiplier"	"50"	//25
 
 				"burn_dps_buildings"	"60"	//50
-				"burn_dps_units"		"150"	//50
-				"burn_slow"			"50"		//20
+				"burn_dps_units"		"100"	//50
+				"burn_slow"			"40"		//20
 				"burn_duration"		"6"			//6
 				"stun_duration"		"1.0"		//0.75
 				"burn_interval"			"1.0"	//1.0
@@ -3823,7 +3828,7 @@
 				}
 				"max_duration"		"1.5"			//2
 				"impact_damage_buildings"	"120"	//90
-				"impact_damage_units"		"400"	//130
+				"impact_damage_units"		"300"	//130
 				"enemy_particles_visible"		"0"
 		}
 	}
@@ -3898,7 +3903,7 @@
 			"impact_stat_pct_buildings"	"15"
 			"burn_dps_units"			"200"
 			"burn_dps_buildings"		"75"
-			"burn_slow"				"50"
+			"burn_slow"				"40"
 			"burn_duration"			"6"
 			"burn_interval"			"1.0"
 

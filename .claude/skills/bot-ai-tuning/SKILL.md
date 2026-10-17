@@ -1,6 +1,6 @@
 ---
 name: bot-ai-tuning
-description: 改进接管后电脑的决策与移动（交战、回防、推进、站位、传送、躲塔、塔防）。触发：用户描述电脑在对局里的异常行为（「电脑为什么……」「卡在……」「来回横跳」「不回防」「挤在一起」「走走停停」），或要主动找电脑 AI 的问题。技能施法规则走 bot-ability-usage，物品施放走 bot-item-usage，出装走 bot-item-build。
+description: 电脑在对局里的决策或移动异常（交战、回防、推进、站位、传送、躲塔、塔防），或主动排查电脑 AI 的问题。
 ---
 
 # Bot AI Tuning
@@ -46,12 +46,17 @@ description: 改进接管后电脑的决策与移动（交战、回防、推进�
 
 按「原来是什么 → 改成什么 → 为什么」给用户讲原因和改法。改动推翻或新增 README 里的长期决定时，等用户确认；明确的 bug 直接改。
 
+用户实机试玩时会零散描述问题，处理时保持宏观：
+- 不要说一点改一点，把逻辑堆成难维护的补丁；思路明确、知道怎么修的立即修，需要结合整体看的先记下来，攒够再综合改
+- 用户的描述不一定全对：先放回整体设计里看属于团队层还是英雄执行层、是否和已有决定冲突；有矛盾或需要取舍时先问用户
+- 用户开着 `npm run start` 试玩时不要跑 `npm run perf`，会和用户的游戏冲突
+
 完成条件：用户已确认，或改动不涉及长期决定。
 
 ## 4. 改
 
-- 判断与计算逻辑放在 `team-plan.ts`、`engagement.ts`、`tower-retreat.ts`、`formation.ts`、`glyph.ts` 这类不碰引擎的模块里，先写失败的测试再改；只是调引擎 API 的胶水不写测试（见 `src/vscripts/CLAUDE.md`「测试」）
-- 每次思考都会跑的代码守住性能，见 `src/vscripts/CLAUDE.md`「Bot 每次思考里不调寻路」
+- 判断与计算逻辑放在 `team-plan.ts`、`engagement.ts`、`tower-retreat.ts`、`formation.ts`、`glyph.ts` 这类不碰引擎的模块里，先写失败的测试再改；只是调引擎 API 的胶水不写测试（见 `src/vscripts/CLAUDE.md`「测试与验证」）
+- 每次思考都会跑的代码守住性能，见 `src/vscripts/ai/CLAUDE.md`「常见陷阱」
 - 新增日志只在开发模式输出，用 `IS_DEBUG_RUN` 包住
 
 完成条件：`npx jest src/vscripts/ai` 全部通过，`npm run build:vscripts` 没有错误和警告。

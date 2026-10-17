@@ -1,135 +1,62 @@
 ---
 name: create-pr
-description: 创建功能分支、commit、push 并发起 Pull Request。触发：用户说「创建 PR」「create pr」「提个 PR」，或实现完成需要发起代码审查。
+description: 创建分支、commit、push 并发起 PR。
 ---
 
-# 创建 Pull Request 工作流
+# 创建 Pull Request
 
-从 `develop` 创建功能分支到发起 PR 的完整流程。
+分支命名、commit 格式、stage 范围见根 `.claude/CLAUDE.md`「Git」。
 
----
+## 1. 切分支
 
-## 分支命名
-
-- issue 驱动：`feature/{issue-number}-{branch-name}`，如 `feature/123-add-new-hero-ai`
-- 非 issue 驱动：按改动性质用 `fix/` `chore/` `docs/` 前缀，如 `chore/remove-universal-rune`
-- 前缀选择、worktree 与多会话隔离规则见 CLAUDE.md「Git 工作流 › 分支」
-
----
-
-## Step 1：从 develop 创建分支
-
-**必须**从最新的 `develop` 切出，不从当前所在分支（可能是别的未合并 feature 分支）派生：
+从最新 `develop` 切出，不从当前所在分支派生（会带进上一个分支未合并的改动）：
 
 ```bash
 git checkout develop
 git pull
-git checkout -b <prefix>/{issue-number}-{branch-name}
+git checkout -b <prefix>/<issue-id>-<summary>
 ```
 
-本地有要带进新分支的未提交改动时，直接切分支，改动会跟过去。不要用 `git stash` 搬运：stash 没存上时，`git stash pop` 会弹出更早留下的旧存档。
+本地有要带进新分支的未提交改动时直接切，改动会跟过去；搬运改动不用 `git stash`（stash 没存上时 `pop` 会弹出更早的旧存档）。
 
----
+## 2. 提交
 
-## Step 2：开发与提交
+只 stage 相关文件，commit 单行标题 + `Co-Authored-By`，说明留给 PR 正文。
 
-Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`，不写其他说明——详细说明留给 PR description。
+## 3. Push
 
-```bash
-git add <相关文件>
-git commit -m "$(cat <<'EOF'
-<简短标题>
+先 `gh pr list --head <branch>` 查是否已有 PR，再 `git rev-parse --abbrev-ref --symbolic-full-name @{u}` 确认上游，推到该上游。自己新切的分支上游是 `origin`（首次带 `-u`）；跟着别人 fork 的 cross-repo PR 上游是那个 fork（需 `maintainerCanModify` 为 true）。推到 `origin` 的表现是主仓库多出同名分支、PR 的 head commit 没变。
 
-Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
-EOF
-)"
-```
+完成：已有 PR 时报告原 PR 链接，不再新建。
 
-只 stage 与本次请求明确相关的文件；若当前分支不符合预期（如本应在 feature 分支却处于 `develop`/`main`），先向用户确认目标分支再提交。
+## 4. 创建 PR
 
----
+用模板 `.github/pull_request_template.md`，`gh pr create --base develop --title "<英文标题>" --body-file <文件>`：
 
-## Step 3：Push
+- **标题**英文，≤70 字符
+- **Issue 段**：分支名匹配 `^(feature|fix|chore|docs)/(\d+)` 时填 `#<id>`（完成 issue 全部范围才用 `Fixes`），无匹配就删掉该行
+- **Checklist 段**：待确认、待验证事项各一个 checkbox（如 `- [ ] 在 Dota Tools 中验证 bot 是否正确开启臂章`），和模板原有的那条放在一起，方便 review 逐项勾选
+- **Release Note 段**：按下节判定
+- **界面截图**：改了界面时按 `references/screenshots.md` 拍图并放进正文
 
-**推到该分支的上游 remote，不要固定写 `origin`。** 自己新切的分支上游就是 `origin`（首次推带 `-u`）；分支若跟着别人 fork 提的 cross-repo PR，上游是那个 fork 的 remote，推到 `origin` 只会在主仓库多出一个同名分支，PR 收不到新 commit。推之前先确认上游：
+## Release Note 三选一
 
-```bash
-git rev-parse --abbrev-ref --symbolic-full-name @{u}
-```
-
----
-
-## Step 4：创建 Pull Request
-
-- **base branch 固定为 `develop`**
-- 使用模板 `.github/pull_request_template.md`
-- **Issue 段**：分支名匹配 `^(feature|fix|chore|docs)/(\d+)` 时，提取该数字填入模板的 `- [ ] fix #<issue-id>`；无匹配则保留占位或删除该行
-- **Release Note 段**：先按下方「Release Note 三选一」判定本次走哪条轨道；需要写时**必须调用 `release-note` skill 生成**，不要手写
-- **PR 标题默认使用英文**，简短概括改动（≤70 字符）
-- **待确认/待验证事项写进 `## Checklist` 段落，用 checkbox 形式**（如 `- [ ] 在 Dota Tools 中验证 bot 是否正确开启臂章`），不要另开"待确认"之类的散文段落——review 时需要能逐项勾选，不是读一段说明文字
-
-```bash
-gh pr create --base develop --title "<英文标题>" --body-file <填充后的模板文件>
-```
-
-### 界面截图
-
-**只在改了界面时放**（Panorama 布局、样式、玩家能看到的文案），纯逻辑、数值、AI 改动不放。
-
-实机验证截图的存档处是 PR 正文，跟代码一起 review、合并后仍可翻到。设计画布（Artifact）只用于动手前让用户在几版方案里挑。
-
-- **默认只拍中文**；改了界面文案时中、英、俄三种语言各拍一组，确认长文本不溢出、不挤掉旁边的元素
-- 只放改动后的画面，要对比时才放改动前
-- **拍图派子代理，用 `model: "sonnet"`**：起服、等加载、截图、裁图都是固定流程，图片在主会话里来回读很贵。交接里写全要拍的状态、裁剪区域、存放目录（会话 scratchpad），子代理回报文件路径和「有没有溢出、截断、白屏」；主会话只看最终裁好的小图。haiku 判断不了排版问题，不用
-- 本机专用服 + 客户端的启动方式与派子代理的分工见 `dota-live-test` skill；客户端加 `-language english` / `-language russian` 切语言，每种语言单独起一次
-
-图片放 `assets` 孤儿分支的 `pr/<PR 编号>/`，不进 `develop` 源码树。路径里有 PR 编号，所以顺序是**先建 PR，再推图，再 `gh pr edit` 更新正文**：
-
-```bash
-git worktree add --detach <临时目录>/wt-assets origin/assets
-cd <临时目录>/wt-assets && git checkout -B assets origin/assets
-mkdir -p pr/<PR 编号> && cp <图片> pr/<PR 编号>/
-git add -A && git commit -m "Add screenshots for PR #<PR 编号>" && git push origin assets
-```
-
-用完 `git worktree remove <临时目录>/wt-assets --force`。正文用 `https://raw.githubusercontent.com/windy10v10ai/game/assets/pr/<PR 编号>/<名字>.png` 引用，推完先 `curl -o /dev/null -w '%{http_code}'` 确认 200。重拍的图换新文件名，不覆盖旧文件：GitHub 按网址缓存 PR 里的图，同名覆盖后仍显示旧图。
-
-截图放在 `## Checklist` 之前，单独一段 `## Screenshots`。
-
-### Release Note 三选一
-
-#### 先自行判定是否纯内部改动
-
-满足全部两条即是**纯内部改动**：
+**纯内部改动**同时满足：
 
 1. 改动对象是代码结构、构建、CI、文档、注释、测试或开发调试工具
-2. 玩家在游戏内读不出一条「更新内容」——没有新增或移除玩家可见的内容，没有数值与平衡变化，没有 UI 与本地化文案变化，bot 会不会用某个技能或物品没有改变
+2. 玩家在游戏内读不出一条「更新内容」：没有新增或移除玩家可见内容，没有数值与平衡变化，没有 UI 与本地化文案变化，bot 会不会用某个技能或物品没有改变
 
-重构与代码迁移即使带来细微差异（阈值口径变化、去掉与现有系统重复的逻辑），只要玩家不会把它当成一条更新内容来读，仍算纯内部改动。
+重构与代码迁移带来细微差异（阈值口径变化、去掉重复逻辑），只要玩家不会当成一条更新来读，仍算纯内部改动。
 
-**是纯内部改动**：直接跳过，不提问、不查版本号、不调用 `release-note` skill，删掉 PR 模板里的 `## Release Note` 段，并在 PR 描述中说明本次无玩法影响。
+- **是**：删掉模板的 `## Release Note` 段，在描述里说明本次无玩法影响。不提问、不查版本号
+- **不是或无法确定**：用 `AskUserQuestion` 先问轨道，选定后再查版本号
 
-**不是，或无法确定**：按下方三选一提问。
-
-#### 无法自行判定时的三选一
-
-用 `AskUserQuestion` 让用户在三条轨道中选一条，选完再去查版本号——选「不写」时完全不必查 Steam 与 release PR：
-
-| 选项 | 适用改动 | 后续动作 |
+| 选项 | 适用改动 | 后续 |
 |---|---|---|
 | 小版本补丁（默认推荐） | 常规改动，累积在当前大版本下 | 调用 `release-note`，参数注明「小版本补丁」 |
-| 大版本 | 本次作为新大版本发布 | 调用 `release-note`，参数注明「大版本」，由其同步 `GAME_VERSION` |
-| 不写 Release Note | 玩法影响处于边界、用户判断不必公告的改动 | 跳过 skill，并删掉 PR 模板里的 `## Release Note` 段 |
+| 大版本 | 本次作为新大版本发布 | 调用 `release-note`，参数注明「大版本」 |
+| 不写 Release Note | 玩法影响处于边界、用户判断不必公告 | 删掉 `## Release Note` 段 |
 
-具体版本号（`v5.xx` / `v5.xxa`）由 `release-note` skill 在此选择之后确定；本次提问只问轨道，不让用户直接报版本号。
+选了前两项时，再用一次 `AskUserQuestion` 问写回方式：写入功能 PR 并合并进聚合 release PR（推荐）/ 仅写入功能 PR / 仅提交改动 / 跳过。`release-note` 在 SubAgent 里运行、不能提问，所以两项都在这里问齐，PR 创建后再调用，参数写 PR 号、轨道、写回方式。它回报待选项时问用户，带着答案重新调用。
 
----
-
-## 常见陷阱
-
-- **推到 `origin` 而非分支真正的上游**：动手前先 `gh pr list --head <branch>` 查该分支是否已有 PR。已有就不再新建，改为推到它的 head 仓库（cross-repo PR 需 `maintainerCanModify` 为 true）后报告原 PR 链接；推错地方的表现是主仓库凭空多出同名分支、而 PR 的 head commit 没变
-- **分支不是从 develop 切出**：若在别的 feature 分支上直接 `checkout -b`，新分支会带着上一个分支未合并的改动，PR diff 会包含无关内容
-- **Release Note 手写**：必须先跑 `release-note` skill，不要直接照抄改动列表拼凑
-- **待确认事项写成独立段落**：应该和 `I have tested the changes works well.` 放在同一个 `## Checklist` 里，各自一个 checkbox
-- **先查版本号再问轨道**：轨道未定就去查 Steam 与 release PR，选「不写 Release Note」时这些查询全是白费，还会把用户拖进不需要的版本号决策
-- **纯内部改动还去提问**：重构、删死代码、构建与文档类改动自行判定跳过即可，问了只是让用户重复确认一遍显而易见的结论
+具体版本号由 `release-note` 在轨道选定后确定，本次不问。

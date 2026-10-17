@@ -1,6 +1,6 @@
 ---
 name: dota-live-test
-description: 在 Dota 2 Tools 里实机跑一局，落盘控制台日志后 grep 验证改动。触发：用户说「实机验证」「跑一局看看」「帮我测一下」，或改动依赖引擎运行时行为（事件收发、modifier 生效、API 链路、电脑 AI 行为）而 jest 覆盖不到。
+description: 在 Dota 2 Tools 实机跑一局，用落盘日志验证 jest 覆盖不到的运行时行为（含电脑 AI）。
 ---
 
 # Dota Live Test
@@ -33,6 +33,8 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 - 下一局启动会删掉 `console.log`，要留的日志先拷到 scratchpad
 - 天辉满编时玩家英雄也交给 AI；天辉人少时玩家英雄留在泉水，由天辉 bot 扮演玩家，买装备与对线都走现有 bot 逻辑。报告只统计人数多的一方，天辉那侧的行为不代表真实玩家
 
+比某个物品、modifier 或机制的每帧开销时，场景选择与结果可信度核对 → `references/perf-bench.md`。
+
 ## 验物品与技能：远程发命令
 
 验被动属性、主动效果、状态何时上何时掉、对单位和建筑的伤害时，不点界面：启动时带远程控制台端口（第 3 步），之后用 `npm run dota:cmd` 发 `-give` 发物品、`-cast` 代码施法、`-watch` 监视变化，直接读命令返回的日志。备用施法（Ctrl）代码触发不了，要用 computer-use 真实按键。命令清单与标准流程 → `references/remote-commands.md`。
@@ -64,23 +66,9 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 ### 2. 决定要不要本地后端
 
-只验游戏内逻辑（技能、modifier、AI、UI）跳到第 3 步。要验 API 链路才起后端。
+只验游戏内逻辑（技能、modifier、AI、UI）跳过。要验 API 链路时按 `references/local-backend.md` 起后端。
 
-后端在 `C:/Users/windy/Documents/GitHub/firebase`（需要 java）：
-
-```bash
-firebase emulators:start --only firestore,auth --import ./firestore-backup --project windy10v10ai
-```
-
-```bash
-cd api && npm run start
-```
-
-两条都用 Bash 的 `run_in_background` 起，输出写进任务文件，不要前台轮询。模拟器占 8080 / 9099，API 占 3001，**等 3001 进入 LISTENING 再开局**，否则开局请求会打空。
-
-同时确认 `src/vscripts/api/api-client.local.ts` 的 `GetApiTarget()` 返回 `'local'`。
-
-完成判据：`netstat -ano | grep -E ":(8080|9099|3001)\b.*LISTENING"` 三个端口都在。
+完成判据：不需要后端，或三个端口都在 LISTENING。
 
 ### 3. 启动 Dota
 

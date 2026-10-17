@@ -53,12 +53,39 @@ export class GameEndPlayerDto {
   dailyTask?: DailyTaskResultDto;
 }
 
+/** 主机类型：启动器开出的专用服、游廊本地主机 */
+export type GameHost = 'launcher' | 'local';
+
+export class GamePerfSegmentDto {
+  /** 这一段的真实时长 ÷ DOTA 时长，扣除暂停 */
+  ratio: number;
+  /** 段末全图单位数与 modifier 总数 */
+  units: number;
+  modifiers: number;
+}
+
+/** 整局卡顿统计，一局只上报一份 */
+export class GamePerfDto {
+  host: GameHost;
+  /** 号角到结算的真实秒数，扣除暂停；与 dotaTimeMsec 同一区间 */
+  realSec: number;
+  units: number;
+  modifiers: number;
+  /** 按固定 DOTA 时长切段；不满一段的结尾不单列，需要时用总数减出 */
+  segments: GamePerfSegmentDto[];
+}
+
 export class GameEndDto extends EventBaseDto {
+  customMatchId: string;
   gameOptions: GameEndGameOptionsDto;
   winnerTeamId: number;
+  // FIXME: 值其实是号角起算的 DOTA 时间，名字有误；后端改读 dotaTimeMsec 后删除
   gameTimeMsec: number;
+  /** 号角起算的 DOTA 时间，不含选人与准备阶段 */
+  dotaTimeMsec: number;
   countryCode: string;
   /** 全场真人数（不含机器人），后端据此做限额判断，每次结算必带 */
   playerCount: number;
   players: GameEndPlayerDto[];
+  perf?: GamePerfDto;
 }

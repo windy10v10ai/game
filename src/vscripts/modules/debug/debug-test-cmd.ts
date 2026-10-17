@@ -254,6 +254,13 @@ export function handleTestDebugCommand(
   if (cmd === CMD.CAST) {
     castByCommand(hero, args);
   }
+  // 控制台没有执行 Lua 的命令，临时核对脚本只能经聊天命令加载；清掉缓存才能改完脚本再跑一次
+  if (cmd === CMD.RUN && args[0] !== undefined) {
+    const luaPackage = (_G as unknown as { package: { loaded: Record<string, unknown> } }).package;
+    luaPackage.loaded[args[0]] = undefined;
+    const [ok, err] = pcall(require, args[0]);
+    log(ok ? `run ${args[0]}` : `run ${args[0]} failed: ${err}`);
+  }
   if (cmd === CMD.TP) {
     FindClearSpaceForUnit(hero, Vector(Number(args[0]), Number(args[1]), 0), true);
     hero.Stop();

@@ -200,12 +200,12 @@
 			"speed"					"2200"				// 1100
 			"radius"
 			{
-				"value"		"450"						// 300
+				"value"		"350"						// 300
 			}
 			"movespeed_slow"		"-25"				// -15
 			"bonus_health"			"200"				// 50
 
-			"damage_over_time"		"30"				// 15
+			"damage_over_time"		"20"				// 15
 			"impact_damage"			"100"				// 50
 		}
 	}
@@ -476,7 +476,7 @@
 		"AbilityValues"
 		{
 				"blink_range"			"1800"	//1400
-				"blink_damage_cooldown"	"0.1"	//3.0
+				"blink_damage_cooldown"	"0.2"	//3.0
 				"blink_range_clamp"		"1600"	//1120
 				"bonus_intellect"		"50"	//25
 				"heal_amount"			"500"	//250

@@ -17,6 +17,7 @@ npm run dota:cmd -- "say -give item_blink" "say -stat"
 | `-aioff` / `-aion`                                                  | 停掉 / 恢复自定义 AI                                                      |
 | `-g`                                                                | 加钱升满级                                                                |
 | `-clearunits` / `-spawnunits <数量>`                                | 清掉小兵野怪召唤物 / 在中路两侧刷近战兵                                   |
+| `-run <模块路径>`                                                   | 执行 `game/scripts/vscripts/` 下的临时 Lua 核对脚本，可改完重跑。控制台没有 `script` 命令，跑 Lua 只能走这条；TS 静态方法在 Lua 里用 `:` 调用 |
 
 本仓调试命令只在工具模式生效，输出带 `[test] t=<游戏时间>` 前缀。
 

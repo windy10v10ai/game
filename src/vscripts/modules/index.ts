@@ -13,6 +13,8 @@ import { DailyTaskProxy } from '../api/daily-task-proxy';
 import { GameProbeProxy } from '../api/game-probe-proxy';
 import { GameEndProxy } from '../api/game-end-proxy';
 import { GameStartProxy } from '../api/game-start-proxy';
+import { HeroItemUsage } from '../api/analytics/hero-item-usage';
+import { HeroItemUsageApi } from '../api/hero-item-usage';
 import { PlayerHeroAwakeningApi } from '../api/player-hero-awakening';
 import { PlayerInfoApi } from '../api/player-info';
 import { PlayerInfoProxy } from '../api/player-info-proxy';
@@ -90,6 +92,8 @@ export function ActivateModules() {
     ApiHtmlProxy.Initialize();
     GameProbeProxy.Register();
     GameEndProxy.Register();
+    HeroItemUsageApi.Register();
+    HeroItemUsage.Initialize();
     GameStartProxy.Register();
     PlayerInfoProxy.Register();
     DailyTaskProxy.Register();

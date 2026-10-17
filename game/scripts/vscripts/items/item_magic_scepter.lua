@@ -31,7 +31,10 @@ end
 function modifier_item_magic_scepter:OnCreated()
 	self.stats_modifier_name = "modifier_item_magic_scepter_stats"
 	if IsServer() then
-		if not self:GetAbility() then self:Destroy() end
+		if not self:GetAbility() then
+			self:Destroy()
+			return
+		end
 	end
 	self.spell_amp_per_int = self:GetAbility():GetSpecialValueFor("spell_amp_per_int")
 
@@ -74,6 +77,18 @@ end
 
 modifier_item_magic_scepter_active = class({})
 
+-- 物品被卖出或丢弃后主动效果仍在持续，来源技能随之失效，数值须在创建时取好
+function modifier_item_magic_scepter_active:OnCreated()
+	self.active_boost = self:GetAbility():GetSpecialValueFor("active_boost")
+end
+
+function modifier_item_magic_scepter_active:OnRefresh()
+	local ability = self:GetAbility()
+	if ability and not ability:IsNull() then
+		self.active_boost = ability:GetSpecialValueFor("active_boost")
+	end
+end
+
 function modifier_item_magic_scepter_active:IsPermanent() return false end
 
 function modifier_item_magic_scepter_active:IsHidden() return false end
@@ -87,7 +102,7 @@ function modifier_item_magic_scepter_active:DeclareFunctions()
 end
 
 function modifier_item_magic_scepter_active:GetModifierSpellAmplify_Percentage()
-	return self:GetAbility():GetSpecialValueFor("active_boost")
+	return self.active_boost
 end
 
 function modifier_item_magic_scepter_active:GetTexture()

@@ -1,8 +1,6 @@
 ---
 name: add-image
-description: >-
-  给游戏加自定义图标或 UI 图片：png 放哪、要不要 content 副本、要不要登记 xml。
-  触发：用户说「加个图标」「加张图」「图标显示成紫块」，或新建技能/物品需要自定义图标时。
+description: 加自定义图标或 UI 图片，或图标显示成紫块。
 ---
 
 # 加图片
@@ -63,7 +61,7 @@ npm run lint:images
 
 按顺序查：png 是否在对应目录 → 物品图标是否漏了 content 副本或 xml 登记 → 文件名与 KV 中引用是否完全一致 → 是否还没用 Dota tools 编译过。
 
-若整个技能与 modifier 的图标**集体**消失，先怀疑 TS 模块加载失败（见 `src/vscripts/CLAUDE.md`「引擎枚举不要在模块顶层求值」），不是图标资源问题。
+若整个技能与 modifier 的图标**集体**消失，先怀疑 TS 模块加载失败（见 `src/vscripts/CLAUDE.md`「TSTL 陷阱」），不是图标资源问题。
 
 ## 发布前提醒
 
