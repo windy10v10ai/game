@@ -10,7 +10,6 @@ Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcom
 [![Build Status](https://github.com/windy10v10ai/game/actions/workflows/test.yml/badge.svg)](https://github.com/windy10v10ai/game/actions/workflows/test.yml)
 [![](https://img.shields.io/github/release/windy10v10ai/game)](https://github.com/windy10v10ai/game/releases)
 [![License: GPL v3](https://img.shields.io/badge/license-GPLv3-blue.svg)](LICENSE)
-[![CodeFactor](https://www.codefactor.io/repository/github/windy10v10ai/game/badge)](https://www.codefactor.io/repository/github/windy10v10ai/game)
 
 [![Last Commit](https://img.shields.io/github/last-commit/windybirth/windy10v10ai)](https://github.com/windybirth/windy10v10ai/commits)
 [![Commit Activity](https://img.shields.io/github/commit-activity/m/windybirth/windy10v10ai)](https://github.com/windybirth/windy10v10ai/graphs/commit-activity)
@@ -148,17 +147,17 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 
 ## Project Structure
 
-| Directory | Contents |
-|---|---|
-| `src/vscripts/` | Game logic in TypeScript, compiled to Lua. Includes abilities, items, modifiers, modules, AI and API calls. |
-| `src/panorama/` | UI in React + TypeScript |
-| `src/common/` | Type declarations shared by VScripts and Panorama (net tables, custom events, DTOs) |
-| `src/scripts/` | Node helper scripts (launch, install, lint checks, bot analysis, ...) behind the `npm run` commands |
-| `game/` | Synced with `dota 2 beta/game/dota_addons/<addon>`: NPC KV files (`game/scripts/npc/`), localization (`game/resource/`), and compiled Lua |
-| `content/` | Synced with `dota 2 beta/content/dota_addons/<addon>`: Panorama sources other than scripts (xml, less, images), maps, particles and sounds |
-| `assets/` | Editable art sources (psd, sai2) kept for reference |
-| `docs/` | Documentation: language READMEs, the data flow diagram (`drawio/`), and vanilla Dota 2 reference files you extract yourself (`reference/`, git-ignored) |
-| `.claude/` | Claude Code configuration and project skills (see [Claude Code](#claude-code-optional)) |
+| Directory       | Contents                                                                                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/vscripts/` | Game logic in TypeScript, compiled to Lua. Includes abilities, items, modifiers, modules, AI and API calls.                                             |
+| `src/panorama/` | UI in React + TypeScript                                                                                                                                |
+| `src/common/`   | Type declarations shared by VScripts and Panorama (net tables, custom events, DTOs)                                                                     |
+| `src/scripts/`  | Node helper scripts (launch, install, lint checks, bot analysis, ...) behind the `npm run` commands                                                     |
+| `game/`         | Synced with `dota 2 beta/game/dota_addons/<addon>`: NPC KV files (`game/scripts/npc/`), localization (`game/resource/`), and compiled Lua               |
+| `content/`      | Synced with `dota 2 beta/content/dota_addons/<addon>`: Panorama sources other than scripts (xml, less, images), maps, particles and sounds              |
+| `assets/`       | Editable art sources (psd, sai2) kept for reference                                                                                                     |
+| `docs/`         | Documentation: language READMEs, the data flow diagram (`drawio/`), and vanilla Dota 2 reference files you extract yourself (`reference/`, git-ignored) |
+| `.claude/`      | Claude Code configuration and project skills (see [Claude Code](#claude-code-optional))                                                                 |
 
 Each of `src/vscripts/`, `src/panorama/`, `game/scripts/npc/` and `game/resource/` has its own `CLAUDE.md` with the rules for that layer.
 

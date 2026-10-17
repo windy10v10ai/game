@@ -102,32 +102,47 @@ function summarizeGroup(name, categories) {
   const lowhp = categories.get('lowhp');
   const retreat = rollup(lowhp, (parts) => (parts[1] === 'retreat' ? 'retreat' : 'stay'));
   const out = [];
-  out.push(`## ${name}（${minutes.toFixed(1)} 分钟游戏时间，存活 bot 秒 ${alive}，死亡占比 ${((dead / (alive + dead || 1)) * 100).toFixed(0)}%）`);
+  out.push(
+    `## ${name}（${minutes.toFixed(1)} 分钟游戏时间，存活 bot 秒 ${alive}，死亡占比 ${((dead / (alive + dead || 1)) * 100).toFixed(0)}%）`,
+  );
   out.push('');
   out.push(`- 动作：${percentLine(rollup(act, (parts) => parts[2]))}`);
   out.push(`- 区域：${percentLine(rollup(act, (parts) => parts[0]))}`);
   out.push(`- 自定义 AI mode：${percentLine(rollup(categories.get('mode'), (parts) => parts[0]))}`);
-  out.push(`- 低血时：${percentLine(retreat)}（按局面 ${percentLine(rollup(lowhp, (parts) => parts[0]))}）`);
-  out.push(`- 低蓝秒占比：${((meta.get('lowmana_s') || 0) / (alive || 1) * 100).toFixed(0)}%`);
+  out.push(
+    `- 低血时：${percentLine(retreat)}（按局面 ${percentLine(rollup(lowhp, (parts) => parts[0]))}）`,
+  );
+  out.push(`- 低蓝秒占比：${(((meta.get('lowmana_s') || 0) / (alive || 1)) * 100).toFixed(0)}%`);
   const teamAct = categories.get('team');
   for (const team of ['radiant', 'dire']) {
     const own = new Map([...(teamAct || [])].filter(([key]) => key.startsWith(`${team}.`)));
     if (!own.size) continue;
-    out.push(`- ${team}：动作 ${percentLine(rollup(own, (p) => p[2]))}；区域 ${percentLine(rollup(own, (p) => p[1]))}`);
+    out.push(
+      `- ${team}：动作 ${percentLine(rollup(own, (p) => p[2]))}；区域 ${percentLine(rollup(own, (p) => p[1]))}`,
+    );
   }
   const defend = categories.get('defend');
   for (const team of ['radiant', 'dire']) {
     const own = new Map([...(defend || [])].filter(([key]) => key.endsWith(`.${team}`)));
     if (!own.size) continue;
-    out.push(`- ${team} 建筑受威胁 ${(total(own) / minutes).toFixed(1)} 秒/分钟，在场友方 ${percentLine(rollup(own, (p) => p[2]))}`);
+    out.push(
+      `- ${team} 建筑受威胁 ${(total(own) / minutes).toFixed(1)} 秒/分钟，在场友方 ${percentLine(rollup(own, (p) => p[2]))}`,
+    );
   }
   const defendRatio = categories.get('defend_ratio') || new Map();
-  out.push(`- 建筑受威胁秒数（每分钟）：${rateLine(rollup(defend, (parts) => parts[0]), minutes)}`);
+  out.push(
+    `- 建筑受威胁秒数（每分钟）：${rateLine(
+      rollup(defend, (parts) => parts[0]),
+      minutes,
+    )}`,
+  );
   out.push(`- 受威胁时在场友方英雄：${percentLine(rollup(defend, (parts) => parts[2]))}`);
   for (const kind of ['tower', 'barracks', 'fort']) {
     const attackers = defendRatio.get(`${kind}.attackers`);
     if (!attackers) continue;
-    out.push(`  - ${kind}：平均攻方 ${(attackers / rollup(defend, (p) => p[0]).get(kind)).toFixed(1)} 人次/秒，守方/攻方 ${((defendRatio.get(`${kind}.defenders`) || 0) / attackers).toFixed(2)}，按位置 ${percentLine(rollup(new Map([...defend].filter(([k]) => k.startsWith(`${kind}.`))), (p) => p[1]))}`);
+    out.push(
+      `  - ${kind}：平均攻方 ${(attackers / rollup(defend, (p) => p[0]).get(kind)).toFixed(1)} 人次/秒，守方/攻方 ${((defendRatio.get(`${kind}.defenders`) || 0) / attackers).toFixed(2)}，按位置 ${percentLine(rollup(new Map([...defend].filter(([k]) => k.startsWith(`${kind}.`))), (p) => p[1]))}`,
+    );
   }
   out.push('');
   out.push(situationTable(act));
@@ -135,8 +150,18 @@ function summarizeGroup(name, categories) {
   out.push('每分钟次数：');
   out.push('');
   out.push(`- 原生指令：${rateLine(categories.get('norder'), minutes, 20)}`);
-  out.push(`- 原生指令按执行单位：${rateLine(rollup(categories.get('norder'), (parts) => parts[0]), minutes)}`);
-  out.push(`- 原生指令按类型：${rateLine(rollup(categories.get('norder'), (parts) => parts[1]), minutes)}`);
+  out.push(
+    `- 原生指令按执行单位：${rateLine(
+      rollup(categories.get('norder'), (parts) => parts[0]),
+      minutes,
+    )}`,
+  );
+  out.push(
+    `- 原生指令按类型：${rateLine(
+      rollup(categories.get('norder'), (parts) => parts[1]),
+      minutes,
+    )}`,
+  );
   out.push(`- 原生施放：${rateLine(categories.get('ncast'), minutes, 20)}`);
   out.push(`- 脚本指令（经过滤器）：${rateLine(categories.get('sorder'), minutes)}`);
   out.push(`- 脚本指令来源（全部入口）：${rateLine(categories.get('site'), minutes)}`);

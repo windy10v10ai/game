@@ -12,21 +12,21 @@ background: false
 
 1. **[ModDota API](https://moddota.com/api/)**：社区从客户端整理，分类清晰可检索。进对应 `#/` 页面后顶部搜索或左侧分类
 
-   | 在做什么 | 入口 |
-   |---|---|
-   | 服务端 Lua / VScripts 绑定类与方法（`CDOTAGameRules`、`CDOTA_BaseNPC_Hero`），参数个数与类型 | [vscripts](https://moddota.com/api/#/vscripts) |
-   | 游戏事件、`ListenToGameEvent` 的 payload | [events](https://moddota.com/api/#/events) |
-   | Panorama `$` 与面板 JS API | [panorama/api](https://moddota.com/api/#/panorama/api) |
-   | Panorama UI 事件 | [panorama/events](https://moddota.com/api/#/panorama/events) |
+   | 在做什么                                                                                     | 入口                                                         |
+   | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+   | 服务端 Lua / VScripts 绑定类与方法（`CDOTAGameRules`、`CDOTA_BaseNPC_Hero`），参数个数与类型 | [vscripts](https://moddota.com/api/#/vscripts)               |
+   | 游戏事件、`ListenToGameEvent` 的 payload                                                     | [events](https://moddota.com/api/#/events)                   |
+   | Panorama `$` 与面板 JS API                                                                   | [panorama/api](https://moddota.com/api/#/panorama/api)       |
+   | Panorama UI 事件                                                                             | [panorama/events](https://moddota.com/api/#/panorama/events) |
 
 2. **Valve Developer Wiki**：ModDota 搜不到、语义不清或需要教程式说明时补充
 
-   | 在做什么 | 链接 |
-   |---|---|
-   | Panorama 工具链、XML/CSS 概念 | [Panorama](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama) |
-   | DataDriven 技能 KV、事件、`RunScript` | [Abilities Data Driven](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven) |
-   | Modifier Action、`ApplyAction` 等声明式动作 | [Actions and Modifiers](https://developer.valvesoftware.com/wiki/Dota_2_Actions_and_Modifiers) |
-   | 脚本文档总索引 | [Scripting/API](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API) |
+   | 在做什么                                    | 链接                                                                                                                    |
+   | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+   | Panorama 工具链、XML/CSS 概念               | [Panorama](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama)                                     |
+   | DataDriven 技能 KV、事件、`RunScript`       | [Abilities Data Driven](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven) |
+   | Modifier Action、`ApplyAction` 等声明式动作 | [Actions and Modifiers](https://developer.valvesoftware.com/wiki/Dota_2_Actions_and_Modifiers)                          |
+   | 脚本文档总索引                              | [Scripting/API](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API)                           |
 
    Wiki 部分页面会拦截自动抓取，读不到时在回报里列出链接，由主对话请用户在浏览器打开。
 

@@ -1,0 +1,5 @@
+# 第三方文件，保持上游原样
+content/panorama/scripts/custom_game/long.js
+src/panorama/types/qrcode-generator.d.ts
+src/vscripts/utils/md5.d.ts
+src/vscripts/utils/timers.d.ts

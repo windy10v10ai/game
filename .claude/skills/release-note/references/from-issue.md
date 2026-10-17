@@ -12,6 +12,7 @@
 ```
 - 同步 Dota 2 7.41 英雄的技能更新（x/总数）：英雄A，英雄B，英雄C
 ```
+
 ```
 - Synced Dota 2 7.41 ability updates (x/total): Hero A, Hero B, Hero C
 ```

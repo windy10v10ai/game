@@ -49,7 +49,6 @@ loading_faq_<topic>_question
 loading_faq_<topic>_answer
 ```
 
-
 ## 工作流
 
 1. 读取 `game/resource/CLAUDE.md`，查看现有 FAQ 和相关机制代码。

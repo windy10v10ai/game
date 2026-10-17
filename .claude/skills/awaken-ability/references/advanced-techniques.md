@@ -7,9 +7,11 @@
 替换分支天然继承原技能等级，但**插入/新增**分支默认用 `newLevel`，初始等级不跟随关联技能。需要全程等级关联（如觉醒技能与某个大招同步升级）时，两步配套：
 
 1. **KV 双向 `LinkedAbility`**（升级时等级同步）——在 `npc_abilities_override.txt` 的关联技能、和 `npc_abilities_custom_awaken.txt` 的觉醒技能，两边各加一行指向对方：
+
    ```
    "LinkedAbility"   "对方技能名"   // 双向联动同步升级
    ```
+
    两个技能的 `MaxLevel` 须一致。
 
 2. **配置 `inheritLevelFrom`**（添加时继承初始等级）——`awaken-config.ts` 该条加：
@@ -110,7 +112,7 @@ ApplyAwakenMagicImmunity(unit, ability, duration)
 某些效果（如隐身）引擎有原生硬编码 modifier 支撑，但目标 KV 里查不到 `Modifiers` 块（完全编译进引擎，无法照抄），仍可在 TS 里直接 `AddNewModifier` 按名字借用：
 
 ```ts
-const invis = parent.AddNewModifier(parent, this.GetAbility(), 'modifier_riki_backstab', {
+const invis = parent.AddNewModifier(parent, this.GetAbility(), "modifier_riki_backstab", {
   duration,
   fade_delay: fadeDelay,
 });

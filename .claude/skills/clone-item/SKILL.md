@@ -13,12 +13,12 @@ description: 把原版物品克隆成升级版（数值约 2 倍 + 配方）。
 
 在 `npc_items_clone.txt`、`npc_items_custom.txt`、`npc_items_artifact.txt` 里搜物品块，读 `BaseClass`：
 
-| 情况 | 处理 |
-|---|---|
-| 在 `npc_items_clone.txt`，`BaseClass` 是原版物品名 | **更新模式** |
-| 在另外两个文件，`BaseClass` 是原版物品名 | 告诉用户将迁移到 `npc_items_clone.txt`，**更新模式** |
-| `BaseClass` 是 `item_datadriven` / `item_lua` | 是自制物品，转 `custom-item` |
-| 都没找到 | **新建模式** |
+| 情况                                               | 处理                                                 |
+| -------------------------------------------------- | ---------------------------------------------------- |
+| 在 `npc_items_clone.txt`，`BaseClass` 是原版物品名 | **更新模式**                                         |
+| 在另外两个文件，`BaseClass` 是原版物品名           | 告诉用户将迁移到 `npc_items_clone.txt`，**更新模式** |
+| `BaseClass` 是 `item_datadriven` / `item_lua`      | 是自制物品，转 `custom-item`                         |
+| 都没找到                                           | **新建模式**                                         |
 
 原版物品名：更新模式取现有块的 `BaseClass`；新建模式按 `item_<base>_<suffix>` 在 `items.txt` 搜 `"item_<base>"`，不唯一就问用户。从 `items.txt` 完整读原版物品块与 `"item_recipe_<原版名去掉 item_>"` 块。
 

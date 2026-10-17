@@ -31,14 +31,14 @@ description: 从零自制新物品或合成神器，含 item_lua / item_datadriv
 
 复用消化不掉的部分，只有两个模式：
 
-| | 模式 1「DataDriven 主体」 | 模式 2「TS 主体」 |
-|---|---|---|
-| `BaseClass` | `item_datadriven` | `item_lua` |
-| 属性住在 | 物品自己 KV 的 `Modifiers` → `Properties` | `npc_items_modifier.txt` 里 `item_apply_modifiers` 的 `_stats` |
-| 逻辑住在 | KV Actions；不够时 `RunScript` 调原生 Lua 全局函数 | `src/vscripts/items/ts_items/<name>.ts` |
-| 数值真相源 | 一处 | 两处（真值 + tooltip 镜像值） |
-| modifier 清空 | 引擎自动 | 三处生命周期对齐（基类已实现） |
-| 类型检查 / jest | 无 | 有 |
+|                 | 模式 1「DataDriven 主体」                          | 模式 2「TS 主体」                                              |
+| --------------- | -------------------------------------------------- | -------------------------------------------------------------- |
+| `BaseClass`     | `item_datadriven`                                  | `item_lua`                                                     |
+| 属性住在        | 物品自己 KV 的 `Modifiers` → `Properties`          | `npc_items_modifier.txt` 里 `item_apply_modifiers` 的 `_stats` |
+| 逻辑住在        | KV Actions；不够时 `RunScript` 调原生 Lua 全局函数 | `src/vscripts/items/ts_items/<name>.ts`                        |
+| 数值真相源      | 一处                                               | 两处（真值 + tooltip 镜像值）                                  |
+| modifier 清空   | 引擎自动                                           | 三处生命周期对齐（基类已实现）                                 |
+| 类型检查 / jest | 无                                                 | 有                                                             |
 
 先查 `references/datadriven-scope.md` 判断哪些部分 DataDriven 表达不了，再看表外部分的形态：
 
@@ -57,14 +57,14 @@ description: 从零自制新物品或合成神器，含 item_lua / item_datadriv
 
 清空责任跟着挂法走：
 
-| 挂法 | 谁清空 | 用在 |
-|---|---|---|
-| 物品自己 KV 的 `Modifiers` | 引擎，随物品得失 | 模式 1 |
-| KV `ApplyModifier` + `Duration` | 引擎，到期 | 模式 1 主动 |
-| 脚本 `AddNewModifier` 带 duration | 引擎，到期 | 两个模式 |
-| 脚本 `AddNewModifier` 挂永久原版 modifier | 自己：在 DataDriven modifier 的 `OnCreated` / `OnDestroy` 里存句柄再 `Destroy()` | 模式 1 |
-| `BaseItemModifier.vanillaModifierNames` | 基类，按句柄精确销毁 | 模式 2 |
-| `item_apply_modifiers` 的 `_stats` | `RefreshItemDataDrivenModifier`，基类三个生命周期已调 | 模式 2 |
+| 挂法                                      | 谁清空                                                                           | 用在        |
+| ----------------------------------------- | -------------------------------------------------------------------------------- | ----------- |
+| 物品自己 KV 的 `Modifiers`                | 引擎，随物品得失                                                                 | 模式 1      |
+| KV `ApplyModifier` + `Duration`           | 引擎，到期                                                                       | 模式 1 主动 |
+| 脚本 `AddNewModifier` 带 duration         | 引擎，到期                                                                       | 两个模式    |
+| 脚本 `AddNewModifier` 挂永久原版 modifier | 自己：在 DataDriven modifier 的 `OnCreated` / `OnDestroy` 里存句柄再 `Destroy()` | 模式 1      |
+| `BaseItemModifier.vanillaModifierNames`   | 基类，按句柄精确销毁                                                             | 模式 2      |
+| `item_apply_modifiers` 的 `_stats`        | `RefreshItemDataDrivenModifier`，基类三个生命周期已调                            | 模式 2      |
 
 模式 1 的写法与多个原版 modifier 的批量记账 → `references/datadriven-scope.md`。
 

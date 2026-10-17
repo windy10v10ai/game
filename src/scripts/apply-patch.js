@@ -27,7 +27,9 @@ function findPatchFile() {
 
   // 查找所有 typescript-to-lua 的 patch 文件
   const files = fs.readdirSync(patchesDir);
-  const patchFile = files.find(file => file.startsWith('typescript-to-lua+') && file.endsWith('.patch'));
+  const patchFile = files.find(
+    (file) => file.startsWith('typescript-to-lua+') && file.endsWith('.patch'),
+  );
 
   if (patchFile) {
     const patchPath = path.resolve(patchesDir, patchFile);

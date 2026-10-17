@@ -10,7 +10,6 @@
 [![Build Status](https://github.com/windy10v10ai/game/actions/workflows/test.yml/badge.svg)](https://github.com/windy10v10ai/game/actions/workflows/test.yml)
 [![](https://img.shields.io/github/release/windy10v10ai/game)](https://github.com/windy10v10ai/game/releases)
 [![License: GPL v3](https://img.shields.io/badge/license-GPLv3-blue.svg)](../LICENSE)
-[![CodeFactor](https://www.codefactor.io/repository/github/windy10v10ai/game/badge)](https://www.codefactor.io/repository/github/windy10v10ai/game)
 
 [![Last Commit](https://img.shields.io/github/last-commit/windybirth/windy10v10ai)](https://github.com/windybirth/windy10v10ai/commits)
 [![Commit Activity](https://img.shields.io/github/commit-activity/m/windybirth/windy10v10ai)](https://github.com/windybirth/windy10v10ai/graphs/commit-activity)
@@ -147,17 +146,17 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 
 ## 文件夹内容说明
 
-| 目录 | 内容 |
-|---|---|
-| `src/vscripts/` | 用 TypeScript 编写的游戏逻辑，编译为 Lua。包含技能、物品、modifier、模块、AI 和 API 调用 |
-| `src/panorama/` | 用 React + TypeScript 编写的 UI |
-| `src/common/` | VScripts 与 Panorama 共用的类型声明（net tables、自定义事件、DTO） |
-| `src/scripts/` | `npm run` 命令背后的 node 辅助脚本（启动、安装、检查、bot 分析等） |
-| `game/` | 与 `dota 2 beta/game/dota_addons/<addon>` 同步：NPC KV 文件（`game/scripts/npc/`）、本地化文案（`game/resource/`）和编译后的 Lua |
-| `content/` | 与 `dota 2 beta/content/dota_addons/<addon>` 同步：脚本以外的 Panorama 源文件（xml、less、图片）、地图、特效和音效 |
-| `assets/` | 可编辑的美术源文件（psd、sai2），仅作留存 |
-| `docs/` | 文档：各语言 README、数据流图（`drawio/`），以及需要自行解压的 Dota 2 原版参考文件（`reference/`，已被 git 忽略） |
-| `.claude/` | Claude Code 配置与项目 skill（见 [Claude Code](#claude-code可选)） |
+| 目录            | 内容                                                                                                                             |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `src/vscripts/` | 用 TypeScript 编写的游戏逻辑，编译为 Lua。包含技能、物品、modifier、模块、AI 和 API 调用                                         |
+| `src/panorama/` | 用 React + TypeScript 编写的 UI                                                                                                  |
+| `src/common/`   | VScripts 与 Panorama 共用的类型声明（net tables、自定义事件、DTO）                                                               |
+| `src/scripts/`  | `npm run` 命令背后的 node 辅助脚本（启动、安装、检查、bot 分析等）                                                               |
+| `game/`         | 与 `dota 2 beta/game/dota_addons/<addon>` 同步：NPC KV 文件（`game/scripts/npc/`）、本地化文案（`game/resource/`）和编译后的 Lua |
+| `content/`      | 与 `dota 2 beta/content/dota_addons/<addon>` 同步：脚本以外的 Panorama 源文件（xml、less、图片）、地图、特效和音效               |
+| `assets/`       | 可编辑的美术源文件（psd、sai2），仅作留存                                                                                        |
+| `docs/`         | 文档：各语言 README、数据流图（`drawio/`），以及需要自行解压的 Dota 2 原版参考文件（`reference/`，已被 git 忽略）                |
+| `.claude/`      | Claude Code 配置与项目 skill（见 [Claude Code](#claude-code可选)）                                                               |
 
 `src/vscripts/`、`src/panorama/`、`game/scripts/npc/`、`game/resource/` 下各有一个 `CLAUDE.md`，写明该层的规则。
 

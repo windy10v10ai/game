@@ -16,10 +16,10 @@ curl -s -m 15 https://steamcommunity.com/sharedfiles/filedetails/changelog/23074
 
 ## 2. 算目标版本
 
-| Steam 最新 | 目标版本 | 写进 release PR 的位置 |
-|---|---|---|
-| 低于 release PR（Steam `v5.64`、PR `v5.65`） | release PR 版本 `v5.65` | 大版本块 |
-| 与 release PR 同大版本（`v5.65` / `v5.65a`） | 下一个补丁字母 `v5.65a` / `v5.65b` | `---` 之下的补丁块 |
-| 高于 release PR | 问用户 | — |
+| Steam 最新                                   | 目标版本                           | 写进 release PR 的位置 |
+| -------------------------------------------- | ---------------------------------- | ---------------------- |
+| 低于 release PR（Steam `v5.64`、PR `v5.65`） | release PR 版本 `v5.65`            | 大版本块               |
+| 与 release PR 同大版本（`v5.65` / `v5.65a`） | 下一个补丁字母 `v5.65a` / `v5.65b` | `---` 之下的补丁块     |
+| 高于 release PR                              | 问用户                             | —                      |
 
 完成：目标版本是具体的 `v…` 字符串。

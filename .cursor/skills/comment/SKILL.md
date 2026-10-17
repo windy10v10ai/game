@@ -18,11 +18,11 @@ description: Updates only inline // comments in KV files using Dota 2 vanilla Ab
 
 ## 按范围查找原版数据
 
-| 范围类型 | 优先参考文件 |
-|----------|----------------|
-| 物品 / 中立附魔等 `"item_..."` 的 `AbilityValues` | `docs/reference/<ver>/items.txt` 中同名 `"item_..."` 块 |
-| 单位基础字段 | `docs/reference/<ver>/npc_units.txt` |
-| 技能（非物品） | `docs/reference/<ver>/npc_abilities.txt`，或 `heroes/` 下对应英雄文件（仅当用户范围涉及） |
+| 范围类型                                          | 优先参考文件                                                                              |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| 物品 / 中立附魔等 `"item_..."` 的 `AbilityValues` | `docs/reference/<ver>/items.txt` 中同名 `"item_..."` 块                                   |
+| 单位基础字段                                      | `docs/reference/<ver>/npc_units.txt`                                                      |
+| 技能（非物品）                                    | `docs/reference/<ver>/npc_abilities.txt`，或 `heroes/` 下对应英雄文件（仅当用户范围涉及） |
 
 在 `items.txt` 中用**技能/物品名**（带引号的 key，如 `"item_enhancement_greedy"`）检索块，读取其 `"AbilityValues"` 下各字段的**原版**引号内字符串，用于写注释。
 

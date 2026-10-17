@@ -1,4 +1,4 @@
 declare interface JSON {
-    encode(object: any): string;
-    decode(json: string): any;
+  encode(object: any): string;
+  decode(json: string): any;
 }

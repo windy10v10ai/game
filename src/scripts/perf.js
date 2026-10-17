@@ -80,7 +80,8 @@ function parseArgs() {
     const key = argv[i].replace(/^--/, '');
     if (!(key in options)) throw new Error(`unknown option --${key}`);
     const value = argv[i + 1];
-    if (['quitOnDone', 'boost', 'radiantBoost', 'census'].includes(key)) options[key] = value !== 'false';
+    if (['quitOnDone', 'boost', 'radiantBoost', 'census'].includes(key))
+      options[key] = value !== 'false';
     else if (
       [
         'mode',

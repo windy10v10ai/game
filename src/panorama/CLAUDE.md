@@ -4,14 +4,14 @@ Webpack 构建，输出到 `content/panorama/scripts/custom_game/`，函数式�
 
 ## 结构
 
-| 路径 | 内容 |
-|---|---|
-| `react/shared/components/` | 跨 entry 通用组件、对话框骨架（TabNavigation 等） |
-| `react/shared/hooks/` | net table 订阅（`useNetTable`）、客户端事件订阅 |
-| `react/shared/styles/` | 设计 token 与通用 class（`tokens.less`、`.btn-primary`、`.modal-panel`），在 layout.xml 里 `<include src="../shared/styles/index.less" />` 引入 |
-| `react/hud_lottery/` 等 | **常驻 HUD 浮窗**：独立 webpack entry + layout.xml，常驻屏幕一角 |
-| `react/hud_main/` | **中心化界面**：单一 entry，内部切页面 |
-| `utils/` | 全局 utils，别名 `@utils/*` 指向这里（不是 `react/utils`） |
+| 路径                       | 内容                                                                                                                                            |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `react/shared/components/` | 跨 entry 通用组件、对话框骨架（TabNavigation 等）                                                                                               |
+| `react/shared/hooks/`      | net table 订阅（`useNetTable`）、客户端事件订阅                                                                                                 |
+| `react/shared/styles/`     | 设计 token 与通用 class（`tokens.less`、`.btn-primary`、`.modal-panel`），在 layout.xml 里 `<include src="../shared/styles/index.less" />` 引入 |
+| `react/hud_lottery/` 等    | **常驻 HUD 浮窗**：独立 webpack entry + layout.xml，常驻屏幕一角                                                                                |
+| `react/hud_main/`          | **中心化界面**：单一 entry，内部切页面                                                                                                          |
+| `utils/`                   | 全局 utils，别名 `@utils/*` 指向这里（不是 `react/utils`）                                                                                      |
 
 **跨 entry 唤起 hud_main 页面**：服务端广播 `GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page, playerId })`，hud_main 的 `NavigationProvider` 订阅后按 `playerId === Game.GetLocalPlayerID()` 过滤再切页。事件类型声明在 `src/common/events.d.ts`。
 

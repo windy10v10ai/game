@@ -25,34 +25,34 @@
 
 新描述遇到下列词时沿用对应颜色。官方英文文本通常不着色，本项目三语标签保持一致。
 
-| 中文术语 | English | 颜色 | 备注 |
-|---|---|---|---|
-| 纯粹伤害 | Pure Damage | `#FFE56E` | |
-| 魔法伤害 | Magic Damage | `#05CAFF` | |
-| 眩晕 / 击晕 | Stun | `#2DD5E4` | |
-| 沉默 | Silence | `#6DB6E9` | |
-| 缴械 | Disarm | `#AFB912` | |
-| 锁闭 | Muted（物品） | `#C3E1DB` | 常与沉默/缴械连用 |
-| 破坏 | Break | `#DD621E` | |
-| 减益免疫 | Debuff Immunity | `#D76907` | |
-| 状态抗性 | Status Resistance | `#B99012` | |
-| 减速抗性 | Slow Resistance | `#9EC8E3` | |
-| 隐身 / 隐形 | Invisible | `#D7CCC7` | |
-| 恐惧 | Fear | `#1EDDB7` | |
-| 虚无 | Ethereal | `#57E550` | |
-| 束缚 | Leash | `#E3D59E` | |
-| 缠绕 | Entangle | `#CAE96D` | |
-| 相位移动 | Phased | `#9019E3` | |
-| 治疗 / 回复 | Heal | `#07D738` | |
-| 作用范围 | AoE / Radius | `#C450E5` | |
-| 护盾（通用/全伤害） | Shield / Barrier | `#B97812` | |
-| 物理伤害护盾 | Physical Damage Barrier | `#B94512` | |
-| 魔法伤害护盾 / 法术护盾 | Magic Damage Barrier / Spell Shield | `#1278B9` | |
-| 阿哈利姆神杖 / 魔晶 | Aghanim's Scepter / Shard | `#92ACF5` | |
-| 警告或负面属性变动 | — | `#E03E2E` | 「无法丢弃」、属性被削减的数值 |
-| 灰色补充说明 | — | `#7D7D7D` | 圆括号内补充，如「（仅对远程有效）」 |
-| 自动施法 | Autocast | `#00CED1` | 与警告红色区分 |
-| 觉醒强化 | Awakening Bonus | `#d000ff` | 与技能标题的觉醒标记同色 |
+| 中文术语                | English                             | 颜色      | 备注                                 |
+| ----------------------- | ----------------------------------- | --------- | ------------------------------------ |
+| 纯粹伤害                | Pure Damage                         | `#FFE56E` |                                      |
+| 魔法伤害                | Magic Damage                        | `#05CAFF` |                                      |
+| 眩晕 / 击晕             | Stun                                | `#2DD5E4` |                                      |
+| 沉默                    | Silence                             | `#6DB6E9` |                                      |
+| 缴械                    | Disarm                              | `#AFB912` |                                      |
+| 锁闭                    | Muted（物品）                       | `#C3E1DB` | 常与沉默/缴械连用                    |
+| 破坏                    | Break                               | `#DD621E` |                                      |
+| 减益免疫                | Debuff Immunity                     | `#D76907` |                                      |
+| 状态抗性                | Status Resistance                   | `#B99012` |                                      |
+| 减速抗性                | Slow Resistance                     | `#9EC8E3` |                                      |
+| 隐身 / 隐形             | Invisible                           | `#D7CCC7` |                                      |
+| 恐惧                    | Fear                                | `#1EDDB7` |                                      |
+| 虚无                    | Ethereal                            | `#57E550` |                                      |
+| 束缚                    | Leash                               | `#E3D59E` |                                      |
+| 缠绕                    | Entangle                            | `#CAE96D` |                                      |
+| 相位移动                | Phased                              | `#9019E3` |                                      |
+| 治疗 / 回复             | Heal                                | `#07D738` |                                      |
+| 作用范围                | AoE / Radius                        | `#C450E5` |                                      |
+| 护盾（通用/全伤害）     | Shield / Barrier                    | `#B97812` |                                      |
+| 物理伤害护盾            | Physical Damage Barrier             | `#B94512` |                                      |
+| 魔法伤害护盾 / 法术护盾 | Magic Damage Barrier / Spell Shield | `#1278B9` |                                      |
+| 阿哈利姆神杖 / 魔晶     | Aghanim's Scepter / Shard           | `#92ACF5` |                                      |
+| 警告或负面属性变动      | —                                   | `#E03E2E` | 「无法丢弃」、属性被削减的数值       |
+| 灰色补充说明            | —                                   | `#7D7D7D` | 圆括号内补充，如「（仅对远程有效）」 |
+| 自动施法                | Autocast                            | `#00CED1` | 与警告红色区分                       |
+| 觉醒强化                | Awakening Bonus                     | `#d000ff` | 与技能标题的觉醒标记同色             |
 
 「自动施法：」「觉醒强化：」这类段落标题写成 `<font color='#颜色'>标题：</font>说明文字`，标题与说明同一行（参考 `elder_titan_ancestral_spirit_awaken`、`special_bonus_unique_bristleback_upgrade`）。
 

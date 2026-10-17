@@ -8,10 +8,10 @@ disable-model-invocation: true
 
 发布靠 Workshop Tools 打包上传，再到网页上补中文更新日志。Workshop Tools 会把地图打成一个 `<编号>.vpk`；SteamCMD 只传散文件，Dota 读不了，地图显示 error，命令行上传已评估过、弃用。
 
-| 目标 | 编号 | Workshop Manager 里的行 |
-|---|---|---|
-| 测试服（默认） | `2636824668` | 10v10 AI windy beta version (test) |
-| 正式服 | `2307479570` | 10v10 AI by windy (Arcade Launch Supported) |
+| 目标           | 编号         | Workshop Manager 里的行                     |
+| -------------- | ------------ | ------------------------------------------- |
+| 测试服（默认） | `2636824668` | 10v10 AI windy beta version (test)          |
+| 正式服         | `2307479570` | 10v10 AI by windy (Arcade Launch Supported) |
 
 更新日志取当前 PR 的 Release Note 段：上传时填英文块，网页上补中文块。
 
