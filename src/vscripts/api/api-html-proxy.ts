@@ -55,6 +55,12 @@ export class ApiHtmlProxy {
   private static pending = new Map<string, PendingRequest>();
   private static queue: PendingRequest[] = [];
 
+  public static GetBodyBudget(target: ApiTarget, path: string): number {
+    const url = ApiHtmlProxy.buildUrl(target, path, { body: '' }, 'p_9999999999_999999999');
+    // Reserve room for the cache-busting suffix and request counter to grow.
+    return Math.max(0, 7000 - url.length - 32);
+  }
+
   public static Initialize(): void {
     CustomGameEventManager.RegisterListener<Record<string, never>>(
       'api_html_proxy_ready',

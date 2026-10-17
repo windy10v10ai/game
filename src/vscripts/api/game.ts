@@ -19,6 +19,7 @@ export class Game {
   public static readonly GAME_START_URL = '/game/start';
   public static readonly GAME_END_URL = '/game/end';
   public static readonly LOCAL_GAME_END_URL = '/game/end/local';
+  public static customMatchId = '';
 
   constructor() {}
 
@@ -27,6 +28,10 @@ export class Game {
   private static offline = false;
 
   public static StartGame() {
+    if (Game.customMatchId === '') {
+      // Lua's math.random is unseeded and repeats the same IDs on every launch.
+      Game.customMatchId = `${RandomInt(0, 999999999)}-${RandomInt(0, 999999999)}`;
+    }
     CustomNetTables.SetTableValue('loading_status', 'loading_status', {
       status: 1,
     });
