@@ -24,6 +24,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 |---|---|
 | `npm run start` | 启动 Dota 2 Tools 与 watch 编译 |
 | `npm test` / `npm run lint` | jest / eslint（含图片与本地化检查） |
+| `npm run prettier-check` | 格式检查（不含 Markdown），CI 会跑；第三方文件在 `.prettierignore` |
 | `npm run build:vscripts` / `build:panorama` | 提交前查编译错误 |
 
 ## 目录导航
