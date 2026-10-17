@@ -146,10 +146,7 @@ function modifier_ability_trigger_on_active:CanCastAbility(ability)
     if not ability or ability:IsHidden() or ability:IsPassive() then
         return false
     end
-    local behavior = ability:GetBehavior()
-    if type(behavior) ~= "number" then
-        behavior = tonumber(tostring(behavior))
-    end
+    local behavior = GetBehaviorBits(ability:GetBehavior())
     -- 检查是否是持续施法技能
     if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_CHANNELLED) == DOTA_ABILITY_BEHAVIOR_CHANNELLED then
         print("[ability_trigger_on_active1332] CanCast:", ability_name, "- Is channelled")
@@ -171,10 +168,7 @@ function modifier_ability_trigger_on_active:CanCastAbility(ability)
             return false
         end
 
-        local behavior = ability:GetBehavior()
-        if type(behavior) ~= "number" then
-            behavior = tonumber(tostring(behavior))
-        end
+        local behavior = GetBehaviorBits(ability:GetBehavior())
         local target_team = ability:GetAbilityTargetTeam()
         -- 【新增】点金手特殊处理
         if ability_name == "item_hand_of_midas" or
@@ -260,7 +254,7 @@ function modifier_ability_trigger_on_active:CastEtherealBladeOnEnemy(ability)
 end
 
 function modifier_ability_trigger_on_active:TryCastAbility(ability)
-    local behavior = ability:GetBehavior()
+    local behavior = GetBehaviorBits(ability:GetBehavior())
     local ability_name = ability:GetName()
 
     -- 【关键】每次调用都重新声明局部变量
@@ -292,9 +286,6 @@ function modifier_ability_trigger_on_active:TryCastAbility(ability)
     end
     -- 结束CD
     ability:EndCooldown()
-    if type(behavior) ~= "number" then
-        behavior = tonumber(tostring(behavior))
-    end
     local cast_success = false
     -- 【关键修改】先检查单体目标行为
     if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then

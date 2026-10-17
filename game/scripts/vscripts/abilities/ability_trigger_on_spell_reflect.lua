@@ -76,11 +76,7 @@ function modifier_trigger_on_spell_reflect:OnTakeDamage(params)
 
     -- 关键修改: 检查是否为指向性技能
     local ability = params.inflictor
-    local behavior = ability:GetBehavior()
-
-    if type(behavior) ~= "number" then
-        behavior = tonumber(tostring(behavior))
-    end
+    local behavior = GetBehaviorBits(ability:GetBehavior())
     if ability:IsItem() then
         --print("[SpellReflect] Checking item ability behavior")
         if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == 0 then
@@ -234,7 +230,7 @@ function modifier_trigger_on_spell_reflect:TriggerRandomAbility(original_attacke
         parent:GiveMana(mana_cost - current_mana)
     end
     -- 施放技能 - 参照 ability_trigger_on_cast 的目标选择逻辑
-    local behavior = random_ability:GetBehavior()
+    local behavior = GetBehaviorBits(random_ability:GetBehavior())
     local target_team = random_ability:GetAbilityTargetTeam()
 
     local cast_target = nil

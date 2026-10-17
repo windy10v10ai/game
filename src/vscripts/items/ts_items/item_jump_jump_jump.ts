@@ -15,7 +15,7 @@ export class ItemJumpJumpJump extends BaseItem {
   }
 
   GetCastRange(): number {
-    return this.GetSpecialValueFor(this.IsAltCastArmed() ? 'remote_cast_range' : 'blink_range');
+    return this.GetSpecialValueFor(this.IsMeteorArmed() ? 'remote_cast_range' : 'blink_range');
   }
 
   GetAOERadius(): number {
@@ -24,7 +24,7 @@ export class ItemJumpJumpJump extends BaseItem {
 
   // 定身只拦跳刀，原地召唤星落不受影响，所以不用 KV 的 ROOT_DISABLES
   CastFilterResultLocation(): UnitFilterResult {
-    if (IsServer() && !this.IsAltCastArmed() && this.GetCaster().IsRooted()) {
+    if (IsServer() && !this.IsMeteorArmed() && this.GetCaster().IsRooted()) {
       return UnitFilterResult.FAIL_CUSTOM;
     }
     return UnitFilterResult.SUCCESS;
@@ -34,13 +34,18 @@ export class ItemJumpJumpJump extends BaseItem {
     return '#dota_hud_error_jump_jump_jump_rooted';
   }
 
-  // 客户端没有备用施法状态的接口，选点圈与施法过滤在客户端一律按跳刀处理，由服务端裁定
-  private IsAltCastArmed(): boolean {
-    return IsServer() && this.GetAltCastState();
+  /** 正常施放是否为召唤星落，备用施放取反。 */
+  protected MeteorByDefault(): boolean {
+    return false;
+  }
+
+  // 客户端没有备用施法状态的接口，选点圈与施法过滤在客户端一律按正常施放处理，由服务端裁定
+  private IsMeteorArmed(): boolean {
+    return (IsServer() && this.GetAltCastState()) !== this.MeteorByDefault();
   }
 
   OnSpellStart(): void {
-    if (this.ShouldAltCast()) {
+    if (this.ShouldAltCast() !== this.MeteorByDefault()) {
       this.CallMeteor();
     } else {
       this.BlinkAndFall();
@@ -196,6 +201,14 @@ export class ItemJumpJumpJump extends BaseItem {
       }
     }
     return enemies;
+  }
+}
+
+/** 落！落！落！刀：施放方式对调，免得想砸星落时误跳进人堆。 */
+@registerAbility('item_fall_fall_fall')
+export class ItemFallFallFall extends ItemJumpJumpJump {
+  protected override MeteorByDefault(): boolean {
+    return true;
   }
 }
 

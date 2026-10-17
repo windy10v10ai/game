@@ -8,29 +8,21 @@ background: false
 
 # Release Note
 
-为 Steam Workshop 生成中英文更新日志。纯内部改动不写，判定见 `create-pr` skill「Release Note 三选一」。
+为 Steam Workshop 生成中英文更新日志。纯内部改动不写，判定见 `create-pr` skill「Release Note 写不写」。
 
 本 skill 在 SubAgent 里运行，看不到调用方的对话，也不能向用户提问。需要用户决定、参数又没给出时，停下并在回报里列出待选项，由调用方问用户后带着答案重新调用。
 
 参数包含三项：
 
 - **来源**（缺失时停下回报，不从当前分支猜）：`#1234`、纯数字或含 `/pull/` 的 URL → PR：读标题、描述、commits；含 `/issues/` 的 URL → Issue：按 `references/from-issue.md`；其他 → 按调用方列的点写
-- **轨道**：小版本补丁 / 大版本，可直接给版本号
+- **目标版本**：具体版本号，缺失时按第 1 步算
 - **写回**：写入功能 PR 并合并进聚合 release PR / 仅写入功能 PR / 仅写入聚合 release PR / 仅提交改动 / 跳过
 
 ## 1. 定版本号
 
-版本号是具体的 `v…` 字符串：主版本 `v5.00` / `v5.10`，补丁 `v5.00a` / `v5.00b`。按下列优先级，命中即用：
+参数给了目标版本就直接用，没给就按 `.claude/references/release-version.md` 算。带字母后缀（`v5.65a`）的是补丁版本，不带的是大版本。
 
-1. **用户指定**：参数里有 `v5.xxa` / `5.xx` 等，规范为 `v…` 采用
-2. **口令 `版本号+1`**：Steam 最新去掉字母后缀 +0.01（`v5.19b` → `v5.20`）。与 open release PR 版本一致就采用，不一致停下回报
-3. **open release PR 大版本高于 Steam**：每次都重新 WebFetch [Steam Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 取 Steam 最新版，prompt 只要第 1 页首条的版本号，不要整页内容。再查 `gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url`：
-   - release PR 大版本严格高于 Steam（Steam `v5.45b`、PR `v5.46`）→ 按参数的轨道取大版本 `v5.46` 或小版本补丁 `v5.45c`；参数没给轨道就停下回报这两个候选。release PR 是任意 PR 合入 `develop` 后自动创建的（最新 tag 大版本 +1），它的存在不代表本次要发大版本
-   - Steam 已发布同大版本 → 第 4 条
-   - 多条 release PR → 停下回报候选
-4. **默认**：Steam 同大版本递增补丁字母（`v5.19b` → `v5.19c`，`v5.20` → `v5.20a`），无法解析时停下回报
-
-**同步 `GAME_VERSION`**（`src/vscripts/modules/GameConfig.ts`，不含 a/b/c 后缀）：本次所选版本的大版本与它不同时立即修改；选了小版本补丁、大版本未变就不改（即使存在更高大版本的 release PR）。
+**同步 `GAME_VERSION`**（`src/vscripts/modules/GameConfig.ts`，不含 a/b/c 后缀）：目标版本去掉字母后缀后与它不同时改成该值。
 
 完成：版本号是具体字符串，`GAME_VERSION` 已按上条处理。
 
@@ -97,8 +89,8 @@ background: false
 <补丁版本 英文围栏块>
 ```
 
-- **小版本补丁**：只动 `---` 之下。该补丁版本已有围栏块就把中英文条目分别追加到末尾；新补丁版本在文末新起 `---` + 中英文围栏块
-- **大版本**：替换 `## Release Note` 与首个 `---` 之间的围栏块，`---` 之下的补丁块全部保留（各自在 Steam 发过，留档）
+- **补丁版本**：只动 `---` 之下。该补丁版本已有围栏块就把中英文条目分别追加到末尾；新补丁版本在文末新起 `---` + 中英文围栏块
+- **大版本**：把中英文条目分别追加进 `## Release Note` 与首个 `---` 之间的围栏块，已有条目原样保留，「修正一些bug和平衡性改动」这类兜底行留在末尾；`---` 之下的补丁块全部保留（各自在 Steam 发过，留档）
 - 大版本块里不重复已在保留的小版本块或已发布版本中出现过的改动
 
 完成：条目已进入用户所选的 PR，release PR 里其他版本块原样未动。
