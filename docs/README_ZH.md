@@ -10,7 +10,6 @@
 [![Build Status](https://github.com/windy10v10ai/game/actions/workflows/test.yml/badge.svg)](https://github.com/windy10v10ai/game/actions/workflows/test.yml)
 [![](https://img.shields.io/github/release/windy10v10ai/game)](https://github.com/windy10v10ai/game/releases)
 [![License: GPL v3](https://img.shields.io/badge/license-GPLv3-blue.svg)](../LICENSE)
-[![CodeFactor](https://www.codefactor.io/repository/github/windy10v10ai/game/badge)](https://www.codefactor.io/repository/github/windy10v10ai/game)
 
 [![Last Commit](https://img.shields.io/github/last-commit/windybirth/windy10v10ai)](https://github.com/windybirth/windy10v10ai/commits)
 [![Commit Activity](https://img.shields.io/github/commit-activity/m/windybirth/windy10v10ai)](https://github.com/windybirth/windy10v10ai/graphs/commit-activity)

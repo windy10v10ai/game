@@ -49,4 +49,4 @@ Dota 只加载主目录的 `game/`，要实机测 worktree 里的改动，先把
 
 ## 误跑全量 prettier 后还原
 
-`npm run lint` 不含 prettier 检查，仓库里有一批文件从没按 `.prettierrc` 格式化过。误跑了通配符 `prettier --write` 时：`git add -A` 归一化换行，`git diff --cached --stat` 看清范围，逐个 `git checkout HEAD -- <file>` 还原。`src/vscripts/api/api-client.local.ts` 带 skip-worktree、工作区存着真实 key，所以不用 `git reset --hard`。
+误跑了通配符 `prettier --write` 时：`git add -A` 归一化换行，`git diff --cached --stat` 看清范围，逐个 `git checkout HEAD -- <file>` 还原。`src/vscripts/api/api-client.local.ts` 带 skip-worktree、工作区存着真实 key，所以不用 `git reset --hard`。
