@@ -598,15 +598,13 @@ function isNumberRange(item: object): boolean {
 }
 
 /**
- * 自定义 Lua 技能（BaseClass 为 ability_lua）的 behavior 由引擎以 64 位 userdata 返回，
- * 位运算函数只收 number，直接参与按位与会在运行时抛错。
+ * 取技能 behavior 的低 32 位，与 util.lua 的 GetBehaviorBits 同口径。带高位标志时数值超出 bit 库的
+ * 精度范围，直接按位与会算错；自定义 Lua 技能返回 64 位 userdata，要先转成 number。
  */
 export function GetAbilityBehaviorBits(ability: CDOTABaseAbility): number {
   const raw = ability.GetBehavior();
-  if (type(raw) === 'number') {
-    return raw as number;
-  }
-  return tonumber(tostring(raw)) ?? 0;
+  const behavior = type(raw) === 'number' ? (raw as number) : (tonumber(tostring(raw)) ?? 0);
+  return behavior % 4294967296;
 }
 
 export function HasAbilityBehavior(behaviorBits: number, behavior: AbilityBehavior): boolean {

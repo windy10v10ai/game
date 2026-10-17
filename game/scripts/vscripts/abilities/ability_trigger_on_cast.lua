@@ -95,10 +95,7 @@ function modifier_trigger_on_cast:OnAbilityExecuted(params)
     end)
     --print("[trigger]", executed_ability:GetAbilityName())
     -- 检查是否为持续施法技能
-    local behavior = executed_ability:GetBehavior()
-    if type(behavior) ~= "number" then
-        behavior = tonumber(tostring(behavior))
-    end
+    local behavior = GetBehaviorBits(executed_ability:GetBehavior())
     local is_channeled = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_CHANNELLED) ~= 0
 
     local delay = 0.2 -- 默认延迟
@@ -214,10 +211,7 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
 
     -- 尝试从原始技能获取位置
     if params.ability then
-        local ability_behavior = params.ability:GetBehavior()
-        if type(ability_behavior) ~= "number" then
-            ability_behavior = tonumber(tostring(ability_behavior))
-        end
+        local ability_behavior = GetBehaviorBits(params.ability:GetBehavior())
         if bit.band(ability_behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 or
             bit.band(ability_behavior, DOTA_ABILITY_BEHAVIOR_AOE) ~= 0 then
             original_position = params.ability:GetCursorPosition()
@@ -280,10 +274,7 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
         end
 
         -- ✅ 修复: 重新获取技能属性
-        local behavior = random_ability:GetBehavior()
-        if type(behavior) ~= "number" then
-            behavior = tonumber(tostring(behavior))
-        end
+        local behavior = GetBehaviorBits(random_ability:GetBehavior())
         local target_team = random_ability:GetAbilityTargetTeam()
 
         -- ✅ 修复: 智能目标选择
@@ -300,7 +291,9 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
             --print("[cast_trigger] 友方技能,目标: 自己")
 
             -- 敌方技能 - 需要找到有效敌人
-        elseif bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) ~= 0 then
+            -- 未设目标阵营的点目标技能也瞄敌人：对施法者自身位置施放时方向为零，技能放不出效果
+        elseif bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) ~= 0
+            or (target_team == DOTA_UNIT_TARGET_TEAM_NONE and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0) then
             -- ✅ 修复: 验证原始目标是否为敌人
             if original_target and not original_target:IsNull() and original_target:IsAlive()
                 and original_target:GetTeamNumber() ~= caster:GetTeamNumber() then
