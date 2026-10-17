@@ -78,27 +78,21 @@ export class WardSlot {
     if (!hero || !hero.IsRealHero()) {
       return;
     }
-    if (this.processedItemEntIndexes.has(event.item_entindex)) {
-      return;
-    }
-    this.processedItemEntIndexes.add(event.item_entindex);
 
     this.ensureSlotAbilities(hero);
 
-    Timers.CreateTimer(0, () => {
-      const item = EntIndexToHScript(event.item_entindex) as CDOTA_Item | undefined;
-      if (!item) {
-        return;
-      }
-
-      this.addWardItemCharges(hero, item, isDispenser, abilityName);
-      this.removeInventoryItem(event.inventory_parent_entindex, hero, item);
-    });
+    // 同一帧到账的多件眼（如暂停结束时批量购买）会先在背包里叠加、合成，被吞掉的中间物品
+    // 下一帧仍能取到且保留充能，按事件逐件结算会重复计数，所以只结算背包里实际还在的眼。
+    const inventoryParent = EntIndexToHScript(event.inventory_parent_entindex) as
+      | CBaseEntity
+      | undefined;
+    const owner = inventoryParent?.IsBaseNPC() ? inventoryParent : hero;
+    Timers.CreateTimer(0, () => this.convertExistingWardItems(hero, owner));
   }
 
-  private convertExistingWardItems(hero: CDOTA_BaseNPC_Hero): void {
+  private convertExistingWardItems(hero: CDOTA_BaseNPC_Hero, owner: CDOTA_BaseNPC = hero): void {
     for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.STASH_6; slot++) {
-      const item = hero.GetItemInSlot(slot);
+      const item = owner.GetItemInSlot(slot);
       if (!item) {
         continue;
       }
@@ -117,7 +111,7 @@ export class WardSlot {
       this.processedItemEntIndexes.add(itemEntIndex);
 
       this.addWardItemCharges(hero, item, isDispenser, abilityName);
-      hero.RemoveItem(item);
+      owner.RemoveItem(item);
     }
   }
 
@@ -142,19 +136,6 @@ export class WardSlot {
       // 一个 item entity 可能因为堆叠含有多层充能，按其真实 charge 数累加。
       this.addAbilityCharges(hero, abilityName, Math.max(1, item.GetCurrentCharges()));
     }
-  }
-
-  private removeInventoryItem(
-    inventoryParentEntIndex: EntityIndex,
-    hero: CDOTA_BaseNPC_Hero,
-    item: CDOTA_Item,
-  ): void {
-    const inventoryParent = EntIndexToHScript(inventoryParentEntIndex) as CBaseEntity | undefined;
-    if (inventoryParent?.IsBaseNPC()) {
-      inventoryParent.RemoveItem(item);
-      return;
-    }
-    hero.RemoveItem(item);
   }
 
   private addAbilityCharges(hero: CDOTA_BaseNPC_Hero, abilityName: string, charges: number): void {
