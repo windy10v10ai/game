@@ -91,7 +91,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 - PR base 固定 `develop`。PR 完成 issue 全部范围才写 `Fixes #<id>`，否则只写 `#<id>`
 - 只 stage 本次请求相关的文件，commit 前看 `git status`；当前分支不符合预期（如处于 `develop`/`main`）先请用户确认
 - 合并只在用户给出指令时执行
-- 开 PR 走 `create-pr` skill：纯内部改动（重构、构建、CI、文档、测试）自行跳过 Release Note，其余问用户走哪条轨道，要写时调用 `release-note` 生成
+- 开 PR 走 `create-pr` skill：纯内部改动（重构、构建、CI、文档、测试）自行跳过 Release Note，其余算出目标版本后问用户写不写，要写时调用 `release-note` 生成
 
 ## 文档分工
 
