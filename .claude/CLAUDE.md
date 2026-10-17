@@ -60,6 +60,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 - 按需求还原到够用为止，不过度分析
 - 布尔方法名用常见直接的动词，不重复所属类或文件已表达的语境：`CanCast` 优于 `IsEligible`、`CanUseGenericFallback`
 - 多处需要同一逻辑（尤其要求口径一致的计算）时提取共享函数，避免只改一处产生口径分歧
+- 新物品、新技能、新机制的效果先找原版 modifier 或 KV，最后才写 Lua modifier：Lua modifier 即使什么都不做也会拖慢全图每次伤害结算，在后期卡顿里随实例数累积。选型顺序与原因见 `src/vscripts/CLAUDE.md`「写技能、物品、modifier」
 
 ## 注释规约
 

@@ -99,6 +99,8 @@ function parseArgs() {
       options[key] = value;
     else options[key] = Number(value);
   }
+  // 场景测试开局已拉满级发装备，不必跑到后期；留 1.5 分钟等开局初始化与去被动完成
+  if (options.scenes !== '' && !argv.includes('--warmupMinutes')) options.warmupMinutes = 1.5;
   return options;
 }
 
