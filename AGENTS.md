@@ -48,6 +48,7 @@ skill 文件就是操作手册：任务对上时先完整读对应的 `.claude/s
 | 从零自制物品、合成神器 | `custom-item` |
 | 克隆原版物品 | `clone-item` |
 | 加图标、UI 图片，排查紫块 | `add-image` |
+| 原版特效 / 模型在 Tools 不显示，修覆盖原版路径的编译资源 | `fix-asset-override` |
 | bot 技能施法规则 | `bot-ability-usage` |
 | bot 战斗物品使用规则 | `bot-item-usage` |
 | 电脑 AI 决策与移动异常 | `bot-ai-tuning` |
