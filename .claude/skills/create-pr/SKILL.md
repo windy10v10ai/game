@@ -39,7 +39,7 @@ git checkout -b <prefix>/<issue-id>-<summary>
 - **Release Note 段**：按下节判定
 - **界面截图**：改了界面时按 `references/screenshots.md` 拍图并放进正文
 
-## Release Note 三选一
+## Release Note 写不写
 
 **纯内部改动**同时满足：
 
@@ -49,14 +49,6 @@ git checkout -b <prefix>/<issue-id>-<summary>
 重构与代码迁移带来细微差异（阈值口径变化、去掉重复逻辑），只要玩家不会当成一条更新来读，仍算纯内部改动。
 
 - **是**：删掉模板的 `## Release Note` 段，在描述里说明本次无玩法影响。不提问、不查版本号
-- **不是或无法确定**：用 `AskUserQuestion` 先问轨道，选定后再查版本号
+- **不是或无法确定**：按 `.claude/references/release-version.md` 算出目标版本，用 `AskUserQuestion` 问「写进 <目标版本>（推荐）/ 不写」。不写就删掉 `## Release Note` 段
 
-| 选项 | 适用改动 | 后续 |
-|---|---|---|
-| 小版本补丁（默认推荐） | 常规改动，累积在当前大版本下 | 调用 `release-note`，参数注明「小版本补丁」 |
-| 大版本 | 本次作为新大版本发布 | 调用 `release-note`，参数注明「大版本」 |
-| 不写 Release Note | 玩法影响处于边界、用户判断不必公告 | 删掉 `## Release Note` 段 |
-
-选了前两项时，再用一次 `AskUserQuestion` 问写回方式：写入功能 PR 并合并进聚合 release PR（推荐）/ 仅写入功能 PR / 仅提交改动 / 跳过。`release-note` 在 SubAgent 里运行、不能提问，所以两项都在这里问齐，PR 创建后再调用，参数写 PR 号、轨道、写回方式。它回报待选项时问用户，带着答案重新调用。
-
-具体版本号由 `release-note` 在轨道选定后确定，本次不问。
+选了写进时，再用一次 `AskUserQuestion` 问写回方式：写入功能 PR 并合并进聚合 release PR（推荐）/ 仅写入功能 PR / 仅提交改动 / 跳过。`release-note` 在 SubAgent 里运行、不能提问，所以两项都在这里问齐，PR 创建后再调用，参数写 PR 号、目标版本、写回方式。它回报待选项时问用户，带着答案重新调用。
