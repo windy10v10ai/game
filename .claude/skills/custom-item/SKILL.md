@@ -47,7 +47,7 @@ description: 从零自制新物品或合成神器，含 item_lua / item_datadriv
 
 判据是要不要写一个 modifier 类，不是行数。模式 1 的 Lua 里出现 `LinkLuaModifier` + `class({})` 就该走模式 2。`item_lua` + 手写 `class({})` 原生 Lua 是弃用写法：存量照原写法改，新物品不用。
 
-**回调税**：Lua/TS modifier 的每个 `GetModifier*` 都是引擎每查一次回一次 Lua，单位越多越卡；DataDriven `Properties` 由引擎原生求值。所以数值常量属性（永久与限时 buff 都算）不写在 TS 里：模式 1 写自己 KV；模式 2 永久的写 `_stats`，限时 buff 写成完整 DataDriven modifier 由脚本 `ApplyItemDataDrivenModifier` 传 `duration`。`item_lua` 的 KV 不支持自己的 `Modifiers` 块，所以才有 `item_apply_modifiers`。
+**回调税与常驻开销**（定义见 `src/vscripts/CLAUDE.md`「写技能、物品、modifier」）：Lua/TS modifier 挂着就有开销，DataDriven `Properties` 由引擎原生求值。所以数值常量属性（永久与限时 buff 都算）不写在 TS 里：模式 1 写自己 KV；模式 2 永久的写 `_stats`，限时 buff 写成完整 DataDriven modifier 由脚本 `ApplyItemDataDrivenModifier` 传 `duration`。`item_lua` 的 KV 不支持自己的 `Modifiers` 块，所以才有 `item_apply_modifiers`。
 
 **镜像值**：`_stats` 的 `%value` 只能引 `item_apply_modifiers` 自己的 `AbilityValues`（键加 `<物品名>_` 前缀），物品 tooltip 引不到，于是物品自己的 `AbilityValues` 要再写一条 `xxx_tooltip`。改数值要手动同步两处。
 

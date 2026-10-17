@@ -1,5 +1,4 @@
 import { HeroUtil } from '../../ai/hero/hero-util';
-import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import {
   property_aoe_bonus_constant_stacking,
@@ -23,6 +22,7 @@ import { BotPick } from '../../ai/bot-pick/bot-pick';
 import { PerfProfiler } from './perf-profiler';
 import { PERF_CONFIG } from './perf-config';
 import { modifier_perf_melee_stack } from './perf-melee-stack';
+import { modifier_perf_empty, modifier_perf_takedamage } from './perf-building-modifier';
 import { PerfSampler } from './perf-sampler';
 import { findAllUnits } from '../helper/unit-helper';
 
@@ -176,14 +176,43 @@ function boostHeroes(team?: DotaTeam, withGold = true) {
   );
 }
 
-// 满级开局几分钟就会推平一方基地，测不到后期；基地仍会被打到残血，团战负载照常。
-// modifier 注册时方法已复制到全局表，只能在实例上覆盖
+// 满级开局几分钟就会推平一方基地，测不到后期；用原版无敌，不额外挂 Lua modifier
 function lockForts() {
   for (const fort of Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[]) {
-    const think = fort.FindModifierByName(modifier_fort_think.name) as
-      | modifier_fort_think
-      | undefined;
-    if (think) think.TriggerGameEnd = () => undefined;
+    fort.AddNewModifier(fort, undefined, 'modifier_invulnerable', {});
+  }
+}
+
+// 每个建筑各挂 1 份：同一单位叠多份同名 modifier 时开销偏高，分散挂才是常驻 Lua modifier 的真实单价；空壳与受伤监听两档分开看
+const BUILDING_CLASSES = [
+  'npc_dota_tower',
+  'npc_dota_barracks',
+  'npc_dota_healer',
+  'npc_dota_fort',
+];
+
+function findBuildings(): CDOTA_BaseNPC[] {
+  return BUILDING_CLASSES.flatMap(
+    (className) => Entities.FindAllByClassname(className) as CDOTA_BaseNPC[],
+  ).filter((building) => building.IsAlive());
+}
+
+const BUILDING_MODIFIERS: Record<string, string> = {
+  empty: modifier_perf_empty.name,
+  takedamage: modifier_perf_takedamage.name,
+};
+
+function addBuildingModifiers(modifierName: string) {
+  const buildings = findBuildings();
+  for (const building of buildings) {
+    building.AddNewModifier(building, undefined, modifierName, {});
+  }
+  print(`[perf] building modifiers name=${modifierName} buildings=${buildings.length}`);
+}
+
+function removeBuildingModifiers(modifierName: string) {
+  for (const building of findBuildings()) {
+    building.RemoveAllModifiersOfName(modifierName);
   }
 }
 
@@ -1104,6 +1133,11 @@ const CONDITIONS: Condition[] = [
   })),
   // 暂停时画面照常渲染、游戏逻辑停止，和基线的帧时间差就是随游戏运行产生的每帧开销
   { name: 'paused', setup: () => PauseGame(true), teardown: () => PauseGame(false) },
+  ...Object.entries(BUILDING_MODIFIERS).map(([suffix, modifierName]) => ({
+    name: `bld_${suffix}`,
+    setup: () => addBuildingModifiers(modifierName),
+    teardown: () => removeBuildingModifiers(modifierName),
+  })),
 ];
 
 // 「a+b」同时挂多个条件，量共用同一机制的几项叠加后的总开销
