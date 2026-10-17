@@ -1,0 +1,28 @@
+name: Create Release
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+    steps:
+      - name: Create tag and release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # The release PR title is the version (see create_release_pr.yml)
+          title=$(gh pr list --repo ${{ github.repository }} --state merged --base main \
+            --search ${{ github.sha }} --json title -q '.[0].title')
+
+          if ! echo "$title" | grep -Eq '^v[0-9]+\.[0-9]{2}$'; then
+            echo "Merged PR title '$title' is not a version, skip release."
+            exit 0
+          fi
+
+          gh release create "$title" --repo ${{ github.repository }} \
+            --target ${{ github.sha }} --title "$title" --generate-notes
