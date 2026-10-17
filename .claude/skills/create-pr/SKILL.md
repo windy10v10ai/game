@@ -48,7 +48,9 @@ git checkout -b <prefix>/<issue-id>-<summary>
 
 重构与代码迁移带来细微差异（阈值口径变化、去掉重复逻辑），只要玩家不会当成一条更新来读，仍算纯内部改动。
 
-- **是**：删掉模板的 `## Release Note` 段，在描述里说明本次无玩法影响。不提问、不查版本号
-- **不是或无法确定**：按 `.claude/references/release-version.md` 算出目标版本，用 `AskUserQuestion` 问「写进 <目标版本>（推荐）/ 不写」。不写就删掉 `## Release Note` 段
+「删掉 Release Note 段」只指本功能 PR 正文里模板自带的占位段，聚合 release PR 里已有的 Release Note 一律不动。
+
+- **是**：删掉本 PR 正文的 `## Release Note` 占位段，在描述里说明本次无玩法影响。不提问、不查版本号
+- **不是或无法确定**：按 `.claude/references/release-version.md` 算出目标版本，用 `AskUserQuestion` 问「为本 PR 新写一条 Release Note，进 <目标版本>（推荐）/ 不新写（聚合 release PR 已有内容不动）」。不新写就删掉本 PR 正文的占位段
 
 选了写进时，再用一次 `AskUserQuestion` 问写回方式：写入功能 PR 并合并进聚合 release PR（推荐）/ 仅写入功能 PR / 仅提交改动 / 跳过。`release-note` 在 SubAgent 里运行、不能提问，所以两项都在这里问齐，PR 创建后再调用，参数写 PR 号、目标版本、写回方式。它回报待选项时问用户，带着答案重新调用。
