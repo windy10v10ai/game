@@ -57,6 +57,8 @@ comm -12 /tmp/ours.txt /tmp/valve.txt   # 有输出即冲突
 
 ## 数值配置
 
+- **override 只写与原版不同的键**：要恢复原版值时删掉该键，不写一个等于原版的值。某个原版值不能被调整时，在该技能块内、该键原本的位置写一行注释说明原因
+
 技能射程、伤害值及其他可调参数一律从 KV 文件**动态读取**，不要在 TS/Lua 里硬编码已存在于 KV 中的数值。
 
 - **让 tooltip 计入技能增强**：某条 `AbilityValues` 数值想在游戏中按住 ALT 时显示「被技能增强放大后」的值，在该数值块内加 `"CalculateSpellDamageTooltip" "1"`（**不是** `affected_by_spell_amplify`，没有这个字段）。原版默认多为 `"0"`（不计入）。配套字段：`"DamageTypeTooltip"`（伤害类型）、`"display_type"`（如 `kMagicalDamagePercentage` 百分比显示）
