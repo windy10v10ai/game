@@ -54,6 +54,8 @@
 			<Image id="essence_distiller_2" class="SeqImg" src="file://{images}/items/essence_distiller_2.png" />
 			<Image id="eternal_shroud_ultra" class="SeqImg" src="file://{images}/items/eternal_shroud_ultra.png" />
 			<Image id="excalibur" class="SeqImg" src="file://{images}/items/excalibur.png" />
+			<Image id="exchange" class="SeqImg" src="file://{images}/items/exchange.png" />
+			<Image id="fall_fall_fall" class="SeqImg" src="file://{images}/items/fall_fall_fall.png" />
 			<Image id="force_staff_2" class="SeqImg" src="file://{images}/items/force_staff_2.png" />
 			<Image id="force_staff_3" class="SeqImg" src="file://{images}/items/force_staff_3.png" />
 			<Image id="foulfells_satanic" class="SeqImg" src="file://{images}/items/foulfells_satanic.png" />
