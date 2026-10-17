@@ -603,8 +603,8 @@ function isNumberRange(item: object): boolean {
  */
 export function GetAbilityBehaviorBits(ability: CDOTABaseAbility): number {
   const raw = ability.GetBehavior();
-  const behavior = type(raw) === 'number' ? (raw as number) : (tonumber(tostring(raw)) ?? 0);
-  return behavior % 4294967296;
+  const behavior = type(raw) === 'number' ? (raw as number) : tonumber(tostring(raw));
+  return (behavior ?? 0) % 4294967296;
 }
 
 export function HasAbilityBehavior(behaviorBits: number, behavior: AbilityBehavior): boolean {
