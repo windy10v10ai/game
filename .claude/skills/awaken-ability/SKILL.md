@@ -9,24 +9,23 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 
 ## 架构（三个文件）
 
-| 文件                                               | 职责                                                                                                                                    |
-| -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `src/vscripts/modules/awaken/awaken-config.ts`     | `ABILITY_REPLACEMENTS` 配置表 + `AbilityReplacement` 接口。**加觉醒主要改这里**                                                         |
-| `src/vscripts/modules/awaken/awaken-replacer.ts`   | 替换算法 `executeReplacement`（新增/替换/插入三分支，入口有幂等守卫）；对外 `applyAwakenByHero`/`canAwaken`/`isAwakened`                |
+| 文件 | 职责 |
+| ---- | ---- |
+| `src/vscripts/modules/awaken/awaken-config.ts` | `ABILITY_REPLACEMENTS` 配置表 + `AbilityReplacement` 接口。**加觉醒主要改这里** |
+| `src/vscripts/modules/awaken/awaken-replacer.ts` | 替换算法 `executeReplacement`（新增/替换/插入三分支，入口有幂等守卫）；对外 `applyAwakenByHero`/`canAwaken`/`isAwakened` |
 | `src/vscripts/items/ts_items/item_awaken_stone.ts` | 觉醒石。`OnSpellStart` 调 `applyAwakenByHero`，成功才 `UTIL_Remove`；用 `CastFilterResult`+`GetCustomCastError` 给「不支持/已觉醒」飘字 |
 
 ## 三种替换操作
 
 配置表每条记录一个英雄的觉醒。三种操作由字段组合决定：
 
-| 操作     | 含义                                             | 字段                           |
-| -------- | ------------------------------------------------ | ------------------------------ |
-| **新增** | 直接加新技能，不动原有技能                       | 只填 `newAbility`              |
+| 操作 | 含义 | 字段 |
+| ---- | ---- | ---- |
+| **新增** | 直接加新技能，不动原有技能 | 只填 `newAbility` |
 | **替换** | 移除某旧技能，加新技能（同步已学等级，不退点数） | `targetAbility` + `newAbility` |
-| **插入** | 在指定槽位插入新技能，原技能保留等级重新加回     | `targetSlot` + `newAbility`    |
+| **插入** | 在指定槽位插入新技能，原技能保留等级重新加回 | `targetSlot` + `newAbility` |
 
 `AbilityReplacement` 字段：
-
 - `heroName`：适用英雄（`npc_dota_hero_xxx`）
 - `targetAbility?` / `targetSlot?`：替换目标技能名 或 插入槽位（二选一；都不填 = 纯新增）
 - `newAbility`：觉醒后的新技能名
@@ -39,11 +38,11 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 
 动手前先判断这次觉醒**只改数值**还是**要新行为**。选错会带来大量无谓的 KV 复制和 hardcode 失效风险。
 
-| 觉醒内容                               | 做法                                                                                                                                                                | 参考                                                                                   |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| 觉醒内容 | 做法 | 参考 |
+| ---- | ---- | ---- |
 | 只改数值（伤害 / 范围 / 持续 / 冷却…） | **原技能不动**，在 `npc_abilities_override.txt` 的原技能数值块里加 `special_bonus_unique_<hero>_awaken` 加成行；觉醒发一个隐藏被动当触发器（纯新增，`newLevel: 1`） | `special_bonus_unique_bristleback_upgrade`、`special_bonus_unique_monkey_king_upgrade` |
-| 原版没有的新机制                       | `ability_lua` 新技能 + TS 实现，纯新增不占原槽位                                                                                                                    | `special_bonus_unique_underlord_demons_reach_awaken`                                   |
-| 给原技能加自动施法                     | `ability_lua` 壳技能 + `AUTOCAST`，用 `targetAbility` 替换原技能占**原槽位**；原生技能隐藏保留，壳技能调它的 `OnSpellStart()`                                       | `elder_titan_ancestral_spirit_awaken`、`beastmaster_wild_axes_awaken`                  |
+| 原版没有的新机制 | `ability_lua` 新技能 + TS 实现，纯新增不占原槽位 | `special_bonus_unique_underlord_demons_reach_awaken` |
+| 给原技能加自动施法 | `ability_lua` 壳技能 + `AUTOCAST`，用 `targetAbility` 替换原技能占**原槽位**；原生技能隐藏保留，壳技能调它的 `OnSpellStart()` | `elder_titan_ancestral_spirit_awaken`、`beastmaster_wild_axes_awaken` |
 
 **禁止为了改数值去克隆原版技能**（`BaseClass` 填原版技能名）。`BaseClass` 只继承代码类，**不继承 KV**：克隆块必须把原版 + override 的字段整份抄一遍，漏一个字段引擎就当 0 用；技能还换了名字，引擎按原名查找的 hardcode 联动（A 杖授予、碎晶升级、其他技能给它加层数）会静默失效。数值加成用 special bonus 一行就够，这些代价全部不存在。
 
@@ -118,14 +117,12 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 ### 3) 标题本地化格式（统一）
 
 技能名称行用紫色 `#d000ff` 并闭合 `</font>`：
-
 - 中文：`<font color='#d000ff'>名称 觉醒</font>`（**空格**分隔，不要 `-觉醒` 连字符）
 - 英文：`<font color='#d000ff'>Name Awakened</font>`
 
 新增觉醒后核对该英雄标题与池内其它觉醒一致（同一色值、闭合 `</font>`）。
 
 **正文关键词颜色（统一）**：
-
 - 魔法免疫 / 减益免疫等保护类关键词 → 金色 `#FFCC66`（参考 PA、影魔）
 - 自动施法、伤害类型等其他术语 → 按 `.claude/references/localization-format.md`「术语着色」
 - 神杖升级说明 → 白色 `#FFFFFF` 配「神杖升级：」前缀（参考死灵竭心光环、火枪暗杀）
@@ -148,28 +145,29 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 
 `npm run build:vscripts` 不报错 + `npx jest awaken-replacer` 过。槽位顺序 / 点数退还 / 飘字 / 运行时行为须 Dota tools 实跑确认。改完 vscripts 只看编译是否通过，不读编译产物 `.lua`。
 
+
 ## 进阶技法
 
 11 条技法集中在 `references/advanced-techniques.md`，主流程不需要读。**命中下面任一条才去读对应项**：
 
-| 需求                                            | 进阶                                            |
-| ----------------------------------------------- | ----------------------------------------------- |
-| 觉醒技能要与某个原技能**同步升级**              | 1                                               |
-| 要**自动施放**（开 autocast 后自动检测触发）    | 2                                               |
-| 要在**施放某个技能之后**附带效果                | 3                                               |
-| 某个原技能数值**仅觉醒后改变**                  | 4                                               |
-| 要**加魔免**（不能顶替玩家真 BKB）              | 5                                               |
-| 纯被动标记技能想**省掉技能栏槽位**              | 6                                               |
+| 需求 | 进阶 |
+| ---- | ---- |
+| 觉醒技能要与某个原技能**同步升级** | 1 |
+| 要**自动施放**（开 autocast 后自动检测触发） | 2 |
+| 要在**施放某个技能之后**附带效果 | 3 |
+| 某个原技能数值**仅觉醒后改变** | 4 |
+| 要**加魔免**（不能顶替玩家真 BKB） | 5 |
+| 纯被动标记技能想**省掉技能栏槽位** | 6 |
 | 要借用引擎**原生 hardcoded modifier**（隐身等） | 7，另见 `../../references/vanilla-modifiers.md` |
-| 要读取施法者**当前 AoE / 属性加成**             | 8                                               |
-| 替换类技能的**神杖描述**不显示                  | 9                                               |
-| 觉醒专属参数该**放哪个 KV**                     | 10                                              |
-| 需求本质是**简化原版操作**而非改效果            | 11                                              |
+| 要读取施法者**当前 AoE / 属性加成** | 8 |
+| 替换类技能的**神杖描述**不显示 | 9 |
+| 觉醒专属参数该**放哪个 KV** | 10 |
+| 需求本质是**简化原版操作**而非改效果 | 11 |
+
 
 ## 不明确时询问
 
 遇到这些决策点用 `AskUserQuestion` 菜单询问：
-
 - 操作类型不明（新增 vs 替换 vs 插入）
 - 数值/效果「仅觉醒后生效」还是「全局对该英雄生效」
 - 等级是否需要与某技能关联

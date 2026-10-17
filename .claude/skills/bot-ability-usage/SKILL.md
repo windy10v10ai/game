@@ -17,11 +17,11 @@ description: 让 bot 会用或改用某个技能（AbilitySpec 施法规则）�
 
 按 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」找到 KV 块：
 
-| KV 字段                                           | 用途                                                                                                                                                                                                                                                                 |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AbilityBehavior`                                 | dispatcher 自动按 UNIT_TARGET / POINT / AOE / NO_TARGET 派发，spec 不用管                                                                                                                                                                                            |
+| KV 字段 | 用途 |
+|---|---|
+| `AbilityBehavior` | dispatcher 自动按 UNIT_TARGET / POINT / AOE / NO_TARGET 派发，spec 不用管 |
 | `AbilityUnitTargetTeam` + `AbilityUnitTargetType` | 定 `TargetSide`：敌方含 HERO → `EnemyHero`，仅 BASIC/CREEP → `EnemyCreep`，含 BUILDING → `EnemyBuilding`；友方同理 `FriendlyHero` / `FriendlyBuilding`；只作用自身或 PASSIVE / 纯自身 buff → `Self`。多种合法目标且都有意义时写多条（冰霜魔盾对友方英雄 + 友方建筑） |
-| `AbilityCastRange`                                | dispatcher 自动填入 `range.lte`                                                                                                                                                                                                                                      |
+| `AbilityCastRange` | dispatcher 自动填入 `range.lte` |
 
 ## 3. 和用户确认施法条件
 
@@ -45,12 +45,12 @@ description: 让 bot 会用或改用某个技能（AbilitySpec 施法规则）�
 `src/vscripts/ai/ability/specs/<abilityName>.ts`：
 
 ```ts
-import { AbilitySpec, TargetSide } from "../ability-spec";
+import { AbilitySpec, TargetSide } from '../ability-spec';
 
 /** <技能中文名>：<一句话说明何时施放、为什么这样限定>。 */
 export const SPECS: AbilitySpec[] = [
   {
-    abilityName: "<abilityName>",
+    abilityName: '<abilityName>',
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { unitCondition: { healthPercent: { lte: 25 } } },

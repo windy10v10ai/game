@@ -11,11 +11,11 @@ description: 让 bot 会用或改用某个战斗主动物品（ItemSpec 使用�
 
 ## 1. 确认走这套系统
 
-| 物品                                                 | 归属                                                 |
-| ---------------------------------------------------- | ---------------------------------------------------- |
+| 物品 | 归属 |
+|---|---|
 | 买到就用、只看能不能用（急速之翼、真银月、属性之书） | `consume-item.ts` 的 `ConsumeItem.ConsumeKnownItems` |
-| 需要战斗时机或目标判断的主动物品                     | 本 skill                                             |
-| 买什么、何时买卖                                     | `/bot-item-build`                                    |
+| 需要战斗时机或目标判断的主动物品 | 本 skill |
+| 买什么、何时买卖 | `/bot-item-build` |
 
 ## 2. 新建还是合并
 
@@ -41,13 +41,13 @@ description: 让 bot 会用或改用某个战斗主动物品（ItemSpec 使用�
 ## 5. 写 spec 并注册
 
 ```ts
-import { TargetSide } from "../../ability/ability-spec";
-import { ItemSpec } from "../item-spec";
+import { TargetSide } from '../../ability/ability-spec';
+import { ItemSpec } from '../item-spec';
 
 /** <物品中文名>：<一句话说明何时使用、为什么这样限定>。 */
 export const SPECS: ItemSpec[] = [
   {
-    itemName: "<itemName>",
+    itemName: '<itemName>',
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 900 }, count: { gte: 1 }, ignoresMagicImmune: true },

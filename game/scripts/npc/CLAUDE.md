@@ -6,12 +6,12 @@
 
 引擎直接加载 4 个入口文件，其余文件通过 `#base` 被引入。**新建 `.txt` 后必须在对应入口文件顶部加 `#base "<filename>.txt"`，否则引擎不加载。**
 
-| 入口文件                     | `#base` 引入                                                                                                                          | 用途                                                                                                                              |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `npc_abilities_custom.txt`   | `npc_abilities_custom_lottery.txt`<br>`npc_abilities_custom_awaken.txt`                                                               | 全新自定义技能。入口本体放单位/英雄专属技能，lottery 放抽奖池技能，awaken 放觉醒技能                                              |
-| `npc_abilities_override.txt` | `npc_items_override.txt`<br>`npc_items_override_neutral.txt`<br>`npc_items_override_neutral_passive.txt`<br>`npc_abilities_creep.txt` | 对原版技能/物品写**差分**覆盖（缺失键由引擎合并原版值）。creep 放小兵野怪技能                                                     |
-| `npc_items_custom.txt`       | `npc_items_modifier.txt`<br>`npc_items_artifact.txt`<br>`npc_items_clone.txt`                                                         | 自制物品。modifier 放物品间共享的 DataDriven modifier（`item_apply_modifiers` 引用），artifact 放神器，clone 放原版物品的倍率克隆 |
-| `npc_units_custom.txt`       | `npc_units_building.txt`<br>`npc_units_creep.txt`<br>`npc_units_neutral.txt`                                                          | 自定义单位                                                                                                                        |
+| 入口文件 | `#base` 引入 | 用途 |
+|---|---|---|
+| `npc_abilities_custom.txt` | `npc_abilities_custom_lottery.txt`<br>`npc_abilities_custom_awaken.txt` | 全新自定义技能。入口本体放单位/英雄专属技能，lottery 放抽奖池技能，awaken 放觉醒技能 |
+| `npc_abilities_override.txt` | `npc_items_override.txt`<br>`npc_items_override_neutral.txt`<br>`npc_items_override_neutral_passive.txt`<br>`npc_abilities_creep.txt` | 对原版技能/物品写**差分**覆盖（缺失键由引擎合并原版值）。creep 放小兵野怪技能 |
+| `npc_items_custom.txt` | `npc_items_modifier.txt`<br>`npc_items_artifact.txt`<br>`npc_items_clone.txt` | 自制物品。modifier 放物品间共享的 DataDriven modifier（`item_apply_modifiers` 引用），artifact 放神器，clone 放原版物品的倍率克隆 |
+| `npc_units_custom.txt` | `npc_units_building.txt`<br>`npc_units_creep.txt`<br>`npc_units_neutral.txt` | 自定义单位 |
 
 其余独立文件：`npc_heroes_custom.txt`（英雄覆盖与 `Bot.Build` 加点；改加点前先调用 `update-heroes-custom` skill，哪些等级没有技能点、每级最多几点都在那里）、`herolist.txt`（可选英雄开关）、`neutral_items.txt`（中立物品掉落表，改动需同步 `src/vscripts/ai/item/neutral-item.ts` 的 `GetDefaultConfig`）、`portraits_custom.txt`（自定义模型头像）。
 
@@ -27,11 +27,11 @@
 
 ### 号段
 
-| 号段        | 归属文件                 | 已用        |
-| ----------- | ------------------------ | ----------- |
+| 号段 | 归属文件 | 已用 |
+|---|---|---|
 | 10000–10099 | `npc_items_modifier.txt` | 10000–10003 |
 | 10100–10299 | `npc_items_artifact.txt` | 10100–10121 |
-| 10300–10999 | `npc_items_custom.txt`   | 10300–10464 |
+| 10300–10999 | `npc_items_custom.txt` | 10300–10464 |
 
 新增条目取所属号段**已用区间的下一个数**，段内连续，不要跳号也不要复用被删条目的号。段尾留有空位，用尽再向后扩段。
 
@@ -65,14 +65,14 @@ comm -12 /tmp/ours.txt /tmp/valve.txt   # 有输出即冲突
 
 `<version>` 取 `docs/reference/` 下最新版本目录（含字母后缀，如 `7.41f` 新于 `7.41`）。
 
-| 用途                            | 路径                                                                        |
-| ------------------------------- | --------------------------------------------------------------------------- |
-| 原版技能（非英雄技能）          | `docs/reference/<version>/npc_abilities.txt`                                |
-| 英雄基础属性、技能槽位、技能 KV | `docs/reference/<version>/heroes/npc_dota_hero_<hero>.txt`                  |
-| 英雄列表                        | `docs/reference/<version>/npc_heroes.txt`                                   |
-| 原版物品                        | `docs/reference/<version>/items.txt`                                        |
-| 官方 ability/item ID 占用表     | `docs/reference/<version>/npc_ability_ids.txt`                              |
-| 官方说明文本                    | `docs/reference/<version>/abilities_schinese.txt` / `abilities_english.txt` |
+| 用途 | 路径 |
+|------|------|
+| 原版技能（非英雄技能） | `docs/reference/<version>/npc_abilities.txt` |
+| 英雄基础属性、技能槽位、技能 KV | `docs/reference/<version>/heroes/npc_dota_hero_<hero>.txt` |
+| 英雄列表 | `docs/reference/<version>/npc_heroes.txt` |
+| 原版物品 | `docs/reference/<version>/items.txt` |
+| 官方 ability/item ID 占用表 | `docs/reference/<version>/npc_ability_ids.txt` |
+| 官方说明文本 | `docs/reference/<version>/abilities_schinese.txt` / `abilities_english.txt` |
 
 7.41f 起英雄数据全部并入 `heroes/npc_dota_hero_<hero>.txt`，`npc_heroes.txt` 只剩 `#base` 列表，`npc_abilities.txt` 里查不到英雄技能；更早版本英雄属性与槽位在 `npc_heroes.txt`，`heroes/` 下只有技能。
 

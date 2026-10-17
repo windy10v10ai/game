@@ -8,11 +8,11 @@ disable-model-invocation: true
 
 按官方补丁日志同步物品改动。一件原版物品的改动会波及三处，每批都要逐处过完：
 
-| 波及处                                   | 文件                                                        | 规则                             |
-| ---------------------------------------- | ----------------------------------------------------------- | -------------------------------- |
-| 原版物品本身                             | `npc_items_override.txt`、`npc_items_override_neutral*.txt` | 与技能相同的差分规则             |
-| 克隆上位物品（`BaseClass` = 该原版物品） | `npc_items_clone.txt` 等                                    | 按行尾注释规则用新原版值重算     |
-| 用到改价材料的配方                       | 全部 `npc_items_*.txt` 的 `item_recipe_*`                   | 配方费抵消价差，上位物品总价不变 |
+| 波及处 | 文件 | 规则 |
+|---|---|---|
+| 原版物品本身 | `npc_items_override.txt`、`npc_items_override_neutral*.txt` | 与技能相同的差分规则 |
+| 克隆上位物品（`BaseClass` = 该原版物品） | `npc_items_clone.txt` 等 | 按行尾注释规则用新原版值重算 |
+| 用到改价材料的配方 | 全部 `npc_items_*.txt` 的 `item_recipe_*` | 配方费抵消价差，上位物品总价不变 |
 
 差分、注释、`延伸` 标记等规则一律沿用 `update-abilities-override` 的 P1–P3，本文件只写物品特有的部分。参考文件为 `docs/reference/<version>/items.txt` 与 `neutral_items.txt`（`<version>` 取法见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」）。用 `grep` / 片段读取定位，不整份读入物品文件。
 

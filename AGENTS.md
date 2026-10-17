@@ -18,16 +18,16 @@
 
 Claude Code 会在读写这些目录时自动加载对应文件，其他工具需要手动读。改动某目录下的文件前，读该目录及所有上级目录的 `CLAUDE.md`：
 
-| 改动目录                       | 要读                                                   |
-| ------------------------------ | ------------------------------------------------------ |
-| `src/` 下任何文件              | `src/CLAUDE.md`                                        |
-| `src/vscripts/`                | 再加 `src/vscripts/CLAUDE.md`                          |
-| `src/vscripts/ai/`             | 再加 `src/vscripts/ai/CLAUDE.md`                       |
-| `src/vscripts/api/`            | 再加 `src/vscripts/api/CLAUDE.md` 与同目录 `README.md` |
-| `src/panorama/`                | 再加 `src/panorama/CLAUDE.md`                          |
-| `src/panorama/react/hud_main/` | 再加 `src/panorama/react/hud_main/CLAUDE.md`           |
-| `game/scripts/npc/`            | `game/scripts/npc/CLAUDE.md`                           |
-| `game/resource/`               | `game/resource/CLAUDE.md`                              |
+| 改动目录 | 要读 |
+|---|---|
+| `src/` 下任何文件 | `src/CLAUDE.md` |
+| `src/vscripts/` | 再加 `src/vscripts/CLAUDE.md` |
+| `src/vscripts/ai/` | 再加 `src/vscripts/ai/CLAUDE.md` |
+| `src/vscripts/api/` | 再加 `src/vscripts/api/CLAUDE.md` 与同目录 `README.md` |
+| `src/panorama/` | 再加 `src/panorama/CLAUDE.md` |
+| `src/panorama/react/hud_main/` | 再加 `src/panorama/react/hud_main/CLAUDE.md` |
+| `game/scripts/npc/` | `game/scripts/npc/CLAUDE.md` |
+| `game/resource/` | `game/resource/CLAUDE.md` |
 
 多个规则共用的细则在 `.claude/references/`（Git 细则、文档写法、本地化格式、Bot 施法条件字段等），由上面的文件按需指向。
 
@@ -35,38 +35,38 @@ Claude Code 会在读写这些目录时自动加载对应文件，其他工具�
 
 skill 文件就是操作手册：任务对上时先完整读对应的 `.claude/skills/<name>/SKILL.md`，按步骤执行；正文里指向的 `references/` 文件在对应分支用到时再读。
 
-| 任务                                | skill                  |
-| ----------------------------------- | ---------------------- |
-| 创建分支、commit、push、开 PR       | `create-pr`            |
-| 生成 Steam 更新日志（Release Note） | `release-note`         |
-| 把纠正与新约定沉淀进文档            | `doc-update`           |
-| 在 Dota 2 Tools 实机验证            | `dota-live-test`       |
-| 查 Dota 2 引擎 API、事件            | `dota-docs-lookup`     |
-| 从零自制技能                        | `custom-ability`       |
-| 克隆原版技能                        | `clone-ability`        |
-| 英雄觉醒技能                        | `awaken-ability`       |
-| 从零自制物品、合成神器              | `custom-item`          |
-| 克隆原版物品                        | `clone-item`           |
-| 加图标、UI 图片，排查紫块           | `add-image`            |
-| bot 技能施法规则                    | `bot-ability-usage`    |
-| bot 战斗物品使用规则                | `bot-item-usage`       |
-| 电脑 AI 决策与移动异常              | `bot-ai-tuning`        |
-| 电脑英雄技能加点（Bot.Build）       | `update-heroes-custom` |
+| 任务 | skill |
+|---|---|
+| 创建分支、commit、push、开 PR | `create-pr` |
+| 生成 Steam 更新日志（Release Note） | `release-note` |
+| 把纠正与新约定沉淀进文档 | `doc-update` |
+| 在 Dota 2 Tools 实机验证 | `dota-live-test` |
+| 查 Dota 2 引擎 API、事件 | `dota-docs-lookup` |
+| 从零自制技能 | `custom-ability` |
+| 克隆原版技能 | `clone-ability` |
+| 英雄觉醒技能 | `awaken-ability` |
+| 从零自制物品、合成神器 | `custom-item` |
+| 克隆原版物品 | `clone-item` |
+| 加图标、UI 图片，排查紫块 | `add-image` |
+| bot 技能施法规则 | `bot-ability-usage` |
+| bot 战斗物品使用规则 | `bot-item-usage` |
+| 电脑 AI 决策与移动异常 | `bot-ai-tuning` |
+| 电脑英雄技能加点（Bot.Build） | `update-heroes-custom` |
 
 下面这些在 Claude Code 里只由用户手动调用（`/<name>`）。用户明确要求做对应的事时再读：
 
-| 任务                        | skill                       |
-| --------------------------- | --------------------------- |
-| 发布到创意工坊              | `deploy`                    |
-| 审查 PR                     | `review-pr`                 |
-| 加载界面 FAQ                | `faq`                       |
-| 蝴蝶效应 / 多重施法黑名单   | `ability-blacklist`         |
-| 英雄天赋                    | `custom-talent`             |
-| 抽奖池 Tier 调整            | `adjust-lottery-tier`       |
-| bot 出装候选池              | `bot-item-build`            |
+| 任务 | skill |
+|---|---|
+| 发布到创意工坊 | `deploy` |
+| 审查 PR | `review-pr` |
+| 加载界面 FAQ | `faq` |
+| 蝴蝶效应 / 多重施法黑名单 | `ability-blacklist` |
+| 英雄天赋 | `custom-talent` |
+| 抽奖池 Tier 调整 | `adjust-lottery-tier` |
+| bot 出装候选池 | `bot-item-build` |
 | 版本更新后同步技能 override | `update-abilities-override` |
-| 版本更新后同步物品          | `update-items-override`     |
-| 导出离线数据快照            | `update-offline-snapshot`   |
+| 版本更新后同步物品 | `update-items-override` |
+| 导出离线数据快照 | `update-offline-snapshot` |
 
 ## 4. Claude 专用写法怎么换
 

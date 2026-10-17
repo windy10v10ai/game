@@ -15,11 +15,11 @@ description: 编写或校验电脑英雄的技能加点（Bot.Build）与天赋�
 
 ## 数据来源
 
-| 数据              | 优先级：高 → 低                                                                           |
-| ----------------- | ----------------------------------------------------------------------------------------- |
-| Ability 槽位      | `npc_heroes_custom.txt` 同名键 → `docs/reference/{version}/npc_heroes.txt`                |
-| Ability10–17 天赋 | 同上                                                                                      |
-| MaxLevel          | `npc_abilities_override.txt` → `heroes/npc_dota_hero_<hero>.txt` → 推断（大招 3、其余 4） |
+| 数据 | 优先级：高 → 低 |
+|------|----------------|
+| Ability 槽位 | `npc_heroes_custom.txt` 同名键 → `docs/reference/{version}/npc_heroes.txt` |
+| Ability10–17 天赋 | 同上 |
+| MaxLevel | `npc_abilities_override.txt` → `heroes/npc_dota_hero_<hero>.txt` → 推断（大招 3、其余 4） |
 
 ---
 
@@ -34,12 +34,12 @@ description: 编写或校验电脑英雄的技能加点（Bot.Build）与天赋�
 
 ## 有效天赋集合
 
-| 等级档 | Ability 槽位          | Build 首选 | Build 补选 |
-| ------ | --------------------- | ---------- | ---------- |
-| 10 级  | Ability10 / Ability11 | `"10"`     | `"27"`     |
-| 15 级  | Ability12 / Ability13 | `"15"`     | `"28"`     |
-| 20 级  | Ability14 / Ability15 | `"20"`     | `"29"`     |
-| 25 级  | Ability16 / Ability17 | `"25"`     | `"30"`     |
+| 等级档 | Ability 槽位 | Build 首选 | Build 补选 |
+|--------|-------------|-----------|-----------|
+| 10 级 | Ability10 / Ability11 | `"10"` | `"27"` |
+| 15 级 | Ability12 / Ability13 | `"15"` | `"28"` |
+| 20 级 | Ability14 / Ability15 | `"20"` | `"29"` |
+| 25 级 | Ability16 / Ability17 | `"25"` | `"30"` |
 
 天赋名必须与合并后的 Ability10–17 **逐字匹配**。旧版本废弃名无效。
 
@@ -129,10 +129,10 @@ q 5 点 `1→3→7→9→14`，w 5 点 `2→4→5→11→16`（相邻连点合�
 
 ## 分工
 
-| 文件                         | 职责                              |
-| ---------------------------- | --------------------------------- |
-| `npc_abilities_override.txt` | MaxLevel、数值                    |
-| `npc_heroes_custom.txt`      | 槽位覆盖、Bot.Build、Ability10–17 |
+| 文件 | 职责 |
+|------|------|
+| `npc_abilities_override.txt` | MaxLevel、数值 |
+| `npc_heroes_custom.txt` | 槽位覆盖、Bot.Build、Ability10–17 |
 
 ## 汇报
 

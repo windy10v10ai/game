@@ -15,3 +15,4 @@ cd api && npm run start
 同时确认 `src/vscripts/api/api-client.local.ts` 的 `GetApiTarget()` 返回 `'local'`。
 
 完成：`netstat -ano | grep -E ":(8080|9099|3001)\b.*LISTENING"` 三个端口都在。
+

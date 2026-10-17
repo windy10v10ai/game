@@ -8,10 +8,10 @@ disable-model-invocation: true
 
 两处黑名单，目标不明确时用 `AskUserQuestion` 让用户选一个或两个都加：
 
-| 黑名单   | 文件                                                              | 表名                                                             | 写法                       |
-| -------- | ----------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------- |
+| 黑名单 | 文件 | 表名 | 写法 |
+|---|---|---|---|
 | 蝴蝶效应 | `game/scripts/vscripts/abilities/ability_blacklist_butterfly.lua` | `EXCLUDED_ABILITIES_ALLBUTTER`（技能）/ `EXCLUDED_ITEMS`（物品） | `["ability_name"] = true,` |
-| 多重施法 | `game/scripts/vscripts/abilities/ogre_magi_multicast_lua.lua`     | `no_support_abilitys`（技能）/ `no_support_items`（物品）        | `ability_name = 1,`        |
+| 多重施法 | `game/scripts/vscripts/abilities/ogre_magi_multicast_lua.lua` | `no_support_abilitys`（技能）/ `no_support_items`（物品） | `ability_name = 1,` |
 
 ## 系统名确认
 

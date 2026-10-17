@@ -33,7 +33,6 @@ background: false
 
 - 更新内容
 ```
-
 ```
 [b]Gameplay update v5.20[/b]
 

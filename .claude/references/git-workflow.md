@@ -22,10 +22,10 @@
 
 用户给出合并指令时执行：
 
-| PR                                               | 命令                          |
-| ------------------------------------------------ | ----------------------------- |
+| PR | 命令 |
+|---|---|
 | `feature` / `fix` / `chore` / `docs` → `develop` | `gh pr merge <编号> --squash` |
-| `develop` → `main`（release PR）                 | `gh pr merge <编号> --merge`  |
+| `develop` → `main`（release PR） | `gh pr merge <编号> --merge` |
 
 CI 还没跑完时加 `--auto`，分支保护照常生效（不加 `--admin`）。
 

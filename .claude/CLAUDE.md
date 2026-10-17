@@ -20,35 +20,35 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 
 ## 常用命令
 
-| 命令                                        | 用途                                                    |
-| ------------------------------------------- | ------------------------------------------------------- |
-| `npm run start`                             | 启动 Dota 2 Tools 与 watch 编译                         |
-| `npm test` / `npm run lint`                 | jest / eslint（含图片与本地化检查）                     |
-| `npm run prettier-check`                    | 全仓库格式检查，CI 会跑；第三方文件在 `.prettierignore` |
-| `npm run build:vscripts` / `build:panorama` | 提交前查编译错误                                        |
+| 命令 | 用途 |
+|---|---|
+| `npm run start` | 启动 Dota 2 Tools 与 watch 编译 |
+| `npm test` / `npm run lint` | jest / eslint（含图片与本地化检查） |
+| `npm run prettier-check` | 格式检查（不含 Markdown），CI 会跑；第三方文件在 `.prettierignore` |
+| `npm run build:vscripts` / `build:panorama` | 提交前查编译错误 |
 
 ## 目录导航
 
 读写某目录下的文件时，该目录及上级目录的 `CLAUDE.md` 会自动加载：
 
-| 目录                           | 内容                                                          |
-| ------------------------------ | ------------------------------------------------------------- |
-| `src/`                         | 跨层契约：共享类型、Net Table / Custom Event                  |
-| `src/vscripts/`                | 游戏逻辑、模块单例、jest 测试、TSTL 陷阱                      |
-| `src/vscripts/ai/`             | Bot AI 结构与陷阱                                             |
-| `src/vscripts/api/`            | 后端 API 调用与重试                                           |
-| `src/panorama/`                | React UI、两类 entry、Panorama 陷阱                           |
-| `src/panorama/react/hud_main/` | 中心化界面的页面拆分约定                                      |
-| `game/scripts/npc/`            | NPC KV：`#base` 结构、ID 号段、格式、查原版技能               |
-| `game/resource/`               | 中英俄本地化规约、图标 png                                    |
-| `game/scripts/vscripts/`       | TSTL 编译产物（自动生成，改 `src/vscripts/`）+ 少量遗留纯 Lua |
-| `docs/reference/<version>/`    | Dota 2 原版 KV 与说明文本快照                                 |
-| `.claude/references/`          | 根规则与多个 skill 共用的细则                                 |
+| 目录 | 内容 |
+|---|---|
+| `src/` | 跨层契约：共享类型、Net Table / Custom Event |
+| `src/vscripts/` | 游戏逻辑、模块单例、jest 测试、TSTL 陷阱 |
+| `src/vscripts/ai/` | Bot AI 结构与陷阱 |
+| `src/vscripts/api/` | 后端 API 调用与重试 |
+| `src/panorama/` | React UI、两类 entry、Panorama 陷阱 |
+| `src/panorama/react/hud_main/` | 中心化界面的页面拆分约定 |
+| `game/scripts/npc/` | NPC KV：`#base` 结构、ID 号段、格式、查原版技能 |
+| `game/resource/` | 中英俄本地化规约、图标 png |
+| `game/scripts/vscripts/` | TSTL 编译产物（自动生成，改 `src/vscripts/`）+ 少量遗留纯 Lua |
+| `docs/reference/<version>/` | Dota 2 原版 KV 与说明文本快照 |
+| `.claude/references/` | 根规则与多个 skill 共用的细则 |
 
 **全局陷阱**：
 
 - TypeScript 文件行尾用 LF
-- prettier 只格式化本次改动的文件，用 `npx prettier --write <文件>`；`npm run prettier-check` 现已全仓库通过，新增文件不要绕过它。误跑后的还原方法见 `.claude/references/git-workflow.md`
+- prettier 只格式化本次改动的文件：仓库里有一批文件从没按 `.prettierrc` 格式化过，通配符 `prettier --write` 会混进几百行无关 diff。误跑后的还原方法见 `.claude/references/git-workflow.md`
 - 检索代码默认跳过 `docs/reference/tenvten-*`（项目自身的历史快照，会混进过时匹配），用户要看或做版本对比时才查
 
 **相关仓库**：官网（`web/`）与后端 API（`api/`）在本机 `../firebase`，用户已授权直接修改，动手前先读该仓库自己的 CLAUDE.md / AGENTS.md。
@@ -99,15 +99,15 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 
 用户纠正做法、发现文档与代码矛盾、或补充了新约定时，调用 `doc-update` skill 沉淀，作为完成改动的一部分。去处按作用范围就近选：
 
-| 内容                           | 去处                                                           |
-| ------------------------------ | -------------------------------------------------------------- |
-| 只在某一层成立的规则           | 该层的 `CLAUDE.md`                                             |
-| 某个模块的结构与用户拍板的决定 | 该模块的 `README.md`                                           |
-| 某类任务的流程与决策           | 对应 `SKILL.md`；只有部分分支用到的放该 skill 的 `references/` |
-| 根规则或多个 skill 共用的细则  | `.claude/references/`                                          |
-| 真正跨全项目、每次都要用的规则 | 本文件                                                         |
-| 设计过程稿                     | 本地 `docs/superpowers/specs/`（已 gitignore）                 |
-| 进度、验证结论                 | issue / PR                                                     |
+| 内容 | 去处 |
+|---|---|
+| 只在某一层成立的规则 | 该层的 `CLAUDE.md` |
+| 某个模块的结构与用户拍板的决定 | 该模块的 `README.md` |
+| 某类任务的流程与决策 | 对应 `SKILL.md`；只有部分分支用到的放该 skill 的 `references/` |
+| 根规则或多个 skill 共用的细则 | `.claude/references/` |
+| 真正跨全项目、每次都要用的规则 | 本文件 |
+| 设计过程稿 | 本地 `docs/superpowers/specs/`（已 gitignore） |
+| 进度、验证结论 | issue / PR |
 
 README 还是 `CLAUDE.md`：违反它是「这次改动做错了」进 `CLAUDE.md`，是「系统的结构变了」进 README。写 README、spec、issue 的细则见 `.claude/references/doc-writing.md`。
 
@@ -117,11 +117,11 @@ README 还是 `CLAUDE.md`：违反它是「这次改动做错了」进 `CLAUDE.m
 
 下表的活派 SubAgent（Agent 工具，用 `model` 参数指定），主对话只收结论。SubAgent 不继承上下文，提示里写全命令、判定标准和要带回的数字。
 
-| 活                                                  | `model`    |
-| --------------------------------------------------- | ---------- |
-| 输出长或要等的命令：完整 `npm test`、对局、日志统计 | `"haiku"`  |
-| 方案已定、跨 3 个以上文件的照方案改动               | `"sonnet"` |
-| 读日志判断现象，或 haiku 反复卡住                   | `"sonnet"` |
+| 活 | `model` |
+|---|---|
+| 输出长或要等的命令：完整 `npm test`、对局、日志统计 | `"haiku"` |
+| 方案已定、跨 3 个以上文件的照方案改动 | `"sonnet"` |
+| 读日志判断现象，或 haiku 反复卡住 | `"sonnet"` |
 
 留在主对话：设计取舍、单文件小改、需要用户确认的步骤、几行输出就结束的命令（派 SubAgent 的冷启动成本更高）。
 

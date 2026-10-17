@@ -15,13 +15,13 @@ disable-model-invocation: true
 
 ## 产出
 
-| 文件                         | 内容                                       |
-| ---------------------------- | ------------------------------------------ |
-| `player_snapshot_member.kv`  | 会员等级与到期时间戳                       |
-| `player_snapshot_player.kv`  | 积分、等级、属性加点（体积最大）           |
-| `player_snapshot_awaken.kv`  | 已解锁觉醒英雄                             |
-| `player_snapshot_setting.kv` | 快捷键、快速施法、按地图游戏预设           |
-| `player_snapshot_meta.kv`    | 导出时间，游戏内离线提示显示为「截至某日」 |
+| 文件 | 内容 |
+|---|---|
+| `player_snapshot_member.kv` | 会员等级与到期时间戳 |
+| `player_snapshot_player.kv` | 积分、等级、属性加点（体积最大） |
+| `player_snapshot_awaken.kv` | 已解锁觉醒英雄 |
+| `player_snapshot_setting.kv` | 快捷键、快速施法、按地图游戏预设 |
+| `player_snapshot_meta.kv` | 导出时间，游戏内离线提示显示为「截至某日」 |
 
 ## 步骤
 
@@ -61,11 +61,11 @@ cd <firebase>/api && npm run export:snapshot -- <本仓库绝对路径>/game/scr
 
 ## 常见错误
 
-| 现象                                     | 原因与处理                                                                             |
-| ---------------------------------------- | -------------------------------------------------------------------------------------- |
-| `Could not load the default credentials` | 该机器没配 ADC，跑 `gcloud auth application-default login`                             |
-| 文件落到 firebase 仓库的 `output/`       | `npm run` 后漏了 `--`，参数没传到脚本                                                  |
-| 游戏内读不到数据但文件存在               | 快照只在 `/game/start` **失败**时读取。Dota Tools 里后端通着就不会触发，要先停本地后端 |
+| 现象 | 原因与处理 |
+|---|---|
+| `Could not load the default credentials` | 该机器没配 ADC，跑 `gcloud auth application-default login` |
+| 文件落到 firebase 仓库的 `output/` | `npm run` 后漏了 `--`，参数没传到脚本 |
+| 游戏内读不到数据但文件存在 | 快照只在 `/game/start` **失败**时读取。Dota Tools 里后端通着就不会触发，要先停本地后端 |
 
 ## 不要写进本 skill 的东西
 

@@ -19,14 +19,14 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 按要验的场景加参数（全部选项见 `src/scripts/perf.js` 的 `parseArgs`）：
 
-| 场景                        | 参数                                                                                                                                                                                                                                                          |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 场景 | 参数 |
+|---|---|
 | 1v10 按难度（N5 / N6 / N8） | `--boost false --radiantPlayers 2 --radiantMultiplier 15 --direMultiplier 7 --towerPower 300`；N6 改 `9`、`350`，N8 改 `14`、`500`。天辉 bot 扮演玩家，倍率远高于玩家实际的 1.5，补上真人比 bot 会杀会发育；5、10 倍时天辉 bot 18–21 分钟就被推平，测不到对抗 |
-| 1v10 玩家强势               | 上面任一难度把 `--radiantMultiplier` 提到 `20`                                                                                                                                                                                                                |
-| 1v10 玩家碾压               | 上面任一难度加 `--radiantBoost true`：天辉开局满级满钱。天辉 bot 再高倍率也打不过 10 个 bot，要测碾压只能直接给钱给等级；看 bot 有没有犯蠢，不看阵亡数                                                                                                        |
-| 天辉强推电脑高地与基地      | `--boost false --radiantPlayers 5 --radiantMultiplier 10 --direMultiplier 1`                                                                                                                                                                                  |
-| 物品施放                    | `--testItems item_a,item_b`：开局发物品并停掉买卖装备                                                                                                                                                                                                         |
-| 指定英雄出场                | `--botHeroes axe,lion`                                                                                                                                                                                                                                        |
+| 1v10 玩家强势 | 上面任一难度把 `--radiantMultiplier` 提到 `20` |
+| 1v10 玩家碾压 | 上面任一难度加 `--radiantBoost true`：天辉开局满级满钱。天辉 bot 再高倍率也打不过 10 个 bot，要测碾压只能直接给钱给等级；看 bot 有没有犯蠢，不看阵亡数 |
+| 天辉强推电脑高地与基地 | `--boost false --radiantPlayers 5 --radiantMultiplier 10 --direMultiplier 1` |
+| 物品施放 | `--testItems item_a,item_b`：开局发物品并停掉买卖装备 |
+| 指定英雄出场 | `--botHeroes axe,lion` |
 
 - 加速不超过 2 倍，更高会拖垮服务器
 - 每局结束在运行目录写 `anomaly-<N>.md`（卡住、远路不传送、挤在一起、打撤来回切、没任务、建筑挨打没人到场），先读它再 grep 细节。手动局用 `npm run bot-anomaly [日志路径]` 出同样的报告
@@ -105,9 +105,9 @@ grep -n "ApiHtmlProxy\|GameStartProxy" "C:/Program Files (x86)/Steam/steamapps/c
 
 两路输出都在同一个文件里，按前缀区分：
 
-| 前缀               | 来源             |
-| ------------------ | ---------------- |
-| `[VScript]`        | 服务端 `print()` |
+| 前缀 | 来源 |
+|---|---|
+| `[VScript]` | 服务端 `print()` |
 | `[PanoramaScript]` | 客户端 `$.Msg()` |
 
 每行带 `MM/DD HH:MM:SS` 时间戳，跨端时序（谁先谁后、间隔多久）直接读得出来，是定位握手和时机类问题的主要依据。

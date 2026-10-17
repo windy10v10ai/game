@@ -42,20 +42,20 @@ Actions 表达不了时接 `RunScript`，Lua 放 `game/scripts/vscripts/items/<n
 KV `BaseClass` = `item_lua`，`ScriptFile` 指向 `items/ts_items/<name>`；实现放 `src/vscripts/items/ts_items/`，物品继承 `BaseItem`、intrinsic modifier 继承 `BaseItemModifier`。范例 `item_saint_orb.ts`、`item_six_paths_reincarnation_gun.ts`：
 
 ```ts
-import { BaseItem, registerAbility, registerModifier } from "../../utils/dota_ts_adapter";
-import { BaseItemModifier } from "./base_item_modifier";
+import { BaseItem, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
+import { BaseItemModifier } from './base_item_modifier';
 
-@registerAbility("item_my_new_item")
+@registerAbility('item_my_new_item')
 export class ItemMyNewItem extends BaseItem {
   GetIntrinsicModifierName(): string {
-    return "modifier_item_my_new_item_passive";
+    return 'modifier_item_my_new_item_passive';
   }
 }
 
-@registerModifier("items/ts_items/item_my_new_item", "modifier_item_my_new_item_passive")
+@registerModifier('items/ts_items/item_my_new_item', 'modifier_item_my_new_item_passive')
 export class ModifierItemMyNewItemPassive extends BaseItemModifier {
-  override statsModifierName = "modifier_item_my_new_item_stats"; // 无永久属性时填 ''
-  override vanillaModifierNames = ["modifier_item_xxx"]; // 复用原版 modifier，没有则不写
+  override statsModifierName = 'modifier_item_my_new_item_stats'; // 无永久属性时填 ''
+  override vanillaModifierNames = ['modifier_item_xxx'];          // 复用原版 modifier，没有则不写
   // 只手写 datadriven-scope.md 表外的逻辑
 }
 ```

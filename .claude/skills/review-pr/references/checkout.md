@@ -10,7 +10,6 @@
   ```
 
   作者 fork 的通配 remote（`+refs/heads/*`，`gh pr checkout` 也会建这种）会让本地 Git 自动同步拉取整个 fork，所以用上面这种单分支 remote。
-
 - 从 `review-pr-<PR号>/<headRefName>` 建**同名本地分支**并设 upstream，修改后可直接 `git push` 回原 PR。本地同名分支或同名 remote 已存在时，先检查 URL、upstream 和工作区状态，再决定复用还是换名
 - 验证：`git config --get-all remote.review-pr-<PR号>.fetch` 只有 `+refs/heads/<headRefName>:refs/remotes/review-pr-<PR号>/<headRefName>`，`git for-each-ref refs/remotes/review-pr-<PR号>` 只有目标分支
 - PR 完成、不再需要 push 后，问用户是否 `git remote remove review-pr-<PR号>`
