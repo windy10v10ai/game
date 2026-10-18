@@ -77,6 +77,8 @@ export interface PerfAutoConfig {
   // 每段末统计全场 modifier 与实体，找随时间累积的东西
   census?: boolean;
   benchAttackers?: number;
+  // 伤害基准里两队隔开的距离，0 为各回泉水
+  benchGap?: number;
 }
 
 interface PerfStep {
@@ -448,7 +450,20 @@ function clearWards(hero: CDOTA_BaseNPC_Hero) {
 
 // 停掉自定义 AI、不再出兵并清掉兵线，全员复活后拉回各自泉水。
 // 野怪整分钟才刷新，清掉会让各段单位数忽多忽少，留在营地里不动反而稳定
+// 泉水两队相隔太远，敌方光环够不到；隔开固定距离对排时光环能覆盖对面，又在自动索敌范围外不会互打
+function parkSpot(hero: CDOTA_BaseNPC_Hero, index: Record<number, number>): Vector | undefined {
+  const team = hero.GetTeamNumber();
+  const gap = PERF_CONFIG?.benchGap ?? 0;
+  if (gap <= 0) return HeroUtil.GetTeamFountainPosition(team);
+  const half = gap / 2 / math.sqrt(2);
+  const center = team === DotaTeam.GOODGUYS ? Vector(-half, -half, 0) : Vector(half, half, 0);
+  const slot = (index[team] ?? 0) - 4.5;
+  index[team] = (index[team] ?? 0) + 1;
+  return center.__add(Vector(slot * FIGHT_SPACING, -slot * FIGHT_SPACING, 0));
+}
+
 function parkHeroes() {
+  const index: Record<number, number> = {};
   respawnInPlace = false;
   PerfSampler.aiThinkDisabled = true;
   SendToServerConsole('dota_creeps_no_spawning 1');
@@ -456,11 +471,11 @@ function parkHeroes() {
   forEachHero((hero) => {
     if (!hero.IsAlive()) hero.RespawnHero(false, false);
     clearWards(hero);
-    const fountain = HeroUtil.GetTeamFountainPosition(hero.GetTeamNumber());
-    if (fountain) FindClearSpaceForUnit(hero, fountain, true);
+    const spot = parkSpot(hero, index);
+    if (spot) FindClearSpaceForUnit(hero, spot, true);
     hero.Stop();
   });
-  print(`[perf-auto] idle parked`);
+  print(`[perf-auto] idle parked gap=${PERF_CONFIG?.benchGap ?? 0}`);
 }
 
 // 打团里交战量随局势起伏，几 ms 的差异被淹没；固定频率互相造成伤害，只量伤害事件链路本身的开销。

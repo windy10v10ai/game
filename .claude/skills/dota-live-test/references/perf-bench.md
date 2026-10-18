@@ -10,11 +10,13 @@
 npm run perf -- --scenes <场景> --conditions <条件,...> --swapItems <物品>
 ```
 
+- 合成物品先拆部件测：`--swapItems <成品>` 量整件，`--itemModifiers <成品>:<modifier>:native`（原版）或 `<成品>:<modifier>:<脚本路径>`（Lua）以成品为来源单挂某个部件，组合条件 `a+b` 量几个部件合计
 - 同一局里条件段与基线段交替、顺序打乱，结果读各条件相对前后基线的差，不拿不同对局的绝对值比
+- 物品开销对比只用 `dmgbench` / `atkbench`：`fight` 逐轮波动可达几十 ms/tick，量不出单件物品。要跑 `fight` 时放在 `--scenes` 最后，打过团的英雄伤害结算变贵且不恢复，排在它后面的基准场景基线会失真（tick 掉到个位数）
 - 物品开销用 `--swapItems <物品>` 的 `swap_<物品>` 减 `swap_empty`（空格对照），`swap_empty` 的逐轮波动就是这一轮的噪声
 - 改动前后对比：每个版本一条测试分支，用同一套测试工具与参数各跑一局
 - 放大某个 modifier 的开销时分散挂到不同单位各 1 份（参考 `bld_` 条件，全场建筑各挂 1 个），不在同一单位叠多份同名 modifier：叠挂测出的单个开销偏高一个数量级，只能看随层数增长的趋势（`meleebuff_x<N>` 属于这种）
-- 已知结论：常驻 Lua modifier 空壳也有开销，计在伤害结算（`CDOTA_BaseNPC::DamageImpact`）里；带全图受伤监听的约为空壳的 5 倍。测新机制时两档都可用 `bld_empty` / `bld_takedamage` 作参照
+- 已知结论：常驻 Lua modifier 空壳也有开销，计在伤害结算（`CDOTA_BaseNPC::DamageImpact`）里；带全图受伤监听的约为空壳的 5 倍。测新机制时两档都可用 `bld_empty` / `bld_takedamage` 作参照。原版物品 modifier 不一定便宜：`modifier_item_eternal_shroud`、`modifier_item_devastator` 单个比空 Lua modifier 贵十倍以上，同样计在伤害结算里；KV 光环（`Aura` + `Properties`）很便宜
 
 ## 基准场景
 

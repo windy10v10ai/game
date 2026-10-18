@@ -2575,22 +2575,26 @@
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_attack_speed"					"+$attack"
 
 		// item_magic_scepter 紫杖
-		"DOTA_Tooltip_Ability_item_magic_scepter"								"<font color='#A74ABD'>魔云法杖</font>"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1><font color='#A74ABD'>主动: 魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续 %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强."
-		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, mildly deteriorated.."
-		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
+		"DOTA_Tooltip_Ability_item_magic_scepter"												"<font color='#A74ABD'>魔云法杖</font>"
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"									"<h1><font color='#A74ABD'>主动：魔力爆发</font></h1>获得%active_boost%%%技能增强，持续%active_duration%秒。\n<h1>被动：技能增强</h1>每点智力获得%spell_amp_per_int%%%技能增强。"
+		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"										"An ancient relic from the War Wizards, mildly deteriorated.."
+		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"							"+$int"
+		"DOTA_Tooltip_Ability_item_magic_scepter_spell_amp"									"%+技能增强"
+		"DOTA_Tooltip_Ability_item_magic_scepter_mana_regen_multiplier"						"%+魔法恢复增强"
 
-		"DOTA_Tooltip_modifier_item_magic_scepter_active"	                	"魔力爆发"
-		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"	        "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification"
+		"DOTA_Tooltip_modifier_item_magic_scepter_active"										"魔力爆发"
+		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"							"获得<font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font>技能增强。"
 
 		// item_hallowed_scepter 大紫杖
-		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"<font color='#A74ABD'>仙云法杖</font>"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1><font color='#A74ABD'>主动: 仙力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续  %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强。"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter"											"<font color='#A74ABD'>仙云法杖</font>"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"								"<h1><font color='#A74ABD'>主动：仙力爆发</font></h1>获得%active_boost%%%技能增强，持续%active_duration%秒。\n<h1>被动：技能增强</h1>每点智力获得%spell_amp_per_int%%%技能增强。"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"										"An ancient relic, mysteriously restored to its prime by unknown entities."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"						"+$int"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_spell_amp"								"%+技能增强"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_mana_regen_multiplier"					"%+魔法恢复增强"
 
-		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"	                "仙力爆发"
-		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification"
+		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"									"仙力爆发"
+		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"						"获得<font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font>技能增强。"
 
 		// item_hurricane_pike_2 黄金魔龙枪
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2"						"黄金魔龙枪 Ultimate"
@@ -3505,18 +3509,18 @@
 		"DOTA_Tooltip_modifier_item_switchable_crit_blade"								"刀势"
 		"DOTA_Tooltip_modifier_item_switchable_crit_blade_Description"					"1=初式·破浪 2=二式·断流 3=终式·归海"
 
-		// 魔龙狂舞
-		"DOTA_Tooltip_Ability_item_magic_crit_blade"									"<font color='#A74ABD'>魔龙狂舞</font>"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"						"<h1><font color='#FF0000'>被动：神圣斧</font></h1>使下次攻击具有克敌机先效果，并且会施加毒素，持续%slow_duration%秒，减缓%slow%%%移动速度，并且每秒造成%int_damage_multiplier%倍智力值的伤害。<br><br>攻击会降低敌人%active_mres_reduction%%%魔法抗性，持续%passive_cooldown%秒。<br><br>所有攻击都具有克敌机先效果。\n<h1><font color='#A74ABD'>主动：龙息爆发</font></h1>使用后%active_duration%秒内，获得%spell_amp_multiplier%倍被智力法术增强。<br><br>冷却时间：%active_cooldown%秒<br>魔法消耗：%AbilityManaCost%\n<h1><font color='#0096FF'>被动：法术暴击</font></h1>对敌方单位造成魔法或纯粹伤害时，有%spell_crit_chance%%%几率触发暴击，造成%spell_crit_multiplier%%%伤害。"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"								"魔龙狂舞，焚天灭地。魔焰龙息席卷万物，法术爆发摧枯拉朽。"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"					"+$int"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_attack_speed"				"+$attack"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_armor"						"+$armor"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int"					"%+每点智力法术增强"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_projectile_speed"				"+$projectile_speed"
+		// item_magic_crit_blade 魔龙狂舞
+		"DOTA_Tooltip_Ability_item_magic_crit_blade"											"<font color='#A74ABD'>魔龙狂舞</font>"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"								"<h1><font color='#A74ABD'>主动：龙息爆发</font></h1>%active_duration%秒内，智力提供的技能增强变为%spell_amp_multiplier%倍，并使<font color='#C450E5'>%active_radius%</font>范围内的敌人魔法抗性降低%active_mres_reduction%%%（减法叠加）。\n<h1>被动：技能增强</h1>每点智力获得%spell_amp_per_int%%%技能增强。\n<h1><font color='#0096FF'>被动：法术暴击</font></h1>对敌方单位造成魔法或纯粹伤害时，有%spell_crit_chance%%%几率触发暴击，造成%spell_crit_multiplier%%%伤害。"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"										"魔龙狂舞，焚天灭地。魔焰龙息席卷万物，法术爆发摧枯拉朽。"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intelligence"						"+$int"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp"								"%+技能增强"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_mana_regen_multiplier"					"%+魔法恢复增强"
 
-		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"							"龙息爆发"
-		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"				"获得额外智力法术增强。"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"									"龙息爆发"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"						"智力提供的技能增强翻倍。"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_mres_debuff"								"龙息灼烧"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_mres_debuff_Description"					"魔法抗性<font color='#E03E2E'>%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%</font>。"
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"										"<font color='#90EE90'>生命之心</font>"

@@ -1305,7 +1305,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_magic_crit_blade',
     nameCN: '魔龙狂舞',
     tier: ItemTier.T5,
-    cost: 43800,
+    cost: 37000,
     baseItems: ['item_hallowed_scepter'],
   },
   item_beast_armor: {
