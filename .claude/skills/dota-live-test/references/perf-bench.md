@@ -16,7 +16,7 @@ npm run perf -- --scenes <场景> --conditions <条件,...> --swapItems <物品>
 - 物品开销用 `--swapItems <物品>` 的 `swap_<物品>` 减 `swap_empty`（空格对照），`swap_empty` 的逐轮波动就是这一轮的噪声
 - 改动前后对比：每个版本一条测试分支，用同一套测试工具与参数各跑一局
 - 放大某个 modifier 的开销时分散挂到不同单位各 1 份（参考 `bld_` 条件，全场建筑各挂 1 个），不在同一单位叠多份同名 modifier：叠挂测出的单个开销偏高一个数量级，只能看随层数增长的趋势（`meleebuff_x<N>` 属于这种）
-- 已知结论：常驻 Lua modifier 空壳也有开销，计在伤害结算（`CDOTA_BaseNPC::DamageImpact`）里；带全图受伤监听的约为空壳的 5 倍。测新机制时两档都可用 `bld_empty` / `bld_takedamage` 作参照。原版物品 modifier 不一定便宜：`modifier_item_eternal_shroud`、`modifier_item_devastator` 单个比空 Lua modifier 贵十倍以上，同样计在伤害结算里；KV 光环（`Aura` + `Properties`）很便宜
+- 已知结论（计在伤害结算 `CDOTA_BaseNPC::DamageImpact` 里，20 个实例）：Lua modifier 空壳 +0.3～0.8；只声明技能增强回调的 +3（固定伤害）/ +5（真普攻），引擎每次伤害都查技能增强、普攻也查；带全图受伤监听的约为空壳的 5 倍。测新机制时空壳与监听两档可用 `bld_empty` / `bld_takedamage`，或 `--itemModifiers <物品>:modifier_perf_empty:modules/debug/perf-building-modifier` 挂到英雄上作参照。原版物品 modifier 不一定便宜：`modifier_item_eternal_shroud`、`modifier_item_devastator` 单个比空 Lua modifier 贵十倍以上，同样计在伤害结算里；KV 光环（`Aura` + `Properties`）很便宜
 
 ## 基准场景
 
