@@ -1228,7 +1228,7 @@
 
 		// item_magic_scepter 紫杖
 		"DOTA_Tooltip_Ability_item_magic_scepter"												"<font color='#A74ABD'>Магический скипетр</font>"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"									"<h1><font color='#A74ABD'>Активная: Всплеск магии</font></h1>Даёт %active_boost%%% усиления заклинаний на %active_duration% сек.\n<h1>Пассивная: Тайное мастерство</h1>Даёт %spell_amp_per_int%%% усиления заклинаний за каждую единицу интеллекта."
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"									"<h1><font color='#A74ABD'>Активная: Всплеск магии</font></h1>Даёт <font color='#C450E5'>%active_boost%%% усиления заклинаний</font> на %active_duration% сек.\n<h1>Пассивная: Тайное мастерство</h1>Даёт %spell_amp_per_int%%% усиления заклинаний за каждую единицу интеллекта."
 		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"										"Древняя реликвия боевых магов, слегка потрёпанная временем."
 		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"							"+$int"
 		"DOTA_Tooltip_Ability_item_magic_scepter_spell_amp"									"%+Усиление заклинаний"
@@ -1239,7 +1239,7 @@
 
 		// item_hallowed_scepter 大紫杖
 		"DOTA_Tooltip_Ability_item_hallowed_scepter"											"<font color='#A74ABD'>Священный скипетр</font>"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"								"<h1><font color='#A74ABD'>Активная: Священный всплеск магии</font></h1>Даёт %active_boost%%% усиления заклинаний на %active_duration% сек.\n<h1>Пассивная: Тайное мастерство</h1>Даёт %spell_amp_per_int%%% усиления заклинаний за каждую единицу интеллекта."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"								"<h1><font color='#A74ABD'>Активная: Священный всплеск магии</font></h1>Даёт <font color='#C450E5'>%active_boost%%% усиления заклинаний</font> на %active_duration% сек.\n<h1>Пассивная: Тайное мастерство</h1>Даёт %spell_amp_per_int%%% усиления заклинаний за каждую единицу интеллекта."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"										"Древняя реликвия, таинственным образом восстановленная неведомыми силами."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"						"+$int"
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_spell_amp"								"%+Усиление заклинаний"
@@ -1250,7 +1250,7 @@
 
 		// item_magic_crit_blade 魔龙狂舞
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"											"<font color='#A74ABD'>Танец дракона</font>"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"								"<h1><font color='#A74ABD'>Активная: Дыхание дракона</font></h1>На %active_duration% сек. усиление заклинаний от интеллекта увеличивается в %spell_amp_multiplier% раза, а сопротивление магии врагов в радиусе <font color='#C450E5'>%active_radius%</font> снижается на %active_mres_reduction%%% (вычитается).\n<h1>Пассивная: Тайное мастерство</h1>Даёт %spell_amp_per_int%%% усиления заклинаний за каждую единицу интеллекта.\n<h1><font color='#0096FF'>Пассивная: Критический удар заклинанием</font></h1>Магический или чистый урон по врагам с вероятностью %spell_crit_chance%%% становится критическим и наносит %spell_crit_multiplier%%% урона."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"								"<h1><font color='#A74ABD'>Активная: Дыхание дракона</font></h1>На %active_duration% сек. интеллект даёт <font color='#C450E5'>%spell_amp_multiplier%-кратное усиление заклинаний</font>, а сопротивление магии врагов в радиусе %active_radius% снижается на %active_mres_reduction%%% (вычитается).\n<h1>Пассивная: Тайное мастерство</h1>Даёт %spell_amp_per_int%%% усиления заклинаний за каждую единицу интеллекта.\n<h1><font color='#0096FF'>Пассивная: Критический удар заклинанием</font></h1>Магический или чистый урон по врагам с вероятностью %spell_crit_chance%%% становится критическим и наносит %spell_crit_multiplier%%% урона."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"										"Танец дракона испепеляет всё на своём пути. Магическое драконье дыхание сметает всё, взрывы заклинаний сокрушают всё."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intelligence"						"+$int"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp"								"%+Усиление заклинаний"

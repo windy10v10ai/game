@@ -11,8 +11,8 @@ TSTL 编译为 Lua，输出到 `game/scripts/vscripts/`。跨层契约见 `src/C
 ## 写技能、物品、modifier
 
 - **效果优先交给原版 modifier 或 KV，最后才写 Lua modifier**：选型顺序是原版 modifier（`.claude/references/vanilla-modifiers.md`）→ KV / DataDriven `Properties`（`.claude/references/datadriven-properties.md`）→ Lua（TS）modifier。Lua modifier 有两笔原生实现没有的开销：
-  - **回调税**（大头）：每个 `GetModifier*` 都是引擎每查一次回一次 Lua。有的属性在每次伤害结算（`CDOTA_BaseNPC::DamageImpact`）里都要查，普攻也不例外：20 个英雄各挂一个只声明技能增强的 modifier，固定伤害与真普攻场景分别 +3 / +5 ms/tick
-  - **常驻开销**（小）：只要挂着，即使什么函数都不声明，全图每次伤害结算也会多花时间，20 个约 +0.3～0.8 ms/tick，随实例数增长（实测见 issue #2468）
+  - **回调税**（大头）：每个 `GetModifier*` 都是引擎每查一次回一次 Lua，查得越频繁越贵。技能增强在每次带技能来源的伤害结算（`CDOTA_BaseNPC::DamageImpact`）里查一次，不打伤害、普攻都不查：20 个英雄各挂一个只返回常量技能增强的 Lua modifier，纯技能伤害场景 +3.5～4.3 ms/tick，同样的属性写成 KV 只要 +0.7
+  - **常驻开销**（小）：只要挂着，即使什么函数都不声明，全图每次伤害结算也会多花时间，20 个约 +0.3～1.6 ms/tick，随实例数增长（实测见 issue #2468）
 
   只有原版和 KV 都表达不了的逻辑才写 Lua modifier，常驻在大量单位上的（每个英雄、每座建筑都挂的）尤其要避免
 

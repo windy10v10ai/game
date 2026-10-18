@@ -92,6 +92,7 @@ export class modifier_item_hallowed_scepter extends ScepterPassiveModifier {
 
 const CRIT_BLADE_ACTIVE = 'modifier_item_magic_crit_blade_active';
 const CRIT_BLADE_MRES_DEBUFF = 'modifier_item_magic_crit_blade_mres_debuff';
+const CRIT_BLADE_CAST_PARTICLE = 'particles/items2_fx/veil_of_discord.vpcf';
 
 @registerAbility('item_magic_crit_blade')
 export class ItemMagicCritBlade extends ScepterItem {
@@ -106,11 +107,19 @@ export class ItemMagicCritBlade extends ScepterItem {
     super.OnSpellStart();
     const caster = this.GetCaster();
     const duration = this.GetSpecialValueFor('active_duration');
+    const radius = this.GetSpecialValueFor('active_radius');
+    const particle = ParticleManager.CreateParticle(
+      CRIT_BLADE_CAST_PARTICLE,
+      ParticleAttachment.ABSORIGIN,
+      caster,
+    );
+    ParticleManager.SetParticleControl(particle, 1, Vector(radius, radius, radius));
+    ParticleManager.ReleaseParticleIndex(particle);
     const enemies = FindUnitsInRadius(
       caster.GetTeamNumber(),
       caster.GetAbsOrigin(),
       undefined,
-      this.GetSpecialValueFor('active_radius'),
+      radius,
       UnitTargetTeam.ENEMY,
       UnitTargetType.HERO | UnitTargetType.BASIC,
       UnitTargetFlags.NONE,
