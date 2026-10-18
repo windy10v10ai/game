@@ -483,10 +483,11 @@ function parkHeroes() {
 const BENCH_DAMAGE = 100;
 // 高频小额伤害：模拟持续伤害每跳，一帧多次、每次伤害很低
 const DOT_HITS = 5;
-type BenchMode = 'damage' | 'attack' | 'dot' | 'dotbig';
+type BenchMode = 'damage' | 'attack' | 'dot' | 'dotbig' | 'spell';
 const BENCH_SCENES: Record<string, BenchMode> = {
   dmgbench: 'damage',
   atkbench: 'attack',
+  spellbench: 'spell',
   dotbench: 'dot',
   dotbigbench: 'dotbig',
 };
@@ -505,7 +506,8 @@ function startDamageBench(mode: BenchMode) {
       benchTicking = false;
       return undefined;
     }
-    magical = !magical;
+    // 纯技能场景只打带技能来源的魔法伤害，技能增强、法术暴击这类只对技能生效的逻辑才会每次都走到
+    magical = benchMode === 'spell' || !magical;
     const heroes: CDOTA_BaseNPC_Hero[] = [];
     forEachHero((hero) => heroes.push(hero));
     const limit = PERF_CONFIG?.benchAttackers ?? 0;
