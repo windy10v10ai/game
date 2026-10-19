@@ -552,6 +552,24 @@
   }
 }
 
+/* 外链图标是白色 png，靠 wash-color 跟随链接文字变色；整行一起响应悬停 */
+.stripe-site-link-icon {
+  vertical-align: center;
+  margin-left: 4px;
+  width: 12px;
+  height: 12px;
+  wash-color: @color-text-muted;
+}
+
+.stripe-site-link:hover {
+  .member-platform-activate {
+    color: @color-gold-muted;
+  }
+  .stripe-site-link-icon {
+    wash-color: @color-gold-muted;
+  }
+}
+
 /* ============================================================
    Stripe 卡片：支付方式小图标行 + 档位按钮列表
    ============================================================ */

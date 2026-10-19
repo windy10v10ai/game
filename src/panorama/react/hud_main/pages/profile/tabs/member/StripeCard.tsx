@@ -2,6 +2,7 @@ import React from 'react';
 import { STRIPE_MEMBERSHIP_URL } from '@utils/utils';
 import { formatTierDuration, openUrl } from './constants';
 import {
+  EXTERNAL_LINK_ICON,
   STRIPE_LOGO,
   STRIPE_MEMBER_TIERS,
   STRIPE_PAY_LOGOS,
@@ -35,12 +36,15 @@ function StripeCardShell({ children }: { children: React.ReactNode }) {
         </Panel>
         {children}
       </Panel>
-      <Panel className="member-platform-activate-row">
+      <Panel
+        className="member-platform-activate-row stripe-site-link"
+        onactivate={openUrl(STRIPE_MEMBERSHIP_URL)}
+      >
         <Label
           className="member-platform-activate"
-          text={`${$.Localize('#member_platform_stripe_link')} ↗`}
-          onactivate={openUrl(STRIPE_MEMBERSHIP_URL)}
+          text={$.Localize('#member_platform_stripe_link')}
         />
+        <Image className="stripe-site-link-icon" src={EXTERNAL_LINK_ICON} />
       </Panel>
     </Panel>
   );

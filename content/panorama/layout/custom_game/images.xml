@@ -20,6 +20,7 @@
 			<Image id="memberPointsT1" class="SeqImg" src="file://{images}/custom_game/member/member_points_t1.png" />
 			<Image id="memberPointsT2" class="SeqImg" src="file://{images}/custom_game/member/member_points_t2.png" />
 			<Image id="memberPointsT3" class="SeqImg" src="file://{images}/custom_game/member/member_points_t3.png" />
+			<Image id="memberExternalLink" class="SeqImg" src="file://{images}/custom_game/member/external-link.png" />
 			<Image id="memberStripeLogo" class="SeqImg" src="file://{images}/custom_game/member/stripe.png" />
 			<Image id="memberPayVisa" class="SeqImg" src="file://{images}/custom_game/member/pay/visa.png" />
 			<Image id="memberPayMastercard" class="SeqImg" src="file://{images}/custom_game/member/pay/mastercard.png" />
