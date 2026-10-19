@@ -49,7 +49,8 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 - **客户端代发链路在 Tools 里连不上本地 API**：网页控件请求 `http://localhost` 与 `http://127.0.0.1` 一律超时，开局请求也会因此转成离线模式。验本地代发就看服务端拼出的网址，换上本地 key 用 curl 重放；验界面就关掉强制代发，让服务端直连
 - **computer-use 授权填 `dota2.exe`**：`request_access` 写开始菜单里的「Dota 2」只授权到 Steam 启动链接，实际窗口仍被遮成色块。授权弹窗要用户本人点，交接里写明被拒就停下回报
-- **窗口焦点**：系统常驻的「Windows 输入体验」（`TextInputHost.exe`，承载表情面板、剪贴板历史、输入法候选框）偶尔挂着不可见窗口抢走前台，computer-use 因前台不是已授权应用而拒绝操作。不是用户开了什么，无需请用户处理：先点一下 Dota 窗口抢回前台再重试（不用 `open_application "Dota 2"`，它指向 Steam 启动链接，可能再开一个实例），连续两次仍被抢才停下回报
+- **窗口焦点**：系统常驻的「Windows 输入体验」（`TextInputHost.exe`，承载表情面板、剪贴板历史、输入法候选框）偶尔挂着不可见窗口抢走前台，computer-use 因前台不是已授权应用而拒绝操作。不是用户开了什么，无需请用户处理：先点一下 Dota 窗口抢回前台再重试，连续两次仍被抢才停下回报
+- **同一时间只能有一个 Dota**：Dota 运行中再触发任何启动（`Start-Process`、`open_application "Dota 2"`、Steam 链接）都会弹 `Source2 - Warning: Only one instance of the game can be running at one time`，弹框抢走前台、后续操作全被拒。切语言或重启时先 `Stop-Process -Name dota2 -Force`，`Get-Process dota2` 查不到了再启动；拉回窗口只用点击，不调用 `open_application`。交接里照抄这一条
 - **只回报观察**：哪几行出现了、时间戳是多少、断在哪一步。诊断和改代码留给主会话
 - **开工先查端口**，没起的自己起——上一轮的后台进程不一定还活着
 - **不收尾**：关不关由主会话决定，见第 6 步

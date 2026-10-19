@@ -10,11 +10,12 @@ export const CROWN_GREY = 'file://{images}/custom_game/member/golden_crown_grey.
 export const AFDIAN_ICON = 'file://{images}/custom_game/afdian.png';
 export const KOFI_LOGO = 'file://{images}/custom_game/member/ko-fi-logo-small.png';
 export const STRIPE_LOGO = 'file://{images}/custom_game/member/stripe.png';
+// Panorama 的 Image 只给高度时按原图宽度显示，宽度按原图比例写死（原图高 36px，显示高 12px）
 export const STRIPE_PAY_LOGOS = [
-  'file://{images}/custom_game/member/pay/visa.png',
-  'file://{images}/custom_game/member/pay/mastercard.png',
-  'file://{images}/custom_game/member/pay/apple-pay.png',
-  'file://{images}/custom_game/member/pay/google-pay.png',
+  { src: 'file://{images}/custom_game/member/pay/visa.png', width: 37 },
+  { src: 'file://{images}/custom_game/member/pay/mastercard.png', width: 19 },
+  { src: 'file://{images}/custom_game/member/pay/apple-pay.png', width: 29 },
+  { src: 'file://{images}/custom_game/member/pay/google-pay.png', width: 32 },
 ];
 
 export type MemberSubTab = 'status' | 'subscribe' | 'points';

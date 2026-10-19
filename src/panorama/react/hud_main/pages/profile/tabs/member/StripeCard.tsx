@@ -23,9 +23,13 @@ function StripeCardShell({ children }: { children: React.ReactNode }) {
           recommended
         />
         <Panel className="stripe-pay-logos">
-          {STRIPE_PAY_LOGOS.map((src) => (
-            <Panel key={src} className="stripe-pay-logo-chip">
-              <Image className="stripe-pay-logo-img" src={src} />
+          {STRIPE_PAY_LOGOS.map((logo) => (
+            <Panel key={logo.src} className="stripe-pay-logo-chip">
+              <Image
+                className="stripe-pay-logo-img"
+                src={logo.src}
+                style={{ width: `${logo.width}px` }}
+              />
             </Panel>
           ))}
         </Panel>
