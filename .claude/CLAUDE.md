@@ -134,7 +134,7 @@ brainstorming 的 spec / 设计稿经用户确认后**不调用 writing-plans**�
 
 - 工作位置：当前 checkout 有没有其他未提交改动或进行中的分支，在 worktree 改还是在主目录改（Dota 只加载主目录的 `game/`，要实机验证就在主目录）
 - PR 拆分与上线顺序：跨仓库（`../firebase`）时各开什么 PR、谁先合并部署，后上线的一方先上时会不会出错
-- 实机验证：要不要在 Dota Tools 实机验证、PR 要不要截图。要截图或操作 Dota 窗口时，在这一步就把 Dota 起起来，`request_access` 授权 `dota2.exe`（进程要在运行；授权弹窗只有用户本人能点，用户确认后可能离开）
+- 实机验证：要不要在 Dota Tools 实机验证、PR 要不要截图。要截图或操作 Dota 窗口时，在这一步就把 Dota 起起来，`request_access` 授权 `dota2.exe` 与 `textinputhost.exe`（后者是常挡在前台的系统输入组件，见 `dota-live-test`；`dota2.exe` 进程要在运行；授权弹窗只有用户本人能点，用户确认后可能离开）
 - 分工：哪些部分派 SubAgent、各用什么 `model`（按「节约用量」表），哪些留在主对话
 - 留给用户确认的事项：列出来，写进 PR 的 Checklist
 
