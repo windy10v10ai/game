@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   GetLocalPlayerSteamAccountID,
   GetAfdianPointsUrl,
   GetPaymentPlatformOrder,
+  MEMBERSHIP_PAGE_URL,
   PaymentPlatform,
   KOFI_POINTS_URLS,
 } from '@utils/utils';
@@ -17,6 +18,7 @@ import {
   KOFI_LOGO,
   openUrl,
 } from './constants';
+import { StripePointsCard } from './StripeCard';
 
 interface PointsPageProps {
   refreshing: boolean;
@@ -31,7 +33,6 @@ const POINTS_AMOUNTS = [4000, 12500, 31000];
 export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
   const steamId = GetLocalPlayerSteamAccountID();
   const order = GetPaymentPlatformOrder();
-  const [expanded, setExpanded] = useState(false);
 
   const alipayItems: AlipayCardItem[] = ALIPAY_POINTS_TIERS.map((tier, i) => ({
     productCode: tier.productCode,
@@ -87,6 +88,7 @@ export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
         activateUrl={KOFI_ACTIVATE_URL}
       />
     ),
+    stripe: <StripePointsCard />,
   };
 
   return (
@@ -125,22 +127,15 @@ export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
       </Panel>
 
       <Panel className="member-platform-cards">
-        {order.map((key, i) => (
-          <Panel
-            key={key}
-            className="member-platform-slot"
-            style={{ visibility: i < 2 || expanded ? 'visible' : 'collapse' }}
-          >
+        {order.map((key) => (
+          <Panel key={key} className="member-platform-slot">
             {cards[key]}
           </Panel>
         ))}
       </Panel>
 
-      <Panel
-        className="member-other-payment-row"
-        style={{ visibility: expanded ? 'collapse' : 'visible' }}
-      >
-        <Button className="member-other-payment-btn" onactivate={() => setExpanded(true)}>
+      <Panel className="member-other-payment-row">
+        <Button className="member-other-payment-btn" onactivate={openUrl(MEMBERSHIP_PAGE_URL)}>
           <Label
             className="member-other-payment-label"
             text={$.Localize('#member_other_payment')}

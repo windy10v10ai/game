@@ -87,6 +87,7 @@ export function AlipaySubscribeCard({ items, nameKey, descKey }: AlipaySubscribe
         name={$.Localize(nameKey)}
         desc={$.Localize(descKey)}
         descClassName="platform-card-header-desc-alipay"
+        recommended
       />
 
       {!paying ? (

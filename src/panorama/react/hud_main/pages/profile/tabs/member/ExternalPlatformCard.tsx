@@ -13,7 +13,6 @@ interface ExternalPlatformCardProps {
   subscribeUrl: string;
   subscribePrice: string;
   subscribeUnitText: string;
-  shopUrl: string;
   activateUrl: string;
 }
 
@@ -30,39 +29,30 @@ export function ExternalPlatformCard({
   subscribeUrl,
   subscribePrice,
   subscribeUnitText,
-  shopUrl,
   activateUrl,
 }: ExternalPlatformCardProps) {
   return (
-    <Panel className={`member-platform-card ${variantClassName}`}>
-      <PlatformCardHeader logoSrc={logoSrc} name={name} desc={desc} descClassName={descClassName} />
-      <Button
-        className="member-platform-btn member-platform-btn-subscribe"
-        onactivate={openUrl(subscribeUrl)}
-      >
-        <Panel className="subscribe-price-row">
-          <Label
-            className="subscribe-price-main"
-            text={$.Localize('#member_platform_subscribe_btn') + subscribePrice}
-          />
-          <Label className="subscribe-price-unit" text={subscribeUnitText} />
-        </Panel>
-      </Button>
-      <Panel className="member-platform-divider">
-        <Label
-          className="member-platform-divider-label"
-          text={$.Localize('#member_shop_divider')}
+    <Panel className={`member-platform-card member-platform-card-layered ${variantClassName}`}>
+      <Panel className="member-platform-card-body">
+        <PlatformCardHeader
+          logoSrc={logoSrc}
+          name={name}
+          desc={desc}
+          descClassName={descClassName}
         />
+        <Button
+          className="member-platform-btn member-platform-btn-subscribe"
+          onactivate={openUrl(subscribeUrl)}
+        >
+          <Panel className="subscribe-price-row">
+            <Label
+              className="subscribe-price-main"
+              text={$.Localize('#member_platform_subscribe_btn') + subscribePrice}
+            />
+            <Label className="subscribe-price-unit" text={subscribeUnitText} />
+          </Panel>
+        </Button>
       </Panel>
-      <Button
-        className="member-platform-btn member-platform-btn-shop"
-        onactivate={openUrl(shopUrl)}
-      >
-        <Label
-          className="member-platform-btn-label member-platform-btn-label-ghost"
-          text={$.Localize('#member_shop_title')}
-        />
-      </Button>
       <ActivateRow activateUrl={activateUrl} />
     </Panel>
   );
