@@ -6252,7 +6252,6 @@
 		"precache"
 		{
 			"particle"	"particles/items2_fx/veil_of_discord.vpcf"
-			"particle"	"particles/items2_fx/veil_of_discord_debuff.vpcf"
 		}
 
 		"AbilityValues"
