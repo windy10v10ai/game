@@ -1764,7 +1764,7 @@
 		"AbilityTextureName" 			"magic_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"					"items/item_magic_scepter"
+		"ScriptFile"					"items/ts_items/item_magic_scepter"
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
@@ -1787,8 +1787,11 @@
 		{
 				"bonus_intelligence"		"60"	// tooltip, real value in item_magic_scepter_bonus_intelligence
 				"spell_amp_per_int"			"0.1"
-				"active_boost"				"50"
-				"active_boost_duration"		"4"
+				"active_boost"				"50"	// tooltip, real value in item_magic_scepter_active_boost
+				"active_duration"			"4"
+				// 慧光被动 modifier_item_kaya 按这两个键名取值
+				"spell_amp"					"18"
+				"mana_regen_multiplier"		"25"
 		}
 	}
 
@@ -1832,7 +1835,7 @@
 		"AbilityTextureName" 			"hallowed_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"					"items/item_hallowed_scepter"
+		"ScriptFile"					"items/ts_items/item_magic_scepter"
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
@@ -1855,8 +1858,11 @@
 		{
 				"bonus_intelligence"		"120"	// Tooltip, real value in item_hallowed_scepter_bonus_intelligence
 				"spell_amp_per_int"			"0.2"
-				"active_boost"				"100"
-				"active_boost_duration"		"4"
+				"active_boost"				"100"	// tooltip, real value in item_hallowed_scepter_active_boost
+				"active_duration"			"4"
+				// 慧光被动 modifier_item_kaya 按这两个键名取值
+				"spell_amp"					"24"
+				"mana_regen_multiplier"		"30"
 		}
 	}
 
@@ -2487,7 +2493,7 @@
 			"movement_speed_percent_bonus"	"40"
 			"status_resistance"				"46"
 			"hp_regen_amp"					"80"
-			"mana_regen_multiplier"			"120"
+			"mana_regen_multiplier"			"100"
 			"spell_amp"						"50"
 			"magic_damage_attack"			"100"
 
@@ -5365,7 +5371,7 @@
 				"bonus_strength"		"60"
 				"bonus_intellect"			"60"
 				"slow_resistance"			"50"	// 25
-				"mana_regen_multiplier"		"60"	// 30
+				"mana_regen_multiplier"		"50"	// 30
 				"spell_amp"				"25"		// 12
 				"hp_regen_amp"			"40"		// 20
 				"manacost_reduction"	"40"		// 25
@@ -5437,7 +5443,7 @@
 				"bonus_agility"			"60"
 				"bonus_intellect"		"60"
 				"bonus_attack_speed"	"40" // 20
-				"mana_regen_multiplier"	"60" // 30
+				"mana_regen_multiplier"	"50" // 30
 				"movement_speed_percent_bonus"	"25" // 12
 				"spell_amp"				"25" // 12
 				"cast_speed_pct"		"50" // 25
@@ -6223,96 +6229,48 @@
 		"ItemResult"				"item_magic_crit_blade"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_devastator_2;item_veil_of_discord_2;item_fusion_brutal"
+			"01"					"item_hallowed_scepter;item_force_staff_3;item_veil_of_discord_2;item_fusion_brutal"
 		}
 	}
 
 	"item_magic_crit_blade"
 	{
-		"BaseClass"					"item_datadriven"
+		"BaseClass"					"item_lua"
 		"ID"						"10438"
 		"AbilityTextureName"		"molongkuangwu"
-		"ScriptFile"				"items/item_magic_crit_blade"
+		"ScriptFile"				"items/ts_items/item_magic_scepter"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"			"4"
+		"AbilityCooldown"			"60"
 		"AbilityManaCost"			"1200"
 		"AbilitySharedCooldown"		"magic_scepter"
 
-		"ItemCost"					"43800"
+		"ItemCost"					"37000"
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
+		"precache"
+		{
+			"particle"	"particles/items2_fx/veil_of_discord.vpcf"
+		}
+
 		"AbilityValues"
 		{
-			// Lua 逻辑需要 - 法术增强计算(动态)
+			"bonus_intelligence"		"180"	// tooltip, real value in item_magic_crit_blade_bonus_intelligence
 			"spell_amp_per_int"			"0.3"
+			// 慧光被动 modifier_item_kaya 按这两个键名取值
+			"spell_amp"					"40"
+			"mana_regen_multiplier"		"40"
 
-			// 主动技能 - 龙息爆发
-			"active_cooldown"			"60"
+			// 主动：龙息爆发
 			"active_duration"			"4"
 			"spell_amp_multiplier"		"2"
+			"active_radius"				"1200"
+			"active_mres_reduction"		"25"	// tooltip, real value in item_magic_crit_blade_mres_reduction
 
-			// 神圣斧
-			"bonus_intellect"			"200"
-			"bonus_attack_speed"		"80"
-			"bonus_armor"				"14"
-			// 巫师之刃 + 魔蚀 modifier
-			"projectile_speed"			"300"
-			"int_damage_multiplier"		"1.2"
-			"slow"						"50"
-			"slow_duration"				"4"
-			"active_mres_reduction"		"40"
-			"passive_cooldown"			"4"
-
-			// 法术暴击 modifier
+			// 法术暴击
 			"spell_crit_chance"			"30"
 			"spell_crit_multiplier"		"180"
-		}
-
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/item_magic_crit_blade"
-				"Function"		"MagicCritBladeOnSpellStart"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_item_magic_crit_blade"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"RemoveOnDeath"		"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_magic_crit_blade"
-						"Function"		"MagicCritBladeOnCreated"
-					}
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_magic_crit_blade"
-						"Function"		"MagicCritBladeOnDestroy"
-					}
-				}
-			}
 		}
 	}
 
