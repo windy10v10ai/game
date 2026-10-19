@@ -455,6 +455,8 @@
 		"member_alipay_discount_fmt"		"Скидка {n}%"
 		"member_alipay_tier_month_fmt"		"{n} мес."
 		"member_alipay_tier_year_fmt"		"{n} г."
+		"member_alipay_tier_month_one"		"1 мес."
+		"member_alipay_tier_year_one"		"1 г."
 		"member_points_title"			"Купить очки подписки"
 		"member_points_usage_hint"		"Очки подписки повышают её уровень и усиливают атрибуты героя."
 		"member_points_amount_fmt"		"{n} очков"

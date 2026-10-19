@@ -30,6 +30,15 @@ export const KOFI_ACTIVATE_URL = `${WEBSITE_URL}/regist/kofi`;
 
 export const openUrl = (url: string) => () => $.DispatchEvent('ExternalBrowserGoToURL', url);
 
+/** 订阅档位的时长文字（「3 个月」「1 年」），支付宝与 Stripe 卡共用；数量为 1 单独取文案，英文才有单复数 */
+export function formatTierDuration(months: number): string {
+  const [n, unit] = months % 12 === 0 ? [months / 12, 'year'] : [months, 'month'];
+  if (n === 1) {
+    return $.Localize(`#member_alipay_tier_${unit}_one`);
+  }
+  return $.Localize(`#member_alipay_tier_${unit}_fmt`).replace('{n}', String(n));
+}
+
 // ============================================================
 // 会员订阅平台 / 商品配置
 // ============================================================

@@ -1,12 +1,11 @@
 import React from 'react';
 import { STRIPE_MEMBERSHIP_URL } from '@utils/utils';
-import { openUrl } from './constants';
+import { formatTierDuration, openUrl } from './constants';
 import {
   STRIPE_LOGO,
   STRIPE_MEMBER_TIERS,
   STRIPE_PAY_LOGOS,
   STRIPE_POINTS_TIERS,
-  StripeMemberTier,
   StripePointsTier,
 } from './constants';
 import { PlatformCardHeader } from './PlatformCardHeader';
@@ -70,11 +69,6 @@ function StripeTierButton({
   );
 }
 
-const tierSubLabel = (tier: StripeMemberTier) =>
-  tier.months % 12 === 0
-    ? $.Localize('#member_alipay_tier_year_fmt').replace('{n}', String(tier.months / 12))
-    : $.Localize('#member_alipay_tier_month_fmt').replace('{n}', String(tier.months));
-
 /** 订阅页 Stripe 卡：4 个档位按钮，均跳同一网站链接，不在游戏内下单 */
 export function StripeSubscribeCard() {
   return (
@@ -84,7 +78,7 @@ export function StripeSubscribeCard() {
           <StripeTierButton
             key={tier.months}
             main={`$${tier.pricePerMonth} ${$.Localize('#member_platform_subscribe_month')}`}
-            sub={tierSubLabel(tier)}
+            sub={formatTierDuration(tier.months)}
             discount={
               tier.discountPercent > 0
                 ? $.Localize('#member_alipay_discount_fmt').replace(

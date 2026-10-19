@@ -455,6 +455,8 @@
 		"member_alipay_discount_fmt"		"Save {n}%"
 		"member_alipay_tier_month_fmt"		"{n} Months"
 		"member_alipay_tier_year_fmt"		"{n} Years"
+		"member_alipay_tier_month_one"		"1 Month"
+		"member_alipay_tier_year_one"		"1 Year"
 		"member_points_title"			"Buy Membership Points"
 		"member_points_usage_hint"		"Membership points are used to raise your membership level and boost your hero attributes."
 		"member_points_amount_fmt"		"{n} Points"

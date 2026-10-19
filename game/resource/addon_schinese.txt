@@ -455,6 +455,8 @@
 		"member_alipay_discount_fmt"		"省{n}%"
 		"member_alipay_tier_month_fmt"		"{n}个月"
 		"member_alipay_tier_year_fmt"		"{n}年"
+		"member_alipay_tier_month_one"		"1个月"
+		"member_alipay_tier_year_one"		"1年"
 		"member_points_title"			"购买会员积分"
 		"member_points_usage_hint"		"会员积分可用于提升会员等级，升级玩家属性。"
 		"member_points_amount_fmt"		"{n} 积分"

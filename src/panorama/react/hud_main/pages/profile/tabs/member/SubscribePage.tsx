@@ -10,6 +10,7 @@ import {
   AFDIAN_ACTIVATE_URL,
   AFDIAN_ICON,
   CROWN_GOLD,
+  formatTierDuration,
   GetAfdianSubscribeUrl,
   KOFI_ACTIVATE_URL,
   KOFI_LOGO,
@@ -38,10 +39,7 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
     quantity: tier.quantity,
     priceMain: `¥${tier.pricePerMonth}`,
     unitText: $.Localize('#member_platform_subscribe_month'),
-    subLabel:
-      tier.quantity % 12 === 0
-        ? $.Localize('#member_alipay_tier_year_fmt').replace('{n}', String(tier.quantity / 12))
-        : $.Localize('#member_alipay_tier_month_fmt').replace('{n}', String(tier.quantity)),
+    subLabel: formatTierDuration(tier.quantity),
     discountLabel:
       tier.discountPercent > 0
         ? $.Localize('#member_alipay_discount_fmt').replace('{n}', String(tier.discountPercent))
