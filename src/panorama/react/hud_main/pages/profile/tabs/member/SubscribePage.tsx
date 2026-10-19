@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   GetLocalPlayerSteamAccountID,
   GetPaymentPlatformOrder,
+  MEMBERSHIP_PAGE_URL,
   PaymentPlatform,
 } from '@utils/utils';
 import { AlipayCardItem, AlipaySubscribeCard } from './alipay';
 import {
   AFDIAN_ACTIVATE_URL,
   AFDIAN_ICON,
-  AFDIAN_SHOP_URL,
   CROWN_GOLD,
   GetAfdianSubscribeUrl,
   KOFI_ACTIVATE_URL,
   KOFI_LOGO,
-  KOFI_SHOP_URL,
   KOFI_SUBSCRIBE_URL,
   MembershipPlatform,
   MEMBERSHIP_PLATFORMS,
+  openUrl,
 } from './constants';
 import { ExternalPlatformCard } from './ExternalPlatformCard';
+import { StripeSubscribeCard } from './StripeCard';
 
 interface SubscribePageProps {
   isNormalOnly: boolean; // 仅普通会员（非高级），显示折算说明
@@ -31,7 +32,6 @@ const defaultTier = (platform: MembershipPlatform) => MEMBERSHIP_PLATFORMS[platf
 export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: SubscribePageProps) {
   const steamId = GetLocalPlayerSteamAccountID();
   const order = GetPaymentPlatformOrder();
-  const [expanded, setExpanded] = useState(false);
 
   const alipayItems: AlipayCardItem[] = MEMBERSHIP_PLATFORMS.alipay.tiers.map((tier) => ({
     productCode: MEMBERSHIP_PLATFORMS.alipay.productCode!,
@@ -67,7 +67,6 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
         subscribeUrl={GetAfdianSubscribeUrl()}
         subscribePrice={`¥${defaultTier('afdian').price}`}
         subscribeUnitText={$.Localize('#member_platform_subscribe_month')}
-        shopUrl={AFDIAN_SHOP_URL}
         activateUrl={AFDIAN_ACTIVATE_URL}
       />
     ),
@@ -81,10 +80,10 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
         subscribeUrl={KOFI_SUBSCRIBE_URL}
         subscribePrice={`$${defaultTier('kofi').price}`}
         subscribeUnitText={$.Localize('#member_platform_subscribe_month')}
-        shopUrl={KOFI_SHOP_URL}
         activateUrl={KOFI_ACTIVATE_URL}
       />
     ),
+    stripe: <StripeSubscribeCard />,
   };
 
   return (
@@ -131,25 +130,18 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
         </Button>
       </Panel>
 
-      {/* 按语言顺序渲染三张卡，第 3 张默认折叠 */}
+      {/* 按语言展示两张卡（简中：支付宝+爱发电；其他语言：Stripe+Ko-fi），其余平台交给网站 */}
       <Panel className="member-platform-cards">
-        {order.map((key, i) => (
-          <Panel
-            key={key}
-            className="member-platform-slot"
-            style={{ visibility: i < 2 || expanded ? 'visible' : 'collapse' }}
-          >
+        {order.map((key) => (
+          <Panel key={key} className="member-platform-slot">
             {cards[key]}
           </Panel>
         ))}
       </Panel>
 
-      {/* 其他支付方式：展开第 3 张，展开后按钮消失 */}
-      <Panel
-        className="member-other-payment-row"
-        style={{ visibility: expanded ? 'collapse' : 'visible' }}
-      >
-        <Button className="member-other-payment-btn" onactivate={() => setExpanded(true)}>
+      {/* 其他支付方式：跳网站会员页，由网站按自己的语言选默认标签 */}
+      <Panel className="member-other-payment-row">
+        <Button className="member-other-payment-btn" onactivate={openUrl(MEMBERSHIP_PAGE_URL)}>
           <Label
             className="member-other-payment-label"
             text={$.Localize('#member_other_payment')}

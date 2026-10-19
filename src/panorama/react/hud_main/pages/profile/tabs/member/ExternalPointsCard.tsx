@@ -29,20 +29,27 @@ export function ExternalPointsCard({
   activateUrl,
 }: ExternalPointsCardProps) {
   return (
-    <Panel className={`member-platform-card ${variantClassName}`}>
-      <PlatformCardHeader logoSrc={logoSrc} name={name} desc={desc} descClassName={descClassName} />
-      {buttons.map((btn, i) => (
-        <Button
-          key={i}
-          className="member-platform-btn member-platform-btn-subscribe points-external-btn"
-          onactivate={btn.onClick}
-        >
-          <Panel className="subscribe-price-row">
-            <Label className="subscribe-price-main" text={btn.label} />
-            <Label className="subscribe-price-unit" text={btn.price} />
-          </Panel>
-        </Button>
-      ))}
+    <Panel className={`member-platform-card member-platform-card-layered ${variantClassName}`}>
+      <Panel className="member-platform-card-body">
+        <PlatformCardHeader
+          logoSrc={logoSrc}
+          name={name}
+          desc={desc}
+          descClassName={descClassName}
+        />
+        {buttons.map((btn, i) => (
+          <Button
+            key={i}
+            className="member-platform-btn member-platform-btn-subscribe points-external-btn"
+            onactivate={btn.onClick}
+          >
+            <Panel className="subscribe-price-row">
+              <Label className="subscribe-price-main" text={btn.label} />
+              <Label className="subscribe-price-unit" text={btn.price} />
+            </Panel>
+          </Button>
+        ))}
+      </Panel>
       <ActivateRow activateUrl={activateUrl} />
     </Panel>
   );

@@ -63,20 +63,24 @@ export const KOFI_POINTS_URLS = [
 ];
 
 export const KOFI_SUBSCRIBE_URL = 'https://ko-fi.com/post/Membership-Z8Z01CDJLU';
-export const AFDIAN_SHOP_URL = 'https://ifdian.net/a/windy10v10ai?tab=shop';
-export const KOFI_SHOP_URL = 'https://ko-fi.com/windy10v10ai/shop';
 
-export type PaymentPlatform = 'alipay' | 'afdian' | 'kofi';
+export type PaymentPlatform = 'alipay' | 'afdian' | 'kofi' | 'stripe';
+
+/** 网站会员页；「其他支付方式」跳这里，不带参数，由网站按自己的语言选默认标签 */
+export const MEMBERSHIP_PAGE_URL = `${WEBSITE_URL}/membership`;
+/** Stripe 档位按钮与卡片底部链接统一跳这里，网站按参数直接选中 Stripe 标签 */
+export const STRIPE_MEMBERSHIP_URL = `${MEMBERSHIP_PAGE_URL}?platform=stripe`;
 
 /**
- * 支付方式展示顺序：简体中文玩家优先支付宝（折扣最大且仅限国内），
- * 其他语言优先 Ko-fi。数组首两项默认展示，第 3 项折叠。
+ * 支付方式展示顺序：游戏内只展示两张卡，其余平台统一交给网站。
+ * 简体中文优先支付宝（折扣最大且仅限国内）+ 爱发电；其他语言（含繁中、日文等）优先自动到账的
+ * Stripe + Ko-fi。推荐的平台排在前面。
  */
 export function GetPaymentPlatformOrder(): PaymentPlatform[] {
   if ($.Language() === 'schinese') {
-    return ['alipay', 'afdian', 'kofi'];
+    return ['alipay', 'afdian'];
   }
-  return ['kofi', 'afdian', 'alipay'];
+  return ['stripe', 'kofi'];
 }
 
 /**

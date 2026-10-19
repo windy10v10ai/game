@@ -286,8 +286,7 @@
   height: fit-children;
 }
 
-/* 卡片外层 slot：承载 fill-parent-flow 均分与右边距，
-   collapse 时脱流让剩余两张各占一半 */
+/* 卡片外层 slot：承载 fill-parent-flow 均分与右边距 */
 .member-platform-slot {
   width: fill-parent-flow(1);
   height: fit-children;
@@ -298,15 +297,33 @@
   }
 }
 
-/* 单个平台 card */
+/* 单个平台 card。Panorama 没有 flex stretch，父子高度互相引用（fit-children 配 100%）会塌成 0；
+   两张卡靠同一个 min-height 等高，它要装得下最高的四档位卡 */
 .member-platform-card {
   .stats-card;
   width: 100%;
   height: fit-children;
-  min-height: 60%;
+  min-height: 380px;
   flow-children: down;
   padding: 16px 14px;
   horizontal-align: center;
+}
+
+/* 带底部行的卡片分两层：内容层从上往下排，底部行（手动激活 / Stripe 网站链接）贴右下角 */
+.member-platform-card-layered {
+  flow-children: none;
+}
+
+.member-platform-card-body {
+  width: 100%;
+  height: fit-children;
+  flow-children: down;
+  margin-bottom: 28px;
+}
+
+.member-platform-card-layered .member-platform-activate-row {
+  vertical-align: bottom;
+  margin-top: 0px;
 }
 
 /* 「其他支付方式」按钮：卡片容器下方独立一行，右对齐 */
@@ -345,6 +362,14 @@
   border-color: #29abe0;
 }
 
+.member-platform-card-stripe {
+  border-color: #635bff;
+}
+
+.platform-card-header-desc-stripe {
+  color: #a9a5ff;
+}
+
 /* 平台图标（旧样式，保留兼容） */
 .member-platform-logo {
   width: 50px;
@@ -375,12 +400,36 @@
   vertical-align: center;
 }
 
+.platform-card-header-name-row {
+  flow-children: right;
+  vertical-align: center;
+}
+
 .platform-card-header-name {
   horizontal-align: left;
   text-align: left;
   font-size: @font-size-md;
   font-weight: bold;
   color: @color-text;
+  vertical-align: center;
+}
+
+/* 「推荐」角标：样式与觉醒限免角标一致（半透明黑底 + 绿描边 + 绿字），
+   支付宝卡与 Stripe 卡共用 */
+.platform-recommended-badge {
+  vertical-align: center;
+  margin-left: 6px;
+  padding: 1px 5px;
+  background-color: #00000099;
+  border: 1px solid @color-safe;
+  border-radius: @radius-sm;
+}
+
+.platform-recommended-badge-label {
+  font-size: @font-size-xs;
+  font-weight: bold;
+  color: @color-safe;
+  text-shadow: 1px 1px 3px #000000ee;
 }
 
 .platform-card-header-desc {
@@ -459,13 +508,6 @@
   vertical-align: center;
 }
 
-.member-platform-btn-shop {
-  margin-top: 8px;
-  margin-bottom: 8px;
-  background-color: #00000000;
-  border: 1px solid @color-text-muted;
-}
-
 .member-platform-btn-label {
   horizontal-align: center;
   vertical-align: center;
@@ -479,24 +521,6 @@
   color: @color-text-muted;
   font-size: @font-size-sm;
   font-weight: normal;
-}
-
-/* 积分分隔线 */
-.member-platform-divider {
-  width: 100%;
-  flow-children: right;
-  margin: 12px 0px 8px;
-  border-top: 1px solid #ffffff11;
-  padding-top: 6px;
-}
-
-.member-platform-divider-label {
-  font-size: @font-size-sm;
-  color: @color-text-muted;
-  horizontal-align: center;
-  width: 100%;
-  text-align: center;
-  opacity: 0.6;
 }
 
 /* 手动激活行（链接 + ? 图标） */
@@ -525,5 +549,73 @@
   opacity: 0.5;
   &:hover {
     opacity: 1;
+  }
+}
+
+/* ============================================================
+   Stripe 卡片：支付方式小图标行 + 档位按钮列表
+   ============================================================ */
+
+.stripe-pay-logos {
+  flow-children: right;
+  horizontal-align: left;
+  margin-bottom: 10px;
+}
+
+.stripe-pay-logo-chip {
+  width: fit-children;
+  height: 18px;
+  padding: 0px 5px;
+  background-color: #ffffff;
+  border-radius: @radius-sm;
+  vertical-align: center;
+  margin-right: 5px;
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+
+.stripe-pay-logo-img {
+  height: 12px;
+  vertical-align: center;
+  horizontal-align: center;
+}
+
+/* 档位按钮列表与按钮内容复用支付宝卡的两行结构（主行价格 + 副行月份/折扣），
+   嵌套在 .member-platform-card-stripe 下保证特异度覆盖基类 */
+.member-platform-card.member-platform-card-stripe {
+  .stripe-tier-list {
+    flow-children: down;
+    width: 100%;
+  }
+
+  .stripe-tier-btn {
+    height: 48px;
+    width: fit-children;
+  }
+
+  .stripe-tier-btn-content {
+    flow-children: down;
+    horizontal-align: center;
+    vertical-align: center;
+  }
+
+  .stripe-tier-sub-row {
+    flow-children: right;
+    horizontal-align: center;
+    margin-top: 2px;
+  }
+
+  .stripe-tier-month {
+    font-size: @font-size-sm;
+    color: @color-text-muted;
+    vertical-align: center;
+  }
+
+  .stripe-tier-discount {
+    font-size: @font-size-sm;
+    color: #ff7043;
+    vertical-align: center;
+    margin-left: 6px;
   }
 }

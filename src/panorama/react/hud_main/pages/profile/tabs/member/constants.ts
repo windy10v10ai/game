@@ -1,10 +1,4 @@
-import {
-  AFDIAN_SHOP_URL,
-  GetAfdianSubscribeUrl,
-  KOFI_SHOP_URL,
-  KOFI_SUBSCRIBE_URL,
-  WEBSITE_URL,
-} from '@utils/utils';
+import { GetAfdianSubscribeUrl, KOFI_SUBSCRIBE_URL, WEBSITE_URL } from '@utils/utils';
 
 export const enum MemberLevel {
   NORMAL = 1,
@@ -15,6 +9,13 @@ export const CROWN_GOLD = 'file://{images}/custom_game/member/golden_crown.png';
 export const CROWN_GREY = 'file://{images}/custom_game/member/golden_crown_grey.png';
 export const AFDIAN_ICON = 'file://{images}/custom_game/afdian.png';
 export const KOFI_LOGO = 'file://{images}/custom_game/member/ko-fi-logo-small.png';
+export const STRIPE_LOGO = 'file://{images}/custom_game/member/stripe.png';
+export const STRIPE_PAY_LOGOS = [
+  'file://{images}/custom_game/member/pay/visa.png',
+  'file://{images}/custom_game/member/pay/mastercard.png',
+  'file://{images}/custom_game/member/pay/apple-pay.png',
+  'file://{images}/custom_game/member/pay/google-pay.png',
+];
 
 export type MemberSubTab = 'status' | 'subscribe' | 'points';
 
@@ -101,4 +102,35 @@ export const ALIPAY_POINTS_TIERS: AlipayPointsTier[] = [
   { productCode: AlipayProductCode.POINTS_TIER3, points: 31000, price: '568.00', savedAmount: 80 },
 ];
 
-export { AFDIAN_SHOP_URL, GetAfdianSubscribeUrl, KOFI_SHOP_URL, KOFI_SUBSCRIBE_URL };
+// ============================================================
+// Stripe（外链，游戏内无支付流程，所有按钮跳同一网站链接）
+// ============================================================
+
+/** 与 firebase 仓库 web/config/membership.ts 的 STRIPE_MEMBER_TIERS 保持一致 */
+export interface StripeMemberTier {
+  months: number;
+  pricePerMonth: string;
+  discountPercent: number;
+}
+
+export const STRIPE_MEMBER_TIERS: StripeMemberTier[] = [
+  { months: 1, pricePerMonth: '4.00', discountPercent: 0 },
+  { months: 3, pricePerMonth: '3.83', discountPercent: 4 },
+  { months: 12, pricePerMonth: '3.58', discountPercent: 10 },
+  { months: 36, pricePerMonth: '3.39', discountPercent: 15 },
+];
+
+/** 与 firebase 仓库 web/config/membership.ts 的 POINTS_TIERS 保持一致；savedAmount 按 Ko-fi 原价算 */
+export interface StripePointsTier {
+  points: number;
+  price: string;
+  savedAmount: number;
+}
+
+export const STRIPE_POINTS_TIERS: StripePointsTier[] = [
+  { points: 4000, price: '10.99', savedAmount: 1 },
+  { points: 12500, price: '33.99', savedAmount: 3 },
+  { points: 31000, price: '80.99', savedAmount: 9 },
+];
+
+export { GetAfdianSubscribeUrl, KOFI_SUBSCRIBE_URL };
