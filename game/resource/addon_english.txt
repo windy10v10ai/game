@@ -2675,7 +2675,7 @@
 		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_health"				"+$health"
 		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_mana"					"+$mana"
 
-		// consecrated_wraps_2 炽天使的圣化圣衣
+		// consecrated_wraps_2 神器·急支糖衣
 		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"								"<font color='#e03e2e'>Artifact: Syrup-Coated Wraps</font>"
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"					"<h1>Passive: Hallowed</h1> Gain a charge every %AbilityChargeRestoreTime%s, up to a maximum of %AbilityCharges% charges. Upon gaining a charge, your movement speed is increased by %movement_speed_pct_on_stack_gain%%% for %duration%s.<br><br>Whenever you take damage from a player-controlled source or Roshan, consume all charges to gain an all damage barrier for %duration%s that absorbs %barrier_per_stack% damage per charge (%max_barrier_tooltip% max)."
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"						"Charges cannot be gained for %AbilityChargeRestoreTime%s after you take damage from a player-controlled source or Roshan."

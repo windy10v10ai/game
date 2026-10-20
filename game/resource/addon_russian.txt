@@ -1201,7 +1201,7 @@
 		//			物品 Items
 		//
 		///////////////////////////////////////////////////
-		// consecrated_wraps_2 炽天使的圣化圣衣
+		// consecrated_wraps_2 神器·急支糖衣
 		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"								"<font color='#e03e2e'>Артефакт: Обмотки в сиропе</font>"
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"					"<h1>Пассивное: Hallowed</h1> Каждые %AbilityChargeRestoreTime% сек. владелец получает один заряд этой способности, а его скорость передвижения на %duration% сек. увеличивается на %movement_speed_pct_on_stack_gain%%%. Максимум зарядов: %AbilityCharges%.<br><br>Когда владелец получает урон от подконтрольного игроку существа или Рошана, все заряды расходуются, и на %duration% сек. даётся барьер от всех типов урона, имеющий %barrier_per_stack% здоровья за заряд (максимум — %max_barrier_tooltip%)."
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"						"Получение зарядов прекращается на %AbilityChargeRestoreTime% сек. после получения урона от подконтрольного игрокам существа или Рошана."
