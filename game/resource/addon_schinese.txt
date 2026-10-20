@@ -3515,7 +3515,7 @@
 
 		// item_magic_crit_blade 魔龙狂舞
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"											"<font color='#A74ABD'>魔龙狂舞</font>"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"								"<h1><font color='#A74ABD'>主动：龙息爆发</font></h1>%active_duration%秒内，智力提供<font color='#C450E5'>%spell_amp_multiplier%倍技能增强</font>，并使%active_radius%范围内的敌人魔法抗性降低%active_mres_reduction%%%（减法叠加）。\n<h1>被动：技能增强</h1>每点智力获得%spell_amp_per_int%%%技能增强。\n<h1><font color='#0096FF'>被动：法术暴击</font></h1>对敌方单位造成魔法或纯粹伤害时，有%spell_crit_chance%%%几率触发暴击，造成%spell_crit_multiplier%%%伤害。"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"								"<h1><font color='#A74ABD'>主动：龙息爆发</font></h1>%active_duration%秒内，智力提供<font color='#C450E5'>%spell_amp_multiplier%倍技能增强</font>，并使%active_radius%范围内的敌人魔法抗性降低%active_mres_reduction%%%。\n<h1>被动：技能增强</h1>每点智力获得%spell_amp_per_int%%%技能增强。\n<h1><font color='#0096FF'>被动：法术暴击</font></h1>对敌方单位造成魔法或纯粹伤害时，有%spell_crit_chance%%%几率触发暴击，造成%spell_crit_multiplier%%%伤害。"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"										"魔龙狂舞，焚天灭地。魔焰龙息席卷万物，法术爆发摧枯拉朽。"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intelligence"						"+$int"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp"								"%+技能增强"
