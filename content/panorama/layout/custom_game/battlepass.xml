@@ -159,7 +159,8 @@
 					<Panel id="PropertyWebsitePanel">
 						<Label class="WebsiteNoticeText" text="#website_local_host_notice" />
 						<Button id="PropertyWebsiteButton" class="WebsiteButton activated-web">
-							<Label class="ButtonText" text="#website_open_property_button" />
+							<Label class="WebsiteButtonText" text="#website_open_property_button" />
+							<Image class="WebsiteButtonIcon" src="file://{images}/custom_game/member/external-link.png" />
 						</Button>
 					</Panel>
 					<Panel id="BpPropertiesButtons">

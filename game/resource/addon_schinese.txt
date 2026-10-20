@@ -101,10 +101,10 @@
 
 		// 网站
 		"local_host_feature_unsupported_hint"		"为保护账号数据安全，游戏内无法进行该操作，点击前往网站操作。"
-		"website_local_host_notice"		"游戏内无法加点、重置属性或觉醒，为了保护玩家数据安全，请前往网站用 Steam 登录后操作。在线模式下一局生效，离线模式下次地图更新后生效。"
+		"website_local_host_notice"		"属性加点和觉醒请在网站完成，点击刷新后生效。"
 		"website_open_button"				"前往网站"
-		"website_open_property_button"		"前往网站操作"
-		"website_open_awaken_button"		"前往网站觉醒"
+		"website_open_property_button"		"前往网站"
+		"website_open_awaken_button"		"网站觉醒"
 		"player_info_refresh"				"刷新"
 
 		// 相关链接
@@ -342,9 +342,9 @@
 
 		// 觉醒
 		"awaken_intro_title"				"觉醒石"
-		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态，仅本局对局内生效。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。"
+		"awaken_intro_desc"				"开宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，本局内把一个技能变为觉醒形态。<br>击杀肉山或多开宝箱几率更高。"
 		"awaken_unlock_intro_title"			"永久觉醒"
-		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>指定英雄</font>：消耗 <font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>可用勇士积分</font>，或 <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>可用会员积分</font>，永久觉醒指定英雄。<br><font color='#FFD24A'>随机抽选</font>：积分减半，消耗 <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>可用勇士积分</font>，或 <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>可用会员积分</font>，从随机 3 个候选英雄中选 1 个觉醒。<br>消耗的只是可用积分：可用积分会减少，但累计积分只增不减，勇士/会员等级与属性点不受影响。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
+		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>指定英雄</font>：<font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>可用勇士积分</font>或 <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>可用会员积分</font><br><font color='#FFD24A'>随机 3 选 1</font>：价格减半<br>只扣可用积分，等级不受影响。觉醒永久有效，详见网站。"
 		"awaken_unlock_button"				"觉醒"
 		"awaken_unlocked_label"				"已觉醒"
 		"awaken_free_trial_badge"			"限免"

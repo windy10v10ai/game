@@ -7,6 +7,7 @@ import { AwakenHeroCard } from './AwakenHeroCard';
 import { AwakenRandomCard } from './AwakenRandomCard';
 import { AwakenRandomCandidatesDialog } from './AwakenRandomCandidatesDialog';
 import { AwakenUnlockConfirmDialog } from './AwakenUnlockConfirmDialog';
+import { EXTERNAL_LINK_ICON } from './member/constants';
 
 /**
  * 觉醒 Tab：觉醒技能预览墙 + 积分解锁入口。
@@ -295,11 +296,13 @@ export function AwakenTab() {
               className="awaken-website-notice-text"
               text={$.Localize('#website_local_host_notice')}
             />
-            <PrimaryButton
-              className="awaken-website-btn"
-              label={$.Localize('#website_open_awaken_button')}
-              onClick={openAwakenWebsite}
-            />
+            <Button className="awaken-website-btn" onactivate={openAwakenWebsite}>
+              <Label
+                className="awaken-website-btn-label"
+                text={$.Localize('#website_open_awaken_button')}
+              />
+              <Image className="awaken-website-btn-icon" src={EXTERNAL_LINK_ICON} />
+            </Button>
           </Panel>
         )}
         <Panel className="awaken-intro">
