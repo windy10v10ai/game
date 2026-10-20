@@ -101,9 +101,9 @@
 
 		// 网站
 		"local_host_feature_unsupported_hint"		"To keep account data safe, this cannot be done in game. Click to do it on the website."
-		"website_local_host_notice"		"Attribute points, attribute resets, and awakening cannot be done in game. To protect player data, sign in with Steam on the website to do it. Changes apply next game in online mode, or after the next map update in offline mode."
+		"website_local_host_notice"		"Manage attributes and awakening on the website, then click Refresh to apply."
 		"website_open_button"				"Open Website"
-		"website_open_property_button"		"Manage on Website"
+		"website_open_property_button"		"Open Website"
 		"website_open_awaken_button"		"Awaken on Website"
 		"player_info_refresh"				"Refresh"
 
@@ -342,9 +342,9 @@
 
 		// 觉醒
 		"awaken_intro_title"				"Awakening Stone"
-		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form for this match only.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one."
+		"awaken_intro_desc"				"Chests may drop an <font color='#FFD24A'>Awaken Stone</font>, which awakens one ability for this match.<br>Killing Roshan or opening more chests raises the chance."
 		"awaken_unlock_intro_title"			"Permanent Awaken"
-		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Specific Hero</font>: spend <font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>usable Member Points</font>, to permanently awaken a chosen hero.<br><font color='#FFD24A'>Random Draw</font>: half price, spend <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>usable Member Points</font>, to awaken one of 3 randomly drawn heroes.<br>Only spends usable points: usable points go down, but total points only ever go up and never lower your Battle/Member Level or attribute points. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked later, the hero's awakening still applies."
+		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Specific Hero</font>: <font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>usable Battle Points</font> or <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>usable Member Points</font><br><font color='#FFD24A'>Random 1 of 3</font>: half price<br>Only usable points are spent, levels stay. Awakening is permanent, see the website for details."
 		"awaken_unlock_button"				"Awaken"
 		"awaken_unlocked_label"				"Awakened"
 		"awaken_free_trial_badge"			"FREE"
