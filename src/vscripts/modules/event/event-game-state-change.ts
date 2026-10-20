@@ -136,8 +136,7 @@ export class EventGameStateChange {
   }
 
   private OnGameInProgress(): void {
-    // 记录游戏开始时间用于 GA4 统计
-    GA4.RecordGameStartTime();
+    GA4.FetchCountryCode();
     LagTelemetry.Start();
     HeroItemUsage.Start();
     // 初始化 bot 团队调度，挂载到 GameRules.AI 供英雄 AI 访问

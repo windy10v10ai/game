@@ -1,5 +1,4 @@
 import { registerAbilitySpecs } from '../../ai/ability/specs';
-import { GA4 } from '../../api/analytics/ga4/ga4';
 import { reloadable } from '../../utils/tstl-utils';
 import { GameEnd } from '../event/game-end/game-end';
 import { ModifierHelper } from '../helper/modifier-helper';
@@ -104,9 +103,6 @@ export class Debug {
       this.log(`Time: ${Time()}`);
       this.log(`GameTime: ${GameRules.GetGameTime()}`);
       this.log(`GetDOTATime: ${GameRules.GetDOTATime(false, true)}`);
-      GA4.FetchCurrentTime((timestamp) => {
-        this.log(`FetchCurrentTime: ${timestamp}`);
-      });
     }
 
     if (cmd === CMD.G) {
