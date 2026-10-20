@@ -151,7 +151,6 @@
 							<Label text="#fixed_ability_ability_trigger_on_spell_reflect_name" id="ability_trigger_on_spell_reflect" />
 							<Label text="#DOTA_Tooltip_ability_slardar_bash" id="slardar_bash" />
 							<Label text="#DOTA_Tooltip_ability_phantom_assassin_coup_de_grace" id="phantom_assassin_coup_de_grace" />
-							<Label text="#DOTA_Tooltip_ability_batrider_smoldering_resin2" id="batrider_smoldering_resin2" />
 							<Label text="#DOTA_Tooltip_ability_muerta_gunslinger" id="muerta_gunslinger" />
 							<Label text="#DOTA_Tooltip_ability_leshrac_defilement2" id="leshrac_defilement2" />
 						</DropDown>
