@@ -155,7 +155,7 @@
 		"item"		"item_null_talisman"		// 空灵挂件
 		"item"		"item_wraith_band"			// 怨灵系带
 		"item"		"item_bracer"				// 护腕
-		"item"		"item_soul_ring_1"			// 灵魂之戒
+		"item"		"item_soul_ring"			// 灵魂之戒
 		"item"		"item_orb_of_corrosion"		// 腐蚀之球
 		"item"		"item_falcon_blade"			// 猎鹰战刃
 		"item"		"item_power_treads"			// 动力鞋
