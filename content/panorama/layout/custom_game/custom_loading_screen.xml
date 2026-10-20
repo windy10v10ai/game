@@ -137,14 +137,12 @@
 							<Label text="#fixed_ability_none" id="none"/>
 							<!-- 主动技能 -->
 							<Label text="#DOTA_Tooltip_ability_abaddon_borrowed_time" id="abaddon_borrowed_time" />
-							<Label text="#DOTA_Tooltip_ability_dark_willow_shadow_realm" id="dark_willow_shadow_realm" />
 							<Label text="#DOTA_Tooltip_ability_slark_shadow_dance" id="slark_shadow_dance" />
 							<Label text="#DOTA_Tooltip_ability_life_stealer_rage" id="life_stealer_rage" />
 							<!-- 被动技能 -->
 							<Label text="#DOTA_Tooltip_ability_spectre_dispersion2" id="spectre_dispersion2" />
 							<Label text="#fixed_ability_ability_charge_damage_name" id="ability_charge_damage" />
 							<Label text="#DOTA_Tooltip_ability_pudge_innate_graft_flesh" id="pudge_innate_graft_flesh" />
-							<Label text="#DOTA_Tooltip_ability_jakiro_double_trouble2" id="jakiro_double_trouble2" />
 							<Label text="#DOTA_Tooltip_ability_rubick_arcane_supremacy" id="rubick_arcane_supremacy" />
 							<Label text="#DOTA_Tooltip_ability_primal_beast_colossal2" id="primal_beast_colossal2" />
 							<Label text="#DOTA_Tooltip_ability_tiny_grow" id="tiny_grow" />
