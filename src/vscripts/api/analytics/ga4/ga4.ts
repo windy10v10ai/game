@@ -178,7 +178,7 @@ export class GA4 {
   }
 
   /**
-   * 取服务器所在国家，结算上报与 GA4 事件都带上它
+   * 取服务器位置，结算上报与 GA4 事件都带上它
    */
   public static FetchCountryCode() {
     const apiUrl = 'https://cloudflare.com/cdn-cgi/trace';
