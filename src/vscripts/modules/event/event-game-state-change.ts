@@ -3,7 +3,6 @@ import { InitializeItemReplaceMap } from '../../ai/build-item/item-tier-config';
 import { BotTeam } from '../../ai/team/bot-team';
 import { GA4 } from '../../api/analytics/ga4/ga4';
 import { Game } from '../../api/game';
-import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { GameConfig } from '../GameConfig';
 import { BotOrderProbe } from '../debug/bot-order-probe';
 import { PerfAuto } from '../debug/perf-auto';
@@ -107,8 +106,6 @@ export class EventGameStateChange {
     const bases = Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[];
     for (const base of bases) {
       this.addModifierToTowers(base);
-      // 监听游戏结束
-      base.AddNewModifier(base, undefined, modifier_fort_think.name, {});
     }
 
     // 延迟为泉水设置技能等级
@@ -139,8 +136,7 @@ export class EventGameStateChange {
   }
 
   private OnGameInProgress(): void {
-    // 记录游戏开始时间用于 GA4 统计
-    GA4.RecordGameStartTime();
+    GA4.FetchCountryCode();
     LagTelemetry.Start();
     HeroItemUsage.Start();
     // 初始化 bot 团队调度，挂载到 GameRules.AI 供英雄 AI 访问

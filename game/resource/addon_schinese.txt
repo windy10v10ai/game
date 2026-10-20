@@ -101,10 +101,10 @@
 
 		// 网站
 		"local_host_feature_unsupported_hint"		"为保护账号数据安全，游戏内无法进行该操作，点击前往网站操作。"
-		"website_local_host_notice"		"游戏内无法加点、重置属性或觉醒，为了保护玩家数据安全，请前往网站用 Steam 登录后操作。在线模式下一局生效，离线模式下次地图更新后生效。"
+		"website_local_host_notice"		"属性加点和觉醒请在网站完成，点击刷新后生效。"
 		"website_open_button"				"前往网站"
-		"website_open_property_button"		"前往网站操作"
-		"website_open_awaken_button"		"前往网站觉醒"
+		"website_open_property_button"		"前往网站"
+		"website_open_awaken_button"		"网站觉醒"
 		"player_info_refresh"				"刷新"
 
 		// 相关链接
@@ -225,7 +225,6 @@
 		"data_panel_member_level_tooltip"		"通过<font color='#FFD700'>累计会员积分</font>提升等级，每升一级即可获得1点属性点<br>可在<font color='#FFD700'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需经验增加<font color='#FFD700'>50</font>点。"
 		"data_panel_level_progress"		"升级进度"
 		"data_panel_link_rule"			"经验属性规则说明"
-		"data_panel_member_point_rule_url"		"https://ifdian.net/p/24140a48680511ed9d3852540025c377"
 
 		"reset_property_use_season_point"		"消耗2000可用勇士积分重置<br>(不会降低等级)"
 		"reset_property_use_member_point"		"消耗1000可用会员积分重置<br>(不会降低等级)"
@@ -343,9 +342,9 @@
 
 		// 觉醒
 		"awaken_intro_title"				"觉醒石"
-		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态，仅本局对局内生效。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。"
+		"awaken_intro_desc"				"开宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，本局内把一个技能变为觉醒形态。<br>击杀肉山或多开宝箱几率更高。"
 		"awaken_unlock_intro_title"			"永久觉醒"
-		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>指定英雄</font>：消耗 <font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>可用勇士积分</font>，或 <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>可用会员积分</font>，永久觉醒指定英雄。<br><font color='#FFD24A'>随机抽选</font>：积分减半，消耗 <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>可用勇士积分</font>，或 <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>可用会员积分</font>，从随机 3 个候选英雄中选 1 个觉醒。<br>消耗的只是可用积分：可用积分会减少，但累计积分只增不减，勇士/会员等级与属性点不受影响。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
+		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>指定英雄</font>：<font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>可用勇士积分</font>或 <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>可用会员积分</font><br><font color='#FFD24A'>随机 3 选 1</font>：价格减半<br>只扣可用积分，等级不受影响。觉醒永久有效，详见网站。"
 		"awaken_unlock_button"				"觉醒"
 		"awaken_unlocked_label"				"已觉醒"
 		"awaken_free_trial_badge"			"限免"
@@ -423,7 +422,7 @@
 		"member_benefit_buff"			"会员专属属性加成：+10 攻击力、+5% 技能增强、+300 HP、+200 MP"
 		"member_steam_id"				"Dota2好友ID："
 		"member_steam_id_select_hint"	"（可以选择复制）"
-		"member_subscribe_hint"			"通过爱发电或 Ko-fi 开通时，请在备注中填写上方好友ID，支付宝无需填写。"
+		"member_subscribe_hint"			"支付宝付款后自动到账；通过爱发电付款时，请在备注中填写上方好友ID。"
 		"member_subscribe_title"		"开通高级会员"
 		"member_subscribe_normal_upgrade_hint"	"您当前为普通会员，购买高级会员后，剩余时长将按 0.6 倍折算为高级会员时长。"
 		"member_platform_alipay"				"支付宝"
@@ -431,11 +430,13 @@
 		"member_platform_afdian"				"爱发电"
 		"member_platform_afdian_desc"			"更多支付方式 · 人民币支付"
 		"member_platform_kofi"					"Ko-fi"
-		"member_platform_kofi_desc"				"海外用户 · 美元支付"
+		"member_platform_kofi_desc"				"PayPal · 美元支付"
+		"member_platform_stripe"				"Stripe"
+		"member_platform_stripe_desc"			"银行卡 · Apple Pay · Google Pay"
+		"member_platform_recommended"			"推荐"
 		"member_platform_subscribe_btn"			"订阅会员 "
 		"member_platform_subscribe_month"		"/月"
-		"member_shop_divider"			"已有会员？购买会员积分快速升级"
-		"member_shop_title"				"购买会员积分"
+		"member_platform_stripe_link"			"前往网站付款"
 		"member_other_payment"			"其他支付方式"
 		"member_activate"				"手动激活"
 		"member_activate_tooltip"		"若订阅时忘记填写好友ID或填写有误，可在此手动激活。激活成功后系统将记录您的账号，之后订阅无需再次填写。"
@@ -454,10 +455,13 @@
 		"member_alipay_discount_fmt"		"省{n}%"
 		"member_alipay_tier_month_fmt"		"{n}个月"
 		"member_alipay_tier_year_fmt"		"{n}年"
+		"member_alipay_tier_month_one"		"1个月"
+		"member_alipay_tier_year_one"		"1年"
 		"member_points_title"			"购买会员积分"
 		"member_points_usage_hint"		"会员积分可用于提升会员等级，升级玩家属性。"
 		"member_points_amount_fmt"		"{n} 积分"
 		"member_points_save_fmt"		"省¥{n}"
+		"member_points_save_usd_fmt"	"省${n}"
 
 		// 每日任务
 		"profile_tab_dailytask"			"每日任务"
@@ -2575,22 +2579,26 @@
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_attack_speed"					"+$attack"
 
 		// item_magic_scepter 紫杖
-		"DOTA_Tooltip_Ability_item_magic_scepter"								"<font color='#A74ABD'>魔云法杖</font>"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1><font color='#A74ABD'>主动: 魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续 %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强."
-		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, mildly deteriorated.."
-		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
+		"DOTA_Tooltip_Ability_item_magic_scepter"												"<font color='#A74ABD'>魔云法杖</font>"
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"									"<h1><font color='#A74ABD'>主动：魔力爆发</font></h1>获得<font color='#C450E5'>%active_boost%%%技能增强</font>，持续%active_duration%秒。\n<h1>被动：技能增强</h1>每点智力获得%spell_amp_per_int%%%技能增强。"
+		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"										"An ancient relic from the War Wizards, mildly deteriorated.."
+		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"							"+$int"
+		"DOTA_Tooltip_Ability_item_magic_scepter_spell_amp"									"%+技能增强"
+		"DOTA_Tooltip_Ability_item_magic_scepter_mana_regen_multiplier"						"%+魔法恢复增强"
 
-		"DOTA_Tooltip_modifier_item_magic_scepter_active"	                	"魔力爆发"
-		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"	        "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification"
+		"DOTA_Tooltip_modifier_item_magic_scepter_active"										"魔力爆发"
+		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"							"获得<font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font>技能增强。"
 
 		// item_hallowed_scepter 大紫杖
-		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"<font color='#A74ABD'>仙云法杖</font>"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1><font color='#A74ABD'>主动: 仙力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续  %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强。"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter"											"<font color='#A74ABD'>仙云法杖</font>"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"								"<h1><font color='#A74ABD'>主动：仙力爆发</font></h1>获得<font color='#C450E5'>%active_boost%%%技能增强</font>，持续%active_duration%秒。\n<h1>被动：技能增强</h1>每点智力获得%spell_amp_per_int%%%技能增强。"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"										"An ancient relic, mysteriously restored to its prime by unknown entities."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"						"+$int"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_spell_amp"								"%+技能增强"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_mana_regen_multiplier"					"%+魔法恢复增强"
 
-		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"	                "仙力爆发"
-		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification"
+		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"									"仙力爆发"
+		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"						"获得<font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font>技能增强。"
 
 		// item_hurricane_pike_2 黄金魔龙枪
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2"						"黄金魔龙枪 Ultimate"
@@ -2914,6 +2922,20 @@
 		"DOTA_Tooltip_ability_item_jump_jump_jump_mana_regen_multiplier"		"%+魔法恢复增强"
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Lore"					"你问我闪现是什么？唔…我是铁血刀斯林，震怒！"
 		"dota_hud_error_jump_jump_jump_rooted"			"被定身时无法闪烁"
+
+		// item_fall_fall_fall 落刀
+		"DOTA_Tooltip_ability_item_fall_fall_fall"						"落！落！落！刀"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_Description"			"<h1>主动：星落</h1>不传送，召唤流星砸向目标位置，%remote_land_time%秒后落地。<br>不提供传送后的增益，回复与减速。<br><br>施法距离：%remote_cast_range%\n<h1>跳！跳！跳！（按住Ctrl释放）</h1>传送到目标位置并化身流星，%meteor_fall_time%秒后砸落，期间无敌且无法行动。<br><br>落地后获得%bonus_movement%%%移动速度加成和相位移动状态，+%bonus_agi_active%点敏捷，持续%buff_duration%秒。<br>落地后施法前摇减少%cast_pct_improvement%%%，魔法消耗降低%manacost_reduction%%%，持续%buff_duration%秒。<br>落地后回复%heal_amount%点生命和%mana_amount%点魔法。<br><br>被流星砸中的敌人在眩晕结束后被减缓%movement_slow%%%移动速度，降低%attack_slow%攻击速度，持续%slow_duration%秒。<br><br>受到来自敌方英雄或肉山的攻击时，将在%blink_damage_cooldown%秒内无法使用。\n<h1>流星</h1>打击%impact_radius%范围内的敌人，眩晕%stun_duration%秒并造成冲击伤害。<br>之后持续燃烧%burn_duration%秒，非建筑单位在燃烧期间被减缓%burn_slow%%%移动速度。<br><br>对建筑冲击伤害：%impact_damage_buildings% + %impact_stat_pct_buildings%%%全属性<br>对建筑持续伤害：%burn_dps_buildings%<br><br>对非建筑冲击伤害：%impact_damage_units% + %impact_stat_pct_units%%%全属性<br>对非建筑持续伤害：%burn_dps_units%"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_bonus_strength"				"+$str"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_spell_amp"					"%+技能增强"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_mana_regen_multiplier"		"%+魔法恢复增强"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_Lore"					"想砸星落却跳进了人堆？换把刀吧。"
+
+		// item_exchange 转换
+		"DOTA_Tooltip_ability_item_exchange"							"转换"
+		"DOTA_Tooltip_ability_item_exchange_Description"			"与可转换的装备合成，让装备在不同形态之间转换。"
 
 		// item_gungir_2 大缚灵索
 		"DOTA_Tooltip_ability_item_gungir_2"								"风暴之锤"
@@ -3491,18 +3513,18 @@
 		"DOTA_Tooltip_modifier_item_switchable_crit_blade"								"刀势"
 		"DOTA_Tooltip_modifier_item_switchable_crit_blade_Description"					"1=初式·破浪 2=二式·断流 3=终式·归海"
 
-		// 魔龙狂舞
-		"DOTA_Tooltip_Ability_item_magic_crit_blade"									"<font color='#A74ABD'>魔龙狂舞</font>"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"						"<h1><font color='#FF0000'>被动：神圣斧</font></h1>使下次攻击具有克敌机先效果，并且会施加毒素，持续%slow_duration%秒，减缓%slow%%%移动速度，并且每秒造成%int_damage_multiplier%倍智力值的伤害。<br><br>攻击会降低敌人%active_mres_reduction%%%魔法抗性，持续%passive_cooldown%秒。<br><br>所有攻击都具有克敌机先效果。\n<h1><font color='#A74ABD'>主动：龙息爆发</font></h1>使用后%active_duration%秒内，获得%spell_amp_multiplier%倍被智力法术增强。<br><br>冷却时间：%active_cooldown%秒<br>魔法消耗：%AbilityManaCost%\n<h1><font color='#0096FF'>被动：法术暴击</font></h1>对敌方单位造成魔法或纯粹伤害时，有%spell_crit_chance%%%几率触发暴击，造成%spell_crit_multiplier%%%伤害。"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"								"魔龙狂舞，焚天灭地。魔焰龙息席卷万物，法术爆发摧枯拉朽。"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"					"+$int"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_attack_speed"				"+$attack"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_armor"						"+$armor"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int"					"%+每点智力法术增强"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_projectile_speed"				"+$projectile_speed"
+		// item_magic_crit_blade 魔龙狂舞
+		"DOTA_Tooltip_Ability_item_magic_crit_blade"											"<font color='#A74ABD'>魔龙狂舞</font>"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"								"<h1><font color='#A74ABD'>主动：龙息爆发</font></h1>%active_duration%秒内，智力提供<font color='#C450E5'>%spell_amp_multiplier%倍技能增强</font>，并使%active_radius%范围内的敌人魔法抗性降低%active_mres_reduction%%%（减法叠加）。\n<h1>被动：技能增强</h1>每点智力获得%spell_amp_per_int%%%技能增强。\n<h1><font color='#0096FF'>被动：法术暴击</font></h1>对敌方单位造成魔法或纯粹伤害时，有%spell_crit_chance%%%几率触发暴击，造成%spell_crit_multiplier%%%伤害。"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"										"魔龙狂舞，焚天灭地。魔焰龙息席卷万物，法术爆发摧枯拉朽。"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intelligence"						"+$int"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp"								"%+技能增强"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_mana_regen_multiplier"					"%+魔法恢复增强"
 
-		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"							"龙息爆发"
-		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"				"获得额外智力法术增强。"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"									"龙息爆发"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"						"智力提供的技能增强翻倍。"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_mres_debuff"								"龙息灼烧"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_mres_debuff_Description"					"魔法抗性<font color='#E03E2E'>%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%</font>。"
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"										"<font color='#90EE90'>生命之心</font>"

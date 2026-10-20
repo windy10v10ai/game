@@ -11,7 +11,7 @@ import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 
 function IsHeroDemoDebugHero(hero: CDOTA_BaseNPC_Hero): boolean {
-  // 调试面板生成的英雄需停留在指定位置，出生点重置逻辑应跳过它（其余 bot 流程照常）。
+  // 调试面板生成的英雄由玩家手动控制：停在指定位置，不挂 bot AI 与随机被动。
   return hero.HasModifier(modifier_debug_manual_control.name);
 }
 
@@ -220,6 +220,10 @@ export class EventNpcSpawned {
       // 机器人
       // delay 1s 后启用AI
       Timers.CreateTimer(1, () => {
+        // 调试面板英雄的标记在出生之后才打上，必须延迟判断
+        if (IsHeroDemoDebugHero(hero)) {
+          return;
+        }
         // 设置bot难度 0~4
         hero.SetBotDifficulty(4);
         GameRules.AI.EnableAI(hero);

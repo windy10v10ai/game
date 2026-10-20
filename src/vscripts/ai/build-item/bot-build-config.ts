@@ -1115,7 +1115,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_gungir_2', // 风暴之锤
-        'item_devastator_2', // 神圣斧
         'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [
@@ -1161,6 +1160,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_phylactery', // 灵匣
         'item_devastator', // 圣斧
         'item_arcane_octarine_core', // 奥术之心
+        'item_force_staff_3', // 黄金法杖
       ],
       [ItemTier.T4]: [
         'item_arcane_blink', // 爱因斯坦闪光
@@ -1281,6 +1281,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_bloodstone', // 血精神石
         'item_devastator', // 圣斧
         'item_arcane_octarine_core', // 奥术之心
+        'item_force_staff_3', // 黄金法杖
       ],
       [ItemTier.T4]: [
         'item_refresh_core', // 熔火核心
@@ -2133,7 +2134,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_saint_orb', // 圣女白莲
-        'item_devastator_2', // 神圣斧
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
@@ -2249,7 +2249,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_black_king_bar_2', // 天神杖
         'item_necronomicon_staff', // 死灵法杖
-        'item_devastator_2', // 神圣斧
         'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [

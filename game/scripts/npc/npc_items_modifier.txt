@@ -18,6 +18,10 @@
 
 			"item_magic_scepter_bonus_intelligence"			"60"
 			"item_hallowed_scepter_bonus_intelligence"			"120"
+			"item_magic_crit_blade_bonus_intelligence"			"180"
+			"item_magic_scepter_active_boost"			"50"
+			"item_hallowed_scepter_active_boost"			"100"
+			"item_magic_crit_blade_mres_reduction"			"-25"
 
 			"item_blue_fantasy_agi"			"50"
 			"item_blue_fantasy_int"			"25"
@@ -100,6 +104,59 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_hallowed_scepter_bonus_intelligence"
+				}
+			}
+			"modifier_item_magic_scepter_active"
+			{
+				"IsBuff"				"1"
+				"IsPurgable"			"0"
+				"TextureName"			"item_magic_scepter"
+				"EffectName"			"particles/items4_fx/arcane_scepter.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%item_magic_scepter_active_boost"
+				}
+			}
+			"modifier_item_hallowed_scepter_active"
+			{
+				"IsBuff"				"1"
+				"IsPurgable"			"0"
+				"TextureName"			"item_hallowed_scepter"
+				"EffectName"			"particles/items4_fx/arcane_scepter.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%item_hallowed_scepter_active_boost"
+				}
+			}
+			"modifier_item_magic_crit_blade_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_magic_crit_blade_bonus_intelligence"
+				}
+			}
+			// 只作标记，翻倍的智力法强由魔龙狂舞被动按它是否存在计算
+			"modifier_item_magic_crit_blade_active"
+			{
+				"IsBuff"				"1"
+				"IsPurgable"			"1"
+				"TextureName"			"molongkuangwu"
+			}
+			"modifier_item_magic_crit_blade_mres_debuff"
+			{
+				"IsDebuff"			"1"
+				"IsPurgable"			"1"
+				"TextureName"			"molongkuangwu"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%item_magic_crit_blade_mres_reduction"
 				}
 			}
 			"modifier_item_blue_fantasy_stats"

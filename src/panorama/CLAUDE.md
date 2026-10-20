@@ -29,4 +29,5 @@ Webpack 构建，输出到 `content/panorama/scripts/custom_game/`，函数式�
 - **`TextEntry` 的 `placeholder` `multiline` `maxchars` 只在创建时生效**，渲染后改值会抛错、整个 hud_main 崩掉。要随状态变的，换 `key` 让它重建
 - **`TextEntry` 用 ref 写初值，不用 `text` 受控**：每次渲染回写会打断输入法组字。代码改 `text` 也会触发 `ontextentrychange`，回调里分清是不是玩家输入
 - **画图形用 `<GenericPanel type="UICanvas">`**，脚本只开放 `ClearJS` 与 `DrawSoftLinePointsJS`：填充用逐行 1px 横线铺满，描边逐段画两点线（多点折线一次画会错位），`ClearJS` 只传全透明色（参考 `react/hud_main/pages/profile/tabs/RecentFormRadar.tsx`）
+- **没有 flex stretch，高度不能父子互相引用**：父 `height: fit-children`、子 `height: 100%` 会整块塌成 0、不渲染。并排卡片要等高，给卡片同一个 `min-height`；要贴底的行放进 `flow-children: none` 的容器，用 `vertical-align: bottom`（参考 `react/hud_main/pages/profile/tabs/member/styles.less` 的 `.member-platform-card-layered`）
 - 构建输出看起来过时时删 `node_modules/.cache`。构建检查 `npm run build:panorama`

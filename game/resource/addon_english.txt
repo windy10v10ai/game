@@ -101,9 +101,9 @@
 
 		// 网站
 		"local_host_feature_unsupported_hint"		"To keep account data safe, this cannot be done in game. Click to do it on the website."
-		"website_local_host_notice"		"Attribute points, attribute resets, and awakening cannot be done in game. To protect player data, sign in with Steam on the website to do it. Changes apply next game in online mode, or after the next map update in offline mode."
+		"website_local_host_notice"		"Manage attributes and awakening on the website, then click Refresh to apply."
 		"website_open_button"				"Open Website"
-		"website_open_property_button"		"Manage on Website"
+		"website_open_property_button"		"Open Website"
 		"website_open_awaken_button"		"Awaken on Website"
 		"player_info_refresh"				"Refresh"
 
@@ -225,7 +225,6 @@
 		"data_panel_member_level_tooltip"		"Level up with <font color='#FFD700'>total Member Points</font>. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#FFD700'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#FFD700'>50</font> for each level up."
 		"data_panel_level_progress"		"Level Progress"
 		"data_panel_link_rule"			"Points and Attribute Rule"
-		"data_panel_member_point_rule_url"		"https://ko-fi.com/post/Points-and-Attribute-Rules-S6S01CTP83"
 
 		"reset_property_use_season_point"		"Reset for 2000 usable Battle Points<br>(level unaffected)"
 		"reset_property_use_member_point"		"Reset for 1000 usable Member Points<br>(level unaffected)"
@@ -343,9 +342,9 @@
 
 		// 觉醒
 		"awaken_intro_title"				"Awakening Stone"
-		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form for this match only.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one."
+		"awaken_intro_desc"				"Chests may drop an <font color='#FFD24A'>Awaken Stone</font>, which awakens one ability for this match.<br>Killing Roshan or opening more chests raises the chance."
 		"awaken_unlock_intro_title"			"Permanent Awaken"
-		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Specific Hero</font>: spend <font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>usable Member Points</font>, to permanently awaken a chosen hero.<br><font color='#FFD24A'>Random Draw</font>: half price, spend <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>usable Member Points</font>, to awaken one of 3 randomly drawn heroes.<br>Only spends usable points: usable points go down, but total points only ever go up and never lower your Battle/Member Level or attribute points. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked later, the hero's awakening still applies."
+		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Specific Hero</font>: <font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>usable Battle Points</font> or <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>usable Member Points</font><br><font color='#FFD24A'>Random 1 of 3</font>: half price<br>Only usable points are spent, levels stay. Awakening is permanent, see the website for details."
 		"awaken_unlock_button"				"Awaken"
 		"awaken_unlocked_label"				"Awakened"
 		"awaken_free_trial_badge"			"FREE"
@@ -423,7 +422,7 @@
 		"member_benefit_buff"			"Member exclusive stats: +10 Attack Damage, +5% Ability Amplification, +300 HP, +200 MP"
 		"member_steam_id"				"Dota2 Friend ID: "
 		"member_steam_id_select_hint"	"(select to copy)"
-		"member_subscribe_hint"			"For Afdian or Ko-fi, fill in your Friend ID above in the order remark, not required for Alipay."
+		"member_subscribe_hint"			"Stripe credits you automatically. For Ko-fi, put your Friend ID above in the order note."
 		"member_subscribe_title"		"Subscribe Premium"
 		"member_subscribe_normal_upgrade_hint"	"You are a Normal Member. Remaining time will be converted at 0.6x when upgrading to Premium."
 		"member_platform_alipay"				"Alipay"
@@ -431,11 +430,13 @@
 		"member_platform_afdian"				"Afdian"
 		"member_platform_afdian_desc"			"Pay in CNY"
 		"member_platform_kofi"					"Ko-fi"
-		"member_platform_kofi_desc"				"Global Users · Pay in USD"
+		"member_platform_kofi_desc"				"PayPal · Pay in USD"
+		"member_platform_stripe"				"Stripe"
+		"member_platform_stripe_desc"			"Card · Apple Pay · Google Pay"
+		"member_platform_recommended"			"Suggested"
 		"member_platform_subscribe_btn"			"Subscribe "
 		"member_platform_subscribe_month"		"/Month"
-		"member_shop_divider"			"Already a member? Buy Experience to level up faster"
-		"member_shop_title"				"Buy Member Points"
+		"member_platform_stripe_link"			"Pay on the website"
 		"member_other_payment"			"Other Payment Methods"
 		"member_activate"				"Manual Activate"
 		"member_activate_tooltip"		"Only needed if you forgot to enter your Friend ID or entered it incorrectly. Once activated, your account is saved and future subscriptions activate automatically."
@@ -454,10 +455,13 @@
 		"member_alipay_discount_fmt"		"Save {n}%"
 		"member_alipay_tier_month_fmt"		"{n} Months"
 		"member_alipay_tier_year_fmt"		"{n} Years"
+		"member_alipay_tier_month_one"		"1 Month"
+		"member_alipay_tier_year_one"		"1 Year"
 		"member_points_title"			"Buy Membership Points"
 		"member_points_usage_hint"		"Membership points are used to raise your membership level and boost your hero attributes."
 		"member_points_amount_fmt"		"{n} Points"
 		"member_points_save_fmt"		"Save ¥{n}"
+		"member_points_save_usd_fmt"	"Save ${n}"
 
 		// 每日任务
 		"profile_tab_dailytask"			"Tasks"
@@ -2566,22 +2570,26 @@
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_attack_speed"					"+$attack"
 
 		// item_magic_scepter 紫杖
-		"DOTA_Tooltip_Ability_item_magic_scepter"								"<font color='#A74ABD'>Magic Scepter</font>"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1><font color='#A74ABD'>Active: Spell Boost</font></h1> Imbues the wielder with enhanced magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
-		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, though mildly deteriorated."
-		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
+		"DOTA_Tooltip_Ability_item_magic_scepter"												"<font color='#A74ABD'>Magic Scepter</font>"
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"									"<h1><font color='#A74ABD'>Active: Spell Boost</font></h1>Grants <font color='#C450E5'>%active_boost%%% Spell Amplification</font> for %active_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
+		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"										"An ancient relic from the War Wizards, though mildly deteriorated."
+		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"							"+$int"
+		"DOTA_Tooltip_Ability_item_magic_scepter_spell_amp"									"%+Spell Amplification"
+		"DOTA_Tooltip_Ability_item_magic_scepter_mana_regen_multiplier"						"%+Mana Regen Amplification"
 
-		"DOTA_Tooltip_modifier_item_magic_scepter_active"	                	"Spell Boost"
-		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"	        "Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% Spell Amplification"
+		"DOTA_Tooltip_modifier_item_magic_scepter_active"										"Spell Boost"
+		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"							"Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification."
 
 		// item_hallowed_scepter 大紫杖
-		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"<font color='#A74ABD'>Hallowed Scepter</font>"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1><font color='#A74ABD'>Active: Hallowed Spell Boost</font></h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter"											"<font color='#A74ABD'>Hallowed Scepter</font>"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"								"<h1><font color='#A74ABD'>Active: Hallowed Spell Boost</font></h1>Grants <font color='#C450E5'>%active_boost%%% Spell Amplification</font> for %active_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"										"An ancient relic, mysteriously restored to its prime by unknown entities."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"						"+$int"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_spell_amp"								"%+Spell Amplification"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_mana_regen_multiplier"					"%+Mana Regen Amplification"
 
-		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"	                "Hallowed Spell Boost"
-		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"	    "Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% Spell Amplification"
+		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"									"Hallowed Spell Boost"
+		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"						"Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification."
 
 		// item_hurricane_pike_2 黄金魔龙枪
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2"			"<font color='#FFD700'>Golden Hurricane Pike</font>"
@@ -2912,6 +2920,20 @@
 		"DOTA_Tooltip_ability_item_jump_jump_jump_mana_regen_multiplier"		"%+Mana Regen Amplification"
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Lore"					"You call it Flash? No, No, No! I'm a Dotaer, not a LOLer! It's Blink, man! BLINK!"
 		"dota_hud_error_jump_jump_jump_rooted"			"Cannot blink while rooted"
+
+		// item_fall_fall_fall 落刀
+		"DOTA_Tooltip_ability_item_fall_fall_fall"						"Fall! Fall! Fall!"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_Description"			"<h1>Active: Asteroid Hammer</h1>Does not teleport. Summons a meteor at the target point that lands after %remote_land_time% seconds.<br>Grants no teleport buff, restore or slow.<br><br>Cast Range: %remote_cast_range%\n<h1>Megablink (Hold Ctrl to Cast)</h1>Teleport to the target point and transform into a meteor that lands after %meteor_fall_time% seconds, invulnerable and unable to act meanwhile.<br><br>On landing, you gain %bonus_movement%%% phased movement speed and +%bonus_agi_active% Agility for %buff_duration% seconds.<br>On landing, your cast time is reduced by %cast_pct_improvement%%% and mana costs by %manacost_reduction%%% for %buff_duration% seconds.<br>On landing, you restore %heal_amount% health and %mana_amount% mana.<br><br>Enemies hit by the meteor have %movement_slow%%% movement speed slow and %attack_slow% attack speed slow for %slow_duration% seconds after the stun ends.<br><br>Cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan.\n<h1>Meteor</h1>Strikes enemies in a %impact_radius% radius, stunning them for %stun_duration% seconds and dealing impact damage.<br>Then burns them for %burn_duration% seconds. Non-building units are slowed by %burn_slow%%% while burning.<br><br>Building Impact Damage: %impact_damage_buildings% + %impact_stat_pct_buildings%%% of all Attributes<br>Building Damage Over Time: %burn_dps_buildings%<br><br>Non-Building Impact Damage: %impact_damage_units% + %impact_stat_pct_units%%% of all Attributes<br>Non-Building Damage Over Time: %burn_dps_units%"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_bonus_strength"				"+$str"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_spell_amp"					"%+Spell Damage"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_mana_regen_multiplier"		"%+Mana Regen Amplification"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_Lore"					"Meant to drop a meteor but blinked into five heroes? Swap the dagger."
+
+		// item_exchange 转换
+		"DOTA_Tooltip_ability_item_exchange"							"Exchange"
+		"DOTA_Tooltip_ability_item_exchange_Description"			"Combine with a convertible item to switch it between its forms."
 
 		// item_gungir_2 大缚灵索
 		"DOTA_Tooltip_ability_item_gungir_2"								"<font color='#91EACE'>Advanced</font> Gleipnir"
@@ -3481,17 +3503,18 @@
 		"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_evasion"        "%+$evasion"
 		"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_attack_speed"   "+$attack"
 
-		// Dragon Dance (魔龙狂舞)
-		"DOTA_Tooltip_Ability_item_magic_crit_blade"                           "Dragon Dance"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#FF0000'>Passive: Sacred Parasma</font></h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.<br><br>Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds.<br><br>All attacks have true strike.\n<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>Grants %spell_amp_multiplier%x spell amp per intelligence for %active_duration% seconds.<br><br>Cool Down: %active_cooldown%秒<br>Mana Cost: %AbilityManaCost%\n<h1><font color='#0096FF'>Passive: Spell Critical</font></h1>Dealing magical or pure damage to enemy units has a %spell_crit_chance%%% chance to critically strike, dealing %spell_crit_multiplier%%% damage."
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"                      "Dragon Dance incinerates all in its path. The magic dragon breath sweeps away everything, spell explosions devastate all."
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"           "+$int"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_attack_speed"        "+$attack"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_armor"               "+$armor"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int"         "%+Spell Amp per Intelligence"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_projectile_speed"				"+$projectile_speed"
-		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"                   "Dragon Breath"
-		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"       "Gains extra intelligence spell amplification."
+		// item_magic_crit_blade 魔龙狂舞
+		"DOTA_Tooltip_Ability_item_magic_crit_blade"											"<font color='#A74ABD'>Dragon Dance</font>"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"								"<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>For %active_duration% seconds, Intelligence grants <font color='#C450E5'>%spell_amp_multiplier%x Spell Amplification</font>, and enemies within %active_radius% radius have their Magic Resistance reduced by %active_mres_reduction%%% (additive).\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence.\n<h1><font color='#0096FF'>Passive: Spell Critical</font></h1>Dealing magical or pure damage to enemy units has a %spell_crit_chance%%% chance to critically strike, dealing %spell_crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"										"Dragon Dance incinerates all in its path. The magic dragon breath sweeps away everything, spell explosions devastate all."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intelligence"						"+$int"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp"								"%+Spell Amplification"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_mana_regen_multiplier"					"%+Mana Regen Amplification"
+
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"									"Dragon Breath"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"						"Spell Amplification from Intelligence is doubled."
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_mres_debuff"								"Dragon Scorch"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_mres_debuff_Description"					"Magic Resistance <font color='#E03E2E'>%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%</font>."
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"                            "Withered Spring"

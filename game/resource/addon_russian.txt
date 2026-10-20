@@ -101,9 +101,9 @@
 
 		// 网站
 		"local_host_feature_unsupported_hint"		"Для защиты данных аккаунта это действие недоступно в игре. Нажмите, чтобы перейти на сайт."
-		"website_local_host_notice"		"В игре нельзя распределять или сбрасывать характеристики, а также пробуждать героев. Чтобы защитить данные игрока, войдите через Steam на сайте и выполните действие там. В онлайн-режиме изменения появятся в следующей игре, в офлайн-режиме после следующего обновления карты."
+		"website_local_host_notice"		"Характеристики и пробуждение — на сайте. Нажмите «Обновить», чтобы применить."
 		"website_open_button"				"Открыть сайт"
-		"website_open_property_button"		"Управлять на сайте"
+		"website_open_property_button"		"На сайт"
 		"website_open_awaken_button"		"Пробудить на сайте"
 		"player_info_refresh"				"Обновить"
 
@@ -225,7 +225,6 @@
 		"data_panel_member_level_tooltip"		"Повышайте уровень с помощью <font color='#FFD700'>общих очков подписки</font>. Каждый уровень даёт 1 очко атрибутов.<br>Используйте их для усиления героя на панели <font color='#FFD700'>АТРИБУТЫ</font>.<br>С каждым уровнем необходимое число очков увеличивается на <font color='#FFD700'>50</font>."
 		"data_panel_level_progress"		"Прогресс уровня"
 		"data_panel_link_rule"			"Правила очков и атрибутов"
-		"data_panel_member_point_rule_url"		"https://ko-fi.com/post/Points-and-Attribute-Rules-S6S01CTP83"
 
 		"reset_property_use_season_point"		"Сбросить за 2000 доступных боевых очков<br>(уровень не изменится)"
 		"reset_property_use_member_point"		"Сбросить за 1000 доступных очков подписки<br>(уровень не изменится)"
@@ -343,9 +342,9 @@
 
 		// 觉醒
 		"awaken_intro_title"				"Камень пробуждения"
-		"awaken_intro_desc"				"Открывайте сундуки, чтобы получить <font color='#FFD24A'>Камень пробуждения</font>, превращающий одну из способностей героя в пробуждённую форму только на этот матч.<br>Убийство Рошана или открытие большего числа сундуков повышает шанс его получить."
+		"awaken_intro_desc"				"<font color='#FFD24A'>Камень пробуждения</font> из сундуков пробуждает одну способность на матч.<br>Рошан и больше сундуков повышают шанс."
 		"awaken_unlock_intro_title"			"Постоянное пробуждение"
-		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Выбранный герой</font>: потратьте <font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>доступных боевых очков</font> или <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>доступных очков подписки</font>, чтобы навсегда пробудить выбранного героя.<br><font color='#FFD24A'>Случайный розыгрыш</font>: заплатите вдвое меньше — <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>доступных боевых очков</font> или <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>доступных очков подписки</font> — и пробудите одного из 3 случайных героев.<br>Тратятся только доступные очки. Общие очки лишь растут, поэтому боевой уровень, уровень подписки и очки атрибутов не уменьшатся. Постоянное пробуждение нельзя отменить. Даже если способность позже усилят, ослабят или переработают, пробуждение героя сохранится."
+		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Выбранный герой</font>: <font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>боевых очков</font> или <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>очков подписки</font><br><font color='#FFD24A'>Случайный 1 из 3</font>: вдвое дешевле<br>Тратятся только доступные очки, уровни не падают. Пробуждение навсегда, подробнее на сайте."
 		"awaken_unlock_button"				"Пробудить"
 		"awaken_unlocked_label"				"Пробуждён"
 		"awaken_free_trial_badge"			"Даром"
@@ -423,7 +422,7 @@
 		"member_benefit_buff"			"Бонус подписчика: +10 к урону, +5% к усилению заклинаний, +300 здоровья и +200 маны"
 		"member_steam_id"				"ID друга в Dota 2: "
 		"member_steam_id_select_hint"	"(можно выделить и скопировать)"
-		"member_subscribe_hint"			"При оплате через Afdian или Ko-fi укажите ID друга выше в примечании к заказу. Для Alipay это не требуется."
+		"member_subscribe_hint"			"Stripe зачисляет оплату автоматически. При оплате через Ko-fi укажите ID друга выше в примечании к заказу."
 		"member_subscribe_title"		"Оформить премиум-подписку"
 		"member_subscribe_normal_upgrade_hint"	"У вас обычная подписка. При переходе на премиум оставшееся время будет пересчитано с коэффициентом 0,6."
 		"member_platform_alipay"				"Alipay"
@@ -431,11 +430,13 @@
 		"member_platform_afdian"				"Afdian"
 		"member_platform_afdian_desc"			"Оплата в CNY"
 		"member_platform_kofi"					"Ko-fi"
-		"member_platform_kofi_desc"				"Для пользователей по всему миру · Оплата в USD"
+		"member_platform_kofi_desc"				"PayPal · Оплата в USD"
+		"member_platform_stripe"				"Stripe"
+		"member_platform_stripe_desc"			"Карта · Apple Pay · Google Pay"
+		"member_platform_recommended"			"Советуем"
 		"member_platform_subscribe_btn"			"Подписаться "
 		"member_platform_subscribe_month"		"/месяц"
-		"member_shop_divider"			"Уже подписаны? Купите очки для быстрого повышения уровня"
-		"member_shop_title"				"Купить очки подписки"
+		"member_platform_stripe_link"			"Оплатить на сайте"
 		"member_other_payment"			"Другие способы оплаты"
 		"member_activate"				"Активировать вручную"
 		"member_activate_tooltip"		"Используйте это, если забыли указать ID друга или ввели его неверно. После успешной активации система запомнит аккаунт, и при следующих покупках вводить ID не понадобится."
@@ -454,10 +455,13 @@
 		"member_alipay_discount_fmt"		"Скидка {n}%"
 		"member_alipay_tier_month_fmt"		"{n} мес."
 		"member_alipay_tier_year_fmt"		"{n} г."
+		"member_alipay_tier_month_one"		"1 мес."
+		"member_alipay_tier_year_one"		"1 г."
 		"member_points_title"			"Купить очки подписки"
 		"member_points_usage_hint"		"Очки подписки повышают её уровень и усиливают атрибуты героя."
 		"member_points_amount_fmt"		"{n} очков"
 		"member_points_save_fmt"		"Экономия ¥{n}"
+		"member_points_save_usd_fmt"	"Экономия ${n}"
 
 		// 每日任务
 		"profile_tab_dailytask"			"Задания"
@@ -1226,6 +1230,41 @@
 		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Снижение затрат и потери маны"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Скорость применения"
 
+		// item_magic_scepter 紫杖
+		"DOTA_Tooltip_Ability_item_magic_scepter"												"<font color='#A74ABD'>Магический скипетр</font>"
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"									"<h1><font color='#A74ABD'>Активная: Всплеск магии</font></h1>Даёт <font color='#C450E5'>%active_boost%%% усиления заклинаний</font> на %active_duration% сек.\n<h1>Пассивная: Тайное мастерство</h1>Даёт %spell_amp_per_int%%% усиления заклинаний за каждую единицу интеллекта."
+		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"										"Древняя реликвия боевых магов, слегка потрёпанная временем."
+		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"							"+$int"
+		"DOTA_Tooltip_Ability_item_magic_scepter_spell_amp"									"%+Усиление заклинаний"
+		"DOTA_Tooltip_Ability_item_magic_scepter_mana_regen_multiplier"						"%+Усиление регенерации маны"
+
+		"DOTA_Tooltip_modifier_item_magic_scepter_active"										"Всплеск магии"
+		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"							"Даёт <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> усиления заклинаний."
+
+		// item_hallowed_scepter 大紫杖
+		"DOTA_Tooltip_Ability_item_hallowed_scepter"											"<font color='#A74ABD'>Священный скипетр</font>"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"								"<h1><font color='#A74ABD'>Активная: Священный всплеск магии</font></h1>Даёт <font color='#C450E5'>%active_boost%%% усиления заклинаний</font> на %active_duration% сек.\n<h1>Пассивная: Тайное мастерство</h1>Даёт %spell_amp_per_int%%% усиления заклинаний за каждую единицу интеллекта."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"										"Древняя реликвия, таинственным образом восстановленная неведомыми силами."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"						"+$int"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_spell_amp"								"%+Усиление заклинаний"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_mana_regen_multiplier"					"%+Усиление регенерации маны"
+
+		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"									"Священный всплеск магии"
+		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"						"Даёт <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> усиления заклинаний."
+
+		// item_magic_crit_blade 魔龙狂舞
+		"DOTA_Tooltip_Ability_item_magic_crit_blade"											"<font color='#A74ABD'>Танец дракона</font>"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"								"<h1><font color='#A74ABD'>Активная: Дыхание дракона</font></h1>На %active_duration% сек. интеллект даёт <font color='#C450E5'>%spell_amp_multiplier%-кратное усиление заклинаний</font>, а сопротивление магии врагов в радиусе %active_radius% снижается на %active_mres_reduction%%% (вычитается).\n<h1>Пассивная: Тайное мастерство</h1>Даёт %spell_amp_per_int%%% усиления заклинаний за каждую единицу интеллекта.\n<h1><font color='#0096FF'>Пассивная: Критический удар заклинанием</font></h1>Магический или чистый урон по врагам с вероятностью %spell_crit_chance%%% становится критическим и наносит %spell_crit_multiplier%%% урона."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"										"Танец дракона испепеляет всё на своём пути. Магическое драконье дыхание сметает всё, взрывы заклинаний сокрушают всё."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intelligence"						"+$int"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp"								"%+Усиление заклинаний"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_mana_regen_multiplier"					"%+Усиление регенерации маны"
+
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"									"Дыхание дракона"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"						"Усиление заклинаний от интеллекта удвоено."
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_mres_debuff"								"Драконий ожог"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_mres_debuff_Description"					"Сопротивление магии <font color='#E03E2E'>%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%</font>."
+
 		// item_jump_jump_jump 跳刀3
 		"DOTA_Tooltip_ability_item_jump_jump_jump"						"Прыг! Прыг! Прыг!"
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Description"			"<h1>Активное: Мегаблинк</h1>Мгновенно перемещает к указанной точке и превращает владельца в метеорит, который падает через %meteor_fall_time% сек. В это время владелец неуязвим и не может действовать.<br><br>После приземления даёт %bonus_movement%%% скорости передвижения с беспрепятственным перемещением и +%bonus_agi_active% к ловкости на %buff_duration% сек.<br>После приземления время применения сокращается на %cast_pct_improvement%%%, а расход маны на %manacost_reduction%%% на %buff_duration% сек.<br>После приземления восстанавливает %heal_amount% здоровья и %mana_amount% маны.<br><br>Задетые метеоритом враги после оглушения замедляются на %movement_slow%%% по скорости передвижения и на %attack_slow% по скорости атаки на %slow_duration% сек.<br><br>Предмет нельзя использовать в течение %blink_damage_cooldown% сек. после получения урона от вражеских героев или Рошана.\n<h1>Asteroid Hammer (с зажатым Ctrl)</h1>Без перемещения призывает метеорит в указанную точку, он падает через %remote_land_time% сек.<br>Не даёт эффектов после перемещения, восстановления и замедления.<br><br>Дальность применения: %remote_cast_range%\n<h1>Метеорит</h1>Бьёт по врагам в радиусе %impact_radius%, оглушает их на %stun_duration% сек. и наносит урон при ударе.<br>Затем поджигает на %burn_duration% сек. Подожжённые существа (кроме построек) замедляются на %burn_slow%%%.<br><br>Урон постройкам при ударе: %impact_damage_buildings% + %impact_stat_pct_buildings%%% суммы атрибутов<br>Периодический урон постройкам: %burn_dps_buildings%<br><br>Урон существам при ударе: %impact_damage_units% + %impact_stat_pct_units%%% суммы атрибутов<br>Периодический урон существам: %burn_dps_units%"
@@ -1236,6 +1275,20 @@
 		"DOTA_Tooltip_ability_item_jump_jump_jump_mana_regen_multiplier"		"%+Усиление восстановления маны"
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Lore"					"Ты называешь это Флешем? Нет, нет, нет! Я дотер, а не лолер! Это Блинк, чувак! БЛИНК!"
 		"dota_hud_error_jump_jump_jump_rooted"			"Нельзя переместиться под действием обездвиживания"
+
+		// item_fall_fall_fall 落刀
+		"DOTA_Tooltip_ability_item_fall_fall_fall"						"Бах! Бах! Бах!"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_Description"			"<h1>Активное: Asteroid Hammer</h1>Без перемещения призывает метеорит в указанную точку, он падает через %remote_land_time% сек.<br>Не даёт эффектов после перемещения, восстановления и замедления.<br><br>Дальность применения: %remote_cast_range%\n<h1>Мегаблинк (с зажатым Ctrl)</h1>Мгновенно перемещает к указанной точке и превращает владельца в метеорит, который падает через %meteor_fall_time% сек. В это время владелец неуязвим и не может действовать.<br><br>После приземления даёт %bonus_movement%%% скорости передвижения с беспрепятственным перемещением и +%bonus_agi_active% к ловкости на %buff_duration% сек.<br>После приземления время применения сокращается на %cast_pct_improvement%%%, а расход маны на %manacost_reduction%%% на %buff_duration% сек.<br>После приземления восстанавливает %heal_amount% здоровья и %mana_amount% маны.<br><br>Задетые метеоритом враги после оглушения замедляются на %movement_slow%%% по скорости передвижения и на %attack_slow% по скорости атаки на %slow_duration% сек.<br><br>Предмет нельзя использовать в течение %blink_damage_cooldown% сек. после получения урона от вражеских героев или Рошана.\n<h1>Метеорит</h1>Бьёт по врагам в радиусе %impact_radius%, оглушает их на %stun_duration% сек. и наносит урон при ударе.<br>Затем поджигает на %burn_duration% сек. Подожжённые существа (кроме построек) замедляются на %burn_slow%%%.<br><br>Урон постройкам при ударе: %impact_damage_buildings% + %impact_stat_pct_buildings%%% суммы атрибутов<br>Периодический урон постройкам: %burn_dps_buildings%<br><br>Урон существам при ударе: %impact_damage_units% + %impact_stat_pct_units%%% суммы атрибутов<br>Периодический урон существам: %burn_dps_units%"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_bonus_strength"				"+$str"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_spell_amp"					"%+Усиление способностей"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_mana_regen_multiplier"		"%+Усиление восстановления маны"
+		"DOTA_Tooltip_ability_item_fall_fall_fall_Lore"					"Хотел уронить метеор, а прыгнул в толпу врагов? Смени кинжал."
+
+		// item_exchange 转换
+		"DOTA_Tooltip_ability_item_exchange"							"Обмен"
+		"DOTA_Tooltip_ability_item_exchange_Description"			"Объединяется с преобразуемым предметом и переключает его между формами."
 
 		// item_blessing_of_dragon 神龙
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon"				"<font color='#FFFF00'>Благословение дракона</font>"

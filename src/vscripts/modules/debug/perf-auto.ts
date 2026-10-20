@@ -1,5 +1,4 @@
 import { HeroUtil } from '../../ai/hero/hero-util';
-import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import {
   property_aoe_bonus_constant_stacking,
@@ -23,6 +22,7 @@ import { BotPick } from '../../ai/bot-pick/bot-pick';
 import { PerfProfiler } from './perf-profiler';
 import { PERF_CONFIG } from './perf-config';
 import { modifier_perf_melee_stack } from './perf-melee-stack';
+import { modifier_perf_empty, modifier_perf_takedamage } from './perf-building-modifier';
 import { PerfSampler } from './perf-sampler';
 import { findAllUnits } from '../helper/unit-helper';
 
@@ -77,6 +77,8 @@ export interface PerfAutoConfig {
   // 每段末统计全场 modifier 与实体，找随时间累积的东西
   census?: boolean;
   benchAttackers?: number;
+  // 伤害基准里两队隔开的距离，0 为各回泉水
+  benchGap?: number;
 }
 
 interface PerfStep {
@@ -176,14 +178,43 @@ function boostHeroes(team?: DotaTeam, withGold = true) {
   );
 }
 
-// 满级开局几分钟就会推平一方基地，测不到后期；基地仍会被打到残血，团战负载照常。
-// modifier 注册时方法已复制到全局表，只能在实例上覆盖
+// 满级开局几分钟就会推平一方基地，测不到后期；用原版无敌，不额外挂 Lua modifier
 function lockForts() {
   for (const fort of Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[]) {
-    const think = fort.FindModifierByName(modifier_fort_think.name) as
-      | modifier_fort_think
-      | undefined;
-    if (think) think.TriggerGameEnd = () => undefined;
+    fort.AddNewModifier(fort, undefined, 'modifier_invulnerable', {});
+  }
+}
+
+// 每个建筑各挂 1 份：同一单位叠多份同名 modifier 时开销偏高，分散挂才是常驻 Lua modifier 的真实单价；空壳与受伤监听两档分开看
+const BUILDING_CLASSES = [
+  'npc_dota_tower',
+  'npc_dota_barracks',
+  'npc_dota_healer',
+  'npc_dota_fort',
+];
+
+function findBuildings(): CDOTA_BaseNPC[] {
+  return BUILDING_CLASSES.flatMap(
+    (className) => Entities.FindAllByClassname(className) as CDOTA_BaseNPC[],
+  ).filter((building) => building.IsAlive());
+}
+
+const BUILDING_MODIFIERS: Record<string, string> = {
+  empty: modifier_perf_empty.name,
+  takedamage: modifier_perf_takedamage.name,
+};
+
+function addBuildingModifiers(modifierName: string) {
+  const buildings = findBuildings();
+  for (const building of buildings) {
+    building.AddNewModifier(building, undefined, modifierName, {});
+  }
+  print(`[perf] building modifiers name=${modifierName} buildings=${buildings.length}`);
+}
+
+function removeBuildingModifiers(modifierName: string) {
+  for (const building of findBuildings()) {
+    building.RemoveAllModifiersOfName(modifierName);
   }
 }
 
@@ -419,7 +450,20 @@ function clearWards(hero: CDOTA_BaseNPC_Hero) {
 
 // 停掉自定义 AI、不再出兵并清掉兵线，全员复活后拉回各自泉水。
 // 野怪整分钟才刷新，清掉会让各段单位数忽多忽少，留在营地里不动反而稳定
+// 泉水两队相隔太远，敌方光环够不到；隔开固定距离对排时光环能覆盖对面，又在自动索敌范围外不会互打
+function parkSpot(hero: CDOTA_BaseNPC_Hero, index: Record<number, number>): Vector | undefined {
+  const team = hero.GetTeamNumber();
+  const gap = PERF_CONFIG?.benchGap ?? 0;
+  if (gap <= 0) return HeroUtil.GetTeamFountainPosition(team);
+  const half = gap / 2 / math.sqrt(2);
+  const center = team === DotaTeam.GOODGUYS ? Vector(-half, -half, 0) : Vector(half, half, 0);
+  const slot = (index[team] ?? 0) - 4.5;
+  index[team] = (index[team] ?? 0) + 1;
+  return center.__add(Vector(slot * FIGHT_SPACING, -slot * FIGHT_SPACING, 0));
+}
+
 function parkHeroes() {
+  const index: Record<number, number> = {};
   respawnInPlace = false;
   PerfSampler.aiThinkDisabled = true;
   SendToServerConsole('dota_creeps_no_spawning 1');
@@ -427,11 +471,11 @@ function parkHeroes() {
   forEachHero((hero) => {
     if (!hero.IsAlive()) hero.RespawnHero(false, false);
     clearWards(hero);
-    const fountain = HeroUtil.GetTeamFountainPosition(hero.GetTeamNumber());
-    if (fountain) FindClearSpaceForUnit(hero, fountain, true);
+    const spot = parkSpot(hero, index);
+    if (spot) FindClearSpaceForUnit(hero, spot, true);
     hero.Stop();
   });
-  print(`[perf-auto] idle parked`);
+  print(`[perf-auto] idle parked gap=${PERF_CONFIG?.benchGap ?? 0}`);
 }
 
 // 打团里交战量随局势起伏，几 ms 的差异被淹没；固定频率互相造成伤害，只量伤害事件链路本身的开销。
@@ -439,10 +483,11 @@ function parkHeroes() {
 const BENCH_DAMAGE = 100;
 // 高频小额伤害：模拟持续伤害每跳，一帧多次、每次伤害很低
 const DOT_HITS = 5;
-type BenchMode = 'damage' | 'attack' | 'dot' | 'dotbig';
+type BenchMode = 'damage' | 'attack' | 'dot' | 'dotbig' | 'spell';
 const BENCH_SCENES: Record<string, BenchMode> = {
   dmgbench: 'damage',
   atkbench: 'attack',
+  spellbench: 'spell',
   dotbench: 'dot',
   dotbigbench: 'dotbig',
 };
@@ -461,7 +506,8 @@ function startDamageBench(mode: BenchMode) {
       benchTicking = false;
       return undefined;
     }
-    magical = !magical;
+    // 纯技能场景只打带技能来源的魔法伤害，技能增强、法术暴击这类只对技能生效的逻辑才会每次都走到
+    magical = benchMode === 'spell' || !magical;
     const heroes: CDOTA_BaseNPC_Hero[] = [];
     forEachHero((hero) => heroes.push(hero));
     const limit = PERF_CONFIG?.benchAttackers ?? 0;
@@ -1104,6 +1150,11 @@ const CONDITIONS: Condition[] = [
   })),
   // 暂停时画面照常渲染、游戏逻辑停止，和基线的帧时间差就是随游戏运行产生的每帧开销
   { name: 'paused', setup: () => PauseGame(true), teardown: () => PauseGame(false) },
+  ...Object.entries(BUILDING_MODIFIERS).map(([suffix, modifierName]) => ({
+    name: `bld_${suffix}`,
+    setup: () => addBuildingModifiers(modifierName),
+    teardown: () => removeBuildingModifiers(modifierName),
+  })),
 ];
 
 // 「a+b」同时挂多个条件，量共用同一机制的几项叠加后的总开销

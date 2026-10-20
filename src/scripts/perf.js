@@ -66,6 +66,8 @@ function parseArgs() {
     census: false,
     // 伤害基准里出手的英雄数，0 为全员；降负载避免服务器跑满后开销不再线性
     benchAttackers: 0,
+    // 伤害基准里两队对排的间距，0 为各回泉水；量敌方光环时用
+    benchGap: 0,
     // 先跑 minGames 局；有条件各局结果不一致就逐局追加，最多 maxGames 局
     // 逗号分隔的条件名，只复测其中几项时用
     conditions: 'all',
@@ -99,6 +101,8 @@ function parseArgs() {
       options[key] = value;
     else options[key] = Number(value);
   }
+  // 场景测试开局已拉满级发装备，不必跑到后期；留 1.5 分钟等开局初始化与去被动完成
+  if (options.scenes !== '' && !argv.includes('--warmupMinutes')) options.warmupMinutes = 1.5;
   return options;
 }
 
@@ -338,6 +342,8 @@ async function runGame(options, gameConfig, label) {
 (async () => {
   const options = parseArgs();
   if (isDotaRunning()) throw new Error('Dota 2 is already running, close it first');
+  // Compiling rewrites the Lua that a running Dota has loaded, so build only after the check
+  execSync('npm run build:vscripts', { stdio: 'inherit' });
   process.on('exit', removeConfig);
   process.on('SIGINT', () => process.exit(130));
   keepDisplayAwake();

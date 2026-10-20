@@ -25,7 +25,7 @@ description: 从零自制新技能（TS 实现，非克隆、非觉醒）。
 
 技能通常没有常驻属性加成，DataDriven 的声明式优势用不上，反而丢掉类型检查；纯 Lua 两头都没有。
 
-> **例外：技能确实要挂常驻数值属性时**，Lua/TS modifier 的每个 `GetModifier*` 都是「引擎每查一次 → 回一次 Lua」，单位多时会卡。作用单位少（几个召唤物）可以照写，`OnCreated` 缓存一次值、`GetModifier*` 返回缓存即可（参考巫医觉醒 `special_bonus_unique_witch_doctor_upgrade`，死亡守卫按 spell amp 放大攻击）。作用面大且是纯静态常量时才值得改走 KV `Modifiers`→`Properties`；物品侧的完整取舍见 `custom-item` skill 的「回调税」一节。
+> **例外：技能确实要挂常驻数值属性时**，Lua/TS modifier 有回调税与常驻开销（见 `src/vscripts/CLAUDE.md`「写技能、物品、modifier」），单位多时会卡。作用单位少（几个召唤物）可以照写，`OnCreated` 缓存一次值、`GetModifier*` 返回缓存即可（参考巫医觉醒 `special_bonus_unique_witch_doctor_upgrade`，死亡守卫按 spell amp 放大攻击）。作用面大且是纯静态常量时才值得改走 KV `Modifiers`→`Properties`；物品侧的完整取舍见 `custom-item` skill 的「回调税」一节。
 
 
 ## 第三步：骨架

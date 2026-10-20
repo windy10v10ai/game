@@ -10,9 +10,9 @@
 
 ## 小改动搭车
 
-手上有未合并的 PR 时，文档措辞、注释、规约补充这类小改动直接并进去，在 PR 正文补一句说明。以下任一条成立就另开分支：
+手上有未合并的 PR 时，文档、skill、注释、规约补充这类小改动直接并进去，在 PR 正文补一句说明：单开 PR 的流程成本比改动本身还大。与当前 PR 主题不同照样搭车，例如修 bug 的 PR 顺带改 skill 流程。以下任一条成立才另开分支：
 
-- 与当前 PR 的主题冲突
+- 违反当前 PR 的既定规矩（如纯升级的 PR 不改页面）
 - 当前 PR 已合并
 - 一两句话说不清
 
@@ -49,4 +49,4 @@ Dota 只加载主目录的 `game/`，要实机测 worktree 里的改动，先把
 
 ## 误跑全量 prettier 后还原
 
-`npm run lint` 不含 prettier 检查，仓库里有一批文件从没按 `.prettierrc` 格式化过。误跑了通配符 `prettier --write` 时：`git add -A` 归一化换行，`git diff --cached --stat` 看清范围，逐个 `git checkout HEAD -- <file>` 还原。`src/vscripts/api/api-client.local.ts` 带 skip-worktree、工作区存着真实 key，所以不用 `git reset --hard`。
+误跑了通配符 `prettier --write` 时：`git add -A` 归一化换行，`git diff --cached --stat` 看清范围，逐个 `git checkout HEAD -- <file>` 还原。`src/vscripts/api/api-client.local.ts` 带 skip-worktree、工作区存着真实 key，所以不用 `git reset --hard`。

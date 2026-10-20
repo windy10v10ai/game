@@ -24,6 +24,7 @@ let playerInfoRefreshing = false;
 
 function PregameSetup() {
   $('#PropertyWebsiteButton').SetPanelEvent('onactivate', OpenPropertyWebsite);
+  $('#RuleLink').SetPanelEvent('onactivate', OpenPropertyWebsite);
   $('#PropertyRefreshButton').SetPanelEvent('onactivate', OnPlayerInfoRefreshActive);
   const player = GetPlayer();
   PlayerDataLoaded(player);
@@ -74,9 +75,6 @@ function PlayerDataLoaded(loadedPlayer) {
     player.memberNextLevelPoint,
   );
 
-  $('#RuleLink').SetPanelEvent('onactivate', () => {
-    $.DispatchEvent('ExternalBrowserGoToURL', $.Localize(`#data_panel_member_point_rule_url`));
-  });
   // $('#ChargeLink').SetPanelEvent('onactivate', () => {
   //   $.DispatchEvent('ExternalBrowserGoToURL', 'https://ifdian.net/a/windy10v10?tab=shop');
   // });

@@ -24,6 +24,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 |---|---|
 | `npm run start` | 启动 Dota 2 Tools 与 watch 编译 |
 | `npm test` / `npm run lint` | jest / eslint（含图片与本地化检查） |
+| `npm run prettier-check` | 格式检查（不含 Markdown），CI 会跑；第三方文件在 `.prettierignore` |
 | `npm run build:vscripts` / `build:panorama` | 提交前查编译错误 |
 
 ## 目录导航
@@ -60,6 +61,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 - 按需求还原到够用为止，不过度分析
 - 布尔方法名用常见直接的动词，不重复所属类或文件已表达的语境：`CanCast` 优于 `IsEligible`、`CanUseGenericFallback`
 - 多处需要同一逻辑（尤其要求口径一致的计算）时提取共享函数，避免只改一处产生口径分歧
+- 新物品、新技能、新机制的效果先找原版 modifier 或 KV，最后才写 Lua modifier：Lua modifier 即使什么都不做也会拖慢全图每次伤害结算，在后期卡顿里随实例数累积。选型顺序与原因见 `src/vscripts/CLAUDE.md`「写技能、物品、modifier」
 
 ## 注释规约
 
@@ -85,13 +87,14 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 
 ## Git
 
-- 分支从最新 `develop` 切出，确定要写文件（包括 skill 产出的设计文档）前先切好。issue 驱动命名 `feature/<issue-id>-<3–6 个英文小写单词>`（如 `feature/2411-web-link-refresh`），其他用 `fix/` `chore/` `docs/` 前缀
+- 手上有未合并的 PR 时，文档、skill、注释这类小改动直接并进该 PR，不另切分支，判定见 `.claude/references/git-workflow.md`「小改动搭车」
+- 其余改动的分支从最新 `develop` 切出，确定要写文件（包括 skill 产出的设计文档）前先切好。issue 驱动命名 `feature/<issue-id>-<3–6 个英文小写单词>`（如 `feature/2411-web-link-refresh`），其他用 `fix/` `chore/` `docs/` 前缀
 - 切分支前的检查、worktree、小改动搭车、合并与清理 → `.claude/references/git-workflow.md`
 - issue 标题与 PR 正文用中文，PR 标题与 commit 用英文。commit 是 ≤72 字符的单行标题，正文只写 `Co-Authored-By`
 - PR base 固定 `develop`。PR 完成 issue 全部范围才写 `Fixes #<id>`，否则只写 `#<id>`
 - 只 stage 本次请求相关的文件，commit 前看 `git status`；当前分支不符合预期（如处于 `develop`/`main`）先请用户确认
 - 合并只在用户给出指令时执行
-- 开 PR 走 `create-pr` skill：纯内部改动（重构、构建、CI、文档、测试）自行跳过 Release Note，其余问用户走哪条轨道，要写时调用 `release-note` 生成
+- 开 PR 走 `create-pr` skill：纯内部改动（重构、构建、CI、文档、测试）自行跳过 Release Note，其余算出目标版本后问用户写不写，要写时调用 `release-note` 生成
 
 ## 文档分工
 
@@ -126,5 +129,13 @@ README 还是 `CLAUDE.md`：违反它是「这次改动做错了」进 `CLAUDE.m
 ## Skill 交互
 
 执行 skill 遇到不明确的决策点（目标文件多个候选、新建还是修正、原版技能信息有多个候选），用 `AskUserQuestion` 以选项菜单询问，每道问题单独一次调用，选项附简短说明。
+
+brainstorming 的 spec / 设计稿经用户确认后**不调用 writing-plans**，直接实现；用户当次要求时才写正式 plan。改代码前先用一条消息向用户确认需要用户拍板的几项，确认后再动手：
+
+- 工作位置：当前 checkout 有没有其他未提交改动或进行中的分支，在 worktree 改还是在主目录改（Dota 只加载主目录的 `game/`，要实机验证就在主目录）
+- PR 拆分与上线顺序：跨仓库（`../firebase`）时各开什么 PR、谁先合并部署，后上线的一方先上时会不会出错
+- 实机验证：要不要在 Dota Tools 实机验证、PR 要不要截图。要截图或操作 Dota 窗口时，在这一步就把 Dota 起起来，`request_access` 授权 `dota2.exe` 与 `textinputhost.exe`（后者是常挡在前台的系统输入组件，见 `dota-live-test`；`dota2.exe` 进程要在运行；授权弹窗只有用户本人能点，用户确认后可能离开）
+- 分工：哪些部分派 SubAgent、各用什么 `model`（按「节约用量」表），哪些留在主对话
+- 留给用户确认的事项：列出来，写进 PR 的 Checklist
 
 用户明确要求「不要停、自主做到最后」时，skill 自带的确认停顿点一律跳过，已有设计文档当作已拍板。不阻塞主线的待判断问题记下来写进 draft PR 的 Checklist；方案自相矛盾、无法安全判断时才停下。

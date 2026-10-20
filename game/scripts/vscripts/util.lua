@@ -211,17 +211,17 @@ function IsHumanPlayer(playerID)
 	return steamAccountID ~= 0
 end
 
-function IsAbilityBehavior(behavior, judge)
-	-- Convert userdata to number if necessary
+-- 取技能 behavior 的低 32 位，与 TS 侧 cast-condition.ts 的 GetAbilityBehaviorBits 同口径
+-- 带高位标志时数值超出 bit 库的精度范围，直接按位与会算错
+function GetBehaviorBits(behavior)
 	if type(behavior) ~= "number" then
-		behavior = tonumber(tostring(behavior))
+		behavior = tonumber(tostring(behavior)) or 0
 	end
+	return behavior % 4294967296
+end
 
-	if not behavior then
-		return false
-	end
-
-	return bit.band(behavior, judge) == judge
+function IsAbilityBehavior(behavior, judge)
+	return bit.band(GetBehaviorBits(behavior), judge) == judge
 end
 
 -- Refresher

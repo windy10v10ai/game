@@ -10,7 +10,7 @@ disable-model-invocation: true
 
 1. **输入**：PR 号或分支名。问用户要不要 checkout；要的话按 `references/checkout.md`
 2. **出报告**：按下方标准审阅，从用户视角说明实现了什么、实现方式是否合规、有没有过度设计或冗余测试。对话里完整展示，同时落盘 `docs/review/pr-<PR号>.md`（没有 PR 号用 `review-<分支名>.md`，目录已 gitignore）
-3. **更新日志**：先用一两句复述本次改动对玩家的实际影响，再查聚合 release PR（`gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url`）的 body 里有没有这次的条目。缺失时问用户是否补写与轨道，同意则调用 `release-note`，参数写 PR 号、轨道与「仅写入聚合 release PR」。对玩家无感知的改动直接说明无需日志
+3. **更新日志**：先用一两句复述本次改动对玩家的实际影响，再查聚合 release PR（`gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url`）的 body 里有没有这次的条目。缺失时按 `.claude/references/release-version.md` 算出目标版本，问用户是否补写，同意则调用 `release-note`，参数写 PR 号、目标版本与「仅写入聚合 release PR」。对玩家无感知的改动直接说明无需日志
 4. **逐条确认**：报告里的问题逐条问用户要不要处理。不处理的在报告 md 里标「已确认忽略」及原因；用户补充的问题追加到「用户补充问题」小节，一并处理
 5. **处理方式**：要处理的逐条问「自己修改」（在当前分支直接改）还是「comment 到 PR」（按输出规范提交）
 
@@ -21,7 +21,7 @@ disable-model-invocation: true
 按本仓库历史 review 中出现频率排序。
 
 1. **根因优先于表面修补**：定位到真实机制再说修法，指出根因位置。常见根因：`LinkLuaModifier` 未注册导致 modifier 从未生效、本地常量与引擎全局同名被遮蔽（`src/vscripts/CLAUDE.md`「TSTL 陷阱」）
-2. **优先复用 Dota 原生机制**：为模拟效果手搓一整套状态同步/数值换算，是最易出 bug、最难维护的实现。即使能跑通也要问：有没有现成的原版技能机制、modifier 或项目 helper 可复用。性能上，声明大量属性字段或靠 `OnIntervalThink` 逐帧同步的自定义 Lua modifier，开销明显高于借壳原生 modifier
+2. **优先复用 Dota 原生机制**：为模拟效果手搓一整套状态同步/数值换算，是最易出 bug、最难维护的实现。即使能跑通也要问：有没有现成的原版技能机制、modifier 或项目 helper 可复用。性能上，新增的 Lua modifier（尤其常驻在每个英雄或建筑上的）即使逻辑很少也会拖慢每次伤害结算，能用原版 modifier 或 KV 的要指出（见 `src/vscripts/CLAUDE.md`「写技能、物品、modifier」）
 3. **测试有效性**：对照 `src/vscripts/CLAUDE.md`「测试与验证」，检查新增测试是真的验证了逻辑分支，还是字符串匹配或纯 mock 调用断言
 4. **KV / 本地化一致性与去重**：格式按 `game/resource/CLAUDE.md`；多处硬编码的同一常量/价格（如出装 tier 的 cost 与 KV 的 ItemCost）收敛成单一来源；机制变更后失效的 KV 字段（如遗留的 `AbilityUnitTargetTeam`/`Flags`）一并清理
 5. **大范围玩家侧影响分阶段验证**：全难度/全局机制或平衡改动，倾向建议先做成可选项或先在自定义模式验证

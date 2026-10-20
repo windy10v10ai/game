@@ -265,7 +265,5 @@ export class GameEnd {
     GA4PickAbilityTracker.SendAtGameEnd(gameEndDto);
     // 发送 GA4 每日任务选择/完成事件
     GA4DailyTaskTracker.SendAtGameEnd(gameEndDto);
-    // 发送 GA4 匹配时间事件
-    GA4.SendGameEndMatchTimeEvents();
   }
 }

@@ -1,5 +1,6 @@
 import { Player } from '../../api/player';
 import { PlayerHelper } from '../helper/player-helper';
+import { GameEnd } from './game-end/game-end';
 import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
 
 // 全局游戏状态 - 记录塔摧毁情况
@@ -32,6 +33,12 @@ export class EventEntityKilled {
     }
     if (killedUnit.IsRealHero()) {
       this.onHeroKilled(killedUnit as CDOTA_BaseNPC_Hero);
+      return;
+    }
+    if (killedUnit.GetClassname() === 'npc_dota_fort') {
+      const winner =
+        killedUnit.GetTeamNumber() === DotaTeam.GOODGUYS ? DotaTeam.BADGUYS : DotaTeam.GOODGUYS;
+      GameEnd.OnGameEnd(winner);
       return;
     }
     if (!keys.entindex_attacker) {

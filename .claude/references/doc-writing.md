@@ -6,7 +6,6 @@
 
 - 路径 `docs/superpowers/specs/<YYYY-MM-DD>-<主题>-<用途>.md`，整个 `docs/superpowers/` 已 gitignore，只在本地留档。`<用途>` 区分同主题的多篇：方案设计用 `design`，实现记录用具体范围（如 `game-read`）
 - 内容讲设计思路和数据流：背景/目标、设计决策与理由、数据流（谁读谁写、字段名、经过哪些层）、修改文件列表（每个文件一行说改什么）、验证方式。函数签名、代码块、参数列表留给实现阶段
-- brainstorming 的书面 spec 经用户确认后直接按 spec 执行；用户当次要求写正式 plan 时才调用 writing-plans
 - spec 会话结束就没人再看。留得住的设计思路另写进版本控制：模块级的进该模块 `README.md`，只影响一两处实现的写成代码注释
 
 ## issue
