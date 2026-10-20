@@ -36,6 +36,7 @@
 **法术相关**
 
 - `MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE`、`MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE`
+- `MODIFIER_PROPERTY_CASTTIME_PERCENTAGE`（施法前摇缩短，写 `50` 前摇 ×0.5，多件按乘法叠加）
 
 实测过的属性与原版物品、Lua modifier 的同类加成按加法叠加，互不覆盖。
 
@@ -49,6 +50,8 @@
 - `MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT`（写 `"1"` 挂上后移速仍卡在上限）
 - `States` 里的 `MODIFIER_STATE_UNSLOWABLE`（挂上后减速照常生效）
 - `MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION`（减法减魔抗只有 Lua modifier 的 `GetModifierMagicalResistanceDirectModification` 生效，算法见下节）
+- `MODIFIER_PROPERTY_MANACOST_PERCENTAGE` / `_STACKING`（蓝耗降低改挂 `modifier_item_enhancement_mystical`，见 `vanilla-modifiers.md`）
+- `MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING` / `_UNIQUE`（减速抗性同理只能借原版 modifier）
 - `MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE`（上表的 `HP_REGEN_AMPLIFY_PERCENTAGE` 是回复放大，语义不同，替代不了；非 UNIQUE 的 `HEALTH_REGEN_PERCENTAGE` 可用，但多件同时生效时会叠加）
 
 `npc_items_custom.txt` 里那几处 `（不在可优化列表）` 注释指的就是这份名单。

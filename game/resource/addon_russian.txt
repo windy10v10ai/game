@@ -1232,13 +1232,12 @@
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_status_resistance"					"%+Сопротивление эффектам"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_slow_resistance"						"%+Сопротивление замедлению"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Усиление регенерации маны"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_spell_amp"							"%+Усиление заклинаний"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_magic_damage_attack"					"+Магический урон от атак"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Снижение затрат и потери маны"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Скорость применения"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_pct_improvement"					"%+Скорость применения"
 
 		// item_magic_scepter 紫杖
 		"DOTA_Tooltip_Ability_item_magic_scepter"												"<font color='#A74ABD'>Магический скипетр</font>"
