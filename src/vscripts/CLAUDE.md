@@ -24,6 +24,7 @@ TSTL 编译为 Lua，输出到 `game/scripts/vscripts/`。跨层契约见 `src/C
 - **施法错误飘字要 `CastFilterResult` + `GetCustomCastError` 配套**：引擎只在 `CastFilterResult()` 返回 `UnitFilterResult.FAIL_CUSTOM` 时才取错误文本，两者用同一判据。错误文本 key 在本地化文件里定义不带 `#`，代码返回时带 `#`
 - **排除技能增强时显式加 `damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION`**：物理伤害也要加。引擎看的是标志位，且本项目技能增强是自定义属性 `property_spell_amplify_percentage`
 - **代码直接调 `OnSpellStart()` 代为施放时补 `this.UseResources(mana, useHealth, gold, cooldown)`**：绕过了引擎施法管线，不会自动扣资源、进 CD。玩家手动施放的回调引擎已经结算过，不再调用
+- **判断目标能否被施加负面效果用 `IsDebuffImmune()`**：开着 BKB 的单位 `IsMagicImmune()` 返回 false（已实测）。`AddNewModifier` 不检查免疫，减益照样挂上，但引擎会屏蔽其中的状态（变羊、沉默）与减魔抗
 - **负面状态时长先过 `utils/damage-calculation.ts` 的 `calculateStatusResistedDuration(duration, target)`**：`AddNewModifier` 不按目标状态抗性缩短 `duration`（已实测），原版 modifier 同样适用。给友方或自己的增益不折算
 - **永久增减属性用 `ModifyStrength` / `ModifyAgility` / `ModifyIntellect` 改基础值**（负数即减，自行兜底下限）：一次生效、零持续开销（参考 `game/scripts/vscripts/items/item_tome_of_luoshu.lua`）。声明 `MODIFIER_PROPERTY_STATS_*_BONUS` 的自定义 modifier 每次重算属性都要回调 Lua，还得 `SetHasCustomTransmitterData` 同步才能在 tooltip 显示。要 buff 图标时另挂一个不声明属性回调的纯显示 modifier，数值放 stack count
 - **全局事件走共享分发**：受伤（按攻击者）、普攻命中（按攻击者）、单位被加 modifier 三类监听经 `modules/modifier-event/modifier-event-hub.ts` 的 `ModifierEventHub` 按单位登记，不在自己的 modifier 里声明 `MODIFIER_EVENT_ON_TAKEDAMAGE` / `ON_ATTACK_LANDED` / `ON_MODIFIER_ADDED`：引擎对全场每次事件都回调一次每个声明者，只要有一个就有固定开销。伤害通道入口统一跳过伤害 < 20 的事件（持续伤害零碎小跳），新处理不必自己再过滤。吸血与法术吸血用 `modules/lifesteal/` 的 `Lifesteal.Set(unit, modifier, 普攻%, 法术%)` / `Remove` 登记百分比，不另写回血处理
