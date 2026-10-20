@@ -3,7 +3,7 @@ import { IS_DEBUG_RUN } from './debug/perf-config';
 import { IsLauncherRoom } from './launcher-room';
 
 export class GameConfig {
-  public static readonly GAME_VERSION = 'v5.65';
+  public static readonly GAME_VERSION = 'v5.66';
   public static readonly MEMBER_BUYBACK_CD = 120;
   public static readonly PRE_GAME_TIME = 60;
   // 英雄击杀经验系数
@@ -91,7 +91,7 @@ export class GameConfig {
     if (IS_DEBUG_RUN) {
       print('[GameConfig] 开发者模式快速开始游戏');
       GameRules.SetCustomGameSetupAutoLaunchDelay(3);
-      game.SetDraftingBanningTimeOverride(5); // ban 阶段时长
+      game.SetDraftingBanningTimeOverride(3); // ban 阶段时长
       game.SetDraftingHeroPickSelectTimeOverride(5);
       GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(3);
