@@ -136,18 +136,15 @@
 						<DropDown id="fixed_ability_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
 							<Label text="#fixed_ability_none" id="none"/>
 							<!-- 主动技能 -->
-							<Label text="#DOTA_Tooltip_ability_tidehunter_ravage" id="tidehunter_ravage" />
-							<Label text="#DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward" id="shadow_shaman_mass_serpent_ward" />
-							<Label text="#DOTA_Tooltip_ability_brewmaster_primal_split_lua" id="brewmaster_primal_split_lua" />
-							<Label text="#DOTA_Tooltip_ability_clinkz_burning_barrage2" id="clinkz_burning_barrage2" />
+							<Label text="#DOTA_Tooltip_ability_abaddon_borrowed_time" id="abaddon_borrowed_time" />
+							<Label text="#DOTA_Tooltip_ability_dark_willow_shadow_realm" id="dark_willow_shadow_realm" />
 							<Label text="#DOTA_Tooltip_ability_slark_shadow_dance" id="slark_shadow_dance" />
 							<Label text="#DOTA_Tooltip_ability_life_stealer_rage" id="life_stealer_rage" />
-							<Label text="#DOTA_Tooltip_ability_faceless_void_chronosphere" id="faceless_void_chronosphere" />
 							<!-- 被动技能 -->
 							<Label text="#DOTA_Tooltip_ability_spectre_dispersion2" id="spectre_dispersion2" />
 							<Label text="#fixed_ability_ability_charge_damage_name" id="ability_charge_damage" />
 							<Label text="#DOTA_Tooltip_ability_pudge_innate_graft_flesh" id="pudge_innate_graft_flesh" />
-							<Label text="#DOTA_Tooltip_ability_death_prophet_witchcraft" id="death_prophet_witchcraft" />
+							<Label text="#DOTA_Tooltip_ability_jakiro_double_trouble2" id="jakiro_double_trouble2" />
 							<Label text="#DOTA_Tooltip_ability_rubick_arcane_supremacy" id="rubick_arcane_supremacy" />
 							<Label text="#DOTA_Tooltip_ability_primal_beast_colossal2" id="primal_beast_colossal2" />
 							<Label text="#DOTA_Tooltip_ability_tiny_grow" id="tiny_grow" />
@@ -156,6 +153,9 @@
 							<Label text="#fixed_ability_ability_trigger_on_spell_reflect_name" id="ability_trigger_on_spell_reflect" />
 							<Label text="#DOTA_Tooltip_ability_slardar_bash" id="slardar_bash" />
 							<Label text="#DOTA_Tooltip_ability_phantom_assassin_coup_de_grace" id="phantom_assassin_coup_de_grace" />
+							<Label text="#DOTA_Tooltip_ability_batrider_smoldering_resin2" id="batrider_smoldering_resin2" />
+							<Label text="#DOTA_Tooltip_ability_muerta_gunslinger" id="muerta_gunslinger" />
+							<Label text="#DOTA_Tooltip_ability_leshrac_defilement2" id="leshrac_defilement2" />
 						</DropDown>
 					</Panel>
 					<!-- 是否强制随机英雄 -->
