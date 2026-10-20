@@ -1201,6 +1201,16 @@
 		//			物品 Items
 		//
 		///////////////////////////////////////////////////
+		// consecrated_wraps_2 炽天使的圣化圣衣
+		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"								"<font color='#e03e2e'>Артефакт: Обмотки в сиропе</font>"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"					"<h1>Пассивное: Hallowed</h1> Каждые %AbilityChargeRestoreTime% сек. владелец получает один заряд этой способности, а его скорость передвижения на %duration% сек. увеличивается на %movement_speed_pct_on_stack_gain%%%. Максимум зарядов: %AbilityCharges%.<br><br>Когда владелец получает урон от подконтрольного игроку существа или Рошана, все заряды расходуются, и на %duration% сек. даётся барьер от всех типов урона, имеющий %barrier_per_stack% здоровья за заряд (максимум — %max_barrier_tooltip%)."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"						"Получение зарядов прекращается на %AbilityChargeRestoreTime% сек. после получения урона от подконтрольного игрокам существа или Рошана."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"						"Заряды не расходуются от урона, нанесённого самому себе или считающегося потерей здоровья."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"						"Эффекты скорости передвижения не складываются."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_spell_resist"			"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_all_stats"				"+$all"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_health"				"+$health"
+
 		// item_sacred_trident 三叉戟
 		"DOTA_Tooltip_Ability_item_sacred_trident"										"Священный трезубец"
 		"DOTA_Tooltip_ability_item_sacred_trident_Description"							"Выкован из Sange, Yasha и Kaya вместе."
@@ -1251,6 +1261,24 @@
 
 		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"									"Священный всплеск магии"
 		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"						"Даёт <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> усиления заклинаний."
+
+		// 神器 一瞬千击
+		"DOTA_Tooltip_Ability_item_dagon_ultra"										"<font color='#e03e2e'>Артефакт: Тысяча ударов</font>"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Активное: Покажи скорость рук</h1> Выпускает всплеск энергии, наносящий магический урон выбранному вражескому существу.<br><br>Урон: %damage%<br>Расход маны: %mana_cost_tooltip%"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"								"Чем быстрее руки, тем выше урон, лишь бы хватило маны."
+		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"								"Мгновенно убивает иллюзии."
+		"DOTA_Tooltip_ability_item_dagon_ultra_Note1"								"Бонусы к дальности применения заклинаний от Aether Lens и Dagon не складываются."
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_all_stats"						"+$all"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_mana"							"+$mana"
+		"DOTA_Tooltip_ability_item_dagon_ultra_cast_range_bonus"					"+$cast_range"
+
+		// item_disperser_chaos 混沌·散魂剑
+		"DOTA_Tooltip_ability_item_disperser_chaos"									"<font color='#FF4500'>Хаотический Disperser</font>"
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"						"<h1>Активное: Suppress</h1> Применяет на цель и на владельца развеивание. Если целью был враг, также замедляет его передвижение на %enemy_effect_duration% сек., а если союзник — ускоряет на %ally_effect_duration% сек. и даёт +%slow_resist%%% к сопротивлению замедлениям. Бонусы для союзника накладываются и на самого владельца.<br><br>И замедление, и ускорение составляют %phase_movement_speed%%% в момент применения, а по мере действия постепенно снижаются до нуля.<br>Тип развеивания: <span class=\"GameplayValues GameplayVariable\">нормальное</span>\n\n<h1>Пассивное: Manabreak</h1> Каждая атака сжигает %feedback_mana_burn% маны врага и наносит ему %damage_per_burn% физического урона за единицу сожжённой маны.<br><br>Иллюзии ближнего боя сжигают %feedback_mana_burn_illusion_melee% маны за атаку, иллюзии дальнего боя — %feedback_mana_burn_illusion_ranged%."
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"					"+$agi"
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"					"+$damage"
 
 		// item_magic_crit_blade 魔龙狂舞
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"											"<font color='#A74ABD'>Танец дракона</font>"

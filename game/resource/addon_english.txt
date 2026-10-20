@@ -2675,16 +2675,15 @@
 		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_health"				"+$health"
 		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_mana"					"+$mana"
 
-		// consecrated_wraps_2
-		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"				"<font color='#e03e2e'>Artifact: Syrup-Coated Wraps</font>"
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>Passive: Hallowed</h1> Gain a stack every %AbilityChargeRestoreTime%s, up to a maximum of %max_stacks% stacks. Upon gaining a stack, your movement speed is increased by %movement_speed_pct_on_stack_gain%%% for %duration%s.<br><br>Whenever you take damage from a player-controlled unit or Roshan, consume all stacks to gain an all damage barrier for %duration%s that absorbs %barrier_per_stack% damage per stack (%max_barrier_tooltip% max)."
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"Stacks cannot be gained for %AbilityChargeRestoreTime%s after you take damage from a player-controlled unit or Roshan."
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"	    			"Self-damage and HP Loss damage cannot remove stacks."
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"					"Movement speed buff does not stack."
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note3"					"Movement speed buff is only provided if you have reached maximum stacks at least once while the item is equipped."
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_spell_resist"	"%+$spell_resist"
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_all_stats"		"+$all"
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_health"			"+$health"
+		// consecrated_wraps_2 炽天使的圣化圣衣
+		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"								"<font color='#e03e2e'>Artifact: Syrup-Coated Wraps</font>"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"					"<h1>Passive: Hallowed</h1> Gain a charge every %AbilityChargeRestoreTime%s, up to a maximum of %AbilityCharges% charges. Upon gaining a charge, your movement speed is increased by %movement_speed_pct_on_stack_gain%%% for %duration%s.<br><br>Whenever you take damage from a player-controlled source or Roshan, consume all charges to gain an all damage barrier for %duration%s that absorbs %barrier_per_stack% damage per charge (%max_barrier_tooltip% max)."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"						"Charges cannot be gained for %AbilityChargeRestoreTime%s after you take damage from a player-controlled source or Roshan."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"						"Self-damage and HP Loss damage cannot remove charges."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"						"Movement speed buff does not stack."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_spell_resist"			"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_all_stats"				"+$all"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_health"				"+$health"
 
 		// essence_distiller_2
 		"DOTA_Tooltip_Ability_item_essence_distiller_2"				"<font color='#e03e2e'>Artifact: Sacred Spirit Distiller</font>"
@@ -3380,21 +3379,22 @@
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"%+$spell_resist"
 
 		// 神器 一瞬千击
-		"DOTA_Tooltip_Ability_item_dagon_ultra"									"<font color='#e03e2e'>Artifact: Thousand Strikes</font>"
-		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Active: Watch My Speed</h1> Unleashes a burst of magical damage at an enemy target unit. Heals the caster for %dagon_spell_lifesteal%%% of the damage dealt.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%"
-		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"									"The faster your hands, the higher the damage, as long as you have mana."
-		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"									"Instantly destroys illusions."
-		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$passive_spell_lifesteal"
-		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_int"						"+$int"
-		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_str"						"+$str"
-		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_agi"						"+$agi"
+		"DOTA_Tooltip_Ability_item_dagon_ultra"										"<font color='#e03e2e'>Artifact: Thousand Strikes</font>"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Active: Watch My Speed</h1> Unleashes a burst of magical damage at an enemy target unit.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"								"The faster your hands, the higher the damage, as long as you have mana."
+		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"								"Instantly destroys illusions."
+		"DOTA_Tooltip_ability_item_dagon_ultra_Note1"								"Cast Range bonuses from Aether Lens and Dagon do not stack."
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_all_stats"						"+$all"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_mana"							"+$mana"
+		"DOTA_Tooltip_ability_item_dagon_ultra_cast_range_bonus"					"+$cast_range"
 
 		// item_disperser_chaos 混沌·散魂剑
-		"DOTA_Tooltip_ability_item_disperser_chaos"				"<font color='#80FFF4'>Chaotic</font> Disperser</font>"
-		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>Active: Suppress</h1> Slows the target for %enemy_effect_duration% seconds if they are an enemy or applies a basic dispell and grants bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds if they are an ally. Caster is always granted the ally benefit on cast.<br><br>Cast Range: %abilitycastrange%.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
-		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"				"+$agi"
-		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"			"+$int"
-		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_disperser_chaos"									"<font color='#FF4500'>Chaotic Disperser</font>"
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"						"<h1>Active: Suppress</h1> Dispels both the wearer and the target. Enemy targets are slowed for %enemy_effect_duration% seconds. Allied targets gain bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0 over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana.<br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"					"+$agi"
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"					"+$damage"
 
 		// 混沌魂戒
 		"DOTA_Tooltip_Ability_item_soul_ring_1"				"<font color='#FF4500'>Chaotic Soul Ring</font>"

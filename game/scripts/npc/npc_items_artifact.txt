@@ -684,63 +684,6 @@
 			}
 		}
 	}
-
-
-	// 混沌散魂剑
-	"item_recipe_disperser_chaos"
-	{
-		"BaseClass"						"item_datadriven"
-		"ItemCost"						"0"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_disperser_chaos"
-		"AbilityTextureName"			"item_recipe_disperser_chaos"
-		"ItemRequirements"
-		{
-			"01"						"item_disperser;item_diffusal_blade"
-		}
-	}
-
-	"item_disperser_chaos"
-	{
-		"BaseClass"						"item_disperser"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"10.0"
-		"AbilityManaCost"				"75"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemCost"						"6100"
-		"ItemShopTags"					"agi;int;unique;hard_to_tag"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"diffusal blade 1"
-		"ItemPermanent"					"1"
-		"UpgradesItems"					"item_diffusal_blade"
-		"UpgradeRecipe"					"item_recipe_diffusal_blade"
-		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_disperser_chaos"
-		"AbilityValues"
-		{
-			"bonus_agility"			"80"
-			"bonus_intellect"		"25"
-			"feedback_mana_burn"	"150"
-			"feedback_mana_burn_illusion_melee"	"50"
-			"feedback_mana_burn_illusion_ranged"	"50"
-			"purge_rate"			"5"
-			"purge_root_duration"	"6.0"
-			"damage_per_burn"		"1.0"
-			"enemy_effect_duration"	"8.0"
-			"ally_effect_duration"	"5.0"
-			"movement_speed_buff_rate"	"6"
-			"phase_movement_speed"		"100"
-		}
-	}
 	//=================================================================================================================
 	// 混沌魂戒 娱乐道具
 	//=================================================================================================================
