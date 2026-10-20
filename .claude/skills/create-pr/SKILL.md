@@ -53,7 +53,10 @@ git checkout -b <prefix>/<issue-id>-<summary>
 - **是**：删掉本 PR 正文的 `## Release Note` 占位段，在描述里说明本次无玩法影响。不提问、不查版本号
 - **不是或无法确定**：按 `.claude/references/release-version.md` 算出目标版本，只用一次 `AskUserQuestion` 问齐写不写和写回方式。问题开头先写明目标版本属于哪种：**当前待发布大版本**（Steam 还在上一版，进聚合 release PR #N 的大版本块）还是**已发布大版本的补丁**（进 `---` 之下的补丁块），并附 Steam 最新版本与 release PR 版本作依据。选项：
   - 写进 <目标版本>，写入功能 PR 并合并进聚合 release PR（推荐）
+  - 写进 <目标版本>，先写入功能 PR，功能 PR 合并后再写入聚合 release PR
   - 写进 <目标版本>，仅写入功能 PR
   - 不新写：删掉本 PR 正文的占位段，聚合 release PR 已有内容不动
 
 `release-note` 在 SubAgent 里运行、不能提问，PR 创建后再调用，参数写 PR 号、目标版本、写回方式。它回报待选项时问用户，带着答案重新调用。
+
+选了「合并后再写入聚合 release PR」时，创建时按「仅写入功能 PR」调用 `release-note`；合并只在用户指令下执行，合并后聚合 release PR 才会出现，用户确认合并完成后再调用 `release-note`，来源仍写该功能 PR 号，写回方式为「仅写入聚合 release PR」。
