@@ -91,7 +91,7 @@ export class GameConfig {
     if (IS_DEBUG_RUN) {
       print('[GameConfig] 开发者模式快速开始游戏');
       GameRules.SetCustomGameSetupAutoLaunchDelay(3);
-      game.SetDraftingBanningTimeOverride(5); // ban 阶段时长
+      game.SetDraftingBanningTimeOverride(3); // ban 阶段时长
       game.SetDraftingHeroPickSelectTimeOverride(5);
       GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(3);
