@@ -858,7 +858,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_blade_mail_2', // 刃甲2
         'item_radiance_2', // 圣焰之光
         'item_heart', // 恐鳌之心
-        'item_eternal_shroud_ultra', // 法师泳衣
+        'item_consecrated_wraps_2', // 神器·急支糖衣
         'item_sacred_trident', // 三叉戟
         'item_aeon_pendant', // 咸鱼之王
         'item_armlet_pro_max', // 小鸡臂章Pro Max
@@ -1399,7 +1399,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_overwhelming_blink', // 力量跳刀
         'item_blade_mail_2', // 真·刃甲
         'item_heart', // 龙心
-        'item_eternal_shroud_ultra', // 法师泳衣
+        'item_consecrated_wraps_2', // 神器·急支糖衣
         'item_aeon_pendant', // 永恒坠饰
       ],
       [ItemTier.T4]: [
@@ -1448,7 +1448,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_overwhelming_blink', // 力量跳刀
         'item_abyssal_blade', // 深渊之刃
         'item_heart', // 龙心
-        'item_eternal_shroud_ultra', // 法师泳衣
+        'item_consecrated_wraps_2', // 神器·急支糖衣
         'item_armlet_pro_max', // 臂章·终极
       ],
       [ItemTier.T4]: [
@@ -1501,7 +1501,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_blade_mail_2', // 真·刃甲
         'item_radiance_2', // 大辉耀
         'item_overwhelming_blink', // 盛势闪光
-        'item_eternal_shroud_ultra', // 法师泳衣
         'item_aeon_pendant', // 咸鱼之王
         'item_sacred_trident', // 三叉戟
         'item_armlet_pro_max', // 小鸡臂章Pro Max
@@ -1859,7 +1858,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       ],
       [ItemTier.T3]: [
         'item_overwhelming_blink', // 盛势闪光
-        'item_eternal_shroud_ultra', // 法师泳衣
         'item_magic_scepter', // 魔云法杖
         'item_aeon_pendant', // 咸鱼之王
         'item_heart', // 恐鳌之心
@@ -1932,7 +1930,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_sacred_trident', // 三叉戟
         'item_vladmir_2', // 强袭祭品
-        'item_eternal_shroud_ultra', // 法师泳衣
+        'item_consecrated_wraps_2', // 神器·急支糖衣
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
       ],
       [ItemTier.T4]: [
@@ -1992,7 +1990,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_heavens_halberd_v2', // 无锋战戟
         'item_blade_mail_2', // 刃甲2
         'item_heart', // 恐鳌之心
-        'item_eternal_shroud_ultra', // 法师泳衣
         'item_sacred_trident', // 三叉戟
         'item_vladmir_2', // 强袭祭品
         'item_armlet_pro_max', // 小鸡臂章Pro Max
@@ -2358,7 +2355,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sacred_trident', // 三叉戟
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_heart', // 恐鳌之心
-        'item_eternal_shroud_ultra', // 法师泳衣
+        'item_consecrated_wraps_2', // 神器·急支糖衣
         'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
@@ -2419,7 +2416,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_aeon_pendant', // 咸鱼之王
         'item_radiance_2', // 圣焰之光
         'item_meteor_hammer_2', // 星落
-        'item_eternal_shroud_ultra', // 法师泳衣
         'item_blade_mail_2', // 刃甲2
         'item_arcane_octarine_core', // 奥术之心
         'item_force_staff_3', // 黄金法杖
@@ -2484,7 +2480,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sacred_trident', // 三叉戟
         'item_aeon_pendant', // 咸鱼之王
         'item_magic_scepter', // 魔云法杖
-        'item_eternal_shroud_ultra', // 法师泳衣
         'item_consecrated_wraps_2', // 神器·急支糖衣
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_revenants_brooch_ultra', // 神器·魔武双修
@@ -2656,7 +2651,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_overwhelming_blink', // 盛势闪光
         'item_sheepstick', // 邪恶镰刀
         'item_radiance_2', // 圣焰之光
-        'item_eternal_shroud_ultra', // 法师泳衣
         'item_sacred_trident', // 三叉戟
         'item_heart', // 恐鳌之心
         'item_bloodstone', // 血精神石

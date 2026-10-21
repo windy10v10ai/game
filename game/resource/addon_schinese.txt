@@ -3193,15 +3193,6 @@
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
 
-		// 法师泳衣
-		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"						"法师泳衣"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"			"<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"					"在法师堆中畅泳吧！"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_spell_resist"		"%+$spell_resist"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"			"+$str"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"			"+$health"
-
 		// 力量法则碎片
 		"DOTA_Tooltip_Ability_item_imp_claw"				"力量法则碎片"
 		"DOTA_Tooltip_ability_item_imp_claw_Description"	"<h1>被动：归海一刀(仿)</h1>使下一次攻击必定暴击，造成%crit_multiplier%%%伤害。"
@@ -3622,9 +3613,7 @@
 
 		// item_beast_shield 兽化盾
 		"DOTA_Tooltip_Ability_item_beast_shield"										"兽化盾"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>主动：人形肉盾</h1>获得减益免疫状态。进入防御姿态，所有被动属性加成提升%active_bonus_multiplier_tooltip%%%，持续%active_duration%秒。<br>提供%spell_reduce%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。\n<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n<h1>被动：强袭光环</h1>为附近友军提供%aura_positive_armor%点护甲和%aura_attack_speed%点攻击速度。降低附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
-		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"潜水服"
-		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"每层增加%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%魔法抗性。"
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>主动：人形肉盾</h1>获得减益免疫状态。进入防御姿态，所有被动属性加成提升%active_bonus_multiplier_tooltip%%%，持续%active_duration%秒。<br>提供%spell_reduce%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。\n<h1>被动：强袭光环</h1>为附近友军提供%aura_positive_armor%点护甲和%aura_attack_speed%点攻击速度。降低附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"融合了兽化符文力量的终极防御装备，能让使用者化身为不可摧毁的堡垒。"
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_strength"					"+$str"
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_health"					"+$health"
