@@ -68,6 +68,8 @@ function parseArgs() {
     benchAttackers: 0,
     // 伤害基准里两队对排的间距，0 为各回泉水；量敌方光环时用
     benchGap: 0,
+    // 换装与挂 modifier 只给伤害基准的出手方（attacker）或挨打方（victim），为空时全员
+    benchSide: '',
     // 逗号分隔的条件名，只复测其中几项时用
     conditions: 'all',
     // 跑几局；够不够下结论看报告里的逐局值，不够再用 appendTo 追加
@@ -97,6 +99,7 @@ function parseArgs() {
         'moonStacks',
         'countModifiers',
         'appendTo',
+        'benchSide',
       ].includes(key)
     )
       options[key] = value;
