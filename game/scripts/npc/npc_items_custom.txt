@@ -2469,9 +2469,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_lua"
+		"BaseClass"						"item_datadriven"
 		"ID"							"10358"
-		"ScriptFile"					"items/ts_items/item_sacred_six_vein"
+		"ScriptFile"					"items/item_sacred_six_vein"
 		"AbilityTextureName"			"item_sacred_six_vein"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -2497,10 +2497,43 @@
 			"spell_amp"						"50"
 			"magic_damage_attack"			"100"
 
-			// 三叉戟没有这三项，由脚本侧读取
-			"slow_resistance"				"75"
+			// KV 属性表写不了蓝耗降低，由中立强化「神秘」的原生 modifier 读取
 			"manacost_reduction"			"40"
-			"cast_speed_pct"				"50"
+			"cast_pct_improvement"			"50"
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_sacred_six_vein"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE"	"%cast_pct_improvement"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_sacred_six_vein"
+						"Function"		"SixVeinOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_sacred_six_vein"
+						"Function"		"SixVeinOnDestroy"
+					}
+				}
+			}
 		}
 	}
 

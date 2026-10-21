@@ -2792,13 +2792,12 @@
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_status_resistance"					"%+Status Resistance"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_slow_resistance"						"%+Slow Resistance"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Mana Regen Amplification"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_spell_amp"							"%+Spell Damage"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_magic_damage_attack"					"+Magic Damage Attack"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Mana Cost/Mana Loss Reduction"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Cast Speed Bonus"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_pct_improvement"					"%+Cast Speed Bonus"
 
 		// item_abyssal_blade_v2 一闪
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"Flash"
