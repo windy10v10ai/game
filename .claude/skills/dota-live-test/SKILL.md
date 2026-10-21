@@ -14,7 +14,7 @@ description: 在 Dota 2 Tools 实机跑一局，用落盘日志验证 jest 覆�
 验电脑的交战、回防、推进、物品施放时，不手动开局，用 `npm run perf` 跑无人值守的一局（第 3～5 步由脚本代劳），第 1、6 步照常：
 
 ```bash
-npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --minGames 1 --maxGames 1
+npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --games 1
 ```
 
 按要验的场景加参数（全部选项见 `src/scripts/perf.js` 的 `parseArgs`）：
