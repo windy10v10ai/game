@@ -5483,44 +5483,6 @@
 		}
 	}
 
-	//=================================================================================================================
-	// 法师泳衣
-	//=================================================================================================================
-	"item_recipe_eternal_shroud_ultra"
-	{
-		"BaseClass"						"item_recipe_eternal_shroud"
-		"ItemCost"						"2200"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"AbilityTextureName"			"item_recipe_eternal_shroud_ultra"
-		"ItemResult"					"item_eternal_shroud_ultra"
-		"ItemRequirements"
-		{
-			"01"						"item_cloak;item_ogre_axe;item_vitality_booster"
-		}
-	}
-
-	"item_eternal_shroud_ultra"
-	{
-		"BaseClass"						"item_eternal_shroud"
-		"AbilityTextureName"			"item_eternal_shroud_ultra"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SuggestLategame"				"1"
-		"AbilityValues"
-		{
-			"bonus_spell_resist"					"30"	//20
-			"bonus_strength"						"20"	//10
-			"bonus_health"							"500"	//250
-			// 禁用被动防止炸房
-			"stack_threshold"						"99999"	//300
-			"stack_duration"						"0"		//5
-			"stack_resist"							"0.0"	//3.5
-
-			"mana_restore_pct"						"30"	//25
-			"max_stacks"							"8"		//6
-		}
-	}
-
 
 	//=================================================================================================================
 	// 融合材料系列 - 符文/卷轴形式(可购买版本)
@@ -6805,7 +6767,7 @@
 		"ItemResult"				"item_beast_shield"
 		"ItemRequirements"
 		{
-			"01"					"item_black_king_bar_2;item_vladmir_2;item_eternal_shroud_ultra;item_insight_armor;item_fusion_beast"
+			"01"					"item_black_king_bar_2;item_vladmir_2;item_insight_armor;item_fusion_beast"
 		}
 	}
 
@@ -6821,7 +6783,7 @@
 		"AbilityCooldown"			"60.0"
 		"AbilityManaCost"			"300"
 
-		"ItemCost"					"47300"
+		"ItemCost"					"42200"
 
 		"AbilityValues"
 		{
@@ -6830,15 +6792,6 @@
 			"active_bonus_multiplier_tooltip"	"100"
 			// modifier_black_king_bar_immune 的魔抗
 			"spell_reduce"					"100"
-
-			// 法师泳衣被动
-			// 禁用被动防止炸房
-			"stack_threshold"			"99999"
-			"stack_duration"			"0"
-			"stack_resist"				"0"
-
-			"mana_restore_pct"			"30"
-			"max_stacks"				"8"
 
 			// 被动属性
 			"passive_bonus_strength"			"80"
@@ -6897,24 +6850,6 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%passive_bonus_health_regen"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%passive_bonus_attack_speed"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%passive_bonus_damage"
-				}
-
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_beast_shield"
-						"Function"		"BeastShieldOnCreated"
-					}
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_beast_shield"
-						"Function"		"BeastShieldOnDestroy"
-					}
 				}
 			}
 
