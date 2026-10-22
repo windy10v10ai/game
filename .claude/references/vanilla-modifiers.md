@@ -75,6 +75,7 @@ caster:AddNewModifier(caster, ability, "modifier_item_devastator", {})
 | `modifier_item_vladmir` | 弗拉迪米尔的祭品 | 光环：吸血、基础攻击力、回蓝、护甲，对英雄与范围内友方小兵生效（小兵吸血 ×0.6），读 `lifesteal_aura` / `damage_aura` / `mana_regen_aura` / `armor_aura` / `aura_radius` | `item_vladmir_2` |
 | `modifier_item_trident` | 三叉戟 | 三维 / 攻速 / 移速 / 状态抗性 / 回复增强 / 技能增强 / 攻击附带魔法伤害；不属于散夜慧家族，多件叠加 | `item_sacred_six_vein` |
 | `modifier_item_enhancement_mystical` | 中立强化 神秘 | 蓝耗降低 `manacost_reduction`（另读 `mana_regen` / `magic_res`，自己 KV 不写即为 0）；与中立格同名实例并存，多件按乘法叠加 | `item_sacred_six_vein` |
+| `modifier_item_enhancement_restorative` | 中立强化 滋补 | 施疗方治疗增强 `heal_amp`（加在自己发出的治疗上，别人治疗自己不加）+ 魔法 `bonus_mana`（另读 `bonus_hp_regen`）；多件加法叠加，按句柄销毁精确移除 | `item_orb_of_the_brine` |
 | `modifier_item_ultimate_scepter` | 阿哈利姆神杖 | 神杖效果（`duration = -1` 为永久） | `item_ultimate_scepter_2` |
 | `modifier_item_buff_ward` | 侦察守卫 | 眼位存在状态 | `ability_ward_observer_slot.ts` |
 | `modifier_item_ward_true_sight` | 岗哨守卫 | 真视 | `ability_ward_sentry_slot.ts` |

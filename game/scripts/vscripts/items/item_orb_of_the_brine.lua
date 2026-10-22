@@ -1,106 +1,49 @@
-item_orb_of_the_brine = class({})
-LinkLuaModifier("modifier_item_orb_of_the_brine", "items/item_orb_of_the_brine", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_orb_of_the_brine_bubble", "items/item_orb_of_the_brine", LUA_MODIFIER_MOTION_NONE)
 
+-- 魔法与治疗增强交给中立强化「滋补」的原生 modifier，以本物品为数值来源；它另读的 bonus_hp_regen 本物品没有，读到 0
+function OrbOfTheBrineOnCreated(keys)
+	if not IsServer() then return end
 
---------------------------------------------------------------------------------
+	local caster = keys.caster
+	local ability = keys.ability
+	if not caster or not ability then return end
 
-function item_orb_of_the_brine:Precache(context)
-	PrecacheResource("particle", "particles/act_2/wand_of_the_brine_bubble.vpcf", context)
+	ability.restorative_modifier = caster:AddNewModifier(caster, ability, "modifier_item_enhancement_restorative", {})
 end
 
---------------------------------------------------------------------------------
+-- 按句柄销毁，不误删中立格或另一件苍洋魔珠挂的同名 modifier
+function OrbOfTheBrineOnDestroy(keys)
+	if not IsServer() then return end
 
-function item_orb_of_the_brine:OnSpellStart()
-	if IsServer() then
-		local target = self:GetCursorTarget()
-		local caster = self:GetCaster()
-		if PlayerResource:IsDisableHelpSetForPlayerID(target:GetPlayerOwnerID(), caster:GetPlayerOwnerID()) then
-			self:EndCooldown()
-			self:RefundManaCost()
-			return false
-		end
+	local ability = keys.ability
+	if not ability then return end
 
-		self.bubble_duration = self:GetSpecialValueFor("bubble_duration")
-		target:AddNewModifier(self:GetCaster(), self, "modifier_item_orb_of_the_brine_bubble",
-			{ duration = self.bubble_duration })
-
-		EmitSoundOn("DOTA_Item.GhostScepter.Activate", self:GetCaster())
+	local modifier = ability.restorative_modifier
+	if modifier and not modifier:IsNull() then
+		modifier:Destroy()
 	end
+	ability.restorative_modifier = nil
 end
 
---------------------------------------------------------------------------------
+function OrbOfTheBrineOnSpellStart(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+	if not caster or not ability or not target then return end
 
-function item_orb_of_the_brine:GetIntrinsicModifierName()
-	return "modifier_item_orb_of_the_brine"
-end
-
---------------------------------------------------------------------------------
--- Modifier
---------------------------------------------------------------------------------
-
-modifier_item_orb_of_the_brine = class({})
-
---------------------------------------------------------------------------------
-
-function modifier_item_orb_of_the_brine:IsHidden()
-	return true
-end
-
-function modifier_item_orb_of_the_brine:IsPurgable()
-	return false
-end
-
-function modifier_item_orb_of_the_brine:GetAttributes()
-	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
---------------------------------------------------------------------------------
-
-function modifier_item_orb_of_the_brine:OnCreated(kv)
-	self.stats_modifier_name = "modifier_item_orb_of_the_brine_stats"
-	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
-	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
-	self.heal_increase = self:GetAbility():GetSpecialValueFor("heal_increase")
-	if IsServer() then
-		RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+	if PlayerResource:IsDisableHelpSetForPlayerID(target:GetPlayerOwnerID(), caster:GetPlayerOwnerID()) then
+		ability:EndCooldown()
+		ability:RefundManaCost()
+		return
 	end
-end
 
-function modifier_item_orb_of_the_brine:OnDestroy()
-	if IsServer() then
-		RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-	end
-end
+	target:AddNewModifier(caster, ability, "modifier_item_orb_of_the_brine_bubble",
+		{ duration = ability:GetSpecialValueFor("bubble_duration") })
 
---------------------------------------------------------------------------------
-
-function modifier_item_orb_of_the_brine:DeclareFunctions()
-	local funcs =
-	{
-		MODIFIER_PROPERTY_HEALTH_BONUS,
-		MODIFIER_PROPERTY_MANA_BONUS,
-		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
-	}
-	return funcs
+	EmitSoundOn("DOTA_Item.GhostScepter.Activate", caster)
 end
 
 --------------------------------------------------------------------------------
-
-function modifier_item_orb_of_the_brine:GetModifierHealthBonus(params)
-	return self.bonus_health
-end
-
-function modifier_item_orb_of_the_brine:GetModifierManaBonus(params)
-	return self.bonus_mana
-end
-
-function modifier_item_orb_of_the_brine:GetModifierHealAmplify_PercentageSource(params)
-	return self.heal_increase
-end
-
---------------------------------------------------------------------------------
-
 
 modifier_item_orb_of_the_brine_bubble = class({})
 
