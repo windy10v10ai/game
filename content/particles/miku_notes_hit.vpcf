@@ -43,7 +43,7 @@
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 90.0
+				m_flLiteralValue = 150.0
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
@@ -340,6 +340,18 @@
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
 			}
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/miku_notes2_hit.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/miku_notes_3_hit.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/miku_notes_4_hit.vpcf"
 		},
 	]
 	m_controlPointConfigurations = 

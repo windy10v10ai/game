@@ -62,7 +62,7 @@
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 90.0
+				m_flLiteralValue = 150.0
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
@@ -466,6 +466,18 @@
 					m_hTexture = resource:"materials/particle/enchantress/enchantress_music_note.vtex"
 				},
 			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/miku_notes_4_hit.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/miku_calne_notes2_hit.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/miku_calne_notes3_hit.vpcf"
 		},
 	]
 }
