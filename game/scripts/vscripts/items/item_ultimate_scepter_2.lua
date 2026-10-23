@@ -1,39 +1,40 @@
-function Scepter2OnCreated(keys)
-	-- bane A杖大招会卡顿，移除A杖效果
-	-- if keys.caster:GetUnitName() ~= "npc_dota_hero_bane" then
-	-- end
-	-- add modifier_item_ultimate_scepter after 0.1s
-	Timers:CreateTimer(0.1, function()
-		if keys.target:HasModifier("modifier_item_ultimate_scepter") then
-			keys.target:RemoveModifierByName("modifier_item_ultimate_scepter")
+local VANILLA_CONSUMED_MODIFIER = "modifier_item_ultimate_scepter_consumed"
+
+local EQUIP_MODIFIER = "modifier_item_ultimate_scepter"
+
+-- 只数前6格：背包里的物品被动不生效
+local function HasScepter2Equipped(unit)
+	for i = 0, 5 do
+		local item = unit:GetItemInSlot(i)
+		if item ~= nil and item:GetName() == "item_ultimate_scepter_2" then
+			return true
 		end
-		keys.caster:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", { duration = -1 })
+	end
+	return false
+end
+
+-- 拿着升级杖时给原版A杖效果；原版杖自己的效果带物品来源，已有就不重复加
+function Scepter2OnCreated(keys)
+	Timers:CreateTimer(0.1, function()
+		local unit = keys.target
+		if unit:IsNull() or not HasScepter2Equipped(unit) or unit:HasModifier(EQUIP_MODIFIER) then
+			return
+		end
+		unit:AddNewModifier(unit, nil, EQUIP_MODIFIER, { duration = -1 })
 	end)
 end
 
---[[ ============================================================================================================
-	Author: Rook
-	Date: January 26, 2015
-	Called when Aghanim's Regalia is sold or dropped.  Removes the stock Aghanim's Scepter modifier if no other
-	Aghanim's Scepter exist in the player's inventory.
-================================================================================================================= ]]
+-- 升级杖离开前6格且没有别的升级杖时，只清掉自己加的无来源效果，原版杖带来源的效果由它自己管
 function Scepter2OnDestroy(keys)
 	Timers:CreateTimer(0.1, function()
-		local num_scepters_in_inventory = 0
-		for i = 0, 5, 1 do --Search for Aghanim's Regalia in the player's inventory.
-			local current_item = keys.caster:GetItemInSlot(i)
-			if current_item ~= nil then
-				local item_name = current_item:GetName()
-
-				if item_name == "item_ultimate_scepter_2" or item_name == "item_ultimate_scepter" then
-					num_scepters_in_inventory = num_scepters_in_inventory + 1
-				end
-			end
+		local unit = keys.target
+		if unit:IsNull() or HasScepter2Equipped(unit) then
+			return
 		end
-		local hasConsumedModifier = keys.caster:HasModifier("modifier_item_ultimate_scepter_2_consumed")
-		--Remove the stock Aghanim's Scepter modifier if the player no longer has a Scepter in their inventory.
-		if num_scepters_in_inventory == 0 and keys.caster:HasModifier("modifier_item_ultimate_scepter") and not hasConsumedModifier then
-			keys.caster:RemoveModifierByName("modifier_item_ultimate_scepter")
+		for _, modifier in pairs(unit:FindAllModifiersByName(EQUIP_MODIFIER)) do
+			if modifier:GetAbility() == nil then
+				modifier:Destroy()
+			end
 		end
 	end)
 end
@@ -43,10 +44,12 @@ end
 function Scepter2OnSpell(keys)
 	local consumedModifierName = "modifier_item_ultimate_scepter_2_consumed"
 
-	-- 目标身上有消耗后的buff，则不消耗
+	-- 目标身上有消耗后的buff，则不消耗；顺手补上原版已消耗buff，防止A杖效果丢失后无法恢复
 	local hasConsumedModifier = keys.target:HasModifier(consumedModifierName)
 	if hasConsumedModifier then
-		print("hasConsumedModifier: " .. tostring(hasConsumedModifier))
+		if not keys.target:HasModifier(VANILLA_CONSUMED_MODIFIER) then
+			keys.target:AddNewModifier(keys.caster, nil, VANILLA_CONSUMED_MODIFIER, {})
+		end
 		return
 	end
 
@@ -59,12 +62,9 @@ function Scepter2OnSpell(keys)
 	end
 
 	if keys.caster:IsRealHero() and keys.target:IsRealHero() then
-		if keys.target:HasModifier("modifier_item_ultimate_scepter") then
-			keys.target:RemoveModifierByName("modifier_item_ultimate_scepter")
-		end
-		keys.target:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", { duration = -1 })
+		-- 吃掉后的A杖效果交给原版已消耗buff，不再依赖随物品增删的临时buff
+		keys.target:AddNewModifier(keys.caster, nil, VANILLA_CONSUMED_MODIFIER, {})
 		keys.ability:ApplyDataDrivenModifier(keys.caster, keys.target, consumedModifierName, {})
-		-- ApplyItemDataDrivenModifier(_, keys.caster, keys.target, consumedModifierName, {})
 
 		keys.target:EmitSound("Hero_Alchemist.Scepter.Cast")
 		-- keys.caster:RemoveItem(keys.ability)
