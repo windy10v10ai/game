@@ -4242,7 +4242,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"10390"
-		"BaseClass"						"item_lua"
+		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"orb_of_the_brine"
 		"ScriptFile"					"items/item_orb_of_the_brine"
 
@@ -4272,10 +4272,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"20"	// tooltip, real value in item_orb_of_the_brine_bonus_all_stats
+			"bonus_all_stats"		"20"
 			"bonus_health"			"600"
+			// 由原生 modifier_item_enhancement_restorative 读取，KV 属性表的治疗增强不生效
 			"bonus_mana"			"600"
-			"heal_increase"			"50"
+			"heal_amp"				"50"
 
 			"bubble_duration"		"1"
 			"bubble_move_speed"		"400"
@@ -4283,6 +4284,52 @@
 
 			"bubble_total_heal_tip"	"1500"
 			"bubble_total_mana_tip"	"1500"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_orb_of_the_brine"
+				"Function"		"OrbOfTheBrineOnSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_orb_of_the_brine"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"				"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"					"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"				"%bonus_all_stats"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"						"%bonus_health"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_orb_of_the_brine"
+						"Function"		"OrbOfTheBrineOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_orb_of_the_brine"
+						"Function"		"OrbOfTheBrineOnDestroy"
+					}
+				}
+			}
 		}
 	}
 

@@ -52,6 +52,7 @@
 - `MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION`（减法减魔抗只有 Lua modifier 的 `GetModifierMagicalResistanceDirectModification` 生效，算法见下节）
 - `MODIFIER_PROPERTY_MANACOST_PERCENTAGE` / `_STACKING`（蓝耗降低改挂 `modifier_item_enhancement_mystical`，见 `vanilla-modifiers.md`）
 - `MODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING` / `_UNIQUE`（减速抗性同理只能借原版 modifier）
+- `MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE`（自身治疗实回量不变，同值 Lua 回调 ×1.5；施疗方治疗增强改挂 `modifier_item_enhancement_restorative`，见 `vanilla-modifiers.md`）
 - `MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE`（上表的 `HP_REGEN_AMPLIFY_PERCENTAGE` 是回复放大，语义不同，替代不了；非 UNIQUE 的 `HEALTH_REGEN_PERCENTAGE` 可用，但多件同时生效时会叠加）
 
 `npc_items_custom.txt` 里那几处 `（不在可优化列表）` 注释指的就是这份名单。
