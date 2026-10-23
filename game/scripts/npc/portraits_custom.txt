@@ -51,7 +51,10 @@
 		"PortraitAnimationActivity"		"ACT_DOTA_CAPTURE"
 		"cameras"
 		{
-
+			"default"
+			{
+				"PortraitFOV"		"30"
+			}
 		}
 	}
 	"models/hatsune_miku/arcana/miku_arcana.vmdl"
