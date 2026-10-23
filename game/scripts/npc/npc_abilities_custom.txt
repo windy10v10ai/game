@@ -990,7 +990,6 @@
 		{
 			"particle"	"particles/miku_calne_notes_hit.vpcf"
 			"particle"	"particles/miku_notes_hit.vpcf"
-			"particle"	"particles/miku_leek_projectile.vpcf"
 		}
 	}
 

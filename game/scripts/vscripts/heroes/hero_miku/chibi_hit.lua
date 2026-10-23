@@ -11,45 +11,19 @@ function chibi_hit:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 
-	-- check dragon modifier
-	local modifier = caster:FindModifierByNameAndCaster( "modifier_dragon_knight_elder_dragon_form_lua", caster )
+	-- cancel if linken
 
-	-- check if simple form
-	if not modifier then
-		-- cancel if linken
+	-- directly hit
+	self:Hit( target )
 
-
-		-- directly hit
-		self:Hit( target, false )
-
-		-- play effects
-		local sound_cast = ""
-		EmitSoundOn( sound_cast, caster )
-		return
-	end
-
-	-- dragon form
-
-	-- get data
-	local projectile_name = "particles/miku_leek_projectile.vpcf"
-	local projectile_speed = self:GetSpecialValueFor( "projectile_speed" )
-
-	-- create projectile
-	local info = {
-		Target = target,
-		Source = caster,
-		Ability = self,
-		iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_2,
-
-		EffectName = projectile_name,
-		iMoveSpeed = projectile_speed,
-		bDodgeable = true,                           -- Optional
-		}
-	ProjectileManager:CreateTrackingProjectile(info)
+	-- play effects
+	local sound_cast = ""
+	EmitSoundOn( sound_cast, caster )
 end
 
+--------------------------------------------------------------------------------
 -- Helper
-function chibi_hit:Hit( target, dragonform )
+function chibi_hit:Hit( target )
 	local caster = self:GetCaster()
 
 	-- cancel if linken
@@ -79,7 +53,7 @@ function chibi_hit:Hit( target, dragonform )
 	)
 
 	-- Play effects
-	self:PlayEffects( target, dragonform )
+	self:PlayEffects( target )
 	if caster:HasModifier("modifier_miku_arcana") then
 		local sound_cast = "miku.strike_arcana"
 		EmitSoundOn( sound_cast, target )
@@ -90,15 +64,7 @@ function chibi_hit:Hit( target, dragonform )
 end
 
 --------------------------------------------------------------------------------
--- Projectile
-function chibi_hit:OnProjectileHit( target, location )
-	if not target then return end
-
-	self:Hit( target, true )
-end
-
---------------------------------------------------------------------------------
-function chibi_hit:PlayEffects( target, dragonform )
+function chibi_hit:PlayEffects( target )
 	local particle_name = "particles/miku_notes_hit.vpcf"
 	if self:GetCaster():HasModifier("modifier_miku_arcana") then
 		particle_name = "particles/miku_calne_notes_hit.vpcf"
