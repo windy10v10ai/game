@@ -31,7 +31,7 @@ function chibi_hit:OnSpellStart()
 	-- dragon form
 
 	-- get data
-	local projectile_name = "particles/units/heroes/hero_dragon_knight/dragon_knight_dragon_tail_dragonform_proj.vpcf"
+	local projectile_name = "particles/miku_leek_projectile.vpcf"
 	local projectile_speed = self:GetSpecialValueFor( "projectile_speed" )
 
 	-- create projectile
@@ -99,40 +99,15 @@ end
 
 --------------------------------------------------------------------------------
 function chibi_hit:PlayEffects( target, dragonform )
-local caster = self:GetCaster()
-	if caster:HasModifier("modifier_miku_arcana") then
-		self.particle_cast = "particles/chibi_hit_calne.vpcf"
-	else
-	self.particle_cast = "particles/chibi_hit.vpcf"
+	local particle_name = "particles/miku_notes1.vpcf"
+	if self:GetCaster():HasModifier("modifier_miku_arcana") then
+		particle_name = "particles/miku_calne_notes.vpcf"
 	end
 
-	-- Get Data
-	local vec = target:GetOrigin()-self:GetCaster():GetOrigin()
-	local attach = "attach_attack1"
-	if dragonform then
-		attach = "attach_attack2"
-	end
-
-	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( self.particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
-	ParticleManager:SetParticleControl( effect_cast, 3, vec )
-	ParticleManager:SetParticleControlEnt(
-		effect_cast,
-		2,
-		self:GetCaster(),
-		PATTACH_POINT_FOLLOW,
-		attach,
-		Vector(0,0,0), -- unknown
-		true -- unknown, true
-	)
-	ParticleManager:SetParticleControlEnt(
-		effect_cast,
-		4,
-		target,
-		PATTACH_POINT_FOLLOW,
-		"attach_hitloc",
-		Vector(0,0,0), -- unknown
-		true -- unknown, true
-	)
-	ParticleManager:ReleaseParticleIndex( effect_cast )
+	-- 音符特效是持续发射的，命中后短暂播放即销毁
+	local effect_cast = ParticleManager:CreateParticle( particle_name, PATTACH_ABSORIGIN_FOLLOW, target )
+	Timers:CreateTimer( 1.0, function()
+		ParticleManager:DestroyParticle( effect_cast, false )
+		ParticleManager:ReleaseParticleIndex( effect_cast )
+	end )
 end
