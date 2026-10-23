@@ -48,7 +48,9 @@ export class BotPick {
         picked.push(ShortName(hero.name));
         Tutorial.AddBot(hero.name, '', 'unfair', team === DotaTeam.GOODGUYS);
       }
-      print(`[BotPick] team=${team} single=${isSinglePlayer} heroes=${picked.join(',')}`);
+      print(
+        `[BotPick] team=${team} size=${size} single=${isSinglePlayer} heroes=${picked.join(',')}`,
+      );
     }
 
     GameRules.GetGameModeEntity().SetBotThinkingEnabled(true);
