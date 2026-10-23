@@ -99,9 +99,9 @@ end
 
 --------------------------------------------------------------------------------
 function chibi_hit:PlayEffects( target, dragonform )
-	local particle_name = "particles/miku_notes1.vpcf"
+	local particle_name = "particles/miku_notes_hit.vpcf"
 	if self:GetCaster():HasModifier("modifier_miku_arcana") then
-		particle_name = "particles/miku_calne_notes.vpcf"
+		particle_name = "particles/miku_calne_notes_hit.vpcf"
 	end
 
 	-- 音符特效是持续发射的，命中后短暂播放即销毁

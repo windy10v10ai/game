@@ -988,8 +988,8 @@
 		}
 		"precache"
 		{
-			"particle"	"particles/miku_calne_notes.vpcf"
-			"particle"	"particles/miku_notes1.vpcf"
+			"particle"	"particles/miku_calne_notes_hit.vpcf"
+			"particle"	"particles/miku_notes_hit.vpcf"
 			"particle"	"particles/miku_leek_projectile.vpcf"
 		}
 	}
