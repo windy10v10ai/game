@@ -29,9 +29,9 @@
 
 CI 还没跑完时加 `--auto`，分支保护照常生效（不加 `--admin`）。
 
-用户说「自动合并」时，发出 `gh pr merge <编号> --squash --auto` 后不等合并完成，用 `AskUserQuestion` 问是否清理本地分支与 worktree，用户确认后立刻按下文清理。
+工作做完就清理，不等到最后忘掉，也不再询问：合并命令（含 `--auto`）一发出，该分支的改动已全部 push，就立刻清理本地分支与 worktree，不等合并完成。
 
-合并后立刻清理本地分支，远端分支由仓库设置自动删除。squash 合并后 git 认不出分支已合并，用 `-D`：
+清理本地分支，远端分支由仓库设置自动删除。squash 合并后 git 认不出分支已合并，用 `-D`：
 
 ```bash
 git checkout develop
