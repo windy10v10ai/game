@@ -1518,7 +1518,6 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_attack_factor_tooltip"	"%攻击伤害："
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_strike_immune_duration"	"幻影突袭魔免持续时间："
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_dagger_immune_duration"	"窒碍短匕魔免持续时间："
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Lore"						"这下敢B上去了吧"
 
 		// 巫医 神语-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"

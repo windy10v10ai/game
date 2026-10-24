@@ -1037,6 +1037,16 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 幻影刺客 窒碍短匕觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"	"<font color='#d000ff'>Stifling Dagger: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Герой бросает в выбранного врага кинжал, который замедляет передвижение, наносит физический урон в размере %base_damage% + %attack_factor_tooltip%%% от атаки владельца, а также накладывает эффекты атаки от его предметов и способностей. Скорость полёта кинжала повышена.<br><br><font color='#00CED1'>АВТОПРИМЕНЕНИЕ:</font> При включении способность автоматически применяется к случайному вражескому герою в радиусе применения. Цели, отражающие целевые способности, пропускаются.<br><font color='#d000ff'>Бонус пробуждения:</font> После применения Stifling Dagger или Phantom Strike герой ненадолго получает <font color='#FFCC66'>невосприимчивость к магии</font>."
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_move_slow"	"%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_duration"	"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_base_damage"	"БАЗОВЫЙ УРОН:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_attack_factor_tooltip"	"%УРОН ОТ АТАКИ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_strike_immune_duration"	"ДЛИТ. ИММУНИТЕТА (Phantom Strike):"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_dagger_immune_duration"	"ДЛИТ. ИММУНИТЕТА (Stifling Dagger):"
+
 		// 赏金猎人 追踪术觉醒
 		"DOTA_Tooltip_ability_bounty_hunter_track_awaken"							"<font color='#d000ff'>Track: пробуждение</font>"
 		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_Description"				"Помечает вражеского героя, раскрывая его невидимость, увеличивая получаемый им урон и показывая его запас золота. За смерть этого врага владелец способности и союзные герои неподалёку получат дополнительное золото.<br><br><font color='#00CED1'>АВТОПРИМЕНЕНИЕ:</font> При включении способность применяется автоматически, если в радиусе применения есть вражеский герой; в первую очередь по ещё не помеченным героям.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> После применения Track герой также бросает в цель Shuriken Toss текущего уровня. Этот сюрикен игнорирует дальность применения и не уходит на перезарядку, но тратит ману Shuriken Toss. Он не бросается, если Shuriken Toss не изучен или не хватает маны."
