@@ -29,7 +29,7 @@
 - KV：`BaseClass ability_lua`、`AbilityBehavior` = `NO_TARGET | IMMEDIATE | AUTOCAST`、`ScriptFile` 指向 `abilities/ts_abilities/...` 编译产物，**不写 `Modifiers`**（intrinsic modifier 由基类提供）。
 - 继承 `AutoCastAbility`，只实现 `OnAutoCastThink(caster)`；需要时覆写 `getThinkInterval()`（默认 0.3）。共享 `modifier_autocast_think` 负责 `IsServer / IsAlive / GetAutoCastState` 守卫后回调。
 - 基类 helper：`getFullCastRange`（含施法距离增强）、`findEnemiesInRange(caster, range, targetType, extraFlags?)`（始终排除迷雾/隐身，`extraFlags` 可叠加命中魔免、排除幻象）、`findHeroOrCreepInRange(caster, range, extraFlags?, isExcluded?)`、`castImmediatelyOnTarget`。
-- **指向性技能的自动施放要过滤会反弹或格挡的目标**：莲花球生效中、镜盾就绪的目标会把技能弹回施法者（沉默、减速、伤害落在自己身上），用 `willReflect(target)` 排除；林肯法球就绪会白吃一次施放，只有一次性、失败要回滚的技能（如斧王斩杀）再加 `willBlock(target)`，便宜的技能让它去破球更划算。不是每个觉醒都要走，只有指向性目标技能的自动施放调用，无目标、点施放、自身范围的不用。军团自动决斗有意用 `TriggerSpellAbsorb` 破林肯，所以只过滤 `willReflect`。
+- **指向性技能的自动施放要过滤会反弹或格挡的目标**：莲花球生效中、镜盾就绪的目标会把技能弹回施法者（沉默、减速、伤害落在自己身上），用 `willReflect(target)` 排除；林肯法球就绪会白吃一次施放，只有一次性、失败要回滚的技能（如斧王斩杀）再加 `willBlock(target)`，便宜的技能让它去破球更划算。不是每个觉醒都要走，只有指向性目标技能的自动施放调用，无目标、点施放、自身范围的不用。目前斧王、军团自动决斗两处同时过滤 `willReflect` 与 `willBlock`，其余只过滤 `willReflect`。
 - 施放用 **`CastAbilityImmediately`**：玩家英雄的背景自动施放**不能**用 order 式（`CastAbilityOnTarget` 等会打断玩家移动/攻击）。新基类/helper 统一放 `ts_abilities/shared/`。
 
 > 参考：斧王 `ts_abilities/axe_auto_culling_blade.ts`（斩杀线阈值 + 可打魔免）、宙斯 `ts_abilities/special_bonus_unique_zuus_upgrade.ts`（英雄优先、雷击仅英雄、不打魔免）。
