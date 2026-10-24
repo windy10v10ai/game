@@ -5,6 +5,7 @@ import {
   findEnemiesInRange,
   findHeroOrCreepInRange,
   getFullCastRange,
+  willReflect,
 } from './shared/auto-cast-ability';
 
 /**
@@ -17,7 +18,12 @@ export class SpecialBonusUniqueZuusUpgrade extends AutoCastAbility {
     // 弧形闪电：英雄优先，无英雄也对小兵
     const arc = caster.FindAbilityByName('zuus_arc_lightning');
     if (arc && arc.IsFullyCastable()) {
-      const target = findHeroOrCreepInRange(caster, getFullCastRange(caster, arc));
+      const target = findHeroOrCreepInRange(
+        caster,
+        getFullCastRange(caster, arc),
+        UnitTargetFlags.NONE,
+        willReflect,
+      );
       if (target) castImmediatelyOnTarget(caster, arc, target);
     }
 
@@ -28,7 +34,7 @@ export class SpecialBonusUniqueZuusUpgrade extends AutoCastAbility {
         caster,
         getFullCastRange(caster, bolt),
         UnitTargetType.HERO,
-      );
+      ).filter((enemy) => !willReflect(enemy));
       if (target !== undefined) castImmediatelyOnTarget(caster, bolt, target);
     }
   }
