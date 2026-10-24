@@ -18,7 +18,7 @@
 		{
 			"blink_radius"				"600"
 			"mana_lock_duration"		"4"
-			"current_mana_loss_pct"		"40"
+			"current_mana_loss_pct"		"50"
 		}
 	}
 
