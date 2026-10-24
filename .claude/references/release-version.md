@@ -12,7 +12,7 @@ curl -s -m 15 https://steamcommunity.com/sharedfiles/filedetails/changelog/23074
 
 首条匹配即最新版本。用 curl 而不是 WebFetch：WebFetch 把整页交给模型总结，经常失败。curl 失败或无匹配时，向用户要 Steam 当前版本号（SubAgent 里停下回报）。
 
-**release PR 版本**：`gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url`，标题即大版本号（如 `v5.65`）。它在任意 PR 合入 `develop` 后自动创建，`develop` 上的代码就是这个版本。没有或有多条时问用户。
+**release PR 版本**：`gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url`，标题即大版本号（如 `v5.65`）。它在任意 PR 合入 `develop` 后自动创建，`develop` 上的代码就是这个版本。没有或有多条时问用户；没有时同时记下「release PR 未创建」，`create-pr` 的写回选项按它出。
 
 ## 2. 算目标版本
 

@@ -16,7 +16,7 @@ background: false
 
 - **来源**（缺失时停下回报，不从当前分支猜）：`#1234`、纯数字或含 `/pull/` 的 URL → PR：读标题、描述、commits；含 `/issues/` 的 URL → Issue：按 `references/from-issue.md`；其他 → 按调用方列的点写
 - **目标版本**：具体版本号，缺失时按第 1 步算
-- **写回**：写入功能 PR 并合并进聚合 release PR / 仅写入功能 PR / 仅写入聚合 release PR / 仅提交改动 / 跳过
+- **写回**：仅出草稿（只输出文案，不改任何 PR）/ 写入功能 PR 并合并进聚合 release PR / 仅写入功能 PR / 仅写入聚合 release PR / 仅提交改动 / 跳过
 
 ## 1. 定版本号
 
@@ -63,7 +63,7 @@ background: false
 
 ## 3. 写回 PR
 
-按参数的写回方式执行，参数没给就停下回报五个选项。
+按参数的写回方式执行，参数没给就停下回报写回的全部选项。仅出草稿时跳过本节，直接进第 4 步回报。
 
 编辑流程：`gh pr view <N> --repo windy10v10ai/game --json body -q .body` 取 body → 改 → 写临时文件（UTF-8 无 BOM）→ `gh pr edit <N> --body-file <文件>`。
 
