@@ -1509,11 +1509,15 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>神王 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"开启自动施法后，宙斯自动对施法距离内的敌人施放弧形闪电与雷击。<br><br>优先对英雄施法，范围内只有小兵时仅施放弧形闪电。"
 
-		// 幻影刺客 幻影突袭-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>幻影突袭 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"幻影刺客闪烁到一个目标单位身旁，获得短暂的攻击速度加成和<font color='#FFCC66'>黑皇杖</font>效果，并自动发起攻击。<br><br>窒碍短匕弹道速度提升。施放窒碍短匕后获得短暂<font color='#FFCC66'>黑皇杖</font>效果。"
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"攻击速度加成："
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"持续时间："
+		// 幻影刺客 窒碍短匕-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"	"<font color='#d000ff'>窒碍短匕 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"对敌方单位掷出一把匕首，减缓其移动速度，并造成物理伤害，数值为%base_damage%+幻影刺客攻击伤害的%attack_factor_tooltip%%%，同时继承物品和技能的攻击效果。匕首弹道速度提升。<br><br><font color='#00CED1'>自动施法：</font>开启后，施法距离内有敌方英雄时，随机对其中一名自动施放；会反弹指向性技能的目标不会被选中。<br><font color='#d000ff'>觉醒强化：</font>施放窒碍短匕或幻影突袭后，获得短暂的<font color='#FFCC66'>魔法免疫</font>。"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_move_slow"	"%移动速度减缓："
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_duration"	"减速持续时间："
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_base_damage"	"基础伤害："
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_attack_factor_tooltip"	"%攻击伤害："
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_strike_immune_duration"	"幻影突袭魔免持续时间："
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_dagger_immune_duration"	"窒碍短匕魔免持续时间："
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Lore"						"这下敢B上去了吧"
 
 		// 巫医 神语-觉醒

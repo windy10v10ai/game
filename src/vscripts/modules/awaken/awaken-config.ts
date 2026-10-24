@@ -244,10 +244,10 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_witch_doctor_upgrade',
     newLevel: 1,
   },
-  // 幻影刺客 幻影突袭（替换幻影突袭闪烁）
+  // 幻影刺客 窒碍短匕（替换窒碍短匕）
   {
     heroName: 'npc_dota_hero_phantom_assassin',
-    targetAbility: 'phantom_assassin_phantom_strike',
+    targetAbility: 'phantom_assassin_stifling_dagger',
     newAbility: 'special_bonus_unique_phantom_assassin_upgrade',
     newLevel: 0,
   },
@@ -305,8 +305,9 @@ export const FREE_TRIAL_HEROES: string[] = [
   'npc_dota_hero_bounty_hunter', // 赏金猎人
   'npc_dota_hero_nyx_assassin', // 司夜刺客
   'npc_dota_hero_beastmaster', // 兽王
-  'npc_dota_hero_earthshaker', // 撼地者
-  'npc_dota_hero_abyssal_underlord', // 孽主
+  'npc_dota_hero_phantom_assassin', // 幻影刺客
+  'npc_dota_hero_drow_ranger', // 卓尔游侠
+  'npc_dota_hero_kunkka', // 昆卡
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */
