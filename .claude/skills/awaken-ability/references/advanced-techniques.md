@@ -47,7 +47,7 @@
 
 > **关键坑**：`OnAbilityExecuted` 的 `RunScript` 里若要再给自己加一个**同一技能 KV `Modifiers` 里定义的** DataDriven modifier（如限时减伤 buff），必须用 `ability:ApplyDataDrivenModifier(caster, target, "modifier_name", {})`，**不能**用通用的 `unit:AddNewModifier(...)`——用 `AddNewModifier` 加载 DataDriven 定义的 modifier 时，**modifier 本身不会被加载**（不是 KV 占位符解析失败，是整个 modifier 都没生效），buff 图标不会出现在状态栏。`AddNewModifier` 只适用于借用别的技能/原生 hardcoded modifier（见进阶 7），不适用于自己 KV 里定义的 DataDriven modifier。
 
-> 参考：影魔 `ability_lua` + `GetIntrinsicModifierName` 监听 `nevermore_requiem`；PA `ability_datadriven`（`UNIT_TARGET`，未加 PASSIVE）的 `modifier_pa_awaken_dagger_listener` 用 `OnAbilityExecuted`；宙斯 `special_bonus_unique_zuus_upgrade` 是 PASSIVE datadriven 监听范例。
+> 参考：影魔 `ability_lua` + `GetIntrinsicModifierName` 监听 `nevermore_requiem`；PA `special_bonus_unique_phantom_assassin_upgrade`（壳技能的 intrinsic 继承 `modifier_autocast_think`，同一个 modifier 里监听 `ON_ABILITY_FULLY_CAST`，写法同军团 `legion_commander_auto_duel`）；宙斯 `special_bonus_unique_zuus_upgrade` 是 PASSIVE datadriven 监听范例。
 
 ### 进阶 4：数值仅觉醒后生效（special_bonus 关联）
 
@@ -63,7 +63,7 @@
 
 `=值` 覆盖、`+值` 增加，此外还支持 `+N%` 按百分比增加（如 `+100%` 表示翻倍，项目里已有大量原版天赋先例，如 `special_bonus_unique_dragon_knight_9 "+120%"`）——多档位字段要整体等比缩放时用这个，不需要手算每档绝对值再写数组。引擎检测英雄拥有该 key 同名技能时自动应用。
 
-> **关键坑：key 必须是 `special_bonus_` 前缀的技能名**。引擎靠前缀识别哪些子 key 是「bonus 覆盖」，非此前缀的子 key 被当无关元数据**静默忽略**（数值不变，无报错）。觉醒技能即使是普通可学习主动技（如 PA `special_bonus_unique_phantom_assassin_upgrade` 是 `UNIT_TARGET` 主动），只要名字带前缀就能当 key；反之，不带前缀的觉醒技能名（如曾用的 `sniper_assassinate_upgrade`）写进去不生效，须把觉醒技能**重命名**为 `special_bonus_unique_*`（连带改抽奖池引用、Lua 类名、本地化 key；ScriptFile 路径/Lua 文件名可不动，仅同步文件内 ability 类名）。该 key 技能还须被英雄拥有且等级 ≥ 1 才应用。
+> **关键坑：key 必须是 `special_bonus_` 前缀的技能名**。引擎靠前缀识别哪些子 key 是「bonus 覆盖」，非此前缀的子 key 被当无关元数据**静默忽略**（数值不变，无报错）。觉醒技能即使是普通可学习主动技（如 PA `special_bonus_unique_phantom_assassin_upgrade` 是占短匕槽位的 `UNIT_TARGET` 壳技能），只要名字带前缀就能当 key；反之，不带前缀的觉醒技能名（如曾用的 `sniper_assassinate_upgrade`）写进去不生效，须把觉醒技能**重命名**为 `special_bonus_unique_*`（连带改抽奖池引用、Lua 类名、本地化 key；ScriptFile 路径/Lua 文件名可不动，仅同步文件内 ability 类名）。该 key 技能还须被英雄拥有且等级 ≥ 1 才应用。
 
 > **同一 value 块可以挂多个 `special_bonus_` key，但引擎只应用块内第一个命中的**，所以觉醒键须排在 `value` 之后、其它键之前。动手前先按 `update-abilities-override` skill 的方法读该技能整段（override 差分 + `docs/reference/<version>/heroes/` 原版全集，**原版键会被合并进来，只看 override 会漏**），确认块内已有哪些 `special_bonus_*`（常见来源：原版天赋、魔晶、神杖、其它觉醒）。排首位意味着觉醒后该字段上的其它 bonus 全部失效，若不可接受则换一个干净字段，或改用其它实现方式（DataDriven Modifiers / TS）。
 

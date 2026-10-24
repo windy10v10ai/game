@@ -101,3 +101,15 @@ export function castImmediatelyOnTarget(
   caster.CastAbilityImmediately(ability, caster.GetPlayerOwnerID());
   caster.SetCursorCastTarget(undefined);
 }
+
+const LOTUS_MODIFIER = 'modifier_item_lotus_orb_active';
+const MIRROR_SHIELD = 'item_mirror_shield';
+
+/** 目标是否会反弹指向性技能（莲花球生效中，或中立栏里的镜盾已就绪）。只有指向性、被反弹有副作用的自动施放才调用。 */
+export function willReflect(target: CDOTA_BaseNPC): boolean {
+  if (target.HasModifier(LOTUS_MODIFIER)) return true;
+  return [InventorySlot.NEUTRAL_ACTIVE_SLOT, InventorySlot.NEUTRAL_PASSIVE_SLOT].some((slot) => {
+    const item = target.GetItemInSlot(slot);
+    return item !== undefined && item.GetAbilityName() === MIRROR_SHIELD && item.IsCooldownReady();
+  });
+}

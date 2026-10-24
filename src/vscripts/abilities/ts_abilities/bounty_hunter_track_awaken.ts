@@ -1,19 +1,14 @@
 import { registerAbility } from '../../utils/dota_ts_adapter';
-import { AutoCastAbility, findEnemiesInRange, getFullCastRange } from './shared/auto-cast-ability';
+import {
+  AutoCastAbility,
+  findEnemiesInRange,
+  getFullCastRange,
+  willReflect,
+} from './shared/auto-cast-ability';
 
 const NATIVE_TRACK = 'bounty_hunter_track';
 const SHURIKEN_TOSS = 'bounty_hunter_shuriken_toss';
 const TRACK_MODIFIER = 'modifier_bounty_hunter_track';
-const LOTUS_MODIFIER = 'modifier_item_lotus_orb_active';
-const MIRROR_SHIELD = 'item_mirror_shield';
-
-function willReflect(target: CDOTA_BaseNPC): boolean {
-  if (target.HasModifier(LOTUS_MODIFIER)) return true;
-  return [InventorySlot.NEUTRAL_ACTIVE_SLOT, InventorySlot.NEUTRAL_PASSIVE_SLOT].some((slot) => {
-    const item = target.GetItemInSlot(slot);
-    return item !== undefined && item.GetAbilityName() === MIRROR_SHIELD && item.IsCooldownReady();
-  });
-}
 
 /**
  * 赏金猎人 追踪术-觉醒：占原技能槽位提供自动施法开关，追踪效果仍由隐藏保留的原生技能负责，

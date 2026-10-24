@@ -1513,11 +1513,15 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>God King Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"When autocast is enabled, Zeus automatically casts Arc Lightning and Lightning Bolt on enemies within cast range.<br><br>Prioritizes heroes. Casts only Arc Lightning when only creeps are in range."
 
-		// Phantom Assassin Phantom Strike - Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>Phantom Strike Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Phantom Assassin blinks to a target unit, gaining bonus attack speed and the <font color='#FFCC66'>Black King Bar</font> effect briefly, then automatically attacks.<br><br>Stifling Dagger's projectile speed is increased. Casting Stifling Dagger briefly grants the <font color='#FFCC66'>Black King Bar</font> effect."
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"Bonus Attack Speed:"
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"Duration:"
+		// 幻影刺客 窒碍短匕-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"	"<font color='#d000ff'>Stifling Dagger Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Throws a dagger at an enemy unit, slowing its movement speed and dealing physical damage equal to %base_damage% plus %attack_factor_tooltip%%% of Phantom Assassin's attack damage, and applying attack effects from items and abilities. The dagger's projectile speed is increased.<br><br><font color='#00CED1'>AUTOCAST:</font> When enabled, casts automatically at a random enemy hero within cast range. Targets that reflect targeted spells are skipped.<br><font color='#d000ff'>AWAKENED:</font> After casting Stifling Dagger or Phantom Strike, gain brief <font color='#FFCC66'>Spell Immunity</font>."
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_move_slow"	"%Movement Slow:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_duration"	"Slow Duration:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_base_damage"	"Base Damage:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_attack_factor_tooltip"	"%Attack Damage:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_strike_immune_duration"	"Phantom Strike Immunity Duration:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_dagger_immune_duration"	"Stifling Dagger Immunity Duration:"
 
 		// Witch Doctor Divine Words - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
