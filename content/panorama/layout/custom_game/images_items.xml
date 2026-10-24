@@ -52,7 +52,6 @@
 			<Image id="dragon_ball_7" class="SeqImg" src="file://{images}/items/dragon_ball_7.png" />
 			<Image id="echo_sabre_2" class="SeqImg" src="file://{images}/items/echo_sabre_2.png" />
 			<Image id="essence_distiller_2" class="SeqImg" src="file://{images}/items/essence_distiller_2.png" />
-			<Image id="eternal_shroud_ultra" class="SeqImg" src="file://{images}/items/eternal_shroud_ultra.png" />
 			<Image id="excalibur" class="SeqImg" src="file://{images}/items/excalibur.png" />
 			<Image id="exchange" class="SeqImg" src="file://{images}/items/exchange.png" />
 			<Image id="fall_fall_fall" class="SeqImg" src="file://{images}/items/fall_fall_fall.png" />

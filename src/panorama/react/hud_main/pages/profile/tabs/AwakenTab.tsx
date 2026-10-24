@@ -45,12 +45,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_earthshaker',
     abilityName: 'special_bonus_unique_earthshaker_upgrade',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_abyssal_underlord',
     abilityName: 'special_bonus_unique_underlord_demons_reach_awaken',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_slark',
@@ -124,7 +122,11 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     heroName: 'npc_dota_hero_windrunner',
     abilityName: 'windrunner_whirlwind_custom',
   },
-  { heroName: 'npc_dota_hero_kunkka', abilityName: 'kunkka_torrent_storm' },
+  {
+    heroName: 'npc_dota_hero_kunkka',
+    abilityName: 'kunkka_torrent_storm',
+    freeTrial: true,
+  },
   { heroName: 'npc_dota_hero_ogre_magi', abilityName: 'ogre_magi_multicast_lua' },
   {
     heroName: 'npc_dota_hero_winter_wyvern',
@@ -142,6 +144,7 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_drow_ranger',
     abilityName: 'special_bonus_unique_drow_ranger_upgrade',
+    freeTrial: true,
   },
   { heroName: 'npc_dota_hero_nevermore', abilityName: 'special_bonus_unique_nevermore_upgrade' },
   {
@@ -151,6 +154,7 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_phantom_assassin',
     abilityName: 'special_bonus_unique_phantom_assassin_upgrade',
+    freeTrial: true,
   },
   { heroName: 'npc_dota_hero_zuus', abilityName: 'special_bonus_unique_zuus_upgrade' },
   { heroName: 'npc_dota_hero_necrolyte', abilityName: 'necrolyte_heartstopper_aura_datadriven' },

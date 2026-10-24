@@ -130,6 +130,7 @@
 	{
 		"BaseClass"						"item_dagon_5"
 		"AbilityTextureName"			"item_dagon_ultra"
+		"ItemCost"						"13950"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -525,7 +526,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"7500"
+		"ItemCost"						"7200"
 		"ItemShopTags"					"magic_resist;move_speed;health_pool"
 		"ItemQuality"					"artifact"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -695,6 +696,65 @@
 			"poison_duration"				"3"
 			"poison_base_damage"			"0"
 			"poison_damage_per_second"		"6"		// 5
+		}
+	}
+
+	//=================================================================================================================
+	// Disperser Chaos 混沌·散魂剑
+	//=================================================================================================================
+	"item_recipe_disperser_chaos"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_disperser_chaos"
+		"ItemCost"						"0"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_disperser_chaos"
+		"ItemRequirements"
+		{
+			"01"						"item_disperser;item_diffusal_blade"
+		}
+	}
+
+	"item_disperser_chaos"
+	{
+		"BaseClass"						"item_disperser"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityCastRange"				"800"	// 600
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"10.0"	// 15.0
+		"AbilityManaCost"				"75"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemCost"						"8600"
+		"ItemShopTags"					"agi;int;unique;hard_to_tag"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"diffusal blade 1"
+		"ItemPermanent"					"1"
+		"UpgradesItems"					"item_diffusal_blade"
+		"UpgradeRecipe"					"item_recipe_diffusal_blade"
+		"ShouldBeSuggested"				"1"
+		"SuggestLategame"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_disperser_chaos"
+		"AbilityValues"
+		{
+			"bonus_agility"			"80"	// 40
+			"bonus_intellect"		"25"	// 10
+			"feedback_mana_burn"	"150"	// 40
+			"feedback_mana_burn_illusion_melee"	"50"	// 0
+			"feedback_mana_burn_illusion_ranged"	"50"	// 0
+			"purge_rate"			"5"
+			"purge_root_duration"	"6.0"	// 3.0
+			"damage_per_burn"		"1.0"
+			"enemy_effect_duration"	"8.0"	// 4.0
+			"ally_effect_duration"	"5.0"	// 4.0
+			"movement_speed_buff_rate"	"6"	// 4
+			"phase_movement_speed"		"100"
+			"slow_resist"			"40"
 		}
 	}
 

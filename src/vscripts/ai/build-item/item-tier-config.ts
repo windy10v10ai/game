@@ -867,13 +867,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 9600,
     baseItems: ['item_adi_king', 'item_phase_boots'],
   },
-  item_eternal_shroud_ultra: {
-    name: 'item_eternal_shroud_ultra',
-    nameCN: '法师泳衣',
-    tier: ItemTier.T3,
-    cost: 9600,
-    baseItems: ['item_eternal_shroud'],
-  },
   item_hurricane_pike_2: {
     name: 'item_hurricane_pike_2',
     nameCN: '黄金魔龙枪 Ultimate',
@@ -1325,7 +1318,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_beast_shield',
     nameCN: '兽化盾',
     tier: ItemTier.T5,
-    cost: 57300,
+    cost: 52200,
     baseItems: ['item_black_king_bar_2'],
   },
   item_time_gem: {

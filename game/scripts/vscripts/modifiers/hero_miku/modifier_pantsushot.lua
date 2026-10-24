@@ -42,14 +42,9 @@ function modifier_pantsushot:DeclareFunctions()
 		MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
 		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
-		MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
 	}
 
 	return funcs
-end
-
-function modifier_pantsushot:GetModifierBaseAttackTimeConstant()
-	return 1.7
 end
 
 function modifier_pantsushot:GetModifierPreAttack_CriticalStrike(params)

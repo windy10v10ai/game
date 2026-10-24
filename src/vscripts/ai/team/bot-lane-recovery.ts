@@ -1,3 +1,4 @@
+import { modifier_debug_manual_control } from '../../modifiers/debug/modifier_debug_manual_control';
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { ActionFind } from '../action/action-find';
 import { HeroUtil } from '../hero/hero-util';
@@ -112,7 +113,8 @@ export class BotLaneRecovery {
       !hero.IsAlive() ||
       hero.IsIllusion() ||
       HeroUtil.NotActionable(hero) ||
-      hero.IsMuted()
+      hero.IsMuted() ||
+      hero.HasModifier(modifier_debug_manual_control.name)
     ) {
       return undefined;
     }

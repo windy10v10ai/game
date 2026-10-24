@@ -2469,9 +2469,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_lua"
+		"BaseClass"						"item_datadriven"
 		"ID"							"10358"
-		"ScriptFile"					"items/ts_items/item_sacred_six_vein"
+		"ScriptFile"					"items/item_sacred_six_vein"
 		"AbilityTextureName"			"item_sacred_six_vein"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -2497,10 +2497,43 @@
 			"spell_amp"						"50"
 			"magic_damage_attack"			"100"
 
-			// 三叉戟没有这三项，由脚本侧读取
-			"slow_resistance"				"75"
+			// KV 属性表写不了蓝耗降低，由中立强化「神秘」的原生 modifier 读取
 			"manacost_reduction"			"40"
-			"cast_speed_pct"				"50"
+			"cast_pct_improvement"			"50"
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_sacred_six_vein"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE"	"%cast_pct_improvement"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_sacred_six_vein"
+						"Function"		"SixVeinOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_sacred_six_vein"
+						"Function"		"SixVeinOnDestroy"
+					}
+				}
+			}
 		}
 	}
 
@@ -4209,7 +4242,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"10390"
-		"BaseClass"						"item_lua"
+		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"orb_of_the_brine"
 		"ScriptFile"					"items/item_orb_of_the_brine"
 
@@ -4239,10 +4272,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"20"	// tooltip, real value in item_orb_of_the_brine_bonus_all_stats
+			"bonus_all_stats"		"20"
 			"bonus_health"			"600"
+			// 由原生 modifier_item_enhancement_restorative 读取，KV 属性表的治疗增强不生效
 			"bonus_mana"			"600"
-			"heal_increase"			"50"
+			"heal_amp"				"50"
 
 			"bubble_duration"		"1"
 			"bubble_move_speed"		"400"
@@ -4250,6 +4284,52 @@
 
 			"bubble_total_heal_tip"	"1500"
 			"bubble_total_mana_tip"	"1500"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_orb_of_the_brine"
+				"Function"		"OrbOfTheBrineOnSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_orb_of_the_brine"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"				"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"					"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"				"%bonus_all_stats"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"						"%bonus_health"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_orb_of_the_brine"
+						"Function"		"OrbOfTheBrineOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_orb_of_the_brine"
+						"Function"		"OrbOfTheBrineOnDestroy"
+					}
+				}
+			}
 		}
 	}
 
@@ -5447,44 +5527,6 @@
 				"movement_speed_percent_bonus"	"25" // 12
 				"spell_amp"				"25" // 12
 				"cast_speed_pct"		"50" // 25
-		}
-	}
-
-	//=================================================================================================================
-	// 法师泳衣
-	//=================================================================================================================
-	"item_recipe_eternal_shroud_ultra"
-	{
-		"BaseClass"						"item_recipe_eternal_shroud"
-		"ItemCost"						"2200"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"AbilityTextureName"			"item_recipe_eternal_shroud_ultra"
-		"ItemResult"					"item_eternal_shroud_ultra"
-		"ItemRequirements"
-		{
-			"01"						"item_cloak;item_ogre_axe;item_vitality_booster"
-		}
-	}
-
-	"item_eternal_shroud_ultra"
-	{
-		"BaseClass"						"item_eternal_shroud"
-		"AbilityTextureName"			"item_eternal_shroud_ultra"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SuggestLategame"				"1"
-		"AbilityValues"
-		{
-			"bonus_spell_resist"					"30"	//20
-			"bonus_strength"						"20"	//10
-			"bonus_health"							"500"	//250
-			// 禁用被动防止炸房
-			"stack_threshold"						"99999"	//300
-			"stack_duration"						"0"		//5
-			"stack_resist"							"0.0"	//3.5
-
-			"mana_restore_pct"						"30"	//25
-			"max_stacks"							"8"		//6
 		}
 	}
 
@@ -6772,7 +6814,7 @@
 		"ItemResult"				"item_beast_shield"
 		"ItemRequirements"
 		{
-			"01"					"item_black_king_bar_2;item_vladmir_2;item_eternal_shroud_ultra;item_insight_armor;item_fusion_beast"
+			"01"					"item_black_king_bar_2;item_vladmir_2;item_insight_armor;item_fusion_beast"
 		}
 	}
 
@@ -6788,7 +6830,7 @@
 		"AbilityCooldown"			"60.0"
 		"AbilityManaCost"			"300"
 
-		"ItemCost"					"47300"
+		"ItemCost"					"42200"
 
 		"AbilityValues"
 		{
@@ -6797,15 +6839,6 @@
 			"active_bonus_multiplier_tooltip"	"100"
 			// modifier_black_king_bar_immune 的魔抗
 			"spell_reduce"					"100"
-
-			// 法师泳衣被动
-			// 禁用被动防止炸房
-			"stack_threshold"			"99999"
-			"stack_duration"			"0"
-			"stack_resist"				"0"
-
-			"mana_restore_pct"			"30"
-			"max_stacks"				"8"
 
 			// 被动属性
 			"passive_bonus_strength"			"80"
@@ -6864,24 +6897,6 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%passive_bonus_health_regen"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%passive_bonus_attack_speed"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%passive_bonus_damage"
-				}
-
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_beast_shield"
-						"Function"		"BeastShieldOnCreated"
-					}
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_beast_shield"
-						"Function"		"BeastShieldOnDestroy"
-					}
 				}
 			}
 

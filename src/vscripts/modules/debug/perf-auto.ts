@@ -79,6 +79,8 @@ export interface PerfAutoConfig {
   benchAttackers?: number;
   // 伤害基准里两队隔开的距离，0 为各回泉水
   benchGap?: number;
+  // 换装与挂 modifier 只给伤害基准的出手方（attacker）或挨打方（victim），为空时全员；拆开看开销算在哪一方
+  benchSide?: string;
 }
 
 interface PerfStep {
@@ -493,6 +495,27 @@ const BENCH_SCENES: Record<string, BenchMode> = {
 };
 let benchActive = false;
 let benchTicking = false;
+
+function benchTarget(heroes: CDOTA_BaseNPC_Hero[], index: number) {
+  const team = heroes[index].GetTeamNumber();
+  return (
+    heroes.find((hero, offset) => offset > index && hero.GetTeamNumber() !== team) ??
+    heroes.find((hero) => hero.GetTeamNumber() !== team)
+  );
+}
+
+// 挨打方是全员出手时被选中的目标，出手方是其余英雄；挨打方自己也出手，归入挨打方
+function forEachSideHero(callback: (hero: CDOTA_BaseNPC_Hero) => void) {
+  const side = PERF_CONFIG?.benchSide ?? '';
+  const heroes: CDOTA_BaseNPC_Hero[] = [];
+  forEachHero((hero) => heroes.push(hero));
+  const victims = new Set(heroes.map((_, index) => benchTarget(heroes, index)));
+  for (const hero of heroes) {
+    if (side === 'victim' && !victims.has(hero)) continue;
+    if (side === 'attacker' && victims.has(hero)) continue;
+    callback(hero);
+  }
+}
 let benchMode: BenchMode = 'damage';
 
 function startDamageBench(mode: BenchMode) {
@@ -514,10 +537,7 @@ function startDamageBench(mode: BenchMode) {
     const attackers = limit > 0 ? limit : heroes.length;
     heroes.forEach((attacker, index) => {
       if (index >= attackers) return;
-      const target =
-        heroes.find(
-          (hero, offset) => offset > index && hero.GetTeamNumber() !== attacker.GetTeamNumber(),
-        ) ?? heroes.find((hero) => hero.GetTeamNumber() !== attacker.GetTeamNumber());
+      const target = benchTarget(heroes, index);
       if (!target || !attacker.IsAlive() || !target.IsAlive()) return;
       target.SetHealth(target.GetMaxHealth());
       if (benchMode === 'attack') {
@@ -861,7 +881,7 @@ const SAME_ITEM = 'same';
 function swapItem(itemName: string) {
   swappedOut = [];
   let added = 0;
-  forEachHero((hero) => {
+  forEachSideHero((hero) => {
     const old = hero.GetItemInSlot(SWAP_SLOT);
     const oldName = old?.GetName();
     if (old) UTIL_RemoveImmediate(old);
@@ -970,7 +990,7 @@ function addItemModifier(
   if (hasScript) {
     LinkLuaModifier(modifierName, scriptFile, LuaModifierMotionType.NONE);
   }
-  forEachHero((hero) => {
+  forEachSideHero((hero) => {
     const item = CreateItem(itemName, hero.GetPlayerOwner(), hero);
     if (!item) return;
     sources.push(item);

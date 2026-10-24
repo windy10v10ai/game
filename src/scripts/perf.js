@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { getAddonName, getDotaPath } = require('./utils');
 const { analyze } = require('./bot-anomaly');
-const { summarize, unstableConditions } = require('./perf-summary');
+const { summarize } = require('./perf-summary');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const CONFIG_FILE = path.join(ROOT, 'game', 'scripts', 'vscripts', 'perf_auto_config.lua');
@@ -68,12 +68,14 @@ function parseArgs() {
     benchAttackers: 0,
     // 伤害基准里两队对排的间距，0 为各回泉水；量敌方光环时用
     benchGap: 0,
-    // 先跑 minGames 局；有条件各局结果不一致就逐局追加，最多 maxGames 局
+    // 换装与挂 modifier 只给伤害基准的出手方（attacker）或挨打方（victim），为空时全员
+    benchSide: '',
     // 逗号分隔的条件名，只复测其中几项时用
     conditions: 'all',
-    minGames: 3,
-    maxGames: 5,
-    spreadLimit: 10,
+    // 跑几局；够不够下结论看报告里的逐局值，不够再用 appendTo 追加
+    games: 3,
+    // 已有的运行目录（runs/<时间>），新局接着编号写进去，报告按全部局重新汇总
+    appendTo: '',
     // dedicated：本机专用服加普通客户端，服务器独占进程，和 launcher 给玩家的方式一致；tools：工具模式单进程，性能剖析只在这里可用
     server: 'dedicated',
   };
@@ -96,6 +98,8 @@ function parseArgs() {
         'itemModifiers',
         'moonStacks',
         'countModifiers',
+        'appendTo',
+        'benchSide',
       ].includes(key)
     )
       options[key] = value;
@@ -106,7 +110,7 @@ function parseArgs() {
   return options;
 }
 
-const LAUNCHER_ONLY = ['timeoutMinutes', 'minGames', 'maxGames', 'spreadLimit', 'server'];
+const LAUNCHER_ONLY = ['timeoutMinutes', 'games', 'appendTo', 'server'];
 const SERVER_PORT = 27015;
 const SERVER_LOG = 'perf-dedicated.log';
 const MAP_LOADED = 'Host activate: Loading (custom)';
@@ -351,40 +355,36 @@ async function runGame(options, gameConfig, label) {
   const now = new Date();
   const pad = (n) => String(n).padStart(2, '0');
   const stamp = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}`;
-  const runDir = path.join(RUNS_DIR, stamp);
+  const runDir = options.appendTo ? path.resolve(options.appendTo) : path.join(RUNS_DIR, stamp);
   fs.mkdirSync(runDir, { recursive: true });
+  const gameLog = (game) => path.join(runDir, `game-${game}.log`);
+  let firstGame = 1;
+  while (fs.existsSync(gameLog(firstGame))) firstGame++;
 
   // 每局重新开一局游戏，各局热身到同一游戏时间，局与局之间没有累积；浸泡测试只看一局的变化趋势
-  const maxGames = options.mode === 'soak' ? 1 : options.maxGames;
-  const minGames = Math.min(options.minGames, maxGames);
-  const logs = [];
-  let unstable = [];
-  for (let game = 1; game <= maxGames; game++) {
+  const lastGame = firstGame - 1 + (options.mode === 'soak' ? 1 : options.games);
+  for (let game = firstGame; game <= lastGame; game++) {
     const gameConfig = {
       ...options,
       repStart: (game - 1) * options.reps + 1,
-      // 局数随结果追加，事先不知道哪局是最后一局，不可还原的收尾步骤放在第一局
+      // 之后可能追加局，不可还原的收尾步骤放在第一局
       includeTail: game === 1,
     };
     const { log, anomaly } = await runGame(options, gameConfig, `game ${game}`);
-    fs.writeFileSync(path.join(runDir, `game-${game}.log`), log);
+    fs.writeFileSync(gameLog(game), log);
     const anomalyFile = path.join(runDir, `anomaly-${game}.md`);
     fs.writeFileSync(anomalyFile, anomaly);
     console.log(`[perf] game ${game}: bot anomaly report ${anomalyFile}`);
-    logs.push(log);
-    if (game < minGames) continue;
-    unstable = unstableConditions(logs.join('\n'), options.spreadLimit);
-    if (!unstable.length) break;
-    console.log(`[perf] after ${game} games, unstable: ${unstable.join(', ')}`);
   }
 
-  const merged = logs.join('\n');
+  const games = Array.from({ length: lastGame }, (_, i) => i + 1);
+  const merged = games.map((game) => fs.readFileSync(gameLog(game), 'utf8')).join('\n');
   fs.writeFileSync(path.join(runDir, 'raw.log'), merged);
   fs.writeFileSync(
     path.join(runDir, 'config.json'),
-    JSON.stringify({ ...options, games: logs.length, unstable }, null, 2),
+    JSON.stringify({ ...options, games: lastGame }, null, 2),
   );
-  const report = summarize(merged, { spreadLimit: options.spreadLimit });
+  const report = summarize(merged);
   fs.writeFileSync(path.join(runDir, 'report.md'), report);
   console.log(report);
   console.log(`\n[perf] run saved to ${runDir}`);

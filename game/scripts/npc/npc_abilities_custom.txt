@@ -988,9 +988,8 @@
 		}
 		"precache"
 		{
-			"particle"	"particles/chibi_hit_calne.vpcf"
-			"particle"	"particles/chibi_hit.vpcf"
-			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_dragon_tail_dragonform_proj.vpcf"
+			"particle"	"particles/miku_calne_notes_hit.vpcf"
+			"particle"	"particles/miku_notes_hit.vpcf"
 		}
 	}
 

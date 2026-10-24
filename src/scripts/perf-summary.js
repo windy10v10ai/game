@@ -138,20 +138,14 @@ function conditionGroups(steps, stat) {
     const serverDeltas = deltasOf('serverMs');
     // 打团基线会随局势漂移，同样的绝对开销换算成百分比忽大忽小，比较条件时看毫秒差
     const serverMsDeltas = deltasOf('serverMs', true);
-    // 剖析器给出的是服务器纯计算时间，判定基准以它为准；没有时退回画面帧时间，再退回 tick 耗时
-    const deltas = serverDeltas.length
-      ? serverDeltas
-      : frameDeltas.length
-        ? frameDeltas
-        : tickDeltas;
-    return { group, runs, tickDeltas, frameDeltas, serverDeltas, serverMsDeltas, deltas };
+    return { group, runs, tickDeltas, frameDeltas, serverDeltas, serverMsDeltas };
   });
 }
 
-function deltaText(deltas, spreadLimit) {
+function deltaText(deltas) {
   if (!deltas.length) return '-';
   const each = deltas.length > 1 ? `（${deltas.map(pct).join(' / ')}）` : '';
-  return `${isUnstable(deltas, spreadLimit) ? '不稳定 ' : ''}${pct(mean(deltas))}${each}`;
+  return `${pct(mean(deltas))}${each}`;
 }
 
 function msDeltaText(deltas) {
@@ -161,22 +155,7 @@ function msDeltaText(deltas) {
   return `${signed(mean(deltas))}${each}`;
 }
 
-// 各次变化方向不一致或极差超过阈值（百分点），说明波动盖过了条件本身的效果
-function isUnstable(deltas, spreadLimit) {
-  if (deltas.length < 2) return false;
-  const sameSign = deltas.every((d) => d >= 0) || deltas.every((d) => d <= 0);
-  return !sameSign || Math.max(...deltas) - Math.min(...deltas) > spreadLimit;
-}
-
-/** 返回各次结果还不一致的条件名，多局测试据此决定是否加局。 */
-function unstableConditions(text, spreadLimit) {
-  const { windows, steps, frames, vprof } = parseRun(text);
-  return conditionGroups(steps, statOf(windows, frames, vprof))
-    .filter(({ deltas }) => isUnstable(deltas, spreadLimit))
-    .map(({ group }) => group);
-}
-
-function summarize(text, { spreadLimit = 10 } = {}) {
+function summarize(text) {
   const { lines, windows, steps, prof, frames, slices, vprof, clientStalls, clientRestarts } =
     parseRun(text);
   const stat = statOf(windows, frames, vprof);
@@ -219,12 +198,12 @@ function summarize(text, { spreadLimit = 10 } = {}) {
     // 有剖析器数据时计算时间直接可读，跑没跑满不再影响结论
     const saturated = Number.isFinite(m('serverMs')) || m('tick') < 30 * runs[0].timescale * 0.97;
     out.push(
-      `| ${group} | ${runs[0].ref.includes(',') ? '前后基线' : baseName(runs[0].ref)} | ${runs[0].timescale}${saturated ? '' : '（未跑满）'} | ${runs.length} | ${isRef ? '对照组' : deltaText(serverDeltas, spreadLimit)} | ${isRef ? '对照组' : msDeltaText(serverMsDeltas)} | ${fmt(m('serverMs'), 2)} | ${isRef ? '对照组' : deltaText(frameDeltas, spreadLimit)} | ${isRef ? '对照组' : deltaText(tickDeltas, spreadLimit)} | ${fmt(m('fps'))} | ${fmt(m('frameMs'))} | ${fmt(Math.max(...stats.map((s) => s.maxFrame)), 0)} | ${fmt(m('tick'))} | ${fmt(m('msPerTick'), 2)} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...stats.map((s) => s.maxGap)), 0)} | ${fmt(m('hitchPerMin'))} | ${fmt(m('aiMsPerTick'), 2)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} |`,
+      `| ${group} | ${runs[0].ref.includes(',') ? '前后基线' : baseName(runs[0].ref)} | ${runs[0].timescale}${saturated ? '' : '（未跑满）'} | ${runs.length} | ${isRef ? '对照组' : deltaText(serverDeltas)} | ${isRef ? '对照组' : msDeltaText(serverMsDeltas)} | ${fmt(m('serverMs'), 2)} | ${isRef ? '对照组' : deltaText(frameDeltas)} | ${isRef ? '对照组' : deltaText(tickDeltas)} | ${fmt(m('fps'))} | ${fmt(m('frameMs'))} | ${fmt(Math.max(...stats.map((s) => s.maxFrame)), 0)} | ${fmt(m('tick'))} | ${fmt(m('msPerTick'), 2)} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...stats.map((s) => s.maxGap)), 0)} | ${fmt(m('hitchPerMin'))} | ${fmt(m('aiMsPerTick'), 2)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} |`,
     );
   }
   out.push(
     '',
-    `「服务器计算变化」是引擎剖析器量到的服务器每 tick 纯计算时间（不含空等，1 倍速也有效）相对对照组的变化，有这一列时以它为准，「每 tick ms 差」是同一差值的毫秒数，打团基线漂移时百分比失真，比较条件看它；「帧时间变化」是画面平均帧时间相对对照组的变化，即玩家直接感受到的；「tick 耗时变化」是服务器每 tick 耗时的变化。负数表示关掉该条件后省下的时间，括号里是逐次的值。服务器没跑满（tick 已到 30）时 tick 耗时被封顶，差值偏小。标「不稳定」的条件各次方向不一致或相差超过 ${spreadLimit} 个百分点，不作结论。`,
+    `「服务器计算变化」是引擎剖析器量到的服务器每 tick 纯计算时间（不含空等，1 倍速也有效）相对对照组的变化，有这一列时以它为准，「每 tick ms 差」是同一差值的毫秒数，打团基线漂移时百分比失真，比较条件看它；「帧时间变化」是画面平均帧时间相对对照组的变化，即玩家直接感受到的；「tick 耗时变化」是服务器每 tick 耗时的变化。负数表示关掉该条件后省下的时间，括号里是逐次的值，看各次是否同向、幅度是否接近来判断结论是否可靠。服务器没跑满（tick 已到 30）时 tick 耗时被封顶，差值偏小。`,
     '',
   );
   out.push(...summarizeVprof(steps, stat, vprof));
@@ -594,7 +573,7 @@ function summarizeWarnings(lines) {
   return out;
 }
 
-module.exports = { summarize, unstableConditions };
+module.exports = { summarize };
 
 if (require.main === module) {
   const files = process.argv.slice(2);

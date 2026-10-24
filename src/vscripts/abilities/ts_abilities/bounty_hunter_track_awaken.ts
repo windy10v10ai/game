@@ -1,5 +1,10 @@
 import { registerAbility } from '../../utils/dota_ts_adapter';
-import { AutoCastAbility, findEnemiesInRange, getFullCastRange } from './shared/auto-cast-ability';
+import {
+  AutoCastAbility,
+  findEnemiesInRange,
+  getFullCastRange,
+  willReflect,
+} from './shared/auto-cast-ability';
 
 const NATIVE_TRACK = 'bounty_hunter_track';
 const SHURIKEN_TOSS = 'bounty_hunter_shuriken_toss';
@@ -24,7 +29,7 @@ export class BountyHunterTrackAwaken extends AutoCastAbility {
   OnSpellStart(): void {
     if (!IsServer()) return;
     const target = this.GetCursorTarget();
-    if (target === undefined) return;
+    if (target === undefined || willReflect(target)) return;
     this.trackTarget(target);
   }
 
@@ -40,7 +45,9 @@ export class BountyHunterTrackAwaken extends AutoCastAbility {
         UnitTargetFlags.NOT_ILLUSIONS,
     );
     // 先标记还没被追踪的英雄；全员已被追踪时续最近的一个，让飞镖照常输出
-    const target = enemies.find((enemy) => !enemy.HasModifier(TRACK_MODIFIER)) ?? enemies[0];
+    // 反弹会把追踪挂到自己身上，让敌人一直看到自己，会反弹的目标不施放
+    const candidates = enemies.filter((enemy) => !willReflect(enemy));
+    const target = candidates.find((enemy) => !enemy.HasModifier(TRACK_MODIFIER)) ?? candidates[0];
     if (target === undefined) return;
 
     // 自动触发不经过引擎原生施法管线，须用 UseResources 模拟正常施法扣蓝与启动冷却

@@ -14,7 +14,9 @@ npm run perf -- --scenes <场景> --conditions <条件,...> --swapItems <物品>
 - 同一局里条件段与基线段交替、顺序打乱，结果读各条件相对前后基线的差，不拿不同对局的绝对值比
 - 物品开销对比只用 `dmgbench` / `atkbench`：`fight` 逐轮波动可达几十 ms/tick，量不出单件物品。要跑 `fight` 时放在 `--scenes` 最后，打过团的英雄伤害结算变贵且不恢复，排在它后面的基准场景基线会失真（tick 掉到个位数）
 - 物品开销用 `--swapItems <物品>` 的 `swap_<物品>` 减 `swap_empty`（空格对照），`swap_empty` 的逐轮波动就是这一轮的噪声
+- 要分清开销算在出手方还是挨打方时加 `--benchSide attacker`（只换给不被选为目标的 18 人）或 `--benchSide victim`（只换给两队 1 号，各挨对面 10 人打），对 `--swapItems` 与 `--itemModifiers` 都生效。伤害基准里只有这 2 个挨打方，单件比较要按件数折算
 - 改动前后对比：每个版本一条测试分支，用同一套测试工具与参数各跑一局
+- 默认固定跑 3 局，脚本不自动加局。读报告每个条件括号里的逐局值自行判断：各局同向、量级远大于 `swap_empty` 的波动即可下结论，单局离群就点出来；方向来回且量级与 `swap_empty` 相当，就是「≈0 / 测不出」，量级介于两者之间才用 `--appendTo runs/<时间>` 带同样参数追加局
 - 放大某个 modifier 的开销时分散挂到不同单位各 1 份（参考 `bld_` 条件，全场建筑各挂 1 个），不在同一单位叠多份同名 modifier：叠挂测出的单个开销偏高一个数量级，只能看随层数增长的趋势（`meleebuff_x<N>` 属于这种）
 - 已知结论（计在伤害结算 `CDOTA_BaseNPC::DamageImpact` 里，20 个实例）：Lua modifier 空壳 +0.3～1.6；只返回常量技能增强的 Lua modifier 在 `spellbench` +3.5～4.3（写成 KV +0.7），技能增强只在带技能来源的伤害里查、普攻不查；带全图受伤监听的约为空壳的 5 倍。测新机制时空壳与监听两档可用 `bld_empty` / `bld_takedamage`，或 `--itemModifiers <物品>:modifier_perf_empty:modules/debug/perf-building-modifier` 挂到英雄上作参照。原版物品 modifier 不一定便宜：`modifier_item_eternal_shroud`、`modifier_item_devastator` 单个比空 Lua modifier 贵十倍以上，同样计在伤害结算里；KV 光环（`Aura` + `Properties`）很便宜
 

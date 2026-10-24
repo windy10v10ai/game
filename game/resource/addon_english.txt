@@ -1343,9 +1343,9 @@
 		// 敌法师 觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Mana Suppression Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"Blink drains nearby enemy heroes' mana and stops them from regaining it, and Mana Void deals damage to each enemy hero based on their own missing mana."
-		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"After casting Blink, enemy heroes within <font color='#FFFFFF'><b>600</b></font> instantly lose <font color='#FFFFFF'><b>40%%</b></font> of their current mana and cannot regain mana for <font color='#FFFFFF'><b>4</b></font> seconds.<br>Mana Void deals damage to each enemy hero in the area based on that hero's own missing mana."
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"After casting Blink, enemy heroes within <font color='#FFFFFF'><b>600</b></font> instantly lose <font color='#FFFFFF'><b>50%%</b></font> of their current mana and cannot regain mana for <font color='#FFFFFF'><b>4</b></font> seconds.<br>Mana Void deals damage to each enemy hero in the area based on that hero's own missing mana.<br>After casting Blink, Counterspell is cast automatically."
 		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Mana Suppression Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"After casting Blink, enemy heroes within <font color='#FFFFFF'><b>600</b></font> instantly lose <font color='#FFFFFF'><b>40%%</b></font> of their current mana and cannot regain mana for <font color='#FFFFFF'><b>4</b></font> seconds.<br>Mana Void deals damage to each enemy hero in the area based on that hero's own missing mana."
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"After casting Blink, enemy heroes within <font color='#FFFFFF'><b>600</b></font> instantly lose <font color='#FFFFFF'><b>50%%</b></font> of their current mana and cannot regain mana for <font color='#FFFFFF'><b>4</b></font> seconds.<br>Mana Void deals damage to each enemy hero in the area based on that hero's own missing mana.<br>After casting Blink, Counterspell is cast automatically."
 
 		// 恐怖利刃 魂断觉醒
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Sunder Awakened</font>"
@@ -1513,11 +1513,15 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>God King Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"When autocast is enabled, Zeus automatically casts Arc Lightning and Lightning Bolt on enemies within cast range.<br><br>Prioritizes heroes. Casts only Arc Lightning when only creeps are in range."
 
-		// Phantom Assassin Phantom Strike - Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>Phantom Strike Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Phantom Assassin blinks to a target unit, gaining bonus attack speed and the <font color='#FFCC66'>Black King Bar</font> effect briefly, then automatically attacks.<br><br>Stifling Dagger's projectile speed is increased. Casting Stifling Dagger briefly grants the <font color='#FFCC66'>Black King Bar</font> effect."
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"Bonus Attack Speed:"
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"Duration:"
+		// 幻影刺客 窒碍短匕-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"	"<font color='#d000ff'>Stifling Dagger Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Throws a dagger at an enemy unit, slowing its movement speed and dealing physical damage equal to %base_damage% plus %attack_factor_tooltip%%% of Phantom Assassin's attack damage, and applying attack effects from items and abilities. The dagger's projectile speed is increased.<br><br><font color='#00CED1'>AUTOCAST:</font> When enabled, casts automatically at a random enemy hero within cast range. Targets that reflect targeted spells are skipped.<br><font color='#d000ff'>AWAKENED:</font> After casting Stifling Dagger or Phantom Strike, gain brief <font color='#FFCC66'>Spell Immunity</font>."
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_move_slow"	"%Movement Slow:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_duration"	"Slow Duration:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_base_damage"	"Base Damage:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_attack_factor_tooltip"	"%Attack Damage:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_strike_immune_duration"	"Phantom Strike Immunity Duration:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_dagger_immune_duration"	"Stifling Dagger Immunity Duration:"
 
 		// Witch Doctor Divine Words - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
@@ -2675,16 +2679,15 @@
 		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_health"				"+$health"
 		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_mana"					"+$mana"
 
-		// consecrated_wraps_2
-		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"				"<font color='#e03e2e'>Artifact: Syrup-Coated Wraps</font>"
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>Passive: Hallowed</h1> Gain a stack every %AbilityChargeRestoreTime%s, up to a maximum of %max_stacks% stacks. Upon gaining a stack, your movement speed is increased by %movement_speed_pct_on_stack_gain%%% for %duration%s.<br><br>Whenever you take damage from a player-controlled unit or Roshan, consume all stacks to gain an all damage barrier for %duration%s that absorbs %barrier_per_stack% damage per stack (%max_barrier_tooltip% max)."
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"Stacks cannot be gained for %AbilityChargeRestoreTime%s after you take damage from a player-controlled unit or Roshan."
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"	    			"Self-damage and HP Loss damage cannot remove stacks."
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"					"Movement speed buff does not stack."
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note3"					"Movement speed buff is only provided if you have reached maximum stacks at least once while the item is equipped."
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_spell_resist"	"%+$spell_resist"
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_all_stats"		"+$all"
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_health"			"+$health"
+		// consecrated_wraps_2 神器·急支糖衣
+		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"								"<font color='#e03e2e'>Artifact: Syrup-Coated Wraps</font>"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"					"<h1>Passive: Hallowed</h1> Gain a charge every %AbilityChargeRestoreTime%s, up to a maximum of %AbilityCharges% charges. Upon gaining a charge, your movement speed is increased by %movement_speed_pct_on_stack_gain%%% for %duration%s.<br><br>Whenever you take damage from a player-controlled source or Roshan, consume all charges to gain an all damage barrier for %duration%s that absorbs %barrier_per_stack% damage per charge (%max_barrier_tooltip% max)."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"						"Charges cannot be gained for %AbilityChargeRestoreTime%s after you take damage from a player-controlled source or Roshan."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"						"Self-damage and HP Loss damage cannot remove charges."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"						"Movement speed buff does not stack."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_spell_resist"			"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_all_stats"				"+$all"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_health"				"+$health"
 
 		// essence_distiller_2
 		"DOTA_Tooltip_Ability_item_essence_distiller_2"				"<font color='#e03e2e'>Artifact: Sacred Spirit Distiller</font>"
@@ -2793,13 +2796,12 @@
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_status_resistance"					"%+Status Resistance"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_slow_resistance"						"%+Slow Resistance"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Mana Regen Amplification"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_spell_amp"							"%+Spell Damage"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_magic_damage_attack"					"+Magic Damage Attack"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Mana Cost/Mana Loss Reduction"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Cast Speed Bonus"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_pct_improvement"					"%+Cast Speed Bonus"
 
 		// item_abyssal_blade_v2 一闪
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"Flash"
@@ -2954,7 +2956,7 @@
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"Orb of the Brine"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"					"Were it not for this revered orb, there would have been no Conclave survivors at the Battle of Stonefish Gate."
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>Active: Brinefoam</h1>Puts a friendly unit in a protective healing bubble for %bubble_duration% seconds. The bubble restores %bubble_total_heal_tip% health and %bubble_total_mana_tip% mana, however during the heal, the unit is silenced, muted, and disarmed, but can move at %bubble_move_speed% movement speed.\n<h1>Passive: Blessing of the Brine</h1>Amplifies heals you provide by %heal_increase%%%."
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>Active: Brinefoam</h1>Puts a friendly unit in a protective healing bubble for %bubble_duration% seconds. The bubble restores %bubble_total_heal_tip% health and %bubble_total_mana_tip% mana, however during the heal, the unit is silenced, muted, and disarmed, but can move at %bubble_move_speed% movement speed.\n<h1>Passive: Blessing of the Brine</h1>Amplifies heals you provide by %heal_amp%%%."
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_health"			"+$health"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana"				"+$mana"
@@ -3193,15 +3195,6 @@
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
 
-		// 法师泳衣
-		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"						"Swimagicostume"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"			"<h1>Passive: Magical Swimming</h1> Converts %mana_restore_pct%%% of spell damage taken from enemies (before reductions) into mana."
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"					"Swim freely among the mages' flow of spells and arcanery!"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_spell_resist"		"%+$spell_resist"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"			"+$str"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_health"			"+$health"
-
 		// 力量法则碎片
 		"DOTA_Tooltip_Ability_item_imp_claw"				"Power Law Fragment"
 		"DOTA_Tooltip_ability_item_imp_claw_Description"	"<h1>Passive: Return to the Sea</h1>The next attack will critically strike for %crit_multiplier%%% damage."
@@ -3380,29 +3373,22 @@
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"%+$spell_resist"
 
 		// 神器 一瞬千击
-		"DOTA_Tooltip_Ability_item_dagon_ultra"									"<font color='#e03e2e'>Artifact: Thousand Strikes</font>"
-		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Active: Watch My Speed</h1> Unleashes a burst of magical damage at an enemy target unit. Heals the caster for %dagon_spell_lifesteal%%% of the damage dealt.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%"
-		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"									"The faster your hands, the higher the damage, as long as you have mana."
-		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"									"Instantly destroys illusions."
-		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$passive_spell_lifesteal"
-		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_int"						"+$int"
-		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_str"						"+$str"
-		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_agi"						"+$agi"
+		"DOTA_Tooltip_Ability_item_dagon_ultra"										"<font color='#e03e2e'>Artifact: Thousand Strikes</font>"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Active: Watch My Speed</h1> Unleashes a burst of magical damage at an enemy target unit.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"								"The faster your hands, the higher the damage, as long as you have mana."
+		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"								"Instantly destroys illusions."
+		"DOTA_Tooltip_ability_item_dagon_ultra_Note1"								"Cast Range bonuses from Aether Lens and Dagon do not stack."
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_all_stats"						"+$all"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_mana"							"+$mana"
+		"DOTA_Tooltip_ability_item_dagon_ultra_cast_range_bonus"					"+$cast_range"
 
 		// item_disperser_chaos 混沌·散魂剑
-		"DOTA_Tooltip_ability_item_disperser_chaos"				"<font color='#80FFF4'>Chaotic</font> Disperser</font>"
-		"DOTA_Tooltip_ability_item_disperser_chaos_Description"				"<h1>Active: Suppress</h1> Slows the target for %enemy_effect_duration% seconds if they are an enemy or applies a basic dispell and grants bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds if they are an ally. Caster is always granted the ally benefit on cast.<br><br>Cast Range: %abilitycastrange%.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0% over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
-		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"				"+$agi"
-		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"			"+$int"
-		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"				"+$damage"
-
-		// 混沌魂戒
-		"DOTA_Tooltip_Ability_item_soul_ring_1"				"<font color='#FF4500'>Chaotic Soul Ring</font>"
-		"DOTA_Tooltip_ability_item_soul_ring_1_Description"						"<h1>Active: Sacrifice</h1> Consume %AbilityHealthCost% health to temporarily gain %mana_gain% mana.  Lasts %duration% seconds.<br><br>If the mana gained cannot fit in your mana pool, it creates a buffer of mana that will be used before your mana pool."
-		"DOTA_Tooltip_ability_item_soul_ring_1_Lore"								"A ring that feeds on the souls of those who wear it."
-		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"If this mana is not used before the duration ends, the extra mana is lost."
-		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
-		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
+		"DOTA_Tooltip_ability_item_disperser_chaos"									"<font color='#FF4500'>Chaotic Disperser</font>"
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"						"<h1>Active: Suppress</h1> Dispels both the wearer and the target. Enemy targets are slowed for %enemy_effect_duration% seconds. Allied targets gain bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0 over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana.<br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"					"+$agi"
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"					"+$damage"
 
 
 		// 融合符文系列
@@ -3505,7 +3491,7 @@
 
 		// item_magic_crit_blade 魔龙狂舞
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"											"<font color='#A74ABD'>Dragon Dance</font>"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"								"<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>For %active_duration% seconds, Intelligence grants <font color='#C450E5'>%spell_amp_multiplier%x Spell Amplification</font>, and enemies within %active_radius% radius have their Magic Resistance reduced by %active_mres_reduction%%% (additive).\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence.\n<h1><font color='#0096FF'>Passive: Spell Critical</font></h1>Dealing magical or pure damage to enemy units has a %spell_crit_chance%%% chance to critically strike, dealing %spell_crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"								"<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>For %active_duration% seconds, Intelligence grants <font color='#C450E5'>%spell_amp_multiplier%x Spell Amplification</font>, and enemies within %active_radius% radius have their Magic Resistance reduced by %active_mres_reduction%%%.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence.\n<h1><font color='#0096FF'>Passive: Spell Critical</font></h1>Dealing magical or pure damage to enemy units has a %spell_crit_chance%%% chance to critically strike, dealing %spell_crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"										"Dragon Dance incinerates all in its path. The magic dragon breath sweeps away everything, spell explosions devastate all."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intelligence"						"+$int"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp"								"%+Spell Amplification"
@@ -3616,9 +3602,7 @@
 
 		// item_beast_shield 兽化盾
 		"DOTA_Tooltip_Ability_item_beast_shield"										"Beast Shield"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, for %active_duration% seconds.<br>Grants %spell_reduce%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
-		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"Diving Suit"
-		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"Each layer increases %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magic resistance."
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, for %active_duration% seconds.<br>Grants %spell_reduce%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"The ultimate defensive equipment fused with the power of the beast rune, allowing the user to become an indestructible fortress."
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_strength"					"+$str"
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_health"					"+$health"

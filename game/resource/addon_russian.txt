@@ -1037,6 +1037,16 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 幻影刺客 窒碍短匕觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"	"<font color='#d000ff'>Stifling Dagger: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Герой бросает в выбранного врага кинжал, который замедляет передвижение, наносит физический урон в размере %base_damage% + %attack_factor_tooltip%%% от атаки владельца, а также накладывает эффекты атаки от его предметов и способностей. Скорость полёта кинжала повышена.<br><br><font color='#00CED1'>АВТОПРИМЕНЕНИЕ:</font> При включении способность автоматически применяется к случайному вражескому герою в радиусе применения. Цели, отражающие целевые способности, пропускаются.<br><font color='#d000ff'>Бонус пробуждения:</font> После применения Stifling Dagger или Phantom Strike герой ненадолго получает <font color='#FFCC66'>невосприимчивость к магии</font>."
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_move_slow"	"%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_duration"	"ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_base_damage"	"БАЗОВЫЙ УРОН:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_attack_factor_tooltip"	"%УРОН ОТ АТАКИ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_strike_immune_duration"	"ДЛИТ. ИММУНИТЕТА (Phantom Strike):"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_dagger_immune_duration"	"ДЛИТ. ИММУНИТЕТА (Stifling Dagger):"
+
 		// 赏金猎人 追踪术觉醒
 		"DOTA_Tooltip_ability_bounty_hunter_track_awaken"							"<font color='#d000ff'>Track: пробуждение</font>"
 		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_Description"				"Помечает вражеского героя, раскрывая его невидимость, увеличивая получаемый им урон и показывая его запас золота. За смерть этого врага владелец способности и союзные герои неподалёку получат дополнительное золото.<br><br><font color='#00CED1'>АВТОПРИМЕНЕНИЕ:</font> При включении способность применяется автоматически, если в радиусе применения есть вражеский герой; в первую очередь по ещё не помеченным героям.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> После применения Track герой также бросает в цель Shuriken Toss текущего уровня. Этот сюрикен игнорирует дальность применения и не уходит на перезарядку, но тратит ману Shuriken Toss. Он не бросается, если Shuriken Toss не изучен или не хватает маны."
@@ -1104,9 +1114,9 @@
 		// 敌法师 觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Подавление маны: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"Blink сжигает ману ближайших вражеских героев и не даёт её восстанавливать, а Mana Void наносит урон каждому вражескому герою по его собственной недостающей мане."
-		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink вражеские герои в радиусе <font color='#FFFFFF'><b>600</b></font> мгновенно теряют <font color='#FFFFFF'><b>40%%</b></font> текущей маны и не могут восстанавливать ману <font color='#FFFFFF'><b>4</b></font> сек.<br>Mana Void наносит урон каждому вражескому герою в области по его собственной недостающей мане."
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink вражеские герои в радиусе <font color='#FFFFFF'><b>600</b></font> мгновенно теряют <font color='#FFFFFF'><b>50%%</b></font> текущей маны и не могут восстанавливать ману <font color='#FFFFFF'><b>4</b></font> сек.<br>Mana Void наносит урон каждому вражескому герою в области по его собственной недостающей мане.<br>После применения Blink автоматически применяется Counterspell."
 		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Подавление маны: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink вражеские герои в радиусе <font color='#FFFFFF'><b>600</b></font> мгновенно теряют <font color='#FFFFFF'><b>40%%</b></font> текущей маны и не могут восстанавливать ману <font color='#FFFFFF'><b>4</b></font> сек.<br>Mana Void наносит урон каждому вражескому герою в области по его собственной недостающей мане."
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink вражеские герои в радиусе <font color='#FFFFFF'><b>600</b></font> мгновенно теряют <font color='#FFFFFF'><b>50%%</b></font> текущей маны и не могут восстанавливать ману <font color='#FFFFFF'><b>4</b></font> сек.<br>Mana Void наносит урон каждому вражескому герою в области по его собственной недостающей мане.<br>После применения Blink автоматически применяется Counterspell."
 
 		// 恐怖利刃 魂断觉醒
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Пробуждённый Sunder</font>"
@@ -1201,6 +1211,16 @@
 		//			物品 Items
 		//
 		///////////////////////////////////////////////////
+		// consecrated_wraps_2 神器·急支糖衣
+		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"								"<font color='#e03e2e'>Артефакт: Обмотки в сиропе</font>"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"					"<h1>Пассивное: Hallowed</h1> Каждые %AbilityChargeRestoreTime% сек. владелец получает один заряд этой способности, а его скорость передвижения на %duration% сек. увеличивается на %movement_speed_pct_on_stack_gain%%%. Максимум зарядов: %AbilityCharges%.<br><br>Когда владелец получает урон от подконтрольного игроку существа или Рошана, все заряды расходуются, и на %duration% сек. даётся барьер от всех типов урона, имеющий %barrier_per_stack% здоровья за заряд (максимум — %max_barrier_tooltip%)."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"						"Получение зарядов прекращается на %AbilityChargeRestoreTime% сек. после получения урона от подконтрольного игрокам существа или Рошана."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"						"Заряды не расходуются от урона, нанесённого самому себе или считающегося потерей здоровья."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"						"Эффекты скорости передвижения не складываются."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_spell_resist"			"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_all_stats"				"+$all"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_health"				"+$health"
+
 		// item_sacred_trident 三叉戟
 		"DOTA_Tooltip_Ability_item_sacred_trident"										"Священный трезубец"
 		"DOTA_Tooltip_ability_item_sacred_trident_Description"							"Выкован из Sange, Yasha и Kaya вместе."
@@ -1222,13 +1242,12 @@
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_status_resistance"					"%+Сопротивление эффектам"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_slow_resistance"						"%+Сопротивление замедлению"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Усиление регенерации маны"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_spell_amp"							"%+Усиление заклинаний"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_magic_damage_attack"					"+Магический урон от атак"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Снижение затрат и потери маны"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Скорость применения"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_pct_improvement"					"%+Скорость применения"
 
 		// item_magic_scepter 紫杖
 		"DOTA_Tooltip_Ability_item_magic_scepter"												"<font color='#A74ABD'>Магический скипетр</font>"
@@ -1252,9 +1271,27 @@
 		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"									"Священный всплеск магии"
 		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"						"Даёт <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> усиления заклинаний."
 
+		// 神器 一瞬千击
+		"DOTA_Tooltip_Ability_item_dagon_ultra"										"<font color='#e03e2e'>Артефакт: Тысяча ударов</font>"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Активное: Покажи скорость рук</h1> Выпускает всплеск энергии, наносящий магический урон выбранному вражескому существу.<br><br>Урон: %damage%<br>Расход маны: %mana_cost_tooltip%"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"								"Чем быстрее руки, тем выше урон, лишь бы хватило маны."
+		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"								"Мгновенно убивает иллюзии."
+		"DOTA_Tooltip_ability_item_dagon_ultra_Note1"								"Бонусы к дальности применения заклинаний от Aether Lens и Dagon не складываются."
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_all_stats"						"+$all"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_mana"							"+$mana"
+		"DOTA_Tooltip_ability_item_dagon_ultra_cast_range_bonus"					"+$cast_range"
+
+		// item_disperser_chaos 混沌·散魂剑
+		"DOTA_Tooltip_ability_item_disperser_chaos"									"<font color='#FF4500'>Хаотический Disperser</font>"
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"						"<h1>Активное: Suppress</h1> Применяет на цель и на владельца развеивание. Если целью был враг, также замедляет его передвижение на %enemy_effect_duration% сек., а если союзник — ускоряет на %ally_effect_duration% сек. и даёт +%slow_resist%%% к сопротивлению замедлениям. Бонусы для союзника накладываются и на самого владельца.<br><br>И замедление, и ускорение составляют %phase_movement_speed%%% в момент применения, а по мере действия постепенно снижаются до нуля.<br>Тип развеивания: <span class=\"GameplayValues GameplayVariable\">нормальное</span>\n\n<h1>Пассивное: Manabreak</h1> Каждая атака сжигает %feedback_mana_burn% маны врага и наносит ему %damage_per_burn% физического урона за единицу сожжённой маны.<br><br>Иллюзии ближнего боя сжигают %feedback_mana_burn_illusion_melee% маны за атаку, иллюзии дальнего боя — %feedback_mana_burn_illusion_ranged%."
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"					"+$agi"
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"					"+$damage"
+
 		// item_magic_crit_blade 魔龙狂舞
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"											"<font color='#A74ABD'>Танец дракона</font>"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"								"<h1><font color='#A74ABD'>Активная: Дыхание дракона</font></h1>На %active_duration% сек. интеллект даёт <font color='#C450E5'>%spell_amp_multiplier%-кратное усиление заклинаний</font>, а сопротивление магии врагов в радиусе %active_radius% снижается на %active_mres_reduction%%% (вычитается).\n<h1>Пассивная: Тайное мастерство</h1>Даёт %spell_amp_per_int%%% усиления заклинаний за каждую единицу интеллекта.\n<h1><font color='#0096FF'>Пассивная: Критический удар заклинанием</font></h1>Магический или чистый урон по врагам с вероятностью %spell_crit_chance%%% становится критическим и наносит %spell_crit_multiplier%%% урона."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"								"<h1><font color='#A74ABD'>Активная: Дыхание дракона</font></h1>На %active_duration% сек. интеллект даёт <font color='#C450E5'>%spell_amp_multiplier%-кратное усиление заклинаний</font>, а сопротивление магии врагов в радиусе %active_radius% снижается на %active_mres_reduction%%%.\n<h1>Пассивная: Тайное мастерство</h1>Даёт %spell_amp_per_int%%% усиления заклинаний за каждую единицу интеллекта.\n<h1><font color='#0096FF'>Пассивная: Критический удар заклинанием</font></h1>Магический или чистый урон по врагам с вероятностью %spell_crit_chance%%% становится критическим и наносит %spell_crit_multiplier%%% урона."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"										"Танец дракона испепеляет всё на своём пути. Магическое драконье дыхание сметает всё, взрывы заклинаний сокрушают всё."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intelligence"						"+$int"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp"								"%+Усиление заклинаний"

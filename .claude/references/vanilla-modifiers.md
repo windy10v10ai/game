@@ -73,9 +73,14 @@ caster:AddNewModifier(caster, ability, "modifier_item_devastator", {})
 | `modifier_item_meteor_hammer_burn` | 陨星锤 | 燃烧伤害 + 减速，单位与建筑分别读 `burn_dps_units` / `burn_dps_buildings`（带 `duration`） | `item_jump_jump_jump` |
 | `modifier_item_blink_dagger` | 跳刀 | 受敌方英雄或肉山伤害后让整件物品进入 `blink_damage_cooldown` 冷却，`item_lua` 物品也生效 | `item_jump_jump_jump` |
 | `modifier_item_vladmir` | 弗拉迪米尔的祭品 | 光环：吸血、基础攻击力、回蓝、护甲，对英雄与范围内友方小兵生效（小兵吸血 ×0.6），读 `lifesteal_aura` / `damage_aura` / `mana_regen_aura` / `armor_aura` / `aura_radius` | `item_vladmir_2` |
+| `modifier_item_trident` | 三叉戟 | 三维 / 攻速 / 移速 / 状态抗性 / 回复增强 / 技能增强 / 攻击附带魔法伤害；不属于散夜慧家族，多件叠加 | `item_sacred_six_vein` |
+| `modifier_item_enhancement_mystical` | 中立强化 神秘 | 蓝耗降低 `manacost_reduction`（另读 `mana_regen` / `magic_res`，自己 KV 不写即为 0）；与中立格同名实例并存，多件按乘法叠加 | `item_sacred_six_vein` |
+| `modifier_item_enhancement_restorative` | 中立强化 滋补 | 施疗方治疗增强 `heal_amp`（加在自己发出的治疗上，别人治疗自己不加）+ 魔法 `bonus_mana`（另读 `bonus_hp_regen`）；多件加法叠加，按句柄销毁精确移除 | `item_orb_of_the_brine` |
 | `modifier_item_ultimate_scepter` | 阿哈利姆神杖 | 神杖效果（`duration = -1` 为永久） | `item_ultimate_scepter_2` |
 | `modifier_item_buff_ward` | 侦察守卫 | 眼位存在状态 | `ability_ward_observer_slot.ts` |
 | `modifier_item_ward_true_sight` | 岗哨守卫 | 真视 | `ability_ward_sentry_slot.ts` |
+
+**当永久属性用之前先确认能和其他来源并存**：`modifier_item_arcane_blink_buff`（秘奥闪光的施法与蓝耗增益）每个单位只有一份，再次 `AddNewModifier` 会接管已有实例的来源与时长，永久挂上后被跳跳跳主动顶成限时、过期即消失（已实测），不能当永久属性用。中立强化 modifier（`_mystical`、`_brawny` 等）不受此限，但不是零开销：20 个实例在伤害密集场景各约 +1 ms/tick（实测），只为一项小属性挂时先权衡。减速抗性只能借 `modifier_item_enhancement_brawny`（读 `slow_resist`），开销同量级
 
 ## 原版技能 modifier
 

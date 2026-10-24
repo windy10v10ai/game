@@ -161,12 +161,6 @@ export class AbilityLottery {
           abilityLotteryResults[0] = specifiedAbility;
         }
       }
-      if (IsInToolsMode()) {
-        // 开发测试用固定技能
-        if (abilityType === AbilityItemTypes.Active) {
-          abilityLotteryResults[0] = { name: 'pudge_meat_hook_lua', level: 2 };
-        }
-      }
     }
 
     CustomNetTables.SetTableValue(abilityTable, steamAccountID, abilityLotteryResults);

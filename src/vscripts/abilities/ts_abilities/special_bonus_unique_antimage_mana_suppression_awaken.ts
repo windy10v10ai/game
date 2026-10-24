@@ -9,6 +9,7 @@ import { calculateStatusResistedDuration } from '../../utils/damage-calculation'
 const BLINK_ABILITY = 'antimage_blink';
 const MANA_BREAK_ABILITY = 'antimage_mana_break';
 const MANA_VOID_ABILITY = 'antimage_mana_void';
+const COUNTERSPELL_ABILITY = 'antimage_counterspell';
 const NATIVE_MANA_LOCK_MODIFIER = 'modifier_antimage_empowered_mana_break_debuff';
 
 /** 敌法师 法力禁域觉醒：闪烁压制附近敌人魔法，法力虚空对范围内英雄按各自缺失魔法结算。 */
@@ -51,9 +52,19 @@ export class modifier_special_bonus_unique_antimage_mana_suppression_awaken exte
     const abilityName = event.ability.GetAbilityName();
     if (abilityName === BLINK_ABILITY) {
       this.suppressMana(antiMage);
+      this.castCounterspell(antiMage);
     } else if (abilityName === MANA_VOID_ABILITY) {
       this.topUpManaVoidDamage(antiMage, event.ability);
     }
+  }
+
+  // 走引擎施法指令，法力与冷却由引擎结算；未学或不可施放时不触发
+  private castCounterspell(antiMage: CDOTA_BaseNPC): void {
+    const counterspell = antiMage.FindAbilityByName(COUNTERSPELL_ABILITY);
+    if (counterspell === undefined || counterspell.GetLevel() === 0) return;
+    if (!counterspell.IsFullyCastable()) return;
+
+    antiMage.CastAbilityNoTarget(counterspell, antiMage.GetPlayerOwnerID());
   }
 
   private suppressMana(antiMage: CDOTA_BaseNPC): void {
