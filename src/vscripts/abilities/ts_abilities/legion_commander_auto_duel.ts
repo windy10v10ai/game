@@ -10,6 +10,8 @@ import {
   findEnemiesInRange,
   getFullCastRange,
   modifier_autocast_think,
+  willBlock,
+  willReflect,
 } from './shared/auto-cast-ability';
 import { isWarlockInfernalUnitName } from './warlock-awaken-math';
 
@@ -69,6 +71,8 @@ export class LegionCommanderAutoDuel extends AutoCastAbility {
       (enemy) =>
         !enemy.IsIllusion() &&
         !isWarlockInfernalUnitName(enemy.GetUnitName()) &&
+        !willReflect(enemy) &&
+        !willBlock(enemy) &&
         canWinDuel(caster, enemy, duration),
     );
     if (!target) return;

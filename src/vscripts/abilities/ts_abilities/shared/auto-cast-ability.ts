@@ -81,13 +81,14 @@ export function findHeroOrCreepInRange(
   caster: CDOTA_BaseNPC,
   range: number,
   extraFlags: UnitTargetFlags = UnitTargetFlags.NONE,
+  isExcluded: (unit: CDOTA_BaseNPC) => boolean = () => false,
 ): CDOTA_BaseNPC | undefined {
   const enemies = findEnemiesInRange(
     caster,
     range,
     UnitTargetType.HERO + UnitTargetType.BASIC,
     extraFlags,
-  );
+  ).filter((enemy) => !isExcluded(enemy));
   return enemies.find((enemy) => enemy.IsHero()) ?? enemies[0];
 }
 
@@ -104,6 +105,8 @@ export function castImmediatelyOnTarget(
 
 const LOTUS_MODIFIER = 'modifier_item_lotus_orb_active';
 const MIRROR_SHIELD = 'item_mirror_shield';
+const LINKENS_ITEMS = ['item_sphere', 'item_sphere_2'];
+const MAIN_INVENTORY_SLOT_COUNT = 6;
 
 /** 目标是否会反弹指向性技能（莲花球生效中，或中立栏里的镜盾已就绪）。只有指向性、被反弹有副作用的自动施放才调用。 */
 export function willReflect(target: CDOTA_BaseNPC): boolean {
@@ -112,4 +115,19 @@ export function willReflect(target: CDOTA_BaseNPC): boolean {
     const item = target.GetItemInSlot(slot);
     return item !== undefined && item.GetAbilityName() === MIRROR_SHIELD && item.IsCooldownReady();
   });
+}
+
+/** 目标的林肯法球已就绪，会格挡下一个指向性技能。背包里的不生效。 */
+export function willBlock(target: CDOTA_BaseNPC): boolean {
+  for (let slot = 0; slot < MAIN_INVENTORY_SLOT_COUNT; slot++) {
+    const item = target.GetItemInSlot(slot);
+    if (
+      item !== undefined &&
+      LINKENS_ITEMS.includes(item.GetAbilityName()) &&
+      item.IsCooldownReady()
+    ) {
+      return true;
+    }
+  }
+  return false;
 }

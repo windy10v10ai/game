@@ -4,6 +4,7 @@ import {
   castImmediatelyOnTarget,
   findEnemiesInRange,
   getFullCastRange,
+  willReflect,
 } from './shared/auto-cast-ability';
 
 /**
@@ -29,7 +30,7 @@ export class SpecialBonusUniqueBristlebackUpgrade extends AutoCastAbility {
         caster,
         getFullCastRange(caster, goo),
         UnitTargetType.HERO,
-      );
+      ).filter((enemy) => !willReflect(enemy));
       if (target !== undefined) {
         castImmediatelyOnTarget(caster, goo, target);
       }
