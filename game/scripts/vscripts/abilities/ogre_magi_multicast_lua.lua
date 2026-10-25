@@ -163,7 +163,6 @@ no_support_abilitys = {
 	yukari_twin_trains = 1,                            -- 八云紫 大招 无人废线车辆炸弹
 	storm_spirit_ball_lightning = 1,                   --  球状闪电
 	phantom_assassin_phantom_strike = 1,               --  幻影突袭
-	special_bonus_unique_phantom_assassin_upgrade = 1, --  幻影突袭觉醒
 	earthshaker_enchant_totem = 1,                     --  强化图腾
 	wisp_tether = 1,                                   -- 羁绊
 	dawnbreaker_celestial_hammer = 1,                  -- 上界重锤
