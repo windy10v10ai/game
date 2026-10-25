@@ -35,6 +35,8 @@ Claude Code 会在读写这些目录时自动加载对应文件，其他工具�
 
 skill 文件就是操作手册：任务对上时先完整读对应的 `.claude/skills/<name>/SKILL.md`，按步骤执行；正文里指向的 `references/` 文件在对应分支用到时再读。
 
+Claude Code 直接读 `.claude/skills`；Codex 与 DSH 读仓库下的 `.agents/skills`，克隆后跑一次 `npm run skills:link` 建立链接（Windows 为 junction，其他平台为符号链接，链接不进 git）。新增或改动 skill 后跑 `npm run skills:check`，CI 每次 PR 也会校验 frontmatter。
+
 | 任务 | skill |
 |---|---|
 | 创建分支、commit、push、开 PR | `create-pr` |

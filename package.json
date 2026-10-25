@@ -11,6 +11,8 @@
     "dota:cmd": "node src/scripts/dota-cmd.js",
     "perf": "node src/scripts/perf.js",
     "bot-anomaly": "node src/scripts/bot-anomaly.js",
+    "skills:link": "node src/scripts/link-agent-skills.js",
+    "skills:check": "node src/scripts/check-agent-skills.js",
     "build": "run-p build:*",
     "build:panorama": "node --preserve-symlinks node_modules/webpack/bin/webpack.js --config src/panorama/webpack.prod.js",
     "build:vscripts": "tstl --project src/vscripts/tsconfig.json",
