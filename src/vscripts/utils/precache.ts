@@ -1,6 +1,11 @@
 /** @noSelfInFile */
 
-import { abilityModelNameList, heroNameListParticles, heroNameListSound } from './precache-data';
+import {
+  abilityModelNameList,
+  heroNameListParticles,
+  heroNameListSound,
+  luaParticleNameList,
+} from './precache-data';
 
 // 导出的预载入方法，用来给addon_game_mode.ts调用
 export default function Precache(context: CScriptPrecacheContext) {
@@ -120,6 +125,7 @@ function precacheHeroAbilities(context: CScriptPrecacheContext) {
       context,
     );
   });
+  precacheResource(luaParticleNameList, context);
   // 技能模型
   abilityModelNameList.forEach((modelName) => {
     PrecacheResource('model', modelName, context);
