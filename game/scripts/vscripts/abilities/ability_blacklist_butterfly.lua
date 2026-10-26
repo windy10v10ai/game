@@ -106,6 +106,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["legion_commander_duel"] = true, -- 军团指挥官 决斗
     ["rattletrap_jetpack"] = true,    -- 发条技师 喷气背包（触发飞行影响正常操作）
     ["shredder_timber_chain"] = true, -- 伐木机 伐木锯链
+    ["abyss_sword_out_of_sheath"] = true, -- 沉渊之剑 出鞘
 
     -- ========================================
     -- 拖拽/击退类技能
