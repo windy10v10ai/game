@@ -34,7 +34,7 @@ git checkout -b <prefix>/<issue-id>-<summary>
 用模板 `.github/pull_request_template.md`，`gh pr create --base develop --title "<英文标题>" --body-file <文件>`：
 
 - **标题**英文，≤70 字符
-- **Issue 段**：分支名匹配 `^(feature|fix|chore|docs)/(\d+)` 时填 `#<id>`（完成 issue 全部范围才用 `Fixes`），无匹配就删掉该行
+- **Issue 段**：分支名匹配 `^(feature|fix|chore|docs)/(\d+)` 时填 `Fixes #<id>` 或 `#<id>`（选哪个见根 `CLAUDE.md`「Git」），无匹配就删掉该行
 - **Checklist 段**：待确认、待验证事项各一个 checkbox（如 `- [ ] 在 Dota Tools 中验证 bot 是否正确开启臂章`），和模板原有的那条放在一起，方便 review 逐项勾选
 - **Release Note 段**：按下节判定
 - **界面截图**：改了界面时按 `references/screenshots.md` 拍图并放进正文

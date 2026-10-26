@@ -91,7 +91,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 - 其余改动的分支从最新 `develop` 切出，确定要写文件（包括 skill 产出的设计文档）前先切好。issue 驱动命名 `feature/<issue-id>-<3–6 个英文小写单词>`（如 `feature/2411-web-link-refresh`），其他用 `fix/` `chore/` `docs/` 前缀
 - 切分支前的检查、worktree、小改动搭车、合并与清理 → `.claude/references/git-workflow.md`
 - issue 标题与 PR 正文用中文，PR 标题与 commit 用英文。commit 是 ≤72 字符的单行标题，正文只写 `Co-Authored-By`
-- PR base 固定 `develop`。PR 完成 issue 全部范围才写 `Fixes #<id>`，否则只写 `#<id>`
+- PR base 固定 `develop`。PR 解决了 issue 描述的问题就写 `Fixes #<id>`；issue 里「方向」「建议」没全做、或另开了后续 issue 的，照样写 `Fixes`。只有 issue 本身拆成多步、本 PR 只做其中一步时才写 `#<id>`
 - 只 stage 本次请求相关的文件，commit 前看 `git status`；当前分支不符合预期（如处于 `develop`/`main`）先请用户确认
 - 合并只在用户给出指令时执行
 - 开 PR 走 `create-pr` skill：纯内部改动（重构、构建、CI、文档、测试）自行跳过 Release Note，其余算出目标版本后问用户写不写，要写时调用 `release-note` 生成
