@@ -96,6 +96,7 @@
 		// 启动器
 		"launcher_promo_title"			"Late Game Lag? Try the Launcher"
 		"launcher_promo_desc"			"Run a server on your own PC for a smoother late game"
+		"launcher_promo_platforms"		"Supports Windows and macOS"
 		"launcher_promo_multiplayer"		"Multiplayer"
 		"launcher_download_button"			"Download Launcher"
 

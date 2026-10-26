@@ -96,6 +96,7 @@
 		// 启动器
 		"launcher_promo_title"			"后期卡顿？试试启动器"
 		"launcher_promo_desc"			"在本机单独运行服务器，后期更流畅"
+		"launcher_promo_platforms"		"支持 Windows、macOS"
 		"launcher_promo_multiplayer"		"支持联机"
 		"launcher_download_button"			"下载启动器"
 

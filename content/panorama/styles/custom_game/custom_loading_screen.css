@@ -77,6 +77,15 @@
   white-space: normal;
 }
 
+#LauncherPromoPlatforms {
+  width: 100%;
+  margin-top: 6px;
+  color: #b9c3cf;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: normal;
+}
+
 /* 卡片里唯一的实心色块，让玩家一眼看到启动器也能联机 */
 #LauncherPromoTag {
   width: fit-children;
