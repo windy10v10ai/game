@@ -775,6 +775,11 @@
 	//极寒光环
 	"ancient_apparition_freezing_aura"
 	{
+		"precache"
+		{
+			"particle"				"particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/maiden_freezing_field_snow_arcana1.vpcf"
+		}
+
 		"BaseClass"                     "ability_lua"
 		"ScriptFile"				    "abilities/ancient_apparition_freezing_aura"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -800,6 +805,11 @@
 	//冰霜法球
 	"ancient_apparition_frost_orb"
 	{
+		"precache"
+		{
+			"particle"				"particles/generic_gameplay/lasthit_coins.vpcf"
+		}
+
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ancient_apparition_frost_orb"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"

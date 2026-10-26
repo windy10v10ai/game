@@ -1317,6 +1317,11 @@
 
 	"abyss_sword_rush_night_sword_qi"
 	{
+		"precache"
+		{
+			"particle"				"particles/custom/abyss_sword/abyss_sword_rush_night_sword_qi_wave.vpcf"
+		}
+
 		"MaxLevel"      				"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_rush_night_sword_qi"
@@ -1349,6 +1354,13 @@
 
 	"abyss_sword_out_of_sheath"
 	{
+		"precache"
+		{
+			"particle"				"particles/custom/sword_spirit/abyss_sword_out_of_sheath_impact.vpcf"
+			"particle"				"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_phantom_strike_end.vpcf"
+			"particle"				"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_phantom_strike_start.vpcf"
+		}
+
 		"MaxLevel"      				"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_out_of_sheath"
@@ -1396,6 +1408,12 @@
 
 	"abyss_sword_hidden_sharp"
 	{
+		"precache"
+		{
+			"particle"				"particles/custom/sword_spirit/abyss_sword_hidden_sharp_buff.vpcf"
+			"particle"				"particles/custom/sword_spirit/abyss_sword_hidden_sharp_scepter.vpcf"
+		}
+
 		"MaxLevel"      				"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_hidden_sharp"
@@ -1747,6 +1765,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
+			"particle"				"particles/custom/goku/goku_super_saiyan.vpcf"
 			"model"						"models/heroes/goku/npc_dota_hero_goku_super_saiyan.vmdl"
 		}
 	}
@@ -1755,6 +1774,11 @@
 	// 元气弹
 	"goku_spirit_bomb"
 	{
+		"precache"
+		{
+			"particle"				"particles/custom/goku/goku_spirit_bomb.vpcf"
+		}
+
 		// Ability Technical Aspect
 		// base script folder	: scripts/vscripts
 		// base texture folder	: resource/flash3/images/spellicons
@@ -1871,6 +1895,7 @@
 		"AbilityCastRange"		"%cast_range"
 		"precache"
 		{
+			"particle"				"particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_merry_wanderer.vpcf"
 			"particle"	"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
 			"soundfile"	"soundevents/yukari_yakumo.vsndevts"
@@ -2002,6 +2027,8 @@
 
 		"precache"
 		{
+			"particle"				"particles/yukari_portal.vpcf"
+			"particle"				"particles/yukari_portal_out.vpcf"
 			"particle"	"particles/generic_gameplay/generic_silenced.vpcf"
 		}
 		"AbilityValues"
@@ -2037,6 +2064,10 @@
 		"AbilityChannelTime"	"4.0"
 		"precache"
 		{
+			"particle"				"particles/econ/items/death_prophet/death_prophet_ti9/death_prophet_silence_ti9.vpcf"
+			"particle"				"particles/heroes/yukari/ability_yukari_03_teleportflash.vpcf"
+			"particle"				"particles/heroes/yukari/ability_yukari_03_teleportflash2.vpcf"
+			"particle"				"particles/heroes/yukari/ability_yukari_04_magical.vpcf"
 			"particle"	"particles/heroes/yukari/ability_yukari_04_effect.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
 		}
@@ -2126,6 +2157,7 @@
 		// "AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
 		"precache"
 		{
+			"particle"				"particles/yukari_true_moon.vpcf"
 			"particle"	"particles/yukari_morph.vpcf"
 		}
 		"AbilityValues"
@@ -2221,6 +2253,12 @@
 	//=================================================================================================================
 	"jack_presence_concealment"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/jack/jack_presence_concealment.vpcf"
+			"particle"				"particles/heroes/jack/jack_presence_concealment_start.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
@@ -2270,6 +2308,11 @@
 
 	"jack_murderer_of_the_misty_night"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/jack/jack_mist.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
@@ -2333,6 +2376,12 @@
 
 	"jack_the_mist"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/jack/jack_mist.vpcf"
+			"particle"				"particles/units/heroes/hero_night_stalker/nightstalker_ulti.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
@@ -2365,6 +2414,12 @@
 
 	"jack_maria_the_ripper"
 	{
+		"precache"
+		{
+			"particle"				"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_phantom_strike_end.vpcf"
+			"particle"				"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_phantom_strike_start.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
@@ -2445,6 +2500,11 @@
 	//=================================================================================================================
 	"sword_master_sweep"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/sword_master_sweep.vpcf"
+		}
+
 		"MaxLevel"      				"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_sweep"
@@ -2477,6 +2537,11 @@
 
 	"sword_master_thrust"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/sword_master_thrust.vpcf"
+		}
+
 		"MaxLevel"      				"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_thrust"
@@ -2511,6 +2576,11 @@
 
 	"sword_master_tap"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/sword_master_tap.vpcf"
+		}
+
 		"MaxLevel"      				"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_tap"
@@ -2563,6 +2633,13 @@
 
 	"sword_master_chop_kill_with_one_sword"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/children/sword_master_chop_kill_with_one_sword_impact.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_kill_with_one_sword.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_kill_with_one_sword_head.vpcf"
+		}
+
 		"MaxLevel"      				"3"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_chop_kill_with_one_sword"
@@ -2595,6 +2672,13 @@
 
 	"sword_master_chop_kill_everyone_in_world"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/children/sword_master_chop_kill_with_one_sword_impact.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_kill_everyone_in_world.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_kill_everyone_in_world_head.vpcf"
+		}
+
 		"MaxLevel"      				"3"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_chop_kill_everyone_in_world"
@@ -2632,6 +2716,12 @@
 
 	"sword_master_chop_rage_nlade_soars_the_sky"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/sword_master_chop_rage_nlade_soars_the_sky.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_rage_nlade_soars_the_sky_head.vpcf"
+		}
+
 		"MaxLevel"      				"3"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_chop_rage_nlade_soars_the_sky"
@@ -2663,6 +2753,14 @@
 
 	"sword_master_chop_swift_incomparable_swordsmanship"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/sword_master_chop_kill_everyone_in_world_tgt.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_swift_incomparable_swordsmanship.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_swift_incomparable_swordsmanship_head.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_swift_incomparable_swordsmanship_status_effect.vpcf"
+		}
+
 		"MaxLevel"      				"3"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_chop_swift_incomparable_swordsmanship"
