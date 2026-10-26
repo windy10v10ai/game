@@ -133,6 +133,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["furion_force_of_nature"] = true,    -- 先知 自然之力
     ["zuus_cloud"] = true,                -- 宙斯 雷云
     ["venomancer_plague_ward"] = true,    -- 剧毒术士 瘟疫守卫
+    ["shadow_shaman_mass_serpent_ward"] = true, -- 暗影萨满 群蛇守卫
     ["undying_tombstone"] = true,         -- 不朽尸王 墓碑
 
     -- ========================================

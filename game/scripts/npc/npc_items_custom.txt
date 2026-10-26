@@ -2571,6 +2571,11 @@
 	//=================================================================================================================
 	"item_abyssal_blade_v2"
 	{
+		"precache"
+		{
+			"particle"				"particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_tgt.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"10360"
@@ -2732,6 +2737,11 @@
 	//=================================================================================================================
 	"item_adi_king"
 	{
+		"precache"
+		{
+			"particle"				"particles/econ/events/ti10/phase_boots_ti10.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"									"10364"
@@ -2807,6 +2817,11 @@
 	//=================================================================================================================
 	"item_adi_king_plus"
 	{
+		"precache"
+		{
+			"particle"				"particles/econ/events/ti10/phase_boots_ti10.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"									"10366"
@@ -3901,6 +3916,14 @@
 	}
 	"item_jump_jump_jump"
 	{
+		"precache"
+		{
+			"particle"				"particles/items3_fx/blink_overwhelming_burst.vpcf"
+			"particle"				"particles/items4_fx/meteor_hammer_spell.vpcf"
+			"particle"				"particles/items_fx/blink_dagger_end.vpcf"
+			"particle"				"particles/items_fx/blink_dagger_start.vpcf"
+		}
+
 		"ID"							"10384"
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/ts_items/item_jump_jump_jump"
@@ -4003,6 +4026,14 @@
 	}
 	"item_fall_fall_fall"
 	{
+		"precache"
+		{
+			"particle"				"particles/items3_fx/blink_overwhelming_burst.vpcf"
+			"particle"				"particles/items4_fx/meteor_hammer_spell.vpcf"
+			"particle"				"particles/items_fx/blink_dagger_end.vpcf"
+			"particle"				"particles/items_fx/blink_dagger_start.vpcf"
+		}
+
 		"ID"							"10467"
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/ts_items/item_jump_jump_jump"
@@ -4779,6 +4810,7 @@
 		"ShouldBeSuggested"				"1"
 		"precache"
 		{
+			"particle"				"particles/items2_fx/refresher.vpcf"
 			"particle"	"particles/items2_fx/hand_of_midas.vpcf"
 			"particle"	"particles/items_fx/chain_lightning.vpcf"
 		}
@@ -5986,6 +6018,11 @@
 
 	"item_hawkeye_fighter"
 	{
+		"precache"
+		{
+			"particle"				"particles/econ/events/ti10/phase_boots_ti10.vpcf"
+		}
+
 		"BaseClass"					"item_lua"
 		"ID"						"10430"
 		"ScriptFile"				"items/item_hawkeye_fighter"
@@ -6093,6 +6130,7 @@
 		}
 		"precache"
 		{
+			"particle"				"particles/items4_fx/meteor_hammer_spell.vpcf"
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
 			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf"
 		}
@@ -6646,6 +6684,7 @@
 
 		"precache"
 		{
+			"particle"				"particles/items_fx/dagon.vpcf"
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
 			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf"
 		}
@@ -6755,6 +6794,11 @@
 
 	"item_time_gem"
 	{
+		"precache"
+		{
+			"particle"				"particles/items2_fx/refresher.vpcf"
+		}
+
 		"ID"						"10450"
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_time_gem"
