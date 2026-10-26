@@ -96,6 +96,7 @@
 		// 启动器
 		"launcher_promo_title"			"Лаги в конце игры? Попробуйте лаунчер"
 		"launcher_promo_desc"			"Запустите сервер на своём ПК для более плавной игры"
+		"launcher_promo_platforms"		"Поддерживает Windows и macOS"
 		"launcher_promo_multiplayer"		"Мультиплеер"
 		"launcher_download_button"			"Скачать лаунчер"
 
