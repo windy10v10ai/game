@@ -246,9 +246,11 @@
 				<Panel id="LauncherPromoPanel">
 					<Label id="LauncherPromoTitle" text="#launcher_promo_title" />
 					<Label id="LauncherPromoDesc" text="#launcher_promo_desc" />
-					<Label id="LauncherPromoPlatforms" text="#launcher_promo_platforms" />
-					<Panel id="LauncherPromoTag">
-						<Label id="LauncherPromoTagLabel" text="#launcher_promo_multiplayer" />
+					<Panel id="LauncherPromoMeta">
+						<Panel id="LauncherPromoTag">
+							<Label id="LauncherPromoTagLabel" text="#launcher_promo_multiplayer" />
+						</Panel>
+						<Label id="LauncherPromoPlatforms" text="#launcher_promo_platforms" />
 					</Panel>
 					<Button id="LauncherPromoButton" class="ButtonBevel" onactivate="OpenWebsiteLaunch()">
 						<Label id="LauncherPromoButtonLabel" text="#launcher_download_button" />
