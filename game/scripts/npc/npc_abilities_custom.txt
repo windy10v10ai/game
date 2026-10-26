@@ -1029,6 +1029,8 @@
 			"particle"				"particles/units/heroes/hero_invoker/invoker_tornado_trail.vpcf"
 			"particle"				"particles/units/heroes/hero_invoker/invoker_tornado_base.vpcf"
 			"particle"				"particles/custom/artoria/artoria_wind_blow.vpcf"
+			"particle"				"particles/custom/artoria/invisible_air/artoria_invisible_air.vpcf"
+			"particle"				"particles/custom/artoria/strike_air/artoria_strike_air.vpcf"
 			"soundfile"				"soundevents/hero_artoria.vsndevts"
 		}
 

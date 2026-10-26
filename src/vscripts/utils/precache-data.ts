@@ -258,6 +258,8 @@ export const heroNameListSound = [
 
 export const abilityModelNameList = [
   'models/heroes/witchdoctor/witchdoctor_ward.vmdl', // 巫医守卫
+  'models/heroes/shadowshaman/shadowshaman_totem.vmdl', // 群蛇守卫
+  'models/items/wards/ti9_totem_ward/ti9_totem_ward.vmdl', // 群蛇守卫饰品
   'models/heroes/techies/fx_techiesfx_mine.vmdl', // 感应地雷
   // 'models/heroes/phoenix/phoenix_egg.vmdl', // 超新星
   'models/heroes/mars/mars_soldier.vmdl', // 护身甲盾

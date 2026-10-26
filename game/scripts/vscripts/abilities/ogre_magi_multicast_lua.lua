@@ -58,6 +58,7 @@ no_support_abilitys = {
 	naga_siren_mirror_image = 1,  -- 娜迦海妖 镜像
 	skeleton_king_reincarnation = 1, -- 冥魂大帝 绝冥再生
 	spectre_shadow_step = 1,      -- 幽鬼 如影随形
+	shadow_shaman_mass_serpent_ward = 1, -- 暗影萨满 群蛇守卫
 
 	-- 持续施法与持续区域
 	bane_fiends_grip = 1,           -- 祸乱之源 魔爪

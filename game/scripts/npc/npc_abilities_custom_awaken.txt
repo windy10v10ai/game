@@ -1027,6 +1027,11 @@
 		"AbilityTextureName"			"lich_chain_frost"
 		"MaxLevel"						"1"
 
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+		}
+
 		"AbilityValues"
 		{
 			"intelligence_damage_multiplier"		"0.75"
@@ -1092,6 +1097,14 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"tiny_tree_grab"
 		"MaxLevel"						"1"
+
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_tiny/tiny_avalanche_projectile_lvl1.vpcf"
+			"particle"				"particles/units/heroes/hero_tiny/tiny_avalanche_projectile_lvl2.vpcf"
+			"particle"				"particles/units/heroes/hero_tiny/tiny_avalanche_projectile_lvl3.vpcf"
+			"particle"				"particles/units/heroes/hero_tiny/tiny_avalanche_projectile_lvl4.vpcf"
+		}
 
 		"Modifiers"
 		{
