@@ -50,7 +50,7 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 **实机测试一律派子代理**，只验一两个点、改完顺手回归一下也一样：等加载、发命令、读日志、截图在主会话里来回几轮，消耗远高于写一份交接。用 Agent 工具，`model` 选最便宜的档（`"haiku"`）：发命令、读日志、悬停截图并逐字抄 tooltip 都够用；主会话再对着截图抽查核对，不要只信转述。要读懂日志判断现象、或 haiku 反复卡住时改 `"sonnet"`。`model` 只是别名，实际型号由用户的 settings 决定；用户设了 `CLAUDE_CODE_SUBAGENT_MODEL` 时会盖过它，要比较型号先让子代理在回报开头自报型号。**一轮验证派一个**，跑完即结束；要再验一轮就再派一个。子代理是冷启动，交接里写全：改了什么、要不要本地后端、要发的命令、期待哪几行日志和要带回的数字。
 
 - **验客户端代发链路用强制代发开关**：`src/vscripts/api/api-client.local.ts` 的 `GetForceProxy()` 改成返回 `true`（只在 Tools 生效），`npm run build:vscripts` 后重开一局，服务端的请求全部改由客户端网页控件代发；测完改回 `false`。该文件带 skip-worktree，改动不出现在 `git status`，收尾时按文件内容确认已还原
-- **客户端代发链路在 Tools 里连不上本地 API**：网页控件请求 `http://localhost` 与 `http://127.0.0.1` 一律超时，开局请求也会因此转成离线模式。验本地代发就看服务端拼出的网址，换上本地 key 用 curl 重放；验界面就关掉强制代发，让服务端直连
+- **客户端代发链路在 Tools 里连不上本地 API**：网页控件请求 `http://localhost`、`http://127.0.0.1` 与本机局域网 IP 一律超时，后端预热过、curl 能秒回也一样，开局请求也会因此转成离线模式。验本地代发就看服务端拼出的网址，换上本地 key 用 curl 重放；验界面就关掉强制代发，让服务端直连
 - **computer-use 授权填 `dota2.exe`**：`request_access` 写开始菜单里的「Dota 2」只授权到 Steam 启动链接，实际窗口仍被遮成色块。授权弹窗要用户本人点，交接里写明被拒就停下回报
 - **窗口焦点**：系统常驻的「Windows 输入体验」（`TextInputHost.exe`，承载表情面板、剪贴板历史、输入法候选框）偶尔挂着不可见窗口抢走前台，computer-use 因前台不是已授权应用而拒绝操作。不是用户开了什么，也关不掉（系统常驻，结束后自动重启）。被挡时 computer-use 在点击前就拒绝，点 Dota 窗口、`WScript.Shell.AppActivate` 都抢不回来。做法：在动手前要权限那一步连同 `dota2.exe` 一起 `request_access` 授权 `textinputhost.exe`，点击会穿过它落到 Dota 上；用户不授权时停下回报，请用户本人点一下 Dota 窗口
 - **同一时间只能有一个 Dota**：Dota 运行中再触发任何启动（`Start-Process`、`open_application "Dota 2"`、Steam 链接）都会弹 `Source2 - Warning: Only one instance of the game can be running at one time`，弹框抢走前台、后续操作全被拒。切语言或重启时先 `Stop-Process -Name dota2 -Force`，`Get-Process dota2` 查不到了再启动；拉回窗口只用点击，不调用 `open_application`。交接里照抄这一条
