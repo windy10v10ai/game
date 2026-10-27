@@ -891,145 +891,447 @@
 
 		///////////////////////////////////////////////////
 		//
-		// 					Abilities 英雄技能
+		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
+// 					Custom Abilities 自定义技能
 
-		// 混沌骑士
-		"DOTA_Tooltip_ability_special_bonus_unique_chaos_knight_4"						"+{s:bonus_duration}с к длительности Army of Chaos"
+		// 真假眼额外槽位
+		"DOTA_Tooltip_ability_ward_observer_slot"				"Установить наблюдательный тотем"
+		"DOTA_Tooltip_ability_ward_observer_slot_Description"	"Устанавливает наблюдательный тотем, дающий обзор. Заряды даются за покупку наблюдательных тотемов в магазине и не занимают слот инвентаря."
+		"DOTA_Tooltip_ability_ward_sentry_slot"				"Установить страж-тотем"
+		"DOTA_Tooltip_ability_ward_sentry_slot_Description"	"Устанавливает страж-тотем, дающий истинное зрение. Заряды даются за покупку страж-тотемов в магазине и не занимают слот инвентаря."
 
+		// 大肆污染
+		"DOTA_Tooltip_ability_leshrac_defilement2"					"Осквернение"
+		"DOTA_Tooltip_ability_leshrac_defilement2_description"		"Даёт бонус к радиусу действия за каждую единицу интеллекта. Влияет на способности и предметы."
+		"DOTA_Tooltip_ability_leshrac_defilement2_aoe_per_int"		"Бонус к радиусу за интеллект:"
 		//血魔 血雾
-		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"blood mist"
-		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Пока способность активна, герой разбрызгивает вокруг свою кровь, теряя здоровье, но нанося задетым врагам урон и замедляя их"
-		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%Урон / потеря здоровья в секунду: "
-		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"Радиус:"
-		//醉拳
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"Drunken Boxing"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"Пассивно даёт шанс уклониться от атаки и нанести критический урон.<br><br>При активации герой начинает шататься, получает %move_speed_bonus%%% к скорости передвижения, а шансы уклонения и критической атаки увеличиваются в %crit_multiplier% раза на %duration% сек."
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%Критический урон: "
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"Длительность： "
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"				"Кровавый туман"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"	"Кровопускатель разбрызгивает свою кровь вокруг себя, теряя здоровье и нанося урон врагам."
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"			"%Потеря здоровья / урон в секунду:"
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"			"Радиус:"
+		// 酒仙 醉拳
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing"				"Пьяный бой"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description"	"Пассивно: шанс уклониться от атаки и нанести критический удар.<br><br>Активно: герой входит в состояние опьянения и шатается из стороны в сторону. Получает %move_speed_bonus%%% к скорости передвижения, а шансы уклонения и крита возрастают в %crit_multiplier% раза на %duration% сек."
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_miss"			"%Шанс уклонения/крита:"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage"		"%Критический урон:"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration"		"Длительность действия:"
 
 		//长角抛物
-		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
-		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"			        "Герой перебрасывает врагов через себя, нанося им урон. Они летят %air_duration% сек. и оглушаются во время полёта и по приземлении."
-		"DOTA_Tooltip_ability_magnataur_horn_toss2_air_duration"			        "ДЛИТЕЛЬНОСТЬ ПОЛЁТА:"
-		"DOTA_Tooltip_ability_magnataur_horn_toss2_damage"   			        "УРОН:"
-		"DOTA_Tooltip_ability_magnataur_horn_toss2_stun_duration"   			        "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2"					"Бросок рогом"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_Description"		"Магнус подбрасывает врагов перед собой и швыряет их себе за спину. Враги получают урон, проводят %air_duration% сек. в воздухе и оглушены во время полёта и ещё некоторое время после приземления."
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_air_duration"		"Время в воздухе:"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_damage"				"Урон:"
+		"DOTA_Tooltip_ability_magnataur_horn_toss2_stun_duration"		"Длительность оглушения:"
 		//虚空  回到过去
-		"DOTA_Tooltip_ability_faceless_void_backtrack2"				"backtrack"
-		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"Даёт %dodge_chance_pct%%% шанс полностью избежать любого получаемого урона."
+		"DOTA_Tooltip_ability_faceless_void_backtrack2"				"Возврат в прошлое"
+		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"Даёт %dodge_chance_pct%%% шанс полностью избежать получаемого урона."
 		//腾焰斗篷
-		"DOTA_Tooltip_ability_lina_flame_cloak2"											"Flame Cloak"
-		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"									"Врождённая защита от настырных сестёр и зубастых тварей."
-		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"								"Дарует герою беспрепятственное передвижение. Увеличивает его урон от заклинаний и сопротивление магии. Применение даёт владельцу максимум эффектов способности Fiery Soul."
-		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"ДЛИТЕЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%ДОП. УРОН ОТ ЗАКЛИНАНИЙ:"
-		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%СОПРОТИВЛЕНИЕ МАГИИ:"
+		"DOTA_Tooltip_ability_lina_flame_cloak2"						"Пламенный плащ"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"					"Естественная защита, одинаково надёжная и от назойливых сестёр, и от рычащих адских тварей."
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"			"Дарует беспрепятственное передвижение, повышает урон от способностей и сопротивление магии. При активации даёт максимальное число эффектов Fiery Soul."
+		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"	"Длительность:"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"				"%Усиление способностей:"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"		"%Сопротивление магии:"
 		//人马 不屈
-		"DOTA_Tooltip_ability_centaur_sturdy"                            "sturdy"
-        "DOTA_Tooltip_ability_centaur_sturdy_Description"                "Увеличивает сопротивление эффектам и силу. "
-        "DOTA_Tooltip_ability_centaur_sturdy_strength"                    "Сила: "
-        "DOTA_Tooltip_ability_centaur_sturdy_status"                    "%Сопротивление эффектам: "
+		"DOTA_Tooltip_ability_centaur_sturdy"							"Стойкость"
+		"DOTA_Tooltip_ability_centaur_sturdy_Description"				"Даёт силу и сопротивление эффектам"
+		"DOTA_Tooltip_ability_centaur_sturdy_strength"					"Сила:"
+		"DOTA_Tooltip_ability_centaur_sturdy_status"					"%Сопротивление эффектам:"
+
+		//折射2
+		"DOTA_Tooltip_ability_spectre_dispersion2"					"Дисперсия (изм.)"
+		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"Даёт %damage_reduction%%% снижения урона, если урон не отражён."
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"Снижает часть получаемого урона. Урон до снижения накапливается за 1 сек. и отражается всем врагам в радиусе, а тип отражённого урона совпадает с полученным."
+		"DOTA_Tooltip_ability_spectre_dispersion2_damage_reduction"	"%Доля отражения:"
+		"DOTA_Tooltip_ability_spectre_dispersion2_threshold"			"Порог отражённого урона:"
+		"DOTA_Tooltip_ability_spectre_dispersion2_radius"				"Радиус отражения:"
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"				"Тип отражённого урона совпадает с полученным (физический/магический/чистый), эффект игнорирует иммунитет к эффектам. Отражённый урон снижается с расстоянием."
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note1"				"Отражённый урон не усиливается усилением способностей."
 
 		//贪魔的贪婪
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"Позволяет синтезировать больше золота из врагов и рун. Дополнительное золото за убийство существ состоит из начального бонуса и нарастающего, который увеличивается с каждым существом, убитым в течение %duration% сек. после предыдущего. Также способность умножает золото от рун богатства."
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_abilitydraft_note"			"В этом режиме возможность расплавить Aghanim's Scepter, чтобы передать союзному герою все его улучшения, привязана к способности Greevil's Greed, а не Chemical Rage. Сам предмет дарует герою дополнительный урон от атак и заклинаний за каждый расплавленный для союзников Aghanim's Scepter."
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"							"Пускай эксперимент с горой и не удался, зато структуры поменьше Раззил легко обращает в звонкую монету."
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"						"МАКС. ИНТЕРВАЛ УБИЙСТВ:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold"					"НАЧАЛЬНЫЙ БОНУС:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"НАРАСТАЮЩИЙ БОНУС:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"МАКСИМУМ ДОП. ЗОЛОТА:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"МНОЖИТЕЛЬ РУН БОГАТСТВА:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"Бонус атаки за слой："
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"Улучшение денежного вознаграждения："
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2"					"Жадность гоблина"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"		"Алхимик получает дополнительное золото за убийства врагов и руны богатства. За каждое убийство он получает базовое и дополнительное бонусное золото. Если Алхимик убьёт единицу, дающую золото, в течение следующих %duration% сек., к сумме добавляется ещё одна порция дополнительного золота. Кроме того, руны богатства дают больше золота."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"				"Хоть это и не гора, Раззил освоил превращение веществ поменьше в звонкую монету."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"			"Окно серии убийств:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold"			"Базовое бонусное золото:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"	"Дополнительное бонусное золото:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"		"Максимум дополнительного золота:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"	"Множитель рун богатства:"
 
 		//普通一拳
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"Normal Punch"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Следующая атака героя наносит цели урон, оглушает её и создаёт её иллюзию."
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"МАКС. ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"МАКС. ДАЛЬНОСТЬ ТОЛЧКА:"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"					"ВРЕМЯ ЖИЗНИ КОПИИ:"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"МАКСИМАЛЬНЫЙ УРОН:"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"ad ставка："
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2"						"Обычный удар"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"			"Пассивно: следующая атака наносит урон и оглушает цель, а также выбивает из неё иллюзию."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Note0"				"Не усиливается усилением способностей и вампиризмом от способностей."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"			"Длительность оглушения:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"	"Максимальная дальность отбрасывания:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"	"Длительность иллюзии:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"			"Базовый урон:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"					"Множитель урона от атаки:"
 		//妙手空空
-		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"Cutpurse"
-		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Применяя способность или предмет на вражеского героя, Bounty Hunter крадёт у него %gold_steal% золота."
-		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"ПОХИЩЕНИЕ ЗОЛОТА:"
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"						"Карманник"
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"			"Охотник за головами крадёт %gold_steal% золота, используя способности или предметы на вражеских героях."
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"			"Кража золота:"
 
+		// 龙骑 龙族血统
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2"						"Драконья кровь"
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_Description"			"Живая кровь дракона усиливает восстановление здоровья и броню Рыцаря-дракона."
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_armor"				"Бонус к броне:"
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_health_regen"		"Бонус к восстановлению здоровья:"
 		// 黑暗贤者 才思敏捷
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2"								"Quick Wit"
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"					"За каждую единицу Интеллекта Dark Seer получает %int_to_atkspd% скорости атаки."
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_attack_speed_tooltip"			"БОНУС К СКОРОСТИ АТАКИ:"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"							"Быстрый ум"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"				"Тёмный мудрец получает %int_to_atkspd% к скорости атаки за каждую единицу интеллекта."
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_attack_speed_tooltip"		"Бонус к скорости атаки:"
 		//炽烈火雨
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"Burning Barrage"
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"ПРЕРЫВАЕМАЯ — герой выпускает залп стрел в выбранном направлении. Они пролетают сквозь всех врагов на пути, нанося им долю от обычного урона, а также накладывая эффекты атаки и замедление от способности Tar Bomb."
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Lore"										"Трудно сказать, вызвано ли дрожание воздуха вокруг костяного лучника жаром его раскалённого сердца или скоростью, с которой он достаёт стрелы из колчана."
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Note0"										"Дальность применения способности увеличивается с дальностью атаки."
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_abilitychanneltime"						"ДЛИТЕЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"								"ЧИСЛО СТРЕЛ:"
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"										"ДАЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%УРОН ОТ АТАКИ:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2"							"Пылающий залп"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"				"Поддерживаемое - Клинкз непрерывно выпускает в выбранном направлении раскалённые стрелы, поражающие всех врагов. Стрелы наносят часть урона от атаки и применяют модификаторы атаки, а враги попадают под замедление от смоляной бомбы."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Lore"					"Трудно сказать, что окутывает Скелета-лучника — пламя его сердца или скорость его стрел."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Note0"					"Бонус к дальности атаки увеличивает длину залпа."
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_abilitychanneltime"		"Максимальное время поддержания:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"				"Выпущено стрел:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"					"Дальность:"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"				"%Урон за стрелу:"
+		// 冰女 冰川护体
+		"DOTA_Tooltip_ability_crystal_maiden_glacial_guard2"					"Ледяная защита"
+		"DOTA_Tooltip_ability_crystal_maiden_glacial_guard2_Description"		"Часть маны, потраченной Кристальной девой на способности, превращается в физический барьер."
+		"DOTA_Tooltip_ability_crystal_maiden_glacial_guard2_barrier_duration"	"Длительность барьера:"
+		"DOTA_Tooltip_ability_crystal_maiden_glacial_guard2_mana_multiplier"	"%Маны в барьер:"
+
 		//冰爆
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"ice_explosion"
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Пассивно увеличивает скорость атаки. Каждая атака с вероятностью 35% вызывает ледяной взрыв в случайной области, наносящий урон и замедляющий врагов на 1 секунду."
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"повреждать："
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"ad ставка："
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"Случайный диапазон："
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"Диапазон повреждений от ледяного взрыва："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"					"Ледяной взрыв"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"		"Каждая атака с шансом 35% вызывает ледяной взрыв в случайной области, нанося урон и замедляя врагов на 1 сек. Пассивно повышает скорость атаки."
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"			"Урон:"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"				"Множитель урона от атаки:"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_attack_speed"		"Бонус к скорости атаки:"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"Радиус появления взрыва:"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"Радиус взрыва:"
 		//诅咒之雨
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"dazzle_rain_of_vermin"
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"Наносит постоянный урон области, с вероятностью 12% превращая ее в цыплят."
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"повреждать："
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_duration"		"Длительность："
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_radius"			"Радиус："
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%Шанс："
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"Длительность трансформации："
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"							"Дождь вредителей"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"				"Создаёт дождь на области, наносящий врагам постоянный урон. У врагов в заражённой области также есть шанс превратиться на короткое время в безобидное существо."
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"					"Урон дождя:"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_duration"					"Длительность дождя:"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_radius"					"Радиус дождя:"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"				"%Шанс превращения:"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"				"Длительность превращения:"
 
 		//神之愤怒
-		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"Wrath of God"
-		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"Sven получает дополнительный урон от силы, но его базовый урон уменьшается."
-		"DOTA_Tooltip_ability_sven_wrath_of_god2_base_damage_reduction"	"Снижение базового урона: "
-		"DOTA_Tooltip_ability_sven_wrath_of_god2_bonus_damage_per_str"	"Бонусный урон за силу: "
+		"DOTA_Tooltip_ability_sven_wrath_of_god2"								"Гнев бога"
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"					"Свен получает дополнительный урон от силы, но его базовый урон снижен."
+		"DOTA_Tooltip_ability_sven_wrath_of_god2_bonus_damage_per_str"			"Бонусный урон за силу:"
 		//暴烈之爪
-		"DOTA_Tooltip_ability_ursa_maul2"						"Maul"
-		"DOTA_Tooltip_ability_ursa_maul2_Description"			"Ursa получает бонусный урон, равный проценту от его текущего здоровья"
-		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%Здоровье в урон:"
-		"DOTA_Tooltip_modifier_ursa_maul2"						"Maul"
-		"DOTA_Tooltip_modifier_ursa_maul2_Description"			"Урон увеличен на %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
+		"DOTA_Tooltip_ability_ursa_maul2"										"Сокрушение"
+		"DOTA_Tooltip_ability_ursa_maul2_Description"							"Медвежатник получает бонус к урону, равный проценту от текущего здоровья."
+		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"					"%Здоровья в урон:"
+		"DOTA_Tooltip_modifier_ursa_maul2"										"Сокрушение"
+		"DOTA_Tooltip_modifier_ursa_maul2_Description"							"Урон увеличен на %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
 		//天生一对
-		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
-		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Атаки Джакиро запускают удар с каждой головы, но каждый наносит меньше урона."
-		//闷烧树脂
-		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
-		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"Атаки героя накладывают эффект, который раз в %tick_rate% сек. наносит %tick_attack_damage_pct%%% урона от его атаки. Длительность: %total_ticks% сек."
-		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff"				"Smoldering Resin"
-		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff_Description"	"Медленно горит от атак Batrider"
-		//一人之军
-		"DOTA_Tooltip_ability_axe_one_man_army2"						"One Man Army"
-		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Когда рядом с героем нет союзников, его сила увеличивается на долю от показателя брони."
-		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%Бонус прочности брони:"
-		//人工神符
-		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Artificial Rune"
-		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Создает случайную руну"
-		//冰霜法球
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"Frost orb"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"Каждая %attack_count%-я атака выпускает ледяную сферу, которая наносит урон по области и ненадолго замедляет основную цель."
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"Радиус： "
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"Урон： "
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"Коэф. от урона героя："
-		//极寒光环
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"					"Freezing aura"
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"Снижает восстановление здоровья, вампиризм и лечение врага.<br/><br/>Активно: Наносит урон и замедляет окружающих врагов. Чем ближе они к герою, тем больше урон и замедление."
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_percentage"		"%Снижение лечения： "
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_hp_regen"		"Снижение восстановления здоровья： "
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"Макс. урон： "
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
+		"DOTA_Tooltip_ability_jakiro_double_trouble2"							"Двойные неприятности"
+		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"				"Атаки Джакиро совершаются обеими головами, но каждая голова наносит меньше урона."
+		"DOTA_Tooltip_ability_jakiro_double_trouble2_attack_damage_reduction"	"%Снижение урона от атаки:"
+		// 沉默术士 默默受苦
+		"DOTA_Tooltip_ability_silencer_brain_drain2"							"Страдание в тишине"
+		"DOTA_Tooltip_ability_silencer_brain_drain2_Description"				"Молчаливый наносит больше урона и получает меньше урона от молчащих целей.<br><br>Если вражеский герой умирает в радиусе %permanent_int_steal_range% от Молчаливого или на нём висел его негативный эффект, Молчаливый навсегда крадёт у него %permanent_int_steal_amount% интеллекта. Если жертва была под молчанием, он крадёт дополнительно %silenced_bonus_int_steal_amount% интеллекта."
+		"DOTA_Tooltip_ability_silencer_brain_drain2_damage_pct"				"%Урон по молчащим:"
 
+		// 獸 庞
+		"DOTA_Tooltip_ability_primal_beast_colossal2"							"Исполин"
+		"DOTA_Tooltip_ability_primal_beast_colossal2_Description"				"Исполин имеет %base_slow_resist%%% базового сопротивления замедлению и за каждые %hp_per_threshold% максимального здоровья получает +%aoe_per_threshold%%% к радиусу действия и +%slow_resistance_per_threshold%%% к сопротивлению замедлению."
+		"DOTA_Tooltip_ability_primal_beast_colossal2_current_slow_resistance"	"%Сопротивление замедлению:"
+		"DOTA_Tooltip_ability_primal_beast_colossal2_current_aoe"				"%Бонус к радиусу:"
+
+		// 狙击手 基恩瞄准镜
+		"DOTA_Tooltip_ability_sniper_keen_scope2"							"Острый прицел"
+		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"				"Атаки Снайпера наносят дополнительный урон за каждые %bonus_damage_distance% единиц расстояния до цели."
+		"DOTA_Tooltip_ability_sniper_keen_scope2_bonus_damage_for_range"	"%Бонусный урон:"
+
+		//闷烧树脂
+		"DOTA_Tooltip_ability_batrider_smoldering_resin2"								"Тлеющая смола"
+		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"					"Атаки Бэтрайдера накладывают негативный эффект, наносящий %tick_attack_damage_pct%%% урона от атаки каждые %tick_rate% сек. в течение %total_ticks% сек."
+		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff"						"Тлеющая смола"
+		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff_Description"			"Медленно горит от атак Бэтрайдера."
+		//一人之军
+		"DOTA_Tooltip_ability_axe_one_man_army2"										"Армия из одного"
+		"DOTA_Tooltip_ability_axe_one_man_army2_Description"							"Даёт силу в зависимости от брони."
+		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"				"%Брони в силу:"
+		//人工神符
+		"DOTA_Tooltip_ability_arc_warden_scepter2"									"Кузня рун"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"						"Создаёт перед вами случайную руну. Созданные так руны исчезают через 20 секунд, если их не активировать."
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Note0"								"Созданная руна может быть любой руной силы, а также руной богатства, руной воды или руной мудрости."
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Note1"								"Руны мудрости действуют так, будто захвачен алтарь мудрости, но при активации до 7:00 опыт не даётся."
+		// 冰魂 刺骨严寒
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2"							"Костяной холод"
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_Description"				"Когда Древнее привидение наносит магический урон способностями, цель замедляется на короткое время. Если цель — герой, её сила также снижается. Несколько эффектов складываются и действуют независимо."
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_str_reduction_duration"	"Длительность:"
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_str_reduction"			"Снижение силы:"
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_movement_slow_pct"		"Замедление передвижения:"
+
+		//冰霜法球
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"				"Ледяная сфера"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"	"Каждая %attack_count%-я атака выпускает ледяную сферу, наносящую урон по области и ненадолго сильно замедляющую основную цель."
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_slow_duration"	"Длительность замедления:"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"Радиус:"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"Базовый урон:"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"Бонусный урон за единицу урона от атаки:"
+
+		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb"					"Ледяная сфера"
+		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_Description"		"Периодически выпускает ледяную сферу, наносящую урон по области и замедляющую основную цель."
+		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_slow"				"Замедление от ледяной сферы"
+		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_slow_Description"	"Скорость передвижения снижена на 90%%."
+		//极寒光环
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"				"Аура стужи"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"	"Снижает лечение и восстановление здоровья вражеских существ.<br/><br/>Активно: наносит урон и замедляет врагов рядом, чем ближе враг, тем сильнее эффект."
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_percentage"		"%Снижение лечения:"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_hp_regen"		"%Снижение восстановления здоровья:"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"Максимальный урон:"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"Максимальный бонусный урон за единицу урона от атаки:"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность действия:"
+
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage"				"Аура стужи"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"	"Наносит урон и замедляет врагов рядом, чем ближе враг, тем сильнее эффект."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"				"Аура стужи (пассивная)"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"	"Лечение и восстановление здоровья снижены на %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%. Восстановление здоровья снижено на %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%"
+		//火雨降临
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"						"Пришествие огненного шторма"
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"			"Каждая %hit_count%-я атака призывает огненный шторм, наносящий урон врагам вокруг атакованной цели."
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"				"Радиус:"
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_base_damage"			"Базовый урон:"
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_max_damage"			"%Урон от максимального здоровья:"
+		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"					"Пришествие огненного шторма: счётчик атак"
+		//怨念光环
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura"					"Аура злобы"
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_Description"		"Враги, пробывшие в ауре определённое время, получают урон и ненадолго обездвиживаются."
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_radius"				"Радиус ауры:"
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_interval"			"Интервал срабатывания:"
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_duration"			"Длительность обездвиживания:"
+		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_damage"				"Урон:"
+		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_buff"				"Аура злобы"
+		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_buff_Description"	"Долгое пребывание в ауре приводит к обездвиживанию и получению урона."
+		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_root"				"Обездвижен"
+		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_root_Description"	"Нельзя передвигаться."
+		//狂暴药剂
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2"						"Яростное зелье"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_Description"			"Бросает зелье в союзника или в себя, применяя простое развеивание и давая скорость атаки, скорость передвижения и восстановление здоровья.<br><br>Тип развеивания: простое"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_attack_speed"			"Бонус к скорости атаки:"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_move_speed"				"Бонус к скорости передвижения:"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"				"Бонус к восстановлению здоровья:"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"				"Длительность:"
+
+		// 多重施法
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"					"<font color='#d000ff'>Многократное применение (пробужд.)</font>"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"		"Позволяет применять способности и предметы несколько раз за одно использование. Интервал между применениями — %multicast_delay% сек.<br>При пробуждении Огр-маг дополнительно получает эту способность, она складывается с ультимейтом «Многократное применение», образуя двойное применение, а врождённая способность «Дурная удача» удаляется."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"				"Срабатывает для большинства способностей и предметов, поддерживаемые способности не вызывают многократного применения."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"	"%Шанс 2X применения:"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"	"%Шанс 3X применения:"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"	"%Шанс 4X применения:"
+
+		// 狙击手 暗杀-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"						"<font color='#d000ff'>Убийственный выстрел (пробужд.)</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"			"Снайпер захватывает вражеских героев в области и выпускает сокрушительные пули, наносящие на большой дистанции атаку с гарантированным критическим ударом и дополнительным физическим уроном.<br><br><font color='#FFFFFF'>Аганимовский скипетр: поражённые герои также оглушаются.</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"					"В этот миг всё поле боя затаило дыхание."
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"					"Эффект прицела виден только союзникам."
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"					"Невидимость не сбивает снаряд."
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note2"					"Прерывает поддерживаемые способности, в том числе на невосприимчивых к магии целях."
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_radius"			"Радиус:"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_crit_bonus"		"%Урон критического удара:"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_bonus_physical_damage"	"Дополнительный физический урон:"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_stun_duration"	"Длительность оглушения:"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target"												"Убийственный выстрел"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"									"Снайпер целится тебе в голову!"
+
+		// 混沌骑士
+		"DOTA_Tooltip_ability_chaos_knight_chaos_bolt_shard_description"	"Увеличивает дальность применения до %AbilityCastRange%."
+
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"						"Армия хаоса"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"			"Призывает к Хаос-рыцарю других Хаос-рыцарей из иных измерений, которые сражаются вместе с ним. Когда Хаос-рыцарь атакует, остальные Хаос-рыцари наносят по цели собственную атаку, у которой есть короткий откат."
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"					"Богатый боевой опыт Хаос-рыцаря в разных мирах даёт ему силу подавить любого, кто осмелится ему противостоять, а также все его копии."
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_duration"				"Длительность:"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"			"Дополнительные атаки:"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"		"Откат дополнительных атак:"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"	"Увеличивает число дополнительных атак и снижает откат между ними."
+		"DOTA_Tooltip_ability_special_bonus_unique_chaos_knight_4"				"+{s:bonus_duration} сек. к длительности «Армии хаоса»"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff"								"Армия хаоса"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"					"Ты вмещаешь множество теневых клонов! Они будут атаковать вместе с тобой, но с откатом."
+
+		// 修补匠 刷新
+		"DOTA_Tooltip_ability_tinker_rearm_lua"						"Перезарядка"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"		"Для способностей с зарядами каждое применение «Перезарядки» восстанавливает один заряд способности."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"			"Поддерживаемое - сбрасывает откат большинства предметов и способностей Тинкера.<br>Удерживайте ALT, чтобы увидеть предметы и способности, которые «Перезарядка» не сбрасывает."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"					"Где-то новая батарейка, где-то ещё ракеты — Бауш постоянно улучшает существующую технику."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"					"«Перезарядка» не сбрасывает откат Хроно-диска, Волшебных сапог, Чёрного короля, Руки Мидаса, Сферы Линкена, Метеоритного молота, Шлема владыки, Шлема повелителя, Трубки прозрения, Сферы обновления, Белого лотоса, Конфеты Дианы, их улучшений и части нейтральных предметов. Сбрасывается откат только купленных вами предметов, свиток телепортации сбрасывается всегда.<br>"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"					"«Перезарядка» не сбрасывает откат Солнечного удара, Гнева Громовержца, Гнева природы, Часовой зоны, Хроносферы, массовых змеиных стражей, Призрака, Дождя хаоса, Двойника бури, а также ряда способностей призыва, иллюзий и стражей."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"	"Время перезарядки:"
+		"DOTA_Tooltip_ability_special_bonus_unique_tinker_rearm_lua"	"-{s:bonus_AbilityChannelTime} сек. к времени поддержания «Перезарядки»<br>-{s:bonus_AbilityManaCost} к затратам маны"
+
+		"DOTA_Tooltip_ability_tinker_eureka2"						"Эврика!"
+		"DOTA_Tooltip_ability_tinker_eureka2_Description"			"Каждые %int_per_one_cdr% интеллекта дают %one_percent_tooltip%%% снижения отката предметов, максимум %max_cdr%%%."
+		"DOTA_Tooltip_ability_tinker_eureka2_item_cooldown_tooltip"	"%Снижение отката предметов:"
+
+
+
+		// 地狱之裂
+		"DOTA_Tooltip_ability_clinkz_infernal_shred2"								"Адское расщепление"
+		"DOTA_Tooltip_ability_clinkz_infernal_shred2_Description"					"Клинкз и его скелеты накладывают складывающийся негативный эффект: их атаки пробивают до %max_armor_piercing_pct%%% всей физической брони цели (но не снижают её). Клинкз накладывает %hero_stacks%%% за атаку, скелеты — %skeleton_stacks%%%.<br><br>Длится %duration% сек."
+		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing"				"Адское расщепление"
+		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing_Description"	"Атаки Клинкза и его скелетов пробивают %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_PIERCING_PERCENTAGE_TARGET%%% брони."
+
+
+		// 拉比克 奇心
+		"DOTA_Tooltip_ability_rubick_curiosity2"							"Любопытство"
+		"DOTA_Tooltip_ability_rubick_curiosity2_Description"				"Рабик получает %curiosity_per_level% стак любопытства за уровень; каждый стак даёт %curiosity_attack_damage% к базовому урону, %curiosity_modifier_amp%%% к силе баффов и дебаффов и %curiosity_aoe_bonus% к радиусу действия.<br><br>Если Рабик видит, как вражеский герой применяет способность в радиусе %charge_radius% от него, он получает %curiosity_per_spell_cast% стаков любопытства на %curiosity_duration% сек. Если вражеский герой, давший временное любопытство, погибает в течение %grace_period% сек. после полученного от Рабика урона, Рабик навсегда получает %curiosity_per_kill% стаков."
+		"DOTA_Tooltip_ability_rubick_curiosity2_curiosity_permanent_gain"	"Получено любопытства:"
+		"DOTA_Tooltip_ability_rubick_curiosity2_current_debuff_amp"		"%Сила баффов и дебаффов:"
+		"DOTA_Tooltip_ability_rubick_curiosity2_current_aoe_bonus"			"Бонус к радиусу действия:"
+
+		// 拉比克 力量与魔法
+		"DOTA_Tooltip_ability_rubick_might_and_magus2"						"Сила и магия"
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"			"Рабик получает складывающийся бонус к радиусу действия при применении способностей."
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus"			"Бонус к радиусу действия:"
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_magic_resist_bonus"	"%Бонус к сопротивлению магии:"
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus_duration"	"Дополнительная длительность:"
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_Lore"				"Если магия тебя не проймёт, этот скромный монах и кулаками объяснит."
+		"DOTA_Tooltip_modifier_rubick_might_and_magus2"					"Сила и магия"
+		"DOTA_Tooltip_modifier_rubick_might_and_magus2_Description"		"Радиус действия способностей увеличен на %dMODIFIER_PROPERTY_AOE_BONUS_CONSTANT_STACKING%, сопротивление магии — на %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
+
+		// 蝴蝶效应·蓝武（攻击触发）
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills"							"<font color='#0096FF'>Эффект бабочки · Лазурь</font>"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"				"<h1><font color='#0096FF'>Пассивно: Цепная реакция</font></h1>При попадании атакой есть шанс применить случайную изученную активную способность. Обычные и ультимативные способности срабатывают независимо по псевдослучайному распределению. Если способность не в откате, после срабатывания она ненадолго уходит в откат, а затем восстанавливается (у «Кругового удара» Джаггернаута отдельное восстановление через 4 с, у остальных — через 0,1 с). Если способность в откате, откат начинается заново."
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"		"%Шанс срабатывания одной из обычных способностей:"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"	"%Шанс срабатывания одной из ультимативных способностей:"
+
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note0"	"Не срабатывает для следующих типов способностей:"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note1"	"• Способности карты (телепортация, захват точки и т. п.)"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note2"	"• Способности невидимости"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note3"	"• Переключаемые способности и эффекты сфер"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note4"	"• Поддерживаемые и длительные способности"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note5"	"• Способности призыва"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note6"	"• Двухэтапные и отменяемые способности"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note7"	"• Сферы и комбинированные способности Карла"
+
+		// 死亡先知新大招·我！即是虫群！（攻击触发-地穴虫群）
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack"						"Я! ЭТО РОЙ!"
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack_Description"			"Пассивно: атаки с шансом призывают Рой склепов по псевдослучайному распределению. После срабатывания откат способности восстанавливается."
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack_basic_trigger_chance"	"%Шанс призыва Роя склепов:"
+		// 蝴蝶效应·红魔 (施法触发)
+		"DOTA_Tooltip_ability_ability_trigger_on_cast"							"<font color='#FF0000'>Эффект бабочки · Багрянец</font>"
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"				"<h1><font color='#FF0000'>Пассивно: Одержимость</font></h1>При применении способности есть шанс применить случайную изученную активную способность. Обычные и ультимативные способности срабатывают независимо по псевдослучайному распределению. Несовместимо с многократным применением. Модель Обезьяньего короля не срабатывает.<br><br>Шанс срабатывания обычной способности: %basic_trigger_chance%%%<br>Шанс срабатывания ультимативной способности: %ultimate_trigger_chance%%%<br>"
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Lore"						"Жвачка, да? Флажок, да? Не остановиться, да?"
+
+		"DOTA_Tooltip_modifier_trigger_on_cast"				"Эффект бабочки · Багрянец"
+		"DOTA_Tooltip_modifier_trigger_on_cast_Description"	"Применение способностей с шансом срабатывает изученные способности."
+
+		// 蝴蝶效应·金身 (被攻击触发)
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked"							"<font color='#FFFF00'>Эффект бабочки · Золото</font>"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"				"<h1><font color='#FFFF00'>Пассивно: Золотое тело</font></h1>При получении атаки есть шанс применить изученные способности. Обычные и ультимативные способности срабатывают независимо по псевдослучайному распределению."
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Lore"						"Ты явно чешешься от желания получить тумаков — чем сильнее бьют, тем больше заводишься."
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_basic_trigger_chance"		"%Шанс срабатывания обычной способности:"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_ultimate_trigger_chance"	"%Шанс срабатывания ультимативной способности:"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_cooldown_duration"		"Внутренний откат:"
+
+		"DOTA_Tooltip_modifier_trigger_on_attacked_cooldown"				"Откат эффекта бабочки"
+		"DOTA_Tooltip_modifier_trigger_on_attacked_cooldown_Description"	"Способность «Эффект бабочки» на внутреннем откате."
+
+		// 蝴蝶效应·橙影（移动触发）
+		"DOTA_Tooltip_ability_ability_trigger_on_move"							"<font color='#FFCC66'>Эффект бабочки · Янтарь</font>"
+		"DOTA_Tooltip_ability_ability_trigger_on_move_Description"				"<h1><font color='#FFCC66'>Пассивно: Тень</font></h1>Срабатывает изученные способности с шансом, зависящим от пройденного за определённое время расстояния. Чем быстрее бежишь, тем выше шанс."
+		"DOTA_Tooltip_ability_ability_trigger_on_move_Lore"						"Я просто вышел пробежаться, а вы уже подрались."
+		"DOTA_Tooltip_ability_ability_trigger_on_move_basic_trigger_chance"		"%Базовый шанс срабатывания обычной способности (при скорости 500):"
+		"DOTA_Tooltip_ability_ability_trigger_on_move_ultimate_trigger_chance"	"%Базовый шанс срабатывания ультимативной способности (при скорости 500):"
+		"DOTA_Tooltip_ability_ability_trigger_on_move_check_interval"			"Интервал срабатывания:"
+		"DOTA_Tooltip_ability_ability_trigger_on_move_Note1"					"Сработавшие способности сами выбирают подходящую цель: вражеские — ближайшего врага, дружественные — себя."
+		"DOTA_Tooltip_ability_ability_trigger_on_move_Note2"					"Некоторые особые способности (невидимость, телепортация, поддерживаемые и т. п.) не срабатывают."
+
+		// 蝴蝶效应·绿莲（指向技能反弹触发）
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect"							"<font color='#90EE90'>Эффект бабочки · Лотос</font>"
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"				"<h1><font color='#90EE90'>Пассивно: Лотос</font></h1>При получении урона от направленных способностей есть шанс отразить урон, а при успешном отражении — шанс применить изученные способности."
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Lore"						"Даже взглянуть нельзя, сразу в драку."
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_chance"			"%Шанс отражения:"
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_damage_pct"		"%Доля отражённого урона:"
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_basic_trigger_chance"		"%Шанс срабатывания обычной способности после отражения:"
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_ultimate_trigger_chance"	"%Шанс срабатывания ультимативной способности после отражения:"
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_cooldown_duration"		"Внутренний откат:"
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note0"					"Тип отражённого урона совпадает с исходным. Сработавшие способности сами выбирают подходящую цель: вражеские — атакующего, дружественные — себя."
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note1"					"Некоторые особые способности (невидимость, телепортация, поддерживаемые и т. п.) не срабатывают."
+
+		"DOTA_Tooltip_modifier_trigger_on_spell_reflect_cooldown"				"Откат отражения способностей"
+		"DOTA_Tooltip_modifier_trigger_on_spell_reflect_cooldown_Description"	"Способность отражения способностей на внутреннем откате."
+
+		// 蝴蝶效应·紫啸（主动释放）
+		"DOTA_Tooltip_ability_ability_trigger_on_active"							"<font color='#A74ABD'>Эффект бабочки · Пурпур</font>"
+		"DOTA_Tooltip_ability_ability_trigger_on_active_Description"				"<h1><font color='#A74ABD'>Активно: Безумие</font></h1>С невиданной скоростью обрушивает на врагов в указанной области все доступные способности и предметы. Во время действия все откаты сокращены в 1/5, убраны задержки применения, поддерживаемые состояния нельзя прервать, пока не кончится мана, но герой не может двигаться.<br><br>Длительность: %duration% сек."
+		"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"						"Эй, говорю же, этому пациенту в следующий раз стоит полегче: кнопки дымятся, а маны ни капли не осталось."
+		"DOTA_Tooltip_ability_ability_trigger_on_active_duration"					"Длительность:"
+		"DOTA_Tooltip_ability_ability_trigger_on_active_search_radius"			"Радиус поиска:"
+		"DOTA_Tooltip_ability_ability_trigger_on_active_auto_cast_interval"		"Интервал применения:"
+		"DOTA_Tooltip_ability_ability_trigger_on_active_cd_reduction_pct"			"%Сокращение откатов:"
+		"DOTA_Tooltip_ability_ability_trigger_on_active_cast_time_reduction_pct"	"%Снижение задержки применения:"
+		"DOTA_Tooltip_ability_ability_trigger_on_active_bonus_cast_range"			"Дополнительная дальность применения:"
+
+		// 蝴蝶效应·青凝（积蓄能量）
+		"DOTA_Tooltip_ability_ability_charge_damage"						"<font color='#87CEEB'>Эффект бабочки · Бирюза</font>"
+		"DOTA_Tooltip_ability_ability_charge_damage_Description"			"<h1><font color='#87CEEB'>Пассивно: Сосредоточенность</font></h1>Сосредоточившись, герой копит энергию, пока способности готовы, но не применены, усиливая первый урон от следующего применения.<br><br>Ультимативные способности начинают копить через %ultimate_ready_delay% сек., обычные — через %normal_ready_delay% сек.<br>Достигнув порога, герой получает дополнительно %base_amplify%x базового усиления.<br>Усиление урона длится %amplify_duration% сек.<br>Максимальный множитель усиления: %max_times%x."
+		"DOTA_Tooltip_ability_ability_charge_damage_Lore"					"Ты сдерживал одну... способность, и как долго?"
+		"DOTA_Tooltip_modifier_ability_charge_damage_display"				"Сосредоточенность"
+		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"	"Следующее применение нанесёт %dMODIFIER_PROPERTY_TOOLTIP2%%% урона."
+
+		// windrunner_whirlwind_custom 旋风（风行者 觉醒）
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom"						"<font color='#d000ff'>Вихрь (пробужд.)</font>"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Description"			"«Сосредоточенный огонь» больше не требует цели, а атакует случайных врагов в радиусе атаки Ветреницы + %search_radius_bonus%. Совершает фиксированное число атак в секунду, предпочитая героев и боссов.\n\nИзучив эту способность, применяя «Порыв ветра», герой получает <font color='#d7ccc7'>невидимость</font> на то же время. После атаки он ненадолго становится видимым и снова невидимым. Движение не развеивает невидимость."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Lore"				"Куда долетает ураган, там льётся дождь стрел."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note0"				"Атаки вихря могут наносить критические удары и применять модификаторы атаки, но могут и промахнуться."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note1"				"Цель нельзя выбрать снова в течение следующих %repeat_block_count% атак, если нет других целей."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note2"				"Атаки приостанавливаются при обезоруживании, оглушении, превращении или поддержании. Постройки, варды, неуязвимые, невидимые и незримые цели не атакуются."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_duration"			"Длительность:"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_attacks_per_second"	"Атак в секунду:"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_damage_reduction"	"%Снижение урона от атаки:"
+		"DOTA_Tooltip_modifier_windrunner_whirlwind_custom"					"Вихрь"
+		"DOTA_Tooltip_modifier_windrunner_whirlwind_custom_Description"		"Совершает <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> атак вихря в секунду со снижением урона от атаки на <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font>."
+
+		// ability_fate_roulette 命运轮盘
+		"DOTA_Tooltip_ability_ability_fate_roulette"				"<font color='#FFD700'>Рулетка судьбы</font>"
+		"DOTA_Tooltip_ability_ability_fate_roulette_Description"	"Каждая атака — ставка в игре с судьбой. После %attacks_before_proc% зачтённых атак следующая с равной вероятностью применит к цели один из эффектов: <font color='#FFD76A'>критический удар</font>, <font color='#8FD7FF'>оглушение</font> на %stun_duration% сек., непрерывное развеивание, истощение, оцепенение или запрет предметов на %effect_duration% сек. Непрерывное развеивание сразу и каждые %dispel_interval% сек. применяет к цели простое развеивание, снимающее только положительные эффекты. При каждом срабатывании рулетки герой также получает простое развеивание.<br>При применении способности наступает «Предначертанный момент»: каждая зачтённая атака запускает рулетку, не увеличивая, не сбрасывая и не расходуя накопленный счётчик."
+
+		"DOTA_Tooltip_ability_ability_fate_roulette_Lore"				"Судьба не бросает кости — если только ставкой не стали вы."
+		"DOTA_Tooltip_ability_ability_fate_roulette_critical_damage"	"%Критический урон:"
+
+		"DOTA_Tooltip_ability_ability_fate_roulette_active_duration"	"Длительность «Предначертанного момента»:"
+		"DOTA_Tooltip_ability_ability_fate_roulette_Note0"			"Обычные атаки и атаки вихря, совершённые самим героем по вражеским героям или обычным существам, увеличивают счётчик. Промахи без срабатывания рулетки, атаки по постройкам и вардам не учитываются. Разделённые атаки от «Разделённого выстрела» со скипетром Аганима и «Дыхания гидры» запускают рулетку независимо, а разделённые атаки пробуждённой «Осколочной стрелы» наследуют результат этой атаки. Ни те, ни другие не увеличивают счётчик «Шёпота судьбы»."
+		"DOTA_Tooltip_ability_ability_fate_roulette_Note1"			"Рулетку судьбы нельзя отключить истощением, атаки, запускающие рулетку, не промахиваются, все эффекты действуют сквозь иммунитет к магии. Кроме критического удара, длительность эффектов зависит от сопротивления эффектам цели."
+
+		"DOTA_Tooltip_modifier_ability_fate_roulette_counter"				"Шёпот судьбы"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_counter_Description"	"Зачтено атак: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_destined"				"Предначертанный момент"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_destined_Description"	"Каждая зачтённая атака запускает рулетку, счётчик «Шёпота судьбы» заморожен."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_stun"					"Оглушение"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_stun_Description"		"Нельзя двигаться, атаковать и применять способности."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_dispel"				"Непрерывное развеивание"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_dispel_Description"	"Положительные эффекты непрерывно снимаются."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_break"					"Истощение"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_break_Description"		"Пассивные способности отключены."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_root"					"Оцепенение"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_root_Description"		"Нельзя передвигаться."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_mute"					"Запрет предметов"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_mute_Description"		"Предметы отключены."
+
+		// ---- bot技能 ----
+		// 机械救赎
+		"DOTA_Tooltip_ability_bot_power_n6"							"Спасение бота"
+		"DOTA_Tooltip_ability_bot_power_n6_Description"				"Способность автоматически улучшается каждые 5 уровней героя, повышая атаку, защиту, сокращение откатов и скорость передвижения."
+		"DOTA_Tooltip_ability_bot_power_n6_Lore"					"Перед умом и изобретательностью игрока замысел бота часто пасует. Боты идеально выполняют команды, но не превосходят интуицию и стратегию игрока. Поэтому разработчики вложили в них программу «Спасение бота», позволяющую в решающий момент раскрыть потенциал и переломить ход боя."
+		"DOTA_Tooltip_ability_bot_power_n6_bonus_damage"			"Урон от атаки:"
+		"DOTA_Tooltip_ability_bot_power_n6_bonus_spell_amplify"		"%Усиление способностей:"
+		"DOTA_Tooltip_ability_bot_power_n6_bonus_cooldown"			"%Сокращение откатов:"
+		"DOTA_Tooltip_ability_bot_power_n6_bonus_move_speed"		"Скорость передвижения:"
+		"DOTA_Tooltip_ability_bot_power_n6_bonus_armor"				"Броня:"
+		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"Сопротивление магии:"
 
 		// 泉水 制裁
-		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Вражеские герои под управлением игроков подвергаются санкции, приближаясь к радиусу атаки фонтана. Действует только в командном режиме.<br><br>Когда герой-бот погибает в этом радиусе, в убийцу выпускается самонаводящийся огненный шар, который проходит сквозь магический иммунитет и наносит урон, равный %retaliation_damage_pct%%% максимального здоровья убийцы."
+		"DOTA_Tooltip_ability_fountain_anti_camp"						"Санкция фонтана"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"			"Вражеские герои под управлением игроков получают санкцию при приближении к радиусу атаки фонтана. Действует только в командном режиме.<br><br>Если в этой области погибает герой-бот, в героя, которым управляет убийца, вылетает самонаводящийся огненный шар, наносящий чистый урон в размере %retaliation_damage_pct%%% максимального здоровья этого героя."
+		"DOTA_Tooltip_modifier_fountain_anti_camp_stack"				"Предупреждение о санкции фонтана"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_stack_Description"	"Накладывается раз в секунду рядом с фонтаном. На 3 стаках наступает санкция."
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"				"Санкция фонтана"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"	"Нельзя атаковать, использовать предметы, активные и пассивные способности. Здоровье и мана не восстанавливаются, скорость передвижения принудительно ограничена, положительные эффекты принудительно развеиваются."
 
 		///////////////////////////////////////////////////
 		//

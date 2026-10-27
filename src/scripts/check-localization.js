@@ -28,6 +28,12 @@ const completedSections = [
     endKey: 'DOTA_Tooltip_modifier_player_nemesis_Description',
     requireCyrillic: false,
   },
+  {
+    name: 'Custom Abilities',
+    startKey: 'DOTA_Tooltip_ability_ward_observer_slot',
+    headerLines: 8,
+    endKey: 'DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description',
+  },
 ];
 const russianWithoutCyrillic = new Set([
   'addon_game_name',
