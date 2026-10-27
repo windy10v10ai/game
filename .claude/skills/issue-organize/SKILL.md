@@ -1,9 +1,9 @@
 ---
-name: issue-triage
-description: 整理 issue：查重复与过期、调整优先级、核对「开发计划」项目里的位置，或给 issue 写执行说明交给 agent。
+name: issue-organize
+description: 整理 issue：查重复与过期、调整优先级、核对「开发计划」项目里的位置，或给 issue 写执行说明交给 AI 自动做。
 ---
 
-# issue-triage
+# issue-organize
 
 整理 `windy10v10ai/game` 与 `windy10v10ai/firebase` 两个仓库的未关闭 issue，并核对组织项目「开发计划」（`gh project` 编号 3）的排布。先出建议、等用户拍板，再改 GitHub。
 
@@ -73,13 +73,13 @@ gh api graphql -f query='{organization(login:"windy10v10ai"){issueTypes(first:10
   - 需要更多日志才能推进的放 Backlog
   - 没入项目的补进去；总跟踪帖（如 firebase#1404 玩家反馈跟踪）不放
   - 草稿条目转成正式 issue，补类型、标签、优先级
-- **可交给 agent**：Todo / Plan 里符合 `.claude/references/agent-handoff.md`「适合交接」的，列为交接候选；已带 `agent-done` 的查 PR 状态，`agent-blocked` 的列出 agent 留言里缺的信息
+- **可交给 AI**：Todo / Plan 里符合 `.claude/references/ai-autorun.md`「适合交给 AI 的 issue」的，列为候选；已带 `ai-done` 的查 PR 里「等你处理」还剩几项，`ai-stuck` 的列出 AI 留言里缺的信息
 
 完成条件：每个 issue 要么归入某条建议，要么确认维持现状。
 
 ## 3. 报告并等拍板
 
-按「合并重复 / 关闭或降级 / 补优先级 / 项目位置 / 交给 agent」分组。每次出现 issue 编号都写成链接加简短标题，如 `[game#2468 后期卡顿](https://github.com/windy10v10ai/game/issues/2468)`，不写裸编号。
+按「合并重复 / 关闭或降级 / 补优先级 / 项目位置 / 交给 AI」分组。每次出现 issue 编号都写成链接加简短标题，如 `[game#2468 后期卡顿](https://github.com/windy10v10ai/game/issues/2468)`，不写裸编号。
 
 用户逐条改完、明确同意后再执行，没提到的条目不动。执行中途用户追加的要求，并入当前这一轮。
 
@@ -108,13 +108,13 @@ gh project item-edit --project-id PVT_kwDOBviRE84Arg93 --field-id PVTSSF_lADOBvi
 gh api graphql -f query='mutation{convertProjectV2DraftIssueItemToIssue(input:{itemId:"<条目id>",repositoryId:"<仓库node id>"}){item{content{... on Issue{number}}}}}'
 ```
 
-交给 agent 的 issue 逐个和用户把方案谈定，按 `.claude/references/agent-handoff.md` 的格式把 `## 执行说明` 写进正文末尾，用户确认正文后再打标签：
+交给 AI 的 issue 逐个和用户把方案谈定，按 `.claude/references/ai-autorun.md` 的格式把 `## 执行说明` 写进正文末尾，用户确认正文后再打标签：
 
 ```bash
-gh issue edit <n> -R windy10v10ai/game --add-label agent-ready
+gh issue edit <n> -R windy10v10ai/game --add-label ai-todo
 ```
 
-完成条件：每条拍板的改动都执行成功，失败的单独列出；每个打了 `agent-ready` 的 issue 都有用户确认过的执行说明。
+完成条件：每条拍板的改动都执行成功，失败的单独列出；每个打了 `ai-todo` 的 issue 都有用户确认过的执行说明。
 
 ## 5. 核对并汇报
 
