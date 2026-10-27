@@ -252,6 +252,7 @@ export class Debug {
 
     if (cmd === CMD.END) {
       GameEnd.gameEndTriggered = false;
+      GameEnd.settled = false;
       GameEnd.OnGameEnd(2);
     }
 

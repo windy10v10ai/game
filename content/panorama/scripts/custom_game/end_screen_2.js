@@ -275,11 +275,12 @@ function CreateItemImage(container, heroIndex, slotIndex) {
  *
  * @param {Number} team Team Index
  */
-function Snippet_Team(team) {
+function Snippet_Team(team, winnerTeamId) {
   var panel = $.CreatePanel('Panel', $('#TeamsContainer'), '');
   panel.BLoadLayoutSnippet('Team');
   panel.SetHasClass('IsRight', true);
-  panel.SetHasClass('IsWinner', Game.GetGameWinner() === 2);
+  // 结算在基地推掉前就开始，那时引擎还没定出胜方
+  panel.SetHasClass('IsWinner', winnerTeamId === 2);
 
   const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
   const gameDifficulty = CustomNetTables.GetTableValue('game_difficulty', 'all').difficulty;
@@ -319,7 +320,21 @@ function Snippet_Team(team) {
   }
 }
 
+// 结算请求还没回来时对局仍在进行，这时离开会让服务端来不及重发失败的请求
+function OnEndingStatus(value) {
+  if (!value?.status) {
+    return;
+  }
+  $('#GameEndingStatusText').text = $.Localize('#ending_status_' + value.status);
+  $('#CloseButton').enabled = value.status !== 1;
+  $.Msg(`[tmp-settle] status=${value.status} closeEnabled=${$('#CloseButton').enabled}`);
+}
+
 function OnGameResult(_table, key, value) {
+  if (key === 'ending_status') {
+    OnEndingStatus(value);
+    return;
+  }
   if (key !== 'ending_data') {
     return;
   }
@@ -331,8 +346,8 @@ function OnGameResult(_table, key, value) {
   $('#EndScreenWindow').visible = true;
   $('#TeamsContainer').RemoveAndDeleteChildren();
 
-  Snippet_Team(2);
-  Snippet_Team(3);
+  Snippet_Team(2, value.winner_team_id);
+  Snippet_Team(3, value.winner_team_id);
 
   var result_label = $('#EndScreenVictory');
 
@@ -367,15 +382,12 @@ function OnGameResult(_table, key, value) {
   find_hud_element('GameEndContainer').visible = false;
 
   $.GetContextPanel().RemoveClass('FadeOut');
-  // disable the close button
-  // $("#CloseButton").enabled = false;
-  // $("#GameEndingStatusText").style.color = "#ffffff";
 
   $('#EndScreenWindow').visible = false;
   // 离线模式在开局时就已确定，结算时读一次即可
   const loading = CustomNetTables.GetTableValue('loading_status', 'loading_status');
   $('#OfflineHint').visible = loading != null && loading.status === LOADING_STATUS_OFFLINE;
   CustomNetTables.SubscribeNetTableListener('ending_status', OnGameResult);
-  // CustomNetTables.SubscribeNetTableListener("ending_status", OnGameEndingStatusChange);
   OnGameResult(null, 'ending_data', CustomNetTables.GetTableValue('ending_status', 'ending_data'));
+  OnEndingStatus(CustomNetTables.GetTableValue('ending_status', 'ending_status'));
 })();

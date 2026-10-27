@@ -111,7 +111,7 @@
 						</Panel>
 						<TextButton id="CloseButton" class="ButtonBevel" onactivate="FinishGame()" text="#dota_safe_leave_game" />
 					</Panel>
-					<!-- <Label id="GameEndingStatusText" text="#ending_status_1" /> -->
+					<Label id="GameEndingStatusText" text="" />
 				</Panel>
 			</Panel>
 			<Panel id="TeamsContainer" />

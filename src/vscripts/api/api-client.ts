@@ -272,6 +272,8 @@ export class ApiClient {
     const isLocalhost = this.IsLocalhost();
 
     request.SetHTTPRequestNetworkActivityTimeout(timeoutSeconds);
+    // 只限无数据间隔的话，一直慢慢回数据的连接可以拖过任何上限
+    request.SetHTTPRequestAbsoluteTimeoutMS(timeoutSeconds * 1000);
     request.SetHTTPRequestHeaderValue(
       'x-api-key',
       isLocalhost ? GetLocalHostAPIKEY() || apiKey : apiKey,

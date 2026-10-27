@@ -376,10 +376,31 @@
 			"illusion_percentage"		"50"
 		}
 	}
+	// 基地 结算前锁血：结算回调要在对局结束前收到，失败才来得及重发
+	"fort_min_health"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"1"
+
+		"Modifiers"
+		{
+			"modifier_fort_min_health"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"IsPurgable"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH"	"1"
+				}
+			}
+		}
+	}
 	// 基地活性护甲
 	"tower_shredder_reactive_armor"
 	{
-		"MaxLevel"						"6"
+		"MaxLevel"						"10"
 		"BaseClass"						"shredder_reactive_armor"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
@@ -402,6 +423,9 @@
 			{
 				"value"				"2"
 			}
+			// 原版神杖主动的字段只写到 4 级，不覆盖时高等级说明显示乱码
+			"AbilityCooldown"			"0"
+			"AbilityManaCost"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}

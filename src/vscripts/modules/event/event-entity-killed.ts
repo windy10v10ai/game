@@ -36,9 +36,7 @@ export class EventEntityKilled {
       return;
     }
     if (killedUnit.GetClassname() === 'npc_dota_fort') {
-      const winner =
-        killedUnit.GetTeamNumber() === DotaTeam.GOODGUYS ? DotaTeam.BADGUYS : DotaTeam.GOODGUYS;
-      GameEnd.OnGameEnd(winner);
+      GameEnd.OnFortKilled(killedUnit);
       return;
     }
     if (!keys.entindex_attacker) {

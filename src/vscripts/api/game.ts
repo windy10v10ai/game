@@ -156,7 +156,7 @@ export class Game {
     });
   }
 
-  public static EndGame(gameEndDto: GameEndDto) {
+  public static EndGame(gameEndDto: GameEndDto, onDone?: (recorded: boolean) => void) {
     CustomNetTables.SetTableValue('ending_status', 'ending_status', {
       status: 1,
     });
@@ -168,19 +168,17 @@ export class Game {
       body: gameEndDto,
       // 结算是累加写入。本地结算后端有冷却，已记上的那次会挡住重发；正式结算没有，重发会让积分与战绩翻倍
       retryTimes: isLocalhost ? 3 : 1,
+      // 三次尝试要在基地锁血的等待上限内跑完；后端处理最慢约 1 秒，超时回来时前一次已记上
+      timeoutSeconds: 3,
       successFunc: (data: string) => {
-        // CustomNetTables.SetTableValue('ending_status', 'ending_status', {
-        //   status: 2,
-        // });
         // 启动器联机房间靠这行日志判断结算已结束，改写法要同步启动器
         print(`[Game] end game callback data ${data}`);
+        onDone?.(true);
       },
       failureFunc: (data: string) => {
-        // CustomNetTables.SetTableValue('ending_status', 'ending_status', {
-        //   status: 3,
-        // });
         // 启动器联机房间靠这行日志判断结算已结束，改写法要同步启动器
         print(`[Game] end game callback data ${data}`);
+        onDone?.(false);
       },
     };
 

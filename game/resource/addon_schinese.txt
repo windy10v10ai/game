@@ -171,6 +171,9 @@
 		"conduct_point_heavy_penalty_tooltip"	"行为分 <font color='#E87D7D'>{0}</font> 惩罚，积分 ×0.5"
 
 		"end_screen_offline_hint"		"离线模式，本局积分与战绩未记录。"
+		"ending_status_1"			"正在结算，请稍候。"
+		"ending_status_2"			"结算完成。"
+		"ending_status_3"			"没有收到结算结果，本局积分可能未记录。"
 
 		///////////////////////////////////////////////////
 		//
