@@ -42,6 +42,7 @@ Claude Code 直接读 `.claude/skills`；Codex 与 DSH 读仓库下的 `.agents/
 | 创建分支、commit、push、开 PR | `create-pr` |
 | 生成 Steam 更新日志（Release Note） | `release-note` |
 | 把纠正与新约定沉淀进文档 | `doc-update` |
+| 整理 issue、调整优先级与「开发计划」项目排布 | `issue-triage` |
 | 在 Dota 2 Tools 实机验证 | `dota-live-test` |
 | 查 Dota 2 引擎 API、事件 | `dota-docs-lookup` |
 | 从零自制技能 | `custom-ability` |
