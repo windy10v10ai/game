@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+declare let global: any;
+
 import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { Option } from '../../option';
 import { GameEndPoint, normalizeControlTime } from './game-end-point';
@@ -112,6 +115,20 @@ describe('GameEndPoint', () => {
     it('60分钟游戏得分', () => {
       const points = GameEndPoint.GetGameTimePoints(3600); // 60分钟
       expect(points).toBe(23);
+    });
+  });
+
+  describe('GameEndPoint.IsEscaped', () => {
+    beforeAll(() => {
+      global.ConnectionState = { CONNECTED: 2, DISCONNECTED: 3, ABANDONED: 4 };
+    });
+
+    it('在线与短暂掉线照常结算，掉线满 2 分钟或已放弃算逃跑', () => {
+      expect(GameEndPoint.IsEscaped(ConnectionState.CONNECTED, undefined)).toBe(false);
+      expect(GameEndPoint.IsEscaped(ConnectionState.DISCONNECTED, 60)).toBe(false);
+      expect(GameEndPoint.IsEscaped(ConnectionState.DISCONNECTED, undefined)).toBe(false);
+      expect(GameEndPoint.IsEscaped(ConnectionState.DISCONNECTED, 120)).toBe(true);
+      expect(GameEndPoint.IsEscaped(ConnectionState.ABANDONED, undefined)).toBe(true);
     });
   });
 

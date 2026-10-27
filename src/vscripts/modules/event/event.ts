@@ -2,6 +2,7 @@ import { EventDotaBuyback } from './event-buyback';
 import { EventEntityKilled } from './event-entity-killed';
 import { EventGameStateChange } from './event-game-state-change';
 import { EventNpcSpawned } from './event-npc-spawned';
+import { EventPlayerDisconnect } from './event-player-disconnect';
 import { EventPlayerLevelUp } from './event-player-level-up';
 
 export class Event {
@@ -10,4 +11,5 @@ export class Event {
   EventGameStateChange: EventGameStateChange = new EventGameStateChange();
   EventPlayerLevelUp: EventPlayerLevelUp = new EventPlayerLevelUp();
   EventDotaBuyback: EventDotaBuyback = new EventDotaBuyback();
+  EventPlayerDisconnect: EventPlayerDisconnect = new EventPlayerDisconnect();
 }
