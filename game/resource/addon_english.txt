@@ -1048,6 +1048,19 @@
 		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"Sniper's attacks deal bonus damage for every %bonus_damage_distance% units of distance Sniper is from the target."
 		"DOTA_Tooltip_ability_sniper_keen_scope2_bonus_damage_for_range"		"%BONUS DAMAGE:"
 
+		// 变体精灵 潮涨潮落
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2"						"Ebb and Flow"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_Description"			"Morphling receives bonus cast range and slow resistance based on his current Strength, and attack range and movement speed based on his current Agility. These bonuses persist if he is morphed into another hero."
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_attack_range_per_agi"	"%AGILITY TO ATTACK RANGE:"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_move_speed_per_agi"	"%AGILITY TO MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_cast_range_per_str"	"%STRENGTH TO CAST RANGE:"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_slow_resist_per_str"	"%STRENGTH TO SLOW RESISTANCE:"
+
+		// 光之守卫 光明速度
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2"					"Bright Speed"
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_Description"	"Keeper of the Light gains <span class=\"GameplayVariable\">1</span> movement speed for every %intelligence_per_speed% Intelligence.<br><br>Whenever Keeper of the Light moves %movement_per_vision% distance, he leaves behind light that allows him to see %vision_radius% range for %vision_duration% seconds."
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_current_speed"	"MOVEMENT SPEED:"
+
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"Attacks apply a debuff that deals %tick_attack_damage_pct%%% of the initial attack damage every %tick_rate%s for %total_ticks%s."

@@ -255,6 +255,7 @@ export const abilityTiersPassive: Tier[] = [
       // 自定义技能
       'dragon_knight_dragon_blood2', // 龙骑 龙族血统
       'primal_beast_colossal2', // 獸 庞
+      'morphling_ebb_and_flow2', // 变体精灵 潮涨潮落
       'silencer_brain_drain2', // 沉默术士 默默受苦
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'centaur_sturdy', // 人马 不屈
@@ -314,6 +315,7 @@ export const abilityTiersPassive: Tier[] = [
 
       // 自定义技能
       'sniper_keen_scope2', // 狙击手 基恩瞄准镜
+      'keeper_of_the_light_bright_speed2', // 光之守卫 光明速度
       'ursa_maul2', // 拍拍 暴烈之爪 +攻击
       'axe_one_man_army2', // 斧王 一人成军
       'dark_seer_quick_wit2', // 才思敏捷

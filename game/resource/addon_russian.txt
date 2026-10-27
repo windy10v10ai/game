@@ -1003,6 +1003,17 @@
 		//天生一对
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Атаки Джакиро запускают удар с каждой головы, но каждый наносит меньше урона."
+		// 变体精灵 潮涨潮落
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2"						"Ebb and Flow"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_Description"			"Герой получает бонусы к дальности применения заклинаний и сопротивлению замедлениям, зависящие от текущей силы, и бонусы к дальности атаки и скорости передвижения, зависящие от текущей ловкости. Эти бонусы сохраняются, даже если превратиться в другого героя."
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_attack_range_per_agi"	"%ДАЛЬНОСТЬ АТАКИ ОТ ЛОВКОСТИ:"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_move_speed_per_agi"	"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ОТ ЛОВКОСТИ:"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_cast_range_per_str"	"%ДАЛЬНОСТЬ ПРИМЕНЕНИЯ ЗАКЛИНАНИЙ ОТ СИЛЫ:"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_slow_resist_per_str"	"%СОПРОТИВЛЕНИЕ ЗАМЕДЛЕНИЯМ ОТ СИЛЫ:"
+		// 光之守卫 光明速度
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2"					"Bright Speed"
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_Description"	"Каждые %intelligence_per_speed% ед. интеллекта увеличивают скорость передвижения героя на <span class=\"GameplayVariable\">1</span>.<br><br>Каждые %movement_per_vision% единиц пройденного расстояния герой оставляет за собой свет, дающий ему обзор в радиусе %vision_radius% на %vision_duration% сек."
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_current_speed"	"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"Атаки героя накладывают эффект, который раз в %tick_rate% сек. наносит %tick_attack_damage_pct%%% урона от его атаки. Длительность: %total_ticks% сек."
