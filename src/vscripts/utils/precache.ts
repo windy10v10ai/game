@@ -23,12 +23,14 @@ export default function Precache(context: CScriptPrecacheContext) {
     context,
   );
   // 需要预载入的kv文件，会自动解析KV文件中的所有vpcf资源等等
+  // 不扫 npc_abilities_custom.txt：其中英雄技能由引擎在选定英雄时按 precache 块加载，
+  // 全部提前加载会让同时加载的资源数超过引擎上限而崩溃
   precacheEveryResourceInKV(
     [
       // kv文件路径
       'scripts/npc/npc_items_custom.txt',
-      'scripts/npc/npc_abilities_custom.txt',
       'scripts/npc/npc_abilities_custom_lottery.txt',
+      'scripts/npc/npc_abilities_custom_awaken.txt',
     ],
     context,
   );
