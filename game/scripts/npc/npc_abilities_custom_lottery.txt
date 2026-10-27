@@ -421,11 +421,6 @@
 		"AbilityTextureName"			"keeper_of_the_light_bright_speed"
 		"MaxLevel"						"1"
 
-		"precache"
-		{
-			"particle"					"particles/units/heroes/hero_keeper_of_the_light/keeper_light_speed.vpcf"
-		}
-
 		"AbilityValues"
 		{
 			"intelligence_per_speed"		"3.0"
