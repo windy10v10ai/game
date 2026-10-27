@@ -256,6 +256,7 @@ export const abilityTiersPassive: Tier[] = [
       'dragon_knight_dragon_blood2', // 龙骑 龙族血统
       'primal_beast_colossal2', // 獸 庞
       'silencer_brain_drain2', // 沉默术士 默默受苦
+      'morphling_ebb_and_flow2', // 变体精灵 潮涨潮落
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'centaur_sturdy', // 人马 不屈
       'ancient_apparition_frost_orb', // 冰霜法球
@@ -318,6 +319,7 @@ export const abilityTiersPassive: Tier[] = [
       'axe_one_man_army2', // 斧王 一人成军
       'dark_seer_quick_wit2', // 才思敏捷
       'rubick_might_and_magus2', // 拉比克 力量与魔法
+      'keeper_of_the_light_bright_speed2', // 光之守卫 光明速度
     ],
   },
   {

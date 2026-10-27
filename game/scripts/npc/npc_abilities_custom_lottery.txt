@@ -374,6 +374,63 @@
 			"damage_pct"					"20"			// 5 (+0.5/level)
 		}
 	}
+	// 变体精灵 潮涨潮落
+	"morphling_ebb_and_flow2"
+	{
+		"BaseClass"						"morphling_ebb_and_flow"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"morphling_ebb_and_flow"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"swell_up_duration"				"1.5"
+			"swell_down_duration"			"1.0"
+			"swell_duration"
+			{
+				"value"						"5.2"
+				"hero_levelup"				"+0.3"
+			}
+			"max_swell_duration"
+			{
+				"value"						"2.7"
+				"hero_levelup"				"+0.3"
+			}
+			"model_scale"					"40"
+			"stats_pct"
+			{
+				"value"						"25"
+			}
+			"attack_range_per_agi"			"25"
+			"move_speed_per_agi"			"15"
+			"cast_range_per_str"			"25"
+			"slow_resist_per_str"			"25"
+			"model_scale_min"				"0"
+			"model_scale_max"				"20"
+		}
+	}
+	// 光之守卫 光明速度
+	"keeper_of_the_light_bright_speed2"
+	{
+		"BaseClass"						"keeper_of_the_light_bright_speed"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"keeper_of_the_light_bright_speed"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"intelligence_per_speed"		"3.0"
+			"movement_per_vision"			"300"
+			"vision_radius"					"400"
+			"vision_duration"				"3.0"
+			"current_speed"
+			{
+				"dynamic_value"				"true"
+			}
+		}
+	}
 
 //=================================================================================================================
 // 普通升级 技能

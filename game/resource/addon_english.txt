@@ -1337,6 +1337,20 @@
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"Fountain Sanction"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"Unable to attack, use items, active abilities, or passive abilities. Health and mana cannot be restored. Movement speed is forcibly restricted, and buffs are forcibly dispelled."
 
+		// 变体精灵 潮涨潮落
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2"											"Ebb and Flow"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_Description"								"Morphling receives bonus cast range and slow resistance based on his current Strength, and attack range and movement speed based on his current Agility. These bonuses persist if he is morphed into another hero."
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_Note0"									"Attack range bonuses during morph only apply when morphed into a Ranged hero."
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_attack_range_per_agi"						"%AGILITY TO ATTACK RANGE:"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_move_speed_per_agi"						"%AGILITY TO MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_cast_range_per_str"						"%STRENGTH TO CAST RANGE:"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_slow_resist_per_str"						"%STRENGTH TO SLOW RESISTANCE:"
+
+		// 光之守卫 光明速度
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2"						"Bright Speed"
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_Description"			"Keeper of the Light gains <span class=\"GameplayVariable\">1</span> movement speed for every %intelligence_per_speed% Intelligence.<br><br>Whenever Keeper of the Light moves %movement_per_vision% distance, he leaves behind light that allows him to see %vision_radius% range for %vision_duration% seconds."
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_current_speed"					"MOVEMENT SPEED:"
+
 		///////////////////////////////////////////////////
 		//
 		// 					Awaken Abilities 觉醒技能
