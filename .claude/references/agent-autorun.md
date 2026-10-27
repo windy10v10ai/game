@@ -46,7 +46,7 @@
 - **设计文档**：`docs/superpowers/specs/<YYYY-MM-DD>-<主题>-design.md`
 ```
 
-设计文档按 `.claude/references/doc-writing.md`「设计 spec」写，并且包含上面执行说明的全部七项。`docs/superpowers/` 已 gitignore，只存在于主目录：`issue-autorun` 只能在这台电脑上跑，worktree 里的子代理要用主目录的绝对路径去读。
+设计文档按 `.claude/references/doc-writing.md`「设计 spec」写，并且包含上面执行说明的全部七项。`docs/superpowers/` 已 gitignore，只存在于主目录：`issue-autorun` 只能在这台电脑的主目录上跑。
 
 ## 适合交给 agent 的 issue
 
