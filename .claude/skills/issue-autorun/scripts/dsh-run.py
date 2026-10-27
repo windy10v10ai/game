@@ -18,7 +18,7 @@ DSH = os.path.join(
 )
 REPO = r'C:\Users\windy\Documents\GitHub\windy10v10ai'
 STALL_SECONDS = 30 * 60
-MAX_SECONDS = 3 * 60 * 60
+MAX_SECONDS = 2 * 60 * 60
 
 
 def summarize(events_path):

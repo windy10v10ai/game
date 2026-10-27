@@ -12,7 +12,7 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
 
 - 工作目录默认是主目录，权限 `danger-full-access`
 - 脚本结束时打印一行摘要（`session=… minutes=… tools=… tokens_in=… tokens_out=… stop=…`）和 DeepSeek 的最终回复；完整事件流在 `<log>.jsonl`，只在要查细节时用短脚本提取，不整份读
-- 退出码：0 完成，1 DSH 报错，2 卡死（30 分钟没有新事件），3 超时（3 小时）；2 / 3 已由脚本停掉 DeepSeek
+- 退出码：0 完成，1 DSH 报错，2 卡死（30 分钟没有新事件），3 超时（2 小时）；2 / 3 已由脚本停掉 DeepSeek
 - 退回修改、继续卡住的活都加 `--session-id <摘要里的 session>` 接着原会话，交接只写要改的几条
 - 报 `already owned by an active write handle`：用户在 DSH 桌面版打开了这个会话。不另开会话，写进汇报，等用户关掉桌面版后再接
 
