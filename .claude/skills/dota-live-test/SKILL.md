@@ -39,7 +39,7 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 验被动属性、主动效果、状态何时上何时掉、对单位和建筑的伤害时，不点界面：启动时带远程控制台端口（第 3 步），之后用 `npm run dota:cmd` 发 `-give` 发物品、`-cast` 代码施法、`-watch` 监视变化，直接读命令返回的日志。备用施法（Ctrl）代码触发不了，要用 computer-use 真实按键。命令清单与标准流程 → `references/remote-commands.md`。
 
-只有说明文字排版、真实键鼠手感这类必须看画面的，才用 computer-use 截图。
+只有说明文字排版、真实键鼠手感这类必须看画面的，才截图。只要画面、不需要点击时，用引擎的 `screenshot` 命令截图，不用 computer-use，也不要用 PowerShell 截屏：切前台、截图、转 PNG、收起技能抽选面板、同一局反复截结算面板 → `references/screenshots.md`。要点击、按键时才用 computer-use。
 
 加载或选队画面需要截图时，先在 `GameConfig` 的工具/调试分支临时延长 `SetCustomGameSetupAutoLaunchDelay`，编译并重新载入后取图。截图结束后恢复源码与本地编译产物，临时等待时间不提交。
 
