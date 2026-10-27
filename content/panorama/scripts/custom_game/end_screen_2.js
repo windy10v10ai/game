@@ -327,7 +327,6 @@ function OnEndingStatus(value) {
   }
   $('#GameEndingStatusText').text = $.Localize('#ending_status_' + value.status);
   $('#CloseButton').enabled = value.status !== 1;
-  $.Msg(`[tmp-settle] status=${value.status} closeEnabled=${$('#CloseButton').enabled}`);
 }
 
 function OnGameResult(_table, key, value) {

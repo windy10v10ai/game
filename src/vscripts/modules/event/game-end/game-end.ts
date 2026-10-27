@@ -78,7 +78,13 @@ export class GameEnd {
     if (this.settled) return;
     this.settled = true;
     CustomNetTables.SetTableValue('ending_status', 'ending_status', { status: recorded ? 2 : 3 });
+    // 引擎同时只跑几个 HTTP 请求，统计先发会把结算的重发挤到队尾
+    const sendStats = this.pendingStats;
+    this.pendingStats = undefined;
+    sendStats?.();
   }
+
+  private static pendingStats?: () => void;
 
   public static OnGameEnd(winnerTeamId: DotaTeam, onSettled?: () => void): void {
     if (this.gameEndTriggered) {
@@ -90,19 +96,20 @@ export class GameEnd {
     // build game end dto
     const gameEndDto = this.BuildGameEndDto(winnerTeamId);
 
+    this.pendingStats = () => {
+      try {
+        HeroItemUsage.Finish(gameEndDto);
+      } catch (error) {
+        print(`[HeroItemUsage] failed: ${error}`);
+      }
+      this.SendAnalyticsEvent(gameEndDto);
+    };
     // send game end dto
     Game.EndGame(gameEndDto, (recorded) => {
       this.MarkSettled(recorded);
       onSettled?.();
     });
-    try {
-      HeroItemUsage.Finish(gameEndDto);
-    } catch (error) {
-      print(`[HeroItemUsage] failed: ${error}`);
-    }
     CustomNetTables.SetTableValue('ending_status', 'ending_data', { winner_team_id: winnerTeamId });
-
-    this.SendAnalyticsEvent(gameEndDto);
   }
 
   private static BuildGameEndDto(winnerTeamId: DotaTeam): GameEndDto {
