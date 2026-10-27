@@ -109,9 +109,12 @@
 								<Label id="OfflineHintLabel" text="#end_screen_offline_hint" />
 							</Panel>
 						</Panel>
+						<Panel id="SettleStatus">
+							<Panel id="SettleStatusDot" />
+							<Label id="GameEndingStatusText" text="" />
+						</Panel>
 						<TextButton id="CloseButton" class="ButtonBevel" onactivate="FinishGame()" text="#dota_safe_leave_game" />
 					</Panel>
-					<Label id="GameEndingStatusText" text="" />
 				</Panel>
 			</Panel>
 			<Panel id="TeamsContainer" />

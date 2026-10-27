@@ -325,6 +325,9 @@ function OnEndingStatus(value) {
   if (!value?.status) {
     return;
   }
+  const statusPanel = $('#SettleStatus');
+  statusPanel.SetHasClass('Settling', value.status === 1);
+  statusPanel.SetHasClass('Settled', value.status === 2);
   $('#GameEndingStatusText').text = $.Localize('#ending_status_' + value.status);
   $('#CloseButton').enabled = value.status !== 1;
 }
@@ -385,7 +388,10 @@ function OnGameResult(_table, key, value) {
   $('#EndScreenWindow').visible = false;
   // 离线模式在开局时就已确定，结算时读一次即可
   const loading = CustomNetTables.GetTableValue('loading_status', 'loading_status');
-  $('#OfflineHint').visible = loading != null && loading.status === LOADING_STATUS_OFFLINE;
+  const offline = loading != null && loading.status === LOADING_STATUS_OFFLINE;
+  $('#OfflineHint').visible = offline;
+  // 离线局本来就不记账，离线提示已经说明，再显示结算状态是重复
+  $('#SettleStatus').visible = !offline;
   CustomNetTables.SubscribeNetTableListener('ending_status', OnGameResult);
   OnGameResult(null, 'ending_data', CustomNetTables.GetTableValue('ending_status', 'ending_data'));
   OnEndingStatus(CustomNetTables.GetTableValue('ending_status', 'ending_status'));

@@ -171,9 +171,9 @@
 		"conduct_point_heavy_penalty_tooltip"	"Conduct <font color='#E87D7D'>{0}</font> penalty, points ×0.5"
 
 		"end_screen_offline_hint"		"Offline mode. Points and stats from this game were not recorded."
-		"ending_status_1"			"Settling the game, please wait."
-		"ending_status_2"			"Results recorded."
-		"ending_status_3"			"No settlement response. Points from this game may not have been recorded."
+		"ending_status_1"			"Settling…"
+		"ending_status_2"			"Settlement complete"
+		"ending_status_3"			"Settlement submitted"
 
 		///////////////////////////////////////////////////
 		//
