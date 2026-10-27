@@ -1,5 +1,6 @@
 import { registerAbilitySpecs } from '../../ai/ability/specs';
 import { reloadable } from '../../utils/tstl-utils';
+import { EventPlayerDisconnect } from '../event/event-player-disconnect';
 import { GameEnd } from '../event/game-end/game-end';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
@@ -253,7 +254,11 @@ export class Debug {
     if (cmd === CMD.END) {
       GameEnd.gameEndTriggered = false;
       GameEnd.settled = false;
-      GameEnd.OnGameEnd(2);
+      GameEnd.OnGameEnd(args[0] === '3' ? DotaTeam.BADGUYS : DotaTeam.GOODGUYS);
+    }
+
+    if (cmd === CMD.DISCONNECT) {
+      EventPlayerDisconnect.Simulate(keys.playerid, Number(args[0] ?? 0));
     }
 
     if (cmd === CMD.TREASURE) {

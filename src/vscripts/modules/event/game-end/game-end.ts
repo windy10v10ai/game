@@ -14,6 +14,7 @@ import { GameConfig } from '../../GameConfig';
 import { LagTelemetry } from '../../lag-telemetry/lag-telemetry';
 import { NetTableHelper } from '../../helper/net-table-helper';
 import { PlayerHelper } from '../../helper/player-helper';
+import { EventPlayerDisconnect } from '../event-player-disconnect';
 import { GameEndPoint } from './game-end-point';
 
 const FORT_MIN_HEALTH_MODIFIER = 'modifier_fort_min_health';
@@ -133,11 +134,8 @@ export class GameEnd {
     );
 
     PlayerHelper.ForEachPlayer((playerId) => {
-      const player = PlayerResource.GetPlayer(playerId);
-      if (!player) {
-        return;
-      }
-      const hero = player.GetAssignedHero();
+      // 掉线玩家取不到 player 对象，英雄仍在，从英雄取才能让他们也进结算
+      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
       if (!hero) {
         return;
       }
@@ -156,7 +154,7 @@ export class GameEnd {
         steamId: PlayerResource.GetSteamAccountID(playerId),
         playerId: playerId,
         teamId: PlayerResource.GetTeam(playerId),
-        isDisconnected: PlayerResource.GetConnectionState(playerId) !== ConnectionState.CONNECTED,
+        isDisconnected: EventPlayerDisconnect.IsEscaped(playerId),
         level: PlayerResource.GetLevel(playerId),
         totalGoldEarned,
         kills: PlayerResource.GetKills(playerId),
@@ -308,7 +306,10 @@ export class GameEnd {
       return 0;
     }
     const teamKills = PlayerResource.GetTeamKills(player.teamId);
-    const timeMultiplier = GameEndPoint.GetParticipationRateMultiplier(player, teamKills);
+    // 逃跑只算数据分，不给时间分
+    const timeMultiplier = player.isDisconnected
+      ? 0
+      : GameEndPoint.GetParticipationRateMultiplier(player, teamKills);
     const gameTimePoints = GameEndPoint.GetGameTimePoints(dotaTime) * timeMultiplier;
     const basePoints = player.score + gameTimePoints;
     const points = basePoints * difficultyMultiplier;
