@@ -15,7 +15,7 @@ disable-model-invocation: true
 | 调度员（主会话） | 排顺序、检查主目录、派活、判定、改标签、汇报 |
 | DeepSeek（DSH headless） | 同一个会话里一口气做完：切分支、实现、验收、开草稿 PR、实机验证、把证据写进 PR |
 | Sonnet 子代理 | 每个 PR 审一次 |
-| haiku 子代理 | 只补要截图、点界面的实机验证项 |
+| 用户 | 回来后补要悬停、点击的实机验证项（computer-use 授权只有用户本人能点） |
 
 调用脚本、交接模板与已知陷阱见 `references/dsh-handoff.md`。`dsh.cmd` 不存在或调用报错修不好时，退回用 Agent 工具派 sonnet 子代理在主目录执行，交接用同一份模板。
 
@@ -86,9 +86,9 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 3. 用 `scripts/dsh-run.py` 后台调用（Bash 工具 `run_in_background: true`），结束或卡死时会收到通知
 4. 读脚本打印的摘要：会话 ID、用时、token、最终回复。没开 PR 的，按回报判断属于「卡住时怎么办」哪一行
 
-DeepSeek 结束时主目录停在 PR 分支上、工作区干净。要截图的项（回报里标「需要截图」）此时按 `dota-live-test` 派一个 haiku 子代理补验。
+DeepSeek 结束时主目录停在 PR 分支上、工作区干净。只看画面的项它已用引擎 `screenshot` 截好；调度员自己打开截图核对，不只信转述。要悬停、点击的项（回报里标「需要人工」）记进「等你处理」。
 
-完成条件：该 issue 有 DeepSeek 的回报；截图项已补验或记进「等你处理」。
+完成条件：该 issue 有 DeepSeek 的回报；截图已核对，要人工的项已记进「等你处理」。
 
 ## 4. 审一次
 

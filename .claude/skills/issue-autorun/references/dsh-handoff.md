@@ -52,7 +52,7 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
    - 「等你处理」：「请确认」「待你决定」「发现」三组，每条 checkbox 写清文件与步骤；都空写「无」
    - Release Note 按执行说明：「不写」删占位段，「要写」保留并在 Checklist 加 `- [ ] Release Note 待生成（要点：…）`
    - 末行 `🤖 Implemented by DeepSeek V4.1 Flash via DSH, dispatched by Claude Code`
-5. 实机验证：按 `dota-live-test` 的命令行方式（`npm run perf`、`npm run dota:cmd`、`-run` 临时 Lua、grep 落盘日志）逐项验 Checklist。要截图或点界面才能判断的项跳过，标「需要截图」。验完用 `gh pr edit` 在 PR 正文加「实机验证结果」一节，每项写命令、日志关键行、读到的数字、通过 / 不通过 / 无法判断，并勾选通过的 Checklist 项。结果和预期不符时不修代码，停下回报。临时 Lua 脚本验完删掉，不提交
+5. 实机验证：按 `dota-live-test` 的命令行方式（`npm run perf`、`npm run dota:cmd`、`-run` 临时 Lua、grep 落盘日志）逐项验 Checklist。只看画面的项按 `dota-live-test/references/screenshots.md` 用引擎 `screenshot` 截图，图按 `create-pr/references/screenshots.md` 放进 PR；要悬停、点击才能判断的项跳过，标「需要人工」。截图里的红色 X 是特效资源没加载，不是效果没生效。验完用 `gh pr edit` 在 PR 正文加「实机验证结果」一节，每项写命令、日志关键行、读到的数字、通过 / 不通过 / 无法判断，并勾选通过的 Checklist 项。结果和预期不符时不修代码，停下回报。临时 Lua 脚本验完删掉，不提交
 6. 结束时停在 PR 分支，`git status --porcelain` 为空
 7. 最终回复：PR 链接、分支、每条验收命令的结果、测试视角、实机验证每项结论、「等你处理」各条；停下回报时写清试过什么、日志原文、推测原因
 ```
@@ -73,3 +73,8 @@ python -I .claude/skills/issue-autorun/scripts/dsh-sessions.py archive <调用�
 - **日志里的 exit code**：`tool_result` 的 `status: completed` 只表示命令跑完，成败看结果末尾的 `[exit code: N]` 或命令自己打印的 `EXIT=`
 - **后台命令的输出被截断**：DeepSeek 把 `npm test` 这类长命令放后台、再用 `job_output` 取结果时，日志里只留输出开头，看不到通过数。测试结果以 CI 为准
 - **PowerShell 脚本跑不了**：本机执行策略不允许未签名脚本，调用脚本因此用 Python 写
+- **会话绑定创建时的工作目录**：`--session-id` 续接时工作目录必须和创建时相同，否则报 `session was recorded in <路径>`
+- **桌面版打开过的会话被锁**：用户在 DSH 桌面版点开过某个会话，桌面版退出前 headless 续接都会报 `already owned by an active write handle`
+- **本地 `npm test` 扫到别的 worktree**：jest 会扫进 `.agents/worktrees/` 下其他 PR 的代码，那里的失败与本分支无关，以 CI 为准
+- **Git Bash 改写路径**：`git show <分支>:<路径>` 要加 `MSYS_NO_PATHCONV=1`，否则输出为空
+- **换英雄后特效显示红色 X**：克隆原版技能装到别的英雄上时，原版只随本英雄预加载的特效不会加载。要在抽选 KV 的技能块加 `precache`，特效路径在原版 KV 里查不到时，到 `game/dota/pak01_dir.vpk` 的目录里按名字找
