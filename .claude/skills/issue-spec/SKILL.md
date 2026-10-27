@@ -5,7 +5,7 @@ description: 和用户一起给某个 issue 定 spec，写成执行说明交给 
 
 # issue-spec
 
-用户在场时，和用户把一个 issue 的做法谈定，写成 issue 正文里的 `## 执行说明` 并打 `agent-todo`，留给 `issue-autorun` 在用户不在时自动做。只定到 spec 为止，不写实现计划、不改代码。标签与执行说明格式见 `.claude/references/agent-autorun.md`，开始前先读。
+用户在场时，和用户把一个 issue 的做法谈定，写成 issue 正文里的 `## 执行说明`（复杂的写设计文档，issue 里只指过去）并打 `agent-todo`，留给 `issue-autorun` 在用户不在时自动做。只定到 spec 为止，不写实现计划、不改代码。标签与执行说明格式见 `.claude/references/agent-autorun.md`，开始前先读。
 
 ## 1. 读懂 issue
 
@@ -31,14 +31,18 @@ description: 和用户一起给某个 issue 定 spec，写成执行说明交给 
 
 ## 3. 写入 issue
 
-按 `agent-autorun.md` 的格式写出执行说明，整段贴给用户确认。用户确认后写进 issue 正文末尾（已有 `## 执行说明` 时整段替换），再打标签：
+按 `agent-autorun.md` 的格式写出执行说明，整段贴给用户确认。
+
+执行说明写不进一屏、要讲数据流或跨多层改动时，改写设计文档：按 `.claude/references/doc-writing.md`「设计 spec」写到 `docs/superpowers/specs/<YYYY-MM-DD>-<主题>-design.md`，文档里包含执行说明的全部七项；issue 的执行说明只留指向它的一行（格式见 `agent-autorun.md`「复杂 issue」）。设计文档同样先给用户确认。
+
+用户确认后写进 issue 正文末尾（已有 `## 执行说明` 时整段替换），再打标签：
 
 ```bash
 gh issue edit <n> -R windy10v10ai/game --body-file <文件>
 gh issue edit <n> -R windy10v10ai/game --add-label agent-todo
 ```
 
-完成条件：issue 正文末尾是用户确认过的执行说明，带 `agent-todo` 标签。
+完成条件：issue 正文末尾是用户确认过的执行说明（或指向用户确认过的设计文档），带 `agent-todo` 标签。
 
 ## 处理 agent 留下的问题
 
