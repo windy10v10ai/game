@@ -7,8 +7,6 @@ import { base64UrlEncode } from '../utils/base64url';
 const GAME_END_LOCAL_PATH = '/game/end/local';
 const PROXY_GAME_END_LOCAL_PATH = '/proxy/game-end-local-post';
 const MAX_ATTEMPTS = 3;
-// 超时的那次可能还在后端处理，隔一会儿再发，让冷却先记上、挡住重复结算
-const RETRY_DELAY_SECONDS = 5;
 // 后端明确拒收的请求原样重发结果不变
 const NON_RETRYABLE_REASONS = ['bad_request', 'unauthorized', 'not_found', 'too_long'];
 // 逐人重试已经用尽，外层若再整体重发会让次数相乘
@@ -72,15 +70,17 @@ export class GameEndProxy {
     };
 
     for (const request of requests) {
-      GameEndProxy.sendOne(target, request, 1, onOneDone);
+      GameEndProxy.sendOne(target, request, 1, apiParameter.timeoutSeconds, onOneDone);
     }
   }
 
-  // 结算是累加写入，重试安全靠后端按玩家的冷却：已记上的那次会让重发被拒而不是重复加分
+  // 结算是累加写入，重试安全靠后端按玩家的冷却：已记上的那次会让重发被拒而不是重复加分。
+  // 超时取得比后端处理时长宽裕，超时回来时前一次已记上，所以失败后立即重发
   private static sendOne(
     target: ApiTarget,
     request: GameEndPlayerRequest,
     attempt: number,
+    timeoutSeconds: number | undefined,
     onDone: (ok: boolean) => void,
   ): void {
     const steamId = request.players[0].steamId;
@@ -101,10 +101,9 @@ export class GameEndProxy {
           onDone(false);
           return;
         }
-        Timers.CreateTimer(RETRY_DELAY_SECONDS, () => {
-          GameEndProxy.sendOne(target, request, attempt + 1, onDone);
-        });
+        GameEndProxy.sendOne(target, request, attempt + 1, timeoutSeconds, onDone);
       },
+      timeoutSeconds,
     );
   }
 
