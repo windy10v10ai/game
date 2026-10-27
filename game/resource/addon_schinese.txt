@@ -1342,7 +1342,7 @@
 
 		// 光之守卫 光明速度
 		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2"						"光明速度"
-		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_Description"			"光之守卫每%intelligence_per_speed%点智力都会获得<span class=\"GameplayVariable\">1</span>移动速度。"
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_Description"			"光之守卫每%intelligence_per_speed%点智力都会获得<span class=\"GameplayVariable\">1</span>移动速度。<br><br>只要光之守卫移动%movement_per_vision%距离，他就会留下一道光，可以看到%vision_radius%范围，持续%vision_duration%秒。"
 		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_current_speed"			"移动速度："
 
 		///////////////////////////////////////////////////

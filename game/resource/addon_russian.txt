@@ -1045,7 +1045,7 @@
 
 		// 光之守卫 光明速度
 		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2"						"Bright Speed"
-		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_Description"			"Каждые %intelligence_per_speed% ед. интеллекта увеличивают скорость передвижения героя на <span class=\"GameplayVariable\">1</span>."
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_Description"			"Каждые %intelligence_per_speed% ед. интеллекта увеличивают скорость передвижения героя на <span class=\"GameplayVariable\">1</span>.<br><br>Каждые %movement_per_vision% единиц пройденного расстояния герой оставляет за собой свет, дающий ему обзор в радиусе %vision_radius% на %vision_duration% сек."
 		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_current_speed"			"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
 
 		///////////////////////////////////////////////////

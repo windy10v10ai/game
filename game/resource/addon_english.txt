@@ -1348,7 +1348,7 @@
 
 		// 光之守卫 光明速度
 		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2"						"Bright Speed"
-		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_Description"			"Keeper of the Light gains <span class=\"GameplayVariable\">1</span> movement speed for every %intelligence_per_speed% Intelligence."
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_Description"			"Keeper of the Light gains <span class=\"GameplayVariable\">1</span> movement speed for every %intelligence_per_speed% Intelligence.<br><br>Whenever Keeper of the Light moves %movement_per_vision% distance, he leaves behind light that allows him to see %vision_radius% range for %vision_duration% seconds."
 		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_current_speed"			"MOVEMENT SPEED:"
 
 		///////////////////////////////////////////////////
