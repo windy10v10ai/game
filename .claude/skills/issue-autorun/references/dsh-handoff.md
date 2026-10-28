@@ -52,7 +52,7 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
    - 影响玩家的数值、档位、等级用表格列出
    - 「测试视角」一节：上面第 2 步的对照
    - Checklist：执行说明「实机验证」的每一项
-   - 「等你处理」：「请确认」「待你决定」「发现」三组，每条 checkbox 写清文件与步骤；都空写「无」
+   - 「等你处理」：「请确认」「待你决定」「发现」三组，每条 checkbox 写清文件与步骤；都空写「无」。执行说明已定的事、与本 issue 无关的工具问题、测试过程细节不写
    - Release Note 按执行说明：「不写」删占位段，「要写」保留并在 Checklist 加 `- [ ] Release Note 待生成（要点：…）`
    - 末行 `🤖 Implemented by DeepSeek V4.1 Flash via DSH, dispatched by Claude Code`
 5. 实机验证：按执行说明标的层级做，方法见 `dota-live-test`（命令行起游戏、`-run` 临时 Lua、grep 落盘日志；截图见 `references/screenshots.md`）

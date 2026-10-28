@@ -7,7 +7,7 @@
 | 标签 | 谁打 | 含义 |
 |---|---|---|
 | `agent-todo` | `issue-spec`，用户确认后 | spec 已拍板，等 agent 自动做 |
-| `agent-done` | `issue-autorun` | 已开草稿 PR，等用户审；PR 里的「等你处理」列出跳过和按默认做的地方 |
+| `agent-done` | `issue-autorun` | 已开草稿 PR，等用户审；PR 里的「等你处理」只列用户本人要看或拍板的事 |
 | `agent-block` | `issue-autorun` | 整条 issue 一点都做不了，原因写在 issue 留言里 |
 
 一个 issue 同时只带其中一个。用户处理完 `agent-block` 的留言、补好执行说明后换回 `agent-todo`。
