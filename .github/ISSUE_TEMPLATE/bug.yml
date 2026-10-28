@@ -1,56 +1,46 @@
-name: BUG 报告 / Bug report
-description: 游戏里出了问题 / Something in the game is not working
+name: 修复 BUG（我打算自己实现）/ Fix a bug (I will implement it)
+description: 我已经定位到代码，打算自己修复 / I located the cause in the code and plan to fix it myself
 type: Bug
 body:
   - type: markdown
     attributes:
       value: |
-        感谢反馈！请先搜索[已有的 Issue](https://github.com/windy10v10ai/game/issues)，避免重复。标题写清现象，例如「某英雄的 X 技能不触发」。
-        请不要在这里贴密钥、Token 或个人信息。
+        **如果你是玩家，只是想报告问题，请到[反馈页面](https://windy10v10ai.com/feedback)，不需要懂代码。** 这里只给打算自己写代码修复的人。
+        If you are a player who just wants to report a problem, please use the [feedback page](https://windy10v10ai.com/feedback). This form is for people who will write the fix themselves.
+
+        请先搜索[已有的 Issue](https://github.com/windy10v10ai/game/issues)，并等维护者回复同意后再动手。请不要贴密钥、Token 或个人信息。
   - type: textarea
     id: what
     attributes:
-      label: 发生了什么 / What happened
-      description: 实际看到的现象 / What you actually saw
+      label: 现象和复现步骤 / What happens and how to reproduce
+      description: 实际现象、期望的表现，以及从干净状态到出问题的最短步骤 / The actual and expected behavior, and the shortest steps to reproduce
     validations:
       required: true
   - type: textarea
-    id: expected
+    id: cause
     attributes:
-      label: 期望的表现 / What you expected
+      label: 原因和涉及的代码 / Cause and the code involved
+      description: 已定位到的文件、函数或模块，以及你的判断 / The files, functions or modules you found, and your analysis
     validations:
       required: true
   - type: textarea
-    id: steps
+    id: fix
     attributes:
-      label: 复现步骤 / Steps to reproduce
-      description: 从进入游戏到出问题的最短步骤；必现还是偶发 / The shortest steps; always or sometimes
-      placeholder: |
-        1. 选择英雄……
-        2. 购买物品……
-        3. ……
+      label: 打算怎么修 / How you plan to fix it
+      description: 大致做法；会不会影响其他行为 / The rough approach, and whether it can affect other behavior
     validations:
       required: true
-  - type: input
-    id: version
-    attributes:
-      label: 游戏版本 / Game version
-      description: 创意工坊页面或游戏内显示的版本号 / Version shown on the Workshop page or in game
-      placeholder: v5.00a
-  - type: input
-    id: context
-    attributes:
-      label: 英雄、难度、模式 / Hero, difficulty, mode
-      description: 可选 / Optional
   - type: textarea
-    id: evidence
+    id: verify
     attributes:
-      label: 截图、录屏或日志 / Screenshots, recordings or logs
-      description: 可以直接拖拽到这里 / Drag files in here
+      label: 怎么验证 / How you will verify it
+      description: 测试用例或手动验证步骤 / Test cases or manual steps
   - type: checkboxes
     id: checks
     attributes:
       label: 提交前确认 / Before you submit
       options:
+        - label: 我打算自己实现，并会等维护者同意后再动手 / I will implement it myself and wait for the maintainer to agree first
+          required: true
         - label: 我搜索过已有的 Issue，没有重复 / I searched existing issues and found no duplicate
           required: true

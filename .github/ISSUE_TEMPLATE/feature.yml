@@ -1,46 +1,52 @@
-name: 功能建议 / Feature request
-description: 想要新功能，或想调整玩法和平衡 / A new feature, or a gameplay or balance change
+name: 实现功能（我打算自己实现）/ Implement a feature (I will implement it)
+description: 我有具体的代码方案，打算自己实现 / I have a concrete code plan and will implement it myself
 type: Feature
 body:
   - type: markdown
     attributes:
       value: |
-        感谢建议！功能和玩法类改动原则上由维护者自己实现，所以请先在这里说明想法，**不要先写代码**。没有事先达成一致就提交的功能 PR 可能会被关闭。
+        **如果你是玩家，只是有想法或建议，请到[反馈页面](https://windy10v10ai.com/feedback)，不需要懂代码。** 这里只给打算自己写代码实现的人。
+        If you are a player with an idea or suggestion, please use the [feedback page](https://windy10v10ai.com/feedback). This form is for people who will write the code themselves.
+
+        功能类改动原则上由维护者自己实现，**请先在这里说明方案，等维护者同意后再动手**。没有事先达成一致就提交的功能 PR 可能会被关闭。
         请先搜索[已有的 Issue](https://github.com/windy10v10ai/game/issues)。
   - type: textarea
     id: problem
     attributes:
       label: 想解决什么问题 / What problem does this solve
-      description: 现在哪里不好用、不好玩或不平衡 / What is missing, not fun or unbalanced today
     validations:
       required: true
   - type: textarea
-    id: idea
+    id: plan
     attributes:
-      label: 建议的做法 / What you suggest
-      description: 希望变成什么样；涉及数值的写出具体数字和理由 / What it should become; give numbers and reasons for balance changes
+      label: 实现方案 / Your implementation plan
+      description: 大致做法：用原版 KV / modifier / 新写代码；要改的数值写出具体数字和理由 / The rough approach, and the exact numbers and reasons for any balance change
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 改动范围 / Scope of the change
+      description: 涉及哪些文件或模块；明确不做什么 / The files or modules involved, and what you will not change
+    validations:
+      required: true
+  - type: textarea
+    id: player-impact
+    attributes:
+      label: 玩家能看到的变化 / What players will notice
+      description: 没有的话写「无」；涉及数值请写出具体数字和理由 / Write "none" if nothing; give numbers and reasons for balance changes
     validations:
       required: true
   - type: textarea
     id: alternatives
     attributes:
       label: 其他考虑过的做法 / Alternatives (optional)
-  - type: dropdown
-    id: implement
-    attributes:
-      label: 谁来实现 / Who will implement it
-      options:
-        - 只提建议，请维护者决定 / Suggestion only, up to the maintainer
-        - 我想自己实现（先讨论，同意后再动手）/ I want to implement it (discuss first)
-      default: 0
-    validations:
-      required: true
   - type: checkboxes
     id: checks
     attributes:
       label: 提交前确认 / Before you submit
       options:
-        - label: 我搜索过已有的 Issue，没有重复 / I searched existing issues and found no duplicate
+        - label: 我打算自己实现，并会等维护者同意后再动手 / I will implement it myself and wait for the maintainer to agree first
           required: true
-        - label: 我了解功能类改动原则上由维护者实现 / I understand features are implemented by the maintainer by default
+        - label: 我搜索过已有的 Issue，没有重复 / I searched existing issues and found no duplicate
           required: true
