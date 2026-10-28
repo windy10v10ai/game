@@ -35,3 +35,7 @@ CustomNetTables:SetTableValue("ending_status", "ending_data", { winner_team_id =
 ```
 
 本地后端有 5 分钟结算冷却，同一玩家连续结算前删掉模拟器里的限额文档：`curl -X DELETE -H "Authorization: Bearer owner" "http://localhost:8080/v1/projects/windy10v10ai/databases/(default)/documents/LocalRateLimits/<steamId>"`。只清冷却、要保留当日扣分记录时，改成只删该文档的 `lastRequestAt` 字段。
+
+## 判读
+
+画面里技能特效位置出现红色 X，是特效资源没加载（多见于克隆技能装到别的英雄），不是效果没触发。
