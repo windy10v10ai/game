@@ -75,10 +75,10 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 
 先输出计划表：
 
-| 序号 | issue（链接 + 标题） | Status / Priority | 设计文档 | 实机验证（各层项数） |
+| 序号 | issue（链接 + 标题） | 级别 | Status / Priority | 设计文档 | 实机验证（各层项数） |
 |---|---|---|---|---|
 
-再用一次 `AskUserQuestion`（`multiSelect: true`）请用户选这批跑哪些。`AskUserQuestion` 的框会挡住它前面的文字，判断要用的信息写进选项的 `description`（Status / Priority、改动范围大小、有没有截图或用户判定项）：
+再用一次 `AskUserQuestion`（`multiSelect: true`）请用户选这批跑哪些。`AskUserQuestion` 的框会挡住它前面的文字，判断要用的信息写进选项的 `description`（级别、Status / Priority、改动范围大小、有没有截图或用户判定项）：
 
 - 不超过 4 条：每条 issue 一个选项，按序号排，默认推荐全部
 - 超过 4 条：选项为「全部按顺序」（推荐）、「前 3 条」；要挑别的让用户在 Other 里写编号

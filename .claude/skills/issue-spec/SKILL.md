@@ -11,7 +11,7 @@ description: 和用户一起给某个 issue 定 spec，写成执行说明交给 
 
 读 issue 正文、评论、关联的 issue / PR，再读相关代码，读到能说清「现在是什么样、要改成什么样」为止。
 
-判断是否适合交给 agent（标准见 `agent-autorun.md`「适合交给 agent 的 issue」）。不适合时告诉用户原因，建议改由用户在场时做，结束。
+判断是否适合交给 agent（标准见 `agent-autorun.md`「适合交给 agent 的 issue」）。不适合时告诉用户原因，打 `L4-investigate`，建议用户在场时在 Claude Desktop 用 Opus 做，结束。
 
 完成条件：能用一两句话复述目标，并已判断适合交给 agent。
 
@@ -39,10 +39,10 @@ description: 和用户一起给某个 issue 定 spec，写成执行说明交给 
 
 ```bash
 gh issue edit <n> -R windy10v10ai/game --body-file <文件>
-gh issue edit <n> -R windy10v10ai/game --add-label agent-todo
+gh issue edit <n> -R windy10v10ai/game --add-label agent-todo --add-label <L1-code|L2-script|L3-visual>
 ```
 
-完成条件：issue 正文末尾是用户确认过的执行说明（或指向用户确认过的设计文档），带 `agent-todo` 标签。
+完成条件：issue 正文末尾是用户确认过的执行说明（或指向用户确认过的设计文档），带 `agent-todo` 与一个级别标签（判据见 `agent-autorun.md`「级别标签」）。
 
 ## 处理 agent 留下的问题
 
