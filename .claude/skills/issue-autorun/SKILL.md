@@ -149,6 +149,8 @@ gh issue edit <id> -R windy10v10ai/game --remove-label agent-todo --add-label ag
 gh issue comment <id> -R windy10v10ai/game --body "已开草稿 PR：<链接>。等你处理 N 项，见 PR 正文。"
 ```
 
+执行说明 Release Note「要写」的，调用 `release-note` skill（来源：该 PR；写回：仅写入功能 PR），要点以执行说明为准，不另拟。
+
 整条做不了的改打 `agent-block`，留言写明卡在哪、缺什么。
 
 按 `references/dsh-handoff.md`「会话归档与分组」把本轮的 DSH 会话归进仓库的工作区，调用失败或作废的归档。

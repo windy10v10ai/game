@@ -53,7 +53,7 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
    - 「测试视角」一节：上面第 2 步的对照
    - Checklist：执行说明「实机验证」的每一项
    - 「等你处理」：「请确认」「待你决定」「发现」三组，每条 checkbox 写清文件与步骤；都空写「无」。执行说明已定的事、与本 issue 无关的工具问题、测试过程细节不写
-   - Release Note 按执行说明：「不写」删占位段，「要写」保留并在 Checklist 加 `- [ ] Release Note 待生成（要点：…）`
+   - Release Note 按执行说明：「不写」删占位段；「要写」把执行说明里的要点原文贴进该段，不改写、不自拟，正式文案由调度员收尾时生成
    - 末行 `🤖 Implemented by DeepSeek V4.1 Flash via DSH, dispatched by Claude Code`
 5. 实机验证：按执行说明标的层级做，方法见 `dota-live-test`（命令行起游戏、`-run` 临时 Lua、grep 落盘日志；截图见 `references/screenshots.md`）
    - **脚本判定**：临时 Lua 每项打印 `[check] PASS|FAIL <名字> actual=<值> expected=<值>`，预期值照执行说明抄，不自己改。脚本放 `game/scripts/vscripts/checks/<名字>.lua`，用 `npm run dota:check -- <名字>` 跑，退出码 0 才算通过（写法见 `dota-live-test`「脚本判定」）

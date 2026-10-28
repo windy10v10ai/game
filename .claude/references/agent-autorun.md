@@ -38,7 +38,7 @@
 - **不做**：明确排除的相关改动
 - **验收**：必须通过的命令（默认 `npm test`、`npm run lint`、`npm run build:vscripts`；改 Panorama 加 `npm run build:panorama`），以及要补的 jest 用例，每个用例写明输入与预期
 - **实机验证**：需要 / 不需要；需要时逐项标层级（见下文「实机验证分三层」）并写到可判定
-- **Release Note**：不写 / 要写（附一句中文要点）
+- **Release Note**：不写 / 要写，附用户确认过的中文要点原文（面向玩家的一句话，`issue-spec` 时给用户看草稿定稿）
 ```
 
 目标拆成几条互不依赖的小项，agent 卡在其中一条时才能跳过它继续做别的。
