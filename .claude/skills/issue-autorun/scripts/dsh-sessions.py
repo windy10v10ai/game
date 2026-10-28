@@ -1,8 +1,10 @@
-"""File DSH headless sessions into the claude-dispatch workspace, or archive them.
+"""File DSH headless sessions into the repository's workspace, or archive them.
 
 DSH groups sessions by explicit id lists in storages/workspace.json, so headless runs
-land in "ungrouped" unless listed. The desktop app rewrites this file from memory,
-so edits are refused while it is running.
+land in "ungrouped" unless listed. Two workspaces sharing one path make the desktop app
+drop the whole workspace list, so sessions go into the workspace that already owns the
+repository path. The desktop app rewrites this file from memory, so edits are refused
+while it is running.
 
 Usage:
   python -I dsh-sessions.py file <session-id>...
@@ -18,7 +20,6 @@ import uuid
 from datetime import datetime, timezone
 
 STORE = os.path.join(os.path.expanduser('~'), '.dsh', 'storages', 'workspace.json')
-WORKSPACE_TITLE = 'claude-dispatch'
 WORKSPACE_PATH = r'C:\Users\windy\Documents\GitHub\windy10v10ai'
 
 
@@ -38,10 +39,11 @@ def now():
 def dispatch_workspace(store):
     workspaces = store['tables']['workspaces']
     for wid, ws in workspaces.items():
-        if ws.get('title') == WORKSPACE_TITLE:
+        if os.path.normcase(ws.get('path', '')) == os.path.normcase(WORKSPACE_PATH):
             return ws
     wid = str(uuid.uuid4())
-    ws = {'path': WORKSPACE_PATH, 'title': WORKSPACE_TITLE, 'sessionIds': [], 'createdAt': now(), 'updatedAt': now()}
+    title = os.path.basename(WORKSPACE_PATH)
+    ws = {'path': WORKSPACE_PATH, 'title': title, 'sessionIds': [], 'createdAt': now(), 'updatedAt': now()}
     workspaces[wid] = ws
     store['global']['workspaceIds'].append(wid)
     return ws

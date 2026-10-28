@@ -73,7 +73,7 @@ python -I .claude/skills/issue-autorun/scripts/dsh-sessions.py file <开了 PR �
 python -I .claude/skills/issue-autorun/scripts/dsh-sessions.py archive <调用失败或作废的会话 ID>...
 ```
 
-`file` 放进 `claude-dispatch` 工作区（不存在时自动建）。DSH 桌面版运行时脚本拒绝执行：它会用内存状态覆盖这个文件。被拒时把待整理的 ID 写进汇报，等用户关掉 DSH 后再跑。
+`file` 放进目录为仓库主目录的现有工作区（DSH 里的 `windy10v10ai`）。不另建同目录的工作区：两个工作区目录相同时，桌面版整个工作区列表都不显示。DSH 桌面版运行时脚本拒绝执行：它会用内存状态覆盖这个文件。被拒时把待整理的 ID 写进汇报，等用户关掉 DSH 后再跑。
 
 ## 已知陷阱
 

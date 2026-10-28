@@ -147,7 +147,7 @@ gh issue comment <id> -R windy10v10ai/game --body "已开草稿 PR：<链接>。
 
 整条做不了的改打 `agent-block`，留言写明卡在哪、缺什么。
 
-按 `references/dsh-handoff.md`「会话归档与分组」把本轮的 DSH 会话归进 `claude-dispatch` 工作区，调用失败或作废的归档。
+按 `references/dsh-handoff.md`「会话归档与分组」把本轮的 DSH 会话归进仓库的工作区，调用失败或作废的归档。
 
 完成条件：每个领过的 issue 都是 `agent-done` 或 `agent-block`，主目录在 `develop` 且干净。
 
