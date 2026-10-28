@@ -22,3 +22,33 @@ export function base64UrlEncode(input: string): string {
   }
   return parts.join('');
 }
+
+/**
+ * 按字节还原 base64UrlEncode 的输出。
+ * 字母表以外的字符与长度除以 4 余 1 的输入都无法还原，返回 undefined 与空串区分开。
+ */
+export function base64UrlDecode(input: string): string | undefined {
+  if (input.length % 4 === 1) return undefined;
+
+  const values: number[] = [];
+  for (let i = 0; i < input.length; i++) {
+    const value = ALPHABET.indexOf(input.charAt(i));
+    if (value < 0) return undefined;
+    values.push(value);
+  }
+
+  const parts: string[] = [];
+  for (let i = 0; i < values.length; i += 4) {
+    const remaining = values.length - i;
+    const n =
+      values[i] * 262144 +
+      (remaining > 1 ? values[i + 1] : 0) * 4096 +
+      (remaining > 2 ? values[i + 2] : 0) * 64 +
+      (remaining > 3 ? values[i + 3] : 0);
+
+    parts.push(String.fromCharCode(Math.floor(n / 65536)));
+    if (remaining > 2) parts.push(String.fromCharCode(Math.floor(n / 256) % 256));
+    if (remaining > 3) parts.push(String.fromCharCode(n % 256));
+  }
+  return parts.join('');
+}
