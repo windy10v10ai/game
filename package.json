@@ -9,6 +9,7 @@
     "postinstall": "patch-package && node src/scripts/install.js",
     "launch": "node src/scripts/launch.js",
     "dota:cmd": "node src/scripts/dota-cmd.js",
+    "dota:check": "node src/scripts/dota-check.js",
     "perf": "node src/scripts/perf.js",
     "bot-anomaly": "node src/scripts/bot-anomaly.js",
     "skills:link": "node src/scripts/link-agent-skills.js",

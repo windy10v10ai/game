@@ -31,6 +31,8 @@ game/scripts/vscripts/lualib_bundle.lua
 game/scripts/vscripts/addon_game_mode.lua
 game/scripts/vscripts/perf_auto_config.lua
 game/scripts/vscripts/debug_launch_config.lua
+# 实机检查的临时脚本（npm run dota:check）
+game/scripts/vscripts/checks/
 game/scripts/vscripts/ai/
 game/scripts/vscripts/api/
 game/scripts/vscripts/items/ts_items
