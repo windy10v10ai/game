@@ -63,7 +63,7 @@ Claude Code 直接读 `.claude/skills`；Codex 与 DSH 读仓库下的 `.agents/
 | 任务 | skill |
 |---|---|
 | 发布到创意工坊 | `deploy` |
-| 用户不在时按优先级派 DSH 的 DeepSeek 并行做带 `agent-todo` 的 issue | `issue-autorun` |
+| 用户不在时按优先级在主目录依次派 DSH 的 DeepSeek 做带 `agent-todo` 的 issue | `issue-autorun` |
 | 审查 PR | `review-pr` |
 | 加载界面 FAQ | `faq` |
 | 蝴蝶效应 / 多重施法黑名单 | `ability-blacklist` |
