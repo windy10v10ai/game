@@ -57,3 +57,5 @@ game/scripts/kv/
 
 # skill 链接（npm run skills:link 生成，不进版本控制）
 /.agents/
+# Python 缓存
+__pycache__/
