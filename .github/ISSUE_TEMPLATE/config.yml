@@ -1,11 +1,5 @@
 blank_issues_enabled: true
 contact_links:
-  - name: "玩家反馈：报告问题或提出建议 / Players: report a problem or suggest an idea"
+  - name: 玩家反馈 / Player feedback
     url: https://windy10v10ai.com/feedback
-    about: "玩家理解级别的问题和建议请到这里提交，不需要懂代码也不需要 GitHub 账号 / For players, no code knowledge or GitHub account needed"
-  - name: "开发问题 / Development questions"
-    url: https://github.com/windy10v10ai/game/discussions
-    about: "关于项目开发的问题 / Questions about developing the project"
-  - name: "QQ 群 / Discord"
-    url: https://discord.com/invite/MfawtDpxks
-    about: "实时交流 / Chat with the community"
+    about: 遇到问题或有想法，请在这里提交，不需要懂代码，也不需要 GitHub 账号 / Found a problem or have an idea? Submit it here. No code or GitHub account needed.
