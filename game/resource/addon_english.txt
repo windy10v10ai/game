@@ -1045,7 +1045,7 @@
 
 		// 狙击手 基恩瞄准镜
 		"DOTA_Tooltip_ability_sniper_keen_scope2"								"Keen Scope"
-		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"Sniper's attacks deal bonus damage for every %bonus_damage_distance% units of distance Sniper is from the target."
+		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"Every %bonus_damage_distance% distance between you and the target adds one stack of bonus attack damage."
 		"DOTA_Tooltip_ability_sniper_keen_scope2_bonus_damage_for_range"		"%BONUS DAMAGE:"
 
 		//闷烧树脂

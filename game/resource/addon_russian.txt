@@ -1003,6 +1003,11 @@
 		//天生一对
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Атаки Джакиро запускают удар с каждой головы, но каждый наносит меньше урона."
+		// 狙击手 基恩瞄准镜
+		"DOTA_Tooltip_ability_sniper_keen_scope2"								"Keen Scope"
+		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"Каждые %bonus_damage_distance% единиц расстояния до цели добавляют атаке ещё одну порцию дополнительного урона."
+		"DOTA_Tooltip_ability_sniper_keen_scope2_bonus_damage_for_range"		"%ДОПОЛНИТЕЛЬНЫЙ УРОН:"
+
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"Атаки героя накладывают эффект, который раз в %tick_rate% сек. наносит %tick_attack_damage_pct%%% урона от его атаки. Длительность: %total_ticks% сек."
