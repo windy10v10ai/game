@@ -43,6 +43,45 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 加载或选队画面需要截图时，先在 `GameConfig` 的工具/调试分支临时延长 `SetCustomGameSetupAutoLaunchDelay`，编译并重新载入后取图。截图结束后恢复源码与本地编译产物，临时等待时间不提交。
 
+## 脚本判定：一条命令跑完一次检查
+
+数值、状态这类能用代码判对错的验证，写成检查脚本交给 `npm run dota:check`，由退出码给结论，不靠人读日志或看图：
+
+```bash
+npm run dota:check -- axe_ms --hero axe
+```
+
+命令依次做：起 Dota Tools 自动载入地图 → 等日志出现 `S:Gamerules: entering state 'DOTA_GAMERULES_STATE_GAME_IN_PROGRESS'` → 发 `say -run checks.<名字>` → 收集 `[check]` 行 → 关掉 Dota。
+
+| 退出码 | 含义 |
+|---|---|
+| `0` | 看到 `[check] DONE`，至少一项 PASS，没有 FAIL |
+| `1` | 有 FAIL、脚本加载报错（`run checks.<名字> failed`）、超时、没看到 DONE，或一项检查都没跑 |
+| `2` | 没能开跑：Dota 已在运行、脚本不存在、不在 Dota 加载的 checkout 里跑、启动或发命令出错 |
+
+最后一行固定是 `[check] RESULT PASS|FAIL pass=<n> fail=<n> (原因)`。
+
+检查脚本写在 `game/scripts/vscripts/checks/<名字>.lua`（整个目录已 gitignore，临时脚本不提交），用 `modules/debug/check.ts` 编译出的辅助判定：
+
+```lua
+local check = require("modules.debug.check")
+local hero = PlayerResource:GetSelectedHeroEntity(0)
+local ms0 = hero:GetIdealSpeed()
+hero:SetBaseMoveSpeed(hero:GetBaseMoveSpeed() + 50)
+-- 属性与移速要下一帧才重算，读数前等一下
+Timers:CreateTimer(0.5, function()
+  check.expect("move_speed_delta", hero:GetIdealSpeed() - ms0, 50, 1)
+  check.done()
+end)
+```
+
+- `check.expect(名字, 实际值, 预期值, 容差)` 打印 `[check] PASS|FAIL <名字> actual=<值> expected=<值>`，容差只对数值生效，默认 0；`check.done()` 打印 `[check] DONE`，必须在所有检查之后调用，异步检查放在最后一个回调里
+- 参数：`--hero <英雄名>` 开局选定英雄（同 `npm run launch -- --hero`）；`--timeout <秒>` 默认 300，本机从启动到开局约 70 秒；`--keep-open` 结束后不关 Dota，便于接着用 `dota:cmd` 排查
+- **只在主目录跑**：Dota 只加载主目录的 `game/`，命令发现自己不在那份 checkout 里就拒绝运行。worktree 里的改动先合到主目录当前分支，或把主目录切过去，跑前 `npm run build:vscripts`
+- **Dota 已开着就拒绝运行**，不会关掉用户正在用的 Dota；超时或出错时会关掉自己起的那个
+- 检查脚本运行时报错（定时器回调里出错）不会立即结束，命令会打印 `Script Runtime Error` 行并等到超时判失败
+- 跑完 Dota Tools 可能重新编译 `game/` 下的资源（如 `.vsndevts_c`），`git status` 出现无关改动时用 `git checkout -- <文件>` 还原
+
 ## 派子代理跑
 
 下面的步骤是照本宣科的固定流程，判断日志算不算通过则要改动的上下文。分工：子代理跑流程并回报观察，主会话做判断。
