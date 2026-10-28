@@ -31,7 +31,7 @@ description: 和用户一起给某个 issue 定 spec，写成执行说明交给 
 
 ## 3. 写入 issue
 
-按 `agent-autorun.md` 的格式写出执行说明。给用户确认时不贴全文，只列三组重点：用户拍板的、按默认做的（附「不同意就说」）、实机验证要读什么；全文写进 issue 后给链接。
+按 `agent-autorun.md` 的格式写出执行说明，实机验证逐项标层级（「实机验证分三层」）：能脚本判定的写出预期值，截图判定的写出正确画面，剩下的才归用户。给用户确认时不贴全文，只列三组重点：用户拍板的、按默认做的（附「不同意就说」）、实机验证要读什么；全文写进 issue 后给链接。
 
 执行说明写不进一屏、要讲数据流或跨多层改动时，改写设计文档：按 `.claude/references/doc-writing.md`「设计 spec」写到 `docs/superpowers/specs/<YYYY-MM-DD>-<主题>-design.md`，文档里包含执行说明的全部七项；issue 的执行说明只留指向它的一行（格式见 `agent-autorun.md`「复杂 issue」）。设计文档同样先给用户确认。
 

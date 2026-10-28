@@ -35,7 +35,7 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
 - 不跑 `npm install` / `npm ci`
 - 只改「改动范围」里的文件；执行说明以外的需求不做，记进「发现」
 - 机械性失败（lint、编译、格式、拼写）自己修，同一失败最多三轮
-- 测试逻辑失败、实机结果和预期不符、达不到预期状态时停下回报，不自己降低标准：不改测试迁就代码、不删失败用例、不把没达成写成完成
+- 检查不过（jest 失败、实机 `[check] FAIL`、日志不对）时可以改自己的实现重跑，最多三轮；不许改执行说明、jest 断言和检查脚本里的预期值，不许删用例，不许把没达成写成完成。三轮仍不过就停下回报
 - 有合理默认做法（项目规则、相邻代码惯例、原版行为）的按默认做，记为「请确认」；没有默认、只影响局部的跳过，记为「待你决定」
 - PowerShell 的 `>` 写出的是 UTF-16，要给其他工具读的文件用 `Out-File -Encoding utf8` 或 `git show ... | Set-Content -Encoding utf8`
 - 后台跑的长命令，等取到结果末尾再写数字；没亲眼看到的结果不写进 PR
@@ -52,7 +52,11 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
    - 「等你处理」：「请确认」「待你决定」「发现」三组，每条 checkbox 写清文件与步骤；都空写「无」
    - Release Note 按执行说明：「不写」删占位段，「要写」保留并在 Checklist 加 `- [ ] Release Note 待生成（要点：…）`
    - 末行 `🤖 Implemented by DeepSeek V4.1 Flash via DSH, dispatched by Claude Code`
-5. 实机验证：按 `dota-live-test` 的命令行方式（`npm run perf`、`npm run dota:cmd`、`-run` 临时 Lua、grep 落盘日志）逐项验 Checklist。只看画面的项按 `dota-live-test/references/screenshots.md` 用引擎 `screenshot` 截图，图按 `create-pr/references/screenshots.md` 放进 PR；要悬停、点击才能判断的项跳过，标「需要人工」。截图里的红色 X 是特效资源没加载，不是效果没生效。验完用 `gh pr edit` 在 PR 正文加「实机验证结果」一节，每项写命令、日志关键行、读到的数字、通过 / 不通过 / 无法判断，并勾选通过的 Checklist 项。结果和预期不符时不修代码，停下回报。临时 Lua 脚本验完删掉，不提交
+5. 实机验证：按执行说明标的层级做，方法见 `dota-live-test`（命令行起游戏、`-run` 临时 Lua、grep 落盘日志；截图见 `references/screenshots.md`）
+   - **脚本判定**：临时 Lua 每项打印 `[check] PASS|FAIL <名字> actual=<值> expected=<值>`，预期值照执行说明抄，不自己改
+   - **截图判定**：照执行说明截图，要悬停或点击的先用 `dota-front.ps1` 切前台再用 Python 移鼠标、点击后截图；图按 `create-pr/references/screenshots.md` 放进 PR。只交图和截图时的状态，不写「通过 / 失效」，也不据截图改代码或文案
+   - **用户判定**：不做，列进「等你处理」
+   - 验完用 `gh pr edit` 在 PR 正文加「实机验证结果」一节：脚本判定项写命令与 `[check]` 行原文并勾选全过的 Checklist 项；截图项写截图链接与截图时的状态。临时 Lua 验完删掉，不提交
 6. 结束时停在 PR 分支，`git status --porcelain` 为空
 7. 最终回复：PR 链接、分支、每条验收命令的结果、测试视角、实机验证每项结论、「等你处理」各条；停下回报时写清试过什么、日志原文、推测原因
 ```
