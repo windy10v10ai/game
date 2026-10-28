@@ -46,14 +46,14 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
 
 1. 跑执行说明「验收」里的命令，`git diff --name-only origin/develop...HEAD` 只含改动范围内的文件
 2. 列测试视角：每条「目标」对应哪个 jest 用例或实机验证项，覆盖了哪些边界；缺的补上或写明为什么不补
-3. 单行英文 commit，正文只写 `Co-Authored-By: DeepSeek V4.1 Flash <noreply@deepseek.com>`；`git push -u origin HEAD`，以 `git ls-remote origin <分支>` 与本地 HEAD 一致为准（PowerShell 会把 git 的提示当错误）
+3. 单行英文 commit，不写正文，不加 `Co-Authored-By`（DeepSeek 没有 GitHub 账号，署名会显示成无效作者）；`git push -u origin HEAD`，以 `git ls-remote origin <分支>` 与本地 HEAD 一致为准（PowerShell 会把 git 的提示当错误）
 4. 按 `create-pr` 的格式开草稿 PR（`gh pr create --draft --base develop -R windy10v10ai/game`），另加：
    - Issue 段：目标全部完成写 `Fixes #<id>`，有跳过写 `#<id>`
    - 影响玩家的数值、档位、等级用表格列出
    - 「测试视角」一节：上面第 2 步的对照
    - Checklist：执行说明「实机验证」的每一项
-   - 「等你处理」：「请确认」「待你决定」「发现」三组，每条 checkbox 写清文件与步骤；都空写「无」
-   - Release Note 按执行说明：「不写」删占位段，「要写」保留并在 Checklist 加 `- [ ] Release Note 待生成（要点：…）`
+   - 「等你处理」：「请确认」「待你决定」「发现」三组，每条 checkbox 写清文件与步骤；都空写「无」。执行说明已定的事、与本 issue 无关的工具问题、测试过程细节不写
+   - Release Note 按执行说明：「不写」删占位段；「要写」把执行说明里的要点原文贴进该段，不改写、不自拟，正式文案由调度员收尾时生成
    - 末行 `🤖 Implemented by DeepSeek V4.1 Flash via DSH, dispatched by Claude Code`
 5. 实机验证：按执行说明标的层级做，方法见 `dota-live-test`（命令行起游戏、`-run` 临时 Lua、grep 落盘日志；截图见 `references/screenshots.md`）
    - **脚本判定**：临时 Lua 每项打印 `[check] PASS|FAIL <名字> actual=<值> expected=<值>`，预期值照执行说明抄，不自己改。脚本放 `game/scripts/vscripts/checks/<名字>.lua`，用 `npm run dota:check -- <名字>` 跑，退出码 0 才算通过（写法见 `dota-live-test`「脚本判定」）
