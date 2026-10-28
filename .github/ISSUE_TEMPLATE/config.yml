@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 提问或讨论 / Questions and ideas
+    url: https://github.com/windy10v10ai/game/discussions
+    about: 还不确定是不是 BUG，或者想法还不成熟，先在这里聊 / Not sure it is a bug, or the idea is not ready yet
+  - name: QQ 群 / Discord
+    url: https://discord.com/invite/MfawtDpxks
+    about: 实时交流 / Chat with the community

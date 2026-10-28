@@ -1,0 +1,46 @@
+name: 功能建议 / Feature request
+description: 想要新功能，或想调整玩法和平衡 / A new feature, or a gameplay or balance change
+type: Feature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢建议！功能和玩法类改动原则上由维护者自己实现，所以请先在这里说明想法，**不要先写代码**。没有事先达成一致就提交的功能 PR 可能会被关闭。
+        请先搜索[已有的 Issue](https://github.com/windy10v10ai/game/issues)。
+  - type: textarea
+    id: problem
+    attributes:
+      label: 想解决什么问题 / What problem does this solve
+      description: 现在哪里不好用、不好玩或不平衡 / What is missing, not fun or unbalanced today
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: 建议的做法 / What you suggest
+      description: 希望变成什么样；涉及数值的写出具体数字和理由 / What it should become; give numbers and reasons for balance changes
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 其他考虑过的做法 / Alternatives (optional)
+  - type: dropdown
+    id: implement
+    attributes:
+      label: 谁来实现 / Who will implement it
+      options:
+        - 只提建议，请维护者决定 / Suggestion only, up to the maintainer
+        - 我想自己实现（先讨论，同意后再动手）/ I want to implement it (discuss first)
+      default: 0
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 提交前确认 / Before you submit
+      options:
+        - label: 我搜索过已有的 Issue，没有重复 / I searched existing issues and found no duplicate
+          required: true
+        - label: 我了解功能类改动原则上由维护者实现 / I understand features are implemented by the maintainer by default
+          required: true
