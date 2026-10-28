@@ -1,0 +1,46 @@
+name: 修复 BUG（我打算自己实现）/ Fix a bug (I will implement it)
+description: 我已经定位到代码，打算自己修复 / I located the cause in the code and plan to fix it myself
+type: Bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **如果你是玩家，只是想报告问题，请到[反馈页面](https://windy10v10ai.com/feedback)，不需要懂代码。** 这里只给打算自己写代码修复的人。
+        If you are a player who just wants to report a problem, please use the [feedback page](https://windy10v10ai.com/feedback). This form is for people who will write the fix themselves.
+
+        请先搜索[已有的 Issue](https://github.com/windy10v10ai/game/issues)，并等维护者回复同意后再动手。请不要贴密钥、Token 或个人信息。
+  - type: textarea
+    id: what
+    attributes:
+      label: 现象和复现步骤 / What happens and how to reproduce
+      description: 实际现象、期望的表现，以及从干净状态到出问题的最短步骤 / The actual and expected behavior, and the shortest steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: cause
+    attributes:
+      label: 原因和涉及的代码 / Cause and the code involved
+      description: 已定位到的文件、函数或模块，以及你的判断 / The files, functions or modules you found, and your analysis
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: 打算怎么修 / How you plan to fix it
+      description: 大致做法；会不会影响其他行为 / The rough approach, and whether it can affect other behavior
+    validations:
+      required: true
+  - type: textarea
+    id: verify
+    attributes:
+      label: 怎么验证 / How you will verify it
+      description: 测试用例或手动验证步骤 / Test cases or manual steps
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 提交前确认 / Before you submit
+      options:
+        - label: 我打算自己实现，并会等维护者同意后再动手 / I will implement it myself and wait for the maintainer to agree first
+          required: true
+        - label: 我搜索过已有的 Issue，没有重复 / I searched existing issues and found no duplicate
+          required: true
