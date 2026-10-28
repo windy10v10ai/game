@@ -1,6 +1,6 @@
 ---
 name: issue-autorun
-description: 用户不在时，按优先级在主目录依次派 DSH 的 DeepSeek 把带 agent-todo 标签的 issue 从实现做到实机验证，Sonnet 审一次、调度员判定，各开草稿 PR。
+description: 用户不在时，按优先级在主目录依次派 DSH 的 DeepSeek 把带 agent-todo 标签的 issue 从实现做到实机验证，调度员审查判定，各开草稿 PR。
 disable-model-invocation: true
 ---
 
@@ -12,18 +12,18 @@ disable-model-invocation: true
 
 | 角色 | 做什么 |
 |---|---|
-| 调度员（主会话） | 排顺序、检查主目录、派活、判定、改标签、汇报 |
+| 调度员（主会话） | 排顺序、请用户选 issue、检查主目录、派活、审查、看截图判定、改标签、汇报 |
 | DeepSeek（DSH headless） | 同一个会话里一口气做完：切分支、实现、验收、开草稿 PR、实机验证、把证据写进 PR。只做能机械判定的事，截图只交图不下结论 |
-| Sonnet 子代理 | 每个 PR 审一次 |
+| 审查子代理（sonnet） | 只在第 4 步的条件下替调度员审某一条 |
 | 用户 | 回来后测「用户判定」层的项（手感、动画） |
 
-每批在一个新对话里跑（用户新开对话后调用本 skill）：调度员每一步都要重读整段上下文，背着之前的讨论跑会成倍增加开销。
+每批在一个新对话里跑（用户新开对话、模型选 Sonnet 后调用本 skill）：调度员每一步都要重读整段上下文，背着之前的讨论跑会成倍增加开销。调度员要做的判断都被执行说明和本 skill 的规则框住，拿不准的记为「待你决定」，不靠更强的模型硬判。
 
 调用脚本、交接模板与已知陷阱见 `references/dsh-handoff.md`。`dsh.cmd` 不存在或调用报错修不好时，退回用 Agent 工具派 sonnet 子代理在主目录执行，交接用同一份模板。
 
 ## 硬规则
 
-- **不提问、不停下**：用户不在场，根 `CLAUDE.md`「Skill 交互」的 `AskUserQuestion` 不适用。拿不准的按「卡住时怎么办」处理，然后继续
+- **只在开工前问一次**：第 2 步请用户选 issue，之后用户不在场，根 `CLAUDE.md`「Skill 交互」的 `AskUserQuestion` 不适用。拿不准的按「卡住时怎么办」处理，然后继续
 - **只做有执行说明的 issue**：没有 `## 执行说明` 的不派，按「卡住时怎么办」第三行处理
 - **主目录只在干净时用**：开工前和每个 issue 之间检查 `git status --porcelain` 为空。不干净就停掉剩下的全部 issue，写进汇报，不动用户的文件
 - **不合并、不推 `develop` / `main`**，只开草稿 PR
@@ -73,12 +73,19 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 
 ## 2. 出计划
 
-开工前先输出计划表，然后**不等回复直接开始**（用户在场时可以随时打断）：
+先输出计划表：
 
-| 序号 | issue（链接 + 标题） | Status / Priority | 设计文档 | 实机验证 |
+| 序号 | issue（链接 + 标题） | Status / Priority | 设计文档 | 实机验证（各层项数） |
 |---|---|---|---|---|
 
-完成条件：计划表已输出。
+再用一次 `AskUserQuestion`（`multiSelect: true`）请用户选这批跑哪些。`AskUserQuestion` 的框会挡住它前面的文字，判断要用的信息写进选项的 `description`（Status / Priority、改动范围大小、有没有截图或用户判定项）：
+
+- 不超过 4 条：每条 issue 一个选项，按序号排，默认推荐全部
+- 超过 4 条：选项为「全部按顺序」（推荐）、「前 3 条」；要挑别的让用户在 Other 里写编号
+
+用户选完就开始，之后不再提问。
+
+完成条件：计划表已输出，用户已选定这批的 issue。
 
 ## 3. 派 DeepSeek 一口气做完
 
@@ -95,16 +102,22 @@ DeepSeek 结束时主目录停在 PR 分支上、工作区干净。「截图判�
 
 ## 4. 审一次
 
-派一个 Sonnet 子代理（`model: "sonnet"`、`run_in_background: true`）。交接只给证据，不让它从头调研：
+默认调度员自己审。下面任一条件成立时，这一条改派审查子代理（`model: "sonnet"`、`run_in_background: true`），避免 diff 和日志撑大调度员的上下文：
 
-- PR 编号、执行说明来源（issue 编号或设计文档路径）、DeepSeek 日志路径（`<log>.jsonl`）
+- `gh pr view <pr> -R windy10v10ai/game --json additions,deletions` 的增删合计超过 500 行
+- 本批选了超过 5 条 issue
+
+不由用户选：条件是机械的，调度员照判即可。派子代理时交接只给证据，不让它从头调研：PR 编号、执行说明来源（issue 编号或设计文档路径）、DeepSeek 日志路径（`<log>.jsonl`）。
+
+不论谁审，都按下面的范围：
+
 - 改动用 `gh pr diff <pr> -R windy10v10ai/game`，CI 用 `gh pr checks <pr> -R windy10v10ai/game`
 - 审查范围：
   - **测试视角**：每条目标都有 jest 用例或实机验证项对应，边界和易错处有覆盖；缺什么具体列出
   - **证据与结论一致**：PR 里每条「通过」「已完成」都有出处：CI 结果、日志里的命令与 exit code、实机日志原文与数字。后台命令的输出在日志里可能只剩开头，测试通过以 CI 为准；推送以远端 SHA 为准
   - **范围与降标**：只改了改动范围；没有改测试迁就代码、删用例；检查脚本与 jest 里的预期值和执行说明一致
   - **做法**：与执行说明的「做法」一致；只在可疑时才读原版文件或规则
-- 回报：结论 PASS / NEEDS-FIX / NEEDS-DECISION，逐条发现带 `file:line` 与严重度，400 字以内
+- 结论：PASS / NEEDS-FIX / NEEDS-DECISION，逐条发现带 `file:line` 与严重度；子代理回报限 400 字以内
 
 完成条件：该 PR 有审查结论。
 
@@ -139,5 +152,5 @@ gh issue comment <id> -R windy10v10ai/game --body "已开草稿 PR：<链接>。
 
 末尾附记账表，用来判断哪类 issue 值得外包、skill 该往哪改：
 
-| issue | 类型（KV / 本地化 / 逻辑 / UI…） | DeepSeek 用时 / token | Sonnet token | 退回轮数 | 退回原因 |
+| issue | 类型（KV / 本地化 / 逻辑 / UI…） | DeepSeek 用时 / token | 审查方式（调度员 / 子代理）与 token | 退回轮数 | 退回原因 |
 |---|---|---|---|---|---|issue 和 PR 编号都写成链接。用户回来按这份汇报用 `issue-spec` 逐个收拾。
