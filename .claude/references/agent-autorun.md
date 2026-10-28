@@ -72,6 +72,14 @@
 
 设计文档按 `.claude/references/doc-writing.md`「设计 spec」写，并且包含上面执行说明的全部七项。`docs/superpowers/` 已 gitignore，只存在于主目录：`issue-autorun` 只能在这台电脑的主目录上跑。
 
+## 从 L4 拆出测量子 issue
+
+L4 里能写成固定步骤的测量或验证（卡顿优化前后的 perf 基准、某机制的触发频率统计），拆成子 issue，按 L2 / L3 交给 agent 在用户不在时跑；排查的思路和要不要改仍留在父 issue，用户在场时定。
+
+- 子 issue 正文首行写 `父 issue：#<n>`，执行说明照常写全：「目标」写要拿到的数据；「改动范围」写「无（只用临时脚本）」；「实机验证」写测量步骤、局数、要带回的数字和格式
+- 交付不开 PR：结果写进子 issue 留言，并在父 issue 留言汇总一行。数据多、要表格或要和之前的测量对比时，写报告文件 `docs/superpowers/reports/<YYYY-MM-DD>-<主题>-report.md`（已 gitignore，只在本机），留言写结论摘要和文件路径
+- 测量只陈述数据和结论，不据此改代码
+
 ## 适合交给 agent 的 issue
 
 适合：本地化、KV 数值、文档、有 jest 兜底的 bot 规则与模块逻辑、方案已定的小功能；靠实机才能判断对错的，执行说明里写清实机验证步骤也可以交。

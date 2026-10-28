@@ -42,6 +42,8 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
 - 后台跑的长命令，等取到结果末尾再写数字；没亲眼看到的结果不写进 PR
 
 ## 交付
+执行说明「改动范围」写「无」的测量类 issue：不 commit、不开 PR，跳过下面第 1、3、4 步；第 5 步测完按执行说明把数据写进本 issue 留言、在正文首行的父 issue 留言汇总一行，数据多时写报告文件（格式见 `.claude/references/agent-autorun.md`「从 L4 拆出测量子 issue」）；第 6 步改为回到 `develop`；第 7 步回报留言链接与报告路径。
+
 1. 跑执行说明「验收」里的命令，`git diff --name-only origin/develop...HEAD` 只含改动范围内的文件
 2. 列测试视角：每条「目标」对应哪个 jest 用例或实机验证项，覆盖了哪些边界；缺的补上或写明为什么不补
 3. 单行英文 commit，正文只写 `Co-Authored-By: DeepSeek V4.1 Flash <noreply@deepseek.com>`；`git push -u origin HEAD`，以 `git ls-remote origin <分支>` 与本地 HEAD 一致为准（PowerShell 会把 git 的提示当错误）
