@@ -46,7 +46,7 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
 
 1. 跑执行说明「验收」里的命令，`git diff --name-only origin/develop...HEAD` 只含改动范围内的文件
 2. 列测试视角：每条「目标」对应哪个 jest 用例或实机验证项，覆盖了哪些边界；缺的补上或写明为什么不补
-3. 单行英文 commit，正文只写 `Co-Authored-By: DeepSeek V4.1 Flash <noreply@deepseek.com>`；`git push -u origin HEAD`，以 `git ls-remote origin <分支>` 与本地 HEAD 一致为准（PowerShell 会把 git 的提示当错误）
+3. 单行英文 commit，不写正文，不加 `Co-Authored-By`（DeepSeek 没有 GitHub 账号，署名会显示成无效作者）；`git push -u origin HEAD`，以 `git ls-remote origin <分支>` 与本地 HEAD 一致为准（PowerShell 会把 git 的提示当错误）
 4. 按 `create-pr` 的格式开草稿 PR（`gh pr create --draft --base develop -R windy10v10ai/game`），另加：
    - Issue 段：目标全部完成写 `Fixes #<id>`，有跳过写 `#<id>`
    - 影响玩家的数值、档位、等级用表格列出
