@@ -11,8 +11,10 @@ Usage:
 """
 
 import argparse
+import glob
 import json
 import os
+import re
 import subprocess
 import time
 
@@ -56,6 +58,32 @@ def summarize(events_path):
                 reason = e.get('reason') or {}
                 if reason.get('kind') == 'error':
                     info['error'] = (reason.get('error') or {}).get('message')
+    return info
+
+
+def claude_usage(cwd, since):
+    """Sum the Claude Code transcripts a Sonnet run wrote: the provider reports only partial usage."""
+    folder = os.path.join(os.path.expanduser('~'), '.claude', 'projects', re.sub(r'[^A-Za-z0-9]', '-', cwd))
+    info = {'tools': 0, 'tokens_in': 0, 'tokens_out': 0, 'cache_read': 0, 'cache_write': 0}
+    for path in glob.glob(os.path.join(folder, '*.jsonl')):
+        if os.path.getctime(path) < since:
+            continue
+        seen = set()
+        with open(path, encoding='utf-8', errors='replace') as f:
+            for line in f:
+                try:
+                    msg = json.loads(line).get('message') or {}
+                except ValueError:
+                    continue
+                usage = msg.get('usage')
+                if not usage or msg.get('id') in seen:
+                    continue
+                seen.add(msg.get('id'))
+                info['tools'] += sum(1 for c in msg.get('content') or [] if isinstance(c, dict) and c.get('type') == 'tool_use')
+                info['tokens_in'] += usage.get('input_tokens', 0)
+                info['tokens_out'] += usage.get('output_tokens', 0)
+                info['cache_read'] += usage.get('cache_read_input_tokens', 0)
+                info['cache_write'] += usage.get('cache_creation_input_tokens', 0)
     return info
 
 
@@ -106,6 +134,8 @@ def main():
                 break
 
     info = summarize(events)
+    if args.executor == 'sonnet':
+        info.update(claude_usage(args.cwd, start))
     minutes = round((time.time() - start) / 60, 1)
     print(
         f"session={info['session']} minutes={minutes} tools={info['tools']} "
