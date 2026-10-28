@@ -1047,7 +1047,7 @@
 
 		// 狙击手 基恩瞄准镜
 		"DOTA_Tooltip_ability_sniper_keen_scope2"								"基恩瞄准镜"
-		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"狙击手和目标相距每%bonus_damage_distance%距离，他的攻击都会造成额外伤害。"
+		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"与目标每相距%bonus_damage_distance%距离，攻击就多造成一份额外伤害。"
 		"DOTA_Tooltip_ability_sniper_keen_scope2_bonus_damage_for_range"		"%额外伤害："
 
 		//闷烧树脂
