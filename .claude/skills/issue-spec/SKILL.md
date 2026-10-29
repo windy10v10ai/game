@@ -7,6 +7,12 @@ description: 和用户一起给某个 issue 定 spec，写成执行说明交给 
 
 用户在场时，和用户把一个 issue 的做法谈定，写成 issue 正文里的 `## 执行说明`（复杂的写设计文档，issue 里只指过去）并打 `agent-todo`，留给 `issue-autorun` 在用户不在时自动做。只定到 spec 为止，不写实现计划、不改代码。标签与执行说明格式见 `.claude/references/agent-autorun.md`，开始前先读。
 
+## 0. 补齐 issue 字段
+
+只看当前这条 issue，缺哪项补哪项，已有的不动，不跑整批 triage。检查 Type、Priority、Effort、仓库标签、「开发计划」项目里的 Status；查询与设置命令、字段 ID 沿用 `issue-triage` 的「配置」表与第 4 步，不在本 skill 重复。缺项按 issue 内容给建议值，随第 2 步一并让用户确认后再设。
+
+完成条件：Type、Priority、Effort、标签、项目 Status 都有值。
+
 ## 1. 读懂 issue
 
 读 issue 正文、评论、关联的 issue / PR，再读相关代码，读到能说清「现在是什么样、要改成什么样」为止。
