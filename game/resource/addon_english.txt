@@ -1489,6 +1489,7 @@
 "DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_base_distance"					"BASE CAST RANGE:"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_shard_description"					"When Meat Hook hits an enemy, it deals bonus pure damage based on the hook distance."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%DISTANCE AS DAMAGE:"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Lore"						"No need to argue about it anymore."
 
 		// Juggernaut - Blade Fury Awakened
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>Blade Fury Awakened</font>"
@@ -1522,6 +1523,7 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_damage"		"% Max Health Damage per Second:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_reduction_pct"	"Healing Reduction:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_regen_to_damage"	"% Health Regen to Damage (Scepter):"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Lore"						"Heartstopper infection is finally curable."
 
 		// Skywrath Mage Staff of the Scion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>Staff of the Scion Awakened</font>"
@@ -1762,7 +1764,6 @@
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_slow_duration"				"<font color=\"#662375\">SLOW DURATION</font>:"
 
 		"DOTA_Tooltip_modifier_brewmaster_primal_split_lua_duration"					"Primal Split"
-		"DOTA_Tooltip_modifier_brewmaster_primal_split_lua_duration_Description"			"You are now awesome, with the power of four fighting styles!"
 
 		// 暗影萨满
 		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"+{s:bonus_bonus_damage}% Serpent Ward Attack Damage"
@@ -1857,6 +1858,7 @@
 		// 噬魂鬼 狂暴
 		"DOTA_Tooltip_ability_life_stealer_rage_status_resist"							"%STATUS RESISTANCE:"
 		"DOTA_Tooltip_ability_life_stealer_rage_bonus_armor"							"BONUS ARMOR:"
+		"DOTA_Tooltip_ability_faceless_void_time_zone_Description"					"In a flash of spacetime, a zone is created that alters the movement, attack, cast, projectile, and turn speeds of all units within. Allies gain movement speed and faster cooldowns. Enemies are slowed and their ability and item cooldowns are frozen. The debuff duration of Time Dilation does not decrease inside the Time Zone."
 
 		///////////////////////////////////////////////////
 		//
