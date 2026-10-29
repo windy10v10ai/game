@@ -39,7 +39,7 @@ description: 和用户一起给某个 issue 定 spec，写成执行说明交给 
 
 按 `agent-autorun.md` 的格式写出执行说明，实机验证逐项标层级（「实机验证分三层」）：能脚本判定的写出预期值，截图判定的写出正确画面，剩下的才归用户。给用户确认时不贴全文，只列三组重点：用户拍板的、按默认做的（附「不同意就说」）、实机验证要读什么；Release Note 要写时另附要点草稿原文，和用户对到定稿；全文写进 issue 后给链接。
 
-执行说明写不进一屏、要讲数据流或跨多层改动时，改写设计文档：按 `.claude/references/doc-writing.md`「设计 spec」先在 Claude artifact 里和用户谈，定稿后挂到 issue，文档里包含执行说明的全部七项；issue 的执行说明只留指向它的一行（格式见 `agent-autorun.md`「复杂 issue」）。
+执行说明写不进一屏、要讲数据流或跨多层改动时，改写设计文档：按 `.claude/references/doc-writing.md`「设计 spec」先在 artifact 里和用户谈，定稿后挂到 issue，文档里包含执行说明的全部七项；issue 的执行说明只留指向它的一行（格式见 `agent-autorun.md`「复杂 issue」）。
 
 要拆成几批时，每批开一个子 issue，按 `agent-autorun.md`「子 issue」挂到父 issue 下，各自写执行说明。
 
@@ -56,7 +56,7 @@ gh issue edit <n> -R windy10v10ai/game --add-label agent-todo --add-label <L1-co
 
 用户要收拾 `issue-autorun` 的结果时：
 
-- **`agent-done`**：读草稿 PR 正文的「等你处理」，逐条和用户过。「请确认」的确认或改掉；「待你决定」的谈定后直接在该 PR 分支上补改，或写进执行说明另起一轮
+- **`agent-done`**：读 PR 正文的「等你处理」，逐条和用户过。「请确认」的确认或改掉；「待你决定」的谈定后直接在该 PR 分支上补改，或写进执行说明另起一轮
 - **`agent-block`**：读 issue 下 agent 的留言，按第 2 步补齐缺的信息，更新执行说明后把标签换回 `agent-todo`
 
 ```bash

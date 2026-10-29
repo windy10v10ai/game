@@ -18,7 +18,7 @@ disable-model-invocation: true
 
 ## 自动模式
 
-`issue-autorun` 审子代理开的草稿 PR 时用。不问用户、不 checkout、不发 PR 评论、不写报告文件，跳过上面流程的第 3–5 步，结论交回调度员：
+`issue-impl` 第 8 步审草稿 PR 时用（含 `issue-autorun` 审执行者开的 PR）。不问用户、不 checkout、不发 PR 评论、不写报告文件，跳过上面流程的第 3–5 步，结论交回调度员：
 
 - **读什么**：只看 PR 本身——`gh pr view <pr> -R windy10v10ai/game --comments`（正文、「验证记录」评论、截图）、`gh pr diff`、`gh pr checks`；需求以关联 issue 的执行说明与「设计」artifact 为准
 - **审什么**：
