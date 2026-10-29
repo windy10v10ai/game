@@ -84,20 +84,6 @@ npm install
 | Claude Code | 直接读 `.claude/`（规则与 skill），开箱即用 |
 | Codex 等其他工具 | 读 `AGENTS.md`；克隆后跑一次 `npm run skills:link`，在 `.agents/skills` 下建立 skill 链接 |
 
-Claude Code 有两种使用方式：
-
-1. **官网订阅** — 安装 [Claude Code](https://claude.com/claude-code) 并登录。
-2. **第三方 API** — 安装 [Claude Code VS Code 插件](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)，在 `.claude/settings.local.json`（已被 git 忽略）中配置 API 地址与密钥：
-
-```json
-{
-  "env": {
-    "ANTHROPIC_BASE_URL": "https://your-api-endpoint",
-    "ANTHROPIC_AUTH_TOKEN": "your-api-key"
-  }
-}
-```
-
 建议安装 [GitHub CLI](https://cli.github.com/) 并运行 `gh auth login`，以便 AI 帮你创建 PR、管理 issue。
 
 ### Dota2 原版参考文件（可选）

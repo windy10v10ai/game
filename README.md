@@ -85,20 +85,6 @@ The repo ships rules and skills for AI coding agents. See [AI Development Workfl
 | Claude Code | Reads `.claude/` (rules and skills) out of the box |
 | Codex and other agents | Read `AGENTS.md`; run `npm run skills:link` once to expose the skills under `.agents/skills` |
 
-Claude Code can be used in two ways:
-
-1. **Official subscription** — install [Claude Code](https://claude.com/claude-code) and sign in.
-2. **Third-party API** — install the [Claude Code VS Code extension](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code), then set the endpoint and key in `.claude/settings.local.json` (git-ignored):
-
-```json
-{
-  "env": {
-    "ANTHROPIC_BASE_URL": "https://your-api-endpoint",
-    "ANTHROPIC_AUTH_TOKEN": "your-api-key"
-  }
-}
-```
-
 Recommend installing the [GitHub CLI](https://cli.github.com/) and running `gh auth login`, so agents can create pull requests and manage issues for you.
 
 ### Dota2 Reference Files (Optional)
