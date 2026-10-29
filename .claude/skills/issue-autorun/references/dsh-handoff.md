@@ -57,7 +57,7 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
    - 末行 `🤖 Implemented by DeepSeek V4.1 Flash via DSH, dispatched by Claude Code`
 5. 实机验证：按执行说明标的层级做，方法见 `dota-live-test`（命令行起游戏、`-run` 临时 Lua、grep 落盘日志；截图见 `references/screenshots.md`）
    - **脚本判定**：临时 Lua 每项打印 `[check] PASS|FAIL <名字> actual=<值> expected=<值>`，预期值照执行说明抄，不自己改。脚本放 `game/scripts/vscripts/checks/<名字>.lua`，用 `npm run dota:check -- <名字>` 跑，退出码 0 才算通过（写法见 `dota-live-test`「脚本判定」）
-   - **截图判定**：照执行说明截图，要悬停或点击的先用 `dota-front.ps1` 切前台再用 Python 移鼠标、点击后截图；图按 `create-pr/references/screenshots.md` 放进 PR。只交图和截图时的状态，不写「通过 / 失效」，也不据截图改代码或文案
+   - **截图判定**：照执行说明截图，要悬停或点击的先用 `dota-front.ps1` 切前台再用 Python 移鼠标、点击，停住后用引擎 `screenshot` 命令截原图（Dota 窗口先最大化）；图按 `create-pr/references/screenshots.md` 放进 PR。只交图和截图时的状态，不写「通过 / 失效」，也不据截图改代码或文案
    - **用户判定**：不做，列进「等你处理」
    - 验完用 `gh pr edit` 在 PR 正文加「实机验证结果」一节：脚本判定项写命令与 `[check]` 行原文并勾选全过的 Checklist 项；截图项写截图链接与截图时的状态。临时 Lua 验完删掉，不提交
 6. 结束时停在 PR 分支，`git status --porcelain` 为空
