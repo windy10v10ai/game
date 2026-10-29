@@ -88,7 +88,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 ## Git
 
 - 手上有未合并的 PR 时，文档、skill、注释、几行的 KV / 本地化修正这类小改动直接并进该 PR，不另切分支，判定见 `.claude/references/git-workflow.md`「小改动搭车」
-- 其余改动的分支从最新 `develop` 切出，确定要写文件（包括 skill 产出的设计文档）前先切好。issue 驱动命名 `feature/<issue-id>-<3–6 个英文小写单词>`（如 `feature/2411-web-link-refresh`），其他用 `fix/` `chore/` `docs/` 前缀
+- 其余改动的分支从最新 `develop` 切出，确定要写文件前先切好。issue 驱动命名 `feature/<issue-id>-<3–6 个英文小写单词>`（如 `feature/2411-web-link-refresh`），其他用 `fix/` `chore/` `docs/` 前缀
 - 切分支前的检查、worktree、小改动搭车、合并与清理 → `.claude/references/git-workflow.md`
 - issue 标题与 PR 正文用中文，PR 标题与 commit 用英文。commit 是 ≤72 字符的单行标题，正文只写 `Co-Authored-By`
 - PR base 固定 `develop`。PR 解决了 issue 描述的问题就写 `Fixes #<id>`；issue 里「方向」「建议」没全做、或另开了后续 issue 的，照样写 `Fixes`。只有 issue 本身拆成多步、本 PR 只做其中一步时才写 `#<id>`
@@ -107,7 +107,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 | 某类任务的流程与决策 | 对应 `SKILL.md`；只有部分分支用到的放该 skill 的 `references/` |
 | 根规则或多个 skill 共用的细则 | `.claude/references/` |
 | 真正跨全项目、每次都要用的规则 | 本文件 |
-| 设计过程稿 | 本地 `docs/superpowers/specs/`（已 gitignore） |
+| 设计稿、测量报告、说明页 | 讨论用 Claude artifact，定稿挂到 issue 的 artifact，见 `.claude/references/doc-writing.md`「设计 spec」「issue artifact」 |
 | 进度、验证结论 | issue / PR |
 
 README 还是 `CLAUDE.md`：违反它是「这次改动做错了」进 `CLAUDE.md`，是「系统的结构变了」进 README。写 README、spec、issue 的细则见 `.claude/references/doc-writing.md`。
@@ -130,7 +130,7 @@ README 还是 `CLAUDE.md`：违反它是「这次改动做错了」进 `CLAUDE.m
 
 执行 skill 遇到不明确的决策点（目标文件多个候选、新建还是修正、原版技能信息有多个候选），用 `AskUserQuestion` 以选项菜单询问，每道问题单独一次调用，选项附简短说明。
 
-brainstorming 的 spec / 设计稿经用户确认后**不调用 writing-plans**，直接实现；用户当次要求时才写正式 plan。改代码前先用一条消息向用户确认需要用户拍板的几项，确认后再动手：
+brainstorming 的设计稿在 Claude artifact 里和用户讨论，不写 `docs/superpowers/specs/`；用户定稿后按 `.claude/references/doc-writing.md`「设计 spec」挂到 issue（没有 issue 先开一个），**不调用 writing-plans**，直接实现；用户当次要求时才写正式 plan。改代码前先用一条消息向用户确认需要用户拍板的几项，确认后再动手：
 
 - 工作位置：当前 checkout 有没有其他未提交改动或进行中的分支，在 worktree 改还是在主目录改（Dota 只加载主目录的 `game/`，要实机验证就在主目录）
 - PR 拆分与上线顺序：跨仓库（`../firebase`）时各开什么 PR、谁先合并部署，后上线的一方先上时会不会出错

@@ -108,7 +108,7 @@ DeepSeek 结束时主目录停在 PR 分支上、工作区干净。「截图判�
 - `gh pr view <pr> -R windy10v10ai/game --json additions,deletions` 的增删合计超过 500 行
 - 本批选了超过 5 条 issue
 
-不由用户选：条件是机械的，调度员照判即可。派子代理时交接只给证据，不让它从头调研：PR 编号、执行说明来源（issue 编号或设计文档路径）、DeepSeek 日志路径（`<log>.jsonl`）。
+不由用户选：条件是机械的，调度员照判即可。派子代理时交接只给证据，不让它从头调研：PR 编号、执行说明来源（issue 编号与设计 artifact 链接）、DeepSeek 日志路径（`<log>.jsonl`）。
 
 不论谁审，都按下面的范围：
 

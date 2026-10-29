@@ -1,6 +1,6 @@
 # 交给 agent 自动做的 issue
 
-`issue-organize`、`issue-spec`（用户在场时拍板）与 `issue-autorun`（用户不在时自动做）之间的约定。`issue-autorun` 只认这里定义的标签、执行说明和它指向的设计文档，不读对话。
+`issue-organize`、`issue-spec`（用户在场时拍板）与 `issue-autorun`（用户不在时自动做）之间的约定。`issue-autorun` 只认这里定义的标签、执行说明和它指向的 issue artifact，不读对话。
 
 ## 标签
 
@@ -27,7 +27,7 @@
 
 ## 执行说明
 
-写在 issue 正文末尾，标题固定为 `## 执行说明`，agent 只按这一段（及它指向的设计文档）干活。每一项都要写到不用再问的程度：
+写在 issue 正文末尾，标题固定为 `## 执行说明`，agent 只按这一段（及它指向的 issue artifact）干活。每一项都要写到不用再问的程度：
 
 ```markdown
 ## 执行说明
@@ -60,24 +60,37 @@
 | **截图判定** | 图标、特效、面板布局、悬停或点击后才出现的 tooltip 与界面 | 截哪个状态、裁哪块、正确时应该看到什么 | DeepSeek 操作并截图，只交图不下结论；调度员看图判定 |
 | **用户判定** | 手感、动画节奏、需要连续观察的表现 | 要看什么、和什么对比 | 记进「等你处理」，用户回来测 |
 
-### 复杂 issue：指向设计文档
+### 复杂 issue：指向设计 artifact
 
-上面几项写不进一屏、要讲数据流或跨多层改动时，写设计文档，issue 里只留指针：
+上面几项写不进一屏、要讲数据流或跨多层改动时，按 `.claude/references/doc-writing.md`「设计 spec」把设计挂成该 issue 的 HTML artifact，issue 里只留指针：
 
 ```markdown
 ## 执行说明
 
-- **设计文档**：`docs/superpowers/specs/<YYYY-MM-DD>-<主题>-design.md`
+- **设计文档**：设计（https://github.com/windy10v10ai/game/issues/<n>/artifacts/<编号>）
 ```
 
-设计文档按 `.claude/references/doc-writing.md`「设计 spec」写，并且包含上面执行说明的全部七项。`docs/superpowers/` 已 gitignore，只存在于主目录：`issue-autorun` 只能在这台电脑的主目录上跑。
+设计文档包含上面执行说明的全部七项。
+
+## 子 issue
+
+大 issue 拆成几批、或从 L4 拆出测量时，用 GitHub 原生的子 issue 关联，正文不写「父 issue：#n」：
+
+```bash
+gh issue create -R windy10v10ai/game --parent <父n> ...             # 新建时挂上
+gh issue edit <父n> -R windy10v10ai/game --add-sub-issue <n>,<n>    # 挂已有 issue
+gh issue view <n> -R windy10v10ai/game --json parent                 # 查父 issue
+```
+
+- 父 issue 管目标、进度与验证结论；几个子 issue 共用的规约挂成父 issue 的 Markdown artifact，子 issue 的执行说明写明指向它
+- 子 issue 有先后依赖时只给当前一批打 `agent-todo`，前一批合并后再给下一批打
 
 ## 从 L4 拆出测量子 issue
 
 L4 里能写成固定步骤的测量或验证（卡顿优化前后的 perf 基准、某机制的触发频率统计），拆成子 issue，按 L2 / L3 交给 agent 在用户不在时跑；排查的思路和要不要改仍留在父 issue，用户在场时定。
 
-- 子 issue 正文首行写 `父 issue：#<n>`，执行说明照常写全：「目标」写要拿到的数据；「改动范围」写「无（只用临时脚本）」；「实机验证」写测量步骤、局数、要带回的数字和格式
-- 交付不开 PR：结果写进子 issue 留言，并在父 issue 留言汇总一行。数据多、要表格或要和之前的测量对比时，写报告文件 `docs/superpowers/reports/<YYYY-MM-DD>-<主题>-report.md`（已 gitignore，只在本机），留言写结论摘要和文件路径
+- 按上文「子 issue」挂到父 issue 下，执行说明照常写全：「目标」写要拿到的数据；「改动范围」写「无（只用临时脚本）」；「实机验证」写测量步骤、局数、要带回的数字和格式
+- 交付不开 PR：结果写进子 issue 留言，并在父 issue 留言汇总一行。数据多、要表格或要和之前的测量对比时，报告挂成子 issue 的 Markdown artifact（名称 `<YYYY-MM-DD> <主题> 测量报告`），留言写结论摘要和 artifact 链接
 - 测量只陈述数据和结论，不据此改代码
 
 ## 适合交给 agent 的 issue
