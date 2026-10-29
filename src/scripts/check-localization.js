@@ -26,6 +26,16 @@ const completedSections = [
     startKey: 'DOTA_Tooltip_ability_ward_observer_slot',
     endKey: 'DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description',
   },
+  {
+    name: 'Awaken Abilities',
+    startKey: 'DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken',
+    endKey: 'DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description',
+  },
+  {
+    name: 'Heroes Override',
+    startKey: 'DOTA_Tooltip_ability_undying_tombstone',
+    endKey: 'DOTA_Tooltip_ability_faceless_void_time_zone_Description',
+  },
 ];
 
 function parse(language) {
