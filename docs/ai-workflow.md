@@ -6,20 +6,20 @@ How an issue becomes a shipped update in Windy10v10AI. The goal is to let as muc
 
 ## The pipeline
 
-Blue steps are done by people, green steps by AI. The default is one issue at a time with `/issue-impl`. The dashed loops show the retry on a failed review and the batch mode, `/issue-autorun`, which repeats the same steps for every issue while you are away.
+Blue steps are done by people, green steps by AI. The dashed loop is the retry when a review fails.
 
 ![AI development pipeline](images/ai-workflow-en.svg)
 
 | Stage | Who | What happens |
 |---|---|---|
 | Plan | Human | Raise a need and set its priority. `issue-triage` finds duplicates and stale issues and suggests a priority. Large work is split into native GitHub sub-issues. |
-| Design | AI drafts, human approves | The design is discussed in a artifact. Once approved it is attached to the issue, and the execution spec names the skill to use. |
-| Build | AI | `issue-impl` implements with the named skill, runs jest, lint and builds, play-tests in Dota 2 Tools, and opens a draft PR. In batch mode a subagent does this and hands the result back to the main conversation. |
+| Design | AI drafts, human approves | The design is discussed in an artifact. Once approved it is attached to the issue, and the execution spec names the skill to use. |
+| Build | AI | `issue-impl` implements with the named skill, runs jest, lint and builds, play-tests in Dota 2 Tools, and opens a draft PR. |
 | AI review | AI | Verifies the PR against the spec and design: code, evidence and screenshots. Fixes are sent back to the implementer until it passes. |
 | Human review | Human | Decides open items and plays the change in game. |
 | Ship | Human | Merges, writes the release note and publishes to Steam Workshop. |
 
-Batch mode adds only the loop: ordering the issues, handing each one to a subagent that follows `issue-impl`, judging the result, and reporting at the end. Small changes need no issue at all: Claude builds them right in the conversation with the same skills.
+Small changes need no issue: Claude builds them right in the conversation with the same skills.
 
 ## Domain skills
 
@@ -44,7 +44,7 @@ All skills live in [`.claude/skills/`](../.claude/skills/). [`AGENTS.md`](../AGE
 
 | What | Where |
 |---|---|
-| Design under discussion | A artifact |
+| Design under discussion | An artifact |
 | Approved design | An HTML artifact named "Design" on the GitHub issue, plus a link back to the artifact |
 | Execution spec | The end of the issue body |
 | Reports, shared rules for sub-issues | Markdown artifacts on the issue |
@@ -56,4 +56,3 @@ All skills live in [`.claude/skills/`](../.claude/skills/). [`AGENTS.md`](../AGE
 1. Set up the development environment as described in the [README](../README.md#get-started).
 2. Install [Claude Code](https://claude.com/claude-code). The rules and skills in `.claude/` work out of the box.
 3. Install the [GitHub CLI](https://cli.github.com/) and run `gh auth login`. Pull requests, issues and artifacts all go through it.
-4. Batch runs hand each issue to a subagent. Which model or harness it uses is a personal choice, set in your own global Claude Code instructions.
