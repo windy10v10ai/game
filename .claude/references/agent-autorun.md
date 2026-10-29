@@ -33,7 +33,7 @@
 ## 执行说明
 
 - **目标**：做完后玩家或开发者能观察到的结果，可拆成几条，各条尽量互不依赖
-- **做法**：已拍板的实现方案，含选型（如「用 KV Properties，不新增 Lua modifier」）
+- **做法**：先写用哪个 skill（如「按 `clone-ability`」；`AGENTS.md` 对照表里没有对得上的写「无」），再写已拍板的实现方案，含选型（如「用 KV Properties，不新增 Lua modifier」）
 - **改动范围**：允许改的文件或目录，逐条列出
 - **不做**：明确排除的相关改动
 - **验收**：必须通过的命令（默认 `npm test`、`npm run lint`、`npm run build:vscripts`；改 Panorama 加 `npm run build:panorama`），以及要补的 jest 用例，每个用例写明输入与预期

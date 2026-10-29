@@ -25,7 +25,7 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
 你在仓库主目录（当前目录）里做 issue windy10v10ai/game#<id>，从实现一直做到实机验证，中途不交回。
 
 ## 先读
-1. `AGENTS.md`，按它的对照表读改动目录的 CLAUDE.md 和对得上的 skill；实机验证前读 `.claude/skills/dota-live-test/SKILL.md`
+1. `AGENTS.md`，按它的对照表读改动目录的 CLAUDE.md；执行说明「做法」指定的 skill 完整读完并按它的步骤做；实机验证前读 `.claude/skills/dota-live-test/SKILL.md`
 2. `gh issue view <id> -R windy10v10ai/game`：正文末尾「执行说明」是唯一需求来源；它指向的 issue artifact 用 `gh issue artifact view <issue> <编号> -R windy10v10ai/game` 读<有设计文档时：设计文档是 <artifact 链接>>
 
 ## 开始前
