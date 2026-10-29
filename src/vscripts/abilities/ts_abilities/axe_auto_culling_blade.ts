@@ -5,6 +5,8 @@ import {
   castImmediatelyOnTarget,
   findEnemiesInRange,
   getFullCastRange,
+  willBlock,
+  willReflect,
 } from './shared/auto-cast-ability';
 
 /**
@@ -52,6 +54,9 @@ export class AxeAutoCullingBlade extends AutoCastAbility {
         enemy.IsAlive() &&
         !enemy.HasModifier(IMMORTALITY_MODIFIER) &&
         !enemy.HasModifier(AEON_DISK_BUFF) &&
+        // 被反弹或格挡的斩杀白耗一次蓝，还会触发回滚
+        !willReflect(enemy) &&
+        !willBlock(enemy) &&
         enemy.GetHealth() <= threshold
       ) {
         castImmediatelyOnTarget(caster, culling, enemy);

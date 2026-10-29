@@ -58,6 +58,7 @@ no_support_abilitys = {
 	naga_siren_mirror_image = 1,  -- 娜迦海妖 镜像
 	skeleton_king_reincarnation = 1, -- 冥魂大帝 绝冥再生
 	spectre_shadow_step = 1,      -- 幽鬼 如影随形
+	shadow_shaman_mass_serpent_ward = 1, -- 暗影萨满 群蛇守卫
 
 	-- 持续施法与持续区域
 	bane_fiends_grip = 1,           -- 祸乱之源 魔爪
@@ -163,7 +164,6 @@ no_support_abilitys = {
 	yukari_twin_trains = 1,                            -- 八云紫 大招 无人废线车辆炸弹
 	storm_spirit_ball_lightning = 1,                   --  球状闪电
 	phantom_assassin_phantom_strike = 1,               --  幻影突袭
-	special_bonus_unique_phantom_assassin_upgrade = 1, --  幻影突袭觉醒
 	earthshaker_enchant_totem = 1,                     --  强化图腾
 	wisp_tether = 1,                                   -- 羁绊
 	dawnbreaker_celestial_hammer = 1,                  -- 上界重锤

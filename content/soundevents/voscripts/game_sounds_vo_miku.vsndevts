@@ -62,6 +62,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/miku_move_01.vsnd"
+		vsnd_duration = 3.720000
 	}
 	meepo_meepo_move_02 =
 	{
@@ -69,6 +70,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/miku_move_01.vsnd"
+		vsnd_duration = 3.720000
 	}
 	meepo_meepo_move_03 =
 	{
@@ -76,6 +78,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/miku_move_01.vsnd"
+		vsnd_duration = 3.720000
 	}
 	meepo_meepo_move_04 =
 	{
@@ -83,6 +86,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/miku_move_01.vsnd"
+		vsnd_duration = 3.720000
 	}
 	meepo_meepo_move_05 =
 	{
@@ -90,6 +94,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/miku_move_01.vsnd"
+		vsnd_duration = 3.720000
 	}
 	meepo_meepo_move_06 =
 	{
@@ -237,6 +242,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_move_27 =
 	{
@@ -244,6 +250,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_move_28 =
 	{
@@ -251,6 +258,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_move_29 =
 	{
@@ -258,6 +266,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_move_30 =
 	{
@@ -265,6 +274,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_move_31 =
 	{
@@ -272,6 +282,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_move_32 =
 	{
@@ -279,6 +290,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_move_33 =
 	{
@@ -286,6 +298,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_move_34 =
 	{
@@ -293,6 +306,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_move_35 =
 	{
@@ -300,6 +314,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_move_36 =
 	{
@@ -307,6 +322,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_move_37 =
 	{
@@ -314,6 +330,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_01 =
 	{
@@ -321,6 +338,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_02 =
 	{
@@ -328,6 +346,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_03 =
 	{
@@ -335,6 +354,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_04 =
 	{
@@ -342,6 +362,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_05 =
 	{
@@ -349,6 +370,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_06 =
 	{
@@ -356,6 +378,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_07 =
 	{
@@ -363,6 +386,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_08 =
 	{
@@ -370,6 +394,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_09 =
 	{
@@ -377,6 +402,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_10 =
 	{
@@ -384,6 +410,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_11 =
 	{
@@ -391,6 +418,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_12 =
 	{
@@ -398,6 +426,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_13 =
 	{
@@ -405,6 +434,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_14 =
 	{
@@ -412,6 +442,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_15 =
 	{
@@ -419,6 +450,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_16 =
 	{
@@ -426,6 +458,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_17 =
 	{
@@ -433,6 +466,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_18 =
 	{
@@ -440,6 +474,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_19 =
 	{
@@ -447,6 +482,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_attack_20 =
 	{
@@ -454,6 +490,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_cast_01 =
 	{
@@ -461,6 +498,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_cast_02 =
 	{
@@ -468,6 +506,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_cast_03 =
 	{
@@ -475,6 +514,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_earthbind_01 =
 	{
@@ -482,6 +522,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_earthbind_02 =
 	{
@@ -489,6 +530,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_earthbind_03 =
 	{
@@ -496,6 +538,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_earthbind_04 =
 	{
@@ -503,6 +546,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_earthbind_05 =
 	{
@@ -510,6 +554,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_earthbind_06 =
 	{
@@ -517,6 +562,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_earthbind_07 =
 	{
@@ -524,6 +570,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_earthbind_08 =
 	{
@@ -531,6 +578,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_poof_01 =
 	{
@@ -538,6 +586,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_poof_02 =
 	{
@@ -545,6 +594,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_poof_03 =
 	{
@@ -552,6 +602,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_poof_04 =
 	{
@@ -559,6 +610,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_poof_05 =
 	{
@@ -566,6 +618,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_poof_06 =
 	{
@@ -573,6 +626,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_poof_07 =
 	{
@@ -580,6 +634,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_poof_08 =
 	{
@@ -587,6 +642,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_01 =
 	{
@@ -594,6 +650,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_02 =
 	{
@@ -601,6 +658,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_03 =
 	{
@@ -608,6 +666,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_04 =
 	{
@@ -615,6 +674,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_05 =
 	{
@@ -622,6 +682,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_06 =
 	{
@@ -629,6 +690,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_07 =
 	{
@@ -636,6 +698,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_08 =
 	{
@@ -643,6 +706,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_09 =
 	{
@@ -650,6 +714,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_10 =
 	{
@@ -657,6 +722,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_11 =
 	{
@@ -664,6 +730,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_12 =
 	{
@@ -671,6 +738,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_13 =
 	{
@@ -678,6 +746,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_14 =
 	{
@@ -685,6 +754,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_15 =
 	{
@@ -692,6 +762,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_16 =
 	{
@@ -699,6 +770,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_17 =
 	{
@@ -706,6 +778,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_18 =
 	{
@@ -713,6 +786,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_19 =
 	{
@@ -720,6 +794,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_20 =
 	{
@@ -727,6 +802,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_21 =
 	{
@@ -734,6 +810,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_22 =
 	{
@@ -741,6 +818,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_23 =
 	{
@@ -748,6 +826,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_24 =
 	{
@@ -755,6 +834,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_25 =
 	{
@@ -762,6 +842,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_26 =
 	{
@@ -769,6 +850,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_27 =
 	{
@@ -776,6 +858,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_28 =
 	{
@@ -783,6 +866,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_divided_29 =
 	{
@@ -790,6 +874,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_failure_01 =
 	{
@@ -797,6 +882,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_failure_02 =
 	{
@@ -804,6 +890,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_failure_03 =
 	{
@@ -811,6 +898,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_levelup_01 =
 	{
@@ -853,6 +941,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_levelup_07 =
 	{
@@ -860,6 +949,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_levelup_08 =
 	{
@@ -867,6 +957,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_levelup_09 =
 	{
@@ -874,6 +965,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_levelup_10 =
 	{
@@ -881,6 +973,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_levelup_11 =
 	{
@@ -888,6 +981,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_levelup_12 =
 	{
@@ -895,6 +989,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_levelup_13 =
 	{
@@ -902,6 +997,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_levelup_14 =
 	{
@@ -909,6 +1005,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_levelup_15 =
 	{
@@ -916,6 +1013,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_01 =
 	{
@@ -923,6 +1021,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_02 =
 	{
@@ -930,6 +1029,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_03 =
 	{
@@ -937,6 +1037,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_04 =
 	{
@@ -944,6 +1045,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_05 =
 	{
@@ -951,6 +1053,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_06 =
 	{
@@ -958,6 +1061,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_07 =
 	{
@@ -965,6 +1069,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_08 =
 	{
@@ -972,6 +1077,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_09 =
 	{
@@ -979,6 +1085,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_10 =
 	{
@@ -986,6 +1093,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_11 =
 	{
@@ -993,6 +1101,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_12 =
 	{
@@ -1000,6 +1109,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_13 =
 	{
@@ -1007,6 +1117,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_14 =
 	{
@@ -1014,6 +1125,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_15 =
 	{
@@ -1021,6 +1133,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_16 =
 	{
@@ -1028,6 +1141,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_17 =
 	{
@@ -1035,6 +1149,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_18 =
 	{
@@ -1042,6 +1157,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_19 =
 	{
@@ -1049,6 +1165,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_20 =
 	{
@@ -1056,6 +1173,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_21 =
 	{
@@ -1063,6 +1181,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_22 =
 	{
@@ -1070,6 +1189,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_23 =
 	{
@@ -1077,6 +1197,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_kill_24 =
 	{
@@ -1084,6 +1205,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_01 =
 	{
@@ -1091,6 +1213,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_02 =
 	{
@@ -1098,6 +1221,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_03 =
 	{
@@ -1105,6 +1229,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_04 =
 	{
@@ -1112,6 +1237,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_05 =
 	{
@@ -1119,6 +1245,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_06 =
 	{
@@ -1126,6 +1253,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_07 =
 	{
@@ -1133,6 +1261,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_08 =
 	{
@@ -1140,6 +1269,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_09 =
 	{
@@ -1147,6 +1277,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_10 =
 	{
@@ -1154,6 +1285,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_11 =
 	{
@@ -1161,6 +1293,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_12 =
 	{
@@ -1168,6 +1301,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_13 =
 	{
@@ -1175,6 +1309,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_14 =
 	{
@@ -1182,6 +1317,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_15 =
 	{
@@ -1189,6 +1325,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_16 =
 	{
@@ -1196,6 +1333,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_17 =
 	{
@@ -1203,6 +1341,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_ally_01 =
 	{
@@ -1416,6 +1555,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_death_12 =
 	{
@@ -1423,6 +1563,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_death_13 =
 	{
@@ -1430,6 +1571,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_death_14 =
 	{
@@ -1437,6 +1579,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_fastres_01 =
 	{
@@ -1444,6 +1587,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_respawn_01 =
 	{
@@ -1528,6 +1672,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_purch_02 =
 	{
@@ -1535,6 +1680,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_purch_03 =
 	{
@@ -1542,6 +1688,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_purch_04 =
 	{
@@ -1549,6 +1696,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_purch_05 =
 	{
@@ -1556,6 +1704,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_blink_01 =
 	{
@@ -1563,6 +1712,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_blink_02 =
 	{
@@ -1570,6 +1720,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_scepter_01 =
 	{
@@ -1619,6 +1770,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_items_02 =
 	{
@@ -1626,6 +1778,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_items_03 =
 	{
@@ -1633,6 +1786,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_items_04 =
 	{
@@ -1640,6 +1794,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_items_05 =
 	{
@@ -1647,6 +1802,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_items_06 =
 	{
@@ -1654,6 +1810,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_items_07 =
 	{
@@ -1661,6 +1818,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_bottle_01 =
 	{
@@ -1668,6 +1826,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_bottle_02 =
 	{
@@ -1675,6 +1834,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_bottle_03 =
 	{
@@ -1682,6 +1842,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_lane_missing_01 =
 	{
@@ -1689,6 +1850,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_lane_missing_02 =
 	{
@@ -1696,6 +1858,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_lane_missing_03 =
 	{
@@ -1703,6 +1866,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_01 =
 	{
@@ -1710,6 +1874,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_02 =
 	{
@@ -1717,6 +1882,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_03 =
 	{
@@ -1724,6 +1890,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_04 =
 	{
@@ -1731,6 +1898,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_05 =
 	{
@@ -1738,6 +1906,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_06 =
 	{
@@ -1745,6 +1914,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_07 =
 	{
@@ -1752,6 +1922,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_08 =
 	{
@@ -1759,6 +1930,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_09 =
 	{
@@ -1766,6 +1938,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_10 =
 	{
@@ -1773,6 +1946,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_11 =
 	{
@@ -1780,6 +1954,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_12 =
 	{
@@ -1787,6 +1962,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_13 =
 	{
@@ -1794,6 +1970,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_14 =
 	{
@@ -1801,6 +1978,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_15 =
 	{
@@ -1808,6 +1986,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_16 =
 	{
@@ -1815,6 +1994,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_17 =
 	{
@@ -1822,6 +2002,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_18 =
 	{
@@ -1829,6 +2010,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_19 =
 	{
@@ -1836,6 +2018,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_20 =
 	{
@@ -1843,6 +2026,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_deny_21 =
 	{
@@ -1850,6 +2034,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_lose_01 =
 	{
@@ -1857,6 +2042,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_lose_02 =
 	{
@@ -1864,6 +2050,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_lose_03 =
 	{
@@ -1871,6 +2058,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_lose_04 =
 	{
@@ -2222,6 +2410,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_thanks_02 =
 	{
@@ -2229,6 +2418,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_thanks_03 =
 	{
@@ -2236,6 +2426,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_thanks_04 =
 	{
@@ -2243,6 +2434,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_underattack_01 =
 	{
@@ -2278,6 +2470,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_underattack_06 =
 	{
@@ -2285,6 +2478,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_underattack_07 =
 	{
@@ -2292,6 +2486,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_inthebag_01 =
 	{
@@ -2299,6 +2494,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_inthebag_02 =
 	{
@@ -2306,6 +2502,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_shiwiz_01 =
 	{
@@ -2313,6 +2510,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_crumwiz_01 =
 	{
@@ -2320,6 +2518,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rare_01 =
 	{
@@ -2327,6 +2526,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rare_02 =
 	{
@@ -2334,6 +2534,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rare_03 =
 	{
@@ -2341,6 +2542,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rare_04 =
 	{
@@ -2348,6 +2550,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_pain_01 =
 	{
@@ -2411,6 +2614,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_02 =
 	{
@@ -2418,6 +2622,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_03 =
 	{
@@ -2425,6 +2630,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_04 =
 	{
@@ -2432,6 +2638,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_05 =
 	{
@@ -2439,6 +2646,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_06 =
 	{
@@ -2446,6 +2654,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_07 =
 	{
@@ -2453,6 +2662,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_08 =
 	{
@@ -2460,6 +2670,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_09 =
 	{
@@ -2467,6 +2678,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_10 =
 	{
@@ -2474,6 +2686,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_11 =
 	{
@@ -2481,6 +2694,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_12 =
 	{
@@ -2488,6 +2702,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_13 =
 	{
@@ -2495,6 +2710,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_14 =
 	{
@@ -2502,6 +2718,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_15 =
 	{
@@ -2509,6 +2726,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_16 =
 	{
@@ -2516,6 +2734,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_17 =
 	{
@@ -2523,6 +2742,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_anger_18 =
 	{
@@ -2530,6 +2750,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_happy_01 =
 	{
@@ -2537,6 +2758,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_happy_02 =
 	{
@@ -2544,6 +2766,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_happy_03 =
 	{
@@ -2551,6 +2774,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_happy_04 =
 	{
@@ -2558,6 +2782,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_happy_05 =
 	{
@@ -2565,6 +2790,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_happy_06 =
 	{
@@ -2572,6 +2798,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_happy_07 =
 	{
@@ -2579,6 +2806,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_laugh_01 =
 	{
@@ -2586,6 +2814,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_laugh_02 =
 	{
@@ -2593,6 +2822,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_laugh_03 =
 	{
@@ -2600,6 +2830,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_laugh_04 =
 	{
@@ -2607,6 +2838,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_laugh_05 =
 	{
@@ -2614,6 +2846,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_laugh_06 =
 	{
@@ -2621,6 +2854,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_laugh_07 =
 	{
@@ -2628,6 +2862,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_laugh_08 =
 	{
@@ -2635,6 +2870,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_laugh_09 =
 	{
@@ -2642,6 +2878,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_laugh_10 =
 	{
@@ -2649,6 +2886,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_bounty_01 =
 	{
@@ -2656,6 +2894,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_bounty_01_02 =
 	{
@@ -2663,6 +2902,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_bounty_02 =
 	{
@@ -2670,6 +2910,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_arcane_01 =
 	{
@@ -2677,6 +2918,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_arcane_02 =
 	{
@@ -2684,6 +2926,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_ally_pango_01 =
 	{
@@ -2691,6 +2934,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_pango_01 =
 	{
@@ -2698,6 +2942,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_ally_dark_willow_01 =
 	{
@@ -2705,6 +2950,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_dark_willow_01 =
 	{
@@ -2712,6 +2958,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_ally_monkey_king_01 =
 	{
@@ -2719,6 +2966,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_monkey_king_01 =
 	{
@@ -2726,6 +2974,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_ally_grimstroke_01 =
 	{
@@ -2733,6 +2982,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_grimstroke_01 =
 	{
@@ -2740,6 +2990,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_ally_mars_01 =
 	{
@@ -2747,6 +2998,7 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 	meepo_meepo_rival_mars_01 =
 	{
@@ -2754,5 +3006,6 @@
 		volume = 1.000000
 		pitch = 1.000000
 		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
 	}
 }

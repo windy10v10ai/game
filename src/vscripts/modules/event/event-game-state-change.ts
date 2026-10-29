@@ -14,6 +14,7 @@ import { HeroBuyback } from '../hero/hero-buyback';
 import { HeroPick } from '../hero/hero-pick';
 import { LagTelemetry } from '../lag-telemetry/lag-telemetry';
 import { HeroItemUsage } from '../../api/analytics/hero-item-usage';
+import { GameEnd } from './game-end/game-end';
 import { CreepBuffManager } from './game-in-progress/creep-buff-manager';
 import { MidOnlyMode } from './pre-game/mid-only-mode';
 
@@ -107,6 +108,7 @@ export class EventGameStateChange {
     for (const base of bases) {
       this.addModifierToTowers(base);
     }
+    GameEnd.WatchForts(bases);
 
     // 延迟为泉水设置技能等级
     Timers.CreateTimer(1, () => {

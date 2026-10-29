@@ -18,7 +18,8 @@ export enum CMD {
   L_ALL = '-lall', // 所有人逐级升级
 
   LOTTERY = '-lottery', // 抽奖
-  END = '-end', // 游戏结算
+  END = '-end', // 游戏结算：-end [获胜队伍，默认 2]
+  DISCONNECT = '-dc', // 模拟自己掉线：-dc <已掉线秒数>，负数恢复在线
   TREASURE = '-treasure', // 在 SPAWN_POINTS_INITIAL 刷新一个藏宝箱
   PICK_ITEM = '-pickitem', // 强制触发物品抽奖 UI（跳过宝箱）
 

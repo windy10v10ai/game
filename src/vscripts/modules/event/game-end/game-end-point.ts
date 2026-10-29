@@ -3,12 +3,23 @@ import { reloadable } from '../../../utils/tstl-utils';
 import { EnvironmentHelper } from '../../helper/environment-helper';
 import { Option } from '../../option';
 
+// 掉线短于这个时长多半还在重连，按正常结算
+const ESCAPE_SECONDS = 120;
+
 export function normalizeControlTime(controlTime: number): number {
   return Number.isFinite(controlTime) ? Math.round(Math.abs(controlTime)) : 0;
 }
 
 @reloadable
 export class GameEndPoint {
+  /** 结算时是否把玩家当作逃跑 */
+  static IsEscaped(state: ConnectionState, disconnectedSeconds: number | undefined): boolean {
+    if (state === ConnectionState.ABANDONED) return true;
+    if (state === ConnectionState.CONNECTED) return false;
+    // 没收到断开事件就不知道掉了多久，宁可当成重连中也不误判逃跑
+    return disconnectedSeconds !== undefined && disconnectedSeconds >= ESCAPE_SECONDS;
+  }
+
   static CalculatePlayerScore(player: GameEndPlayerDto): number {
     const killScore = Math.sqrt(player.kills) * 1.6;
     const deathScore = -Math.sqrt(player.deaths) * 0.6;

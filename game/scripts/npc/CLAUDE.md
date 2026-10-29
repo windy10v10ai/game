@@ -63,6 +63,15 @@ comm -12 /tmp/ours.txt /tmp/valve.txt   # 有输出即冲突
 
 - **让 tooltip 计入技能增强**：某条 `AbilityValues` 数值想在游戏中按住 ALT 时显示「被技能增强放大后」的值，在该数值块内加 `"CalculateSpellDamageTooltip" "1"`（**不是** `affected_by_spell_amplify`，没有这个字段）。原版默认多为 `"0"`（不计入）。配套字段：`"DamageTypeTooltip"`（伤害类型）、`"display_type"`（如 `kMagicalDamagePercentage` 百分比显示）
 
+## 预载入资源
+
+通用预载入（`src/vscripts/utils/precache.ts`）在开局扫 `npc_items_custom.txt`、`npc_abilities_custom_lottery.txt`、`npc_abilities_custom_awaken.txt` 里的字符串**值**，Lua/TS 里临时给路径或按等级拼名字的粒子、模型扫不到，首次出现时引擎会断言并卡一帧。
+
+- **不扫 `npc_abilities_custom.txt`**：开局同时加载的资源数有引擎上限（32767，超出即 `CUtlBlockVector<...CLoadingResource...>::GrowCount` 崩溃），抽奖池按英雄目录整包预载后已贴近上限。该文件里挂在英雄技能栏（`npc_heroes_custom.txt` 的 `AbilityN`）上的技能由引擎在选定英雄时按其 `"precache"` 块加载；会在对局中加给任意英雄的技能（抽奖池、觉醒）要放 lottery / awaken 文件才会被预载
+- **就近登记到使用它的技能或物品块**：在该块加 `"precache"`，路径写值，同键 `"particle"` / `"model"` 可重复，删技能时一并删掉。`npc_abilities_override.txt` 不在扫描范围，写在它里面不生效
+- **共用工具库创建的资源**（飘字、吸血等没有单一所属技能）才放 `src/vscripts/utils/precache-data.ts` 的 `luaParticleNameList`
+- **登记前确认文件存在**：路径写错或文件缺失，启动时只会多一条 `Failed loading resource`，不会补上缺的资源
+
 ## 原版 KV 参考
 
 `<version>` 取 `docs/reference/` 下最新版本目录（含字母后缀，如 `7.41f` 新于 `7.41`）。

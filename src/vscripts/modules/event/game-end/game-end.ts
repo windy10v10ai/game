@@ -14,13 +14,80 @@ import { GameConfig } from '../../GameConfig';
 import { LagTelemetry } from '../../lag-telemetry/lag-telemetry';
 import { NetTableHelper } from '../../helper/net-table-helper';
 import { PlayerHelper } from '../../helper/player-helper';
+import { EventPlayerDisconnect } from '../event-player-disconnect';
 import { GameEndPoint } from './game-end-point';
+
+const FORT_MIN_HEALTH_MODIFIER = 'modifier_fort_min_health';
+// 基地锁在 1 血，检查间隔内回血最多约 45，阈值要高过它才不会被回血顶过去
+const FORT_SETTLE_HEALTH = 50;
+const FORT_CHECK_INTERVAL = 0.25;
+// 结算三次尝试各 3 秒，再久就不等回调，照常推掉基地
+const SETTLE_WAIT_SECONDS = 10;
 
 @reloadable
 export class GameEnd {
   public static gameEndTriggered: boolean = false;
+  public static settled: boolean = false;
 
-  public static OnGameEnd(winnerTeamId: DotaTeam): void {
+  /** 基地掉到阈值就开始结算，回调回来或等待超时后再推掉基地 */
+  public static WatchForts(forts: CDOTA_BaseNPC[]): void {
+    for (const fort of forts) {
+      fort.AddAbility('fort_min_health')?.SetLevel(1);
+    }
+    Timers.CreateTimer(FORT_CHECK_INTERVAL, () => {
+      for (const fort of forts) {
+        if (IsValidEntity(fort) && fort.IsAlive() && fort.GetHealth() <= FORT_SETTLE_HEALTH) {
+          this.SettleThenEnd(fort);
+          return undefined;
+        }
+      }
+      return FORT_CHECK_INTERVAL;
+    });
+  }
+
+  /** 基地没锁住被直接打死时兜底：进入结算画面后收不到回调，结果只能标成未确认 */
+  public static OnFortKilled(fort: CDOTA_BaseNPC): void {
+    this.OnGameEnd(this.GetEnemyTeam(fort));
+    this.MarkSettled(false);
+  }
+
+  private static SettleThenEnd(fort: CDOTA_BaseNPC): void {
+    if (this.gameEndTriggered) {
+      this.KillFort(fort);
+      return;
+    }
+    this.OnGameEnd(this.GetEnemyTeam(fort), () => this.KillFort(fort));
+    Timers.CreateTimer(SETTLE_WAIT_SECONDS, () => {
+      this.MarkSettled(false);
+      this.KillFort(fort);
+      return undefined;
+    });
+  }
+
+  private static KillFort(fort: CDOTA_BaseNPC): void {
+    if (!IsValidEntity(fort) || !fort.IsAlive()) return;
+    fort.RemoveModifierByName(FORT_MIN_HEALTH_MODIFIER);
+    fort.ForceKill(false);
+  }
+
+  private static GetEnemyTeam(fort: CDOTA_BaseNPC): DotaTeam {
+    return fort.GetTeamNumber() === DotaTeam.GOODGUYS ? DotaTeam.BADGUYS : DotaTeam.GOODGUYS;
+  }
+
+  /** 结算界面只认第一次结果，之后的回调或超时不再改写 */
+  private static MarkSettled(recorded: boolean): void {
+    if (this.settled) return;
+    this.settled = true;
+    CustomNetTables.SetTableValue('ending_status', 'ending_status', { status: recorded ? 2 : 3 });
+    // 引擎同时只跑几个 HTTP 请求，统计先发会把结算的重发挤到队尾
+    const sendStats = this.pendingStats;
+    this.pendingStats = undefined;
+    sendStats?.();
+  }
+
+  private static pendingStats?: () => void;
+
+  public static OnGameEnd(winnerTeamId: DotaTeam, onSettled?: () => void): void {
     if (this.gameEndTriggered) {
       return;
     }
@@ -30,16 +97,20 @@ export class GameEnd {
     // build game end dto
     const gameEndDto = this.BuildGameEndDto(winnerTeamId);
 
+    this.pendingStats = () => {
+      try {
+        HeroItemUsage.Finish(gameEndDto);
+      } catch (error) {
+        print(`[HeroItemUsage] failed: ${error}`);
+      }
+      this.SendAnalyticsEvent(gameEndDto);
+    };
     // send game end dto
-    Game.EndGame(gameEndDto);
-    try {
-      HeroItemUsage.Finish(gameEndDto);
-    } catch (error) {
-      print(`[HeroItemUsage] failed: ${error}`);
-    }
+    Game.EndGame(gameEndDto, (recorded) => {
+      this.MarkSettled(recorded);
+      onSettled?.();
+    });
     CustomNetTables.SetTableValue('ending_status', 'ending_data', { winner_team_id: winnerTeamId });
-
-    this.SendAnalyticsEvent(gameEndDto);
   }
 
   private static BuildGameEndDto(winnerTeamId: DotaTeam): GameEndDto {
@@ -63,11 +134,8 @@ export class GameEnd {
     );
 
     PlayerHelper.ForEachPlayer((playerId) => {
-      const player = PlayerResource.GetPlayer(playerId);
-      if (!player) {
-        return;
-      }
-      const hero = player.GetAssignedHero();
+      // 掉线玩家取不到 player 对象，英雄仍在，从英雄取才能让他们也进结算
+      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
       if (!hero) {
         return;
       }
@@ -86,7 +154,7 @@ export class GameEnd {
         steamId: PlayerResource.GetSteamAccountID(playerId),
         playerId: playerId,
         teamId: PlayerResource.GetTeam(playerId),
-        isDisconnected: PlayerResource.GetConnectionState(playerId) !== ConnectionState.CONNECTED,
+        isDisconnected: EventPlayerDisconnect.IsEscaped(playerId),
         level: PlayerResource.GetLevel(playerId),
         totalGoldEarned,
         kills: PlayerResource.GetKills(playerId),
@@ -238,7 +306,10 @@ export class GameEnd {
       return 0;
     }
     const teamKills = PlayerResource.GetTeamKills(player.teamId);
-    const timeMultiplier = GameEndPoint.GetParticipationRateMultiplier(player, teamKills);
+    // 逃跑只算数据分，不给时间分
+    const timeMultiplier = player.isDisconnected
+      ? 0
+      : GameEndPoint.GetParticipationRateMultiplier(player, teamKills);
     const gameTimePoints = GameEndPoint.GetGameTimePoints(dotaTime) * timeMultiplier;
     const basePoints = player.score + gameTimePoints;
     const points = basePoints * difficultyMultiplier;

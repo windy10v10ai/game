@@ -39,7 +39,48 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 验被动属性、主动效果、状态何时上何时掉、对单位和建筑的伤害时，不点界面：启动时带远程控制台端口（第 3 步），之后用 `npm run dota:cmd` 发 `-give` 发物品、`-cast` 代码施法、`-watch` 监视变化，直接读命令返回的日志。备用施法（Ctrl）代码触发不了，要用 computer-use 真实按键。命令清单与标准流程 → `references/remote-commands.md`。
 
-只有说明文字排版、真实键鼠手感这类必须看画面的，才用 computer-use 截图。
+只有说明文字排版、真实键鼠手感这类必须看画面的，才截图。只要画面、不需要点击时，用引擎的 `screenshot` 命令截图，不用 computer-use，也不要用 PowerShell 截屏：切前台、截图、转 PNG、收起技能抽选面板、同一局反复截结算面板 → `references/screenshots.md`。要点击、按键时才用 computer-use。
+
+加载或选队画面需要截图时，先在 `GameConfig` 的工具/调试分支临时延长 `SetCustomGameSetupAutoLaunchDelay`，编译并重新载入后取图。截图结束后恢复源码与本地编译产物，临时等待时间不提交。
+
+## 脚本判定：一条命令跑完一次检查
+
+数值、状态这类能用代码判对错的验证，写成检查脚本交给 `npm run dota:check`，由退出码给结论，不靠人读日志或看图：
+
+```bash
+npm run dota:check -- axe_ms --hero axe
+```
+
+命令依次做：起 Dota Tools 自动载入地图 → 等日志出现 `S:Gamerules: entering state 'DOTA_GAMERULES_STATE_GAME_IN_PROGRESS'` → 发 `say -run checks.<名字>` → 收集 `[check]` 行 → 关掉 Dota。
+
+| 退出码 | 含义 |
+|---|---|
+| `0` | 看到 `[check] DONE`，至少一项 PASS，没有 FAIL |
+| `1` | 有 FAIL、脚本加载报错（`run checks.<名字> failed`）、超时、没看到 DONE，或一项检查都没跑 |
+| `2` | 没能开跑：Dota 已在运行、脚本不存在、不在 Dota 加载的 checkout 里跑、启动或发命令出错 |
+
+最后一行固定是 `[check] RESULT PASS|FAIL pass=<n> fail=<n> (原因)`。
+
+检查脚本写在 `game/scripts/vscripts/checks/<名字>.lua`（整个目录已 gitignore，临时脚本不提交），用 `modules/debug/check.ts` 编译出的辅助判定：
+
+```lua
+local check = require("modules.debug.check")
+local hero = PlayerResource:GetSelectedHeroEntity(0)
+local ms0 = hero:GetIdealSpeed()
+hero:SetBaseMoveSpeed(hero:GetBaseMoveSpeed() + 50)
+-- 属性与移速要下一帧才重算，读数前等一下
+Timers:CreateTimer(0.5, function()
+  check.expect("move_speed_delta", hero:GetIdealSpeed() - ms0, 50, 1)
+  check.done()
+end)
+```
+
+- `check.expect(名字, 实际值, 预期值, 容差)` 打印 `[check] PASS|FAIL <名字> actual=<值> expected=<值>`，容差只对数值生效，默认 0；`check.done()` 打印 `[check] DONE`，必须在所有检查之后调用，异步检查放在最后一个回调里
+- 参数：`--hero <英雄名>` 开局选定英雄（同 `npm run launch -- --hero`）；`--timeout <秒>` 默认 300，本机从启动到开局约 70 秒；`--keep-open` 结束后不关 Dota，便于接着用 `dota:cmd` 排查
+- **只在主目录跑**：Dota 只加载主目录的 `game/`，命令发现自己不在那份 checkout 里就拒绝运行。worktree 里的改动先合到主目录当前分支，或把主目录切过去，跑前 `npm run build:vscripts`
+- **Dota 已开着就拒绝运行**，不会关掉用户正在用的 Dota；超时或出错时会关掉自己起的那个
+- 检查脚本运行时报错（定时器回调里出错）不会立即结束，命令会打印 `Script Runtime Error` 行并等到超时判失败
+- 跑完 Dota Tools 可能重新编译 `game/` 下的资源（如 `.vsndevts_c`），`git status` 出现无关改动时用 `git checkout -- <文件>` 还原
 
 ## 派子代理跑
 
@@ -47,7 +88,8 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 **实机测试一律派子代理**，只验一两个点、改完顺手回归一下也一样：等加载、发命令、读日志、截图在主会话里来回几轮，消耗远高于写一份交接。用 Agent 工具，`model` 选最便宜的档（`"haiku"`）：发命令、读日志、悬停截图并逐字抄 tooltip 都够用；主会话再对着截图抽查核对，不要只信转述。要读懂日志判断现象、或 haiku 反复卡住时改 `"sonnet"`。`model` 只是别名，实际型号由用户的 settings 决定；用户设了 `CLAUDE_CODE_SUBAGENT_MODEL` 时会盖过它，要比较型号先让子代理在回报开头自报型号。**一轮验证派一个**，跑完即结束；要再验一轮就再派一个。子代理是冷启动，交接里写全：改了什么、要不要本地后端、要发的命令、期待哪几行日志和要带回的数字。
 
-- **客户端代发链路在 Tools 里连不上本地 API**：网页控件请求 `http://localhost` 与 `http://127.0.0.1` 一律超时，开局请求也会因此转成离线模式。验本地代发就看服务端拼出的网址，换上本地 key 用 curl 重放；验界面就关掉强制代发，让服务端直连
+- **验客户端代发链路用强制代发开关**：`src/vscripts/api/api-client.local.ts` 的 `GetForceProxy()` 改成返回 `true`（只在 Tools 生效），`npm run build:vscripts` 后重开一局，服务端的请求全部改由客户端网页控件代发；测完改回 `false`。该文件带 skip-worktree，改动不出现在 `git status`，收尾时按文件内容确认已还原
+- **客户端代发链路在 Tools 里连不上本地 API**：网页控件请求 `http://localhost`、`http://127.0.0.1` 与本机局域网 IP 一律超时，后端预热过、curl 能秒回也一样，开局请求也会因此转成离线模式。验本地代发就看服务端拼出的网址，换上本地 key 用 curl 重放；验界面就关掉强制代发，让服务端直连
 - **computer-use 授权填 `dota2.exe`**：`request_access` 写开始菜单里的「Dota 2」只授权到 Steam 启动链接，实际窗口仍被遮成色块。授权弹窗要用户本人点，交接里写明被拒就停下回报
 - **窗口焦点**：系统常驻的「Windows 输入体验」（`TextInputHost.exe`，承载表情面板、剪贴板历史、输入法候选框）偶尔挂着不可见窗口抢走前台，computer-use 因前台不是已授权应用而拒绝操作。不是用户开了什么，也关不掉（系统常驻，结束后自动重启）。被挡时 computer-use 在点击前就拒绝，点 Dota 窗口、`WScript.Shell.AppActivate` 都抢不回来。做法：在动手前要权限那一步连同 `dota2.exe` 一起 `request_access` 授权 `textinputhost.exe`，点击会穿过它落到 Dota 上；用户不授权时停下回报，请用户本人点一下 Dota 窗口
 - **同一时间只能有一个 Dota**：Dota 运行中再触发任何启动（`Start-Process`、`open_application "Dota 2"`、Steam 链接）都会弹 `Source2 - Warning: Only one instance of the game can be running at one time`，弹框抢走前台、后续操作全被拒。切语言或重启时先 `Stop-Process -Name dota2 -Force`，`Get-Process dota2` 查不到了再启动；拉回窗口只用点击，不调用 `open_application`。交接里照抄这一条

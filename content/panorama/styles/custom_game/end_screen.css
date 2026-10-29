@@ -176,14 +176,56 @@
   transition: background-color 0.35s ease-in-out 0.1s;
 }
 
-/* 数据同步状态 */
+/* 结算状态：紧贴离开按钮，与离线提示同一套状态点与字色。未确认用中性灰，请求多半已送达，不报坏消息 */
+#SettleStatus {
+  margin: 10px 16px 0px 0px;
+  vertical-align: center;
+  flow-children: right;
+}
+#SettleStatusDot {
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  vertical-align: center;
+  border-radius: 50%;
+  background-color: #7a8ca0;
+  box-shadow: #7a8ca055 0px 0px 3px 1px;
+}
+#SettleStatus.Settling #SettleStatusDot {
+  background-color: #e8a03c;
+  box-shadow: #e8a03c66 0px 0px 3px 1px;
+  animation-name: SettleStatusPulse;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+#SettleStatus.Settled #SettleStatusDot {
+  background-color: #5ebd51;
+  box-shadow: #5ebd5166 0px 0px 3px 1px;
+}
 #GameEndingStatusText {
-  margin-right: 50px;
-  /* flow right */
-  font-weight: bold;
-  color: #ffffff;
-  text-shadow: 3px 3px 10px black;
-  horizontal-align: right;
+  vertical-align: center;
+  font-size: 18px;
+  color: #d6dee8;
+  text-shadow: 2px 2px 6px black;
+}
+#EndScreenWindow #MatchResultBlock #CloseButton:disabled {
+  background-color: #3a2a2b;
+}
+#EndScreenWindow #MatchResultBlock #CloseButton:disabled Label {
+  color: #8a7f80;
+}
+
+@keyframes 'SettleStatusPulse' {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 #EndScreenWindow #MatchResultBlock #MatchResultPlayer {

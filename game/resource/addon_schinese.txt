@@ -96,6 +96,7 @@
 		// 启动器
 		"launcher_promo_title"			"后期卡顿？试试启动器"
 		"launcher_promo_desc"			"在本机单独运行服务器，后期更流畅"
+		"launcher_promo_platforms"		"支持 Windows、macOS"
 		"launcher_promo_multiplayer"		"支持联机"
 		"launcher_download_button"			"下载启动器"
 
@@ -170,6 +171,9 @@
 		"conduct_point_heavy_penalty_tooltip"	"行为分 <font color='#E87D7D'>{0}</font> 惩罚，积分 ×0.5"
 
 		"end_screen_offline_hint"		"离线模式，本局积分与战绩未记录。"
+		"ending_status_1"			"正在结算…"
+		"ending_status_2"			"结算完成"
+		"ending_status_3"			"结算已提交"
 
 		///////////////////////////////////////////////////
 		//
@@ -1326,6 +1330,20 @@
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack_Description"	"靠近泉水时每秒叠加一层，叠满3层后将进入制裁状态。"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"泉水制裁"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"无法攻击，无法使用装备、主动技能和被动技能，无法恢复生命和魔法，移动速度被强制限制，且增益被强制驱散。"
+
+		// 变体精灵 潮涨潮落
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2"									"潮涨潮落"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_Description"						"变体精灵根据当前力量值获得额外施法距离和<font color='#9ec8e3'>减速抗性</font>，根据当前敏捷值获得攻击距离和移动速度。这些效果在他变形为其他英雄时仍然有效。"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_Note0"							"变形期间的攻击距离加成只有在变形为远程英雄时有效。"
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_attack_range_per_agi"				"%敏捷转为攻击距离："
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_move_speed_per_agi"				"%敏捷转为移动速度："
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_cast_range_per_str"				"%力量转为施法距离："
+		"DOTA_Tooltip_ability_morphling_ebb_and_flow2_slow_resist_per_str"				"%力量转为<font color='#9ec8e3'>减速抗性</font>："
+
+		// 光之守卫 光明速度
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2"						"光明速度"
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_Description"			"光之守卫每%intelligence_per_speed%点智力都会获得<span class=\"GameplayVariable\">1</span>移动速度。<br><br>只要光之守卫移动%movement_per_vision%距离，他就会留下一道光，可以看到%vision_radius%范围，持续%vision_duration%秒。"
+		"DOTA_Tooltip_ability_keeper_of_the_light_bright_speed2_current_speed"			"移动速度："
 
 		///////////////////////////////////////////////////
 		//

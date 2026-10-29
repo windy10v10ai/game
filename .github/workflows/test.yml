@@ -12,12 +12,15 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version-file: ".nvmrc"
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Validate skill frontmatter
+        run: npm run skills:check
 
       - name: Format check
         run: npm run prettier-check

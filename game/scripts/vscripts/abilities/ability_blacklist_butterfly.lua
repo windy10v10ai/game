@@ -102,11 +102,11 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["winter_wyvern_cold_embrace"] = true,
     ["snapfire_firesnap_cookie"] = true,
     ["phantom_assassin_phantom_strike"] = true,
-    ["special_bonus_unique_phantom_assassin_upgrade"] = true,
     ["pangolier_gyroshell"] = true,   -- 石鳞剑士 地雷滚滚
     ["legion_commander_duel"] = true, -- 军团指挥官 决斗
     ["rattletrap_jetpack"] = true,    -- 发条技师 喷气背包（触发飞行影响正常操作）
     ["shredder_timber_chain"] = true, -- 伐木机 伐木锯链
+    ["abyss_sword_out_of_sheath"] = true, -- 沉渊之剑 出鞘
 
     -- ========================================
     -- 拖拽/击退类技能
@@ -133,6 +133,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["furion_force_of_nature"] = true,    -- 先知 自然之力
     ["zuus_cloud"] = true,                -- 宙斯 雷云
     ["venomancer_plague_ward"] = true,    -- 剧毒术士 瘟疫守卫
+    ["shadow_shaman_mass_serpent_ward"] = true, -- 暗影萨满 群蛇守卫
     ["undying_tombstone"] = true,         -- 不朽尸王 墓碑
 
     -- ========================================
@@ -165,7 +166,6 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["tiny_toss_tree"] = true,                                   -- 小小 丢树（注意有空格）
     ["morphling_replicate"] = true,                              -- 水人 复制
     ["ancient_apparition_ice_blast"] = true,                     -- 冰魂 寒冰爆破
-    ["phantom_assassin_phantom_strike_datadriven"] = true,       -- 幻刺b觉醒
     ["keeper_of_the_light_illuminate"] = true,                   -- 光之守卫 冲击波
     ["keeper_of_the_light_illuminate_end"] = true,               -- 光之守卫 冲击波 释放
     ["special_bonus_unique_keeper_of_the_light_upgrade"] = true, -- 光之守卫 冲击波 觉醒
