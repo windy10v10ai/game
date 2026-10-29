@@ -1,9 +1,9 @@
 ---
-name: issue-organize
+name: issue-triage
 description: 整理 issue：查重复与过期、调整优先级、核对「开发计划」项目里的位置。
 ---
 
-# issue-organize
+# issue-triage
 
 整理 `windy10v10ai/game` 与 `windy10v10ai/firebase` 两个仓库的未关闭 issue，并核对组织项目「开发计划」（`gh project` 编号 3）的排布。先出建议、等用户拍板，再改 GitHub。
 
@@ -91,8 +91,8 @@ issue 留言与新建 issue 的正文用中文。
 # 关闭重复，留言写明剩余内容由谁跟踪
 gh issue close <n> -R windy10v10ai/<repo> --duplicate-of <目标n> --comment "..."
 
-# 挂子 issue（两个都是 issue 的 node id）
-gh api graphql -f query='mutation($p:ID!,$c:ID!){addSubIssue(input:{issueId:$p,subIssueId:$c}){subIssue{number}}}' -f p=<父id> -f c=<子id>
+# 挂子 issue
+gh issue edit <父n> -R windy10v10ai/<repo> --add-sub-issue <子n>,<子n>
 
 # 设 Priority / Effort（issueFields 可一次传多个）
 gh api graphql -f query='mutation{setIssueFieldValue(input:{issueId:"<id>",issueFields:[{fieldId:"<字段id>",singleSelectOptionId:"<选项id>"}]}){clientMutationId}}'

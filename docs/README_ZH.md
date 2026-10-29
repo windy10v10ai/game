@@ -20,18 +20,21 @@
 [![GitHub stars](https://img.shields.io/github/stars/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/network)
 
-## 许可证
-
-本项目采用 **GNU GPL v3** 协议（见 [`LICENSE`](../LICENSE)），并附带 Steam/创意工坊
-分发例外，相关说明及此前 MIT 版本的处理见 [`LICENSE.EXCEPTIONS.md`](../LICENSE.EXCEPTIONS.md)。
-
 ## 贡献者
 
 [![Contributors](https://contrib.rocks/image?repo=windy10v10ai/game)](https://github.com/windy10v10ai/game)
 
-### 参与开发
+### 如何贡献
 
-如果你想参与 Windy10v10AI 的开发，请参考我们的[参与指南](../.github/CONTRIBUTING_ZH.md)。
+欢迎提交 bug、建议或 PR，详见[贡献指南](../.github/CONTRIBUTING_ZH.md)。
+
+## AI 驱动开发
+
+本项目按 AI agent 开发来设计：人决定做什么、拍板设计、进游戏试玩；AI 写代码、在 Dota 2 里实机测试、开 PR 并审查。
+
+[<img src="images/ai-workflow-zh.svg" width="600" alt="AI 开发流水线">](ai-workflow_ZH.md)
+
+完整流程与背后的 skill 见 [AI 开发流程](ai-workflow_ZH.md)。
 
 ## 开始
 
@@ -67,23 +70,16 @@ nvm use $(Get-Content .nvmrc)
 npm install
 ```
 
-### Claude Code（可选）
+### AI 编程工具（可选）
 
-本项目自带 Claude Code 配置（`.claude/`）用于 AI 辅助开发，有两种使用方式：
+仓库自带给 AI 编程工具用的规则与 skill：
 
-1. **官网订阅** — 安装 [Claude Code](https://claude.com/claude-code) 并登录。
-2. **第三方 API** — 安装 [Claude Code VS Code 插件](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)，在 `.claude/settings.local.json`（已被 git 忽略）中配置 API 地址与密钥：
+| 工具 | 配置 |
+|---|---|
+| Claude Code | 直接读 `.claude/`（规则与 skill），开箱即用 |
+| Codex 等其他工具 | 读 `AGENTS.md`；克隆后跑一次 `npm run skills:link`，在 `.agents/skills` 下建立 skill 链接 |
 
-```json
-{
-  "env": {
-    "ANTHROPIC_BASE_URL": "https://your-api-endpoint",
-    "ANTHROPIC_AUTH_TOKEN": "your-api-key"
-  }
-}
-```
-
-建议安装 [GitHub CLI](https://cli.github.com/) 并运行 `gh auth login`，以便 Claude Code 帮你创建 PR、管理 issue。
+建议安装 [GitHub CLI](https://cli.github.com/) 并运行 `gh auth login`，以便 AI 帮你创建 PR、管理 issue。
 
 ### Dota2 原版参考文件（可选）
 
@@ -156,7 +152,7 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 | `content/` | 与 `dota 2 beta/content/dota_addons/<addon>` 同步：脚本以外的 Panorama 源文件（xml、less、图片）、地图、特效和音效 |
 | `assets/` | 可编辑的美术源文件（psd、sai2），仅作留存 |
 | `docs/` | 文档：各语言 README、数据流图（`drawio/`），以及需要自行解压的 Dota 2 原版参考文件（`reference/`，已被 git 忽略） |
-| `.claude/` | Claude Code 配置与项目 skill（见 [Claude Code](#claude-code可选)） |
+| `.claude/` | Claude Code 配置与项目 skill（见 [AI 编程工具](#ai-编程工具可选)） |
 
 `src/vscripts/`、`src/panorama/`、`game/scripts/npc/`、`game/resource/` 下各有一个 `CLAUDE.md`，写明该层的规则。
 
@@ -181,3 +177,8 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 [![Star History Chart](https://api.star-history.com/svg?repos=windybirth/windy10v10ai&type=Date)](https://star-history.com/#windybirth/windy10v10ai&Date)
 
 ![](https://api.moedog.org/count/@windybirth.readme)
+
+## 许可证
+
+本项目采用 **GNU GPL v3** 协议（见 [`LICENSE`](../LICENSE)），并附带 Steam/创意工坊
+分发例外，相关说明及此前 MIT 版本的处理见 [`LICENSE.EXCEPTIONS.md`](../LICENSE.EXCEPTIONS.md)。

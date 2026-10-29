@@ -1,5 +1,5 @@
 ---
-name: update-heroes-custom
+name: bot-skill-build
 description: 编写或校验电脑英雄的技能加点（Bot.Build）与天赋档位。
 ---
 

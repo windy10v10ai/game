@@ -42,7 +42,7 @@ Claude Code 直接读 `.claude/skills`；Codex 与 DSH 读仓库下的 `.agents/
 | 创建分支、commit、push、开 PR | `create-pr` |
 | 生成 Steam 更新日志（Release Note） | `release-note` |
 | 把纠正与新约定沉淀进文档 | `doc-update` |
-| 整理 issue、调整优先级与「开发计划」项目排布 | `issue-organize` |
+| 整理 issue、调整优先级与「开发计划」项目排布 | `issue-triage` |
 | 给 issue 定 spec 交给 agent 自动做，处理 agent 留下的问题 | `issue-spec` |
 | 在 Dota 2 Tools 实机验证 | `dota-live-test` |
 | 查 Dota 2 引擎 API、事件 | `dota-docs-lookup` |
@@ -56,7 +56,7 @@ Claude Code 直接读 `.claude/skills`；Codex 与 DSH 读仓库下的 `.agents/
 | bot 技能施法规则 | `bot-ability-usage` |
 | bot 战斗物品使用规则 | `bot-item-usage` |
 | 电脑 AI 决策与移动异常 | `bot-ai-tuning` |
-| 电脑英雄技能加点（Bot.Build） | `update-heroes-custom` |
+| 电脑英雄技能加点（Bot.Build） | `bot-skill-build` |
 
 下面这些在 Claude Code 里只由用户手动调用（`/<name>`）。用户明确要求做对应的事时再读：
 
@@ -65,7 +65,7 @@ Claude Code 直接读 `.claude/skills`；Codex 与 DSH 读仓库下的 `.agents/
 | 发布到创意工坊 | `deploy` |
 | 用户不在时按优先级在主目录依次派 DSH 的 DeepSeek 做带 `agent-todo` 的 issue | `issue-autorun` |
 | 审查 PR | `review-pr` |
-| 加载界面 FAQ | `faq` |
+| 加载界面 FAQ | `loading-faq` |
 | 蝴蝶效应 / 多重施法黑名单 | `ability-blacklist` |
 | 英雄天赋 | `custom-talent` |
 | 抽奖池 Tier 调整 | `adjust-lottery-tier` |

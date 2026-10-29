@@ -8,13 +8,26 @@ disable-model-invocation: true
 
 ## 流程
 
-1. **输入**：PR 号或分支名。问用户要不要 checkout；要的话按 `references/checkout.md`
+1. **输入**：PR 号或分支名。问用户要不要 checkout；要的话按 `references/checkout.md`。PR 关联的 issue 挂有「设计」artifact 时先读（`gh issue artifact list <issue>` / `view`），报告里指出实现偏离设计的地方
 2. **出报告**：按下方标准审阅，从用户视角说明实现了什么、实现方式是否合规、有没有过度设计或冗余测试。对话里完整展示，同时落盘 `docs/review/pr-<PR号>.md`（没有 PR 号用 `review-<分支名>.md`，目录已 gitignore）
 3. **更新日志**：先用一两句复述本次改动对玩家的实际影响，再查聚合 release PR（`gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url`）的 body 里有没有这次的条目。缺失时按 `.claude/references/release-version.md` 算出目标版本，问用户是否补写，同意则调用 `release-note`，参数写 PR 号、目标版本与「仅写入聚合 release PR」。对玩家无感知的改动直接说明无需日志
 4. **逐条确认**：报告里的问题逐条问用户要不要处理。不处理的在报告 md 里标「已确认忽略」及原因；用户补充的问题追加到「用户补充问题」小节，一并处理
 5. **处理方式**：要处理的逐条问「自己修改」（在当前分支直接改）还是「comment 到 PR」（按输出规范提交）
 
 完成：报告里每个问题都有了处理结论（修改 / comment / 已确认忽略）。
+
+## 自动模式
+
+`issue-autorun` 审子代理开的草稿 PR 时用。不问用户、不 checkout、不发 PR 评论、不写报告文件，跳过上面流程的第 3–5 步，结论交回调度员：
+
+- **读什么**：只看 PR 本身——`gh pr view <pr> -R windy10v10ai/game --comments`（正文、「验证记录」评论、截图）、`gh pr diff`、`gh pr checks`；需求以关联 issue 的执行说明与「设计」artifact 为准
+- **审什么**：
+  - 代码：下方「判断标准」
+  - **测试视角**：每条目标都有 jest 用例或实机验证项对应，边界和易错处有覆盖
+  - **证据与结论一致**：每条「通过」「已完成」都有出处（CI 结果、命令与 exit code、`[check]` 原文与数字）。测试通过以 CI 为准；推送以远端 SHA 为准
+  - **截图**：打开每张图，对照执行说明写的正确画面判定，PR 里的文字描述不算结论
+  - **范围与降标**：只改了改动范围；没有改测试迁就代码、删用例；预期值与执行说明一致；做法与执行说明「做法」一致
+- **结论**：PASS / NEEDS-FIX / NEEDS-DECISION，逐条发现带 `file:line`（截图写图名与看到的画面）与严重度。测量类 issue（不开 PR）审留言与报告：每个数字有出处，局数和步骤与执行说明一致，结论没有超出数据
 
 ## 判断标准
 
