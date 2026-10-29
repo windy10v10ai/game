@@ -47,11 +47,11 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
 1. 跑执行说明「验收」里的命令，`git diff --name-only origin/develop...HEAD` 只含改动范围内的文件
 2. 列测试视角：每条「目标」对应哪个 jest 用例或实机验证项，覆盖了哪些边界；缺的补上或写明为什么不补
 3. 单行英文 commit，不写正文，不加 `Co-Authored-By`（DeepSeek 没有 GitHub 账号，署名会显示成无效作者）；`git push -u origin HEAD`，以 `git ls-remote origin <分支>` 与本地 HEAD 一致为准（PowerShell 会把 git 的提示当错误）
-4. 按 `create-pr` 的格式开草稿 PR（`gh pr create --draft --base develop -R windy10v10ai/game`），另加：
+4. 按 `create-pr` 的格式开草稿 PR（`gh pr create --draft --base develop -R windy10v10ai/game`）。正文只写人做判断要看的关键信息，过程细节放进一条「验证记录」评论（`gh pr comment`，之后更新用 `gh pr comment --edit-last`，不另发新评论）。正文另加：
    - Issue 段：目标全部完成写 `Fixes #<id>`，有跳过写 `#<id>`
    - 影响玩家的数值、档位、等级用表格列出
-   - 「测试视角」一节：上面第 2 步的对照
    - Checklist：执行说明「实机验证」的每一项
+   - 验证记录评论写：第 2 步的测试视角、每条验收命令与结果
    - 「等你处理」：「请确认」「待你决定」「发现」三组，每条 checkbox 写清文件与步骤；都空写「无」。执行说明已定的事、与本 issue 无关的工具问题、测试过程细节不写
    - Release Note 按执行说明：「不写」删占位段；「要写」把执行说明里的要点原文贴进该段，不改写、不自拟，正式文案由调度员收尾时生成
    - 末行 `🤖 Implemented by DeepSeek V4.1 Flash via DSH, dispatched by Claude Code`
@@ -59,7 +59,8 @@ python -I .claude/skills/issue-autorun/scripts/dsh-run.py <交接文件> <scratc
    - **脚本判定**：临时 Lua 每项打印 `[check] PASS|FAIL <名字> actual=<值> expected=<值>`，预期值照执行说明抄，不自己改。脚本放 `game/scripts/vscripts/checks/<名字>.lua`，用 `npm run dota:check -- <名字>` 跑，退出码 0 才算通过（写法见 `dota-live-test`「脚本判定」）
    - **截图判定**：照执行说明截图，要悬停或点击的先用 `dota-front.ps1` 切前台再用 Python 移鼠标、点击，停住后用引擎 `screenshot` 命令截原图（Dota 窗口先最大化）；图按 `create-pr/references/screenshots.md` 放进 PR。只交图和截图时的状态，不写「通过 / 失效」，也不据截图改代码或文案
    - **用户判定**：不做，列进「等你处理」
-   - 验完用 `gh pr edit` 在 PR 正文加「实机验证结果」一节：脚本判定项写命令与 `[check]` 行原文并勾选全过的 Checklist 项；截图项写截图链接与截图时的状态。临时 Lua 验完删掉，不提交
+   - 验完用 `gh pr edit` 在 PR 正文加「实机验证结果」一节，每项一行结论并勾选全过的 Checklist 项，截图项贴图并写截图时的状态；命令与 `[check]` 行原文写进验证记录评论。临时 Lua 验完删掉，不提交
+   - 退回返工时，PR 正文与验证记录评论直接改成最新结果，不写各轮过程
 6. 结束时停在 PR 分支，`git status --porcelain` 为空
 7. 最终回复：PR 链接、分支、每条验收命令的结果、测试视角、实机验证每项结论、「等你处理」各条；停下回报时写清试过什么、日志原文、推测原因
 ```
