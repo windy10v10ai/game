@@ -911,7 +911,7 @@
 		"DOTA_Tooltip_ability_leshrac_defilement2_aoe_per_int"							"AOE PER INTELLIGENCE:"
 		//血魔 血雾
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"Blood Mist"
-		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Bloodseeker sprays his blood continuously in the area around him, losing health to damage and slow his enemies."
+		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Bloodseeker sprays his blood in the area around him, losing health while damaging his enemies."
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%HP PER SECOND COST/DAMAGE:"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"Radius:"
 		// 酒仙 醉拳
@@ -1078,9 +1078,9 @@
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"BONUS DAMAGE PER ATTACK DAMAGE:"
 
 		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb"				"Frost Orb"
-		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_Description"		"Every 4th attack launches an orb of frost, dealing area of effect damage, and slowing the primary target."
+		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_Description"		"Periodically launches an orb of frost, dealing area damage and slowing the primary target."
 		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_slow"			"Frost Orb Slow"
-		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_slow_Description"		"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_slow_Description"		"Movement speed reduced by 90%%."
 		//极寒光环
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"					"Bonechill Aura"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"Reduces the healing and health restoration of enemy units.<br/><br/>Active: Deal damage and slow nearby enemy units. Slow and damage are stronger the closer enemy units are."
@@ -1111,10 +1111,10 @@
 		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_buff"		"Aura of Malice"
 		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_buff_Description"	"If within this aura for too long, you will be rooted and receive damage."
 		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_root"		"Rooted"
+		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_root_Description"	"Unable to move."
 		//狂暴药剂
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2"							"Berserk Potion"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_Description"				"Throws a potion at an ally or yourself, applying a basic dispel and granting attack speed, movement speed and HP regen.<br><br>DISPEL TYPE: Basic Dispel"
-		//"DOTA_Tooltip_ability_alchemist_berserk_potion2_Facet_alchemist_mixologist"	"While Alchemist is affected by Chemical Rage, cooldown is reduced by %chemical_rage_cooldown_reduction_pct%%%."
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_attack_speed"				"BONUS ATTACK SPEED:"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_move_speed"					"BONUS MOVEMENT SPEED:"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"					"BONUS HP REGEN:"
@@ -1161,8 +1161,8 @@
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities.<br>Hold ALT to see a list of items and abilities that cannot be refreshed by Rearm."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"A new battery here, another set of rockets there, Boush continually improves on existing technology."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Refresher Orb, Saint White Lotus, Diana Candy and all neutral items. (excepting upgrades like Upgraded Black King Bar, Aeon Pendant, Upgraded Linken's Sphere, Armor of Insight, Hand of Team, etc.)<br>"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"										"Rearm works on all abilities except Sun Strike, Thundergod's Wrath, Wrath of Nature, Time Zone, Chronosphere, Mass Serpent Ward, Haunt, Chaotic Offering, etc. (excepting all Illusion Summoning Abilities)."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"		"Rearm cannot refresh Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Linken's Sphere, Meteor Hammer, Helm of the Dominator, Helm of the Overlord, Pipe of Insight, Refresher Orb, Saint White Lotus, Diana Candy, their upgrades, or some neutral items. Only items you purchased are refreshed, and the TP scroll is always refreshed.<br>"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"		"Rearm cannot refresh Sun Strike, Thundergod's Wrath, Wrath of Nature, Time Zone, Chronosphere, Mass Serpent Ward, Haunt, Chaotic Offering, Tempest Double, and several summon, illusion and ward abilities."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"							"TIME TO REARM:"
 		"DOTA_Tooltip_ability_special_bonus_unique_tinker_rearm_lua"						"-{s:bonus_AbilityChannelTime}s Rearm Channel Time<br>-{s:bonus_AbilityManaCost} Rearm Mana Cost"
 
@@ -1192,6 +1192,7 @@
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus"					"AOE BONUS:"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_magic_resist_bonus"		"%MAGIC RESIST BONUS:"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus_duration"		"BONUS DURATION:"
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_Lore"				"If magic cannot move you, this humble monk also knows a few punches."
 		"DOTA_Tooltip_modifier_rubick_might_and_magus2"							"Might and Magus"
 		"DOTA_Tooltip_modifier_rubick_might_and_magus2_Description"				"Area of Effect of spells increased by %dMODIFIER_PROPERTY_AOE_BONUS_CONSTANT_STACKING%, Magic Resist increased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
 
@@ -1278,7 +1279,7 @@
 
 		// windrunner_whirlwind_custom 旋风（风行者 觉醒）
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom"												"<font color='#d000ff'>Whirlwind Awakened</font>"
-		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Description"									"Focus Fire no longer requires a target, instead firing at random enemies within Windranger's attack range + %search_radius_bonus%. Fires a fixed number of attacks per second, prioritizing Heroes.\n\nLearning this ability causes casting Windrun to grant <font color='#d7ccc7'>invisibility</font> for the same duration. Attacking briefly reveals you before you turn invisible again. Moving does not break invisibility."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Description"									"Focus Fire no longer requires a target, instead firing at random enemies within Windranger's attack range + %search_radius_bonus%. Fires a fixed number of attacks per second, prioritizing heroes and bosses.\n\nLearning this ability causes casting Windrun to grant <font color='#d7ccc7'>invisibility</font> for the same duration. Attacking briefly reveals you before you turn invisible again. Moving does not break invisibility."
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Lore"										"Where the gale blows, arrows rain without end."
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note0"									"Whirlwind attacks can critically strike and trigger attack modifiers, but can also miss."
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note1"									"A target cannot be selected again for the next %repeat_block_count% attacks unless no other target is available."
@@ -1296,10 +1297,8 @@
 		"DOTA_Tooltip_ability_ability_fate_roulette_Lore"								"Fate never rolls the dice—unless you are the wager."
 		"DOTA_Tooltip_ability_ability_fate_roulette_critical_damage"					"%CRITICAL DAMAGE:"
 
-		"DOTA_Tooltip_ability_ability_fate_roulette_stun_duration"					"Stun Duration:"
-		"DOTA_Tooltip_ability_ability_fate_roulette_effect_duration"					"Fate Effect Duration:"
 		"DOTA_Tooltip_ability_ability_fate_roulette_active_duration"					"Destined Moment Duration:"
-		"DOTA_Tooltip_ability_ability_fate_roulette_Note0"							"Only regular attacks completed by the real hero against enemy heroes or basic units advance the count. Missed non-triggering attacks and attacks against buildings or wards are ignored. Split Shot upgraded by Aghanim's Scepter, Hydra's Breath and its upgrade, and Splinter Arrow Awakening inherit roulette effects without advancing Whisper of Fate's count."
+		"DOTA_Tooltip_ability_ability_fate_roulette_Note0"			"Regular attacks and Whirlwind attacks completed by the real hero against enemy heroes or basic units advance the count. Missed non-triggering attacks and attacks against buildings or wards are ignored. Split attacks from Aghanim's Scepter Split Shot and Hydra's Breath roll roulette independently, while Splinter Arrow Awakening's split attacks reuse this attack's roulette result. Neither advances Whisper of Fate's count."
 		"DOTA_Tooltip_ability_ability_fate_roulette_Note1"							"Fate Roulette cannot be disabled by Break, attacks that trigger roulette cannot miss, and all outcomes ignore spell immunity. Except for the critical strike, the other outcomes' durations are reduced by the target's status resistance."
 
 		"DOTA_Tooltip_modifier_ability_fate_roulette_counter"							"Whisper of Fate"
@@ -1329,9 +1328,9 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_armor"				"ARMOR:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"MAGIC RESISTANCE:"
 
-		// Fountain Sanction
+		// 泉水 制裁
 		"DOTA_Tooltip_ability_fountain_anti_camp"							"Fountain Sanction"
-		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned. Only active in team mode.<br><br>When a bot hero is killed within the area, a homing fireball is launched at the killer, piercing spell immunity and dealing damage equal to %retaliation_damage_pct%%% of the killer's maximum health."
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned. Only active in team mode.<br><br>When a bot hero is killed within the area, a homing fireball is launched at the hero controlled by the killer, dealing pure damage equal to %retaliation_damage_pct%%% of that hero's maximum health."
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack"				"Fountain Sanction Warning"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack_Description"	"Stacks once per second while near the fountain. Reaching 3 stacks triggers the sanction."
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"Fountain Sanction"

@@ -952,7 +952,6 @@
 		"DOTA_Tooltip_ability_spectre_dispersion2_radius"			"折射范围："
 		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"反射伤害类型与接收伤害类型一致（物理/魔法/纯粹），无视减益免疫。反射伤害随距离递减。"
 		"DOTA_Tooltip_ability_spectre_dispersion2_Note1"			"反射伤害不受技能增强影响。"
-		// "DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% 折射概率"
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"贪魔的贪婪"
@@ -977,7 +976,6 @@
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"妙手空空"
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"赏金猎人以敌方英雄为目标施放技能和物品时会偷取%gold_steal%金钱。"
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"金钱偷取："
-
 
 		// 龙骑 龙族血统
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2"								"龙族血统"
@@ -1013,7 +1011,7 @@
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"冰爆伤害范围："
 		//诅咒之雨
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"诅咒之雨"
-		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"对一片区域造成持续伤害，并有12%%概率将其变为小鸡"
+		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_Description"	"对一片区域内的敌人造成持续伤害，并有概率将其变为小鸡。"
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_damage"			"伤害："
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_duration"		"持续时间："
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_radius"			"范围："
@@ -1069,14 +1067,21 @@
 		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_Description"			"每当远古冰魄通过他的技能对敌人造成魔法伤害，敌人就会减速一段时间。如果目标是英雄，力量还会降低。多个本效果会叠加，并且持续时间相互独立。"
 		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_str_reduction_duration"	"持续时间："
 		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_str_reduction"			"力量降低："
-		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_movement_slow_pct"		"移动速度减缓：:"
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_movement_slow_pct"		"移动速度减缓："
 
+		//冰霜法球
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"冰霜法球"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"每%attack_count%次攻击发射一枚冰霜法球，造成范围伤害，并短暂减速主要目标"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_slow_duration"		"减速持续时间："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"范围："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"伤害："
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"攻击力伤害加成倍率："
 
+		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb"				"冰霜法球"
+		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_Description"		"定期发射冰霜法球，造成范围伤害并减速主要目标。"
+		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_slow"			"冰霜法球减速"
+		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_slow_Description"		"移动速度降低90%%。"
+		//极寒光环
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"		"极寒光环"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"减少敌方单位的治疗和生命回复。<br/><br/>主动施法：对周围敌方单位造成伤害和减速，距离自己越近伤害和减速越大"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_percentage"		"%减疗百分比："
@@ -1089,24 +1094,27 @@
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"	"对周围敌方单位造成伤害和减速，距离自己越近伤害和减速越大"
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"				"极寒光环(被动)"
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"	"治疗和生命回复减少%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%，生命恢复降低%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%"
-
-		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"								"火雨降临"
+		//火雨降临
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"						"火雨降临"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"					"每攻击%hit_count%次，召唤火雨对目标周围的敌方单位造成伤害"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"						"范围："
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_base_damage"					"基础伤害："
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_max_damage"					"%最大生命值伤害："
 		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"							"火雨降临 攻击计数"
-
+		//怨念光环
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura"		"怨念光环"
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_Description"		"在自身光环范围内停留一定时间的敌人会被缠绕，并造成伤害"
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_radius"		"范围："
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_interval"		"触发间隔："
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_duration"		"缠绕时间："
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_damage"		"伤害："
-
+		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_buff"		"怨念光环"
+		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_buff_Description"	"在光环范围内停留过久会受到伤害并被缠绕。"
+		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_root"		"缠绕"
+		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_root_Description"	"无法移动。"
+		//狂暴药剂
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2"								"狂暴药剂"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_Description"					"炼金术士向友军目标扔出一瓶药剂，施加弱驱散效果，并提供攻击速度，移动速度和生命恢复。<br><br>驱散类型：弱驱散"
-		"DOTA_Tooltip_ability_alchemist_berserk_potion2_Facet_alchemist_mixologist"	"炼金术士处于化学狂暴作用时，冷却时间减少%chemical_rage_cooldown_reduction_pct%%%。"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_attack_speed"				"攻击速度："
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_move_speed"					"移动速度："
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"				    "生命恢复："
@@ -1148,13 +1156,13 @@
 		"DOTA_Tooltip_modifier_imba_phantasm_buff"											"混沌之军"
 		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"								"多重影分身之术！"
 
-		// 修补匠
+		// 修补匠 刷新
 		"DOTA_Tooltip_ability_tinker_rearm_lua"												"再装填"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"对于充能型技能，每次施放再装填可以恢复该技能一点能量。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"持续施法 - 重置修补匠的大多数物品和技能的冷却时间。<br>按住Alt查看不能刷新的物品和技能。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"这儿换块新电池，那儿塞几枚火箭弹，鲍什不断改进现有的技术。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘，奥术鞋，黑皇杖，迈达斯之手，林肯法球，陨星锤，支配头盔，统御头盔，知识之书，洞察烟斗，刷新球，圣女白莲，嘉心糖(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲，团队之手)及所有中立物品。<br>"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"										"再装填不能刷新的技能有阳炎冲击，雷神之怒，自然之怒，逆转时空，时间结界，群蛇守卫，鬼影重重，混乱之雨，风暴双雄，等所有分身召唤物技能。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"		"再装填不能刷新的物品有永恒之盘，奥术鞋，黑皇杖，迈达斯之手，林肯法球，陨星锤，支配头盔，统御头盔，洞察烟斗，刷新球，圣女白莲，嘉心糖，以及这些物品的进阶版和部分中立物品。只能刷新自己购买的物品，回城卷轴单独刷新。<br>"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"		"再装填不能刷新的技能有阳炎冲击，雷神之怒，自然之怒，逆转时空，时间结界，群蛇守卫，鬼影重重，混乱之雨，风暴双雄，以及多个召唤、分身和守卫类技能。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"							"再装填施法时间："
 		"DOTA_Tooltip_ability_special_bonus_unique_tinker_rearm_lua"						"-{s:bonus_AbilityChannelTime}秒 再装填施法时间<br> -{s:bonus_AbilityManaCost} 再装填魔法消耗"
 
@@ -1269,10 +1277,9 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display"							"凝心"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"下次施放将造成 %dMODIFIER_PROPERTY_TOOLTIP2%%% 伤害。"
 
-
 		// windrunner_whirlwind_custom 旋风（风行者 觉醒）
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom"												"<font color='#d000ff'>旋风 觉醒</font>"
-		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Description"									"集中火力不再需要施法目标，而是对风行者攻击距离 + %search_radius_bonus%范围内的随机敌人发动攻击。每秒发动固定次数的攻击，以英雄优先。\n\n学会本技能后，施放风行时进入<font color='#d7ccc7'>隐身</font>状态，持续时间与风行相同。攻击敌人后会短暂显形，随后重新隐身。移动不会破坏隐身状态。"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Description"									"集中火力不再需要施法目标，而是对风行者攻击距离 + %search_radius_bonus%范围内的随机敌人发动攻击。每秒发动固定次数的攻击，优先攻击英雄或Boss。\n\n学会本技能后，施放风行时进入<font color='#d7ccc7'>隐身</font>状态，持续时间与风行相同。攻击敌人后会短暂显形，随后重新隐身。移动不会破坏隐身状态。"
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Lore"										"狂风所至，箭雨无处不在。"
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note0"									"旋风攻击可以触发暴击和攻击特效，也会被闪避。"
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note1"									"同一目标在最近 %repeat_block_count% 次攻击内不会再次被选中，没有其他目标时除外。"
@@ -1290,10 +1297,8 @@
 		"DOTA_Tooltip_ability_ability_fate_roulette_Lore"								"命运从不掷骰子——除非，你就是赌注。"
 		"DOTA_Tooltip_ability_ability_fate_roulette_critical_damage"					"%暴击伤害："
 
-		"DOTA_Tooltip_ability_ability_fate_roulette_stun_duration"					"眩晕时间："
-		"DOTA_Tooltip_ability_ability_fate_roulette_effect_duration"					"命运效果持续时间："
 		"DOTA_Tooltip_ability_ability_fate_roulette_active_duration"					"命定之刻持续时间："
-		"DOTA_Tooltip_ability_ability_fate_roulette_Note0"							"仅英雄本体对敌方英雄或普通单位完成的常规攻击会推进计数。未触发轮盘的落空攻击、攻击建筑或守卫均不计数。阿哈利姆神杖升级的分裂箭、怪蛇之息及其升级装备、裂影箭觉醒的分裂攻击会继承轮盘效果，但不会推进“命运低语”的计数。"
+		"DOTA_Tooltip_ability_ability_fate_roulette_Note0"			"英雄本体对敌方英雄或普通单位完成的常规攻击和旋风攻击会推进计数。未触发轮盘的落空攻击、攻击建筑或守卫均不计数。阿哈利姆神杖升级的分裂箭、怪蛇之息及其升级装备的分裂攻击会各自独立触发轮盘，裂影箭觉醒的分裂攻击沿用本次攻击的轮盘结果，两者都不推进“命运低语”的计数。"
 		"DOTA_Tooltip_ability_ability_fate_roulette_Note1"							"命运轮盘无法被破坏，触发轮盘效果的攻击必定命中，所有效果均无视技能免疫。除暴击外，其余效果的持续时间受目标状态抗性影响。"
 
 		"DOTA_Tooltip_modifier_ability_fate_roulette_counter"							"命运低语"
@@ -1325,7 +1330,7 @@
 
 		// 泉水 制裁
 		"DOTA_Tooltip_ability_fountain_anti_camp"							"泉水制裁"
-		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"敌方人类玩家英雄靠近泉水攻击范围时会被制裁。仅组队模式下生效。<br><br>范围内的电脑英雄被击杀时，会向击杀者发射追踪火球，无视魔免，造成相当于击杀者最大生命值%retaliation_damage_pct%%%的伤害。"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"敌方人类玩家英雄靠近泉水攻击范围时会被制裁。仅组队模式下生效。<br><br>范围内有电脑英雄被击杀时，会向击杀者所控制的英雄发射追踪火球，造成相当于该英雄最大生命值%retaliation_damage_pct%%%的纯粹伤害。"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack"				"泉水制裁警告"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack_Description"	"靠近泉水时每秒叠加一层，叠满3层后将进入制裁状态。"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"泉水制裁"
