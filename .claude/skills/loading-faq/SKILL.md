@@ -1,5 +1,5 @@
 ---
-name: faq
+name: loading-faq
 description: 维护加载界面的 FAQ 问答。
 disable-model-invocation: true
 ---

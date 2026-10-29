@@ -1,9 +1,9 @@
 ---
-name: issue-organize
+name: issue-triage
 description: 整理 issue：查重复与过期、调整优先级、核对「开发计划」项目里的位置。
 ---
 
-# issue-organize
+# issue-triage
 
 整理 `windy10v10ai/game` 与 `windy10v10ai/firebase` 两个仓库的未关闭 issue，并核对组织项目「开发计划」（`gh project` 编号 3）的排布。先出建议、等用户拍板，再改 GitHub。
 

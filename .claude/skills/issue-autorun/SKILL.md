@@ -64,7 +64,7 @@ DeepSeek 与调度员都按这张表处理，并把每一处记进该 issue 的�
 gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json number,title,body
 ```
 
-对每个 issue 查「开发计划」项目里的 Status 与 issue 字段 Priority（查询见 `issue-organize` 第 1 步），按下面的顺序排，前一项相同再比后一项：
+对每个 issue 查「开发计划」项目里的 Status 与 issue 字段 Priority（查询见 `issue-triage` 第 1 步），按下面的顺序排，前一项相同再比后一项：
 
 1. Status：In progress → Todo → Plan → Backlog → 未入项目
 2. Priority：Urgent → High → Medium → Low → 未填

@@ -1,6 +1,6 @@
 # 交给 agent 自动做的 issue
 
-`issue-organize`、`issue-spec`（用户在场时拍板）与 `issue-autorun`（用户不在时自动做）之间的约定。`issue-autorun` 只认这里定义的标签、执行说明和它指向的 issue artifact，不读对话。
+`issue-triage`、`issue-spec`（用户在场时拍板）与 `issue-autorun`（用户不在时自动做）之间的约定。`issue-autorun` 只认这里定义的标签、执行说明和它指向的 issue artifact，不读对话。
 
 ## 标签
 

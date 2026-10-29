@@ -210,4 +210,4 @@ disable-model-invocation: true
    - [ ] 百分比键（`_pct` 等）：各档不超过 100；参考最大值 > 50 时已改写差值封顶
    - [ ] 有注释的键：参考基数与当前版本一致，规则标记与 value 重算结果一致
    - [ ] `延伸` 标记与无注释的键：value 与参考差值延伸完全吻合；本次改到的纯延伸行都带 `延伸` 标记
-4. 所有英雄处理完毕后，调用 `update-heroes-custom` 对本次修改的英雄逐一验证 Bot.Build 合规性（英雄不在 `npc_heroes_custom.txt` 时无 Bot.Build，跳过）。
+4. 所有英雄处理完毕后，调用 `bot-skill-build` 对本次修改的英雄逐一验证 Bot.Build 合规性（英雄不在 `npc_heroes_custom.txt` 时无 Bot.Build，跳过）。
