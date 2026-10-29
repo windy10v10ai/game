@@ -1,14 +1,19 @@
-# 不用 computer-use 截图
+# 用引擎截图
 
-只要画面、不需要点击时，用引擎自带的 `screenshot` 命令截图。它只截游戏画面，桌面上的其他窗口（Claude、聊天软件）不会进图；也不需要 computer-use 授权，权限模式自动拒绝授权弹窗时照样能用。
+所有要交出去的图（PR、issue、给用户看）都用引擎自带的 `screenshot` 命令出原图再裁剪，要悬停或点击的也一样：computer-use 只负责移鼠标、点击，图仍用引擎命令截。computer-use 的 `screenshot` / `zoom` 是整屏缩小后压成 JPG 的低清图，只用来找坐标，不交出去。
+
+Dota 窗口先最大化：引擎截图的分辨率等于窗口分辨率，小窗口截出来的 tooltip 字太小。
+
+只要画面、不需要点击时，引擎命令连 computer-use 都不用。它只截游戏画面，桌面上的其他窗口（Claude、聊天软件）不会进图；也不需要 computer-use 授权，权限模式自动拒绝授权弹窗时照样能用。
 
 不要用 PowerShell `CopyFromScreen` 截 Dota 窗口区域：Dota 被别的窗口盖住时，截到的是盖在上面的窗口，会把用户别的会话内容带进图里。
 
 ## 流程
 
 1. **切前台**：`powershell -NoProfile -ExecutionPolicy Bypass -File .claude/skills/dota-live-test/scripts/dota-front.ps1`，输出 `foreground is dota: True` 才算成功。Dota 不在前台时引擎不重绘，截到的是窗口失焦那一刻的旧画面（时钟停住）；`engine_no_focus_sleep 0` 解决不了。会短暂挡住用户屏幕，动手前告诉用户
-2. **截图**：等 2 秒让画面刷新，再发 `npm run dota:cmd -- "screenshot"`。日志出现 `[ScreenShot] Screenshot written to: screenshots\shot_NNNN.tga`，文件在 `<dota>/game/dota/screenshots/`，1920×1080 的 TGA
-3. **转 PNG 并裁剪**：`python -c "from PIL import Image; Image.open('<tga>').convert('RGB').crop((x0, y0, x1, y1)).save('<png>')"`，存会话 scratchpad。鼠标停在界面上会带出 tooltip，裁掉无关区域
+2. **悬停或点击**（需要时）：用 computer-use 移鼠标或点击，停住不动
+3. **截图**：等 2 秒让画面刷新，再发 `npm run dota:cmd -- "screenshot"`。日志出现 `[ScreenShot] Screenshot written to: screenshots\shot_NNNN.tga`，文件在 `<dota>/game/dota/screenshots/`，1920×1080 的 TGA
+4. **转 PNG 并裁剪**：`python -c "from PIL import Image; Image.open('<tga>').convert('RGB').crop((x0, y0, x1, y1)).save('<png>')"`，存会话 scratchpad。鼠标停在界面上会带出 tooltip，裁掉无关区域
 
 找窗口要按标题 `Dota 2` 找：`Get-Process dota2` 的 `MainWindowHandle` 在 Tools 模式下指向一个 0×0 的隐藏窗口，对它切前台、取窗口区域都无效。脚本已经按标题找。
 
