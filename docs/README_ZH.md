@@ -69,7 +69,7 @@ npm install
 
 ### Claude Code（可选）
 
-本项目自带 Claude Code 配置（`.claude/`）用于 AI 辅助开发，有两种使用方式：
+本项目自带 Claude Code 配置（`.claude/`）用于 AI 辅助开发。issue 如何借助 AI 从想法走到上线，见 [AI Development Workflow](ai-workflow.md)（英文）。有两种使用方式：
 
 1. **官网订阅** — 安装 [Claude Code](https://claude.com/claude-code) 并登录。
 2. **第三方 API** — 安装 [Claude Code VS Code 插件](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)，在 `.claude/settings.local.json`（已被 git 忽略）中配置 API 地址与密钥：

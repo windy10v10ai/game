@@ -70,7 +70,7 @@ npm install
 
 ### Claude Code (Optional)
 
-This project ships with Claude Code configuration (`.claude/`) for AI-assisted development. Two ways to use it:
+This project ships with Claude Code configuration (`.claude/`) for AI-assisted development. See [AI Development Workflow](docs/ai-workflow.md) for how issues go from idea to release with AI. Two ways to use it:
 
 1. **Official subscription** — install [Claude Code](https://claude.com/claude-code) and sign in.
 2. **Third-party API** — install the [Claude Code VS Code extension](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code), then set the endpoint and key in `.claude/settings.local.json` (git-ignored):
