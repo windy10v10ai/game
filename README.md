@@ -20,19 +20,13 @@ Game is published on Steam workshop: [10v10 AI custom by windy](https://steamcom
 [![GitHub stars](https://img.shields.io/github/stars/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/network)
 
-## License
-
-Licensed under the **GNU GPL v3** ([`LICENSE`](LICENSE)), with a Steam/Workshop
-distribution exception and notes on prior MIT releases in
-[`LICENSE.EXCEPTIONS.md`](LICENSE.EXCEPTIONS.md).
-
 ## Contributors
 
 [![Contributors](https://contrib.rocks/image?repo=windy10v10ai/game)](https://github.com/windy10v10ai/game)
 
-### Join us
+### Contributing
 
-If you would like to contribute to Windy10v10AI, please see our [contributing guidelines](.github/CONTRIBUTING.md).
+Bug reports, ideas and pull requests are all welcome. See the [contributing guidelines](.github/CONTRIBUTING.md).
 
 ## AI-Driven Development
 
@@ -41,15 +35,6 @@ This project is built to be developed by AI agents. People decide what to build,
 [<img src="docs/images/ai-workflow-en.svg" width="600" alt="AI development pipeline">](docs/ai-workflow.md)
 
 See [AI Development Workflow](docs/ai-workflow.md) for the full pipeline and the skills behind it.
-
-The repo ships rules and skills for these agents:
-
-| Agent | Setup |
-|---|---|
-| Claude Code | Reads `.claude/` (rules and skills) out of the box |
-| Codex and other agents | Read `AGENTS.md`; run `npm run skills:link` once to expose the skills under `.agents/skills` |
-
-Recommend installing the [GitHub CLI](https://cli.github.com/) and running `gh auth login`, so agents can create pull requests and manage issues for you.
 
 ## Get Started
 
@@ -84,6 +69,17 @@ nvm use $(Get-Content .nvmrc)
 ```bash
 npm install
 ```
+
+### AI Agents (Optional)
+
+The repo ships rules and skills for AI coding agents:
+
+| Agent | Setup |
+|---|---|
+| Claude Code | Reads `.claude/` (rules and skills) out of the box |
+| Codex and other agents | Read `AGENTS.md`; run `npm run skills:link` once to expose the skills under `.agents/skills` |
+
+Recommend installing the [GitHub CLI](https://cli.github.com/) and running `gh auth login`, so agents can create pull requests and manage issues for you.
 
 ### Dota2 Reference Files (Optional)
 
@@ -156,7 +152,7 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 | `content/` | Synced with `dota 2 beta/content/dota_addons/<addon>`: Panorama sources other than scripts (xml, less, images), maps, particles and sounds |
 | `assets/` | Editable art sources (psd, sai2) kept for reference |
 | `docs/` | Documentation: language READMEs, the data flow diagram (`drawio/`), and vanilla Dota 2 reference files you extract yourself (`reference/`, git-ignored) |
-| `.claude/` | Claude Code configuration and project skills (see [AI-Driven Development](#ai-driven-development)) |
+| `.claude/` | Claude Code configuration and project skills (see [AI Agents](#ai-agents-optional)) |
 
 Each of `src/vscripts/`, `src/panorama/`, `game/scripts/npc/` and `game/resource/` has its own `CLAUDE.md` with the rules for that layer.
 
@@ -181,3 +177,9 @@ This project is based on the ModDota template and x-template.
 [![Star History Chart](https://api.star-history.com/svg?repos=windybirth/windy10v10ai&type=Date)](https://star-history.com/#windybirth/windy10v10ai&Date)
 
 ![](https://api.moedog.org/count/@windybirth.readme)
+
+## License
+
+Licensed under the **GNU GPL v3** ([`LICENSE`](LICENSE)), with a Steam/Workshop
+distribution exception and notes on prior MIT releases in
+[`LICENSE.EXCEPTIONS.md`](LICENSE.EXCEPTIONS.md).

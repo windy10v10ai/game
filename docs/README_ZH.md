@@ -20,18 +20,13 @@
 [![GitHub stars](https://img.shields.io/github/stars/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/windy10v10ai/game.svg)](https://github.com/windy10v10ai/game/network)
 
-## 许可证
-
-本项目采用 **GNU GPL v3** 协议（见 [`LICENSE`](../LICENSE)），并附带 Steam/创意工坊
-分发例外，相关说明及此前 MIT 版本的处理见 [`LICENSE.EXCEPTIONS.md`](../LICENSE.EXCEPTIONS.md)。
-
 ## 贡献者
 
 [![Contributors](https://contrib.rocks/image?repo=windy10v10ai/game)](https://github.com/windy10v10ai/game)
 
-### 参与开发
+### 如何贡献
 
-如果你想参与 Windy10v10AI 的开发，请参考我们的[参与指南](../.github/CONTRIBUTING_ZH.md)。
+欢迎提交 bug、建议或 PR，详见[贡献指南](../.github/CONTRIBUTING_ZH.md)。
 
 ## AI 驱动开发
 
@@ -40,15 +35,6 @@
 [<img src="images/ai-workflow-zh.svg" width="600" alt="AI 开发流水线">](ai-workflow_ZH.md)
 
 完整流程与背后的 skill 见 [AI 开发流程](ai-workflow_ZH.md)。
-
-仓库自带给这些 AI 编程工具用的规则与 skill：
-
-| 工具 | 配置 |
-|---|---|
-| Claude Code | 直接读 `.claude/`（规则与 skill），开箱即用 |
-| Codex 等其他工具 | 读 `AGENTS.md`；克隆后跑一次 `npm run skills:link`，在 `.agents/skills` 下建立 skill 链接 |
-
-建议安装 [GitHub CLI](https://cli.github.com/) 并运行 `gh auth login`，以便 AI 帮你创建 PR、管理 issue。
 
 ## 开始
 
@@ -83,6 +69,17 @@ nvm use $(Get-Content .nvmrc)
 ```bash
 npm install
 ```
+
+### AI 编程工具（可选）
+
+仓库自带给 AI 编程工具用的规则与 skill：
+
+| 工具 | 配置 |
+|---|---|
+| Claude Code | 直接读 `.claude/`（规则与 skill），开箱即用 |
+| Codex 等其他工具 | 读 `AGENTS.md`；克隆后跑一次 `npm run skills:link`，在 `.agents/skills` 下建立 skill 链接 |
+
+建议安装 [GitHub CLI](https://cli.github.com/) 并运行 `gh auth login`，以便 AI 帮你创建 PR、管理 issue。
 
 ### Dota2 原版参考文件（可选）
 
@@ -155,7 +152,7 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 | `content/` | 与 `dota 2 beta/content/dota_addons/<addon>` 同步：脚本以外的 Panorama 源文件（xml、less、图片）、地图、特效和音效 |
 | `assets/` | 可编辑的美术源文件（psd、sai2），仅作留存 |
 | `docs/` | 文档：各语言 README、数据流图（`drawio/`），以及需要自行解压的 Dota 2 原版参考文件（`reference/`，已被 git 忽略） |
-| `.claude/` | Claude Code 配置与项目 skill（见 [AI 驱动开发](#ai-驱动开发)） |
+| `.claude/` | Claude Code 配置与项目 skill（见 [AI 编程工具](#ai-编程工具可选)） |
 
 `src/vscripts/`、`src/panorama/`、`game/scripts/npc/`、`game/resource/` 下各有一个 `CLAUDE.md`，写明该层的规则。
 
@@ -180,3 +177,8 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 [![Star History Chart](https://api.star-history.com/svg?repos=windybirth/windy10v10ai&type=Date)](https://star-history.com/#windybirth/windy10v10ai&Date)
 
 ![](https://api.moedog.org/count/@windybirth.readme)
+
+## 许可证
+
+本项目采用 **GNU GPL v3** 协议（见 [`LICENSE`](../LICENSE)），并附带 Steam/创意工坊
+分发例外，相关说明及此前 MIT 版本的处理见 [`LICENSE.EXCEPTIONS.md`](../LICENSE.EXCEPTIONS.md)。
