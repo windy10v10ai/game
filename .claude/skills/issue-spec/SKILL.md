@@ -56,7 +56,7 @@ gh issue edit <n> -R windy10v10ai/game --add-label agent-todo --add-label <L1-co
 
 用户要收拾 `issue-autorun` 的结果时：
 
-- **`agent-done`**：读草稿 PR 正文的「等你处理」，逐条和用户过。「请确认」的确认或改掉；「待你决定」的谈定后直接在该 PR 分支上补改，或写进执行说明另起一轮
+- **`agent-done`**：读 PR 正文的「等你处理」，逐条和用户过。「请确认」的确认或改掉；「待你决定」的谈定后直接在该 PR 分支上补改，或写进执行说明另起一轮
 - **`agent-block`**：读 issue 下 agent 的留言，按第 2 步补齐缺的信息，更新执行说明后把标签换回 `agent-todo`
 
 ```bash

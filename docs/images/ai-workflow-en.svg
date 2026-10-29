@@ -71,9 +71,9 @@
 <text class="d" x="189.5" y="307">Design attached to the issue,</text>
 <text class="d" x="189.5" y="325">labeled agent-todo</text>
 <rect class="nh" x="177.5" y="366" width="320" height="76" rx="8"/>
-<text class="t" x="189.5" y="391">Start an issue</text>
-<text class="d" x="189.5" y="411">/issue-impl 123, or build</text>
-<text class="d" x="189.5" y="429">right in the conversation</text>
+<text class="t" x="189.5" y="391">Start</text>
+<text class="d" x="189.5" y="411">/issue-impl 123: one issue now</text>
+<text class="d" x="189.5" y="429">/issue-autorun: all agent-todo issues</text>
 <rect class="na" x="552.5" y="470" width="320" height="220" rx="8"/>
 <text class="t" x="564.5" y="495">Implement with the named skill</text>
 <text x="564.5" y="515"><tspan class="code">custom-ability</tspan><tspan class="d" x="702.5">new ability in TypeScript</tspan></text>

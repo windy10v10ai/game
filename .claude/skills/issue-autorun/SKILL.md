@@ -1,6 +1,6 @@
 ---
 name: issue-autorun
-description: 用户不在时，按优先级在主目录依次派执行者把带 agent-todo 标签的 issue 从实现做到实机验证，调度员审查判定，各开草稿 PR。
+description: 用户不在时，按优先级在主目录依次派执行者把带 agent-todo 标签的 issue 从实现做到实机验证，调度员审查判定，各开 PR（审查通过转正式，没做完的保持草稿）。
 disable-model-invocation: true
 ---
 
@@ -13,7 +13,7 @@ disable-model-invocation: true
 | 角色 | 做什么 |
 |---|---|
 | 调度员（主会话） | 排顺序、请用户选 issue、检查主目录、派活、审查、看截图判定、改标签、汇报 |
-| 执行者（子代理） | 默认执行者，用谁由用户的全局约定决定。同一个会话里一口气做完：切分支、实现、验收、开草稿 PR、实机验证、把证据写进 PR。只做能机械判定的事，截图只交图不下结论 |
+| 执行者（子代理） | 默认执行者，用谁由用户的全局约定决定。同一个会话里一口气做完：切分支、实现、验收、开 PR（先草稿）、实机验证、把证据写进 PR。只做能机械判定的事，截图只交图不下结论 |
 | 升级执行者 | 默认执行者退回两轮仍不过时接手同一个 PR，用谁同样看用户的全局约定，没有约定就用 Agent 工具的 sonnet |
 | 审查子代理（sonnet） | 只在第 4 步的条件下替调度员审某一条 |
 | 用户 | 回来后测「用户判定」层的项（手感、动画） |
@@ -27,7 +27,7 @@ disable-model-invocation: true
 - **只在开工前问一次**：第 2 步请用户选 issue，之后用户不在场，根 `CLAUDE.md`「Skill 交互」的 `AskUserQuestion` 不适用。拿不准的按「卡住时怎么办」处理，然后继续
 - **只做有执行说明的 issue**：没有 `## 执行说明` 的不派，按「卡住时怎么办」第三行处理
 - **主目录只在干净时用**：开工前和每个 issue 之间检查 `git status --porcelain` 为空。不干净就停掉剩下的全部 issue，写进汇报，不动用户的文件
-- **不合并、不推 `develop` / `main`**，只开草稿 PR
+- **不合并、不推 `develop` / `main`**，PR 审查通过前保持草稿，通过后转正式，没做完的保持草稿
 - **只改执行说明「改动范围」里的文件**
 - **不改 issue 正文**，只留言、改标签
 - **改 PR、返工都接着原会话**，不为同一个 issue 另开会话
@@ -146,7 +146,7 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 
 ```bash
 gh issue edit <id> -R windy10v10ai/game --remove-label agent-todo --add-label agent-done
-gh issue comment <id> -R windy10v10ai/game --body "已开草稿 PR：<链接>。等你处理 N 项，见 PR 正文。"
+gh issue comment <id> -R windy10v10ai/game --body "已开 PR：<链接>（保持草稿的写明原因）。等你处理 N 项，见 PR 正文。"
 ```
 
 执行说明 Release Note「要写」的，调用 `release-note` skill（来源：该 PR，写回：仅写入功能 PR），要点以执行说明为准，不另拟。

@@ -44,7 +44,7 @@ Claude Code 直接读 `.claude/skills`；Codex 与 DSH 读仓库下的 `.agents/
 | 把纠正与新约定沉淀进文档 | `doc-update` |
 | 整理 issue、调整优先级与「开发计划」项目排布 | `issue-triage` |
 | 给 issue 定 spec 交给 agent 自动做，处理 agent 留下的问题 | `issue-spec` |
-| 按 issue 的执行说明实现一条 issue 并开草稿 PR | `issue-impl` |
+| 按 issue 的执行说明实现一条 issue 并开 PR | `issue-impl` |
 | 在 Dota 2 Tools 实机验证 | `dota-live-test` |
 | 查 Dota 2 引擎 API、事件 | `dota-docs-lookup` |
 | 从零自制技能 | `custom-ability` |

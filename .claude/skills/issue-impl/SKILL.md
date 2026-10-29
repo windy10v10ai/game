@@ -1,11 +1,11 @@
 ---
 name: issue-impl
-description: 按 issue 末尾的「执行说明」实现一条 issue：实现、验收、实机验证、开草稿 PR、审一次。用户说「做 #123」「实现这个 issue」时用，issue-autorun 派执行者时也让执行者照它做。
+description: 按 issue 末尾的「执行说明」实现一条 issue：实现、验收、实机验证、开 PR、审一次。用户说「做 #123」「实现这个 issue」时用，issue-autorun 派执行者时也让执行者照它做。
 ---
 
 # issue-impl
 
-把一条已有「执行说明」的 issue 做到草稿 PR。标签、执行说明格式与实机验证三层见 `.claude/references/agent-autorun.md`，开始前先读。
+把一条已有「执行说明」的 issue 做到 PR。审查通过转正式，没做完或没通过的保持草稿。标签、执行说明格式与实机验证三层见 `.claude/references/agent-autorun.md`，开始前先读。
 
 两种用法共用这一份规则：
 
@@ -20,7 +20,7 @@ description: 按 issue 末尾的「执行说明」实现一条 issue：实现、
 
 - 只改执行说明「改动范围」里的文件，执行说明以外的需求（评论里的新想法、相关 bug）不做，记进「发现」
 - 不改 issue 正文，只留言、改标签
-- 不合并、不推 `develop` / `main`，只开草稿 PR
+- 不合并、不推 `develop` / `main`。PR 先开草稿，第 9 步判定通过后转正式，有没做完或没通过的部分就保持草稿
 - 不用降低标准换通过：改测试迁就代码、删失败用例、把没达成写成完成都不行
 - 没亲眼看到的结果不写进 PR，后台跑的长命令，等取到结果末尾再写数字
 - 执行者不得自己跑 `npm install` / `npm ci`（依赖由调度员保证已装好）
@@ -62,11 +62,11 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 
 列测试视角：每条「目标」对应哪个 jest 用例或实机验证项，覆盖了哪些边界，缺的补上或写明为什么不补。
 
-## 5. 提交与草稿 PR
+## 5. 提交与 PR
 
 - commit 是单行英文标题，署名行按执行者：Claude 加 `Co-Authored-By`，没有 GitHub 账号的执行者不加（会显示成无效作者）
 - `git push -u origin HEAD`，以 `git ls-remote origin <分支>` 与本地 HEAD 一致为准
-- 按 `create-pr` 的格式开草稿 PR（`gh pr create --draft --base develop -R windy10v10ai/game`）。正文只写人做判断要看的关键信息，过程细节放进一条「验证记录」评论（之后更新用 `gh pr comment --edit-last`）。正文另加：
+- 按 `create-pr` 的格式开 PR，先带 `--draft`（`gh pr create --draft --base develop -R windy10v10ai/game`），审查通过后再转正式。正文只写人做判断要看的关键信息，过程细节放进一条「验证记录」评论（之后更新用 `gh pr comment --edit-last`）。正文另加：
   - Issue 段：目标全部完成写 `Fixes #<id>`，有跳过写 `#<id>`
   - 影响玩家的数值、档位、等级用表格列出
   - Checklist：执行说明「实机验证」的每一项
@@ -100,6 +100,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 
 逐条判定审查发现，读日志原文与数字，不只看结论：
 
+- **转正式**：审查通过且发现都已处理，就 `gh pr ready <编号> -R windy10v10ai/game`（会重跑 CI，CI 过了才算完成）。有「待你决定」跳过的部分，审查没过，或要用户拍板才能继续的，保持草稿并在回报里写明原因。只剩「用户判定」项和「请确认」的算做完，照常转正式
 - 通过的勾掉 PR Checklist 对应项，要改的按「卡住时怎么办」处理，退回时交接只写要改的几条，同一 PR 最多退回两轮，返工后 PR 正文与验证记录直接更新成最新结果，不保留各轮过程
 - 两轮仍不过：升级给能力更强的执行者接手同一个 PR 分支，交接写明 PR 链接、还没解决的几条、前两轮的失败原因，仍不过记为「待你决定」
 - 精简 PR 的「等你处理」成只含用户本人要做的事，每条一句话写清看什么、选什么：
