@@ -34,6 +34,14 @@ distribution exception and notes on prior MIT releases in
 
 If you would like to contribute to Windy10v10AI, please see our [contributing guidelines](.github/CONTRIBUTING.md).
 
+## 🤖 AI-Driven Development
+
+This project is built to be developed by AI agents. People decide what to build, approve the design and play-test the result. AI writes the code, tests it live in Dota 2, opens the pull request and reviews it.
+
+[<img src="docs/images/ai-workflow-en.svg" width="600" alt="AI development pipeline">](docs/ai-workflow.md)
+
+See [AI Development Workflow](docs/ai-workflow.md) for the full pipeline and the skills behind it.
+
 ## Get Started
 
 ### OS Requirement
@@ -68,9 +76,16 @@ nvm use $(Get-Content .nvmrc)
 npm install
 ```
 
-### Claude Code (Optional)
+### AI Coding Agents
 
-This project ships with Claude Code configuration (`.claude/`) for AI-assisted development. See [AI Development Workflow](docs/ai-workflow.md) for how issues go from idea to release with AI. Two ways to use it:
+The repo ships rules and skills for AI coding agents. See [AI Development Workflow](docs/ai-workflow.md) for how they are used.
+
+| Agent | Setup |
+|---|---|
+| Claude Code | Reads `.claude/` (rules and skills) out of the box |
+| Codex and other agents | Read `AGENTS.md`; run `npm run skills:link` once to expose the skills under `.agents/skills` |
+
+Claude Code can be used in two ways:
 
 1. **Official subscription** — install [Claude Code](https://claude.com/claude-code) and sign in.
 2. **Third-party API** — install the [Claude Code VS Code extension](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code), then set the endpoint and key in `.claude/settings.local.json` (git-ignored):
@@ -84,7 +99,7 @@ This project ships with Claude Code configuration (`.claude/`) for AI-assisted d
 }
 ```
 
-Recommend installing the [GitHub CLI](https://cli.github.com/) and running `gh auth login`, so Claude Code can create pull requests and manage issues for you.
+Recommend installing the [GitHub CLI](https://cli.github.com/) and running `gh auth login`, so agents can create pull requests and manage issues for you.
 
 ### Dota2 Reference Files (Optional)
 
@@ -157,7 +172,7 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 | `content/` | Synced with `dota 2 beta/content/dota_addons/<addon>`: Panorama sources other than scripts (xml, less, images), maps, particles and sounds |
 | `assets/` | Editable art sources (psd, sai2) kept for reference |
 | `docs/` | Documentation: language READMEs, the data flow diagram (`drawio/`), and vanilla Dota 2 reference files you extract yourself (`reference/`, git-ignored) |
-| `.claude/` | Claude Code configuration and project skills (see [Claude Code](#claude-code-optional)) |
+| `.claude/` | Claude Code configuration and project skills (see [AI Coding Agents](#ai-coding-agents)) |
 
 Each of `src/vscripts/`, `src/panorama/`, `game/scripts/npc/` and `game/resource/` has its own `CLAUDE.md` with the rules for that layer.
 
