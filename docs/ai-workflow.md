@@ -1,45 +1,14 @@
 # AI Development Workflow
 
+English | [简体中文](ai-workflow_ZH.md)
+
 How an issue becomes a shipped update in Windy10v10AI. The goal is to let as much as possible run on its own: people decide what to build, approve the design, and judge the result. Everything in between is done by AI.
 
 ## The pipeline
 
-Blue steps are done by people, green steps by AI. Steps marked _away_ run while nobody is watching.
+Blue steps are done by people, green steps by AI. Grey rows run while nobody is watching.
 
-```mermaid
-flowchart TD
-    subgraph Plan
-        A1["Raise a need, set priority<br/><i>issue-triage</i>"]
-    end
-    subgraph Design
-        B1["Draft the design and execution spec<br/><i>brainstorming · issue-spec</i>"]
-        B2["Approve the design<br/>attached to the issue, labeled agent-todo"]
-        B3["Start a batch<br/><i>/issue-autorun</i>, or build in the conversation"]
-    end
-    subgraph Build["Build (away)"]
-        C1["Implement with the named domain skill"]
-        C2["Test and play-test<br/>jest, lint, build · <i>dota-live-test</i>"]
-        C3["Open the PR<br/><i>create-pr</i>"]
-    end
-    subgraph AIReview["AI review (away)"]
-        D1["Verify the PR<br/><i>review-pr</i> auto mode"]
-    end
-    subgraph HumanReview["Human review"]
-        E1["Rule on open items, judge the feel in game"]
-    end
-    subgraph Ship
-        F1["Merge and publish<br/><i>release-note · deploy</i>"]
-    end
-
-    A1 --> B1 --> B2 --> B3 --> C1 --> C2 --> C3 --> D1
-    D1 -- passes --> E1 --> F1
-    D1 -. needs fixes .-> C1
-
-    classDef human fill:#e9edfb,stroke:#3451c6,color:#1a2126
-    classDef ai fill:#e2f4ee,stroke:#0b7d61,color:#1a2126
-    class A1,B2,B3,E1,F1 human
-    class B1,C1,C2,C3,D1 ai
-```
+![AI development pipeline](images/ai-workflow-en.svg)
 
 | Stage | Who | What happens |
 |---|---|---|
