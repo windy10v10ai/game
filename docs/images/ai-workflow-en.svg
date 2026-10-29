@@ -1,127 +1,115 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1224" width="900" height="1224" role="img">
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1130 1306" width="1130" height="1306" role="img">
 <style>
-  .bg{fill:#ffffff} .stagebg{fill:#f5f7f8} .awaybg{fill:#eceff2}
+  .bg{fill:#ffffff} .stagebg{fill:#f5f7f8}
   .hh{fill:#e9edfb} .ha{fill:#e2f4ee}
   .grid{stroke:#d5dce1;stroke-width:1} .dash{stroke:#d5dce1;stroke-dasharray:4 4}
   .nh{fill:#e9edfb;stroke:#b7c3f0;stroke-width:1.5} .na{fill:#e2f4ee;stroke:#a6dcc9;stroke-width:1.5}
-  .t{font:600 14px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#1a2126}
-  .d{font:12.5px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#5b6770}
-  .code{font:12px ui-monospace,'Cascadia Mono',Consolas,monospace;fill:#0b7d61}
-  .st{font:600 14px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#1a2126}
-  .ss{font:11.5px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#5b6770}
-  .hd{font:700 12px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;letter-spacing:.06em}
+  .t{font:600 19px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#1a2126}
+  .d{font:16.5px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#5b6770}
+  .code{font:15.5px ui-monospace,'Cascadia Mono',Consolas,monospace;fill:#0b7d61}
+  .st{font:600 19px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#1a2126}
+  .ss{font:14.5px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#5b6770}
+  .hd{font:700 15px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;letter-spacing:.06em}
   .hdS{fill:#5b6770} .hdH{fill:#3451c6} .hdA{fill:#0b7d61}
-  .aw{font:11px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#5b6770;letter-spacing:.06em}
-  .wire{fill:none;stroke:#8a98a2;stroke-width:1.6} .ah{fill:#8a98a2}
-  .loop{fill:none;stroke:#b26a00;stroke-width:1.6;stroke-dasharray:5 4} .lh{fill:#b26a00}
-  .lt{font:11.5px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#b26a00}
+  .wire{fill:none;stroke:#8a98a2;stroke-width:2} .ah{fill:#8a98a2}
+  .loop{fill:none;stroke:#b26a00;stroke-width:2;stroke-dasharray:6 5} .lh{fill:#b26a00}
+  .lt{font:600 15px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#b26a00}
   @media (prefers-color-scheme: dark){
-    .bg{fill:#161d22} .stagebg{fill:#0f1418} .awaybg{fill:#1a2227}
+    .bg{fill:#161d22} .stagebg{fill:#0f1418}
     .hh{fill:#1c2445} .ha{fill:#12302a}
     .grid,.dash{stroke:#2a343b}
     .nh{fill:#1c2445;stroke:#34428a} .na{fill:#12302a;stroke:#1f5a4b}
-    .t,.st{fill:#e2e8ec} .d,.ss,.aw,.hdS{fill:#94a2ab}
+    .t,.st{fill:#e2e8ec} .d,.ss,.hdS{fill:#94a2ab}
     .code{fill:#5fd3ad} .hdH{fill:#9fb2ff} .hdA{fill:#5fd3ad}
     .wire{stroke:#6b7a84} .ah{fill:#6b7a84}
     .loop{stroke:#f0b35a} .lh,.lt{fill:#f0b35a}
   }
 </style>
-<rect class="bg" x="0" y="0" width="900" height="1224" rx="10"/>
-<rect class="stagebg" x="0" y="0" width="150" height="1224"/>
-<rect class="awaybg" x="150" y="456" width="750" height="248"/>
-<rect class="awaybg" x="150" y="704" width="750" height="104"/>
-<rect class="awaybg" x="150" y="808" width="750" height="104"/>
-<rect class="awaybg" x="150" y="912" width="750" height="122"/>
-<rect class="stagebg" x="0" y="0" width="150" height="40"/>
-<rect class="hh" x="150" y="0" width="375" height="40"/>
-<rect class="ha" x="525" y="0" width="375" height="40"/>
-<text class="hd hdS" x="16" y="25">STAGE</text>
-<text class="hd hdH" x="337.5" y="25" text-anchor="middle">HUMAN</text>
-<text class="hd hdA" x="712.5" y="25" text-anchor="middle">AI</text>
-<line class="grid" x1="0" y1="40" x2="900" y2="40"/>
-<line class="dash" x1="525" y1="40" x2="525" y2="1224"/>
-<line class="grid" x1="150" y1="0" x2="150" y2="1224"/>
-<text class="st" x="16" y="89.0">Plan</text>
-<text class="ss" x="16" y="107.0">issue-triage</text>
-<line class="grid" x1="0" y1="144" x2="900" y2="144"/>
-<text class="st" x="16" y="290.0">Design</text>
-<text class="ss" x="16" y="308.0">brainstorming</text>
-<text class="ss" x="16" y="323.0">issue-spec</text>
-<line class="grid" x1="0" y1="456" x2="900" y2="456"/>
-<text class="st" x="16" y="681.0">Build</text>
-<text class="ss" x="16" y="699.0">subagent</text>
-<text class="aw" x="337.5" y="688.0" text-anchor="middle">AWAY</text>
-<line class="grid" x1="0" y1="912" x2="900" y2="912"/>
-<text class="st" x="16" y="963.0">AI review</text>
-<text class="ss" x="16" y="981.0">review-pr</text>
-<text class="ss" x="16" y="996.0">auto</text>
-<text class="aw" x="337.5" y="977.0" text-anchor="middle">AWAY</text>
-<line class="grid" x1="0" y1="1034" x2="900" y2="1034"/>
-<text class="st" x="16" y="1083.0">Human review</text>
-<text class="ss" x="16" y="1101.0">review-pr</text>
-<line class="grid" x1="0" y1="1138" x2="900" y2="1138"/>
-<text class="st" x="16" y="1171.0">Ship</text>
-<text class="ss" x="16" y="1189.0">release-note</text>
-<text class="ss" x="16" y="1204.0">deploy</text>
-<rect class="nh" x="177.5" y="54" width="320" height="76" rx="8"/>
-<text class="t" x="189.5" y="79">Raise a need, set priority</text>
-<text class="d" x="189.5" y="99">issue-triage finds duplicates</text>
-<text class="d" x="189.5" y="117">and suggests priority</text>
-<rect class="na" x="552.5" y="158" width="320" height="76" rx="8"/>
-<text class="t" x="564.5" y="183">Draft the design and spec</text>
-<text class="d" x="564.5" y="203">Discussed in a Claude artifact;</text>
-<text class="d" x="564.5" y="221">the spec names the skill to use</text>
-<rect class="nh" x="177.5" y="262" width="320" height="76" rx="8"/>
-<text class="t" x="189.5" y="287">Approve</text>
-<text class="d" x="189.5" y="307">Design attached to the issue,</text>
-<text class="d" x="189.5" y="325">labeled agent-todo</text>
-<rect class="nh" x="177.5" y="366" width="320" height="76" rx="8"/>
-<text class="t" x="189.5" y="391">Start a batch</text>
-<text class="d" x="189.5" y="411">/issue-autorun, or build</text>
-<text class="d" x="189.5" y="429">right in the conversation</text>
-<rect class="na" x="552.5" y="470" width="320" height="220" rx="8"/>
-<text class="t" x="564.5" y="495">Implement with the named skill</text>
-<text x="564.5" y="515"><tspan class="code">custom-ability</tspan><tspan class="d" x="702.5">new ability in TypeScript</tspan></text>
-<text x="564.5" y="533"><tspan class="code">clone-ability</tspan><tspan class="d" x="702.5">variant of a Dota ability</tspan></text>
-<text x="564.5" y="551"><tspan class="code">awaken-ability</tspan><tspan class="d" x="702.5">hero awakening ability</tspan></text>
-<text x="564.5" y="569"><tspan class="code">custom-item</tspan><tspan class="d" x="702.5">new item or artifact</tspan></text>
-<text x="564.5" y="587"><tspan class="code">clone-item</tspan><tspan class="d" x="702.5">upgraded Dota item</tspan></text>
-<text x="564.5" y="605"><tspan class="code">add-image</tspan><tspan class="d" x="702.5">icons and UI images</tspan></text>
-<text x="564.5" y="623"><tspan class="code">bot-ability-usage</tspan><tspan class="d" x="702.5">when bots cast a spell</tspan></text>
-<text x="564.5" y="641"><tspan class="code">bot-item-usage</tspan><tspan class="d" x="702.5">when bots use an item</tspan></text>
-<text x="564.5" y="659"><tspan class="code">bot-ai-tuning</tspan><tspan class="d" x="702.5">bot decisions and movement</tspan></text>
-<text x="564.5" y="677"><tspan class="code">bot-skill-build</tspan><tspan class="d" x="702.5">bot skill and talent order</tspan></text>
-<rect class="na" x="552.5" y="718" width="320" height="76" rx="8"/>
-<text class="t" x="564.5" y="743">Test and play-test</text>
-<text class="d" x="564.5" y="763">jest, lint, build;</text>
-<text class="d" x="564.5" y="781">dota-live-test checks and screenshots</text>
-<rect class="na" x="552.5" y="822" width="320" height="76" rx="8"/>
-<text class="t" x="564.5" y="847">Open the PR</text>
-<text class="d" x="564.5" y="867">create-pr: key facts in the body,</text>
-<text class="d" x="564.5" y="885">logs in one comment</text>
-<rect class="na" x="552.5" y="926" width="320" height="94" rx="8"/>
-<text class="t" x="564.5" y="951">Verify the PR</text>
-<text class="d" x="564.5" y="971">Code, evidence and screenshots.</text>
-<text class="d" x="564.5" y="989">Fixes go back via the dispatcher;</text>
-<text class="d" x="564.5" y="1007">the PR keeps only the final result</text>
-<rect class="nh" x="177.5" y="1048" width="320" height="76" rx="8"/>
-<text class="t" x="189.5" y="1073">Review and play</text>
-<text class="d" x="189.5" y="1093">Rule on open items,</text>
-<text class="d" x="189.5" y="1111">judge the feel in game</text>
-<rect class="nh" x="177.5" y="1152" width="320" height="58" rx="8"/>
-<text class="t" x="189.5" y="1177">Merge and publish</text>
-<text class="d" x="189.5" y="1197">Release note, Steam Workshop</text>
+<rect class="bg" x="0" y="0" width="1130" height="1306" rx="10"/>
+<rect class="stagebg" x="0" y="0" width="170" height="1306"/>
+<rect class="hh" x="170" y="0" width="487" height="40"/>
+<rect class="ha" x="657" y="0" width="473" height="40"/>
+<text class="hd hdS" x="16" y="26">STAGE</text>
+<text class="hd hdH" x="402" y="26" text-anchor="middle">HUMAN</text>
+<text class="hd hdA" x="867" y="26" text-anchor="middle">AI</text>
+<line class="grid" x1="0" y1="40" x2="1130" y2="40"/>
+<line class="dash" x1="635" y1="40" x2="635" y2="1306"/>
+<line class="grid" x1="170" y1="0" x2="170" y2="1306"/>
+<text class="st" x="16" y="92.0">Plan</text>
+<text class="ss" x="16" y="116.0">issue-triage</text>
+<line class="grid" x1="0" y1="160" x2="1130" y2="160"/>
+<text class="st" x="16" y="346.0">Design</text>
+<text class="ss" x="16" y="370.0">brainstorming</text>
+<text class="ss" x="16" y="388.0">issue-spec</text>
+<line class="grid" x1="0" y1="564" x2="1130" y2="564"/>
+<text class="st" x="16" y="747.0">Build</text>
+<text class="ss" x="16" y="771.0">issue-impl</text>
+<line class="grid" x1="0" y1="946" x2="1130" y2="946"/>
+<text class="st" x="16" y="1001.0">AI review</text>
+<text class="ss" x="16" y="1025.0">review-pr</text>
+<text class="ss" x="16" y="1043.0">auto</text>
+<line class="grid" x1="0" y1="1088" x2="1130" y2="1088"/>
+<text class="st" x="16" y="1140.0">Human review</text>
+<text class="ss" x="16" y="1164.0">review-pr</text>
+<line class="grid" x1="0" y1="1208" x2="1130" y2="1208"/>
+<text class="st" x="16" y="1241.0">Ship</text>
+<text class="ss" x="16" y="1265.0">release-note</text>
+<text class="ss" x="16" y="1283.0">deploy</text>
+<rect class="nh" x="192" y="54" width="420" height="92" rx="9"/>
+<text class="t" x="208" y="82">Raise a need, set priority</text>
+<text class="d" x="208" y="108">issue-triage finds duplicates</text>
+<text class="d" x="208" y="130">and suggests a priority</text>
+<rect class="na" x="657" y="174" width="420" height="92" rx="9"/>
+<text class="t" x="673" y="202">Draft the design and spec</text>
+<text class="d" x="673" y="228">Discussed in an artifact;</text>
+<text class="d" x="673" y="250">the spec names the skill to use</text>
+<rect class="nh" x="192" y="294" width="420" height="92" rx="9"/>
+<text class="t" x="208" y="322">Approve</text>
+<text class="d" x="208" y="348">Design attached to the issue,</text>
+<text class="d" x="208" y="370">labeled agent-todo</text>
+<rect class="nh" x="192" y="414" width="420" height="136" rx="9"/>
+<text class="t" x="208" y="442">Start</text>
+<text class="d" x="208" y="468">/issue-impl 123: build one issue</text>
+<text class="d" x="208" y="490">right in the conversation</text>
+<text class="d" x="208" y="512">/issue-autorun: every agent-todo</text>
+<text class="d" x="208" y="534">issue in turn, while you are away</text>
+<rect class="na" x="657" y="578" width="420" height="114" rx="9"/>
+<text class="t" x="673" y="606">Implement with the named skill</text>
+<text class="code" x="673" y="632">custom-ability · clone-ability</text>
+<text class="code" x="673" y="654">awaken-ability · custom-item</text>
+<text class="code" x="673" y="676">clone-item · add-image · bot-*</text>
+<rect class="na" x="657" y="720" width="420" height="92" rx="9"/>
+<text class="t" x="673" y="748">Test and play-test</text>
+<text class="d" x="673" y="774">jest, lint, build;</text>
+<text class="d" x="673" y="796">dota-live-test checks, screenshots</text>
+<rect class="na" x="657" y="840" width="420" height="92" rx="9"/>
+<text class="t" x="673" y="868">Open the draft PR</text>
+<text class="d" x="673" y="894">create-pr: key facts in the body,</text>
+<text class="d" x="673" y="916">logs in one comment</text>
+<rect class="na" x="657" y="960" width="420" height="114" rx="9"/>
+<text class="t" x="673" y="988">Verify the PR</text>
+<text class="d" x="673" y="1014">Code, evidence and screenshots.</text>
+<text class="d" x="673" y="1036">Fixes go back to the implementer;</text>
+<text class="d" x="673" y="1058">the PR keeps only the final result</text>
+<rect class="nh" x="192" y="1102" width="420" height="92" rx="9"/>
+<text class="t" x="208" y="1130">Review and play</text>
+<text class="d" x="208" y="1156">Rule on open items,</text>
+<text class="d" x="208" y="1178">judge the feel in game</text>
+<rect class="nh" x="192" y="1222" width="420" height="70" rx="9"/>
+<text class="t" x="208" y="1250">Merge and publish</text>
+<text class="d" x="208" y="1276">Release note, Steam Workshop</text>
 <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker><marker id="lp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="lh" d="M0 0L10 5L0 10z"/></marker></defs>
-<path class="wire" d="M337.5 130 V144.0 H712.5 V157" marker-end="url(#ar)"/>
-<path class="wire" d="M712.5 234 V248.0 H337.5 V261" marker-end="url(#ar)"/>
-<path class="wire" d="M337.5 338 V365" marker-end="url(#ar)"/>
-<path class="wire" d="M337.5 442 V456.0 H712.5 V469" marker-end="url(#ar)"/>
-<path class="wire" d="M712.5 690 V717" marker-end="url(#ar)"/>
-<path class="wire" d="M712.5 794 V821" marker-end="url(#ar)"/>
-<path class="wire" d="M712.5 898 V925" marker-end="url(#ar)"/>
-<path class="wire" d="M712.5 1020 V1034.0 H337.5 V1047" marker-end="url(#ar)"/>
-<path class="wire" d="M337.5 1124 V1151" marker-end="url(#ar)"/>
-<path class="loop" d="M872.5 973.0 H894 V580.0 H873.5" marker-end="url(#lp)"/>
-<text class="lt" x="886" y="776.5" text-anchor="middle" transform="rotate(-90 886 776.5)">needs fixes</text>
+<path class="wire" d="M402 146 V160.0 H867 V173" marker-end="url(#ar)"/>
+<path class="wire" d="M867 266 V280.0 H402 V293" marker-end="url(#ar)"/>
+<path class="wire" d="M402 386 V413" marker-end="url(#ar)"/>
+<path class="wire" d="M402 550 V564.0 H867 V577" marker-end="url(#ar)"/>
+<path class="wire" d="M867 692 V719" marker-end="url(#ar)"/>
+<path class="wire" d="M867 812 V839" marker-end="url(#ar)"/>
+<path class="wire" d="M867 932 V959" marker-end="url(#ar)"/>
+<path class="wire" d="M867 1074 V1088.0 H402 V1101" marker-end="url(#ar)"/>
+<path class="wire" d="M402 1194 V1221" marker-end="url(#ar)"/>
+<path class="loop" d="M1077 1017.0 H1103 V635.0 H1078" marker-end="url(#lp)"/>
+<text class="lt" x="1113" y="826.0" text-anchor="middle" transform="rotate(-90 1113 826.0)">needs fixes</text>
+<path class="loop" d="M657 994.2 H643 V612.2 H656" marker-end="url(#lp)"/>
+<text class="lt" x="621" y="803.2" text-anchor="middle" transform="rotate(-90 621 803.2)">issue-autorun: next issue</text>
 </svg>

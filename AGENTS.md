@@ -44,6 +44,7 @@ Claude Code 直接读 `.claude/skills`；Codex 与 DSH 读仓库下的 `.agents/
 | 把纠正与新约定沉淀进文档 | `doc-update` |
 | 整理 issue、调整优先级与「开发计划」项目排布 | `issue-triage` |
 | 给 issue 定 spec 交给 agent 自动做，处理 agent 留下的问题 | `issue-spec` |
+| 按 issue 的执行说明实现一条 issue 并开草稿 PR | `issue-impl` |
 | 在 Dota 2 Tools 实机验证 | `dota-live-test` |
 | 查 Dota 2 引擎 API、事件 | `dota-docs-lookup` |
 | 从零自制技能 | `custom-ability` |
@@ -63,7 +64,7 @@ Claude Code 直接读 `.claude/skills`；Codex 与 DSH 读仓库下的 `.agents/
 | 任务 | skill |
 |---|---|
 | 发布到创意工坊 | `deploy` |
-| 用户不在时按优先级在主目录依次派 DSH 的 DeepSeek 做带 `agent-todo` 的 issue | `issue-autorun` |
+| 用户不在时按优先级在主目录依次派执行者做带 `agent-todo` 的 issue | `issue-autorun` |
 | 审查 PR | `review-pr` |
 | 加载界面 FAQ | `loading-faq` |
 | 蝴蝶效应 / 多重施法黑名单 | `ability-blacklist` |

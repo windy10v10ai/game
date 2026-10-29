@@ -9,7 +9,7 @@
 | `localization-format.md` | 本地化对齐、标签、术语着色、modifier 说明 | `game/resource/CLAUDE.md`、`awaken-ability` |
 | `bot-cast-conditions.md` | AbilitySpec / ItemSpec 的条件字段 | `bot-ability-usage`、`bot-item-usage` |
 | `vanilla-modifiers.md` | 可复用的原版 modifier 清单与表外查名方法 | `custom-item`、`custom-ability`、`awaken-ability` |
-| `agent-autorun.md` | 交给 agent 自动做的标签与执行说明格式 | `issue-triage`、`issue-spec`、`issue-autorun` |
+| `agent-autorun.md` | 交给 agent 自动做的标签与执行说明格式 | `issue-triage`、`issue-spec`、`issue-impl`、`issue-autorun` |
 | `datadriven-properties.md` | 哪些 `MODIFIER_PROPERTY_*` 能写进 KV `Properties` | `custom-item`；玩家属性 `src/vscripts/modules/property/` |
 
 放进来的标准：两处以上会读、又不必每轮常驻。单个 skill 专用的放该 skill 的 `references/`；不在场就会写错代码的硬约束放对应层的 `CLAUDE.md`。新增文件时在上表登记，并在每个引用处写明何时去读。
