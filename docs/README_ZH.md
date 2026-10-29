@@ -33,13 +33,22 @@
 
 如果你想参与 Windy10v10AI 的开发，请参考我们的[参与指南](../.github/CONTRIBUTING_ZH.md)。
 
-## 🤖 AI 驱动开发
+## AI 驱动开发
 
 本项目按 AI agent 开发来设计：人决定做什么、拍板设计、进游戏试玩；AI 写代码、在 Dota 2 里实机测试、开 PR 并审查。
 
 [<img src="images/ai-workflow-zh.svg" width="600" alt="AI 开发流水线">](ai-workflow_ZH.md)
 
 完整流程与背后的 skill 见 [AI 开发流程](ai-workflow_ZH.md)。
+
+仓库自带给这些 AI 编程工具用的规则与 skill：
+
+| 工具 | 配置 |
+|---|---|
+| Claude Code | 直接读 `.claude/`（规则与 skill），开箱即用 |
+| Codex 等其他工具 | 读 `AGENTS.md`；克隆后跑一次 `npm run skills:link`，在 `.agents/skills` 下建立 skill 链接 |
+
+建议安装 [GitHub CLI](https://cli.github.com/) 并运行 `gh auth login`，以便 AI 帮你创建 PR、管理 issue。
 
 ## 开始
 
@@ -74,17 +83,6 @@ nvm use $(Get-Content .nvmrc)
 ```bash
 npm install
 ```
-
-### AI 编程工具
-
-仓库自带给 AI 编程工具用的规则与 skill，怎么用见 [AI 开发流程](ai-workflow_ZH.md)。
-
-| 工具 | 配置 |
-|---|---|
-| Claude Code | 直接读 `.claude/`（规则与 skill），开箱即用 |
-| Codex 等其他工具 | 读 `AGENTS.md`；克隆后跑一次 `npm run skills:link`，在 `.agents/skills` 下建立 skill 链接 |
-
-建议安装 [GitHub CLI](https://cli.github.com/) 并运行 `gh auth login`，以便 AI 帮你创建 PR、管理 issue。
 
 ### Dota2 原版参考文件（可选）
 
@@ -157,7 +155,7 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 | `content/` | 与 `dota 2 beta/content/dota_addons/<addon>` 同步：脚本以外的 Panorama 源文件（xml、less、图片）、地图、特效和音效 |
 | `assets/` | 可编辑的美术源文件（psd、sai2），仅作留存 |
 | `docs/` | 文档：各语言 README、数据流图（`drawio/`），以及需要自行解压的 Dota 2 原版参考文件（`reference/`，已被 git 忽略） |
-| `.claude/` | Claude Code 配置与项目 skill（见 [AI 编程工具](#ai-编程工具)） |
+| `.claude/` | Claude Code 配置与项目 skill（见 [AI 驱动开发](#ai-驱动开发)） |
 
 `src/vscripts/`、`src/panorama/`、`game/scripts/npc/`、`game/resource/` 下各有一个 `CLAUDE.md`，写明该层的规则。
 

@@ -34,13 +34,22 @@ distribution exception and notes on prior MIT releases in
 
 If you would like to contribute to Windy10v10AI, please see our [contributing guidelines](.github/CONTRIBUTING.md).
 
-## 🤖 AI-Driven Development
+## AI-Driven Development
 
 This project is built to be developed by AI agents. People decide what to build, approve the design and play-test the result. AI writes the code, tests it live in Dota 2, opens the pull request and reviews it.
 
 [<img src="docs/images/ai-workflow-en.svg" width="600" alt="AI development pipeline">](docs/ai-workflow.md)
 
 See [AI Development Workflow](docs/ai-workflow.md) for the full pipeline and the skills behind it.
+
+The repo ships rules and skills for these agents:
+
+| Agent | Setup |
+|---|---|
+| Claude Code | Reads `.claude/` (rules and skills) out of the box |
+| Codex and other agents | Read `AGENTS.md`; run `npm run skills:link` once to expose the skills under `.agents/skills` |
+
+Recommend installing the [GitHub CLI](https://cli.github.com/) and running `gh auth login`, so agents can create pull requests and manage issues for you.
 
 ## Get Started
 
@@ -75,17 +84,6 @@ nvm use $(Get-Content .nvmrc)
 ```bash
 npm install
 ```
-
-### AI Coding Agents
-
-The repo ships rules and skills for AI coding agents. See [AI Development Workflow](docs/ai-workflow.md) for how they are used.
-
-| Agent | Setup |
-|---|---|
-| Claude Code | Reads `.claude/` (rules and skills) out of the box |
-| Codex and other agents | Read `AGENTS.md`; run `npm run skills:link` once to expose the skills under `.agents/skills` |
-
-Recommend installing the [GitHub CLI](https://cli.github.com/) and running `gh auth login`, so agents can create pull requests and manage issues for you.
 
 ### Dota2 Reference Files (Optional)
 
@@ -158,7 +156,7 @@ Failed loading resource "particles/units/heroes/hero_skywrath_mage/skywrath_mage
 | `content/` | Synced with `dota 2 beta/content/dota_addons/<addon>`: Panorama sources other than scripts (xml, less, images), maps, particles and sounds |
 | `assets/` | Editable art sources (psd, sai2) kept for reference |
 | `docs/` | Documentation: language READMEs, the data flow diagram (`drawio/`), and vanilla Dota 2 reference files you extract yourself (`reference/`, git-ignored) |
-| `.claude/` | Claude Code configuration and project skills (see [AI Coding Agents](#ai-coding-agents)) |
+| `.claude/` | Claude Code configuration and project skills (see [AI-Driven Development](#ai-driven-development)) |
 
 Each of `src/vscripts/`, `src/panorama/`, `game/scripts/npc/` and `game/resource/` has its own `CLAUDE.md` with the rules for that layer.
 
