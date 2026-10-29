@@ -1493,7 +1493,7 @@
 
 		// 剑圣 剑刃风暴-觉醒
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>Танец клинков: пробуждение</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut превращается в вихрь клинков и ежесекундно наносит окружающим врагам магический урон, складывающийся из базового урона и процента от максимального здоровья цели. На время действия он получает <font color='#FFCC66'>невосприимчивость к дебаффам</font> и %magic_resistance_bonus%%% сопротивления магии, может атаковать, но его урон от атак снижен на %damage_reduction_pct%%. По окончании вихря на себя накладывается сильное развеивание."
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut превращается в вихрь клинков и ежесекундно наносит окружающим врагам магический урон, складывающийся из базового урона и процента от максимального здоровья цели. На время действия он получает <font color='#FFCC66'>невосприимчивость к дебаффам</font> и %magic_resistance_bonus%%% сопротивления магии, может атаковать, но его урон от атак снижен на %damage_reduction_pct%%%. По окончании вихря на себя накладывается сильное развеивание."
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"РАДИУС:"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"БАЗОВЫЙ УРОН:"
@@ -1544,7 +1544,7 @@
 
 		// 巫医 神语-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Божественное слово: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"Witch Doctor взывает к богам: при призыве Death Ward и Ward превращения их урон от атак повышается пропорционально текущему усилению способностей Witch Doctor на %spell_amp_ratio_pct%%."
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"Witch Doctor взывает к богам: при призыве Death Ward и Ward превращения их урон от атак повышается пропорционально текущему усилению способностей Witch Doctor на %spell_amp_ratio_pct%%%."
 		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Божественное слово: пробуждение</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"Witch Doctor взывает к богам: при призыве Death Ward и Ward превращения их урон от атак повышается пропорционально текущему усилению способностей Witch Doctor на 50%%%."
 
@@ -1648,7 +1648,7 @@
 		// 死亡契约改说明
 		"DOTA_Tooltip_ability_clinkz_death_pact"										"Смертельный договор (без стражей)"
 		// 地狱之裂 A杖效果
-		"DOTA_Tooltip_ability_clinkz_infernal_shred_scepter_Description"	 					"Повышает максимальное пробивание брони врождённой способности Infernal Shred до %max_armor_piercing_pct%%."
+		"DOTA_Tooltip_ability_clinkz_infernal_shred_scepter_Description"	 					"Повышает максимальное пробивание брони врождённой способности Infernal Shred до %max_armor_piercing_pct%%%."
 
 		// 茶神
 		"npc_dota_hero_techies"					"Чайный бог"
