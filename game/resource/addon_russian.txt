@@ -2419,9 +2419,9 @@
 		"DOTA_Tooltip_ability_item_collector_Description"							"<h1>Активное: Сбор</h1>При применении сразу собирает предметы, выпавшие на землю, раскладывая их по владельцу и категории в лесной зоне под базой, и убирает деревья в этой зоне."
 
 		// item_ultimate_scepter_2
-		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"					"Истинный Aghanim’s Scepter"
+		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"					"Истинный Aghanim's Scepter"
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Навсегда даёт бонусы Aghanim's Scepter: %dMODIFIER_PROPERTY_HEALTH_BONUS% к здоровью, %dMODIFIER_PROPERTY_MANA_BONUS% к мане, %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% к урону от заклинаний и %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% ко всем атрибутам."
-		"DOTA_Tooltip_ability_item_ultimate_scepter_2"								"Истинный Aghanim’s Scepter"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_2"								"Истинный Aghanim's Scepter"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"<h1>Применение: Постоянное улучшение</h1>Поглощает Aghanim's Scepter, навсегда давая улучшения скипетра и бонусы к атрибутам. Не складывается.<br>Можно применять на союзных героев.\n<h1>Пассивное: Улучшение способностей</h1>Улучшает ульты и некоторые базовые способности героев."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Lore"							"Скипетр колдуна, мощью сходного с полубогами."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_all_stats"				"+$all"
@@ -2488,23 +2488,23 @@
 		"DOTA_Tooltip_ability_item_aether_lens_2_cast_range_bonus"                "+$cast_range"
 
 		// item_vladmir_2
-		"DOTA_Tooltip_ability_item_vladmir_2"                               "Штурмовой Vladmir’s Offering"
+		"DOTA_Tooltip_ability_item_vladmir_2"                               "Штурмовое Vladmir's Offering"
 		"DOTA_Tooltip_ability_item_vladmir_2_Description"							"<h1>Пассивное: Штурмовая аура Vladmir's Offering</h1>Даёт окружающим союзникам %lifesteal_aura%%% вампиризма, %damage_aura%%% к урону от атак и %mana_regen_aura% восстановления маны в секунду.<br>Союзные существа и постройки поблизости получают %aura_attack_speed% к скорости атаки и %aura_positive_armor% к броне.<br>Снижает броню врагов поблизости на %aura_negative_armor%.<br><br>Радиус действия: %aura_radius%"
 		"DOTA_Tooltip_ability_item_vladmir_2_Lore"								"Выкованная в глубинах преисподней, эта адская броня повышает броню и скорость атаки целой армии."
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_vladmir_2_bonus_armor"							"+$armor"
 
-		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura"				"Штурмовой Vladmir's Offering"
+		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura"				"Штурмовое Vladmir's Offering"
 		"DOTA_Tooltip_modifier_item_vladmir_2_general_aura_Description"	"Даёт %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% к броне и %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% к скорости атаки."
 
-		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura"				"Штурмовой Vladmir's Offering"
+		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura"				"Штурмовое Vladmir's Offering"
 		"DOTA_Tooltip_modifier_item_vladmir_2_building_aura_Description"	"Даёт %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% к броне и %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% к скорости атаки."
 
-		"DOTA_Tooltip_modifier_item_vladmir_2_enemy_aura"				"Штурмовой Vladmir's Offering"
+		"DOTA_Tooltip_modifier_item_vladmir_2_enemy_aura"				"Штурмовое Vladmir's Offering"
 		"DOTA_Tooltip_modifier_item_vladmir_2_enemy_aura_Description"	"Броня снижена на %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
 		// item_sphere_2 林肯2
-		"DOTA_Tooltip_Ability_item_sphere_2"				"Истинный Linken’s Sphere"
+		"DOTA_Tooltip_Ability_item_sphere_2"				"Истинная Linken's Sphere"
 		"DOTA_Tooltip_ability_item_sphere_2_Description"							"<h1>Пассивное: Блокировка заклинаний</h1>Раз в %block_cooldown% сек. блокирует большинство направленных заклинаний.\n<h1>Активное: Передача блокировки</h1>Временно передаёт блокировку союзному существу на %block_cooldown% сек.<br><br>Дальность применения: %abilitycastrange%"
 		"DOTA_Tooltip_ability_item_sphere_2_Lore"									"Некогда эта магическая сфера защитила одного из самых знаменитых героев в истории."
 		"DOTA_Tooltip_ability_item_sphere_2_bonus_all_stats"						"+$all"
