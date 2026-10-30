@@ -4,12 +4,59 @@ const path = require('path');
 const repoRoot = path.resolve(__dirname, '..', '..');
 const languages = ['schinese', 'english', 'russian'];
 
+// KeyValues 里值可能跨物理行，按引号配对读取，避免漏掉这类 key
 function parse(language) {
   const filePath = path.join(repoRoot, 'game', 'resource', `addon_${language}.txt`);
+  const lines = fs.readFileSync(filePath, 'utf8').split(/\r?\n/);
   const entries = [];
-  for (const [index, line] of fs.readFileSync(filePath, 'utf8').split(/\r?\n/).entries()) {
-    const match = line.match(/^\s*"([^"]+)"\s+"(.*)"\s*$/);
-    if (match) entries.push({ key: match[1], value: match[2], line: index + 1 });
+  let index = 0;
+  while (index < lines.length) {
+    const line = lines[index];
+    const keyMatch = line.match(/^\s*"([^"]+)"\s+"/);
+    if (!keyMatch) {
+      index++;
+      continue;
+    }
+    let pos = line.indexOf('"', line.indexOf('"') + 1) + 1;
+    while (pos < line.length && /\s/.test(line[pos])) pos++;
+    pos++;
+    const startLine = index + 1;
+    let value = '';
+    let current = line;
+    let lineIndex = index;
+    let closed = false;
+    while (!closed) {
+      while (pos < current.length) {
+        const char = current[pos];
+        if (char === '\\') {
+          value += char + (current[pos + 1] || '');
+          pos += 2;
+          continue;
+        }
+        if (char === '"') {
+          closed = true;
+          pos++;
+          break;
+        }
+        value += char;
+        pos++;
+      }
+      if (closed) break;
+      lineIndex++;
+      if (lineIndex >= lines.length) break;
+      value += '\n';
+      current = lines[lineIndex];
+      pos = 0;
+    }
+    entries.push({ key: keyMatch[1], value, line: startLine });
+    if (lineIndex > index) {
+      index = lineIndex + 1;
+      continue;
+    }
+    // 同一行写了两组 key-value 的存量写法，补上后一组
+    const rest = line.slice(pos).match(/^\s*"([^"]+)"\s+"(.*)"\s*$/);
+    if (rest) entries.push({ key: rest[1], value: rest[2], line: startLine });
+    index++;
   }
   return { language, entries, byKey: new Map(entries.map((entry) => [entry.key, entry])) };
 }

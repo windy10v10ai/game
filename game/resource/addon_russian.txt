@@ -2673,9 +2673,9 @@
 
 		// mjollnir_2
 		"DOTA_Tooltip_Ability_item_mjollnir_2"				"<font color='#e03e2e'>Артефакт: Божественный громовой молот</font>"
-		"DOTA_Tooltip_ability_item_mjollnir_2_Description"		"<h1>主动：静电冲击</h1>对目标单位施加一个静电护盾，持续%static_duration%秒。护盾有%static_chance%%%几率对附近攻击护盾的目标及其周围%static_strikes%个敌方单位释放闪电冲击，造成%static_damage%点魔法伤害。
+		"DOTA_Tooltip_ability_item_mjollnir_2_Description"		"<h1>Активное: Статический заряд</h1>Накладывает на выбранное существо заряженный щит на %static_duration% сек. Щит с вероятностью %static_chance%%% выпускает по атакующему его врагу и ещё %static_strikes% врагам поблизости разряд молнии, наносящий %static_damage% магического урона.
 
-<h1>被动：连环闪电</h1>攻击有%chain_chance%%%几率释放一道连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避。"
+<h1>Пассивное: Цепная молния</h1>При атаке с вероятностью %chain_chance%%% выпускает разряд молнии, который перескакивает между %chain_strikes% целями в радиусе %chain_radius%, нанося каждой %chain_damage% магического урона. Срабатывание молнии игнорирует уклонение."
 		"DOTA_Tooltip_ability_item_mjollnir_2_Lore"				"Магический молот Тора, перекованный в сердце умирающей звезды."
 		"DOTA_Tooltip_ability_item_mjollnir_2_Note0"				"Static Charge срабатывает не чаще раза в секунду."
 		"DOTA_Tooltip_ability_item_mjollnir_2_Note1"				"Урон молний Static Charge отсчитывается от героя, на котором находится щит. Static Charge бьёт молниями только по целям в радиусе %static_seconary_radius%."
