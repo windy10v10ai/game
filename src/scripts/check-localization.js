@@ -3,45 +3,6 @@ const path = require('path');
 
 const repoRoot = path.resolve(__dirname, '..', '..');
 const languages = ['schinese', 'english', 'russian'];
-// 已补齐俄文的区段：三语 key 必须一一对应且顺序一致
-const completedSections = [
-  { name: 'UI', startKey: 'addon_game_name', endKey: 'dailytask_task_hero_stun_duration' },
-  {
-    name: 'World & Shop',
-    startKey: 'DOTA_Tooltip_modifier_tower_power',
-    endKey: 'dota_item_build_windy_range_items',
-  },
-  {
-    name: 'Player Buffs',
-    startKey: 'DOTA_Tooltip_modifier_global_newbie',
-    endKey: 'DOTA_Tooltip_modifier_global_member_premium_Description',
-  },
-  {
-    name: 'Player Titles',
-    startKey: 'DOTA_Tooltip_modifier_player_lumao',
-    endKey: 'DOTA_Tooltip_modifier_player_nemesis_Description',
-  },
-  {
-    name: 'Custom Abilities',
-    startKey: 'DOTA_Tooltip_ability_ward_observer_slot',
-    endKey: 'DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description',
-  },
-  {
-    name: 'Awaken Abilities',
-    startKey: 'DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken',
-    endKey: 'DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description',
-  },
-  {
-    name: 'Heroes Override',
-    startKey: 'DOTA_Tooltip_ability_undying_tombstone',
-    endKey: 'DOTA_Tooltip_ability_faceless_void_time_zone_Description',
-  },
-  {
-    name: 'Custom Heroes',
-    startKey: 'npc_dota_hero_dark_seer',
-    endKey: 'DOTA_Tooltip_modifier_goku_super_saiyan_Description',
-  },
-];
 
 function parse(language) {
   const filePath = path.join(repoRoot, 'game', 'resource', `addon_${language}.txt`);
@@ -55,13 +16,6 @@ function parse(language) {
 
 function placeholders(value) {
   return (value.match(/%[A-Za-z0-9_]+%|%s|\{[A-Za-z0-9_]+\}|\$[A-Za-z0-9_]+/g) || []).sort().join(', ');
-}
-
-function sectionKeys(file, config) {
-  const keys = file.entries.map((entry) => entry.key);
-  const start = keys.indexOf(config.startKey);
-  const end = keys.indexOf(config.endKey);
-  return start < 0 || end < start ? null : keys.slice(start, end + 1);
 }
 
 const files = languages.map(parse);
@@ -91,25 +45,16 @@ for (const [key, entry] of files[0].byKey) {
   }
 }
 
-for (const config of completedSections) {
-  const [expected, ...others] = files.map((file) => sectionKeys(file, config));
-  if (!expected) {
-    errors.push(`schinese: cannot find section ${config.name}`);
-    continue;
-  }
-  for (const [index, actual] of others.entries()) {
-    const language = files[index + 1].language;
-    if (!actual) {
-      errors.push(`${language}: cannot find section ${config.name}`);
-      continue;
-    }
-    const position = expected.findIndex((key, i) => key !== actual[i]);
-    if (position >= 0 || actual.length !== expected.length) {
-      const at = position >= 0 ? position : expected.length;
-      errors.push(
-        `${language}: ${config.name} key order differs at #${at + 1} (schinese: ${expected[at] || 'end'}; ${language}: ${actual[at] || 'end'})`,
-      );
-    }
+// 三语 key 必须一一对应且顺序一致：缺 key 或顺序不同都会让译文错位
+const expectedKeys = files[0].entries.map((entry) => entry.key);
+for (const file of files.slice(1)) {
+  const actualKeys = file.entries.map((entry) => entry.key);
+  const position = expectedKeys.findIndex((key, i) => key !== actualKeys[i]);
+  if (position >= 0 || actualKeys.length !== expectedKeys.length) {
+    const at = position >= 0 ? position : expectedKeys.length;
+    errors.push(
+      `${file.language}: key order differs at #${at + 1} (schinese: ${expectedKeys[at] || 'end'}; ${file.language}: ${actualKeys[at] || 'end'})`,
+    );
   }
 }
 
@@ -120,5 +65,5 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `[check-localization] OK: ${files.map((file) => `${file.language} ${file.entries.length} keys`).join(', ')}; sections: ${completedSections.map((config) => config.name).join(', ')}`,
+  `[check-localization] OK: ${files.map((file) => `${file.language} ${file.entries.length} keys`).join(', ')}`,
 );
