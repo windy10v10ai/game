@@ -319,7 +319,6 @@ export const abilityTiersPassive: Tier[] = [
       'axe_one_man_army2', // 斧王 一人成军
       'dark_seer_quick_wit2', // 才思敏捷
       'rubick_might_and_magus2', // 拉比克 力量与魔法
-      'keeper_of_the_light_bright_speed2', // 光之守卫 光明速度
     ],
   },
   {
