@@ -76,7 +76,7 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 | 莲花 / 神镜盾反弹 | 跳过会反弹的目标，否则效果会反弹到自己 |
 | 施法事件（`OnAbilityExecuted` 等） | 需要时手动触发，或改用 `CastAbilityImmediately` |
 
-手动施放路径走引擎，林肯/莲花由引擎处理，不要在 `OnSpellStart` 里重复判断，否则会把反弹效果吞掉或做成双份。
+手动施放路径走引擎，林肯由引擎处理。莲花只反弹壳技能本身，壳技能的效果由隐藏的原生技能承载时，引擎不会替原生技能反弹：`OnSpellStart` 里对会反弹的目标要调 `target.TriggerSpellReflect(原生技能)` 后返回（参考 PA），直接调原生技能的 `OnSpellStart()` 会命中莲花目标本身，直接 return 则一份都不反弹（均已实机验证）。
 
 **优先走引擎**：能 `CastAbilityImmediately` 施放原生技能就别直接调 `OnSpellStart()`。走引擎规则一致、不会漏检查；绕过引擎只在「壳技能管资源/CD、原生技能只提供效果」这种必须拆分时用。
 

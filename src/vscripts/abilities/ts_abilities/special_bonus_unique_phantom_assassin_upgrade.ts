@@ -35,7 +35,13 @@ export class SpecialBonusUniquePhantomAssassinUpgrade extends AutoCastAbility {
   OnSpellStart(): void {
     if (!IsServer()) return;
     const target = this.GetCursorTarget();
-    if (target === undefined || willReflect(target)) return;
+    if (target === undefined) return;
+    // 引擎不会替原生技能反弹壳技能的施放，直接投掷会命中莲花目标本身，须手动触发反弹
+    if (willReflect(target)) {
+      const nativeDagger = this.ensureNativeAbility();
+      if (nativeDagger !== undefined) target.TriggerSpellReflect(nativeDagger);
+      return;
+    }
     this.throwDagger(target);
   }
 
