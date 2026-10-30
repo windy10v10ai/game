@@ -36,6 +36,11 @@ const completedSections = [
     startKey: 'DOTA_Tooltip_ability_undying_tombstone',
     endKey: 'DOTA_Tooltip_ability_faceless_void_time_zone_Description',
   },
+  {
+    name: 'Custom Heroes',
+    startKey: 'npc_dota_hero_dark_seer',
+    endKey: 'DOTA_Tooltip_modifier_goku_super_saiyan_Description',
+  },
 ];
 
 function parse(language) {
