@@ -18,7 +18,7 @@ disable-model-invocation: true
 
 ## 每批流程
 
-1. **核对**：交给 `model: "sonnet"` 的后台 subagent 对比上一版与新版 `items.txt`，返回：
+1. **核对**：交给主力档的后台 subagent 对比上一版与新版 `items.txt`，返回：
    - 每条日志对应的物品系统名、KV 键、新旧值
    - **全部** `ItemCost` 变化（物品与 `item_recipe_*`，含因材料涨价而被动变价的原版上位物品），列出价差
    - 日志没提到的其它数值差异
