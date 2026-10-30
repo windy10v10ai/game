@@ -173,7 +173,6 @@ export const abilityTiersActive: Tier[] = [
       // 'luna_lucent_beam', // 月光
       'magnataur_shockwave', // 震荡波
       'lich_death_charge', // 献身
-      'dark_seer_vacuum', // 真空
       'treant_natures_grasp', // 自然卷握
 
       // 自定义技能
