@@ -66,6 +66,22 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 
 壳技能自己承担冷却与法力消耗，KV 里必须写全（含 `AbilityCooldown` 的天赋引用行）。**不要**在 TS 里覆写 `GetCooldown` / `GetManaCost` 转发给原生技能：那是服务端钩子，客户端技能面板直接读 KV、不跑这段 Lua，面板会显示成 0。
 
+壳技能调原生 `OnSpellStart()` 是**绕过引擎施法管线**，引擎负责的事全要自己补，漏了不报错、只会静默穿透：
+
+| 引擎原本负责 | 绕过时要手动做 |
+| ---- | ---- |
+| 扣蓝、进 CD | `UseResources(true, false, false, true)`，冷却写在壳技能 KV |
+| 施法距离 / 目标合法性 | 自己 `FindUnitsInRadius` 过滤 |
+| 林肯格挡 | `target.TriggerSpellAbsorb(ability)` 先破林肯 |
+| 莲花 / 神镜盾反弹 | 跳过会反弹的目标，否则效果会反弹到自己 |
+| 施法事件（`OnAbilityExecuted` 等） | 需要时手动触发，或改用 `CastAbilityImmediately` |
+
+手动施放路径走引擎，林肯/莲花由引擎处理，不要在 `OnSpellStart` 里重复判断，否则会把反弹效果吞掉或做成双份。
+
+**优先走引擎**：能 `CastAbilityImmediately` 施放原生技能就别直接调 `OnSpellStart()`。走引擎规则一致、不会漏检查；绕过引擎只在「壳技能管资源/CD、原生技能只提供效果」这种必须拆分时用。
+
+自动施法选目标时，林肯只在长 CD 大招上值得先破，短 CD 技能被格挡影响小、直接放即可；莲花除决斗外默认跳过，避免自动施法把效果反弹到自己。共享实现见 `src/vscripts/abilities/ts_abilities/shared/auto-cast-ability.ts` 的 `willReflect` / `breakSpellAbsorb`。
+
 ## 添加一个新觉醒的步骤
 
 ### 1) 配置

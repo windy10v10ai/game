@@ -35,7 +35,7 @@ export class SpecialBonusUniquePhantomAssassinUpgrade extends AutoCastAbility {
   OnSpellStart(): void {
     if (!IsServer()) return;
     const target = this.GetCursorTarget();
-    if (target === undefined) return;
+    if (target === undefined || willReflect(target)) return;
     this.throwDagger(target);
   }
 

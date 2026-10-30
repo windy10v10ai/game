@@ -2,10 +2,10 @@ import { AEON_DISK_BUFF, IMMORTALITY_MODIFIER } from '../../modules/filter/drago
 import { registerAbility } from '../../utils/dota_ts_adapter';
 import {
   AutoCastAbility,
+  breakSpellAbsorb,
   castImmediatelyOnTarget,
   findEnemiesInRange,
   getFullCastRange,
-  willBlock,
   willReflect,
 } from './shared/auto-cast-ability';
 
@@ -54,11 +54,11 @@ export class AxeAutoCullingBlade extends AutoCastAbility {
         enemy.IsAlive() &&
         !enemy.HasModifier(IMMORTALITY_MODIFIER) &&
         !enemy.HasModifier(AEON_DISK_BUFF) &&
-        // 被反弹或格挡的斩杀白耗一次蓝，还会触发回滚
+        // 被反弹的斩杀白耗一次蓝，还会触发回滚
         !willReflect(enemy) &&
-        !willBlock(enemy) &&
         enemy.GetHealth() <= threshold
       ) {
+        breakSpellAbsorb(enemy, culling);
         castImmediatelyOnTarget(caster, culling, enemy);
         culling.EndCooldown(); // 不进入 CD
         this.SetCurrentAbilityCharges(this.GetCurrentAbilityCharges() - 1);
