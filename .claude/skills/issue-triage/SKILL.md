@@ -66,7 +66,7 @@ gh api graphql -f query='{organization(login:"windy10v10ai"){issueTypes(first:10
 - **过期**：在 Plan 栏长期没动的退回 Backlog；一年以上没动、也没人提的，列为「建议关闭」，由用户决定留不留
 - **做法与现行规则冲突**（如用 Lua modifier 实现属性）：建议改写正文，不直接关闭
 - **卡顿相关**：挂成 game#2468（后期卡顿排查与优化）的子 issue
-- **测量与实现混在一条**：同时有「先测量」和「再定做法 / 实现」的，建议拆开，原 issue 当主 issue，测量拆成 Task 子 issue；分工与 Type、Status 约定见 `.claude/references/agent-autorun.md`「主 issue 与子 issue 分工」
+- **测量与实现混在一条**：同时有「先测量」和「再定做法 / 实现」的，建议拆开，原 issue 当主 issue，测量拆成 Task 子 issue；分工与 Type、Status 约定见 `.claude/references/agent-issue.md`「主 issue 与子 issue 分工」
 - **Type 与父子 Status 不一致**：按上述分工检查，填错的列进「补类型」，父子 Status 对不上的标出来
 - **优先级**：没填 Priority 的都给出建议值，Effort 能估就填
 - **项目位置**：
@@ -75,7 +75,7 @@ gh api graphql -f query='{organization(login:"windy10v10ai"){issueTypes(first:10
   - 需要更多日志才能推进的放 Backlog
   - 没入项目的补进去；总跟踪帖（如 firebase#1404 玩家反馈跟踪）不放
   - 草稿条目转成正式 issue，补类型、标签、优先级
-- **可交给 agent**：Todo / Plan 里符合 `.claude/references/agent-autorun.md`「适合交给 agent 的 issue」的，列为候选；已带 `agent-done` 的查 PR 里「等你处理」还剩几项，`agent-block` 的列出 agent 留言里缺的信息
+- **可交给 agent**：Todo / Plan 里符合 `.claude/references/agent-issue.md`「适合交给 agent 的 issue」的，列为候选；已带 `agent-done` 的查 PR 里「等你处理」还剩几项，`agent-block` 的列出 agent 留言里缺的信息
 
 完成条件：每个 issue 要么归入某条建议，要么确认维持现状。
 

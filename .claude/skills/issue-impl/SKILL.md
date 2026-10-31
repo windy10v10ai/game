@@ -5,7 +5,7 @@ description: 按 issue 末尾的「执行说明」实现一条 issue：实现、
 
 # issue-impl
 
-把一条已有「执行说明」的 issue 做到 PR。审查通过转正式，没做完或没通过的保持草稿。标签、执行说明格式与实机验证三层见 `.claude/references/agent-autorun.md`，开始前先读。
+把一条已有「执行说明」的 issue 做到 PR。审查通过转正式，没做完或没通过的保持草稿。标签、执行说明格式与实机验证三层见 `.claude/references/agent-issue.md`，开始前先读。
 
 两种用法共用这一份规则：
 
@@ -75,7 +75,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
   - 验证记录评论写：测试视角、每条验收命令与结果
   - 「等你处理」：「请确认」「待你决定」「发现」三组，每条 checkbox 写清文件与步骤，都空写「无」
   - Release Note 按执行说明：「不写」删占位段，「要写」把要点原文贴进该段，不改写，正式文案收尾时调用 `release-note`
-- 执行说明「改动范围」写「无」的测量类 issue：不 commit、不开 PR，数据写进 issue 留言，报告格式见 `agent-autorun.md`「从 L4 拆出测量子 issue」
+- 执行说明「改动范围」写「无」的测量类 issue：不 commit、不开 PR，数据写进 issue 留言，报告格式见 `agent-issue.md`「从 L4 拆出测量子 issue」
 
 ## 6. 实机验证
 

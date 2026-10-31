@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # issue-autorun
 
-用户不在场时，把所有带 `agent-todo` 标签的 issue 做完。能做的都做完，做不了的跳过并记下来，最后统一留给用户。标签、执行说明与设计文档的约定见 `.claude/references/agent-autorun.md`，开始前先读。
+用户不在场时，把所有带 `agent-todo` 标签的 issue 做完。能做的都做完，做不了的跳过并记下来，最后统一留给用户。标签、执行说明与设计文档的约定见 `.claude/references/agent-issue.md`，开始前先读。
 
 一次只做一个 issue，全部在主目录里做：Dota 只加载主目录的 `game/`，实机验证本来就只能一次一个，用户不在场，不缺时间，顺序跑省掉 worktree、依赖链接和实机排队。
 

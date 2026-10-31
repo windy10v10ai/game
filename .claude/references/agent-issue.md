@@ -2,6 +2,8 @@
 
 `issue-triage`、`issue-spec`（用户在场时拍板）、`issue-impl`（做一条）与 `issue-autorun`（用户不在时批量做）之间的约定。`issue-impl` 与 `issue-autorun` 只认这里定义的标签、执行说明和它指向的 issue artifact，不读对话。
 
+firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/firebase/blob/develop/.claude/references/agent-issue.md)。标签含义、执行说明格式、排序规则两边保持一致，改这几处要两边同步；实机验证与验收命令各仓库自己定。
+
 ## 标签
 
 | 标签 | 谁打 | 含义 |
