@@ -38,6 +38,14 @@
 
 			"item_withered_spring_bonus_armor_active"	"20"
 			"item_withered_spring_bonus_regen_active"	"300"
+
+			"item_aeon_amulet_bonus_all_stats"	"25"
+			"item_aeon_amulet_bonus_move_speed"	"50"
+			"item_aeon_amulet_guard_mana_regen"	"500"
+			"item_aeon_amulet_guard_mana_regen_pct"	"5"
+			"item_aeon_amulet_guard_damage_reduction"	"-50"
+			"item_aeon_amulet_guard_attack_speed"	"100"
+			"item_aeon_amulet_guard_move_speed"	"100"
 		}
 		"Modifiers"
 		{
@@ -476,6 +484,38 @@
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%item_withered_spring_bonus_armor_active"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%item_withered_spring_bonus_regen_active"
+				}
+			}
+			// 永恒护符 生命、魔法、治疗增强由复用的原版 modifier 提供，此处再写一遍会双倍
+			"modifier_item_aeon_amulet_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%item_aeon_amulet_bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%item_aeon_amulet_bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%item_aeon_amulet_bonus_all_stats"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%item_aeon_amulet_bonus_move_speed"
+				}
+			}
+			// 永恒护符 永恒守护，持续时间由脚本传入；生命回复、减速抗性与状态抗性由脚本另挂 modifier
+			"modifier_item_aeon_amulet_guard"
+			{
+				"IsHidden"				"0"
+				"IsBuff"				"1"
+				"IsPurgable"			"0"
+				"TextureName"			"item_aeon_amulet"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%item_aeon_amulet_guard_mana_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE"	"%item_aeon_amulet_guard_mana_regen_pct"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%item_aeon_amulet_guard_damage_reduction"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%item_aeon_amulet_guard_attack_speed"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%item_aeon_amulet_guard_move_speed"
 				}
 			}
 			// 德古拉面罩

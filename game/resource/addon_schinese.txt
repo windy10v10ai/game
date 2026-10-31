@@ -3548,6 +3548,20 @@
 		"DOTA_Tooltip_modifier_item_withered_spring_active"								"枯木逢春"
 		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"护甲增加%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%，生命回复增加%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%。"
 
+		// item_aeon_amulet 永恒护符
+		"DOTA_Tooltip_Ability_item_aeon_amulet"						"<font color='#FF9A3C'>永恒护符</font>"
+		"DOTA_Tooltip_ability_item_aeon_amulet_Description"						"<h1>主动：永恒守护</h1>对一名友方英雄施加强驱散，目标和你获得%guard_duration%秒<font color='#FF9A3C'>永恒守护</font>：<br>每秒回复%guard_regen% +%guard_regen_pct%%%最大生命值和魔法值<br>-%guard_damage_reduction%%% 受到的伤害<br>+%guard_attack_speed% 攻击速度<br>+%guard_move_speed% 移动速度<br>+%slow_resist%%% <font color='#9EC8E3'>减速抗性</font><br>+%status_resistance%%% <font color='#B99012'>状态抗性</font><br><font color='#D7CCC7'>隐身</font><font color='#7D7D7D'>（攻击或施法后现形）</font><br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：永恒护佑</h1>受到英雄伤害且生命值低于%health_threshold_pct%%%时，自动对自己触发<font color='#FF9A3C'>永恒守护</font>，并在%buff_duration%秒内受到和造成的伤害全部归零。"
+		"DOTA_Tooltip_ability_item_aeon_amulet_Lore"						"护符里沉睡着一束不会熄灭的光。"
+		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_all_stats"						"+$all"
+		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_mana_total"						"+$mana"
+		"DOTA_Tooltip_ability_item_aeon_amulet_heal_amp"						"%+治疗增强"
+		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_move_speed"						"+$move_speed"
+		"DOTA_Tooltip_ability_item_aeon_amulet_Note0"						"自动触发后进入冷却，与主动共用冷却。"
+
+		"DOTA_Tooltip_modifier_item_aeon_amulet_guard"						"<font color='#FF9A3C'>永恒守护</font>"
+		"DOTA_Tooltip_modifier_item_aeon_amulet_guard_Description"						"每秒回复生命和魔法，受到的伤害降低，攻击速度和移动速度提高，同时获得减速抗性与状态抗性。"
+
 		// 德古拉面罩/生命之盔
 		"DOTA_Tooltip_Ability_item_dracula_mask"										"<font color='#8B0000'>生命之盔</font>"
 		"DOTA_Tooltip_ability_item_dracula_mask_Description"							"<h1><font color='#90EE90'>主动：吸血盛宴</font></h1>驱散所有负面效果,并在%active_duration%秒内获得:<br>%lifesteal_active_total_tooltip%%%物理吸血<br>%spell_lifesteal_active_total_tooltip%%%法术吸血<br>+%bonus_attack_speed_active%攻击速度<br>+%bonus_movement_speed_active%%%移动速度<br>%damage_reduction%%%减伤<br>免疫减速<br><br>生命值低于%hp_threshold%%%时自动触发。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"

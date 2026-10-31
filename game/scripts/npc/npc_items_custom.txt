@@ -7655,4 +7655,92 @@
 		"ItemQuality"				"consumable"
 	}
 
+	//=================================================================================================================
+	// 永恒护符 苍洋魔珠 + 炎阳纹章 + 咸鱼之王
+	//=================================================================================================================
+	"item_recipe_aeon_amulet"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10469"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_recipe_aeon_amulet"
+
+		"ItemCost"					"1425"
+		"ItemShopTags"				""
+
+		"ItemRecipe"				"1"
+		"ItemResult"				"item_aeon_amulet"
+		"ItemRequirements"
+		{
+			"01"					"item_orb_of_the_brine;item_solar_crest;item_aeon_pendant"
+		}
+	}
+
+	"item_aeon_amulet"
+	{
+		"BaseClass"					"item_lua"
+		"ID"						"10470"
+		"ScriptFile"				"items/ts_items/item_aeon_amulet"
+		"AbilityTextureName"		"aeon_amulet"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"		"SPELL_DISPELLABLE_NO"
+		"AbilitySharedCooldown"		"aeon"
+		"FightRecapLevel"			"1"
+
+		"AbilityCastRange"			"1200"
+		"AbilityCooldown"			"25"
+		"AbilityManaCost"			"250"
+
+		"ItemCost"					"18000"
+		"ItemShopTags"				"str;agi;int;health;mana;regen;hard_to_tag"
+		"ItemQuality"				"epic"
+		"ItemPurchasable"			"1"
+		"ItemSellable"				"0"
+
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_items.vsndevts"
+			"particle"					"particles/items4_fx/combo_breaker_buff.vpcf"
+			"particle"					"particles/items2_fx/medallion_of_courage_friend.vpcf"
+		}
+		"AbilityValues"
+		{
+			// 由原版 modifier_item_aeon_disk 按原版字段名读取
+			"health_threshold_pct"		"60"
+			"buff_duration"				"3"
+			"status_resistance"			"80"
+			"cooldown_duration"			"25"	// 单值 + max_level 1 关闭原版的触发递增
+			"max_level"					"1"
+			"initial_cooldown"			"6"
+			"bonus_health"				"2000"
+
+			// 永恒之盘与原版滋补各读一次 bonus_mana，合计 2000
+			"bonus_mana"				"1000"
+			"bonus_mana_total"			"2000"
+
+			// 由原版 modifier_item_enhancement_restorative 读取
+			"heal_amp"					"75"
+
+			// 由原版 modifier_item_enhancement_brawny 读取，永恒守护期间不吃减速
+			"slow_resist"				"100"
+
+			"guard_duration"			"3"
+			"guard_heal_interval"		"0.5"
+
+			// 被动属性与永恒守护，真值在 item_apply_modifiers，此处仅供 tooltip
+			"bonus_all_stats"			"25"
+			"bonus_move_speed"			"50"
+			"guard_regen"				"500"
+			"guard_regen_pct"			"5"
+			"guard_mana_regen"			"500"
+			"guard_mana_regen_pct"		"5"
+			"guard_damage_reduction"	"50"
+			"guard_attack_speed"		"100"
+			"guard_move_speed"			"100"
+		}
+	}
+
 }
