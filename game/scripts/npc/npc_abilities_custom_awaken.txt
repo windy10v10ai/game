@@ -181,8 +181,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"						"abilities/ts_abilities/special_bonus_unique_skywrath_upgrade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
-		"AbilityCastPoint"				"1.0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityTextureName"			"skywrath_mage_staff_of_the_scion"
 		"MaxLevel"						"1"
 
@@ -529,13 +528,9 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/axe_auto_culling_blade"
 		"AbilityTextureName"			"axe_auto_culling_blade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
-		"AbilityCastPoint"				"1.0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"4"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
-		"LinkedAbility"					"axe_culling_blade"	// 与大招淘汰之刃双向联动同步升级
+		"MaxLevel"						"1"
 		"AbilityCharges"				"3"
 		"AbilityChargeRestoreTime"		"12"
 	}
@@ -546,13 +541,9 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/legion_commander_auto_duel"
 		"AbilityTextureName"			"legion_commander_duel"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
-		"AbilityCastPoint"				"1.0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"4"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
-		"LinkedAbility"					"legion_commander_duel"
+		"MaxLevel"						"1"
 		"AbilityValues"
 		{
 			"bonus_cast_range"			"200"
@@ -646,8 +637,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_zuus_upgrade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
-		"AbilityCastPoint"				"1.0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityTextureName"			"zuus_static_field_alt1"
 		"MaxLevel"						"1"
 	}
@@ -815,8 +805,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_bristleback_upgrade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
-		"AbilityCastPoint"				"1.0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityTextureName"			"bristleback/bb_2022_immortal_ability_icon/bb_2022_immortal_bristleback"
 		"MaxLevel"						"1"
 	}

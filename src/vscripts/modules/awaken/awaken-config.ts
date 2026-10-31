@@ -147,13 +147,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_tiny_upgrade',
     newLevel: 1,
   },
-  // 军团指挥官 自动决斗（插入 slot 4，即 Ability5 空槽，与大招决斗 LinkedAbility 同步升级，初始等级继承大招）
+  // 军团指挥官 自动决斗（插入 slot 4，即 Ability5 空槽）
   {
     heroName: 'npc_dota_hero_legion_commander',
     targetSlot: 4,
     newAbility: 'legion_commander_auto_duel',
-    newLevel: 0,
-    inheritLevelFrom: 'legion_commander_duel',
+    newLevel: 1,
   },
   // 凤凰 觉醒
   {
@@ -264,13 +263,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'necrolyte_heartstopper_aura_datadriven',
     newLevel: 0,
   },
-  // 斧王 自动淘汰之刃（插入 slot 3，与大招淘汰之刃 LinkedAbility 同步升级，初始等级继承大招）
+  // 斧王 自动淘汰之刃（插入 slot 3）
   {
     heroName: 'npc_dota_hero_axe',
     targetSlot: 3,
     newAbility: 'axe_auto_culling_blade',
-    newLevel: 0,
-    inheritLevelFrom: 'axe_culling_blade',
+    newLevel: 1,
   },
   // 狙击手 觉醒刺杀
   {

@@ -61,4 +61,27 @@ describe('DragonWishFilter', () => {
 
     expect(orderFilter(createOrder())).toBe(true);
   });
+
+  it('turns a click on an autocast shell into an autocast toggle and drops the order', () => {
+    const toggleAutoCast = jest.fn();
+    entities[1] = {
+      GetAbilityName: () => 'legion_commander_auto_duel',
+      ToggleAutoCast: toggleAutoCast,
+    };
+
+    const order = { ...createOrder(), order_type: UnitOrder.CAST_NO_TARGET };
+
+    expect(orderFilter(order)).toBe(false);
+    expect(toggleAutoCast).toHaveBeenCalledTimes(1);
+  });
+
+  it('lets other no-target casts through without toggling', () => {
+    const toggleAutoCast = jest.fn();
+    entities[1] = { GetAbilityName: () => 'item_blink', ToggleAutoCast: toggleAutoCast };
+
+    const order = { ...createOrder(), order_type: UnitOrder.CAST_NO_TARGET };
+
+    expect(orderFilter(order)).toBe(true);
+    expect(toggleAutoCast).not.toHaveBeenCalled();
+  });
 });
