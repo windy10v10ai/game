@@ -252,6 +252,8 @@
 		"item"		"item_dracula_mask"			// 德古拉面罩
 		"item"		"item_beast_armor"			// 兽化甲
 		"item"		"item_beast_shield"			// 兽化盾
+
+		"item"		"item_aeon_amulet"			// 永恒护符
 	}
 	// Level 5 - 兵刃
 	"weapons"

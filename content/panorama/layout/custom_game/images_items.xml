@@ -7,6 +7,7 @@
 			<Image id="abyssal_blade_v2" class="SeqImg" src="file://{images}/items/abyssal_blade_v2.png" />
 			<Image id="adi_king" class="SeqImg" src="file://{images}/items/adi_king.png" />
 			<Image id="adi_king_plus" class="SeqImg" src="file://{images}/items/adi_king_plus.png" />
+			<Image id="aeon_amulet" class="SeqImg" src="file://{images}/items/aeon_amulet.png" />
 			<Image id="aeon_pendant" class="SeqImg" src="file://{images}/items/aeon_pendant.png" />
 			<Image id="aether_lens_2" class="SeqImg" src="file://{images}/items/aether_lens_2.png" />
 			<Image id="anyingcaijue" class="SeqImg" src="file://{images}/items/anyingcaijue.png" />

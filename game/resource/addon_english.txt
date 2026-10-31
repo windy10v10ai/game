@@ -3546,6 +3546,20 @@
 		"DOTA_Tooltip_modifier_item_withered_spring_active"								"Withering Bloom"
 		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"Grants +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
 
+		// item_aeon_amulet 永恒护符
+		"DOTA_Tooltip_Ability_item_aeon_amulet"						"Aeon Amulet"
+		"DOTA_Tooltip_ability_item_aeon_amulet_Description"						"<h1>Active: Aeon Guard</h1>Targets an allied hero (can be self) and applies a Strong Dispel. The target and the caster gain <font color='#07D738'>Aeon Guard</font> for %guard_duration% seconds: restores %guard_regen% +%guard_regen_pct%%% max health as health and %guard_mana_regen% +%guard_mana_regen_pct%%% max mana as mana per second, reduces damage taken by %guard_damage_reduction%%%, grants +%guard_attack_speed% attack speed and +%guard_move_speed% movement speed, and grants %slow_resist%%% <font color='#9EC8E3'>Slow Resistance</font> and %status_resistance%%% <font color='#B99012'>Status Resistance</font>.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Aeon Aegis</h1>When you take damage from a hero and your health falls below %health_threshold_pct%%%, automatically triggers the effects above on yourself, and for %buff_duration% seconds all damage you deal and are dealt is reduced to zero."
+		"DOTA_Tooltip_ability_item_aeon_amulet_Lore"						"A light sleeps inside the amulet, and it never goes out."
+		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_all_stats"						"+$all"
+		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_mana_total"						"+$mana"
+		"DOTA_Tooltip_ability_item_aeon_amulet_heal_amp"						"%+Heal Amplification"
+		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_move_speed"						"+$move_speed"
+		"DOTA_Tooltip_ability_item_aeon_amulet_Note0"						"Enters cooldown after triggering automatically, shared with the active."
+
+		"DOTA_Tooltip_modifier_item_aeon_amulet_guard"						"Aeon Guard"
+		"DOTA_Tooltip_modifier_item_aeon_amulet_guard_Description"						"Restores health and mana every second, reduces damage taken, increases attack speed and movement speed, and grants Slow Resistance and Status Resistance."
+
 		// 德古拉面罩/生命之盔
 		"DOTA_Tooltip_Ability_item_dracula_mask"										"Dracula's Mask"
 		"DOTA_Tooltip_ability_item_dracula_mask_Description"							"<h1>Active: Vampiric Feast</h1>Dispels all negative effects and grants the following for %active_duration% seconds:<br>%lifesteal_active_total_tooltip%%% lifesteal<br>%spell_lifesteal_active_total_tooltip%%% spell lifesteal<br>+%bonus_attack_speed_active% attack speed<br>+%bonus_movement_speed_active%%% movement speed<br>%damage_reduction%%% damage reduction<br>Slow immunity<br><br>Automatically triggers when health falls below %hp_threshold%%%.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Weak Dispel</span>"
