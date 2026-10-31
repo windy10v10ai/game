@@ -92,6 +92,20 @@ export function findHeroOrCreepInRange(
   return enemies.find((enemy) => enemy.IsHero()) ?? enemies[0];
 }
 
+/** 英雄优先；allowCreep 为 false 时只考虑英雄，不退而取小兵。 */
+export function findAutoCastTarget(
+  caster: CDOTA_BaseNPC,
+  range: number,
+  allowCreep: boolean,
+  extraFlags: UnitTargetFlags = UnitTargetFlags.NONE,
+  isExcluded: (unit: CDOTA_BaseNPC) => boolean = () => false,
+): CDOTA_BaseNPC | undefined {
+  if (allowCreep) return findHeroOrCreepInRange(caster, range, extraFlags, isExcluded);
+  return findEnemiesInRange(caster, range, UnitTargetType.HERO, extraFlags).find(
+    (enemy) => !isExcluded(enemy),
+  );
+}
+
 /** 瞬发施放（不抢玩家操作）；ability / target 须有效。 */
 export function castImmediatelyOnTarget(
   caster: CDOTA_BaseNPC,
