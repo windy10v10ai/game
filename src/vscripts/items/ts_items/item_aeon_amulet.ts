@@ -135,6 +135,15 @@ export class ModifierItemAeonAmuletHeal extends BaseModifier {
   }
 
   OnCreated(): void {
+    this.StartHealing();
+  }
+
+  // 守护被重复施加时是刷新而不是重建，持续时间延长，回复次数要跟着重新计
+  OnRefresh(): void {
+    this.StartHealing();
+  }
+
+  private StartHealing(): void {
     const ability = this.GetAbility();
     if (!IsServer() || !ability) {
       return;
