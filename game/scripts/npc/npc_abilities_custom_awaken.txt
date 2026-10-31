@@ -530,10 +530,7 @@
 		"AbilityTextureName"			"axe_auto_culling_blade"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"4"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
-		"LinkedAbility"					"axe_culling_blade"	// 与大招淘汰之刃双向联动同步升级
+		"MaxLevel"						"1"
 		"AbilityCharges"				"3"
 		"AbilityChargeRestoreTime"		"12"
 	}
@@ -546,10 +543,7 @@
 		"AbilityTextureName"			"legion_commander_duel"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"4"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
-		"LinkedAbility"					"legion_commander_duel"
+		"MaxLevel"						"1"
 		"AbilityValues"
 		{
 			"bonus_cast_range"			"200"

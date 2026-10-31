@@ -18,7 +18,6 @@
    ```
    `resolveNewLevel` 会在加新技能时取该关联技能当前等级作初始等级（在移除任何技能前求值，故 `inheritLevelFrom` 可以正是被插入槽位的技能）。
 
-> 参考：斧王 `axe_auto_culling_blade` ↔ `axe_culling_blade`。
 
 > **不要用 `Innate "1"` + `DependentOnAbility` 替代 `LinkedAbility`**：官方有「新技能比关联技能多一档等级」的场景用这个组合（古辰山 Absolute Zero 先天、玛尔斯 Sidekick），但那些都是英雄出生自带的先天技能槛位。本项目觉醒技能是运行时用觉醒石 `AddAbility()` 动态加上去的，不是原生先天槛位——给它加 `Innate "1"` 实测会导致技能/buff 图标不显示（卓尔游侠裂影箭觉醒踩过，已放弃改回固定等级）。等级关联场景老老实实用上面的 `LinkedAbility` + `inheritLevelFrom`（要求两边 `MaxLevel` 一致）；如果新技能就是想比关联技能多一档，优先考虑改成固定值/不分级，而不是引入 `DependentOnAbility`。
 
@@ -30,6 +29,7 @@
 - 继承 `AutoCastAbility`，只实现 `OnAutoCastThink(caster)`；需要时覆写 `getThinkInterval()`（默认 0.3）。共享 `modifier_autocast_think` 负责 `IsServer / IsAlive / GetAutoCastState` 守卫后回调。
 - 基类 helper：`getFullCastRange`（含施法距离增强）、`findEnemiesInRange(caster, range, targetType, extraFlags?)`（始终排除迷雾/隐身，`extraFlags` 可叠加命中魔免、排除幻象）、`findHeroOrCreepInRange(caster, range, extraFlags?, isExcluded?)`、`castImmediatelyOnTarget`。
 - **指向性技能的自动施放要过滤会反弹或格挡的目标**：莲花球生效中、镜盾就绪的目标会把技能弹回施法者（沉默、减速、伤害落在自己身上），用 `willReflect(target)` 排除；林肯法球就绪会白吃一次施放，只有一次性、失败要回滚的技能（如斧王斩杀）再加 `willBlock(target)`，便宜的技能让它去破球更划算。不是每个觉醒都要走，只有指向性目标技能的自动施放调用，无目标、点施放、自身范围的不用。目前斧王、军团自动决斗两处同时过滤 `willReflect` 与 `willBlock`，其余只过滤 `willReflect`。
+- **纯开关壳技能（额外占格、无蓝耗无冷却）要把名字登记进 `modules/filter/autocast-shell-click.ts` 的列表，固定 `MaxLevel 1`、觉醒时直接给 1 级，不接 `LinkedAbility`**：玩家左键或快捷键点击也算一次施法，会触发引擎的施法事件（军团先天技能「迎难而战」等），不拦截就能无限刷。列表里的技能在订单过滤阶段把点击改成翻转自动施法，不产生施法事件；右键与引擎自带的自动施法切换不受影响。不要给壳技能加 `TOGGLE` 行为（左右键是两个独立状态，错开时外框变成普通绿框），也不要靠加前摇限制点击。替换原技能的壳技能点击就是真施放，不需要登记。
 - 施放用 **`CastAbilityImmediately`**：玩家英雄的背景自动施放**不能**用 order 式（`CastAbilityOnTarget` 等会打断玩家移动/攻击）。新基类/helper 统一放 `ts_abilities/shared/`。
 
 > 参考：斧王 `ts_abilities/axe_auto_culling_blade.ts`（斩杀线阈值 + 可打魔免）、宙斯 `ts_abilities/special_bonus_unique_zuus_upgrade.ts`（英雄优先、雷击仅英雄、不打魔免）。
