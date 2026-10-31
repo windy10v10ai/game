@@ -1,77 +1,69 @@
 ---
 name: create-pr
-description: 创建功能分支、commit、push 并发起 Pull Request 的完整工作流。当用户说"创建PR"、"create pr"、"提个PR"、"发 pull request"，或实现完成需要发起代码审查时触发。
+description: 创建分支、commit、push 并发起 PR。
 ---
 
-# 创建 Pull Request 工作流
+# 创建 Pull Request
 
-从 `develop` 创建功能分支到发起 PR 的完整流程。
+分支命名、commit 格式、stage 范围见根 `.claude/CLAUDE.md`「Git」。
 
----
+## 1. 切分支
 
-## 分支命名
-
-- 格式：`feature/{issue-number}-{branch-name}`
-- 示例：`feature/123-add-new-hero-ai`
-- 没有对应 issue 时可省略编号段，但仍以 `feature/` 开头
-
----
-
-## Step 1：从 develop 创建分支
-
-**必须**从最新的 `develop` 切出，不从当前所在分支（可能是别的未合并 feature 分支）派生：
+从最新 `develop` 切出，不从当前所在分支派生（会带进上一个分支未合并的改动）：
 
 ```bash
 git checkout develop
 git pull
-git checkout -b feature/{issue-number}-{branch-name}
+git checkout -b <prefix>/<issue-id>-<summary>
 ```
 
----
+本地有要带进新分支的未提交改动时直接切，改动会跟过去；搬运改动不用 `git stash`（stash 没存上时 `pop` 会弹出更早的旧存档）。
 
-## Step 2：开发与提交
+## 2. 提交
 
-Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`，不写其他说明——详细说明留给 PR description。
+只 stage 相关文件，commit 单行标题 + `Co-Authored-By`，说明留给 PR 正文。
 
-```bash
-git add <相关文件>
-git commit -m "$(cat <<'EOF'
-<简短标题>
+## 3. Push
 
-Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
-EOF
-)"
-```
+先 `gh pr list --head <branch>` 查是否已有 PR，再 `git rev-parse --abbrev-ref --symbolic-full-name @{u}` 确认上游，推到该上游。自己新切的分支上游是 `origin`（首次带 `-u`）；跟着别人 fork 的 cross-repo PR 上游是那个 fork（需 `maintainerCanModify` 为 true）。推到 `origin` 的表现是主仓库多出同名分支、PR 的 head commit 没变。
 
-只 stage 与本次请求明确相关的文件；若当前分支不符合预期（如本应在 feature 分支却处于 `develop`/`main`），先向用户确认目标分支再提交。
+完成：已有 PR 时报告原 PR 链接，不再新建。
 
----
+## 4. 创建 PR
 
-## Step 3：Push
+用模板 `.github/pull_request_template.md`，`gh pr create --base develop --title "<英文标题>" --body-file <文件>`：
 
-```bash
-git push -u origin feature/{issue-number}-{branch-name}
-```
+- **标题**英文，≤70 字符
+- **Issue 段**：分支名匹配 `^(feature|fix|chore|docs)/(\d+)` 时填 `Fixes #<id>` 或 `#<id>`（选哪个见根 `CLAUDE.md`「Git」），无匹配就删掉该行。issue 挂有「设计」artifact 时下面加一行 `设计：<artifact 链接>`，实现与设计不一致的地方在正文写明
+- **Checklist 段**：待确认、待验证事项各一个 checkbox（如 `- [ ] 在 Dota Tools 中验证 bot 是否正确开启臂章`），和模板原有的那条放在一起，方便 review 逐项勾选
+- **Release Note 段**：按下节判定
+- **界面截图**：改了界面时按 `references/screenshots.md` 拍图并放进正文
 
----
+## Release Note 写不写
 
-## Step 4：创建 Pull Request
+**纯内部改动**同时满足：
 
-- **base branch 固定为 `develop`**
-- 使用模板 `.github/pull_request_template.md`
-- **Issue 段**：分支名匹配 `^feature/(\d+)` 时，提取该数字填入模板的 `- [ ] fix #<issue-id>`；无匹配则保留占位或删除该行
-- **Release Note 段**：**必须先调用 `release-note` skill 生成**，不要手写
-- **PR 标题默认使用英文**，简短概括改动（≤70 字符）
-- **待确认/待验证事项写进 `## Checklist` 段落，用 checkbox 形式**（如 `- [ ] 在 Dota Tools 中验证 bot 是否正确开启臂章`），不要另开"待确认"之类的散文段落——review 时需要能逐项勾选，不是读一段说明文字
+1. 改动对象是代码结构、构建、CI、文档、注释、测试或开发调试工具
+2. 玩家在游戏内读不出一条「更新内容」：没有新增或移除玩家可见内容，没有数值与平衡变化，没有 UI 与本地化文案变化，bot 会不会用某个技能或物品没有改变
 
-```bash
-gh pr create --base develop --title "<英文标题>" --body-file <填充后的模板文件>
-```
+重构与代码迁移带来细微差异（阈值口径变化、去掉重复逻辑），只要玩家不会当成一条更新来读，仍算纯内部改动。
 
----
+「删掉 Release Note 段」只指本功能 PR 正文里模板自带的占位段，聚合 release PR 里已有的 Release Note 一律不动。
 
-## 常见陷阱
+- **是**：删掉本 PR 正文的 `## Release Note` 占位段，在描述里说明本次无玩法影响。不提问、不查版本号
+- **不是或无法确定**：先出草稿再问一次，不先问写回方式。
+  1. 按 `.claude/references/release-version.md` 算出目标版本，并记下聚合 release PR 是否已存在
+  2. PR 创建后调用 `release-note`，写回方式为「仅出草稿」
+  3. 把中英文草稿贴给用户（草稿须标明每条新增在哪条之后、或并入了哪条已有日志），只用一次 `AskUserQuestion`。问题开头写明目标版本属于哪种：**当前待发布大版本**（Steam 还在上一版，进聚合 release PR #N 的大版本块）还是**已发布大版本的补丁**（进 `---` 之下的补丁块），并附 Steam 最新版本与 release PR 版本作依据。选项按情况出，都含「不写」：
 
-- **分支不是从 develop 切出**：若在别的 feature 分支上直接 `checkout -b`，新分支会带着上一个分支未合并的改动，PR diff 会包含无关内容
-- **Release Note 手写**：必须先跑 `release-note` skill，不要直接照抄改动列表拼凑
-- **待确认事项写成独立段落**：应该和 `I have tested the changes works well.` 放在同一个 `## Checklist` 里，各自一个 checkbox
+| 情况 | 选项 |
+|---|---|
+| 大版本，release PR 已存在 | 写入功能 PR 并合并进聚合 release PR / 不写 |
+| 大版本，release PR 未创建 | 先写入功能 PR，功能 PR 合并后再写入聚合 release PR / 不写 |
+| 补丁版本 | 写入功能 PR 并合并进聚合 release PR / 仅写入功能 PR / 不写 |
+
+  4. 用户对草稿提了修改意见：改完草稿再问一次。选了写入：带着写回方式重新调用 `release-note`。选了「不写」：删掉本 PR 正文的占位段，聚合 release PR 已有内容不动
+
+`release-note` 在 SubAgent 里运行、不能提问，参数写 PR 号、目标版本、写回方式。它回报待选项时问用户，带着答案重新调用。
+
+选了「合并后再写入聚合 release PR」时，写回按「仅写入功能 PR」调用 `release-note`；合并只在用户指令下执行，合并后聚合 release PR 才会出现，用户确认合并完成后再调用 `release-note`，来源仍写该功能 PR 号，写回方式为「仅写入聚合 release PR」。

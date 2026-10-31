@@ -1,10 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+declare let global: any;
+
 import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { Option } from '../../option';
 import { GameEndPoint, normalizeControlTime } from './game-end-point';
-
-export function IsInToolsMode(): boolean {
-  return true;
-}
 
 describe('GameEndPoint', () => {
   // 创建基础玩家数据
@@ -39,6 +38,12 @@ describe('GameEndPoint', () => {
       expect(normalizeControlTime(0)).toBe(0);
       expect(normalizeControlTime(Number.NaN)).toBe(0);
       expect(normalizeControlTime(Number.POSITIVE_INFINITY)).toBe(0);
+    });
+
+    it('应该取整到整数秒', () => {
+      expect(normalizeControlTime(4.4)).toBe(4);
+      expect(normalizeControlTime(4.5)).toBe(5);
+      expect(normalizeControlTime(-4.5)).toBe(5);
     });
   });
 
@@ -86,7 +91,7 @@ describe('GameEndPoint', () => {
         towerKills: 11,
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(151);
+      expect(score).toBe(126);
     });
 
     it('应该为控制时间增加递减且封顶的分数', () => {
@@ -110,6 +115,20 @@ describe('GameEndPoint', () => {
     it('60分钟游戏得分', () => {
       const points = GameEndPoint.GetGameTimePoints(3600); // 60分钟
       expect(points).toBe(23);
+    });
+  });
+
+  describe('GameEndPoint.IsEscaped', () => {
+    beforeAll(() => {
+      global.ConnectionState = { CONNECTED: 2, DISCONNECTED: 3, ABANDONED: 4 };
+    });
+
+    it('在线与短暂掉线照常结算，掉线满 2 分钟或已放弃算逃跑', () => {
+      expect(GameEndPoint.IsEscaped(ConnectionState.CONNECTED, undefined)).toBe(false);
+      expect(GameEndPoint.IsEscaped(ConnectionState.DISCONNECTED, 60)).toBe(false);
+      expect(GameEndPoint.IsEscaped(ConnectionState.DISCONNECTED, undefined)).toBe(false);
+      expect(GameEndPoint.IsEscaped(ConnectionState.DISCONNECTED, 120)).toBe(true);
+      expect(GameEndPoint.IsEscaped(ConnectionState.ABANDONED, undefined)).toBe(true);
     });
   });
 
@@ -322,6 +341,45 @@ describe('GameEndPoint', () => {
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
       expect(multiplier).toBeGreaterThanOrEqual(0);
+    });
+  });
+
+  describe('GameEndPoint.IsExtremeCustomMode', () => {
+    const defaultOption = {
+      radiantGoldXpMultiplier: 1.5,
+      direGoldXpMultiplier: 2,
+      radiantPlayerNumber: 10,
+      direPlayerNumber: 10,
+      towerPower: 200,
+      startingGoldPlayer: 3000,
+      startingGoldBot: 3000,
+      respawnTimePercentage: 100,
+      maxLevel: 50,
+      forceRandomHero: false,
+      enablePlayerAttribute: true,
+      fixedAbility: 'none',
+      gameDifficulty: 0,
+    } as Option;
+
+    it('默认配置不算极端', () => {
+      expect(GameEndPoint.IsExtremeCustomMode(defaultOption)).toBe(false);
+    });
+
+    it('秒活（复活时间百分比为下拉框最低档10）算极端', () => {
+      const option = { ...defaultOption, respawnTimePercentage: 10 } as Option;
+      expect(GameEndPoint.IsExtremeCustomMode(option)).toBe(true);
+    });
+
+    it('综合积分倍率低于1倍算极端', () => {
+      const option = { ...defaultOption, radiantGoldXpMultiplier: 5 } as Option;
+      expect(GameEndPoint.GetCustomModeMultiplier(option)).toBeLessThan(1);
+      expect(GameEndPoint.IsExtremeCustomMode(option)).toBe(true);
+    });
+
+    it('综合积分倍率大于等于1倍且无其他极端项时不算极端', () => {
+      const option = { ...defaultOption, direGoldXpMultiplier: 10 } as Option;
+      expect(GameEndPoint.GetCustomModeMultiplier(option)).toBeGreaterThanOrEqual(1);
+      expect(GameEndPoint.IsExtremeCustomMode(option)).toBe(false);
     });
   });
 });

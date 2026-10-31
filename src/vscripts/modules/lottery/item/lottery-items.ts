@@ -9,7 +9,6 @@ export const itemTiers: Tier[] = [
     level: 7,
     names: [
       'item_tome_of_luoshu', // 洛书
-      'item_universal_rune', // 通用符文
       'item_passive_skill_tome', // 被动技能书
     ],
   },
@@ -85,7 +84,7 @@ export const itemTiers: Tier[] = [
       'item_ancient_janggo', // 韧鼓
       'item_holy_locket', // 圣洁吊坠
       'item_consecrated_wraps', // 圣化护服
-      'item_veil_of_discord_2', // 纷争面纱
+      'item_veil_of_discord', // 纷争面纱
     ],
   },
   // 1k

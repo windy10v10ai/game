@@ -1,11 +1,13 @@
 import { registerAbilitySpecs } from '../../ai/ability/specs';
-import { GA4 } from '../../api/analytics/ga4/ga4';
 import { reloadable } from '../../utils/tstl-utils';
+import { EventPlayerDisconnect } from '../event/event-player-disconnect';
 import { GameEnd } from '../event/game-end/game-end';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { CMD } from './debug-cmd';
 import { handleGlobalItemDebugCommand } from './debug-item-helper';
+import { handleTestDebugCommand } from './debug-test-cmd';
+import { handlePerfDebugCommand } from './perf-cmd';
 
 @reloadable
 export class Debug {
@@ -45,11 +47,12 @@ export class Debug {
 
     // ---- 常用命令 ----
 
-    // -s GetStuns(playerId: PlayerID
     if (cmd === CMD.S) {
       const playerId = keys.playerid;
       const stuns = PlayerResource.GetStuns(playerId);
-      this.log(`Player ${playerId} stuns: ${stuns}`);
+      const healing = PlayerResource.GetHealing(playerId);
+      const damageTaken = PlayerHelper.GetDamageTaken(playerId);
+      this.log(`控制：${stuns} 治疗：${healing} 承受伤害：${damageTaken}`);
     }
     if (cmd === CMD.D) {
       const playerId = keys.playerid;
@@ -101,9 +104,6 @@ export class Debug {
       this.log(`Time: ${Time()}`);
       this.log(`GameTime: ${GameRules.GetGameTime()}`);
       this.log(`GetDOTATime: ${GameRules.GetDOTATime(false, true)}`);
-      GA4.FetchCurrentTime((timestamp) => {
-        this.log(`FetchCurrentTime: ${timestamp}`);
-      });
     }
 
     if (cmd === CMD.G) {
@@ -150,22 +150,15 @@ export class Debug {
       }
     }
 
-    // ---- ability ----
-    if (cmd === CMD.ADD_ABILITY) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      const abilityName = args[0];
-      hero.AddAbility(abilityName);
+    if (cmd === CMD.BOT_THINKING_ENABLE) {
+      GameRules.AI.BotTeam?.SetNativeThinking(true);
     }
-    if (cmd === CMD.ADD_ABILITY_ALL) {
-      PlayerHelper.ForEachPlayer((playerId) => {
-        if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) return;
-        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-        if (!hero) return;
-        const abilityName = args[0];
-        hero.AddAbility(abilityName);
-      });
+    if (cmd === CMD.BOT_THINKING_DISABLE) {
+      GameRules.AI.BotTeam?.SetNativeThinking(false);
     }
+
+    handlePerfDebugCommand(cmd, args);
+    handleTestDebugCommand(cmd, args, PlayerResource.GetSelectedHeroEntity(keys.playerid));
 
     // ---- item 替换装备命令 ----
     handleGlobalItemDebugCommand(cmd);
@@ -260,7 +253,12 @@ export class Debug {
 
     if (cmd === CMD.END) {
       GameEnd.gameEndTriggered = false;
-      GameEnd.OnGameEnd(2);
+      GameEnd.settled = false;
+      GameEnd.OnGameEnd(args[0] === '3' ? DotaTeam.BADGUYS : DotaTeam.GOODGUYS);
+    }
+
+    if (cmd === CMD.DISCONNECT) {
+      EventPlayerDisconnect.Simulate(keys.playerid, Number(args[0] ?? 0));
     }
 
     if (cmd === CMD.TREASURE) {
@@ -350,13 +348,6 @@ export class Debug {
     }
 
     // ---- 当前英雄相关 ----
-    if (cmd === CMD.REPLACE_HERO) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      const heroName = args[0];
-      PlayerResource.ReplaceHeroWith(hero.GetPlayerID(), heroName, 0, 0);
-    }
-
     if (cmd === CMD.RESET_ABILITY) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;

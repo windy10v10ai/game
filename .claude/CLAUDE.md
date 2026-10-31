@@ -1,481 +1,142 @@
 # CLAUDE.md
 
-本文件为 Claude Code (claude.ai/code) 提供在此代码库中工作时的指导。
-
-## 语言偏好
-
-**重要提示:所有响应默认应使用中文(简体中文)**,除非:
-
-- 用户明确要求使用英文回复
-- 你正在编写代码、代码注释或提交信息(这些应保持英文)
-- 你正在引用技术术语、API 名称或函数名称(这些应保持原始英文形式)
-
-与用户沟通时:
-
-- 使用中文进行解释、总结和一般性交流
-- 使用英文编写代码片段、变量名、函数名和技术标识符
-- 在讨论代码时可以混合使用中文和英文(解释用中文,代码引用用英文)
-
-## 项目概述
-
-Windy10v10AI 是一个 PVE Dota 2 自定义游戏,具有 10v10 对战、AI 对手和独特的技能抽奖系统。代码库使用 TypeScript 编译为 Lua 作为游戏逻辑(VScripts),使用 React + TypeScript 作为 UI(Panorama)。
-
-## 开发命令
-
-### 安装与设置
-
-```bash
-# Install dependencies and link game/content directories to Dota 2 addon folder
-npm install
-
-# Note: Code must be on the same hard drive partition as Dota 2
-```
-
-### 开发工作流
-
-```bash
-# Start Dota 2 Tools and watch mode (most common command)
-npm run start
-```
-
-### 测试与质量检查
-
-```bash
-# Run Jest tests
-npm test
-
-# Lint TypeScript files
-npm run lint
-npm run lint:fix
-
-# Build checks (run before committing to catch compile errors)
-npm run build:panorama   # Webpack build for Panorama UI
-npm run build:vscripts   # TSTL build for VScripts (TypeScript → Lua)
-```
-
-## 代码架构
-
-### 技术栈
-
-- **VScripts (后端)**: TypeScript → Lua,通过 TypeScript-to-Lua (TSTL) 编译
-- **Panorama UI (前端)**: React 16.14 + TypeScript → JavaScript,通过 Webpack 构建
-- **通信机制**: Custom Net Tables (双向同步) 和 Custom Game Events (客户端→服务器)
-- **共享类型**: `src/common/` 中的 TypeScript 接口定义了各层之间的契约
-
-### 目录结构
-
-```
-src/
-├── vscripts/              # Game logic (TypeScript → Lua)
-│   ├── addon_game_mode.ts # Entry point - exports Activate() function
-│   ├── ai/                # Bot AI system (30+ files)
-│   │   ├── hero/          # Hero-specific AI modifiers (Lion, Viper, Luna, etc.)
-│   │   ├── mode/          # FSA modes: Laning, Attack, Retreat, Push
-│   │   ├── action/        # Actions: Attack, Move, Cast, Item usage
-│   │   └── build-item/    # Item build logic
-│   ├── modules/           # Core game systems (registered as GameRules.* singletons)
-│   │   ├── lottery/       # Ability lottery system (random ability generation/selection)
-│   │   ├── event/         # Event dispatcher (NPC spawn, kills, level up)
-│   │   ├── filter/        # Game rule filters (gold/XP modification)
-│   │   ├── property/      # Player property/attribute system
-│   │   ├── helper/        # Utility helpers (PlayerHelper, UnitHelper, etc.)
-│   │   └── ...            # AI, Analytics, GameConfig, Option, Debug
-│   ├── modifiers/         # Custom modifiers (PropertyBaseModifier, etc.)
-│   ├── api/               # External API client (windy10v10ai.com backend)
-│   └── utils/             # TSTL adapters (@registerModifier decorator), dota_ts_adapter
-│
-├── panorama/              # UI (React + TypeScript → JavaScript)
-│   ├── react/
-│   │   ├── shared/        # 跨 entry 共享：通用组件 / hooks / 设计 token
-│   │   │   ├── components/  # TabNavigation, SubTabNavigation
-│   │   │   ├── hooks/       # useNetTable
-│   │   │   └── styles/      # tokens.less, buttons.less, dialog.less
-│   │   ├── hud_lottery/   # 常驻 HUD 浮窗：技能抽奖
-│   │   └── hud_main/      # 中心化界面容器（home/shop/achievements 等）
-│   │       ├── HudMain.tsx       # 顶层 Provider 组合
-│   │       ├── router/           # PageRouter + PageId 类型
-│   │       ├── store/            # NavigationContext / DialogContext
-│   │       ├── components/       # 常驻入口按钮等容器级组件
-│   │       ├── pages/            # 各页面（home / shop / profile / ...）
-│   │       │   └── profile/      # 页面 = 文件夹；样式与拥有者同级
-│   │       │       ├── ProfilePage.tsx
-│   │       │       ├── styles.less        # 聚合入口（layout.xml 引用此文件）
-│   │       │       ├── layout.less        # 页面外框 / Tab 导航 / 内容区
-│   │       │       ├── stats.less         # Stats Tab + 占位样式
-│   │       │       └── tabs/
-│   │       │           ├── StatsTab.tsx   # 单文件 tab 直接放 tabs/
-│   │       │           └── member/        # 复杂 tab 拆为子目录，自带 styles.less
-│   │       │               ├── index.ts
-│   │       │               ├── MemberTab.tsx
-│   │       │               ├── StatusPage.tsx
-│   │       │               ├── SubscribePage.tsx
-│   │       │               ├── ClickablePanel.tsx
-│   │       │               ├── constants.ts
-│   │       │               └── styles.less
-│   ├── utils/             # 全局 utils（@utils/* 别名指向这里）
-│   └── webpack.{dev,prod}.js
-│
-├── common/                # Shared TypeScript types
-│   ├── net_tables.d.ts    # CustomNetTableDeclarations interface
-│   ├── events.d.ts        # CustomGameEventDeclarations interface
-│   └── dto/               # Data transfer objects (lottery, game state)
-│
-└── scripts/               # Build automation (Node.js)
-    ├── install.js         # Symlinks game/content to Dota 2 addons directory
-    ├── launch.js          # Launches Dota 2 Tools if not running
-    └── utils.js           # Helper functions (getDotaPath, getAddonName)
-```
-
-### 关键架构模式
-
-#### 模块系统 (VScripts)
-
-核心系统实现为注册在 `GameRules` 上的单例类:
-
-```typescript
-// In modules/index.ts
-export function ActivateModules() {
-  if (GameRules.AI == null) GameRules.AI = new AI();
-  if (GameRules.Lottery == null) GameRules.Lottery = new Lottery();
-  // ... other modules
-}
-```
-
-通过以下方式访问模块:
-
-- `GameRules.Lottery` - 技能抽奖系统
-- `GameRules.AI` - Bot AI 管理
-- `GameRules.Event` - 事件分发器
-- `GameRules.GoldXPFilter` - 金币/经验修改
-
-#### 数据流
-
-**服务器 → 客户端 (Net Tables)**:
-
-```typescript
-// VScripts (server)
-CustomNetTables.SetTableValue("lottery_status", playerId.toString(), data);
-
-// Panorama (client)
-CustomNetTables.SubscribeNetTableListener("lottery_status", callback);
-const data = CustomNetTables.GetTableValue("lottery_status", playerId);
-```
-
-**客户端 → 服务器 (Custom Events)**:
-
-```typescript
-// Panorama (client)
-GameEvents.SendCustomGameEventToServer("lottery_pick_ability", { name, type, level });
-
-// VScripts (server)
-CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) => {
-  // Handle ability pick
-});
-```
-
-### 测试
-
-- **框架**: Jest 配合 ts-jest preset
-- **测试文件**: 与源代码同位置的 `*.test.ts` 文件(例如 `gold-xp-filter.test.ts`)
-- **模拟**: 在测试中通过 `global.GameRules = { ... }` 模拟 Dota 全局变量
-- **运行**: `npm test` 执行所有测试并生成覆盖率报告
-- **只测自己的分支/计算逻辑，不测引擎契约**：判断标准是代码里是否包含足够分量的**自身逻辑**（如加权抽样、难度阶梯映射、tier 归属判断）。以下情况都**不需要**写单元测试，靠 Dota tools 实机验证：
-  - 代码主体就是遍历/调用 Dota API（如 `hero.GetItemInSlot(i)` 循环计数、`FindUnitsInRadius` 后直接操作结果集），本身没有值得验证的分支
-  - 需要 mock 多个 Dota 全局枚举/常量对象（如 `UnitTargetTeam` / `UnitTargetType` / `UnitTargetFlags` / `FindOrder`）才能让测试跑起来——这是"代码本身没有自身逻辑、只是在拼引擎调用参数"的强信号
-  - 一段逻辑严重依赖一串 Dota API 行为（如 `AddAbility`→`GetMaxLevel`→`SetLevel` 的等级同步）时，不要为了覆盖它而搭建可控 mock 配置（如给 fake 注入 maxLevel 映射、构造多种引擎返回值）
-  - 断言只是在还原调用方自己传入的配置参数（如断言 `FindUnitsInRadius` 被以哪些 team/flags 调用）——这是在测"我传了什么参数"，不是在测判断逻辑。不管这层调用是 Dota 原生 API 还是项目自己封装的 wrapper（如 `shared/auto-cast-ability` 里的 helper），只要断言对象是"mock 有没有被调用/传了什么参数"而非真实判断结果，同样不需要写；技能里若原有的自制逻辑（如某个手动补丁）被验证为多余并删除后，配套测试也要一并检查是否已退化为纯 mock 调用断言
-  - Dota 原生 API（`CreateUnitByName` / `ParticleManager.*` / `EmitSoundOn` / `UTIL_Remove` / `AddNewModifier` 等）只作为占位防崩 mock，不要用 `toHaveBeenCalledWith` 断言它们的参数
-
-### 构建系统
-
-- **VScripts**: TSTL 编译器(使用 `tsconfig.json` 配置 `luaTarget: "JIT"`)
-
-  - 输出: `game/scripts/vscripts/`
-  - 插件: `@moddota/dota-lua-types/transformer` 提供类型支持
-  - 启用 source maps 用于调试
-
-- **Panorama**: Webpack 配合自定义插件
-  - 输出: `content/panorama/scripts/custom_game/`
-  - 加载器: ts-loader, babel-loader, less-loader
-  - `PanoramaTargetPlugin` 用于转换为 Valve 格式
-  - 启用 tree-shaking 和文件系统缓存
-
-## 开发指南
-
-### 修改 VScripts (游戏逻辑) 时:
-
-1. `src/vscripts/` 中的所有 TypeScript 文件会编译为 Lua
-2. 使用 `@registerModifier()` 和 `@registerAbility()` 装饰器进行自动注册
-3. 从 `utils/dota_ts_adapter.ts` 扩展 `BaseModifier`、`BaseAbility` 或 `BaseItem`
-4. 通过 `GameRules.*` 单例访问模块(例如 `GameRules.Lottery.refresh()`)
-5. 开发期间在 VConsole 中使用 `script_reload` 进行热重载
-6. 在 `*.test.ts` 文件中使用 Jest 编写测试(根据需要模拟 Dota 全局变量)
-
-### Panorama UI 架构
-
-**两类 entry 的边界**：
-
-- **常驻 HUD 浮窗**（`hud_lottery` 等）：独立 webpack entry + layout.xml，常驻屏幕一角，与游戏 HUD 并存。
-- **中心化界面**（`hud_main`）：单一 entry，内部用 `PageRouter` 切换 home / shop / achievements 等页面。新增"模态/中心化界面"应作为 hud_main 的页面，**不开新 entry**。
-
-**跨 entry 通信**：
-
-```ts
-// 任意 entry → 唤起 hud_main 的某个页面
-// 通过服务端广播给所有客户端，接收端用 playerId 过滤只响应本地玩家
-GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', playerId: Game.GetLocalPlayerID() });
-```
-
-`hud_main` 的 `NavigationProvider` 通过 `GameEvents.Subscribe('hud_open_page', ...)` 监听，过滤 `playerId === Game.GetLocalPlayerID()` 后切换 currentPage。事件类型在 `src/common/events.d.ts` 的 `CustomGameEventDeclarations` 中声明。
-
-`param` 支持 `'tab:subTab'` 复合格式定位一级 tab 内的子页：页面组件用 `split(':')` 拆解，将 subTab 透传给 tab 组件（如 `ProfilePage` 把 `'member:points'` 拆出后传给 `MemberTab` 的 `initialSubTab`）。
-
-**通用资源位置**：
-
-- 通用组件 / 对话框骨架：`src/panorama/react/shared/components/`
-- 通用 hooks（net table 订阅、客户端事件订阅）：`src/panorama/react/shared/hooks/`
-- 设计 token / 通用 class（`.btn-primary` `.modal-panel` 等）：`src/panorama/react/shared/styles/`，通过 `<include src="../shared/styles/index.less" />` 引入到任意 entry 的 layout.xml
-- 路径别名 `@utils/*` 指向 `src/panorama/utils/`（**不是** `react/utils`）
-
-**hud_main 页面拆分约定**（避免单文件膨胀）：
-
-- 每个页面是 `pages/<name>/` 一个文件夹，至少包含 `<Name>Page.tsx` 和 `styles.less`（聚合入口）
-- 简单 tab：`tabs/<TabName>.tsx` 单文件，样式归并到页面级 less 中（如 `pages/profile/stats.less`）
-- 复杂 tab（>200 行 / 含多个子页 / 多个内部组件）：拆为 `tabs/<tabName>/` 子目录，按职责分文件（顶层 `Tab.tsx` + 各 `*Page.tsx` + 共享 `*.tsx` + `constants.ts` + 自带 `styles.less`），通过 `index.ts` 重新导出
-- **样式与拥有者同级**：页面级样式（外框/导航/单文件 tab）直接放页面根目录；复杂 tab 的样式跟随其子目录。页面根 `styles.less` 仅用 `@import` 聚合，layout.xml 仍只引用此一个文件
-- 仅当前 tab 用到的子组件留在该 tab 文件夹内（不下沉到 `shared/`）；跨 tab 复用才考虑提到 `shared/`
-
-### 修改 Panorama UI 时:
-
-1. React 组件位于 `src/panorama/react/`
-2. 使用 `src/panorama/utils/net-table.ts` 或 `shared/hooks/useNetTable` 处理 Net Table 订阅
-3. 通过 `GameEvents.SendCustomGameEventToServer()` 发送服务端事件；UI 间通信用 `GameEvents.SendEventClientSide()`
-4. Panorama UI 使用 React 16.14 配合函数式组件和 hooks
-
-### 添加新的共享类型时:
-
-1. 添加到 `src/common/` 用于 VScripts 和 Panorama 之间共享的类型
-2. 更新 `net_tables.d.ts` 以添加新的 Net Table 键
-3. 更新 `events.d.ts` 以添加新的自定义事件
-4. 在 `common/dto/` 中为复杂数据结构创建 DTO
-
-### 修改 AI 时:
-
-1. 英雄特定 AI: 在 `src/vscripts/ai/hero/` 中添加/修改 modifiers
-2. 所有英雄 AI 扩展 `BotBaseAIModifier` 并实现 `OnIntervalThink()` (0.3秒间隔)
-3. 模式: 在 `ai/mode/` 中实现 `GetDesire()` (返回 0-1 的浮点数)
-4. 动作: 在 `ai/action/` 中添加可重用的行为(attack, move, cast)
-5. 物品构建: 在 `ai/build-item/` 中定义
-
-### 常见陷阱:
-
-- **Net Table 类型不匹配**: 布尔值以 0/1 传输,使用辅助转换
-- **Webpack 缓存**: 如果构建输出看起来过时,删除 `node_modules/.cache`
-- **行尾符**: TypeScript 文件使用 LF (Unix) 而不是 CRLF (Windows)
-- **KV 文件格式**: `game/scripts/npc/` 目录下所有 `.txt` 文件必须全程使用 **tab**，包括行首缩进以及 key 与 value 之间的对齐间距，不得使用空格
-- **新建 KV 文件**: 在 `game/scripts/npc/` 下新建任何 `.txt` 文件后，必须在 `npc_abilities_custom.txt`（或对应的主入口文件）顶部添加 `#base "<filename>.txt"` 引入，否则引擎不会加载该文件
-- **本地化文件模块顺序**: `addon_english.txt` / `addon_schinese.txt` 中各模块的排列顺序为：Custom Abilities（自定义技能）→ Awaken Abilities（觉醒技能）→ Heroes Override（原版英雄技能）
-- **TSTL 对象 spread 不可传 undefined**: 在 `src/vscripts/` 中**禁止**对可能为 `undefined` 的对象使用 spread（`{ ...maybeUndefined }` 或 `{ ...obj?.maybeUndefined }`）。TSTL 把对象 spread 编成 `__TS__ObjectAssign`，内部用 `pairs(...)` 遍历每个参数，传到 `nil` 会运行时 crash `bad argument #1 to 'pairs' (table expected, got nil)`。改用显式 if 判断 + 手动赋值，或用 `?? {}` 兜底后再 spread。jest 测试不会暴露此问题，必须在 Dota tools 实跑验证
-- **VScripts 验证时机**: 不要在每次修改 `src/vscripts/` 后都自动运行 `npm run build:vscripts`；用户的开发环境会自动编译。仅在创建 PR 前、最终完成前，或用户明确要求验证时统一运行一次。验证时只看 TS/TSTL 是否报错，**不要去读 `game/scripts/vscripts/` 下编译生成的 `.lua` 产物**对照（浪费时间，产物是 TSTL 自动生成的）。运行时行为靠 jest（自己的分支逻辑）+ Dota tools 实跑验证
-- **TSTL 枚举用 normalized 成员名**: `src/vscripts/` 中引用 Dota 枚举成员时去掉原生前缀（`UF_` / `DOTA_` 等），如 `UnitFilterResult.FAIL_CUSTOM`（**不是** `UF_FAIL_CUSTOM`）、`UnitFilterResult.SUCCESS`。TSTL 编译时会自动内联回 Lua 原生名（`UF_FAIL_CUSTOM`）。用带前缀的名字 TS 会报 `Property 'UF_XXX' does not exist`
-- **引擎枚举不要在模块顶层求值**: 承上，normalized 枚举编译出来是 Lua 全局名而非内联数字，所以 `const FLAGS = DamageFlag.A + DamageFlag.B` 这种模块顶层常量会在 `require` 阶段就去读全局。某个全局在当前引擎版本不存在时 `nil + nil` 直接抛错，**整个模块加载失败**，该文件里所有 `@registerAbility` / `@registerModifier` 都不执行——症状是技能和 modifier 的图标集体消失，没有崩溃弹窗，很容易误判成图标资源问题。枚举组合一律写在函数体内（如直接内联进 `ApplyDamage` 的 `damage_flags`），把求值推迟到调用时
-- **本地常量不要与 Dota 引擎全局同名**: TSTL/moddota 转译器会把 normalized 枚举（如 `DamageTypes.PURE`）编译成同名的 Lua 全局标识符（如 `DAMAGE_TYPE_PURE`）。若同一文件里另外声明了同名的 `const`/`local`（哪怕只是内部用途，如自定义的掷骰索引），Lua 词法作用域会让局部变量遮蔽全局，编译和类型检查都不会报错，只有运行时才会取到错误的数值（如 `DamageTypes.PURE` 实际取到局部的 `3` 而非引擎的 `4`，导致 `ApplyDamage` 静默不生效）。避免用 `DAMAGE_TYPE_*`、`UnitTargetTeam` 等引擎保留名做本地变量
-- **施法错误飘字须 CastFilterResult + GetCustomCastError 配套**: 自定义物品/技能要在施法前拦截并飘字提示时，仅实现 `GetCustomCastError()` 无效——引擎只在 `CastFilterResult()` 返回 `UnitFilterResult.FAIL_CUSTOM` 时才去取错误文本。两者须配套（用同一判据）。错误文本 key 在本地化文件中**定义不带 `#`**（如 `dota_hud_error_xxx`），代码返回时**带 `#`**（`#dota_hud_error_xxx`）
-- **新建 Net Table 必须双注册**: 在 `src/common/net_tables.d.ts` 的 `CustomNetTableDeclarations` 加类型只是 TS 契约，引擎运行时还要在 `game/scripts/custom_net_tables.txt` 注册表名，否则服务端 `SetTableValue` 会报 `Unknown custom nettable` 且客户端永远收不到。改完后必须**重启 Dota Tools**（script_reload 不重读 KV）
-- **Net Table 清行不能传 nil**: `CustomNetTables.SetTableValue(table, key, nil)` 在 Dota 引擎下是 **noop**，不会删除或同步空值给客户端。如需清行，传**空 table**（数组类用 `[]`、对象类用 `{}`），客户端 `Object.values(value).length === 0` 即可识别为空
-- **React Panorama 条件返回不同 panel 结构会渲染失败**: 在 React 组件中根据状态返回**完全不同的 JSX 结构**（例如 `if (empty) return <Panel collapse />; return <Panel>...复杂子树...</Panel>;`）会导致 panel 在 Panorama DOM 中始终缺失。改为**始终渲染同一 panel 树**，用 `style={{ visibility: cond ? 'visible' : 'collapse' }}` 切换显隐
-- **`@keyframes` 不能写在 `@import` 进来的页面/组件 less 里（如 `hud_main/pages/*/*.less`）**: webpack `additionalData` 会给 keyframe 名加 Valve 必需的引号（`@keyframes 'Name'`），但**只作用于 layout.xml 直接引用的那个 styles.less**；`@import` 进来的子 less 内容由 less 编译器后续合并，拿不到这层转换，keyframe 名未加引号被 Valve 拒绝，**导致整张 styles.css 解析失败、该页所有样式丢失**（图标变紫块等）。hud_lottery 的 keyframe 能用是因为它写在 entry 直载的 `styles.less` 里。**结论：hud_main 页面的动画一律用 JS 驱动**（如 `$.Schedule` 定时改 prop），不要在页面 less 写 `@keyframes`。另注：`transform`/`scale3d` 等属性 Panorama 本就不支持，更不能用
-- **引用自己项目定义的 modifier/ability 名用类名 `.name`，不要另开重复字符串常量**：`@registerModifier`/`@registerAbility` 不传 `name` 参数时，注册到 Lua 的名字就是类本身的类名（见 `dota_ts_adapter.ts` 的 `registerModifier` 实现）。在同一或其他文件里引用这个自定义 modifier/ability（如 `AddNewModifier`/`FindModifierByName`/`HasModifier` 的名字参数）时直接写 `SomeModifierClass.name`，不要另外声明一个 `const XXX_MODIFIER_NAME = 'modifier_xxx'` 字符串常量——后者在改类名时容易忘记同步，导致两处不一致。此写法不适用于引用引擎原生 hardcoded modifier（如 `modifier_black_king_bar_immune`），那些没有本地类可取 `.name`，仍需写字符串字面量。
-- **不吃技能增强须显式标 flag，不靠物理类型**: 自定义技能用 `ApplyDamage` 造成物理伤害时，**不要**依赖「物理类型隐式不吃 spell amp」这条经验来确保不被技能增强放大。引擎判定是否吃技能增强的真正开关是伤害标志位，要明确排除时显式加 `damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION`（本项目技能增强是自定义属性 `property_spell_amplify_percentage` 实现，更不应靠隐式行为）
-- **代码代为触发技能施放须补 `UseResources`**：代码直接调用某个技能的 `OnSpellStart()`（如自动检测循环里代玩家触发施法、监听某事件后连锁触发另一个技能）时，跳过了引擎原生施法管线，不会自动扣资源/进 CD，须显式调用 `this.UseResources(mana, useHealth, gold, cooldown)` 补上（四个布尔参数对应要不要消耗法力/生命/金钱、要不要进入冷却，按该技能实际消耗类型传参）。这一步只在「代码主动触发施放」时需要；玩家手动点技能触发的 `OnSpellStart()` 回调，引擎在调用前已经走完资源结算，不要重复调用，否则会双重扣资源/双重进 CD
-
-### 图片资源管理
-
-**三类图片，存放位置不同：**
-
-> **先判断是否需要放 png**：若 `AbilityTextureName` 引用的是 **Dota2 已有的原版 texture**（原版技能/物品名），直接写名字引用即可，**无需**放任何 png；只有**自定义图标**才需把 png 放进下面的目录。自定义图标来源是从 Dota2 自带 texture 资源（解包 `.vtex_c`）提取或自制的同名 `.png`。
-
-#### 技能图标（`AbilityTextureName`，技能 `ability_xxx`）
-
-放在 `game/resource/flash3/images/spellicons/<name>.png`，KV 中直接用文件名引用：
-
-```
-"AbilityTextureName"    "axe_auto_culling_blade"
-```
-
-引擎会自动在 `spellicons/` 目录下查找同名 `.png`，**不需要**注册到任何 xml，也**不需要** content 副本。
-
-> 技能图标与下面的物品图标流程**不同**，别照抄。spellicons 是否也该走 content 编译尚未统一，留待后续 issue。
-
-#### 物品图标（`AbilityTextureName`，物品 `item_xxx`）
-
-图标名与物品名去掉 `item_` 前缀保持一致，KV 中用文件名引用：
-
-```
-"AbilityTextureName"    "awaken_stone"
-```
-
-png 必须**同时**放两处，并在统一 xml 中登记，三步缺一不可（少任一步都是紫块）：
-
-1. `game/resource/flash3/images/items/<name>.png`
-2. 同一张 png 复制到 `content/panorama/images/items/<name>.png`
-3. `content/panorama/layout/custom_game/images_items.xml` 里加一行，`id` 与文件名一致（引擎只允许从 `layout/custom_game/` 加载 layout，故登记表与 png 不同目录）：
-
-```xml
-<Image id="awaken_stone" class="SeqImg" src="file://{images}/items/awaken_stone.png" />
-```
-
-改完跑 `npm run lint:images` 校验三处一致（已并入 `npm run lint`）。
-
-编译产物 `game/panorama/images/items/*.vtex_c` 已 gitignore，由 Dota tools 本地生成。**换机器 clone 后必须先用 Dota tools 完整编译一次才能发布**，否则 workshop 包会缺图标 —— `custom_game/` 下 lottery、profile、member 等目录同理。
-
-#### Panorama UI 图片
-
-放在 `content/panorama/images/custom_game/<module>/`，按功能模块分二级目录（如 `lottery/`、`profile/`、`battlepass/` 等）。
-
-**新增图片步骤**：
-
-1. 文件放到对应二级目录，命名小写下划线，前缀按类型（`icon_` `bg_` `frame_` `decor_`）
-2. 在 `content/panorama/layout/custom_game/images.xml` 隐藏 Panel 内加一行 `<Image>` 声明（id 在该文件内唯一），用于触发 `.vtex_c` 编译
-3. **不再**为每张图创建单独的 `<name>.xml` 编译壳
-
-**引用方式**：在 React 或 less 中用 `file://{images}/custom_game/<module>/<file>.png`。
-
-### Dota 2 参考文件速查
-
-`<version>` 取 `docs/reference/` 下最新数字版本目录。
-
-| 用途 | 路径 |
-|------|------|
-| 原版技能（合并本） | `docs/reference/<version>/npc_abilities.txt` |
-| 原版技能（按英雄） | `docs/reference/<version>/heroes/npc_dota_hero_<hero>.txt` |
-| 英雄列表及技能槽位 | `docs/reference/<version>/npc_heroes.txt` |
-| 原版英文说明 | `docs/reference/<version>/abilities_english.txt` |
-| 原版中文说明 | `docs/reference/<version>/abilities_schinese.txt` |
-| Override KV | `game/scripts/npc/npc_abilities_override.txt` |
-| 抽奖技能 KV | `game/scripts/npc/npc_abilities_custom_lottery.txt` |
-| 单位/英雄专属技能 KV | `game/scripts/npc/npc_abilities_custom.txt` |
-| 原版物品参考 | `docs/reference/<version>/items.txt` |
-| 克隆升级物品 KV | `game/scripts/npc/npc_items_clone.txt` |
-| 自制物品 KV | `game/scripts/npc/npc_items_custom.txt` |
-| 物品共享 DataDriven modifier（`item_apply_modifiers`） | `game/scripts/npc/npc_items_modifier.txt` |
-| 觉醒技能 KV | `game/scripts/npc/npc_abilities_custom_awaken.txt` |
-| 通用战斗公式（伤害/护甲等，手写纯 Lua，被遗留纯 Lua 物品脚本引用） | `game/scripts/vscripts/util.lua`（TS 侧同步入口 `src/vscripts/utils/damage-calculation.ts`） |
-| addon 英文本地化 | `game/resource/addon_english.txt` |
-| addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
-| addon 俄文本地化 | `game/resource/addon_russian.txt` |
-
-#### 技能系统名查找
-
-用户给出**技能系统名**（如 `dragon_knight_dragon_blood`）时直接使用。
-
-用户给出**中文名**（如「龙血」「幻影之矛」）或**英雄名-技能名**（如「幻影刺客-幻影之矛」）时：
-1. 在 `abilities_schinese.txt` 中搜索中文技能名（匹配 `_Description` 行的上一行或 Tooltip 名称行）
-2. 提取匹配行的 key 中的技能系统名（`DOTA_Tooltip_ability_{系统名}` → `{系统名}`）
-3. 如有多个候选，用 `AskUserQuestion` 展示候选项让用户确认
-
-用户给出**英雄名**时，在 `npc_heroes.txt` 中用中/英文关键词搜索英雄 ID，再从对应英雄文件读取技能槽位。
-
-#### 读取 Dota 2 官方说明
-
-编写物品/技能说明时，应参考 Dota 2 官方文本以保持术语一致性。
-
-```bash
-# 搜索技能中文说明（先用中文名定位系统名）
-grep "龙血" docs/reference/<version>/abilities_schinese.txt
-grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/abilities_schinese.txt
-
-# 搜索英文说明
-grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/abilities_english.txt
-```
-
-### 查阅 Dota 2 VScript / 引擎 Lua API（函数签名、参数）
-
-**适用场景**: 编写或修改 `game/scripts/vscripts/` 下的纯 Lua、或任意调用 `GameRules` / 单位 / 技能等引擎绑定 API 的代码；出现「参数个数/类型不符」等运行时错误时，应优先对照在线 API，而不是只猜 TypeScript 类型。
-
-**主文档（检索入口）**: [ModDota API · vscripts](https://moddota.com/api/#/vscripts)
-
-## KV Configuration
-
-技能射程、伤害值及其他可调参数一律从 KV 文件**动态读取**，不要硬编码已存在于 KV 中的数值。
-
-- **让 tooltip 计入技能增强**：某条 `AbilityValues` 数值想在游戏中按住 ALT 时显示「被技能增强放大后」的值，在该数值块内加 `"CalculateSpellDamageTooltip" "1"`（**不是** `affected_by_spell_amplify`，没有这个字段）。原版默认多为 `"0"`（不计入）。配套字段：`"DamageTypeTooltip"`（伤害类型）、`"display_type"`（如 `kMagicalDamagePercentage` 百分比显示）。
-
-## 本地化文案规约
-
-改 `addon_schinese.txt` / `addon_english.txt`（及 UI 的 `addon_russian.txt`）时**必须**遵守（几乎每个任务都涉及，勿遗漏）：
-
-- 中英文**同时**增删，内容与格式完全一致
-- 两个 tab 缩进，键值多 tab 对齐；颜色代码**大写**
-- 注释用**中文**且中英一致；HTML 标签与换行（`\n` 分段、`<br><br>` 段内换行）中英一致
-- **文案不用分号**（`；`/`;`），句间用逗号或句号
-- `_Description` **不同时既内联又单独成行同一个数值**：一个 `AbilityValues` 数值只能选其一 —— 该数值只在 Description/Note 中以 `%xxx%` 出现一次（不单独定义 `_xxx` 标签行），或者只作为 `_xxx` 单独成行展示（Description 不再重复 `%xxx%`）。多个关联数值（如同一机制下的若干档位/字段）建议各自单独成行；孤立的单个数值两种方式均可，按可读性选择，但不要两处都写
-- **UI 键**（按钮/标签/提示等 Panorama 文本）**必须**同步俄文；技能/物品/游戏逻辑类键在**本次新增或修改该键时一并写俄文**，存量中原本没有俄文的旧键不必特意补齐；已有的俄文一律保留并跟随中英同步更新，不得单方面删除
-
-> 完整规则、对齐示例见 `.claude/skills/localization-format-guide/references/localization-format-guide.md`。
+Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽奖。游戏逻辑 VScripts 用 TypeScript 经 TSTL 编译为 Lua，UI 用 Panorama（React 16.14 + TypeScript，Webpack 构建），两层经 Custom Net Tables 与 Custom Game Events 通信。
+
+## 语言与回复风格
+
+用户用什么语言提问就用什么语言回复。代码、代码注释、提交信息、技术标识符用英文。
+
+写给用户看的内容（对话回复、review 报告、总结与说明文档）：
+
+- **先说结论，再展开**，重点放第一句
+- **短**：短词、短句、短段落，用标题或列表分层；砍掉不重要的细节和客套铺垫
+- **说人话**：常见技术词（缓存、接口、轮询）可以用，生僻词和行话换成白话
+- **少提代码名字**：先用中文说清它干什么，代码名只作补充；路径和命令照写
+- **给出行动**：告诉用户下一步该做什么
+- **先交代背景**：下结论前说清这是什么、发生在什么情况下
+- **解释改动按固定顺序**：原来是什么 → 改成什么 → 代码要做的事 → 问题在哪 → 用户要做什么
+
+代码注释、提交信息、本地化文案各按自己的规约。CLAUDE.md / SKILL.md 这类规则文档首要读者是模型，准确优先于通俗，字段名、API 名、路径写全。
+
+## 常用命令
+
+| 命令 | 用途 |
+|---|---|
+| `npm run start` | 启动 Dota 2 Tools 与 watch 编译 |
+| `npm test` / `npm run lint` | jest / eslint（含图片与本地化检查） |
+| `npm run prettier-check` | 格式检查（不含 Markdown），CI 会跑；第三方文件在 `.prettierignore` |
+| `npm run build:vscripts` / `build:panorama` | 提交前查编译错误 |
+
+## 目录导航
+
+读写某目录下的文件时，该目录及上级目录的 `CLAUDE.md` 会自动加载：
+
+| 目录 | 内容 |
+|---|---|
+| `src/` | 跨层契约：共享类型、Net Table / Custom Event |
+| `src/vscripts/` | 游戏逻辑、模块单例、jest 测试、TSTL 陷阱 |
+| `src/vscripts/ai/` | Bot AI 结构与陷阱 |
+| `src/vscripts/api/` | 后端 API 调用与重试 |
+| `src/panorama/` | React UI、两类 entry、Panorama 陷阱 |
+| `src/panorama/react/hud_main/` | 中心化界面的页面拆分约定 |
+| `game/scripts/npc/` | NPC KV：`#base` 结构、ID 号段、格式、查原版技能 |
+| `game/resource/` | 中英俄本地化规约、图标 png |
+| `game/scripts/vscripts/` | TSTL 编译产物（自动生成，改 `src/vscripts/`）+ 少量遗留纯 Lua |
+| `docs/reference/<version>/` | Dota 2 原版 KV 与说明文本快照 |
+| `.claude/references/` | 根规则与多个 skill 共用的细则 |
+
+**全局陷阱**：
+
+- TypeScript 文件行尾用 LF
+- 目录 `CLAUDE.md` 只在用 Read / Edit 工具读写该目录文件时自动加载，用 Bash / 脚本批量改文件不会触发：脚本改文案、KV 前先 Read 该目录的 `CLAUDE.md`
+- prettier 只格式化本次改动的文件：仓库里有一批文件从没按 `.prettierrc` 格式化过，通配符 `prettier --write` 会混进几百行无关 diff。误跑后的还原方法见 `.claude/references/git-workflow.md`
+- 检索代码默认跳过 `docs/reference/tenvten-*`（项目自身的历史快照，会混进过时匹配），用户要看或做版本对比时才查
+
+**相关仓库**：官网（`web/`）与后端 API（`api/`）在本机 `../firebase`，用户已授权直接修改，动手前先读该仓库自己的 CLAUDE.md / AGENTS.md。
 
 ## Implementation Style
 
-代码改动保持最小化，优先用最简单的机制实现：
+改动保持最小，用最简单的机制实现（DRY、KISS、YAGNI）：
 
 - 复用一个字符串事件，而不是新增自定义事件
-- 避免过度还原、过度分析
+- 按需求还原到够用为止，不过度分析
+- 布尔方法名用常见直接的动词，不重复所属类或文件已表达的语境：`CanCast` 优于 `IsEligible`、`CanUseGenericFallback`
+- 多处需要同一逻辑（尤其要求口径一致的计算）时提取共享函数，避免只改一处产生口径分歧
+- 新物品、新技能、新机制的效果先找原版 modifier 或 KV，最后才写 Lua modifier：Lua modifier 即使什么都不做也会拖慢全图每次伤害结算，在后期卡顿里随实例数累积。选型顺序与原因见 `src/vscripts/CLAUDE.md`「写技能、物品、modifier」
 
 ## 注释规约
 
-代码注释只写**为什么这样做**，不写**这行代码做了什么**。读者能从代码本身读懂的，就不要再用注释复述一遍。**一条注释如果只是对代码/细节的单纯复述，宁可不写这条注释**——数值、字段名、行为这些会随代码演进，注释复述的副本不会跟着自动更新，两者一旦不一致，读者反而无法判断谁是真相源。
-
-不写：
-- KV 字段、behavior、cast range 等可以直接查 KV 文件得到的事实
-- "移植自 xxx.lua 的 yyy 函数"之类来源说明（git 历史会保留）
-- 单行字段含义的复述（`// 覆盖默认 level >= 3` 跟在 `ability: { level: { gte: 2 } }` 后面就是冗余）
-- 段落式罗列"对英雄做什么 / 对小兵做什么"，代码已经表达得很清楚
-- **技能/物品的具体效果与数值描述**（会随版本变动，属于本地化文案的职责）。配置表/代码注释只标英雄名或技能系统名（如 `// 齐天大圣 觉醒`），不要复述"+100% 攻击力、施法距离 +700"这类效果——它们一变就和注释脱节
-- **禁止**把讨论中出现的任何具体场景 / 边界 case / 取舍过程 / 例子（具体语言、单词、数值、变量名等）原样搬进注释。哪怕讨论时反复提到这些细节，注释里也只留一句概括性的设计意图，一个具体例子都不写——写了就是过度注释，必须删
-- **"A 曾经是 X，现在/这里改成 Y"这种对比句式本身就是信号**，不管内容是否属实都要删——即使把话术改得更"技术化"（去掉"这次""沿用"等词），只要结构上是在拿过去和现在做对比，就还是在叙述变更过程而不是陈述设计事实，必须整句删掉，不是重新措辞
-- **"为什么某项被排除/没有实现"这类逐项列举默认不写**，属于 PR 描述的职责，不是改写得更精炼就行
-
-写完注释后自查一遍是否出现这些词：**旧 / 原版 / Lua / 沿用 / 这里 / 本次 / 此次 / 额外 / 改为**——出现即说明在叙述过程，删掉重写或整句删除。
+注释只写**为什么这样做**。能从代码读出来的不写：数值、字段名、行为会随代码演进，注释里的副本不会跟着更新，一旦不一致读者分不清谁是真相源。
 
 写：
-- 选择某个数值/方案的**原因**（"1 级伤害太低、蓝耗占比高，2 级起才用"）
-- 与默认/约定不一致的**特殊处理**（"AoE 半径远大于 cast range，需要 castMode 投影到边缘"）
-- 一两句话点出技能中文名 / 设计目的
 
-整个文件一个 `/** 一两行 */` JSDoc 即可，不需要分段、不需要 bullet 列表。
+- 选择某个数值/方案的**原因**（「1 级伤害太低、蓝耗占比高，2 级起才用」）
+- 与默认/约定不一致的**特殊处理**（「AoE 半径远大于 cast range，需要 castMode 投影到边缘」）
+- 一两句点出技能中文名或设计目的。配置表只标英雄名或技能系统名（如 `// 齐天大圣 觉醒`），效果与数值归本地化文案
+- 公开方法先用一句话说**功能**，不点名文件/函数/API 端点；不明显的边界情况写在对应代码行上方
 
-## Plan 规范
+整个文件一个 `/** 一两行 */` JSDoc。
 
-Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节：
+注释陈述现在的设计事实，一句概括性意图即可。下面几类是在叙述过程，整句删掉而不是改写：
 
-- **先设计，后细节**：Plan 应包含：背景/目标、设计决策（为什么这样做）、数据流（谁读谁写、字段名、经过哪些层）、修改文件列表（一行描述）、验证方式。
-- **不写代码**：Plan 中不应出现具体函数签名、完整代码块、参数列表。这些留给实现阶段。
-- **文件列表简洁**：每个文件一行，说明"改什么"即可，不说"怎么改"。
+- 讨论中的具体场景、边界 case、取舍过程、例子（具体语言、单词、数值、变量名）
+- 过去与现在的对比（「A 曾经是 X，现在改成 Y」），换了措辞也一样
+- 来源说明（「移植自 xxx.lua」）、单行字段含义复述、KV 能查到的事实
+- 「为什么某项被排除/没实现」的逐项列举（属于 PR 描述）
 
-## Git 工作流
+写完自查是否出现 **旧 / 原版 / Lua / 沿用 / 这里 / 本次 / 此次 / 额外 / 改为**，出现就重写或删除。
 
-- 功能分支从 `develop` 切出，命名 `feature/{issue-number}-{branch-name}`
-- PR 的 base branch 固定为 `develop`；标题默认英文；创建前必须先调用 `release-note` skill 生成 Release Note 段
-- Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`
-- `docs/superpowers/` 整个目录已被 `.gitignore` 排除，brainstorming skill 产出的 spec 文档仅本地留档，不进版本控制，无需尝试 `git add`
+## Git
 
-只 stage 与本次请求明确相关的文件，无需逐个列给用户确认。但提交前若当前分支不符合预期（如本应在 feature 分支却处于 `develop`/`main`），先提示用户确认目标分支再提交。
+- 手上有未合并的 PR 时，文档、skill、注释、几行的 KV / 本地化修正这类小改动直接并进该 PR，不另切分支，判定见 `.claude/references/git-workflow.md`「小改动搭车」
+- 其余改动的分支从最新 `develop` 切出，确定要写文件前先切好。issue 驱动命名 `feature/<issue-id>-<3–6 个英文小写单词>`（如 `feature/2411-web-link-refresh`），其他用 `fix/` `chore/` `docs/` 前缀
+- 切分支前的检查、worktree、小改动搭车、合并与清理 → `.claude/references/git-workflow.md`
+- issue 标题与 PR 正文用中文，PR 标题与 commit 用英文。commit 是 ≤72 字符的单行标题，正文只写 `Co-Authored-By`
+- PR base 固定 `develop`。PR 解决了 issue 描述的问题就写 `Fixes #<id>`；issue 里「方向」「建议」没全做、或另开了后续 issue 的，照样写 `Fixes`。只有 issue 本身拆成多步、本 PR 只做其中一步时才写 `#<id>`
+- 只 stage 本次请求相关的文件，commit 前看 `git status`；当前分支不符合预期（如处于 `develop`/`main`）先请用户确认
+- 合并只在用户给出指令时执行
+- 开 PR 走 `create-pr` skill：纯内部改动（重构、构建、CI、文档、测试）自行跳过 Release Note，其余算出目标版本后问用户写不写，要写时调用 `release-note` 生成
 
-> 完整流程（分支创建、commit、push、PR 模板填写）见 `create-pr` skill（`.claude/skills/create-pr/SKILL.md`）。
+## 文档分工
 
+用户纠正做法、发现文档与代码矛盾、或补充了新约定时，调用 `doc-update` skill 沉淀，作为完成改动的一部分。去处按作用范围就近选：
 
-## 文档自维护规范
+| 内容 | 去处 |
+|---|---|
+| 只在某一层成立的规则 | 该层的 `CLAUDE.md` |
+| 某个模块的结构与用户拍板的决定 | 该模块的 `README.md` |
+| 某类任务的流程与决策 | 对应 `SKILL.md`；只有部分分支用到的放该 skill 的 `references/` |
+| 根规则或多个 skill 共用的细则 | `.claude/references/` |
+| 真正跨全项目、每次都要用的规则 | 本文件 |
+| 设计稿、测量报告、说明页 | 讨论用 artifact，定稿挂到 issue 的 artifact，见 `.claude/references/doc-writing.md`「设计 spec」「issue artifact」 |
+| 进度、验证结论 | issue / PR |
 
-当用户纠正 Claude 的做法、发现文档与实际代码矛盾、或用户补充了新约定时，触发 `doc-update` skill 将有价值的内容沉淀到文档中。执行流程见 `.claude/skills/doc-update/SKILL.md`。
+README 还是 `CLAUDE.md`：违反它是「这次改动做错了」进 `CLAUDE.md`，是「系统的结构变了」进 README。写 README、spec、issue 的细则见 `.claude/references/doc-writing.md`。
 
-文档与 skill 专属规则应写入对应的 `SKILL.md`，**不要**放进 CLAUDE.md；CLAUDE.md 只保留项目级通用规则。文档更新应作为完成一次改动的一部分（自维护），不要等用户催促。
+新增、删除或改名 skill 与 `CLAUDE.md` 时，同步根 `AGENTS.md` 的对照表（Codex 不会自动加载子目录 `CLAUDE.md`，也不认 Claude 的 skill 机制）。
 
-## Skill 交互规范
+## 节约用量
 
-执行 skill 时，**遇到不明确的决策点必须用 `AskUserQuestion` 工具以选项菜单形式询问用户**，不得自行假设。适用场景包括但不限于：
+下表的活派 SubAgent，按档位选模型，主对话只收结论。档位对应哪个模型看用户的全局约定，没有约定时按字面理解：最强档是该家推理最强的一档，主力档是日常写代码的主力，最便宜档是最快最便宜的一档。SubAgent 不继承上下文，提示里写全命令、判定标准和要带回的数字。
 
-- 目标文件有多个候选（如抽奖池 vs 单位专属）
-- 操作模式不明确（新建 vs 修正）
-- 原版技能信息无法确定（多个候选、版本差异等）
+| 活 | 档位 |
+|---|---|
+| 输出长或要等的命令：完整 `npm test`、对局、开销测试、日志统计 | 最便宜档 |
+| 方案已定、跨 3 个以上文件的照方案改动 | 主力档 |
+| 读日志判断现象、审查，或最便宜档反复卡住 | 主力档 |
 
-每道问题单独一次 `AskUserQuestion` 调用，`options` 列出具体候选项并附简短说明。
+留在主对话（最强档）：设计取舍、L4 排查、单文件小改、需要用户确认的步骤、几行输出就结束的命令（派 SubAgent 的冷启动成本更高）。
+
+## Skill 交互
+
+执行 skill 遇到不明确的决策点（目标文件多个候选、新建还是修正、原版技能信息有多个候选），用 `AskUserQuestion` 以选项菜单询问，每道问题单独一次调用，选项附简短说明。
+
+brainstorming 的设计稿在 artifact 里和用户讨论，不写 `docs/superpowers/specs/`；用户定稿后按 `.claude/references/doc-writing.md`「设计 spec」挂到 issue（没有 issue 先开一个），**不调用 writing-plans**，直接实现；用户当次要求时才写正式 plan。改代码前先用一条消息向用户确认需要用户拍板的几项，确认后再动手：
+
+- 工作位置：当前 checkout 有没有其他未提交改动或进行中的分支，在 worktree 改还是在主目录改（Dota 只加载主目录的 `game/`，要实机验证就在主目录）
+- PR 拆分与上线顺序：跨仓库（`../firebase`）时各开什么 PR、谁先合并部署，后上线的一方先上时会不会出错
+- 实机验证：要不要在 Dota Tools 实机验证、PR 要不要截图。要截图或操作 Dota 窗口时，在这一步就把 Dota 起起来，`request_access` 授权 `dota2.exe` 与 `textinputhost.exe`（后者是常挡在前台的系统输入组件，见 `dota-live-test`；`dota2.exe` 进程要在运行；授权弹窗只有用户本人能点，用户确认后可能离开）
+- 分工：哪些部分派 SubAgent、各用什么 `model`（按「节约用量」表），哪些留在主对话
+- 留给用户确认的事项：列出来，写进 PR 的 Checklist
+
+用户明确要求「不要停、自主做到最后」时，skill 自带的确认停顿点一律跳过，已有设计文档当作已拍板。不阻塞主线的待判断问题记下来写进 draft PR 的 Checklist；方案自相矛盾、无法安全判断时才停下。

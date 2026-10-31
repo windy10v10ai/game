@@ -28,10 +28,20 @@ export class ModifierHelper {
    * @param modifierName 修饰器名称
    */
   static refreshItemDataDrivenModifier(item: CDOTA_Item_Lua, modifierName: string): void {
+    // 物品销毁路径上也会调用到这里，此时 item 可能已失效
+    if (!item || item.IsNull()) {
+      return;
+    }
+
     const caster = item.GetCaster();
     const itemName = item.GetName();
 
     Timers.CreateTimer(0.1, () => {
+      // 这 0.1 秒里持有者可能已死亡、物品可能已被卖出或销毁
+      if (!caster || caster.IsNull()) {
+        return;
+      }
+
       // 解锁格数取自扩容之书的 stack count，同步更新，
       // 不依赖引擎装备状态那种需要轮询补齐的中间表示
       const unlockedBackpackSlots = Math.min(

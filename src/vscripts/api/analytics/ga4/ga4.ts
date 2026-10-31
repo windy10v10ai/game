@@ -35,9 +35,6 @@ export class GA4 {
   private static isInitialized = false;
   private static isDebugMode = false;
 
-  // 游戏时间记录
-  private static gameStartRealTime: number | null = null; // Unix 时间戳（秒，保留小数部分）
-  private static gameStartDotatime: number | null = null; // Dota 时间戳（秒）
   // 服务器位置
   public static countryCode: string = '';
 
@@ -160,6 +157,11 @@ export class GA4 {
     print(`[GA4] Sending ${payload.events.length} event(s) to GA4: ${json.encode(payload)}`);
 
     const request = CreateHTTPRequestScriptVM('POST', fullUrl);
+    // 游廊对局的服务端拿不到请求对象，不守这一下会抛错并中断调用方的后续逻辑
+    if (!request) {
+      print('[GA4] http unavailable, event dropped');
+      return;
+    }
     request.SetHTTPRequestHeaderValue('Content-Type', 'application/json');
     request.SetHTTPRequestRawPostBody('application/json', json.encode(payload));
     request.SetHTTPRequestNetworkActivityTimeout(10);
@@ -176,101 +178,28 @@ export class GA4 {
   }
 
   /**
-   * 从互联网获取当前时间（Unix 时间戳，秒）
+   * 取服务器位置，结算上报与 GA4 事件都带上它
    */
-  public static FetchCurrentTime(callback: (timestamp: number | null) => void) {
-    // 使用 CloudFlare 的 trace API 获取时间戳
-    // 格式: ts=1234567890.123
+  public static FetchCountryCode() {
     const apiUrl = 'https://cloudflare.com/cdn-cgi/trace';
-
-    print(`[GA4] Fetching current time from: ${apiUrl}`);
     const request = CreateHTTPRequestScriptVM('GET', apiUrl);
+    if (!request) {
+      print('[GA4] http unavailable, cannot fetch server location');
+      return;
+    }
     request.SetHTTPRequestNetworkActivityTimeout(5);
 
     request.Send((result: CScriptHTTPResponse) => {
-      if (result.StatusCode >= 200 && result.StatusCode < 300) {
-        try {
-          // 解析响应文本，提取 ts= 行
-          const body = result.Body;
-          const lines = body.split('\n');
-          for (const line of lines) {
-            if (line.startsWith('ts=')) {
-              const timestamp = parseFloat(line.substring(3));
-              if (!isNaN(timestamp)) {
-                print(`[GA4] Successfully fetched time: ${timestamp}`);
-                callback(timestamp);
-              }
-            }
-            if (line.startsWith('loc=')) {
-              this.countryCode = line.substring(4);
-              print(`[GA4] Successfully fetched server location: ${this.countryCode}`);
-            }
-          }
-        } catch {
-          print(`[GA4] Failed to parse time API response: ${result.Body}`);
+      if (result.StatusCode < 200 || result.StatusCode >= 300) {
+        print(`[GA4] Location API request failed with status: ${result.StatusCode}`);
+        return;
+      }
+      for (const line of result.Body.split('\n')) {
+        if (line.startsWith('loc=')) {
+          this.countryCode = line.substring(4);
+          print(`[GA4] Successfully fetched server location: ${this.countryCode}`);
         }
-      } else {
-        print(`[GA4] Time API request failed with status: ${result.StatusCode}`);
       }
-    });
-  }
-
-  /**
-   * 记录游戏开始时间
-   * 应在 GAME_IN_PROGRESS 状态时调用
-   */
-  public static RecordGameStartTime() {
-    // 异步获取真实世界时间
-    this.FetchCurrentTime((timestamp) => {
-      if (timestamp !== null) {
-        this.gameStartRealTime = timestamp;
-        this.gameStartDotatime = Time();
-      }
-    });
-  }
-
-  /**
-   * 发送游戏匹配时间事件（内部方法）
-   * @param realDurationRatio 现实时间/游戏时间比例
-   * @param dotaDuration Dota 游戏时长（秒）
-   * @param realDuration 现实时长（秒）
-   */
-  private static SendMatchTimingEvent(
-    realDurationRatio: number,
-    dotaDuration: number,
-    realDuration: number,
-  ) {
-    const eventName = 'game_end_match_time';
-    const eventParams: { [key: string]: string | number | boolean } = {
-      dota_duration: dotaDuration,
-      real_duration: realDuration,
-      real_duration_ratio: realDurationRatio,
-    };
-
-    const event = this.BuildEvent(eventName, 0, eventParams);
-    this.SendEvent(0, event);
-  }
-
-  /**
-   * 发送游戏结束匹配时间事件
-   */
-  public static SendGameEndMatchTimeEvents() {
-    // 匹配时间事件需要异步获取真实时间
-    this.FetchCurrentTime((endRealTime) => {
-      if (this.gameStartRealTime === null || this.gameStartDotatime === null) {
-        print('[GA4] Game start real time not recorded, skipping event send');
-        return;
-      }
-      if (endRealTime === null) {
-        print('[GA4] Failed to fetch end real time, skipping event send');
-        return;
-      }
-
-      const dotaDuration = Time() - this.gameStartDotatime;
-      const realDuration = endRealTime - this.gameStartRealTime;
-      const realDurationRatio = realDuration / dotaDuration;
-
-      this.SendMatchTimingEvent(realDurationRatio, dotaDuration, realDuration);
     });
   }
 }

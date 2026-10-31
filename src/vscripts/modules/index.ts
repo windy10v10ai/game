@@ -1,13 +1,29 @@
 import { AI } from '../ai/AI';
 import { AlipayApi } from '../api/alipay';
+import { AlipayProxy } from '../api/alipay-proxy';
 import { GA4PlayerLanguageTracker } from '../api/analytics/ga4/ga4-player-language-tracker';
+import { ApiClient } from '../api/api-client';
+import { ApiHtmlProxy } from '../api/api-html-proxy';
 import { ConductApi } from '../api/conduct';
+import { FeedbackApi } from '../api/feedback';
+import { FeedbackProxy } from '../api/feedback-proxy';
+import { PlayerStatsRadarApi } from '../api/player-stats-radar';
+import { PlayerStatsRadarProxy } from '../api/player-stats-radar-proxy';
+import { DailyTaskProxy } from '../api/daily-task-proxy';
+import { GameProbeProxy } from '../api/game-probe-proxy';
+import { GameEndProxy } from '../api/game-end-proxy';
+import { GameStartProxy } from '../api/game-start-proxy';
+import { HeroItemUsage } from '../api/analytics/hero-item-usage';
+import { HeroItemUsageApi } from '../api/hero-item-usage';
 import { PlayerHeroAwakeningApi } from '../api/player-hero-awakening';
 import { PlayerInfoApi } from '../api/player-info';
+import { PlayerInfoProxy } from '../api/player-info-proxy';
 import { PlayerPropertyApi } from '../api/player-property';
 import { PlayerGamePresetApi, PlayerSettingApi } from '../api/player-setting';
+import { PlayerWriteProxy } from '../api/player-write-proxy';
 import { GameConfig } from './GameConfig';
 import { VirtualGoldBank } from './bank/virtual-gold-bank';
+import { DailyTask } from './daily-task/daily-task';
 import { HeroDebugPanel } from './debug-panel/hero-debug-panel';
 import { Debug } from './debug/Debug';
 import { Event } from './event/event';
@@ -30,6 +46,7 @@ declare global {
     GoldXPFilter: GoldXPFilter;
     Treasure: Treasure;
     WardSlot: WardSlot;
+    DailyTask: DailyTask;
   }
 }
 
@@ -38,6 +55,10 @@ declare global {
  * 因此在这里作为单例模式使用
  **/
 export function ActivateModules() {
+  CustomNetTables.SetTableValue('server_env', 'server_env', {
+    is_local_host: ApiClient.IsLocalhost() ? 1 : 0,
+  });
+
   // 初始化所有的GameRules模块
 
   if (GameRules.GameConfig == null) {
@@ -61,9 +82,25 @@ export function ActivateModules() {
     new PlayerHeroAwakeningApi();
     new AlipayApi();
     new ConductApi();
+    new FeedbackApi();
+    new PlayerStatsRadarApi();
 
     // 玩家语言统计：监听 player_language 事件，收到即发 GA4 并缓存供 mid-only-mode 查询
     new GA4PlayerLanguageTracker();
+
+    // 客户端 HTTP 代理：服务端拿不到请求对象时（游廊对局），转交客户端代发白名单路径
+    ApiHtmlProxy.Initialize();
+    GameProbeProxy.Register();
+    GameEndProxy.Register();
+    HeroItemUsageApi.Register();
+    HeroItemUsage.Initialize();
+    GameStartProxy.Register();
+    PlayerInfoProxy.Register();
+    DailyTaskProxy.Register();
+    PlayerWriteProxy.Register();
+    AlipayProxy.Register();
+    FeedbackProxy.Register();
+    PlayerStatsRadarProxy.Register();
   }
 
   if (GameRules.AI == null) GameRules.AI = new AI();
@@ -79,6 +116,8 @@ export function ActivateModules() {
   if (GameRules.GoldXPFilter == null) GameRules.GoldXPFilter = new GoldXPFilter();
 
   if (GameRules.Treasure == null) GameRules.Treasure = new Treasure();
+
+  if (GameRules.DailyTask == null) GameRules.DailyTask = new DailyTask();
 
   GameRules.WardSlot = new WardSlot();
 }

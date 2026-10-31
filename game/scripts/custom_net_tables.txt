@@ -16,9 +16,10 @@
     "player_stats",
     // TS tables
     "loading_status",
+    "launcher_room",
+    "server_env",
     "ending_status",
     "player_table",
-    "ranking_table",  // 排行榜
     "point_info",   // 游戏加载时获取积分信息
     // 抽选相关
     "lottery_active_abilities",
@@ -31,5 +32,7 @@
 	  "bot_passive_abilities",  // Bot 被动技能表
 	  "alipay_order",  // 支付宝订单状态
 	  "awaken_random",  // 随机抽选觉醒候选集
+	  "daily_task",  // 每日任务：候选、本地选择、当日完成状态
+	  "daily_task_progress",  // 每日任务：局内实时进度
   ]
 }

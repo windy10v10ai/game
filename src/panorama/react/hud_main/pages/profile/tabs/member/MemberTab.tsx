@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { SubTabNavigation } from '../../../../../shared/components';
+import { useDataOffline } from '../../../../../shared/hooks/useDataOffline';
 import { useNetTable } from '../../../../../shared/hooks/useNetTable';
+import { usePlayerInfoRefresh } from '../../../../../shared/hooks/usePlayerInfoRefresh';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { MemberLevel, MemberSubTab, MEMBER_SUB_TABS } from './constants';
 import { StatusPage } from './StatusPage';
@@ -21,34 +23,16 @@ export function MemberTab({ initialSubTab }: MemberTabProps) {
     lastMemberSubTab = next;
     setSubTabRaw(next);
   };
-  const [refreshing, setRefreshing] = useState(false);
-  const refreshingRef = useRef(false);
+  const { refreshing, refresh: handleRefresh, canRefresh } = usePlayerInfoRefresh();
+  // 开通与购买都要经服务端下单，读不到服务端时只留状态页
+  const offline = useDataOffline();
+  const subTabs = offline ? MEMBER_SUB_TABS.filter((t) => t.id === 'status') : MEMBER_SUB_TABS;
+  // 抽奖积分不足会直接跳 'points'，离线时兜回状态页
+  const activeSubTab = offline ? 'status' : subTab;
 
   const steamId = GetLocalPlayerSteamAccountID();
   const player = useNetTable('player_table', steamId);
   const member = player?.member;
-
-  // net table 更新后立即恢复按钮
-  useEffect(() => {
-    if (refreshingRef.current) {
-      refreshingRef.current = false;
-      setRefreshing(false);
-    }
-  }, [player]);
-
-  const handleRefresh = () => {
-    if (refreshing) return;
-    refreshingRef.current = true;
-    setRefreshing(true);
-    GameEvents.SendCustomGameEventToServer('player_info_refresh', {});
-    // 兜底：5 秒后无论成功失败都恢复按钮（本地环境 API 返回 401 不会更新 net table）
-    $.Schedule(5, () => {
-      if (refreshingRef.current) {
-        refreshingRef.current = false;
-        setRefreshing(false);
-      }
-    });
-  };
 
   const enable = member?.enable === true;
   const level = Number(member?.level ?? 0);
@@ -74,9 +58,9 @@ export function MemberTab({ initialSubTab }: MemberTabProps) {
 
   return (
     <Panel className="member-layout">
-      <SubTabNavigation tabs={MEMBER_SUB_TABS} currentTab={subTab} onTabChange={setSubTab} />
+      <SubTabNavigation tabs={subTabs} currentTab={activeSubTab} onTabChange={setSubTab} />
       <Panel className="member-content">
-        {subTab === 'status' && (
+        {activeSubTab === 'status' && (
           <StatusPage
             enable={enable}
             hasBaseBenefit={hasBaseBenefit}
@@ -84,19 +68,23 @@ export function MemberTab({ initialSubTab }: MemberTabProps) {
             isNormalOnly={isNormalOnly}
             statusText={statusText}
             expireText={expireText}
+            canSubscribe={!offline}
             onOpenSubscribe={() => setSubTab('subscribe')}
             refreshing={refreshing}
+            canRefresh={canRefresh}
             onRefresh={handleRefresh}
           />
         )}
-        {subTab === 'subscribe' && (
+        {activeSubTab === 'subscribe' && (
           <SubscribePage
             isNormalOnly={isNormalOnly}
             refreshing={refreshing}
             onRefresh={handleRefresh}
           />
         )}
-        {subTab === 'points' && <PointsPage refreshing={refreshing} onRefresh={handleRefresh} />}
+        {activeSubTab === 'points' && (
+          <PointsPage refreshing={refreshing} onRefresh={handleRefresh} />
+        )}
       </Panel>
     </Panel>
   );

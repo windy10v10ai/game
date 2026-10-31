@@ -89,21 +89,24 @@ function yukari_moon_portal:OnSpellStart(params)
 end
 
 function yukari_moon_portal:GetAbilityTextureName()
-    if self:GetCaster():HasModifier("modifier_yukari_moon_portal_caster") then
+    local caster = self:GetCaster()
+    if caster and caster:HasModifier("modifier_yukari_moon_portal_caster") then
         return "yukari_1_1"
     end
     return "yukari_1"
 end
 
 function yukari_moon_portal:GetBehavior()
-    if self:GetCaster():HasModifier("modifier_yukari_moon_portal_caster") then
+    local caster = self:GetCaster()
+    if caster and caster:HasModifier("modifier_yukari_moon_portal_caster") then
         return DOTA_ABILITY_BEHAVIOR_POINT
     end
     return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
 end
 
 function yukari_moon_portal:GetManaCost(target)
-    if self:GetCaster():HasModifier("modifier_yukari_moon_portal_caster") then
+    local caster = self:GetCaster()
+    if caster and caster:HasModifier("modifier_yukari_moon_portal_caster") then
         return 0
     else
         return self.BaseClass.GetManaCost(self, target)
@@ -111,7 +114,8 @@ function yukari_moon_portal:GetManaCost(target)
 end
 
 function yukari_moon_portal:GetCastRange(location, target)
-    if self:GetCaster():HasModifier("modifier_yukari_moon_portal_caster") then
+    local caster = self:GetCaster()
+    if caster and caster:HasModifier("modifier_yukari_moon_portal_caster") then
         if self.target == self:GetCaster() then
             return 99999
         end

@@ -1,3 +1,6 @@
+import { Lifesteal } from '../../modules/lifesteal/lifesteal';
+import { ModifierEventHub } from '../../modules/modifier-event/modifier-event-hub';
+import { calculateStatusResistedDuration } from '../../utils/damage-calculation';
 import { BaseItem, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
 import { BaseItemModifier } from './base_item_modifier';
 
@@ -70,23 +73,30 @@ export class ModifierItemSixPathsReincarnationGun extends BaseItemModifier {
       this.pureDamageCapMultiplier = ability.GetSpecialValueFor('pure_damage_cap_multiplier');
     }
     super.OnCreated();
+
+    if (IsServer()) {
+      const parent = this.GetParent();
+      Lifesteal.Set(parent, this, 0, this.spellLifesteal);
+      ModifierEventHub.RegisterAttackLandedByAttacker(parent, this, (event) =>
+        this.OnParentAttackLanded(event),
+      );
+    }
   }
 
   OnRefresh(): void {
     this.OnCreated();
   }
 
-  DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.ON_ATTACK_LANDED, ModifierFunction.ON_TAKEDAMAGE];
+  OnDestroy(): void {
+    super.OnDestroy();
+    if (IsServer()) {
+      const parent = this.GetParent();
+      Lifesteal.Remove(parent, this);
+      ModifierEventHub.UnregisterAttackLandedByAttacker(parent, this);
+    }
   }
 
-  OnTakeDamage(event: ModifierInstanceEvent): void {
-    TsSpellLifeSteal(event, this.spellLifesteal, this.GetParent());
-  }
-
-  OnAttackLanded(event: ModifierAttackEvent): void {
-    if (!IsServer()) return;
-
+  OnParentAttackLanded(event: ModifierAttackEvent): void {
     const parent = this.GetParent();
     const ability = this.GetAbility();
     const target = event.target;
@@ -94,7 +104,7 @@ export class ModifierItemSixPathsReincarnationGun extends BaseItemModifier {
     if (!target || target.IsNull() || target.GetTeamNumber() === parent.GetTeamNumber()) return;
     if (target.IsBuilding() || target.IsOther()) return;
 
-    const debuffDuration = this.mageSlayerDuration * (1 - target.GetStatusResistance());
+    const debuffDuration = calculateStatusResistedDuration(this.mageSlayerDuration, target);
     target.AddNewModifier(parent, ability, 'modifier_item_six_paths_reincarnation_gun_debuff', {
       duration: debuffDuration,
     });

@@ -265,6 +265,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T2,
     cost: 2575,
   },
+  item_meteor_hammer: {
+    name: 'item_meteor_hammer',
+    nameCN: '陨星锤',
+    tier: ItemTier.T2,
+    cost: 2850,
+  },
   item_consecrated_wraps: {
     name: 'item_consecrated_wraps',
     nameCN: '圣化护服',
@@ -514,6 +520,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '飓风长戟',
     tier: ItemTier.T2,
     cost: 4450,
+    baseItems: ['item_force_staff'],
   },
   item_shotgun: {
     name: 'item_shotgun',
@@ -696,6 +703,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 5800,
     baseItems: ['item_blade_mail'],
   },
+  // 死亡掉落，电脑出了会被玩家捡走、还会反复补买，出装不要选；仅作合成材料登记
   item_rapier: {
     name: 'item_rapier',
     nameCN: '圣剑',
@@ -739,6 +747,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '星落',
     tier: ItemTier.T3,
     cost: 6000,
+    baseItems: ['item_meteor_hammer'],
   },
   item_aeon_pendant: {
     name: 'item_aeon_pendant',
@@ -858,25 +867,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 9600,
     baseItems: ['item_adi_king', 'item_phase_boots'],
   },
-  item_eternal_shroud_ultra: {
-    name: 'item_eternal_shroud_ultra',
-    nameCN: '法师泳衣',
-    tier: ItemTier.T3,
-    cost: 9600,
-    baseItems: ['item_eternal_shroud'],
-  },
   item_hurricane_pike_2: {
     name: 'item_hurricane_pike_2',
     nameCN: '黄金魔龙枪 Ultimate',
     tier: ItemTier.T3,
     cost: 9700,
     baseItems: ['item_hurricane_pike'],
-  },
-  item_angels_demise: {
-    name: 'item_angels_demise',
-    nameCN: '绝刃',
-    tier: ItemTier.T3,
-    cost: 9800,
   },
   item_vladmir_2: {
     name: 'item_vladmir_2',
@@ -939,6 +935,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 9800,
     baseItems: ['item_monkey_king_bar'],
   },
+  item_arcane_octarine_core: {
+    name: 'item_arcane_octarine_core',
+    nameCN: '奥术之心',
+    tier: ItemTier.T3,
+    cost: 10000,
+    baseItems: ['item_aether_lens_2', 'item_octarine_core'],
+  },
 
   // ===== T4: 后期装备 (10000-30000金，不含30000) =====
   item_shotgun_v2: {
@@ -952,8 +955,15 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_arcane_blink',
     nameCN: '爱因斯坦闪光',
     tier: ItemTier.T4,
-    cost: 10100,
+    cost: 10600,
     baseItems: ['item_arcane_blink_2'],
+  },
+  item_angels_demise: {
+    name: 'item_angels_demise',
+    nameCN: '绝刃',
+    tier: ItemTier.T4,
+    cost: 10200,
+    baseItems: ['item_phylactery'],
   },
   item_overwhelming_blink_2: {
     name: 'item_overwhelming_blink_2',
@@ -961,13 +971,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T4,
     cost: 10600,
     baseItems: ['item_overwhelming_blink'],
-  },
-  item_arcane_octarine_core: {
-    name: 'item_arcane_octarine_core',
-    nameCN: '奥术之心',
-    tier: ItemTier.T4,
-    cost: 10600,
-    baseItems: ['item_aether_lens_2', 'item_octarine_core'],
   },
   item_swift_blink_2: {
     name: 'item_swift_blink_2',
@@ -1127,16 +1130,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_jump_jump_jump',
     nameCN: '跳！跳！跳！刀',
     tier: ItemTier.T4,
-    cost: 15650,
-    // 可以有多个前置：overwhelming_blink_2, arcane_blink, swift_blink_2，选择其中一个作为主要前置
+    cost: 18600,
     baseItems: [
-      'item_arcane_blink',
-      'item_arcane_blink_2',
-      'item_blink',
-      'item_overwhelming_blink',
       'item_overwhelming_blink_2',
-      'item_swift_blink',
       'item_swift_blink_2',
+      'item_arcane_blink',
+      'item_meteor_hammer_2',
     ],
   },
   item_necronomicon_staff: {
@@ -1169,7 +1168,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_refresh_core',
     nameCN: '熔火核心',
     tier: ItemTier.T4,
-    cost: 19900,
+    cost: 19200,
     baseItems: [
       'item_aether_lens_2',
       'item_arcane_octarine_core',
@@ -1299,7 +1298,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_magic_crit_blade',
     nameCN: '魔龙狂舞',
     tier: ItemTier.T5,
-    cost: 43800,
+    cost: 37000,
     baseItems: ['item_hallowed_scepter'],
   },
   item_beast_armor: {
@@ -1312,21 +1311,21 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_magic_sword',
     nameCN: '魔渊剑',
     tier: ItemTier.T5,
-    cost: 59000,
+    cost: 49000,
     baseItems: ['item_bfury_ultra', 'item_infernal_desolator', 'item_skadi_2'],
   },
   item_beast_shield: {
     name: 'item_beast_shield',
     nameCN: '兽化盾',
     tier: ItemTier.T5,
-    cost: 57300,
+    cost: 52200,
     baseItems: ['item_black_king_bar_2'],
   },
   item_time_gem: {
     name: 'item_time_gem',
     nameCN: '时间宝石',
     tier: ItemTier.T5,
-    cost: 62300,
+    cost: 51700,
     baseItems: ['item_refresh_core'],
   },
   item_switchable_crit_blade: {
@@ -1400,7 +1399,7 @@ let ItemReplaceMap: Map<string, string[]> = new Map();
  * 初始化装备替代关系（游戏开始时调用一次）
  */
 export function InitializeItemReplaceMap(): void {
-  print('[AI] InitializeItemReplaceMap 初始化装备替代关系');
+  // print('[AI] InitializeItemReplaceMap 初始化装备替代关系');
   ItemReplaceMap = BuildItemReplaceMap(ItemTierConfig);
 }
 

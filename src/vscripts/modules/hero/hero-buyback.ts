@@ -1,5 +1,3 @@
-import { TowerPushStatus } from '../event/event-entity-killed';
-
 /**
  * 英雄买活管理器
  * 负责管理买活金钱
@@ -19,7 +17,7 @@ export class HeroBuyback {
 
   /**
    * 刷新买活金钱
-   * 电脑只有在3塔被推后才能买活
+   * 原生 bot 期间电脑不能买活，接管后由团队大脑决定何时买活
    */
   private refreshBuybackCost(): void {
     for (let playerId = 0; playerId < PlayerResource.GetPlayerCount(); playerId++) {
@@ -29,11 +27,10 @@ export class HeroBuyback {
 
       if (PlayerResource.IsFakeClient(playerId)) {
         // 电脑玩家
-        if (TowerPushStatus.tower3PushedGood > 0 || TowerPushStatus.tower3PushedBad > 0) {
-          // 3塔被推后，允许买活
+        if (GameRules.AI.BotTeam?.IsNativeActive() === false) {
           PlayerResource.SetCustomBuybackCost(playerId, this.calculateBuybackCost(playerId));
         } else {
-          // 3塔未被推，禁止买活
+          // 原生 bot 自己会买活，对线期买活只会浪费金钱
           PlayerResource.SetCustomBuybackCost(playerId, 100000);
         }
       } else {

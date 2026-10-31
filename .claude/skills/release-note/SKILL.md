@@ -1,213 +1,76 @@
 ---
 name: release-note
-description: >-
-  生成 Steam Workshop 中英文更新日志。支持手动、PR、Issue（含 checklist 进度）。
-  版本号：用户指定 > release PR 大版本（推荐值，须问用户）> Steam 递增补丁字母。
-  用户确认后可写回 open PR（UTF-8 无 BOM）。
-  **创建 PR 时必须调用本 skill 生成 Release Note 段，不要手写。**
-  Use when creating a pull request to generate Steam Workshop release notes.
+description: 生成 Steam Workshop 中英文更新日志（Release Note），可写回 PR。
+context: fork
+model: sonnet
+background: false
 ---
 
-# Changelog
+# Release Note
 
-为 Windy10v10AI Steam Workshop 生成中英文更新日志。
+为 Steam Workshop 生成中英文更新日志。纯内部改动不写，判定见 `create-pr` skill「Release Note 写不写」。
 
-## 使用方法
+本 skill 在 SubAgent 里运行，看不到调用方的对话，也不能向用户提问。需要用户决定、参数又没给出时，停下并在回报里列出待选项，由调用方问用户后带着答案重新调用。
 
-### 手动
+参数包含三项：
 
-```
-/changelog 5.11 修正猴子棒击、新增火焰风暴、同步7.40c
-```
+- **来源**（缺失时停下回报，不从当前分支猜）：`#1234`、纯数字或含 `/pull/` 的 URL → PR：读标题、描述、commits；含 `/issues/` 的 URL → Issue：按 `references/from-issue.md`；其他 → 按调用方列的点写
+- **目标版本**：具体版本号，缺失时按第 1 步算
+- **写回**：仅出草稿（只输出文案，不改任何 PR）/ 写入功能 PR 并合并进聚合 release PR / 仅写入功能 PR / 仅写入聚合 release PR / 仅提交改动 / 跳过
 
-### 从 GitHub PR
+## 1. 定版本号
 
-```
-/changelog #1234
-```
+参数给了目标版本就直接用，没给就按 `.claude/references/release-version.md` 算。带字母后缀（`v5.65a`）的是补丁版本，不带的是大版本。
 
-从 PR 读取标题、描述、commits，提取更新内容。
+**同步 `GAME_VERSION`**（`src/vscripts/modules/GameConfig.ts`，不含 a/b/c 后缀）：目标版本去掉字母后缀后与它不同时改成该值。
 
-### 从 GitHub Issue
+完成：版本号是具体字符串，`GAME_VERSION` 已按上条处理。
 
-```
-/changelog https://github.com/windy10v10ai/game/issues/1952
-```
-
-URL 含 `/issues/` → Issue；拉取正文分两条路径：
-
-**A. 标准路径**（正文含 `### 7.41 同步核对` 与 `- [x]` / `- [ ]` 清单）：
-
-1. `gh issue view <N> --repo windy10v10ai/game --json body`
-2. 截取 `### 7.41 同步核对` 至首个 `**说明**` 之间的清单行。
-3. 统计已完成 `- [x]` 与未完成 `- [ ]`；总数 = 二者之和。
-4. 已完成英雄名用于「多英雄并列」，末尾缀 `（Issue #N 英雄核对进度 x/总数）` / `(Issue #N hero checklist: x/total)`。
-5. 解析 JSON 时去掉 BOM（`\uFEFF`）。
-
-**B. 回退路径**（无 checklist）：据 Issue 标题与描述写 2–5 条玩家向 bullet，**不**编造 `x/总数`。
-
-## 版本号决策（优先级由上至下，命中即用）
-
-版本号须为具体 `v…` 字符串，**禁止**占位符。格式：主版本 `5.00`/`5.10`，补丁 `5.00a`/`5.00b`。
-
-### 1. 用户指定
-
-参数中出现 `v5.xxa` / `5.xx` 等，直接规范为 `v…` 采用。
-
-### 2. 特殊口令 `版本号+1`
-
-Steam 最新去掉字母后缀 +0.01 得下一主版本（如 `v5.19b` → `v5.20`）。若 open release PR 版本一致则直接采用；不一致则问用户。
-
-### 3. Open release PR 大版本 > Steam（推荐值，须问用户）
-
-**必须先 WebFetch** [Steam Workshop Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 取第 1 页首条版本作为当前 Steam 最新版——**每次执行本步骤时都必须重新 fetch，不得使用会话早期的缓存结果。**
-
-```bash
-gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url
-```
-
-- **release PR 大版本严格高于 Steam**（Steam `v5.45b`，release PR `v5.46`）→ release PR 版本只是**推荐值**，用 `AskUserQuestion` 让用户二选一：
-  - 大版本 `v5.46`（推荐，即 release PR 标题版本）
-  - 小版本补丁 `v5.45c`（步骤 4 递增结果）
-- **Steam 已发布与 release PR 同大版本**（Steam `v5.46`，release PR `v5.46`）→ 进入步骤 4。
-- 多条 release PR → 问用户用哪条。
-
-> 推荐值不可直接采用：release PR 由 `create_release_pr.yml` 在任意 PR 合入 `develop` 后自动创建（版本 = 最新 tag 大版本 +1），它的存在只说明有过一次合并，不代表本次改动作为大版本发布——用户往往仍在连续补小版本补丁。
-
-无论用户选大版本还是小版本补丁，本次条目都要按下文「聚合 release PR」合并进该 PR。
-
-### 4. 默认：Steam 同大版本递增补丁字母
-
-使用步骤 3 已 fetch 到的 Steam 最新版本，在同一大版本下递增字母（`v5.19b` → `v5.19c`；`v5.20` → `v5.20a`）。无字母则下一档为 `a`。无法解析时问用户。
-
-> `GAME_VERSION`（`GameConfig.ts`）不含 a/b/c 后缀；只有 Workshop 文案可出现 `v5.xxa`。
-
-## 输出格式
-
-中文：
+## 2. 写条目
 
 ```
 [b]游戏性更新 v5.20[/b]
 
 - 更新内容
 ```
-
-英文：
-
 ```
 [b]Gameplay update v5.20[/b]
 
 - Update content
 ```
 
-交付时须为真实条目，不得保留占位。
+- 通常 1–6 条，重要的在前。靠合并压条数：同一英雄/物品/系统的多个改动点用逗号串成一句（如「重做无限手套：更改配方和属性，新增主动技能「灭世响指」，有50%概率直接湮灭敌方英雄」）；不相关的短小修正也可逗号并列；琐碎且多时概括为「修正一些 bug 和平衡性改动」。改动的目的（如优化卡顿）并进它所服务的那条，不单列：「重做魔龙狂舞：配方用黄金法杖替换神圣斧，主动在原有技能增强之外新增降低范围内敌方魔抗，智力提高、售价降低」+「优化魔龙狂舞的后期卡顿」→「重做魔龙狂舞以优化卡顿：配方用黄金法杖替换神圣斧，主动新增降低范围内敌方魔抗」
+- **对照目标版本块的已有条目**（读聚合 release PR 正文里目标大版本块或补丁块）：同一英雄/物品/系统已有条目时，草稿写成合并后的整句，并注明替换哪一条；没有相关条目时按「重要的在前」选位置，贴着相近条目，不默认放末尾；「修正一些bug和平衡性改动」这类兜底行始终留在末尾。草稿末尾用一行说明每条是新增在哪条之后，还是并入了哪条
+- 每条一行一句：去掉括号补充、强化名、spell amp 这类次要限定，只留玩家可感知的核心变化
+- **调整与修正只写结果，不写怎么做到的**：冒号后的触发条件、机制、实现方式整段删掉。新功能例外，冒号后可用半句说在哪、是什么。用户改稿的典型删法：
+  - 「后期藏宝箱更容易找到：减少偏远点位，后期也会刷在空旷处」→「后期藏宝箱更容易找到」
+  - 「延缓电脑推进速度：电脑占优时每推掉一座外塔，会先在附近刷野施压一阵再推下一座」→「略微延缓电脑推进的速度」
+  - 「用启动器联机开房时，选队界面会显示房间人数和正在连接的玩家，所有人进来后会提示」→「优化启动器联机时，正在连接的玩家的显示」
+- 程度往轻了写（「略微」「更」），不夸大；不写对比口径、统计范围这类容易写错的细节
+- 单个英雄、技能、物品的数值细调不写（如「削弱术士致命连接：连接目标数与持续时间降低」整条删掉），除非影响面大到所有玩家都会感知。配合主改动顺带削其他物品的次要属性、给已写进日志的物品再调数值，同样不写，也不往已有那条里补数值
+- 一个 PR 只写它的主线改动；顺带的文案、推广语、PR 里其他小调整不单列；拿不准要不要写的列在回报里，由调用方问用户
+- 中文全角标点，英文半角。直接陈述：英文写 `Fixed X`（不写 `Fixed an issue where`），中文去掉「由于」「本次」
+- 用玩家熟悉的简称与主动句式（「魔免」「不再触发 X」）
+- 玩家视角：写加强、削弱、修正了谁、哪类玩法变了。数值改动用定性表述（用户指定或玩家需要理解的档位除外）。KV、override、AbilityValues、注释、文件路径这类维护用语不出现
+- **bot 行为改动只写行为方向**：「电脑现在会主动使用 XX」「电脑不再误用 XX」/ `Bot now actively uses XX`、`Bot no longer misuses XX`。为配合物品改动顺带调整几个英雄的出装不写
+- 觉醒限时免费清单（`FREE_TRIAL_HEROES`）的增减、注释同步、KV 对照、纯文档变更不写
+- **名词以本地化文件为准**：英雄、物品、技能及其效果名 grep `game/resource/addon_schinese.txt` / `addon_english.txt` 核实（英雄键 `npc_dota_hero_<id>`）；项目里没有时查 `docs/reference/<version>/abilities_*.txt` 的 `npc_dota_hero_<id>:n`
+- **多英雄并列**：同一条 bullet 列出全部英雄，中文用全角逗号分隔，英文用 `, `。PR 先用 `gh pr diff <N> --name-only` 看改了哪些文件，要技能前缀时把 `gh pr diff <N>` 管道给 grep 只取改动行的键名，不整份读入，只列本 PR 涉及的英雄
+- 从 PR 提取：优先用描述里的更新列表，没有就从 commits 推断 3–5 条
 
-### 多英雄并列
+常用术语：同步Dota更新 Sync Dota update / 修正 Fixed / 新增 Added / 调整 Adjusted / 技能抽选池 Ability draft pool / 金钱经验倍率 Gold/XP multiplier / 中立物品 Neutral items / 勇士积分 Battle point / 电脑 Bot。
 
-同一条 bullet 列出所有英雄；中文用 **，**（全角逗号）分隔，**禁止**用顿号 **、**；英文用 **, ** 分隔。
+完成：中英文两版条目一一对应、标题含具体版本号；每个效果名词都已 grep 核实。
 
-**英雄范围确定规则：**
-- **PR**：通过 `gh pr diff <N>` 提取实际改动的技能前缀（如 `pudge_`、`silencer_` 等），只列**本 PR 实际涉及**的英雄，不得包含其他 PR 的英雄
-- **Issue checklist**：只列已勾选 `- [x]` 的英雄
+## 3. 写回 PR
 
-**进度标注（Issue + checklist 时必须）：**
-- 中文：`（x/总数）` 紧跟在「技能更新」之后，冒号前
-- 英文：`(x/total)` 同位置
+按参数的写回方式执行，参数没给就停下回报写回的全部选项。仅出草稿时跳过本节，直接进第 4 步回报。
 
-句式模板：
-```
-- 同步 Dota 2 7.41 英雄的技能更新（x/总数）：英雄A，英雄B，英雄C
-```
-```
-- Synced Dota 2 7.41 ability updates (x/total): Hero A, Hero B, Hero C
-```
+编辑流程：`gh pr view <N> --repo windy10v10ai/game --json body -q .body` 取 body → 改 → 写临时文件（UTF-8 无 BOM）→ `gh pr edit <N> --body-file <文件>`。
 
-英雄名称**必须**从本地化文件查找，**禁止**从 `abilities_schinese.txt` / `abilities_english.txt` 猜测：
+**功能 PR**：`gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state open --json number,url`，一条就用它，多条停下回报候选，没有就只输出文案。保留 `## Release Note` 之上的内容，替换该标题到文末为 `## Release Note` + 中文围栏块 + 英文围栏块。
 
-```bash
-# 查英雄中文名（以 pugna 为例）
-grep -i "npc_dota_hero_pugna" game/resource/addon_schinese.txt
-# 若无结果，从 docs 参考文件查
-grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_schinese.txt
-
-# 查英雄英文名
-grep -i "npc_dota_hero_pugna" game/resource/addon_english.txt
-grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_english.txt
-```
-
-找不到时用 `docs/reference/<version>/abilities_schinese.txt` 中 `npc_dota_hero_<id>:n` 行的值。
-
-## 撰写原则
-
-1. 简洁明了，每条尽量压成 1 句；同一目标的多个改动点用逗号串在这 1 句里，不为每个改动点新开一条
-2. 重要的写在前面
-3. 中文全角标点，英文半角标点
-4. 中英文都直接表述：英文避免 `Fixed an issue where X...` 这类开头，直接写 `Fixed X...`；中文去掉「由于」「本次」等因果连接与指代虚词，直接陈述改动
-5. 物品/技能名及其内部效果/增益名（如"开关"技能的具体称呼）一律从本地化文件查找（中 `addon_schinese.txt`，英 `addon_english.txt`）核实后再用，**禁止凭印象/常见 Dota 术语臆造**——同一件物品在不同 mod 里效果命名可能不同，写错等于编造了一个不存在的机制
-6. 优先用玩家熟悉的简称与主动句式（如"魔免/魔抗"而非"魔法免疫、魔法抗性等效果"；"不再触发X"而非"不再能被X选取"），避免被动语态和书面化长句
-
-### 玩家向
-
-- **禁止**维护向用语：KV、override、对齐参考、注释、AbilityValues、文件路径
-- **避免**技术细节（具体倍率小数等），除非用户要求；玩家需要理解的具体数值（如积分倍率档位）可保留
-- **优先**玩家感知：加强/削弱/修正谁、哪类玩法变了
-- **Bot AI 行为改动（新增/修正 bot 对某物品或技能的使用逻辑）只需说明行为方向本身**（中文"电脑现在会主动使用/开启 XX"、"电脑不再误用 XX"；英文"Bot now actively uses/activates XX"、"Bot no longer misuses XX"），**不需要**连带描述该物品/技能效果是什么、数值多少——这些是物品/技能本身的固有效果，不是本次改动的内容，写出来反而喧宾夺主
-- 多英雄技能跟进时用「多英雄并列」句式
-- **同一目标的多处改动合并成一条**：同一英雄/物品/系统的多个改动点（改名、加成、新机制等）用逗号串成一句，不要每个改动点单独开一条 bullet。真实案例：
-  - 「重做无限手套：更改配方和属性，新增主动技能「灭世响指」，有50%概率直接湮灭敌方英雄」（配方+属性+新技能三处合并一条）
-  - 「齐天大圣大招改为斗战胜佛，新增齐天大圣觉醒：如意金箍棒额外伤害与施法距离提升，并可在被控制状态下施放大招、获得技能免疫」（改名+多个觉醒效果合并一条）
-- **不相关的小改动也可并列合并**：多个独立的小修正各自很短时，允许逗号并列写进同一条，不必逐条展开。真实案例：「修正影魔，幻影刺客觉醒魔法免疫会顶替黑皇杖魔免的问题，狙击手暗杀觉醒附带额外物理伤害，基础A杖眩晕」（三处不相关修正合并一条）
-- **改动琐碎且数量多时用概括性表述**，不逐条列举：「修正一些 bug 和平衡性改动」
-- 整体条数按改动量取舍，通常 1–6 条；优先靠合并压缩条数，不靠多开 bullet 塞下每个改动点
-- **单条内部仍要压成一行一句、尽量短**：去掉括号补充说明、引号内的技能强化名、spell amp/具体机制等次要限定，只留玩家可感知的核心变化。例：写「新增莉娜觉醒：每次释放神灭斩，对目标额外造成等同本次神灭斩伤害的纯粹伤害」，不再补「（受技能增强影响）」
-
-### 从 PR 提取信息
-
-- 优先从描述中的更新列表提取；无列表则从 commits 推断 3–5 条
-- 注释同步、KV 对照、纯文档变更若无玩法影响不写入
-- 多英雄技能同步归纳为一条玩家向 bullet
-- 数值改动用定性表述，除非用户指定
-
-## 常用术语对照
-
-| 中文 | 英文 |
-|------|------|
-| 同步Dota更新 | Sync Dota update |
-| 修正 | Fix/Fixed |
-| 新增 | Add/Added |
-| 调整 | Adjust/Adjusted |
-| 技能抽选池 | Ability draft pool |
-| 金钱/经验倍率 | Gold/XP multiplier |
-| 中立物品 | Neutral items |
-| 勇士积分 | Battle point |
-| 电脑 | Bot/Bots |
-
-## GAME_VERSION 同步
-
-文件：`src/vscripts/modules/GameConfig.ts`，不含 a/b/c 后缀（`v5.20` 而非 `v5.20a`）。
-
-- **本次所选版本**的大版本（去掉 a/b/c）与 `GAME_VERSION` 不同时 → **必须自动修改** `GameConfig.ts`，**不得遗漏**
-- 选了小版本补丁、大版本未变 → 不改（即使存在更高大版本的 open release PR）
-
-## 更新 open PR 的 Release Note
-
-生成文案后，用**选项菜单**让用户选择操作（写入功能 PR + 合并进聚合 release PR / 仅写入功能 PR / 仅提交改动 / 跳过），按所选执行。
-
-两处都用同一套编辑流程：`gh pr view <N> --repo windy10v10ai/game --json body -q .body` 取 body → 改 → 写入临时文件（**UTF-8 无 BOM**）→ `gh pr edit <N> --body-file <文件>`。
-
-### 写入当前功能 PR
-
-```bash
-gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state open --json number,url
-```
-
-恰好一条时默认指向；多条时先让用户选号；无 open PR 则只输出文案。
-
-保留 `## Release Note` 之上的内容，替换该标题起至文末：拼接 `## Release Note` + 中文围栏块 + 英文围栏块。
-
-### 聚合 release PR
-
-标签 `release` 的 open PR（`develop → main`，标题即大版本号）是本轮所有条目的**聚合容器**：大版本条目在上，尚未发布的小版本补丁条目按版本号分块累积在 `---` 之下。本次条目**始终**合并进去，不只留在功能 PR。布局（参考 [#2253](https://github.com/windy10v10ai/game/pull/2253)）：
+**聚合 release PR**（标签 `release`，`develop → main`，标题即大版本号）收集本轮所有条目，布局参考 [#2253](https://github.com/windy10v10ai/game/pull/2253)：
 
 ```
 ## Checklist
@@ -227,29 +90,14 @@ gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state 
 <补丁版本 英文围栏块>
 ```
 
-- **本次为小版本补丁** → 只动 `---` 之下：该补丁版本号已有围栏块时，中英文条目分别追加到既有列表末尾；是新的补丁版本号时，在文末新起 `---` + 中英文围栏块。大版本围栏块与 `---` 之下的既有 checklist 行保持原样。
-- **本次为大版本** → 替换 `## Release Note` 与首个 `---` 之间的中英文围栏块；`---` 之下的补丁块全部保留（各补丁版本在 Steam 已各自发过一次日志，留档不清理）。
+- **补丁版本**：只动 `---` 之下。该补丁版本已有围栏块就按草稿的位置说明放入条目（规则同大版本）；新补丁版本在文末新起 `---` + 中英文围栏块
+- **大版本**：按草稿的位置说明，把中英文条目分别放进 `## Release Note` 与首个 `---` 之间的围栏块：新增条目插到指定位置，合并的条目替换被并入的那条，其余已有条目原样保留，「修正一些bug和平衡性改动」这类兜底行留在末尾；写回前重读 release PR 正文，期间可能有别的 PR 改过；`---` 之下的补丁块全部保留（各自在 Steam 发过，留档）
+- 大版本块里不重复已在保留的小版本块或已发布版本中出现过的改动
 
-## 执行步骤
+完成：条目已进入用户所选的 PR，release PR 里其他版本块原样未动。
 
-1. **判断参数类型**（Issue 与 PR 编号独立）：
-   - URL 含 `/issues/` → Issue（有 checklist → 路径 A；无 → 路径 B）
-   - URL 含 `/pull/`，或 `#N` / 纯数字 → PR
-   - 其他 → 手动
-2. **确定版本**：按「版本号决策」1→2→3→4 优先级执行；命中步骤 3 时必须让用户在大版本与小版本补丁间选。
-3. **生成更新日志**：Issue+checklist 列已完成英雄并附 `x/总数`；PR 列全部英雄；手动按用户列点。
-4. **GAME_VERSION 同步**：大版本变化时**必须立即**修改 `GameConfig.ts`，不得等用户提醒。
-5. **输出**中英文两版，标题含具体版本号。
-6. **写入 PR**：用选项菜单让用户选择操作后执行——写入当前功能 PR，并把条目合并进聚合 release PR 的对应版本块。
+## 4. 回报
 
-### 交付前自检
+版本号、中英文条目全文、写回了哪个 PR、`GAME_VERSION` 是否改动；停下时写明卡在哪一步和待选项。
 
-- 版本号为具体字符串，中英文一致
-- open release PR 大版本高于 Steam 时，已用 `AskUserQuestion` 确认走大版本还是小版本补丁
-- 条目已合并进聚合 release PR 的对应版本块，大版本块与其他补丁块保持原样
-- Issue checklist `x/total` 统计正确；无 checklist 不编造
-- 多英雄列表与实际范围一致
-- 无维护向技术用语
-- 同一目标/同一改动主题没有拆成多条 bullet；能合并的都已用逗号并入一条
-- 提到的物品/技能效果名词均已 grep 本地化文件核实存在，没有凭印象臆造的名词
-- Bot AI 行为类改动只写了行为方向，没有顺带描述物品/技能本身的效果或数值
+参数：$ARGUMENTS

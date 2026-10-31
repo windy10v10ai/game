@@ -1,0 +1,396 @@
+const { execSync, spawn } = require('child_process');
+const fs = require('fs');
+const path = require('path');
+const { getAddonName, getDotaPath } = require('./utils');
+const { analyze } = require('./bot-anomaly');
+const { summarize } = require('./perf-summary');
+
+const ROOT = path.resolve(__dirname, '..', '..');
+const CONFIG_FILE = path.join(ROOT, 'game', 'scripts', 'vscripts', 'perf_auto_config.lua');
+// 每轮一个子目录，和排查文档放在一起，今后对比历史数据直接从这里取
+const RUNS_DIR = path.join(ROOT, 'docs', 'superpowers', 'specs', 'late-game-lag', 'runs');
+const POLL_MS = 15000;
+// 基地被推平后游戏内的计时器与状态事件都可能不再触发，直接认引擎的结算状态
+const FINISHED = /\[perf-auto\] (done|aborted)|entering state 'DOTA_GAMERULES_STATE_POST_GAME'/;
+// 专用服负载高时会以处理超时为由踢掉唯一的客户端，没有玩家后游戏直接结算，脚本内存随即失控，只能立刻收场
+const BROKEN =
+  /Disconnect client .* from server: (?!NETWORK_DISCONNECT_SHUTDOWN)|LUA Memory usage warning: The VM has hit a new high usage of \d{3},\d{3},\d{3} bytes/;
+
+function parseArgs() {
+  const options = {
+    phaseSeconds: 40,
+    reps: 1,
+    warmupMinutes: 20,
+    // 后期服务器连 1 倍速都跑不满，高倍率只是空转还可能卡死，2 倍够用
+    timescale: 2,
+    // 1 倍速才是玩家的真实感受，加速只用于热身
+    measureTimescale: 1,
+    // 每局的最长等待时间，超时强制结束这一局
+    timeoutMinutes: 90,
+    quitOnDone: true,
+    mode: 'steps',
+    soakMinutes: 40,
+    soakTimescale: 2,
+    // 开局满级加钱，低倍速也能很快进入后期
+    boost: true,
+    maxLevel: 50,
+    // bot 英雄池的起始偏移，换一批英雄观察
+    botOffset: 0,
+    // 天辉人数与金钱经验倍率，0 为沿用对局选项；专用服的客户端默认只报 1 人、1.5 倍，固定为满编且与夜魇同倍率，--radiantPlayers 1 模拟 1v10
+    radiantPlayers: 10,
+    radiantMultiplier: 10,
+    // 只给天辉满级与金钱，配合 --radiantPlayers 2 模拟 1v10 的强势玩家
+    radiantBoost: false,
+    // 夜魇倍率，0 为沿用对局选项；调低后天辉能压着电脑推，用来验证回防
+    direMultiplier: 0,
+    // 防御塔强度百分比，0 为沿用对局选项（工具模式 700%），按难度预设测时填 300/350/500
+    towerPower: 0,
+    // 逗号分隔的英雄名，排到 bot 英雄池最前面，用于让指定英雄出场验证
+    botHeroes: '',
+    // 逗号分隔的物品名，开局轮流发给每个英雄并停掉 bot 买卖装备，用于验证物品施放
+    testItems: '',
+    // 逗号分隔的场景（idle 泉水挂机、fight 自定义 AI 打团），同一局里按顺序各测一遍，开局即测、不热身；别和 botoff、aioff 等条件同跑
+    scenes: '',
+    // 逗号分隔的威压层数，每个层数一个条件
+    buffStacks: '1',
+    // 逗号分隔的物品名，每件一个条件：全员第 6 格换成该物品
+    swapItems: '',
+    // 逗号分隔的「物品名:modifier 名[:Lua 脚本路径]」，每项一个条件：以该物品为来源给全员挂上这个 modifier，模拟主动或触发效果；
+    // DataDriven 物品的 Lua modifier 要带第三段脚本路径先登记；引擎原生 modifier（来源物品是 DataDriven 时）第三段写 native
+    itemModifiers: '',
+    // 逗号分隔的银月个数，每个个数一个条件：全员按吃银月的流程叠到该个数
+    moonStacks: '1,10,30',
+    // 逗号分隔的 modifier 名，换装与挂 modifier 的段末统计全场实例数（光环等）
+    countModifiers: '',
+    // 每段末统计全场 modifier 与实体数，排查随时间累积的东西
+    census: false,
+    // 伤害基准里出手的英雄数，0 为全员；降负载避免服务器跑满后开销不再线性
+    benchAttackers: 0,
+    // 伤害基准里两队对排的间距，0 为各回泉水；量敌方光环时用
+    benchGap: 0,
+    // 换装与挂 modifier 只给伤害基准的出手方（attacker）或挨打方（victim），为空时全员
+    benchSide: '',
+    // 逗号分隔的条件名，只复测其中几项时用
+    conditions: 'all',
+    // 跑几局；够不够下结论看报告里的逐局值，不够再用 appendTo 追加
+    games: 3,
+    // 已有的运行目录（runs/<时间>），新局接着编号写进去，报告按全部局重新汇总
+    appendTo: '',
+    // dedicated：本机专用服加普通客户端，服务器独占进程，和 launcher 给玩家的方式一致；tools：工具模式单进程，性能剖析只在这里可用
+    server: 'dedicated',
+  };
+  const argv = process.argv.slice(2);
+  for (let i = 0; i < argv.length; i += 2) {
+    const key = argv[i].replace(/^--/, '');
+    if (!(key in options)) throw new Error(`unknown option --${key}`);
+    const value = argv[i + 1];
+    if (['quitOnDone', 'boost', 'radiantBoost', 'census'].includes(key)) options[key] = value !== 'false';
+    else if (
+      [
+        'mode',
+        'conditions',
+        'botHeroes',
+        'testItems',
+        'server',
+        'scenes',
+        'buffStacks',
+        'swapItems',
+        'itemModifiers',
+        'moonStacks',
+        'countModifiers',
+        'appendTo',
+        'benchSide',
+      ].includes(key)
+    )
+      options[key] = value;
+    else options[key] = Number(value);
+  }
+  // 场景测试开局已拉满级发装备，不必跑到后期；留 1.5 分钟等开局初始化与去被动完成
+  if (options.scenes !== '' && !argv.includes('--warmupMinutes')) options.warmupMinutes = 1.5;
+  return options;
+}
+
+const LAUNCHER_ONLY = ['timeoutMinutes', 'games', 'appendTo', 'server'];
+const SERVER_PORT = 27015;
+const SERVER_LOG = 'perf-dedicated.log';
+const MAP_LOADED = 'Host activate: Loading (custom)';
+const ANOMALY_MAX_BYTES = 300 * 1024 * 1024;
+
+function writeConfig(options) {
+  const fields = Object.entries(options)
+    .filter(([key]) => !LAUNCHER_ONLY.includes(key))
+    .map(([key, value]) => `  ${key} = ${typeof value === 'string' ? `'${value}'` : value},`);
+  const body = ['return {', ...fields, '}', ''].join('\n');
+  fs.writeFileSync(CONFIG_FILE, body);
+}
+
+function removeConfig() {
+  fs.rmSync(CONFIG_FILE, { force: true });
+}
+
+function readLog(file) {
+  return fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
+}
+
+// 出错时日志可达上 GB，整份读入会超出字符串上限；每次只读新增部分
+function logTail(file) {
+  let offset = 0;
+  let partial = '';
+  return () => {
+    if (!fs.existsSync(file)) return [];
+    const size = fs.statSync(file).size;
+    if (size <= offset) return [];
+    const fd = fs.openSync(file, 'r');
+    const buffer = Buffer.alloc(Math.min(size - offset, 64 * 1024 * 1024));
+    fs.readSync(fd, buffer, 0, buffer.length, offset);
+    fs.closeSync(fd);
+    offset += buffer.length;
+    const lines = (partial + buffer.toString('utf8')).split(/\r?\n/);
+    partial = lines.pop();
+    return lines;
+  };
+}
+
+// 汇总脚本需要的行：自身输出、Lua 报错、客户端未登记的 modifier、引擎慢思考警告
+const KEEP_LINE =
+  /\[perf|\[bot-ai\] (glyph|team=\d+ lanes|\S+ buyback)|Script Runtime Error|\[bot-team\] think error|unknown modifier type|thinking for [\d.]+ ms/;
+
+// 引擎剖析报告的一行：作用域名（右对齐、可能含空格）后跟 10 列数字
+const VPROF_ROW =
+  /^(?:\d\d\/\d\d \d\d:\d\d:\d\d )?\s*(.+?)\s+(\d+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s*$/;
+
+// 一份报告两千多行、五张表内容重复，只把第一张表（按含子作用域总耗时排序）转成一行一个作用域
+function vprofReader() {
+  let phase;
+  let table = 0;
+  return (line) => {
+    const mark = line.match(/\[perf-vprof-mark\] phase=(\S+)/);
+    if (mark) {
+      [, phase] = mark;
+      table = 0;
+      return undefined;
+    }
+    if (!phase) return undefined;
+    if (line.includes('END VPROF REPORT')) {
+      phase = undefined;
+      return undefined;
+    }
+    if (line.includes('-- Profile scopes sorted by')) table++;
+    if (table !== 1) return undefined;
+    const row = line.match(VPROF_ROW);
+    if (!row) return undefined;
+    const scope = row[1].trim().replace(/\s+/g, '_');
+    return `[perf-vprof] phase=${phase} scope=${scope} calls=${row[2]} timeChild=${row[4]} time=${row[6]}`;
+  };
+}
+
+// 显示器休眠后 Dota 不再出画面，客户端帧数据全部失效；测试期间向系统申请保持常亮，进程退出即失效，不改电源设置
+function keepDisplayAwake() {
+  const script = [
+    'Add-Type -Name Power -Namespace Perf -MemberDefinition \'[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint flags);\'',
+    '[Perf.Power]::SetThreadExecutionState([uint32]2147483651) | Out-Null',
+    'while ($true) { Start-Sleep -Seconds 60 }',
+  ].join('; ');
+  const child = spawn(
+    'powershell',
+    ['-NoProfile', '-EncodedCommand', Buffer.from(script, 'utf16le').toString('base64')],
+    { stdio: 'ignore' },
+  );
+  process.on('exit', () => child.kill());
+}
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const isDotaRunning = () => execSync('tasklist').toString().toLowerCase().includes('dota2.exe');
+
+// 下一局启动前必须等上一局的进程完全退出，否则新进程会被拒绝或接管旧窗口
+async function waitDotaExit() {
+  for (let i = 0; i < 12 && isDotaRunning(); i++) await sleep(10000);
+  if (isDotaRunning()) execSync('taskkill /IM dota2.exe /F');
+  while (isDotaRunning()) await sleep(2000);
+}
+
+// 失去焦点时引擎默认每帧主动睡一段，前后台切换会直接改变测到的帧率
+const CLIENT_ARGS = ['-novid', '-condebug', '+engine_no_focus_sleep', '0'];
+
+function launch(exe, args, label) {
+  const child = spawn(exe, args, {
+    detached: true,
+    cwd: path.dirname(exe),
+    stdio: 'ignore',
+    windowsHide: true,
+  });
+  child.unref();
+  // Windows 给前台窗口更高调度优先级，固定为高优先级后前后台差别变小，测试期间可以正常用电脑
+  setTimeout(() => {
+    try {
+      execSync(
+        `powershell -NoProfile -Command "(Get-Process -Id ${child.pid}).PriorityClass = 'High'"`,
+      );
+    } catch (error) {
+      console.error(`[perf] ${label}: failed to raise process priority`);
+    }
+  }, 5000);
+  return child;
+}
+
+// 与 launcher 相同的启动方式，地图直接读本地开发目录，不需要发布；作弊用于放行加速
+async function launchDedicated(exe, serverLog, addonName, label) {
+  const server = launch(
+    exe,
+    [
+      '-dedicated',
+      '-console',
+      '-allow_no_lobby_connect',
+      '-ip',
+      '127.0.0.1',
+      '-port',
+      String(SERVER_PORT),
+      '-con_logfile',
+      SERVER_LOG,
+      '+sv_hibernate_when_empty',
+      '0',
+      '+dota_quit_after_game',
+      '0',
+      '+sv_cheats',
+      '1',
+      // 游戏脚本只在带这个服务器名的专用服上读取测试配置，见 perf-config.ts
+      '+hostname',
+      'windy10v10ai-perf-auto',
+      `+map custom gamemode=15 customgamemode=${addonName} nomapvalidation=1`,
+    ],
+    label,
+  );
+  for (let i = 0; i < 60 && !readLog(serverLog).includes(MAP_LOADED); i++) await sleep(2000);
+  if (!readLog(serverLog).includes(MAP_LOADED)) {
+    throw new Error(`${label}: dedicated server did not load the map, see ${serverLog}`);
+  }
+  launch(exe, [...CLIENT_ARGS, '+connect', `127.0.0.1:${SERVER_PORT}`], label);
+  return server;
+}
+
+async function runGame(options, gameConfig, label) {
+  const dotaPath = await getDotaPath();
+  const exe = path.join(dotaPath, 'game', 'bin', 'win64', 'dota2.exe');
+  const logFile = path.join(dotaPath, 'game', 'dota', 'console.log');
+  const serverLog = path.join(dotaPath, 'game', 'dota', SERVER_LOG);
+  // Dota 启动时会从头重写日志，按旧长度续读会漏掉开头，干脆先删掉
+  fs.rmSync(logFile, { force: true });
+  fs.rmSync(serverLog, { force: true });
+  const addonName = getAddonName();
+  const dedicated = options.server === 'dedicated';
+
+  writeConfig(gameConfig);
+  console.log(`[perf] ${label}: launching Dota 2 (${options.server}), log: ${logFile}`);
+  if (dedicated) {
+    await launchDedicated(exe, serverLog, addonName, label);
+  } else {
+    launch(
+      exe,
+      [
+        ...CLIENT_ARGS,
+        '-tools',
+        '-addon',
+        addonName,
+        '+dota_launch_custom_game',
+        addonName,
+        'custom',
+      ],
+      label,
+    );
+  }
+  // 专用服的脚本输出在服务器日志，客户端帧数据仍在客户端日志
+  const tails = (dedicated ? [serverLog, logFile] : [logFile]).map((file) => ({
+    read: logTail(file),
+    vprof: vprofReader(),
+  }));
+  const kept = [];
+  // 验证物品施放时还要留下施法日志
+  const castLine = /\[bot-cast\]|\[bot-ai\] \S+ force_staff/;
+  const keep = (line) => KEEP_LINE.test(line) || (options.testItems !== '' && castLine.test(line));
+  let finished = false;
+  let broken = '';
+  let steps = 0;
+
+  const deadline = Date.now() + options.timeoutMinutes * 60 * 1000;
+  while (Date.now() < deadline && !finished && !broken) {
+    await sleep(POLL_MS);
+    for (const tail of tails) {
+      for (const line of tail.read()) {
+        if (keep(line)) kept.push(line);
+        const vprofLine = tail.vprof(line);
+        if (vprofLine) kept.push(vprofLine);
+        if (FINISHED.test(line)) finished = true;
+        if (BROKEN.test(line)) broken = line;
+        const step = line.match(/\[perf-auto\] step name=(\S+)/);
+        if (step) console.log(`[perf] ${label}: ${step[1]} (${++steps})`);
+      }
+    }
+  }
+  removeConfig();
+  // 服务器退出后客户端会停在断线界面，不会自己退出
+  if ((dedicated || broken) && isDotaRunning()) execSync('taskkill /IM dota2.exe /F');
+  if (broken) console.error(`[perf] ${label}: stopped early: ${broken.trim()}`);
+  else if (!finished) {
+    console.error(`[perf] ${label}: timeout before the game finished, keeping partial data`);
+  }
+  await waitDotaExit();
+  // 日志出错时可达上 GB，太大就不做行为检测
+  const scriptLog = dedicated ? serverLog : logFile;
+  const anomaly =
+    fs.existsSync(scriptLog) && fs.statSync(scriptLog).size < ANOMALY_MAX_BYTES
+      ? analyze(readLog(scriptLog))
+      : '日志过大或不存在，跳过行为检测';
+  return { log: kept.join('\n'), anomaly };
+}
+
+(async () => {
+  const options = parseArgs();
+  if (isDotaRunning()) throw new Error('Dota 2 is already running, close it first');
+  // Compiling rewrites the Lua that a running Dota has loaded, so build only after the check
+  execSync('npm run build:vscripts', { stdio: 'inherit' });
+  process.on('exit', removeConfig);
+  process.on('SIGINT', () => process.exit(130));
+  keepDisplayAwake();
+
+  const now = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  const stamp = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}`;
+  const runDir = options.appendTo ? path.resolve(options.appendTo) : path.join(RUNS_DIR, stamp);
+  fs.mkdirSync(runDir, { recursive: true });
+  const gameLog = (game) => path.join(runDir, `game-${game}.log`);
+  let firstGame = 1;
+  while (fs.existsSync(gameLog(firstGame))) firstGame++;
+
+  // 每局重新开一局游戏，各局热身到同一游戏时间，局与局之间没有累积；浸泡测试只看一局的变化趋势
+  const lastGame = firstGame - 1 + (options.mode === 'soak' ? 1 : options.games);
+  for (let game = firstGame; game <= lastGame; game++) {
+    const gameConfig = {
+      ...options,
+      repStart: (game - 1) * options.reps + 1,
+      // 之后可能追加局，不可还原的收尾步骤放在第一局
+      includeTail: game === 1,
+    };
+    const { log, anomaly } = await runGame(options, gameConfig, `game ${game}`);
+    fs.writeFileSync(gameLog(game), log);
+    const anomalyFile = path.join(runDir, `anomaly-${game}.md`);
+    fs.writeFileSync(anomalyFile, anomaly);
+    console.log(`[perf] game ${game}: bot anomaly report ${anomalyFile}`);
+  }
+
+  const games = Array.from({ length: lastGame }, (_, i) => i + 1);
+  const merged = games.map((game) => fs.readFileSync(gameLog(game), 'utf8')).join('\n');
+  fs.writeFileSync(path.join(runDir, 'raw.log'), merged);
+  fs.writeFileSync(
+    path.join(runDir, 'config.json'),
+    JSON.stringify({ ...options, games: lastGame }, null, 2),
+  );
+  const report = summarize(merged);
+  fs.writeFileSync(path.join(runDir, 'report.md'), report);
+  console.log(report);
+  console.log(`\n[perf] run saved to ${runDir}`);
+  // 保持常亮的子进程会让事件循环一直不空，脚本不会自己退出
+  process.exit(0);
+})().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

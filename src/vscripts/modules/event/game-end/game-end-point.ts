@@ -1,20 +1,32 @@
 import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { reloadable } from '../../../utils/tstl-utils';
+import { EnvironmentHelper } from '../../helper/environment-helper';
 import { Option } from '../../option';
 
+// 掉线短于这个时长多半还在重连，按正常结算
+const ESCAPE_SECONDS = 120;
+
 export function normalizeControlTime(controlTime: number): number {
-  return Number.isFinite(controlTime) ? Math.abs(controlTime) : 0;
+  return Number.isFinite(controlTime) ? Math.round(Math.abs(controlTime)) : 0;
 }
 
 @reloadable
 export class GameEndPoint {
+  /** 结算时是否把玩家当作逃跑 */
+  static IsEscaped(state: ConnectionState, disconnectedSeconds: number | undefined): boolean {
+    if (state === ConnectionState.ABANDONED) return true;
+    if (state === ConnectionState.CONNECTED) return false;
+    // 没收到断开事件就不知道掉了多久，宁可当成重连中也不误判逃跑
+    return disconnectedSeconds !== undefined && disconnectedSeconds >= ESCAPE_SECONDS;
+  }
+
   static CalculatePlayerScore(player: GameEndPlayerDto): number {
     const killScore = Math.sqrt(player.kills) * 1.6;
     const deathScore = -Math.sqrt(player.deaths) * 0.6;
     const assistScore = Math.sqrt(player.assists) * 1.6;
-    const damageScore = Math.min(40, Math.sqrt(player.heroDamage) / 200);
-    const damageTakenScore = Math.min(40, Math.sqrt(player.damageTaken) / 80);
-    const healingScore = Math.min(40, Math.sqrt(player.healing) / 50);
+    const damageScore = Math.min(30, Math.sqrt(player.heroDamage) / 200);
+    const damageTakenScore = Math.min(30, Math.sqrt(player.damageTaken) / 80);
+    const healingScore = Math.min(30, Math.sqrt(player.healing) / 60);
     const towerKillScore = Math.sqrt(player.towerKills) * 3;
     const stunScore = Math.min(25, Math.sqrt(player.stuns) / 3);
 
@@ -61,12 +73,9 @@ export class GameEndPoint {
     return Math.round(points);
   }
 
-  static GetDifficultyMultiplier(difficulty: number, isLocalhost: boolean, option: Option): number {
-    // 如果是作弊模式，不计算倍率。开发模式无视这条
-    if (!IsInToolsMode()) {
-      if (GameRules.IsCheatMode() || isLocalhost) {
-        return 0;
-      }
+  static GetDifficultyMultiplier(difficulty: number, option: Option): number {
+    if (EnvironmentHelper.IsInvalidGameEnvironment()) {
+      return 0;
     }
 
     switch (difficulty) {
@@ -171,5 +180,14 @@ export class GameEndPoint {
     }
     // 保留小数点1位
     return Math.round(multiplier * 10) / 10;
+  }
+
+  /** 自定义模式下是否为不宜参与每日任务的极端配置（每日任务奖励分固定，不受综合积分倍率影响） */
+  public static IsExtremeCustomMode(option: Option): boolean {
+    // 秒活档位（下拉框最低档为10，留出余量避免卡在临界值）
+    if (option.respawnTimePercentage < 25) {
+      return true;
+    }
+    return this.GetCustomModeMultiplier(option) < 1;
   }
 }

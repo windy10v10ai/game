@@ -80,7 +80,6 @@ export const SellItemCommonJunkList: string[] = [
   'item_chasm_stone', // 裂隙之石
   'item_splintmail', // 片甲
 
-  'item_meteor_hammer', // 陨星锤
   'item_kaya', // 慧光
   'item_sange', // 散华
   'item_yasha', // 夜叉
@@ -126,7 +125,6 @@ export const SellItemCommonJunkList: string[] = [
   'item_famango',
   'item_great_famango',
   'item_greater_famango',
-  'item_cheese', // 奶酪
   'item_roshans_banner', // 肉山的战旗
 ];
 
@@ -165,6 +163,7 @@ export const ValueBasedSellItemsList: string[] = [
   'item_mekansm', // 梅肯斯姆
   'item_echo_sabre', // 回音刃
   'item_force_staff', // 推推棒
+  'item_meteor_hammer', // 陨星锤
   'item_glimmer_cape', // 微光
   'item_rod_of_atos', // 阿托斯之棍
 

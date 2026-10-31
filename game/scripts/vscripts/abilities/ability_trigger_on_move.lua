@@ -158,10 +158,7 @@ function modifier_trigger_on_move:TriggerRandomAbility(distance_multiplier)
     end
 
     -- 施放技能 - 使用与 ability_trigger_on_cast 相同的目标选择逻辑
-    local behavior = random_ability:GetBehavior()
-    if type(behavior) ~= "number" then
-        behavior = tonumber(tostring(behavior))
-    end
+    local behavior = GetBehaviorBits(random_ability:GetBehavior())
     local target_team = random_ability:GetAbilityTargetTeam()
 
     local cast_target = nil
@@ -172,7 +169,9 @@ function modifier_trigger_on_move:TriggerRandomAbility(distance_multiplier)
         cast_target = parent
         target_position = parent:GetAbsOrigin()
         --print("[TriggerOnMove Debug] 友方技能, 对自己释放")
-    elseif bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) ~= 0 then
+        -- 未设目标阵营的点目标技能也瞄敌人：对施法者自身位置施放时方向为零，技能放不出效果
+    elseif bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) ~= 0
+        or (target_team == DOTA_UNIT_TARGET_TEAM_NONE and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0) then
         local search_radius = 1200
         local enemies = FindUnitsInRadius(
             parent:GetTeamNumber(),

@@ -23,10 +23,16 @@ game/panorama/images/custom_game/member
 game/panorama/images/custom_game/conduct
 game/panorama/images/custom_game/hud
 game/panorama/images/custom_game/sns
+game/panorama/images/custom_game/website
+game/panorama/images/custom_game/feedback
 
 # tstl output
 game/scripts/vscripts/lualib_bundle.lua
 game/scripts/vscripts/addon_game_mode.lua
+game/scripts/vscripts/perf_auto_config.lua
+game/scripts/vscripts/debug_launch_config.lua
+# 实机检查的临时脚本（npm run dota:check）
+game/scripts/vscripts/checks/
 game/scripts/vscripts/ai/
 game/scripts/vscripts/api/
 game/scripts/vscripts/items/ts_items
@@ -44,3 +50,12 @@ game/.idea/
 .claude/settings.local.json
 /.superpowers
 /docs/superpowers
+/docs/review
+
+# 离线玩家数据快照（firebase 导出脚本生成，含明文 steamId 生产数据），不进版本控制
+game/scripts/kv/
+
+# skill 链接（npm run skills:link 生成，不进版本控制）
+/.agents/
+# Python 缓存
+__pycache__/

@@ -1,11 +1,13 @@
 interface PrimaryButtonProps {
   label: string;
   enabled?: boolean;
+  visible?: boolean;
   className?: string;
   onClick: () => void;
   tooltipText?: string;
-  // 'gold' 用于与 'primary' 蓝紫渐变区分的第二种货币/强调场景（shared/styles/buttons.less 的 .btn-gold）
-  variant?: 'primary' | 'gold';
+  // 'gold' 用于与 'primary' 蓝紫渐变区分的第二种货币/强调场景，'ghost' 用于不鼓励点击的次级操作
+  // （shared/styles/buttons.less 的 .btn-gold / .btn-ghost）
+  variant?: 'primary' | 'gold' | 'ghost';
   // label 中需要 <br> 固定断行位置时开启，默认纯文本渲染
   html?: boolean;
 }
@@ -17,19 +19,22 @@ interface PrimaryButtonProps {
 export function PrimaryButton({
   label,
   enabled = true,
+  visible = true,
   className,
   onClick,
   tooltipText,
   variant = 'primary',
   html = false,
 }: PrimaryButtonProps) {
-  const variantClass = variant === 'gold' ? 'btn-gold' : 'btn-primary';
+  const variantClass =
+    variant === 'gold' ? 'btn-gold' : variant === 'ghost' ? 'btn-ghost' : 'btn-primary';
   const buttonClass = className ? `${variantClass} ${className}` : variantClass;
 
   return (
     <Button
       className={buttonClass}
       enabled={enabled}
+      style={{ visibility: visible ? 'visible' : 'collapse' }}
       onactivate={onClick}
       onmouseover={(panel) =>
         tooltipText && $.DispatchEvent('DOTAShowTextTooltip', panel, tooltipText)

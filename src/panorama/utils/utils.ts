@@ -22,6 +22,17 @@ export function ConvertSteamIdTo32Bit(steamId64: string): string {
   return steamId32;
 }
 
+export const WEBSITE_URL = 'https://windy10v10ai.com';
+
+/**
+ * 网站上当前玩家的资料页，未登录时网站先显示登录面板。
+ * 不传 page 时指向资料主页（生涯数据、近期战绩都在那），游戏内没有对应的子页面。
+ */
+export function GetWebsiteProfileUrl(page?: 'property' | 'awaken'): string {
+  const base = `${WEBSITE_URL}/profile/${GetLocalPlayerSteamAccountID()}`;
+  return page ? `${base}/${page}` : base;
+}
+
 export function GetAfdianSubscribeUrl(): string {
   return (
     'https://ifdian.net/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=' +
@@ -52,20 +63,24 @@ export const KOFI_POINTS_URLS = [
 ];
 
 export const KOFI_SUBSCRIBE_URL = 'https://ko-fi.com/post/Membership-Z8Z01CDJLU';
-export const AFDIAN_SHOP_URL = 'https://ifdian.net/a/windy10v10ai?tab=shop';
-export const KOFI_SHOP_URL = 'https://ko-fi.com/windy10v10ai/shop';
 
-export type PaymentPlatform = 'alipay' | 'afdian' | 'kofi';
+export type PaymentPlatform = 'alipay' | 'afdian' | 'kofi' | 'stripe';
+
+/** 网站会员页；「其他支付方式」跳这里，不带参数，由网站按自己的语言选默认标签 */
+export const MEMBERSHIP_PAGE_URL = `${WEBSITE_URL}/membership`;
+/** Stripe 档位按钮与卡片底部链接统一跳这里，网站按参数直接选中 Stripe 标签 */
+export const STRIPE_MEMBERSHIP_URL = `${MEMBERSHIP_PAGE_URL}?platform=stripe`;
 
 /**
- * 支付方式展示顺序：简体中文玩家优先支付宝（折扣最大且仅限国内），
- * 其他语言优先 Ko-fi。数组首两项默认展示，第 3 项折叠。
+ * 支付方式展示顺序：游戏内只展示两张卡，其余平台统一交给网站。
+ * 简体中文优先支付宝（折扣最大且仅限国内）+ 爱发电；其他语言（含繁中、日文等）优先自动到账的
+ * Stripe + Ko-fi。推荐的平台排在前面。
  */
 export function GetPaymentPlatformOrder(): PaymentPlatform[] {
   if ($.Language() === 'schinese') {
-    return ['alipay', 'afdian', 'kofi'];
+    return ['alipay', 'afdian'];
   }
-  return ['kofi', 'afdian', 'alipay'];
+  return ['stripe', 'kofi'];
 }
 
 /**
@@ -115,6 +130,21 @@ export function IsInHeroSelectionLayer(): boolean {
   for (let panel: Panel | null = $.GetContextPanel(); panel; panel = panel.GetParent()) {
     if (panel.id === 'CustomUIContainer_HeroSelection') {
       return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * 当前 layout 是否运行在游戏内 HUD 层。
+ * hud_main 同时注册在 Hud / EndScreen / HeroSelection 三层，常驻组件只应渲染一份。
+ * 各层容器统一命名为 CustomUIContainer_<Type>，取祖先链上最近的那个即可判定所在层，
+ * 不用逐个硬编码其他层的容器名。
+ */
+export function IsInGameHudLayer(): boolean {
+  for (let panel: Panel | null = $.GetContextPanel(); panel; panel = panel.GetParent()) {
+    if (panel.id.startsWith('CustomUIContainer_')) {
+      return panel.id === 'CustomUIContainer_Hud';
     }
   }
   return false;

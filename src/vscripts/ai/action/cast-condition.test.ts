@@ -1,4 +1,10 @@
-import { CastCoindition, DeepMerge } from './cast-condition';
+import {
+  CastCoindition,
+  CheckAheadCircleFailure,
+  CheckFacingFailure,
+  DeepMerge,
+  FilterTargetWithCondition,
+} from './cast-condition';
 
 describe('DeepMerge', () => {
   it('should return the target if source is undefined', () => {
@@ -114,5 +120,94 @@ describe('DeepMerge', () => {
     expect(result).toEqual({
       debug: true,
     });
+  });
+});
+
+describe('FilterTargetWithCondition', () => {
+  const self = {
+    GetEntityIndex: () => 999,
+    GetRangeToUnit: () => 100,
+  } as unknown as CDOTA_BaseNPC_Hero;
+
+  const unit = (health: number, neutral: boolean): CDOTA_BaseNPC =>
+    ({
+      GetEntityIndex: () => health,
+      GetHealth: () => health,
+      GetHealthPercent: () => 100,
+      GetManaPercent: () => 100,
+      IsAlive: () => true,
+      IsNeutralUnitType: () => neutral,
+    }) as unknown as CDOTA_BaseNPC;
+
+  it('keeps only neutral units above the current-health threshold', () => {
+    const atThreshold = unit(1000, true);
+    const laneCreep = unit(5000, false);
+    const eligible = unit(1200, true);
+
+    expect(
+      FilterTargetWithCondition(
+        {
+          target: {
+            unitCondition: { health: { gte: 1001 }, neutralOnly: true },
+          },
+        },
+        [atThreshold, laneCreep, eligible],
+        self,
+      ),
+    ).toBe(eligible);
+  });
+});
+
+describe('CheckFacingFailure', () => {
+  // 施法者朝向 +X
+  const forward = { x: 1, y: 0 };
+
+  it('should not filter when facing is not declared', () => {
+    expect(CheckFacingFailure(undefined, forward, { x: -100, y: 0 })).toBe(false);
+  });
+
+  it('should accept a target in front when facing front', () => {
+    expect(CheckFacingFailure('front', forward, { x: 300, y: 0 })).toBe(false);
+    expect(CheckFacingFailure('front', forward, { x: 300, y: 200 })).toBe(false);
+  });
+
+  it('should reject a target behind when facing front', () => {
+    expect(CheckFacingFailure('front', forward, { x: -300, y: 0 })).toBe(true);
+    expect(CheckFacingFailure('front', forward, { x: -300, y: 200 })).toBe(true);
+  });
+
+  it('should accept a target behind when facing back', () => {
+    expect(CheckFacingFailure('back', forward, { x: -300, y: 0 })).toBe(false);
+    expect(CheckFacingFailure('back', forward, { x: -300, y: -200 })).toBe(false);
+  });
+
+  it('should reject a target in front when facing back', () => {
+    expect(CheckFacingFailure('back', forward, { x: 300, y: 0 })).toBe(true);
+  });
+
+  it('should reject a target straight to the side for both sides', () => {
+    expect(CheckFacingFailure('front', forward, { x: 0, y: 300 })).toBe(true);
+    expect(CheckFacingFailure('back', forward, { x: 0, y: 300 })).toBe(true);
+  });
+
+  it('should judge by the horizontal plane regardless of forward vector length', () => {
+    expect(CheckFacingFailure('front', { x: 0.3, y: -0.4 }, { x: 30, y: -40 })).toBe(false);
+    expect(CheckFacingFailure('front', { x: 0.3, y: -0.4 }, { x: -30, y: 40 })).toBe(true);
+  });
+});
+
+describe('CheckAheadCircleFailure', () => {
+  // 施法者朝向 +X，圆心在身前 450 处，半径 250
+  const forward = { x: 1, y: 0 };
+
+  it('should accept a target inside the circle ahead', () => {
+    expect(CheckAheadCircleFailure(forward, { x: 450, y: 0 }, 450, 250)).toBe(false);
+    expect(CheckAheadCircleFailure(forward, { x: 300, y: 150 }, 450, 250)).toBe(false);
+  });
+
+  it('should reject a target beside or behind the circle', () => {
+    expect(CheckAheadCircleFailure(forward, { x: 450, y: 300 }, 450, 250)).toBe(true);
+    expect(CheckAheadCircleFailure(forward, { x: 100, y: 0 }, 450, 250)).toBe(true);
+    expect(CheckAheadCircleFailure(forward, { x: -450, y: 0 }, 450, 250)).toBe(true);
   });
 });

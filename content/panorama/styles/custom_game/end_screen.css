@@ -48,6 +48,35 @@
   flow-children: right;
   vertical-align: middle;
 }
+/* 只提醒本局没记账，不抢胜负结果的视线：与个人中心、属性页共用状态点与字色，但不加底色 */
+#OfflineHint {
+  width: fill-parent-flow(1);
+  margin: 10px 10px 0px 10px;
+  vertical-align: center;
+  visibility: collapse;
+}
+#OfflineHintRow {
+  max-width: 100%;
+  horizontal-align: center;
+  flow-children: right;
+}
+#OfflineHintDot {
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  vertical-align: center;
+  border-radius: 50%;
+  background-color: #7a8ca0;
+  box-shadow: #7a8ca055 0px 0px 3px 1px;
+}
+/* 窄屏时折成两行 */
+#OfflineHintLabel {
+  vertical-align: center;
+  font-size: 18px;
+  color: #d6dee8;
+  text-shadow: 2px 2px 6px black;
+  white-space: normal;
+}
 
 #EndScreenWindow #MatchResultBlock #EndScreenVictory {
   margin-left: 10px;
@@ -68,7 +97,8 @@
   color: #00a2ff;
   text-shadow: 3px 3px 10px black;
   letter-spacing: 1.5px;
-  width: 50%;
+  /* 与离线提示均分按钮左侧的空间，4:3 屏幕上固定半宽会把提示挤没 */
+  width: fill-parent-flow(1);
   text-align: center;
 }
 
@@ -146,14 +176,56 @@
   transition: background-color 0.35s ease-in-out 0.1s;
 }
 
-/* 数据同步状态 */
+/* 结算状态：紧贴离开按钮，与离线提示同一套状态点与字色。未确认用中性灰，请求多半已送达，不报坏消息 */
+#SettleStatus {
+  margin: 10px 16px 0px 0px;
+  vertical-align: center;
+  flow-children: right;
+}
+#SettleStatusDot {
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  vertical-align: center;
+  border-radius: 50%;
+  background-color: #7a8ca0;
+  box-shadow: #7a8ca055 0px 0px 3px 1px;
+}
+#SettleStatus.Settling #SettleStatusDot {
+  background-color: #e8a03c;
+  box-shadow: #e8a03c66 0px 0px 3px 1px;
+  animation-name: SettleStatusPulse;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+#SettleStatus.Settled #SettleStatusDot {
+  background-color: #5ebd51;
+  box-shadow: #5ebd5166 0px 0px 3px 1px;
+}
 #GameEndingStatusText {
-  margin-right: 50px;
-  /* flow right */
-  font-weight: bold;
-  color: #ffffff;
-  text-shadow: 3px 3px 10px black;
-  horizontal-align: right;
+  vertical-align: center;
+  font-size: 18px;
+  color: #d6dee8;
+  text-shadow: 2px 2px 6px black;
+}
+#EndScreenWindow #MatchResultBlock #CloseButton:disabled {
+  background-color: #3a2a2b;
+}
+#EndScreenWindow #MatchResultBlock #CloseButton:disabled Label {
+  color: #8a7f80;
+}
+
+@keyframes 'SettleStatusPulse' {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 #EndScreenWindow #MatchResultBlock #MatchResultPlayer {
@@ -367,6 +439,14 @@
   align: center center;
 }
 
+.PointsBadgeColumn {
+  flow-children: down;
+  width: fit-children;
+  height: fit-children;
+  margin-left: 4px;
+  vertical-align: center;
+}
+
 .AspectRatio4x3 .PtsColumn {
   width: 58px;
 }
@@ -383,7 +463,7 @@
 
 .PointsModifier {
   font-size: 14px;
-  margin-left: 2px;
+  margin-top: 2px;
 }
 
 .AspectRatio4x3 .PointsValue,
@@ -396,6 +476,23 @@
 
 .AspectRatio4x3 .PointsModifier {
   font-size: 14px;
+}
+
+.DailyTaskBadge {
+  horizontal-align: center;
+}
+
+.DailyTaskBadgeValue {
+  font-size: 14px;
+  color: #9b5de0;
+  text-shadow: 1px 1px 3px 3 #000;
+  brightness: 2;
+  vertical-align: center;
+  horizontal-align: center;
+}
+
+.AspectRatio4x3 .DailyTaskBadgeValue {
+  font-size: 12px;
 }
 
 .AspectRatio4x3 .PtsColumn > Image {

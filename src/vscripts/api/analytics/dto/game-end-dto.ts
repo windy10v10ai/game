@@ -1,3 +1,4 @@
+import { DailyTaskResultDto } from '../../../../common/dto/daily-task';
 import { EventBaseDto } from './event-base-dto';
 
 export class GameEndGameOptionsDto {
@@ -34,12 +35,57 @@ export class GameEndPlayerDto {
 
   /** 0=未觉醒 1=已觉醒。用数值而非布尔，为将来多阶觉醒等档位留扩展余地 */
   awaken: number;
+
+  /**
+   * 结算界面那一行的属性、出装与抽选技能，只有真人玩家上报：机器人的没有消费方，
+   * 填了只会撑大请求体。items 定长 6，下标即主物品栏槽位，空槽为空串。
+   */
+  strength?: number;
+  agility?: number;
+  intellect?: number;
+  items?: string[];
+  neutralItem?: string;
+  neutralPassiveItem?: string;
+  /** 顺序为主动、被动 1、被动 2 */
+  abilities?: string[];
+
+  /** 未完成任务时不发送；发送则四个字段必须齐全 */
+  dailyTask?: DailyTaskResultDto;
+}
+
+/** 主机类型：启动器开出的专用服、游廊本地主机 */
+export type GameHost = 'launcher' | 'local';
+
+export class GamePerfSegmentDto {
+  /** 这一段的真实时长 ÷ DOTA 时长，扣除暂停 */
+  ratio: number;
+  /** 段末全图单位数与 modifier 总数 */
+  units: number;
+  modifiers: number;
+}
+
+/** 整局卡顿统计，一局只上报一份 */
+export class GamePerfDto {
+  host: GameHost;
+  /** 号角到结算的真实秒数，扣除暂停；与 dotaTimeMsec 同一区间 */
+  realSec: number;
+  units: number;
+  modifiers: number;
+  /** 按固定 DOTA 时长切段；不满一段的结尾不单列，需要时用总数减出 */
+  segments: GamePerfSegmentDto[];
 }
 
 export class GameEndDto extends EventBaseDto {
+  customMatchId: string;
   gameOptions: GameEndGameOptionsDto;
   winnerTeamId: number;
+  // FIXME: 值其实是号角起算的 DOTA 时间，名字有误；后端改读 dotaTimeMsec 后删除
   gameTimeMsec: number;
+  /** 号角起算的 DOTA 时间，不含选人与准备阶段 */
+  dotaTimeMsec: number;
   countryCode: string;
+  /** 全场真人数（不含机器人），后端据此做限额判断，每次结算必带 */
+  playerCount: number;
   players: GameEndPlayerDto[];
+  perf?: GamePerfDto;
 }

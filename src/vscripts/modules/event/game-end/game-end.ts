@@ -4,21 +4,90 @@ import {
   GameEndPlayerDto,
 } from '../../../api/analytics/dto/game-end-dto';
 import { GA4 } from '../../../api/analytics/ga4/ga4';
-import { GA4ItemTracker } from '../../../api/analytics/ga4/ga4-item-tracker';
+import { HeroItemUsage } from '../../../api/analytics/hero-item-usage';
+import { GA4DailyTaskTracker } from '../../../api/analytics/ga4/ga4-daily-task-tracker';
 import { GA4PickAbilityTracker } from '../../../api/analytics/ga4/ga4-pick-ability-tracker';
-import { ApiClient } from '../../../api/api-client';
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
 import { isAwakened } from '../../awaken/awaken-replacer';
 import { GameConfig } from '../../GameConfig';
+import { LagTelemetry } from '../../lag-telemetry/lag-telemetry';
+import { NetTableHelper } from '../../helper/net-table-helper';
 import { PlayerHelper } from '../../helper/player-helper';
-import { GameEndPoint, normalizeControlTime } from './game-end-point';
+import { EventPlayerDisconnect } from '../event-player-disconnect';
+import { GameEndPoint } from './game-end-point';
+
+const FORT_MIN_HEALTH_MODIFIER = 'modifier_fort_min_health';
+// 基地锁在 1 血，检查间隔内回血最多约 45，阈值要高过它才不会被回血顶过去
+const FORT_SETTLE_HEALTH = 50;
+const FORT_CHECK_INTERVAL = 0.25;
+// 结算三次尝试各 3 秒，再久就不等回调，照常推掉基地
+const SETTLE_WAIT_SECONDS = 10;
 
 @reloadable
 export class GameEnd {
   public static gameEndTriggered: boolean = false;
+  public static settled: boolean = false;
 
-  public static OnGameEnd(winnerTeamId: DotaTeam): void {
+  /** 基地掉到阈值就开始结算，回调回来或等待超时后再推掉基地 */
+  public static WatchForts(forts: CDOTA_BaseNPC[]): void {
+    for (const fort of forts) {
+      fort.AddAbility('fort_min_health')?.SetLevel(1);
+    }
+    Timers.CreateTimer(FORT_CHECK_INTERVAL, () => {
+      for (const fort of forts) {
+        if (IsValidEntity(fort) && fort.IsAlive() && fort.GetHealth() <= FORT_SETTLE_HEALTH) {
+          this.SettleThenEnd(fort);
+          return undefined;
+        }
+      }
+      return FORT_CHECK_INTERVAL;
+    });
+  }
+
+  /** 基地没锁住被直接打死时兜底：进入结算画面后收不到回调，结果只能标成未确认 */
+  public static OnFortKilled(fort: CDOTA_BaseNPC): void {
+    this.OnGameEnd(this.GetEnemyTeam(fort));
+    this.MarkSettled(false);
+  }
+
+  private static SettleThenEnd(fort: CDOTA_BaseNPC): void {
+    if (this.gameEndTriggered) {
+      this.KillFort(fort);
+      return;
+    }
+    this.OnGameEnd(this.GetEnemyTeam(fort), () => this.KillFort(fort));
+    Timers.CreateTimer(SETTLE_WAIT_SECONDS, () => {
+      this.MarkSettled(false);
+      this.KillFort(fort);
+      return undefined;
+    });
+  }
+
+  private static KillFort(fort: CDOTA_BaseNPC): void {
+    if (!IsValidEntity(fort) || !fort.IsAlive()) return;
+    fort.RemoveModifierByName(FORT_MIN_HEALTH_MODIFIER);
+    fort.ForceKill(false);
+  }
+
+  private static GetEnemyTeam(fort: CDOTA_BaseNPC): DotaTeam {
+    return fort.GetTeamNumber() === DotaTeam.GOODGUYS ? DotaTeam.BADGUYS : DotaTeam.GOODGUYS;
+  }
+
+  /** 结算界面只认第一次结果，之后的回调或超时不再改写 */
+  private static MarkSettled(recorded: boolean): void {
+    if (this.settled) return;
+    this.settled = true;
+    CustomNetTables.SetTableValue('ending_status', 'ending_status', { status: recorded ? 2 : 3 });
+    // 引擎同时只跑几个 HTTP 请求，统计先发会把结算的重发挤到队尾
+    const sendStats = this.pendingStats;
+    this.pendingStats = undefined;
+    sendStats?.();
+  }
+
+  private static pendingStats?: () => void;
+
+  public static OnGameEnd(winnerTeamId: DotaTeam, onSettled?: () => void): void {
     if (this.gameEndTriggered) {
       return;
     }
@@ -28,31 +97,29 @@ export class GameEnd {
     // build game end dto
     const gameEndDto = this.BuildGameEndDto(winnerTeamId);
 
+    this.pendingStats = () => {
+      try {
+        HeroItemUsage.Finish(gameEndDto);
+      } catch (error) {
+        print(`[HeroItemUsage] failed: ${error}`);
+      }
+      this.SendAnalyticsEvent(gameEndDto);
+    };
     // send game end dto
-    Game.EndGame(gameEndDto);
+    Game.EndGame(gameEndDto, (recorded) => {
+      this.MarkSettled(recorded);
+      onSettled?.();
+    });
     CustomNetTables.SetTableValue('ending_status', 'ending_data', { winner_team_id: winnerTeamId });
-
-    this.SendAnalyticsEvent(gameEndDto);
   }
 
   private static BuildGameEndDto(winnerTeamId: DotaTeam): GameEndDto {
-    const gameOptionsData = CustomNetTables.GetTableValue('game_options', 'game_options');
     const difficulty = CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty ?? 0;
-    const gameOptions: GameEndGameOptionsDto = {
-      multiplierRadiant: gameOptionsData.multiplier_radiant,
-      multiplierDire: gameOptionsData.multiplier_dire,
-      playerNumberRadiant: gameOptionsData.player_number_radiant,
-      playerNumberDire: gameOptionsData.player_number_dire,
-      towerPowerPct: gameOptionsData.tower_power_pct,
-      respawnTimePct: gameOptionsData.respawn_time_pct,
-    };
+    const gameOptions = this.BuildGameOptions()!;
 
-    const gameTime = GameRules.GetGameTime();
-    const difficultyMultiplier = GameEndPoint.GetDifficultyMultiplier(
-      difficulty,
-      ApiClient.IsLocalhost(),
-      GameRules.Option,
-    );
+    // 从号角吹响算起，与游戏内计时器、结算界面显示的时长一致，不含选人与准备阶段
+    const dotaTime = GameRules.GetDOTATime(false, false);
+    const difficultyMultiplier = GameEndPoint.GetDifficultyMultiplier(difficulty, GameRules.Option);
 
     const players: GameEndPlayerDto[] = [];
     // Pre-collect steamIds to determine real player count for team game check
@@ -67,46 +134,27 @@ export class GameEnd {
     );
 
     PlayerHelper.ForEachPlayer((playerId) => {
-      const player = PlayerResource.GetPlayer(playerId);
-      if (!player) {
-        return;
-      }
-      const hero = player.GetAssignedHero();
+      // 掉线玩家取不到 player 对象，英雄仍在，从英雄取才能让他们也进结算
+      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
       if (!hero) {
         return;
       }
 
-      let damageTaken = 0;
-      for (let victimID = 0; victimID < DOTA_MAX_TEAM_PLAYERS; victimID++) {
-        if (
-          PlayerResource.IsValidPlayerID(victimID) &&
-          PlayerResource.IsValidPlayer(victimID) &&
-          PlayerResource.GetSelectedHeroEntity(victimID)
-        ) {
-          if (PlayerResource.GetTeam(victimID) !== PlayerResource.GetTeam(playerId)) {
-            damageTaken += PlayerResource.GetDamageDoneToHero(victimID, playerId);
-          }
-        }
-      }
-
-      // 本局累计获得金币，扣除从虚拟金币库转回的金额，与 end_screen_2.js money 列保持一致
-      const virtualGoldData = CustomNetTables.GetTableValue(
-        'player_virtual_gold',
-        playerId.toString(),
-      );
-      const transferredBackTotal = virtualGoldData?.transferred_back_total ?? 0;
-      const totalGoldEarned = Math.max(
-        0,
-        PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal,
-      );
-      const stuns = normalizeControlTime(PlayerResource.GetStuns(playerId));
+      const damageTaken = PlayerHelper.GetDamageTaken(playerId);
+      const totalGoldEarned = PlayerHelper.GetTotalGoldEarned(playerId);
+      const stuns = PlayerHelper.GetStuns(playerId);
+      // 结算界面与上报取同一份，避免两处各读一次引擎后口径走偏。
+      // 引擎给的是小数，取整后上报的才等于界面上显示的那个整数
+      const strength = Math.floor(hero.GetStrength());
+      const agility = Math.floor(hero.GetAgility());
+      const intellect = Math.floor(hero.GetIntellect(false));
 
       const playerDto: GameEndPlayerDto = {
         heroName: PlayerResource.GetSelectedHeroName(playerId),
         steamId: PlayerResource.GetSteamAccountID(playerId),
         playerId: playerId,
         teamId: PlayerResource.GetTeam(playerId),
-        isDisconnected: PlayerResource.GetConnectionState(playerId) !== ConnectionState.CONNECTED,
+        isDisconnected: EventPlayerDisconnect.IsEscaped(playerId),
         level: PlayerResource.GetLevel(playerId),
         totalGoldEarned,
         kills: PlayerResource.GetKills(playerId),
@@ -123,11 +171,18 @@ export class GameEnd {
         battlePoints: 0,
         awaken: isAwakened(hero) ? 1 : 0,
       };
+      if (playerDto.steamId > 0) {
+        playerDto.strength = strength;
+        playerDto.agility = agility;
+        playerDto.intellect = intellect;
+        this.FillLoadout(playerDto, hero);
+      }
       playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
-      const rawBattlePoints = this.CalculatePlayerBattlePoints(
+      const baseBattlePoints = this.CalculatePlayerBattlePoints(
         playerDto,
         difficultyMultiplier,
         winnerTeamId,
+        dotaTime,
       );
 
       const playerInfo = CustomNetTables.GetTableValue(
@@ -136,64 +191,126 @@ export class GameEnd {
       );
       const conductPoint = playerInfo?.conductPoint ?? 100;
       const conductMultiplier = this.GetConductMultiplier(conductPoint, isTeamGame);
-      // 最终积分 = 原始积分 × 行为分倍率（向上取整 0）
-      const finalBattlePoints = Math.max(0, Math.round(rawBattlePoints * conductMultiplier));
-      // 修正量（用于结算界面括号展示，正=加成 负=惩罚 0=无变化）
-      const pointModifier = finalBattlePoints - rawBattlePoints;
-      playerDto.battlePoints = finalBattlePoints;
+      // 对局积分 = 原始积分 × 行为分倍率（向上取整 0），不含每日任务奖励
+      const matchPoints = Math.max(0, Math.round(baseBattlePoints * conductMultiplier));
+      // 行为分倍率造成的增减（用于结算界面括号展示，正=加成 负=惩罚 0=无变化）
+      const conductDelta = matchPoints - baseBattlePoints;
+
+      // 掉线玩家、未获胜的一方不结算每日任务，哪怕指标已达标
+      const dailyTaskEligible = !playerDto.isDisconnected && playerDto.teamId === winnerTeamId;
+      const dailyTaskCompletion = dailyTaskEligible
+        ? GameRules.DailyTask.EvaluateCompletion(playerId)
+        : undefined;
+      if (dailyTaskCompletion) {
+        playerDto.dailyTask = dailyTaskCompletion.result;
+      }
+      const dailyTaskPoints = dailyTaskCompletion?.result.seasonPoint ?? 0;
+      // 须在行为分倍率之后并入，否则候选卡上写的奖励值会被倍率放大/缩小
+      playerDto.battlePoints = matchPoints + dailyTaskPoints;
       players.push(playerDto);
 
       print(
         `[GameEnd] player ${playerId} steamId=${playerDto.steamId} ` +
-          `raw=${rawBattlePoints} conductPoint=${conductPoint} ` +
-          `multiplier=${conductMultiplier} final=${finalBattlePoints} modifier=${pointModifier}`,
+          `base=${baseBattlePoints} dailyTaskPoints=${dailyTaskPoints} total=${playerDto.battlePoints}`,
       );
 
-      // 结算界面数据：points 是最终积分，pointModifier 仅用于括号展示
+      // 结算界面数据：points 是最终积分，conductDelta / dailyTask 仅用于明细展示
       CustomNetTables.SetTableValue('player_stats', playerId.toString(), {
         steamId: playerDto.steamId.toString(),
         heroDamage: playerDto.heroDamage,
         damagereceived: damageTaken,
         healing: playerDto.healing,
         points: playerDto.battlePoints,
-        pointModifier,
+        conductDelta,
         conductPoint,
-        str: hero.GetStrength(),
-        agi: hero.GetAgility(),
-        int: hero.GetIntellect(false),
+        str: strength,
+        agi: agility,
+        int: intellect,
         towerKills: playerDto.towerKills,
         stuns: playerDto.stuns,
+        dailyTask: dailyTaskCompletion?.candidate,
       });
     });
 
     const gameEndDto: GameEndDto = {
       isWin: winnerTeamId === DotaTeam.GOODGUYS,
       matchId: GameRules.Script_GetMatchID().toString(),
+      customMatchId: Game.customMatchId,
       version: GameConfig.GAME_VERSION,
       difficulty,
       steamId: 0, // 非玩家单位的事件，固定0
       gameOptions,
       winnerTeamId,
-      gameTimeMsec: Math.round(gameTime * 1000),
+      gameTimeMsec: Math.round(dotaTime * 1000),
+      dotaTimeMsec: Math.round(dotaTime * 1000),
       countryCode: GA4.countryCode,
+      playerCount: Math.max(1, players.filter((player) => player.steamId > 0).length),
       players,
+      perf: LagTelemetry.Finish(),
     };
 
     return gameEndDto;
+  }
+
+  /** 游戏选项，房主还没设置时为空 */
+  public static BuildGameOptions(): GameEndGameOptionsDto | undefined {
+    const gameOptionsData = CustomNetTables.GetTableValue('game_options', 'game_options');
+    if (!gameOptionsData) return undefined;
+    return {
+      multiplierRadiant: gameOptionsData.multiplier_radiant,
+      multiplierDire: gameOptionsData.multiplier_dire,
+      playerNumberRadiant: gameOptionsData.player_number_radiant,
+      playerNumberDire: gameOptionsData.player_number_dire,
+      towerPowerPct: gameOptionsData.tower_power_pct,
+      respawnTimePct: gameOptionsData.respawn_time_pct,
+    };
+  }
+
+  /** 采集结算界面展示的出装与抽选技能 */
+  public static FillLoadout(
+    playerDto: Pick<
+      GameEndPlayerDto,
+      'steamId' | 'items' | 'neutralItem' | 'neutralPassiveItem' | 'abilities'
+    >,
+    hero: CDOTA_BaseNPC_Hero,
+  ): void {
+    const items: string[] = [];
+    for (let slot = 0; slot <= InventorySlot.SLOT_6; slot++) {
+      items.push(this.GetItemName(hero, slot));
+    }
+    playerDto.items = items;
+    playerDto.neutralItem = this.GetItemName(hero, InventorySlot.NEUTRAL_ACTIVE_SLOT);
+    playerDto.neutralPassiveItem = this.GetItemName(hero, InventorySlot.NEUTRAL_PASSIVE_SLOT);
+
+    const lotteryStatus = NetTableHelper.GetLotteryStatus(playerDto.steamId.toString());
+    playerDto.abilities = [
+      lotteryStatus.activeAbilityName ?? '',
+      lotteryStatus.passiveAbilityName ?? '',
+      lotteryStatus.passiveAbilityName2 ?? '',
+    ];
+  }
+
+  private static GetItemName(hero: CDOTA_BaseNPC_Hero, slot: number): string {
+    const item = hero.GetItemInSlot(slot);
+    return item ? item.GetAbilityName() : '';
   }
 
   static CalculatePlayerBattlePoints(
     player: GameEndPlayerDto,
     difficultyMultiplier: number,
     winnerTeamId: DotaTeam,
+    dotaTime: number,
   ): number {
     if (player.steamId === 0) {
       // 电脑不获得积分
       return 0;
     }
     const teamKills = PlayerResource.GetTeamKills(player.teamId);
-    const timeMultiplier = GameEndPoint.GetParticipationRateMultiplier(player, teamKills);
-    const gameTimePoints = GameEndPoint.GetGameTimePoints(GameRules.GetGameTime()) * timeMultiplier;
+    // 逃跑只算数据分，不给时间分
+    const timeMultiplier = player.isDisconnected
+      ? 0
+      : GameEndPoint.GetParticipationRateMultiplier(player, teamKills);
+    const gameTimePoints = GameEndPoint.GetGameTimePoints(dotaTime) * timeMultiplier;
     const basePoints = player.score + gameTimePoints;
     const points = basePoints * difficultyMultiplier;
     // 输了积分减半
@@ -217,9 +334,7 @@ export class GameEnd {
   private static SendAnalyticsEvent(gameEndDto: GameEndDto) {
     // 发送 GA4 游戏结束技能选择事件
     GA4PickAbilityTracker.SendAtGameEnd(gameEndDto);
-    // 发送 GA4 物品持有时长事件
-    GA4ItemTracker.SendAtGameEnd(gameEndDto);
-    // 发送 GA4 匹配时间事件
-    GA4.SendGameEndMatchTimeEvents();
+    // 发送 GA4 每日任务选择/完成事件
+    GA4DailyTaskTracker.SendAtGameEnd(gameEndDto);
   }
 }

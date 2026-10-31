@@ -1,0 +1,100 @@
+/**
+ * 英雄层交战判断：没打起来时打不过就不上，队友被打时扛得住就一起接战；
+ * 打起来后明显打不过就趁早走，打得过就打到快扛不住再撤，跑不掉才原地还手。
+ */
+
+import { AVOID_POWER_RATIO, KEEP_FIGHTING_RATIO } from '../team/power';
+
+export type Stance = 'task' | 'fight' | 'hold' | 'retreat' | 'lastStand';
+
+// 按近期受到的伤害还能撑这么多秒以上就继续打，撤退要走一段路，留出余量
+const SURVIVE_SECONDS = 3;
+// 团队还在打的仗，身边战力差到「继续打」倍率的这么多倍才不再硬撑
+const TEAM_BACKED_SLACK = 2;
+const REENGAGE_SURVIVE_FACTOR = 2;
+
+export interface EngagementInput {
+  engaged: boolean;
+  ourPower: number;
+  enemyPower: number;
+  canEscape: boolean;
+  /** 按近期受到的伤害，自己还能撑的秒数 */
+  survivalSeconds: number;
+  /** 上一次判断就在撤退，或因打不过在外围等 */
+  wasAvoiding: boolean;
+  /** 被派去接一场队友已经打起来的仗 */
+  joining: boolean;
+  /** 守基地：不按战力比撤，只在快被打死时走 */
+  holdGround: boolean;
+  /** 团队按全队战力仍决定打这一仗：身边一时人少也不掉头，只在快被打死时走 */
+  teamBacked: boolean;
+}
+
+/** 还没打起来时，这波敌人是否值得主动上去打：走上去交战与先手跳进敌人身边都用这一个口径。 */
+export function canEngage(ourPower: number, enemyPower: number): boolean {
+  return enemyPower <= ourPower * AVOID_POWER_RATIO;
+}
+
+export type CastStance = 'fight' | 'retreat';
+
+/** 位移、隐身这类技能按英雄已做出的打/撤决定选用法；跑不掉时两种都可能救命。 */
+export function matchesStance(want: CastStance, stance: Stance): boolean {
+  return stance === want || stance === 'lastStand';
+}
+
+export function decideStance(input: EngagementInput): Stance {
+  if (input.enemyPower <= 0) {
+    return 'task';
+  }
+  if (input.holdGround) {
+    if (input.survivalSeconds >= SURVIVE_SECONDS) {
+      return 'fight';
+    }
+    return input.canEscape ? 'retreat' : 'lastStand';
+  }
+  // 队友已经打起来时按「继续打」的口径接战，不丢下挨打的队友
+  if (!input.engaged) {
+    const ready = input.joining
+      ? input.enemyPower <= input.ourPower * KEEP_FIGHTING_RATIO
+      : canEngage(input.ourPower, input.enemyPower);
+    return ready ? 'fight' : 'hold';
+  }
+  // 援军赶来前身边只剩自己几个、对面又强出一大截时，再撑也等不到人，团队还在打也先撤
+  const hopeless = input.enemyPower > input.ourPower * KEEP_FIGHTING_RATIO * TEAM_BACKED_SLACK;
+  if (input.teamBacked && !hopeless) {
+    // 刚因快撑不住撤下来的，被奶回一点血不马上掉头，否则在交战边缘来回进出
+    const needed = input.wasAvoiding ? SURVIVE_SECONDS * REENGAGE_SURVIVE_FACTOR : SURVIVE_SECONDS;
+    if (input.survivalSeconds >= needed) {
+      return 'fight';
+    }
+    return input.canEscape ? 'retreat' : 'lastStand';
+  }
+  // 打起来前已判断打不过的，被碰到也继续走，不因挨了一下就冲上去；
+  // 撤退中伤害停了也不马上回头，否则残血在交战边缘来回进出
+  if (input.wasAvoiding && !input.joining) {
+    return input.canEscape ? 'retreat' : 'lastStand';
+  }
+  const losing = input.enemyPower > input.ourPower * KEEP_FIGHTING_RATIO;
+  if (!losing && input.survivalSeconds >= SURVIVE_SECONDS) {
+    return 'fight';
+  }
+  return input.canEscape ? 'retreat' : 'lastStand';
+}
+
+export function survivalSeconds(health: number, damage: number, elapsed: number): number {
+  if (damage <= 0 || elapsed <= 0) {
+    return Infinity;
+  }
+  return health / (damage / elapsed);
+}
+
+export interface EscapeInput {
+  rooted: boolean;
+  /** 有比自己快的敌人已经贴到自己攻击距离内 */
+  caughtByFaster: boolean;
+}
+
+/** 只有被定身、或已被更快的敌人贴身追着打才算跑不掉，此时原地还手；甩开了就继续跑。 */
+export function canEscape(input: EscapeInput): boolean {
+  return !input.rooted && !input.caughtByFaster;
+}

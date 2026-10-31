@@ -1,9 +1,4 @@
-import {
-  AFDIAN_SHOP_URL,
-  GetAfdianSubscribeUrl,
-  KOFI_SHOP_URL,
-  KOFI_SUBSCRIBE_URL,
-} from '@utils/utils';
+import { GetAfdianSubscribeUrl, KOFI_SUBSCRIBE_URL, WEBSITE_URL } from '@utils/utils';
 
 export const enum MemberLevel {
   NORMAL = 1,
@@ -14,6 +9,15 @@ export const CROWN_GOLD = 'file://{images}/custom_game/member/golden_crown.png';
 export const CROWN_GREY = 'file://{images}/custom_game/member/golden_crown_grey.png';
 export const AFDIAN_ICON = 'file://{images}/custom_game/afdian.png';
 export const KOFI_LOGO = 'file://{images}/custom_game/member/ko-fi-logo-small.png';
+export const STRIPE_LOGO = 'file://{images}/custom_game/member/stripe.png';
+export const EXTERNAL_LINK_ICON = 'file://{images}/custom_game/member/external-link.png';
+// Panorama 的 Image 只给高度时按原图宽度显示，宽度按原图比例写死（原图高 36px，显示高 12px）
+export const STRIPE_PAY_LOGOS = [
+  { src: 'file://{images}/custom_game/member/pay/visa.png', width: 37 },
+  { src: 'file://{images}/custom_game/member/pay/mastercard.png', width: 19 },
+  { src: 'file://{images}/custom_game/member/pay/apple-pay.png', width: 29 },
+  { src: 'file://{images}/custom_game/member/pay/google-pay.png', width: 32 },
+];
 
 export type MemberSubTab = 'status' | 'subscribe' | 'points';
 
@@ -23,10 +27,19 @@ export const MEMBER_SUB_TABS: { id: MemberSubTab; label: string }[] = [
   { id: 'points', label: $.Localize('#member_subtab_points') },
 ];
 
-export const AFDIAN_ACTIVATE_URL = 'https://windy10v10ai.com/regist/afdian';
-export const KOFI_ACTIVATE_URL = 'https://windy10v10ai.com/regist/kofi';
+export const AFDIAN_ACTIVATE_URL = `${WEBSITE_URL}/regist/afdian`;
+export const KOFI_ACTIVATE_URL = `${WEBSITE_URL}/regist/kofi`;
 
 export const openUrl = (url: string) => () => $.DispatchEvent('ExternalBrowserGoToURL', url);
+
+/** 订阅档位的时长文字（「3 个月」「1 年」），支付宝与 Stripe 卡共用；数量为 1 单独取文案，英文才有单复数 */
+export function formatTierDuration(months: number): string {
+  const [n, unit] = months % 12 === 0 ? [months / 12, 'year'] : [months, 'month'];
+  if (n === 1) {
+    return $.Localize(`#member_alipay_tier_${unit}_one`);
+  }
+  return $.Localize(`#member_alipay_tier_${unit}_fmt`).replace('{n}', String(n));
+}
 
 // ============================================================
 // 会员订阅平台 / 商品配置
@@ -100,4 +113,35 @@ export const ALIPAY_POINTS_TIERS: AlipayPointsTier[] = [
   { productCode: AlipayProductCode.POINTS_TIER3, points: 31000, price: '568.00', savedAmount: 80 },
 ];
 
-export { AFDIAN_SHOP_URL, GetAfdianSubscribeUrl, KOFI_SHOP_URL, KOFI_SUBSCRIBE_URL };
+// ============================================================
+// Stripe（外链，游戏内无支付流程，所有按钮跳同一网站链接）
+// ============================================================
+
+/** 与 firebase 仓库 web/config/membership.ts 的 STRIPE_MEMBER_TIERS 保持一致 */
+export interface StripeMemberTier {
+  months: number;
+  pricePerMonth: string;
+  discountPercent: number;
+}
+
+export const STRIPE_MEMBER_TIERS: StripeMemberTier[] = [
+  { months: 1, pricePerMonth: '4.00', discountPercent: 0 },
+  { months: 3, pricePerMonth: '3.83', discountPercent: 4 },
+  { months: 12, pricePerMonth: '3.58', discountPercent: 10 },
+  { months: 36, pricePerMonth: '3.39', discountPercent: 15 },
+];
+
+/** 与 firebase 仓库 web/config/membership.ts 的 POINTS_TIERS 保持一致；savedAmount 按 Ko-fi 原价算 */
+export interface StripePointsTier {
+  points: number;
+  price: string;
+  savedAmount: number;
+}
+
+export const STRIPE_POINTS_TIERS: StripePointsTier[] = [
+  { points: 4000, price: '10.99', savedAmount: 1 },
+  { points: 12500, price: '33.99', savedAmount: 3 },
+  { points: 31000, price: '80.99', savedAmount: 9 },
+];
+
+export { GetAfdianSubscribeUrl, KOFI_SUBSCRIBE_URL };

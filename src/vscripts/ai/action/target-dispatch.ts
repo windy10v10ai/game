@@ -5,12 +5,17 @@ import {
   GetFullCastRange,
 } from '../ability/ability-cast';
 import { TargetSide } from '../ability/ability-spec';
+import { matchesStance } from '../hero/engagement';
+import { HeroUtil } from '../hero/hero-util';
+import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
+import { FRIENDLY_CREEP_SEARCH_RADIUS } from './action-find';
 import {
   CastCoindition,
   CheckAbilityConditionFailure,
   CheckNumberRangeFailure,
   CheckUnitConditionFailure,
   FilterTargetWithCondition,
+  GetAbilityBehaviorBits,
   NumberRange,
 } from './cast-condition';
 
@@ -41,18 +46,62 @@ export function TryCastBySpec(
   if (CheckNoEnemyHeroInRangeFailure(ai, condition?.self?.noEnemyHeroInRange)) {
     return false;
   }
+  if (CheckEnemyHeroInRangeFailure(ai, condition?.self?.enemyHeroInRange)) {
+    return false;
+  }
+  if (
+    condition?.self?.allyHeroInRange !== undefined &&
+    !HasAllyHeroInRange(ai, condition.self.allyHeroInRange)
+  ) {
+    return false;
+  }
+  if (
+    condition?.self?.noAllyHeroInRange !== undefined &&
+    HasAllyHeroInRange(ai, condition.self.noAllyHeroInRange)
+  ) {
+    return false;
+  }
   if (CheckNoEnemyBuildingInRangeFailure(ai, condition?.self?.noEnemyBuildingInRange)) {
     return false;
   }
-  if (CheckFriendlyCreepNearbyFailure(hero, condition?.self?.friendlyCreepNearby)) {
+  if (CheckFriendlyCreepNearbyFailure(ai, condition?.self?.friendlyCreepNearby)) {
     return false;
   }
-  if (CheckCooldownTotalFailure(hero, condition?.self?.cooldownTotal)) {
+  if (CheckCooldownTotalFailure(hero, castable, condition?.self?.cooldownTotal)) {
+    return false;
+  }
+  if (
+    condition?.self?.abilitiesOnCooldown &&
+    CountAbilitiesOnCooldown(hero, condition.self.abilitiesOnCooldown.seconds) <
+      condition.self.abilitiesOnCooldown.count
+  ) {
+    return false;
+  }
+  if (condition?.self?.ultimateNotReady && IsUltimateReady(hero)) {
+    return false;
+  }
+  const stance = condition?.self?.stance;
+  if (stance && !matchesStance(stance, ai.GetStance())) {
     return false;
   }
 
+  if (targetSide === TargetSide.Tree) {
+    const cast = CastOnNearestTree(hero, castable);
+    if (cast) TraceCast(ai, castable, targetSide, undefined, 'tree');
+    return cast;
+  }
+
   const target = pickTarget(ai, castable, targetSide, condition);
+  if (condition?.action?.toggleByTarget) {
+    const toggled = ApplyAbilityAction(castable, { toggleOn: !!target, toggleOff: !target });
+    if (toggled) TraceCast(ai, castable, targetSide, target, target ? 'toggle_on' : 'toggle_off');
+    return toggled;
+  }
   if (!target) {
+    return false;
+  }
+  // 冲进去的技能不跳到越不了的塔下
+  if (stance === 'fight' && ai.IsProtectedByTower(target)) {
     return false;
   }
 
@@ -62,22 +111,149 @@ export function TryCastBySpec(
 
   // 开关/法球类：找到目标（= 满足开启条件）后只切换状态，不走正常施法派发。
   if (condition?.action) {
-    return ApplyAbilityAction(castable, condition.action);
+    const autoCastBefore = castable.GetAutoCastState();
+    const applied = ApplyAbilityAction(castable, condition.action);
+    // 开自动施法不占用本 tick，返回 false，按状态变化判断是否真的切换了
+    if (applied || castable.GetAutoCastState() !== autoCastBefore) {
+      TraceCast(ai, castable, targetSide, target, 'action');
+    }
+    return applied;
   }
 
   const castPosition = resolveCastPosition(hero, castable, target, condition);
-  return CastAbilityOnTargetByBehavior(hero, castable, target, castPosition);
+  const cast = CastAbilityOnTargetByBehavior(hero, castable, target, castPosition);
+  if (cast) TraceCast(ai, castable, targetSide, target, 'cast');
+  return cast;
+}
+
+/** 开发模式下每次下达施法打一行，事后按日志核对施放时机是否符合 spec。 */
+function TraceCast(
+  ai: BotBaseAIModifier,
+  castable: CDOTABaseAbility,
+  side: TargetSide,
+  target: CDOTA_BaseNPC | undefined,
+  kind: string,
+): void {
+  // 用掉即消失的物品施放后实体已被删除
+  if (!IS_DEBUG_RUN || !IsValidEntity(castable)) {
+    return;
+  }
+  const hero = ai.GetHero();
+  const time = GameRules.GetDOTATime(false, false);
+  const clock = `${Math.floor(time / 60)}:${string.format('%02d', Math.floor(time % 60))}`;
+  let targetText = '';
+  if (target) {
+    const state = HeroUtil.NotActionable(target)
+      ? 'hard'
+      : target.IsRooted()
+        ? 'root'
+        : `ms${Math.floor(target.GetIdealSpeed())}`;
+    targetText =
+      ` target=${target.GetUnitName().replace('npc_dota_', '')}` +
+      ` dist=${Math.floor(hero.GetRangeToUnit(target))}` +
+      ` hp=${Math.floor(target.GetHealthPercent())}% state=${state}`;
+  }
+  print(
+    `[bot-cast] t=${clock} ${hero.GetUnitName().replace('npc_dota_hero_', '')}` +
+      ` hp=${Math.floor(hero.GetHealthPercent())}% stance=${ai.GetStance()} ${castable.GetAbilityName()} ${kind} side=${side}${targetText}` +
+      ` beh=${GetAbilityBehaviorBits(castable)} cd=${string.format('%.1f', castable.GetCooldownTimeRemaining())}`,
+  );
 }
 
 /**
  * 计算 POINT 技能的释放位置。
- * - castMode 未设或 'targetPosition' → 返回 undefined（CastAbilityOnTargetByBehavior 默认用 target 位置）
+ * - castMode 未设 → 返回 undefined（CastAbilityOnTargetByBehavior 默认用 target 位置）
+ * - 'targetPosition' → 目标位置，并让派发优先点地而不是指向单位
  * - 'projectedOnCastRange'：
  *     - 目标距离 ≤ cast range → 直接用目标位置（精准命中）
  *     - 目标距离 > cast range → 沿"施法者→目标"方向投影到 cast range 边缘
  *   此模式要求 spec 显式设置 target.range.lte（> cast range），否则会被 fillRangeFromCastRange
  *   限制为 cast range，失去意义。
  */
+
+function HasEnemyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
+  const hero = ai.GetHero();
+  for (const enemy of ai.aroundEnemyHeroes) {
+    if (enemy.IsAlive() && hero.GetRangeToUnit(enemy) <= range) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// 施法距离很短，允许走几步去抓稍远的树
+const TREE_SEARCH_EXTRA = 300;
+
+function CastOnNearestTree(hero: CDOTA_BaseNPC_Hero, castable: CDOTABaseAbility): boolean {
+  const origin = hero.GetAbsOrigin();
+  const trees = GridNav.GetAllTreesAroundPoint(
+    origin,
+    GetFullCastRange(hero, castable) + TREE_SEARCH_EXTRA,
+    false,
+  );
+  let nearest: CDOTA_MapTree | undefined;
+  let nearestDistance = Infinity;
+  for (const tree of trees) {
+    const distance = tree.GetAbsOrigin().__sub(origin).Length2D();
+    if (distance < nearestDistance) {
+      nearest = tree;
+      nearestDistance = distance;
+    }
+  }
+  if (!nearest) {
+    return false;
+  }
+  ExecuteOrderFromTable({
+    UnitIndex: hero.entindex(),
+    OrderType: UnitOrder.CAST_TARGET_TREE,
+    TargetIndex: GetTreeIdForEntityIndex(nearest.entindex()) as EntityIndex,
+    AbilityIndex: castable.entindex(),
+  });
+  return true;
+}
+
+function IsUltimateReady(hero: CDOTA_BaseNPC_Hero): boolean {
+  const abilityCount = hero.GetAbilityCount();
+  for (let i = 0; i < abilityCount; i++) {
+    const ability = hero.GetAbilityByIndex(i);
+    if (ability && ability.GetAbilityType() === AbilityTypes.ULTIMATE && ability.GetLevel() > 0) {
+      return ability.IsFullyCastable();
+    }
+  }
+  return false;
+}
+
+function CountAbilitiesOnCooldown(hero: CDOTA_BaseNPC_Hero, seconds: number): number {
+  let count = 0;
+  const abilityCount = hero.GetAbilityCount();
+  for (let i = 0; i < abilityCount; i++) {
+    const ability = hero.GetAbilityByIndex(i);
+    if (
+      ability &&
+      ability.GetLevel() > 0 &&
+      !ability.IsPassive() &&
+      ability.GetCooldownTimeRemaining() >= seconds
+    ) {
+      count++;
+    }
+  }
+  return count;
+}
+
+function HasAllyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
+  const hero = ai.GetHero();
+  for (const ally of ai.aroundFriendlyHeroes) {
+    if (
+      ally !== hero &&
+      ally.IsAlive() &&
+      ally.IsRealHero() &&
+      hero.GetRangeToUnit(ally) <= range
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
 
 function CheckNoEnemyHeroInRangeFailure(
   ai: BotBaseAIModifier,
@@ -86,13 +262,17 @@ function CheckNoEnemyHeroInRangeFailure(
   if (noHeroRange === undefined) {
     return false;
   }
-  const hero = ai.GetHero();
-  for (const enemy of ai.aroundEnemyHeroes) {
-    if (enemy.IsAlive() && hero.GetRangeToUnit(enemy) <= noHeroRange) {
-      return true;
-    }
+  return HasEnemyHeroInRange(ai, noHeroRange);
+}
+
+function CheckEnemyHeroInRangeFailure(
+  ai: BotBaseAIModifier,
+  heroRange: number | undefined,
+): boolean {
+  if (heroRange === undefined) {
+    return false;
   }
-  return false;
+  return !HasEnemyHeroInRange(ai, heroRange);
 }
 
 function CheckNoEnemyBuildingInRangeFailure(
@@ -112,48 +292,78 @@ function CheckNoEnemyBuildingInRangeFailure(
 }
 
 function CheckFriendlyCreepNearbyFailure(
-  hero: CDOTA_BaseNPC_Hero,
+  ai: BotBaseAIModifier,
   friendlyCreepNearby: NonNullable<CastCoindition['self']>['friendlyCreepNearby'],
 ): boolean {
   if (friendlyCreepNearby === undefined) {
     return false;
   }
-  const range = friendlyCreepNearby.range ?? 900;
-  const creeps = FindUnitsInRadius(
-    hero.GetTeamNumber(),
-    hero.GetAbsOrigin(),
-    undefined,
-    range,
-    UnitTargetTeam.FRIENDLY,
-    UnitTargetType.CREEP,
-    UnitTargetFlags.NONE,
-    FindOrder.ANY,
-    false,
-  );
-  return CheckNumberRangeFailure(creeps.length, friendlyCreepNearby.count);
+  const hero = ai.GetHero();
+  const range = friendlyCreepNearby.range ?? FRIENDLY_CREEP_SEARCH_RADIUS;
+  if (range > FRIENDLY_CREEP_SEARCH_RADIUS) {
+    const creeps = FindUnitsInRadius(
+      hero.GetTeamNumber(),
+      hero.GetAbsOrigin(),
+      undefined,
+      range,
+      UnitTargetTeam.FRIENDLY,
+      UnitTargetType.CREEP,
+      UnitTargetFlags.NONE,
+      FindOrder.ANY,
+      false,
+    );
+    return CheckNumberRangeFailure(creeps.length, friendlyCreepNearby.count);
+  }
+
+  let count = 0;
+  for (const creep of ai.aroundFriendlyCreeps) {
+    if (creep.IsAlive() && hero.GetRangeToUnit(creep) <= range) {
+      count++;
+    }
+  }
+  return CheckNumberRangeFailure(count, friendlyCreepNearby.count);
+}
+
+/**
+ * 技能可以声明哪些技能与物品不受自己影响，例如修补匠的热机重置刷不掉黑皇杖与秘法鞋。
+ */
+interface CooldownExceptionProvider {
+  IsAbitilyException(ability: CDOTABaseAbility): boolean;
+  IsItemException(item: CDOTA_Item): boolean;
 }
 
 /** 刷新类：检查所有技能 + 主栏物品的总冷却时间是否落在阈值区间。 */
 function CheckCooldownTotalFailure(
   hero: CDOTA_BaseNPC_Hero,
+  castable: CDOTABaseAbility,
   cooldownTotal: NumberRange | undefined,
 ): boolean {
   if (!cooldownTotal) {
     return false;
   }
+  // 刷不掉的技能与物品不计入冷却压力，否则总和虚高、阈值形同虚设
+  const exceptions = castable as unknown as Partial<CooldownExceptionProvider>;
   let totalCooldown = 0;
   const abilityCount = hero.GetAbilityCount();
   for (let i = 0; i < abilityCount; i++) {
     const abil = hero.GetAbilityByIndex(i);
-    if (abil) {
-      totalCooldown += abil.GetCooldownTimeRemaining();
+    if (!abil) {
+      continue;
     }
+    if (exceptions.IsAbitilyException && exceptions.IsAbitilyException(abil)) {
+      continue;
+    }
+    totalCooldown += abil.GetCooldownTimeRemaining();
   }
   for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
     const item = hero.GetItemInSlot(slot);
-    if (item) {
-      totalCooldown += item.GetCooldownTimeRemaining();
+    if (!item) {
+      continue;
     }
+    if (exceptions.IsItemException && exceptions.IsItemException(item)) {
+      continue;
+    }
+    totalCooldown += item.GetCooldownTimeRemaining();
   }
   return CheckNumberRangeFailure(totalCooldown, cooldownTotal);
 }
@@ -164,6 +374,9 @@ function resolveCastPosition(
   target: CDOTA_BaseNPC,
   condition: CastCoindition | undefined,
 ): Vector | undefined {
+  if (condition?.target?.castMode === 'targetPosition') {
+    return target.GetAbsOrigin();
+  }
   if (condition?.target?.castMode !== 'projectedOnCastRange') {
     return undefined;
   }
@@ -197,50 +410,51 @@ function pickTarget(
     return hero;
   }
 
-  const candidates = candidatesFor(ai, targetSide);
-  const filledCondition = fillRangeFromCastRange(condition, hero, castable);
-  return FilterTargetWithCondition(filledCondition, candidates, hero, castable);
+  let candidates = candidatesFor(ai, targetSide);
+  if (targetSide === TargetSide.EnemyCreep && CanCastOnAncients(ai, castable)) {
+    candidates = [...candidates, ...ai.GetAroundEnemyAncients()];
+  }
+  const resolved = resolveTargetCondition(condition, hero, castable, targetSide);
+  return FilterTargetWithCondition(resolved, candidates, hero, castable);
 }
 
 /**
- * 当 spec 未显式指定 target.range.lte 时，自动补上技能/物品的有效搜索距离：
- * - 若 spec 设置了 target.rangeFromAbilityValue，则读取 ability.GetSpecialValueFor(key) 作为上限
- *   （适用于 NO_TARGET AoE 技能，如 axe_berserkers_call，cast range = 0 但实际作用域由 KV AbilityValues 定义）
- * - 否则使用 AbilityCastRange + 施法距离加成
+ * 把 spec 声明的目标条件补齐成本次施法实际生效的条件。
+ *
+ * 两项调整都只在需要时发生，都不需要时原样返回，避免每 tick 无谓构造对象。
  */
-function fillRangeFromCastRange(
+function resolveTargetCondition(
   condition: CastCoindition | undefined,
   hero: CDOTA_BaseNPC_Hero,
   castable: CDOTABaseAbility,
+  targetSide: TargetSide,
 ): CastCoindition {
   const existingTarget = condition?.target;
-  const existing = existingTarget?.range;
-  if (existing?.lte !== undefined) {
+  const range = resolveRange(existingTarget, hero, castable);
+  const count = resolveCount(existingTarget, hero, targetSide, condition?.action !== undefined);
+  if (range === undefined && count === undefined) {
     return condition!;
-  }
-  // 避免使用对象 spread —— TSTL 的 __TS__ObjectAssign 接到 nil 会崩。
-  const abilityValueKey = existingTarget?.rangeFromAbilityValue;
-  let castRange = abilityValueKey
-    ? castable.GetSpecialValueFor(abilityValueKey)
-    : GetFullCastRange(hero, castable);
-  if (existingTarget?.rangeFromAttackRange) {
-    castRange += hero.Script_GetAttackRange();
-  }
-  const range: NumberRange = { lte: castRange };
-  if (existing?.gte !== undefined) {
-    range.gte = existing.gte;
   }
   // 必须构造全新对象而非复用/改写 existingTarget —— spec 是 Map 里的模块级单例，
   // 跨所有英雄/所有 tick 共享同一个引用，原地写 target.range 会把第一次算出的
   // cast range "冻结"进共享 spec，之后所有英雄、所有 tick 都读到这个过期值。
+  // 避免使用对象 spread —— TSTL 的 __TS__ObjectAssign 接到 nil 会崩。
   const target: NonNullable<CastCoindition['target']> = {
     unitCondition: existingTarget?.unitCondition,
-    count: existingTarget?.count,
     ignoresMagicImmune: existingTarget?.ignoresMagicImmune,
     rangeFromAbilityValue: existingTarget?.rangeFromAbilityValue,
     rangeFromAttackRange: existingTarget?.rangeFromAttackRange,
+    attackRangeOffset: existingTarget?.attackRangeOffset,
+    outOfAttackRange: existingTarget?.outOfAttackRange,
     castMode: existingTarget?.castMode,
-    range,
+    excludeSelf: existingTarget?.excludeSelf,
+    facing: existingTarget?.facing,
+    aheadCircle: existingTarget?.aheadCircle,
+    enemiesNearby: existingTarget?.enemiesNearby,
+    fleeing: existingTarget?.fleeing,
+    attackedByTower: existingTarget?.attackedByTower,
+    range: range ?? existingTarget?.range,
+    count: count ?? existingTarget?.count,
   };
   return {
     target,
@@ -249,6 +463,94 @@ function fillRangeFromCastRange(
     action: condition?.action,
     debug: condition?.debug,
   };
+}
+
+/**
+ * 补上技能/物品的有效搜索距离，spec 已显式给出上限时返回 undefined 表示无需调整：
+ * - 若 spec 设置了 target.rangeFromAbilityValue，则读取 ability.GetSpecialValueFor(key) 作为上限
+ *   （适用于 NO_TARGET AoE 技能，如 axe_berserkers_call，cast range = 0 但实际作用域由 KV AbilityValues 定义）
+ * - 否则使用 AbilityCastRange + 施法距离加成
+ */
+function resolveRange(
+  existingTarget: CastCoindition['target'],
+  hero: CDOTA_BaseNPC_Hero,
+  castable: CDOTABaseAbility,
+): NumberRange | undefined {
+  const existing = existingTarget?.range;
+  if (existing?.lte !== undefined && !existingTarget?.outOfAttackRange) {
+    return undefined;
+  }
+  const abilityValueKey = existingTarget?.rangeFromAbilityValue;
+  let castRange = abilityValueKey
+    ? castable.GetSpecialValueFor(abilityValueKey)
+    : GetFullCastRange(hero, castable);
+  if (existingTarget?.rangeFromAttackRange) {
+    castRange += hero.Script_GetAttackRange();
+  }
+  if (existingTarget?.attackRangeOffset !== undefined) {
+    castRange += existingTarget.attackRangeOffset;
+  }
+  const range: NumberRange = { lte: existing?.lte ?? castRange };
+  if (existingTarget?.outOfAttackRange) {
+    range.gte = hero.Script_GetAttackRange();
+  } else if (existing?.gte !== undefined) {
+    range.gte = existing.gte;
+  }
+  return range;
+}
+
+/**
+ * 对英雄计数时把数量下限收敛到该队伍的英雄总数，无需调整时返回 undefined。
+ * 只有声明了大于 1 的下限才会去查队伍人数，其余情况在进入查询前就返回。
+ *
+ * 两队人数在开局可配置，敌方只有 1 个英雄时「至少 2 个」这类阈值否则永远不成立，
+ * 整条规则失效。满编局下声明值不超过总数，收敛不生效。
+ *
+ * 开关类不参与收敛：它们的开与关是一对互补阈值，只压低其中一侧会让两条规则同时成立，
+ * bot 每 tick 反复开关。
+ */
+function resolveCount(
+  existingTarget: CastCoindition['target'],
+  hero: CDOTA_BaseNPC_Hero,
+  targetSide: TargetSide,
+  isToggleAction: boolean,
+): NumberRange | undefined {
+  const existing = existingTarget?.count;
+  // 下限不超过 1 时收敛不可能改变结果，先挡在查询队伍人数之前
+  if (existing?.gte === undefined || existing.gte <= 1 || isToggleAction) {
+    return undefined;
+  }
+  let heroTotal: number;
+  if (targetSide === TargetSide.EnemyHero) {
+    heroTotal = PlayerResource.GetPlayerCountForTeam(hero.GetOpposingTeamNumber());
+  } else if (targetSide === TargetSide.FriendlyHero) {
+    heroTotal = PlayerResource.GetPlayerCountForTeam(hero.GetTeamNumber());
+  } else {
+    return undefined;
+  }
+  if (existing.gte <= heroTotal) {
+    return undefined;
+  }
+  const count: NumberRange = { gte: heroTotal };
+  if (existing.lte !== undefined) {
+    count.lte = existing.lte;
+  }
+  return count;
+}
+
+// 远古血厚，低等级技能打上去不值那点蓝
+const ANCIENT_MIN_ABILITY_LEVEL = 4;
+
+/**
+ * 打野与打肉山时高等级技能也对远古单位施放。
+ * 物品等级基本停在 1 级，天然不会对远古用；技能数据标明不能选远古的（如吞噬）按引擎同一标记跳过，免得被拒后每轮重试。
+ */
+function CanCastOnAncients(ai: BotBaseAIModifier, castable: CDOTABaseAbility): boolean {
+  return (
+    (ai.mode === 'farm' || ai.mode === 'roshan') &&
+    castable.GetLevel() >= ANCIENT_MIN_ABILITY_LEVEL &&
+    (castable.GetAbilityTargetFlags() & UnitTargetFlags.NOT_ANCIENTS) === 0
+  );
 }
 
 /**

@@ -5,21 +5,41 @@ export class HeroUtil {
     'modifier_winter_wyvern_winters_curse', // 冰龙大
     'modifier_huskar_life_break_taunt', // 哈斯卡 A杖大
     'modifier_teleporting', // TP
-    'modifier_doom_bringer_doom', // 末日大招
     'modifier_necrolyte_reapers_scythe', // 死灵法师大招
   ];
 
+  // 泉水坐标全局固定，首次查到后按队伍缓存
+  private static readonly fountainPositionByTeam = new Map<DotaTeam, Vector>();
+
+  /** 返回指定队伍泉水的世界坐标。 */
+  static GetTeamFountainPosition(team: DotaTeam): Vector | undefined {
+    const cached = this.fountainPositionByTeam.get(team);
+    if (cached) {
+      return cached;
+    }
+    const fountains = Entities.FindAllByClassname('ent_dota_fountain') as CDOTA_BaseNPC[];
+    for (const fountain of fountains) {
+      if (!fountain.IsNull() && fountain.GetTeamNumber() === team) {
+        const position = fountain.GetAbsOrigin();
+        this.fountainPositionByTeam.set(team, position);
+        return position;
+      }
+    }
+    return undefined;
+  }
+
   static NotActionable(hero: CDOTA_BaseNPC): boolean {
+    return hero.IsHexed() || this.IsHardDisabled(hero);
+  }
+
+  /** 是否完全无法下达指令；变形只禁攻击与施法、仍能移动，不算在内。 */
+  static IsHardDisabled(hero: CDOTA_BaseNPC): boolean {
     // 死亡
     if (hero.IsAlive() === false) {
       return true;
     }
     // 眩晕
     if (hero.IsStunned()) {
-      return true;
-    }
-    // 变羊
-    if (hero.IsHexed()) {
       return true;
     }
     // 噩梦

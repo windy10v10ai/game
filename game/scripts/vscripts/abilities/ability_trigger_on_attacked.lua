@@ -123,10 +123,7 @@ function modifier_trigger_on_attacked:OnAttacked(params)
     end
     -- 施放技能
     local target = attacker -- 对攻击者释放技能
-    local behavior = random_ability:GetBehavior()
-    if type(behavior) ~= "number" then
-        behavior = tonumber(tostring(behavior))
-    end
+    local behavior = GetBehaviorBits(random_ability:GetBehavior())
     local target_team = random_ability:GetAbilityTargetTeam()
 
     local cast_target = target

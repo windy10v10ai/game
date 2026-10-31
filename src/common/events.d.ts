@@ -39,11 +39,62 @@ interface CustomGameEventDeclarations {
 
   player_conduct: PlayerConductEventData;
 
+  feedback_submit: FeedbackSubmitEventData;
+  feedback_result: FeedbackResultEventData;
+
+  player_stats_radar_request: Record<string, never>;
+  player_stats_radar_result: PlayerStatsRadarResultEventData;
+
   debug_panel_add_to_unit: DebugPanelAddToUnitEventData;
+
+  dailytask_select_candidate: DailyTaskSelectCandidateEventData;
+  dailytask_refresh_candidates: Record<string, never>;
+  dailytask_load_history: Record<string, never>;
+
+  api_html_proxy_ready: Record<string, never>;
+  api_html_proxy_ack: Record<string, never>;
+  api_html_proxy_request: ApiHtmlProxyRequestEventData;
+  api_html_proxy_response: ApiHtmlProxyResponseEventData;
+  api_html_proxy_failure: ApiHtmlProxyFailureEventData;
 }
 
 interface CustomGameEventDataBase {
   PlayerID: PlayerID;
+}
+
+interface FeedbackSubmitEventData {
+  type: 'problem' | 'suggestion';
+  /** 逗号拼接：数组过事件会变成以下标为键的对象 */
+  topics: string;
+  description: string;
+}
+
+type FeedbackResult = 'sent' | 'failed' | 'too_many_reports' | 'daily_limit_reached';
+
+interface FeedbackResultEventData {
+  result: FeedbackResult;
+}
+
+/** 各项是近期各局在同难度玩家中百分位的平均，0–100，越大越好 */
+interface PlayerStatsRadar {
+  damage: number;
+  gold: number;
+  participation: number;
+  push: number;
+  /** 已反过来算，死得越少越高 */
+  deaths: number;
+  tank: number;
+  healing: number;
+  assists: number;
+  stuns: number;
+}
+
+interface PlayerStatsRadarResultEventData {
+  status: 'ready' | 'failed';
+  matchCount: number;
+  minMatchCount: number;
+  /** 局数不够或还没有基准时没有 */
+  radar?: PlayerStatsRadar;
 }
 
 interface ChooseDifficultyEventData {
@@ -134,6 +185,28 @@ interface DebugPanelAddToUnitEventData {
   entindex: number;
   kind: string; // 'item' | 'ability'
   name: string;
+}
+
+// 玩家在候选卡里本地选择一个每日任务，taskId 不认识时服务端忽略
+interface DailyTaskSelectCandidateEventData {
+  taskId: string;
+}
+
+// 客户端代发 HTTP 请求：服务端拿不到 CreateHTTPRequestScriptVM 请求对象时（游廊对局），
+// 交由一名已连接玩家的客户端用 DOTAHTMLPanel 代发，响应经由 title 带回
+interface ApiHtmlProxyRequestEventData {
+  requestId: string;
+  url: string;
+}
+
+interface ApiHtmlProxyResponseEventData {
+  requestId: string;
+  data: string;
+}
+
+interface ApiHtmlProxyFailureEventData {
+  requestId: string;
+  reason: string;
 }
 
 // 按地图记住/清除游戏预设的意图开关。仅传 remember，

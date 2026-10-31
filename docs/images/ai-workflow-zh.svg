@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1170" width="900" height="1170" role="img">
+
+<style>
+  .bg{fill:#ffffff} .stagebg{fill:#f5f7f8} .awaybg{fill:#eceff2}
+  .hh{fill:#e9edfb} .ha{fill:#e2f4ee}
+  .grid{stroke:#d5dce1;stroke-width:1} .dash{stroke:#d5dce1;stroke-dasharray:4 4}
+  .nh{fill:#e9edfb;stroke:#b7c3f0;stroke-width:1.5} .na{fill:#e2f4ee;stroke:#a6dcc9;stroke-width:1.5}
+  .t{font:600 14px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#1a2126}
+  .d{font:12.5px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#5b6770}
+  .code{font:12px ui-monospace,'Cascadia Mono',Consolas,monospace;fill:#0b7d61}
+  .st{font:600 14px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#1a2126}
+  .ss{font:11.5px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#5b6770}
+  .hd{font:700 12px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;letter-spacing:.06em}
+  .hdS{fill:#5b6770} .hdH{fill:#3451c6} .hdA{fill:#0b7d61}
+  .aw{font:11px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#5b6770;letter-spacing:.06em}
+  .wire{fill:none;stroke:#8a98a2;stroke-width:1.6} .ah{fill:#8a98a2}
+  .loop{fill:none;stroke:#b26a00;stroke-width:1.6;stroke-dasharray:5 4} .lh{fill:#b26a00}
+  .lt{font:11.5px 'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;fill:#b26a00}
+  @media (prefers-color-scheme: dark){
+    .bg{fill:#161d22} .stagebg{fill:#0f1418} .awaybg{fill:#1a2227}
+    .hh{fill:#1c2445} .ha{fill:#12302a}
+    .grid,.dash{stroke:#2a343b}
+    .nh{fill:#1c2445;stroke:#34428a} .na{fill:#12302a;stroke:#1f5a4b}
+    .t,.st{fill:#e2e8ec} .d,.ss,.aw,.hdS{fill:#94a2ab}
+    .code{fill:#5fd3ad} .hdH{fill:#9fb2ff} .hdA{fill:#5fd3ad}
+    .wire{stroke:#6b7a84} .ah{fill:#6b7a84}
+    .loop{stroke:#f0b35a} .lh,.lt{fill:#f0b35a}
+  }
+</style>
+<rect class="bg" x="0" y="0" width="900" height="1170" rx="10"/>
+<rect class="stagebg" x="0" y="0" width="150" height="1170"/>
+<rect class="stagebg" x="0" y="0" width="150" height="40"/>
+<rect class="hh" x="150" y="0" width="375" height="40"/>
+<rect class="ha" x="525" y="0" width="375" height="40"/>
+<text class="hd hdS" x="16" y="25">环节</text>
+<text class="hd hdH" x="337.5" y="25" text-anchor="middle">人类</text>
+<text class="hd hdA" x="712.5" y="25" text-anchor="middle">AI</text>
+<line class="grid" x1="0" y1="40" x2="900" y2="40"/>
+<line class="dash" x1="525" y1="40" x2="525" y2="1170"/>
+<line class="grid" x1="150" y1="0" x2="150" y2="1170"/>
+<text class="st" x="16" y="80.0">立项</text>
+<text class="ss" x="16" y="98.0">issue-triage</text>
+<line class="grid" x1="0" y1="126" x2="900" y2="126"/>
+<text class="st" x="16" y="263.0">设计</text>
+<text class="ss" x="16" y="281.0">brainstorming</text>
+<text class="ss" x="16" y="296.0">issue-spec</text>
+<line class="grid" x1="0" y1="420" x2="900" y2="420"/>
+<text class="st" x="16" y="645">实现</text>
+<text class="ss" x="16" y="663">issue-impl</text>
+<line class="grid" x1="0" y1="876" x2="900" y2="876"/>
+<text class="st" x="16" y="934">AI 审查</text>
+<text class="ss" x="16" y="952">review-pr 自动模式</text>
+<line class="grid" x1="0" y1="998" x2="900" y2="998"/>
+<text class="st" x="16" y="1038">人工审查</text>
+<text class="ss" x="16" y="1056">review-pr</text>
+<line class="grid" x1="0" y1="1084" x2="900" y2="1084"/>
+<text class="st" x="16" y="1117">上线</text>
+<text class="ss" x="16" y="1135">release-note</text>
+<text class="ss" x="16" y="1150">deploy</text>
+<rect class="nh" x="177.5" y="54" width="320" height="58" rx="8"/>
+<text class="t" x="189.5" y="79">提需求，定优先级</text>
+<text class="d" x="189.5" y="99">issue-triage 查重复、建议优先级</text>
+<rect class="na" x="552.5" y="140" width="320" height="76" rx="8"/>
+<text class="t" x="564.5" y="165">起草设计与执行说明</text>
+<text class="d" x="564.5" y="185">在 artifact 里讨论；</text>
+<text class="d" x="564.5" y="203">执行说明写明用哪个 skill</text>
+<rect class="nh" x="177.5" y="244" width="320" height="58" rx="8"/>
+<text class="t" x="189.5" y="269">拍板</text>
+<text class="d" x="189.5" y="289">设计挂到 issue，打 agent-todo</text>
+<rect class="nh" x="177.5" y="330" width="320" height="76" rx="8"/>
+<text class="t" x="189.5" y="355">开工</text>
+<text class="d" x="189.5" y="375">/issue-impl 123：现在做一条</text>
+<text class="d" x="189.5" y="393">/issue-autorun：依次做完所有 agent-todo</text>
+<rect class="na" x="552.5" y="434" width="320" height="220" rx="8"/>
+<text class="t" x="564.5" y="459">按指定 skill 实现</text>
+<text x="564.5" y="479"><tspan class="code">custom-ability</tspan><tspan class="d" x="702.5">从零自制技能</tspan></text>
+<text x="564.5" y="497"><tspan class="code">clone-ability</tspan><tspan class="d" x="702.5">克隆原版技能做差分</tspan></text>
+<text x="564.5" y="515"><tspan class="code">awaken-ability</tspan><tspan class="d" x="702.5">英雄觉醒技能</tspan></text>
+<text x="564.5" y="533"><tspan class="code">custom-item</tspan><tspan class="d" x="702.5">自制物品、合成神器</tspan></text>
+<text x="564.5" y="551"><tspan class="code">clone-item</tspan><tspan class="d" x="702.5">原版物品升级版</tspan></text>
+<text x="564.5" y="569"><tspan class="code">add-image</tspan><tspan class="d" x="702.5">图标与 UI 图片</tspan></text>
+<text x="564.5" y="587"><tspan class="code">bot-ability-usage</tspan><tspan class="d" x="702.5">bot 何时施法</tspan></text>
+<text x="564.5" y="605"><tspan class="code">bot-item-usage</tspan><tspan class="d" x="702.5">bot 何时用物品</tspan></text>
+<text x="564.5" y="623"><tspan class="code">bot-ai-tuning</tspan><tspan class="d" x="702.5">bot 决策与移动</tspan></text>
+<text x="564.5" y="641"><tspan class="code">bot-skill-build</tspan><tspan class="d" x="702.5">bot 技能加点与天赋</tspan></text>
+<rect class="na" x="552.5" y="682" width="320" height="76" rx="8"/>
+<text class="t" x="564.5" y="707">测试与实机</text>
+<text class="d" x="564.5" y="727">jest、lint、构建；</text>
+<text class="d" x="564.5" y="745">dota-live-test 脚本判定与截图</text>
+<rect class="na" x="552.5" y="786" width="320" height="76" rx="8"/>
+<text class="t" x="564.5" y="811">开 PR</text>
+<text class="d" x="564.5" y="831">create-pr：正文写关键信息，</text>
+<text class="d" x="564.5" y="849">日志放一条评论</text>
+<rect class="na" x="552.5" y="890" width="320" height="94" rx="8"/>
+<text class="t" x="564.5" y="915">审核 PR</text>
+<text class="d" x="564.5" y="935">代码、证据与截图。</text>
+<text class="d" x="564.5" y="953">不过就退回实现者重改，</text>
+<text class="d" x="564.5" y="971">PR 只留最终结果</text>
+<rect class="nh" x="177.5" y="1012" width="320" height="58" rx="8"/>
+<text class="t" x="189.5" y="1037">审阅与亲测</text>
+<text class="d" x="189.5" y="1057">逐条拍板，进游戏亲测手感</text>
+<rect class="nh" x="177.5" y="1098" width="320" height="58" rx="8"/>
+<text class="t" x="189.5" y="1123">合并与发布</text>
+<text class="d" x="189.5" y="1143">更新日志、创意工坊</text>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker><marker id="lp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="lh" d="M0 0L10 5L0 10z"/></marker></defs>
+<path class="wire" d="M337.5 112V126H712.5V139" marker-end="url(#ar)"/>
+<path class="wire" d="M712.5 216V230H337.5V243" marker-end="url(#ar)"/>
+<path class="wire" d="M337.5 302V329" marker-end="url(#ar)"/>
+<path class="wire" d="M337.5 406V420H712.5V433" marker-end="url(#ar)"/>
+<path class="wire" d="M712.5 654V681" marker-end="url(#ar)"/>
+<path class="wire" d="M712.5 758V785" marker-end="url(#ar)"/>
+<path class="wire" d="M712.5 862V889" marker-end="url(#ar)"/>
+<path class="wire" d="M712.5 984V998H337.5V1011" marker-end="url(#ar)"/>
+<path class="wire" d="M337.5 1070V1097" marker-end="url(#ar)"/>
+<path class="loop" d="M872.5 937H894V544H873.5" marker-end="url(#lp)"/>
+<text class="lt" x="886" y="740.5" text-anchor="middle" transform="rotate(-90 886 740.5)">不过就退回</text>
+</svg>

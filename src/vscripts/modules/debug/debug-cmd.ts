@@ -8,7 +8,7 @@ export enum CMD {
   REFRESH_AI = '-r', // 刷新AI
   TIME = '-time', // 获取当前时间，不包含暂停
   D = '-d', // 获取当前伤害
-  S = '-s', // 获取控制时长
+  S = '-s', // 获取控制时长与治疗量
 
   KILL = '-k',
   KILL_ALL = '-kall',
@@ -18,12 +18,15 @@ export enum CMD {
   L_ALL = '-lall', // 所有人逐级升级
 
   LOTTERY = '-lottery', // 抽奖
-  END = '-end', // 游戏结算
+  END = '-end', // 游戏结算：-end [获胜队伍，默认 2]
+  DISCONNECT = '-dc', // 模拟自己掉线：-dc <已掉线秒数>，负数恢复在线
   TREASURE = '-treasure', // 在 SPAWN_POINTS_INITIAL 刷新一个藏宝箱
   PICK_ITEM = '-pickitem', // 强制触发物品抽奖 UI（跳过宝箱）
 
+  BOT_THINKING_ENABLE = '-bte', // 开启/关闭 bot
+  BOT_THINKING_DISABLE = '-btd', // 开启/关闭 bot
+
   // ---- 当前英雄相关 ----
-  REPLACE_HERO = '-rh', // 替换当前英雄
   /** 重置当前英雄技能 */
   RESET_ABILITY = '-resetAbility',
   REFRESH_BUYBACK = '-refreshBuyback',
@@ -34,10 +37,6 @@ export enum CMD {
   STUN = '-stun',
   SILENCE = '-silence',
   ROOT = '-root',
-
-  // ---- ability ----
-  ADD_ABILITY = '-ab',
-  ADD_ABILITY_ALL = '-aball',
 
   // ---- item ----
   ADD_BKB_ALL = '-bkball', // 所有人添加bkb
@@ -59,4 +58,25 @@ export enum CMD {
   MODIFIER_REMOVE_All = '-mrall', // 移除指定modifier
 
   GET_KEY_V3 = '-get_key_v3', // 获取key
+
+  // ---- 性能排查 ----
+  PERF = '-perf', // 开启/关闭性能采样
+  PERF_MARK = '-perfmark', // 切换实验段标签
+  PERF_PROF = '-perfprof', // 开启/关闭 Lua 耗时归因
+  PERF_AUTO = '-perfauto', // 在当前局跑完整套对照实验：-perfauto <每段真实秒数> <重复次数> <测量倍率>
+  AI_ON = '-aion', // 开启自定义 AI 思考
+  AI_OFF = '-aioff', // 关闭自定义 AI 思考
+  CLEAR_UNITS = '-clearunits', // 移除所有小兵、野怪、召唤物
+  SPAWN_UNITS = '-spawnunits', // 中路两侧各刷一半近战兵
+
+  // ---- 实机测试 ----
+  STAT = '-stat', // 分行输出英雄与假人能读到的全部数值：基础、三维、攻击、防御（护甲/魔抗/状态抗性）、技能增强/施法距离/冷却缩减、物品冷却
+  WATCH = '-watch', // 开关：监视英雄与假人的 modifier 与数值变化；-watch <半径> 额外监视范围内敌人
+  CAST = '-cast', // 代码施法：-cast <物品或技能名> [<x偏移> <y偏移> | @dummy]，备用施法只认玩家真实按键，代码触发不了
+  DUMMY = '-dummy', // 在英雄偏移处刷训练假人：-dummy [x偏移] [y偏移]
+  TP = '-tp', // 英雄瞬移到坐标：-tp <x> <y>；坐标可从 -watch 的 start 行读
+  REFRESH = '-refresh', // 英雄技能全部升满级，技能与物品冷却全部刷新，用于同一技能连续对照
+  GIVE = '-give', // 服务端直接给英雄发物品，不依赖客户端处理：-give <物品名>
+  HURT = '-hurt', // 最近刷的假人对英雄造成纯粹伤害，模拟敌方英雄攻击：-hurt [伤害]
+  RUN = '-run', // 执行 vscripts 下的临时 Lua 脚本：-run <模块路径>，可重复执行
 }

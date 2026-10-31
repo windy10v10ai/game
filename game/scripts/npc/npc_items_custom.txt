@@ -34,7 +34,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"9002"
+		"ID"						"10300"
 		"BaseClass"					"item_datadriven"
 		"AbilityTextureName" 		"item_moon_shard_datadriven"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -122,7 +122,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
-		"ID"							"9003"
+		"ID"							"10301"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_ultimate_scepter_2"
 
@@ -145,7 +145,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"					"item_datadriven"
-		"ID"						"9004"
+		"ID"						"10302"
 		"AbilityTextureName"		"item_ultimate_scepter_2"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -253,7 +253,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"					"item_datadriven"
-		"ID"						"9005"
+		"ID"						"10303"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_consumable_gem"
 
@@ -276,7 +276,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"					"item_lua"
-		"ID"						"9006"
+		"ID"						"10304"
 		"AbilityTextureName"		"item_consumable_gem"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ScriptFile"				"items/item_consumable_gem"
@@ -310,7 +310,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"					"item_datadriven"
-		"ID"						"9009"
+		"ID"						"10305"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_wings_of_haste"
 
@@ -336,7 +336,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"					"item_datadriven"
-		"ID"						"9010"
+		"ID"						"10306"
 		"AbilityTextureName"		"item_wings_of_haste"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -421,7 +421,7 @@
 	//=================================================================================================================
 	"item_royal_jelly_custom"
 	{
-		"ID"						"9029"
+		"ID"						"10307"
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_royal_jelly_custom"
 		"AbilityTextureName"		"royal_jelly"
@@ -456,7 +456,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"9030"
+		"ID"						"10308"
 		"BaseClass"					"item_lua"
 		"AbilityTextureName"		"pirate_hat"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -486,7 +486,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"9031"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10309"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_blade_mail_2"
@@ -513,7 +513,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"9032"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10310"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_blade_mail"
 		"AbilityTextureName"			"item_blade_mail_2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -555,7 +555,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
-		"ID"							"9033"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10311"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe_radiance_2"
 
@@ -578,7 +578,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_radiance"
-		"ID"							"9034"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10312"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityTextureName"			"item_radiance_2"
 
@@ -618,7 +618,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
-		"ID"							"9037"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10313"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_aether_lens_2"
 
@@ -640,14 +640,14 @@
 	{
 			// General
 			//-------------------------------------------------------------------------------------------------------------
-			"ID"                            "9038"
+			"ID"                            "10314"
 			"BaseClass"						"item_aether_lens"
 			"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 			"AbilityTextureName"			"item_aether_lens_2"
 
 			// Item Info
 			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"                      "3850"
+			"ItemCost"                      "3200"
 			"ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
 			"ItemQuality"                   "rare"
 			"ItemAliases"                   "aether lens"
@@ -674,7 +674,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
-		"ID"							"9043"  //Valve's version of this item uses the ID "118".
+		"ID"							"10315"  //Valve's version of this item uses the ID "118".
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe_vladmir_2"
 
@@ -701,7 +701,7 @@
 			// General
 			//-------------------------------------------------------------------------------------------------------------
 			"BaseClass"						"item_datadriven"
-			"ID"							"9044"  //Valve's version of this item uses the ID "81".
+			"ID"							"10316"  //Valve's version of this item uses the ID "81".
 			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 			"Model"							"models/props_gameplay/red_box.vmdl"
 			"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
@@ -722,10 +722,10 @@
 					"bonus_armor"			"20"
 					"mana_regen_aura"		"6"
 					"damage_aura"			"20"
-					"vampiric_aura"			"25"
+					"lifesteal_aura"		"25"
 					"aura_radius"			"900"
 					"aura_positive_armor"	"10"
-					"aura_attack_speed"		"60"
+					"aura_attack_speed"		"50"
 					"aura_negative_armor"	"-10"
 			}
 
@@ -741,6 +741,23 @@
 							{
 									"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"			"%bonus_attack_speed"
 									"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"				"%bonus_armor"
+							}
+							// 吸血、攻击力、回蓝光环交给原版强袭祭品光环
+							"OnCreated"
+							{
+								"RunScript"
+								{
+									"ScriptFile"	"items/item_vladmir_2"
+									"Function"		"NativeAuraCreated"
+								}
+							}
+							"OnDestroy"
+							{
+								"RunScript"
+								{
+									"ScriptFile"	"items/item_vladmir_2"
+									"Function"		"NativeAuraDestroyed"
+								}
 							}
 					}
 					"modifier_item_vladmir_2_building_aura_emitter"  //We use two aura emitters because the lifesteal part only affects melee units.
@@ -787,20 +804,8 @@
 
 							"Properties"
 							{
-									"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"		"%damage_aura"
 									"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"				"%aura_positive_armor"
-									"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"%mana_regen_aura"
 									"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"			"%aura_attack_speed"
-							}
-
-							"OnAttackLanded"
-							{
-								"RunScript"
-								{
-									"ScriptFile"	"items/item_vladmir_2"
-									"Function"		"VampiricAuraApply"
-									"attack_damage"	"%attack_damage"
-								}
 							}
 					}
 
@@ -839,7 +844,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_recipe_sphere"
-		"ID"							"9045"
+		"ID"							"10317"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_sphere_2"
 
@@ -866,7 +871,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_sphere"
-		"ID"							"9046"
+		"ID"							"10318"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -894,7 +899,7 @@
 	"item_recipe_excalibur"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"9047"
+		"ID"							"10319"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_excalibur"
 
@@ -922,7 +927,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ID"							"9048"
+		"ID"							"10320"
 		"AbilityTextureName"			"item_excalibur"
 
 		"ItemKillable"					"0"
@@ -964,7 +969,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_quelling_blade"
-		"ID"							"9049"
+		"ID"							"10321"
 		"AbilityTextureName"			"item_quelling_blade_2_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
@@ -990,13 +995,13 @@
 	"item_recipe_undying_heart"
 	{
 		"BaseClass"						"item_recipe_heart"
-		"ID"							"9050"
+		"ID"							"10322"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe_undying_heart"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4500"
+		"ItemCost"						"4400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1017,7 +1022,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_lua"
-		"ID"							"9051"
+		"ID"							"10323"
 		"AbilityTextureName"			"item_undying_heart"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
@@ -1058,7 +1063,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_recipe_force_staff"
-		"ID"							"9052"
+		"ID"							"10324"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_force_staff_2"
 
@@ -1082,7 +1087,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
-		"ID"							"9053"
+		"ID"							"10325"
 		"AbilityTextureName"			"item_force_staff_2"
 		"Model"        "models/props_gameplay/red_box.vmdl"
 		"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
@@ -1226,7 +1231,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_recipe_force_staff"
-		"ID"							"9054"
+		"ID"							"10326"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_force_staff_3"
 
@@ -1249,7 +1254,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
-		"ID"							"9055"
+		"ID"							"10327"
 		"AbilityTextureName"			"item_force_staff_3"
 		"Model"        "models/props_gameplay/red_box.vmdl"
 		"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
@@ -1392,7 +1397,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
-		"ID"                            "9056"
+		"ID"                            "10328"
 		"Model"                         "models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"            "item_recipe_insight_armor"
 
@@ -1416,7 +1421,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
-		"ID"                            "9057"
+		"ID"                            "10329"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Model"                         "models/props_gameplay/red_box.vmdl"
 		"Effect"                        "particles/generic_gameplay/dropped_item.vpcf"
@@ -1437,7 +1442,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_health"			"1000"
+				"bonus_health"			"900"
 				"bonus_armor"			"20"
 				"magical_resis"			"20"
 
@@ -1548,13 +1553,13 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"9058"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10330"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_recipe_arcane_octarine_core"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2600"
+		"ItemCost"						"1700"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1574,7 +1579,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"9059"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10331"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "BaseClass"						"item_lua"
         "ScriptFile"                    "items/item_arcane_octarine_core"
 		"AbilityTextureName" 			"item_arcane_octarine_core"
@@ -1607,7 +1612,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"9060"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10332"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_aeon_disk"
 		"AbilityTextureName" 			"item_recipe_aeon_pendant"
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -1634,7 +1639,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"9061"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"						"10333"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_aeon_disk"
 		"AbilityTextureName" 			"item_aeon_pendant"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1670,7 +1675,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"9062"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10334"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_monkey_king_bar"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_monkey_king_bar_2"
@@ -1694,7 +1699,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"9063"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10335"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_monkey_king_bar"
 		"AbilityTextureName" 			"item_monkey_king_bar_2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1727,7 +1732,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3021"
+		"ID"							"10336"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_recipe_magic_scepter"
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -1754,12 +1759,12 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3022"
+		"ID"							"10337"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName" 			"magic_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"					"items/item_magic_scepter"
+		"ScriptFile"					"items/ts_items/item_magic_scepter"
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
@@ -1782,8 +1787,11 @@
 		{
 				"bonus_intelligence"		"60"	// tooltip, real value in item_magic_scepter_bonus_intelligence
 				"spell_amp_per_int"			"0.1"
-				"active_boost"				"50"
-				"active_boost_duration"		"4"
+				"active_boost"				"50"	// tooltip, real value in item_magic_scepter_active_boost
+				"active_duration"			"4"
+				// 慧光被动 modifier_item_kaya 按这两个键名取值
+				"spell_amp"					"18"
+				"mana_regen_multiplier"		"25"
 		}
 	}
 
@@ -1794,7 +1802,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3023"
+		"ID"							"10338"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_recipe_hallowed_scepter"
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -1822,12 +1830,12 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3024"
+		"ID"							"10339"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName" 			"hallowed_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"					"items/item_hallowed_scepter"
+		"ScriptFile"					"items/ts_items/item_magic_scepter"
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
@@ -1850,8 +1858,11 @@
 		{
 				"bonus_intelligence"		"120"	// Tooltip, real value in item_hallowed_scepter_bonus_intelligence
 				"spell_amp_per_int"			"0.2"
-				"active_boost"				"100"
-				"active_boost_duration"		"4"
+				"active_boost"				"100"	// tooltip, real value in item_hallowed_scepter_active_boost
+				"active_duration"			"4"
+				// 慧光被动 modifier_item_kaya 按这两个键名取值
+				"spell_amp"					"24"
+				"mana_regen_multiplier"		"30"
 		}
 	}
 
@@ -1862,7 +1873,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3025"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10340"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_skadi"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_skadi_2"
@@ -1885,7 +1896,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3026"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10341"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_skadi"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"skadi_2"
@@ -1910,7 +1921,7 @@
 	//=================================================================================================================
 	"item_tome_of_agility"
 	{
-		"ID"						"3027"
+		"ID"						"10342"
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_agility"
 		"AbilityTextureName"		"tome_of_agility"
@@ -1940,7 +1951,7 @@
 	//=================================================================================================================
 	"item_tome_of_intelligence"
 	{
-		"ID"						"3028"
+		"ID"						"10343"
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_intelligence"
 		"AbilityTextureName"		"tome_of_intelligence"
@@ -1970,7 +1981,7 @@
 	//=================================================================================================================
 	"item_tome_of_strength"
 	{
-		"ID"						"3029"
+		"ID"						"10344"
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_strength"
 		"AbilityTextureName"		"tome_of_strength"
@@ -2001,7 +2012,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3030"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10345"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_manta"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_manta_1"
@@ -2024,7 +2035,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3031"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10346"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"BaseClass"						"item_manta"
 		"AbilityTextureName"			"manta_1"
@@ -2118,7 +2129,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3032"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10347"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_silver_edge"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_silver_edge_2"
@@ -2144,7 +2155,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3033"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10348"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_silver_edge"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"silver_edge_2"
@@ -2187,7 +2198,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3034"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10349"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_black_king_bar"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_black_king_bar_2"
@@ -2214,7 +2225,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3035"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10350"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
 		"BaseClass"						"item_black_king_bar"
@@ -2249,7 +2260,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3075"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10351"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_desolator"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_dodo_desolator"
@@ -2272,7 +2283,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3076"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10352"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"item_desolator"
 		"AbilityTextureName"			"item_dodo_desolator"
@@ -2307,7 +2318,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3036"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10353"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_desolator"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_infernal_desolator"
@@ -2330,7 +2341,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3037"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10354"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"item_desolator"
 		"AbilityTextureName"			"item_infernal_desolator"
@@ -2366,7 +2377,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3038"
+		"ID"							"10355"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_sacred_trident"
@@ -2397,7 +2408,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_trident"
-		"ID"							"3039"
+		"ID"							"10356"
 		"AbilityTextureName"			"item_sacred_trident"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -2431,7 +2442,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3040"
+		"ID"							"10357"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_sacred_six_vein"
@@ -2458,9 +2469,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_lua"
-		"ID"							"3041"
-		"ScriptFile"					"items/ts_items/item_sacred_six_vein"
+		"BaseClass"						"item_datadriven"
+		"ID"							"10358"
+		"ScriptFile"					"items/item_sacred_six_vein"
 		"AbilityTextureName"			"item_sacred_six_vein"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -2475,21 +2486,54 @@
 		"AbilityValues"
 		{
 			// 由原生 modifier_item_trident 提供，它不属于散华/夜叉/慧光家族，多件之间正常叠加
-			"bonus_strength"				"180"
-			"bonus_agility"					"180"
-			"bonus_intellect"				"180"
-			"bonus_attack_speed"			"140"
+			"bonus_strength"				"160"
+			"bonus_agility"					"160"
+			"bonus_intellect"				"160"
+			"bonus_attack_speed"			"100"
 			"movement_speed_percent_bonus"	"40"
-			"status_resistance"				"50"
+			"status_resistance"				"46"
 			"hp_regen_amp"					"80"
-			"mana_regen_multiplier"			"120"
-			"spell_amp"						"60"
+			"mana_regen_multiplier"			"100"
+			"spell_amp"						"50"
 			"magic_damage_attack"			"100"
 
-			// 三叉戟没有这三项，由脚本侧读取
-			"slow_resistance"				"75"
+			// KV 属性表写不了蓝耗降低，由中立强化「神秘」的原生 modifier 读取
 			"manacost_reduction"			"40"
-			"cast_speed_pct"				"50"
+			"cast_pct_improvement"			"50"
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_sacred_six_vein"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE"	"%cast_pct_improvement"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_sacred_six_vein"
+						"Function"		"SixVeinOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_sacred_six_vein"
+						"Function"		"SixVeinOnDestroy"
+					}
+				}
+			}
 		}
 	}
 
@@ -2500,7 +2544,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3042"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10359"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"									"models/props_gameplay/recipe.vmdl"
 		"BaseClass"								"item_datadriven"
 		"AbilityTextureName"					"item_recipe_abyssal_blade_v2"
@@ -2527,9 +2571,14 @@
 	//=================================================================================================================
 	"item_abyssal_blade_v2"
 	{
+		"precache"
+		{
+			"particle"				"particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_tgt.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3043"
+		"ID"							"10360"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"item_abyssal_blade_v2"
 		"ScriptFile"					"items/item_abyssal_blade_v2"												// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
@@ -2584,14 +2633,14 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"									"3044"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"									"10361"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"									"models/props_gameplay/recipe.vmdl"
 		"BaseClass"								"item_datadriven"
 		"AbilityTextureName"					"item_recipe_heavens_halberd_v2"
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"3200"
+		"ItemCost"								"3300"
 		"ItemShopTags"							""
 
 
@@ -2601,7 +2650,7 @@
 		"ItemResult"							"item_heavens_halberd_v2"
 		"ItemRequirements"
 		{
-			"01"								"item_heavens_halberd_2"
+			"01"								"item_heavens_halberd"
 		}
 	}
 
@@ -2612,7 +2661,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3045"
+		"ID"							"10362"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"item_heavens_halberd_v2"
 		"ScriptFile"					"items/ts_items/item_heavens_halberd_v2"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
@@ -2625,7 +2674,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"10100"
+		"ItemCost"						"6600"
 		"ItemShopTags"					"armor;boost_armor"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"jinkela;heaven's halberd;heaven's lament;heavens halberd;heavens lament"
@@ -2662,7 +2711,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"									"3046"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"									"10363"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"									"models/props_gameplay/recipe.vmdl"
 		"BaseClass"								"item_datadriven"
 		"AbilityTextureName"					"item_recipe_adi_king"
@@ -2688,9 +2737,14 @@
 	//=================================================================================================================
 	"item_adi_king"
 	{
+		"precache"
+		{
+			"particle"				"particles/econ/events/ti10/phase_boots_ti10.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"									"3047"
+		"ID"									"10364"
 		"BaseClass"								"item_lua"
 		"AbilityTextureName"					"item_adi_king"
 		"ScriptFile"							"items/item_adi_king"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
@@ -2737,7 +2791,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"									"3048"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"									"10365"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"									"models/props_gameplay/recipe.vmdl"
 		"BaseClass"								"item_datadriven"
 		"AbilityTextureName"					"item_recipe_adi_king_plus"
@@ -2763,9 +2817,14 @@
 	//=================================================================================================================
 	"item_adi_king_plus"
 	{
+		"precache"
+		{
+			"particle"				"particles/econ/events/ti10/phase_boots_ti10.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"									"3049"
+		"ID"									"10366"
 		"BaseClass"								"item_lua"
 		"AbilityTextureName"					"item_adi_king_plus"
 		"ScriptFile"							"items/item_adi_king_plus"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
@@ -2774,7 +2833,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"						"12"
+		"AbilityCooldown"						"15"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2796,7 +2855,7 @@
 				"rate"					"50"
 				"bonus_evasion"		    "20"
 				// actual values
-				"active_sp"				"50"
+				"active_sp"				"40"
 				"active_evasion"		"20"
 				"dur"					"3"
 
@@ -2811,14 +2870,14 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3050"
+		"ID"							"10367"
 		"BaseClass"						"item_recipe_hurricane_pike"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_hurricane_pike_2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4250"
+		"ItemCost"						"4150"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2833,7 +2892,7 @@
 
 	"item_hurricane_pike_2"
 	{
-		"ID"							"3051"
+		"ID"							"10368"
 		"BaseClass"						"item_hurricane_pike"
 		"AbilityTextureName"			"item_hurricane_pike_2"
 
@@ -2849,7 +2908,7 @@
 		"AbilitySharedCooldown"			"force"
 
 		"AbilityManaCost"				"250"
-		"ItemCost"						"4450"
+		"ItemCost"						"9710"
 		"ItemShopTags"					"int;damage;attack_speed;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"fs;force staff"
@@ -2884,7 +2943,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"								"3052"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"								"10369"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"								"models/props_gameplay/recipe.vmdl"
 		"BaseClass"							"item_datadriven"
 		"AbilityTextureName"				"item_recipe_blue_fantasy"
@@ -2908,7 +2967,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"									"3053"
+		"ID"									"10370"
 		"BaseClass"								"item_lua"
 		"AbilityTextureName"					"item_blue_fantasy"
 		"ScriptFile"							"items/item_blue_fantasy"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
@@ -2967,14 +3026,14 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3054"
+		"ID"							"10371"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_recipe_wasp_despotic"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2100"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2994,7 +3053,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3055"
+		"ID"							"10372"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_wasp_despotic"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -3009,7 +3068,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"11000"
+		"ItemCost"						"10000"
 		"ItemShopTags"					"damage"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"DMD;daedalus;greater crit;"
@@ -3152,7 +3211,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3056"
+		"ID"							"10373"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_recipe_wasp_callous"
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -3179,7 +3238,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3057"
+		"ID"							"10374"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_wasp_callous"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -3310,7 +3369,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3058"
+		"ID"							"10375"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_recipe_wasp_golden"
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -3337,7 +3396,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3059"
+		"ID"							"10376"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_wasp_golden"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -3510,7 +3569,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3060"
+		"ID"							"10377"
 		"BaseClass"						"item_recipe_echo_sabre"
 		"AbilityTextureName" 			"item_recipe_echo_sabre_2"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -3531,7 +3590,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3061"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10378"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_echo_sabre"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityCastPoint"				"0.0"
@@ -3634,7 +3693,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3066"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10379"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_recipe_shotgun"
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -3660,7 +3719,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3067"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10380"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_lua"
 		"AbilityTextureName" 			"shotgun"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -3706,7 +3765,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3068"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10381"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_recipe_shotgun_v2"
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -3732,7 +3791,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3069"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10382"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_lua"
 		"AbilityTextureName" 			"shotgun_v2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -3806,12 +3865,12 @@
 				"bonus_strength"		"30"	//6
 				"bonus_agility"			"30"	//6
 				"bonus_intellect"		"50"	//24
-				"spell_amp"				"30"	//10
-				"mana_regen_multiplier"	"75"	//25
+				"spell_amp"				"24"	//10
+				"mana_regen_multiplier"	"50"	//25
 
 				"burn_dps_buildings"	"60"	//50
-				"burn_dps_units"		"150"	//50
-				"burn_slow"			"50"		//20
+				"burn_dps_units"		"100"	//50
+				"burn_slow"			"40"		//20
 				"burn_duration"		"6"			//6
 				"stun_duration"		"1.0"		//0.75
 				"burn_interval"			"1.0"	//1.0
@@ -3823,7 +3882,7 @@
 				}
 				"max_duration"		"1.5"			//2
 				"impact_damage_buildings"	"120"	//90
-				"impact_damage_units"		"400"	//130
+				"impact_damage_units"		"300"	//130
 				"enemy_particles_visible"		"0"
 		}
 	}
@@ -3834,14 +3893,14 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3070"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10383"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName" 			"item_recipe_jump_jump_jump"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3850,54 +3909,187 @@
 		"ItemResult"					"item_jump_jump_jump"
 		"ItemRequirements"
 		{
-			"01"						"item_overwhelming_blink;item_swift_blink;item_arcane_blink_2"
+			"01"						"item_overwhelming_blink_2;item_meteor_hammer_2"
+			"02"						"item_swift_blink_2;item_meteor_hammer_2"
+			"03"						"item_arcane_blink;item_meteor_hammer_2"
 		}
 	}
 	"item_jump_jump_jump"
 	{
-		"ID"							"3071"
+		"precache"
+		{
+			"particle"				"particles/items3_fx/blink_overwhelming_burst.vpcf"
+			"particle"				"particles/items4_fx/meteor_hammer_spell.vpcf"
+			"particle"				"particles/items_fx/blink_dagger_end.vpcf"
+			"particle"				"particles/items_fx/blink_dagger_start.vpcf"
+		}
+
+		"ID"							"10384"
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/item_jump_jump_jump"
+		"ScriptFile"					"items/ts_items/item_jump_jump_jump"
 		"AbilityTextureName"			"jump_jump_jump"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"15"
-		"AbilityManaCost"				"250"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"200"
 		"AbilitySharedCooldown"			"blink"
 
-		"ItemCost"						"15650"
+		"ItemCost"						"18600"
 		"ItemAliases"					"blink dagger;arcane blink;swift blink;overwhelming blink;fallen sky;meteor hammer"
 
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"35"	// Tooltip, real value in item_jump_jump_jump_bonus_all_stats
-			"blink_damage_cooldown"	"1.0"
-			"meteor_fall_time"		"0.5"
-			"meteor_land_radius"
+			"bonus_strength"			"60"
+			"bonus_agility"			"60"
+			"bonus_intellect"		"60"
+			"spell_amp"				"36"
+			"mana_regen_multiplier"	"50"
+
+			"blink_range"			"1600"
+			"blink_damage_cooldown"	"0.2"
+			"meteor_fall_time"		"0.3"
+			"remote_cast_range"		"900"
+			"remote_land_time"		"0.5"
+
+			"impact_radius"
 			{
 				"value"		"400"
 				"affected_by_aoe_increase"	"1"
 			}
-			"buff_duration"			"6"
-			// Below are the overwhelming, swift, and arcane modifier values
-			"movement_slow"			"50"
-			"attack_slow"			"50"
+			"stun_duration"			"1.0"
+			"impact_damage_units"	"300"
+			"impact_damage_buildings"	"150"
+			"impact_stat_pct_units"	"30"
+			"impact_stat_pct_buildings"	"15"
+			"burn_dps_units"			"200"
+			"burn_dps_buildings"		"75"
+			"burn_slow"				"40"
+			"burn_duration"			"6"
+			"burn_interval"			"1.0"
 
-			"bonus_movement"		"40"
-			"bonus_agi_active"		"35"
-
+			"movement_slow"			"80"
+			"attack_slow"			"100"
+			"slow_duration"			"6"
+			"bonus_movement"			"60"
+			"bonus_agi_active"		"70"
+			"buff_duration"			"7"
+			"heal_amount"			"1000"
+			"mana_amount"			"400"
 			"cast_pct_improvement"	"50"
 			"manacost_reduction"	"25"
-			"debuff_amp"			"20"
-			// Fall down effect
-			"base_damage"			"100"
-			"str_damage"			"100"
-			"meteor_stun_duration"	"1.0"
-			"slow_duration"			"6.0"
-			"meteor_burn_duration"	"6.0"
-			"meteor_burn_dps"		"100"
+		}
+	}
+	//=================================================================================================================
+	// Fall!Fall!Fall! 落！落！落！刀：跳！跳！跳！刀施放方式对调，两者经转换来回合成
+	//=================================================================================================================
+	"item_exchange"
+	{
+		"ID"							"10465"
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"exchange"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemAliases"					"exchange;swap"
+	}
+	"item_recipe_fall_fall_fall"
+	{
+		"ID"							"10466"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe_jump_jump_jump"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_fall_fall_fall"
+		"ItemRequirements"
+		{
+			"01"						"item_jump_jump_jump;item_exchange"
+		}
+	}
+	"item_recipe_jump_jump_jump_swap"
+	{
+		"ID"							"10468"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe_jump_jump_jump"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_jump_jump_jump"
+		"ItemRequirements"
+		{
+			"01"						"item_fall_fall_fall;item_exchange"
+		}
+	}
+	"item_fall_fall_fall"
+	{
+		"precache"
+		{
+			"particle"				"particles/items3_fx/blink_overwhelming_burst.vpcf"
+			"particle"				"particles/items4_fx/meteor_hammer_spell.vpcf"
+			"particle"				"particles/items_fx/blink_dagger_end.vpcf"
+			"particle"				"particles/items_fx/blink_dagger_start.vpcf"
+		}
+
+		"ID"							"10467"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/ts_items/item_jump_jump_jump"
+		"AbilityTextureName"			"fall_fall_fall"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"200"
+		"AbilitySharedCooldown"			"blink"
+
+		"ItemCost"						"18600"
+		"ItemAliases"					"blink dagger;arcane blink;swift blink;overwhelming blink;fallen sky;meteor hammer"
+
+		// 与 item_jump_jump_jump 同步
+		"AbilityValues"
+		{
+			"bonus_strength"			"60"
+			"bonus_agility"			"60"
+			"bonus_intellect"		"60"
+			"spell_amp"				"36"
+			"mana_regen_multiplier"	"50"
+
+			"blink_range"			"1600"
+			"blink_damage_cooldown"	"0.2"
+			"meteor_fall_time"		"0.3"
+			"remote_cast_range"		"900"
+			"remote_land_time"		"0.5"
+
+			"impact_radius"
+			{
+				"value"		"400"
+				"affected_by_aoe_increase"	"1"
+			}
+			"stun_duration"			"1.0"
+			"impact_damage_units"	"300"
+			"impact_damage_buildings"	"150"
+			"impact_stat_pct_units"	"30"
+			"impact_stat_pct_buildings"	"15"
+			"burn_dps_units"			"200"
+			"burn_dps_buildings"		"75"
+			"burn_slow"				"40"
+			"burn_duration"			"6"
+			"burn_interval"			"1.0"
+
+			"movement_slow"			"80"
+			"attack_slow"			"100"
+			"slow_duration"			"6"
+			"bonus_movement"			"60"
+			"bonus_agi_active"		"70"
+			"buff_duration"			"7"
+			"heal_amount"			"1000"
+			"mana_amount"			"400"
+			"cast_pct_improvement"	"50"
+			"manacost_reduction"	"25"
 		}
 	}
 	//=================================================================================================================
@@ -3907,7 +4099,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3072"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10385"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_gungir"
 		"AbilityTextureName" 			"item_recipe_gungir_2"
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -3930,7 +4122,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3073"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10386"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -3991,7 +4183,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3077"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10387"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_satanic_2"
@@ -4014,7 +4206,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3078"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10388"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
@@ -4055,7 +4247,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3081"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10389"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_orb_of_the_brine"
@@ -4080,8 +4272,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3082"
-		"BaseClass"						"item_lua"
+		"ID"							"10390"
+		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"orb_of_the_brine"
 		"ScriptFile"					"items/item_orb_of_the_brine"
 
@@ -4111,10 +4303,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"20"	// tooltip, real value in item_orb_of_the_brine_bonus_all_stats
+			"bonus_all_stats"		"20"
 			"bonus_health"			"600"
+			// 由原生 modifier_item_enhancement_restorative 读取，KV 属性表的治疗增强不生效
 			"bonus_mana"			"600"
-			"heal_increase"			"50"
+			"heal_amp"				"50"
 
 			"bubble_duration"		"1"
 			"bubble_move_speed"		"400"
@@ -4122,6 +4315,52 @@
 
 			"bubble_total_heal_tip"	"1500"
 			"bubble_total_mana_tip"	"1500"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_orb_of_the_brine"
+				"Function"		"OrbOfTheBrineOnSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_orb_of_the_brine"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"				"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"					"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"				"%bonus_all_stats"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"						"%bonus_health"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_orb_of_the_brine"
+						"Function"		"OrbOfTheBrineOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_orb_of_the_brine"
+						"Function"		"OrbOfTheBrineOnDestroy"
+					}
+				}
+			}
 		}
 	}
 
@@ -4132,7 +4371,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3083"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10391"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_tome_of_luoshu"
@@ -4154,7 +4393,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3084"
+		"ID"							"10392"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"tome_of_luoshu"
 		"ScriptFile"                    "items/item_tome_of_luoshu"
@@ -4193,7 +4432,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3085"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10393"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_necronomicon_staff"
@@ -4215,7 +4454,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3086"
+		"ID"							"10394"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"necronomicon_staff"
 		"ScriptFile"					"items/item_necronomicon_staff"
@@ -4254,8 +4493,8 @@
 
 			"sheep_duration"		"3.0"
 			"sheep_movement_speed"	"120"
-			"blast_damage_base"		"100"
-			"blast_att_multiplier"	"0.8"
+			"blast_damage_base"		"200"
+			"blast_att_multiplier"	"0.5"
 			"blast_magic_resist"	"-30"
 		}
 	}
@@ -4266,7 +4505,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3087"										// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10395"										// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 	    "BaseClass"						"item_recipe_armlet"
 		"AbilityTextureName"			"item_recipe_armlet_plus"
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -4289,7 +4528,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3088"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10396"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_armlet"
 		"AbilityTextureName"			"item_armlet_plus"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -4330,7 +4569,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3089"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10397"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_armlet"
 		"AbilityTextureName"			"item_recipe_armlet_pro_max"
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -4353,7 +4592,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3090"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10398"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_armlet"
 		"AbilityTextureName"			"item_armlet_pro_max"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -4397,7 +4636,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// General
 		// -------------------------------------------------------------------------------------------------------------
-		"ID"	"3091"
+		"ID"	"10399"
 		"Model"	"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
@@ -4431,7 +4670,7 @@
 
 		// General
 		// -------------------------------------------------------------------------------------------------------------
-		"ID"	"3092"
+		"ID"	"10400"
 		"ItemQuality"	"rare"
 		"ItemCost"	"11200"
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -4466,7 +4705,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3093"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10401"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -4507,7 +4746,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3094"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10402"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"BaseClass"						"item_recipe_hand_of_midas"
 		"AbilityTextureName"					"item_recipe_hand_of_group"
@@ -4535,7 +4774,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3095"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"10403"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
@@ -4571,6 +4810,7 @@
 		"ShouldBeSuggested"				"1"
 		"precache"
 		{
+			"particle"				"particles/items2_fx/refresher.vpcf"
 			"particle"	"particles/items2_fx/hand_of_midas.vpcf"
 			"particle"	"particles/items_fx/chain_lightning.vpcf"
 		}
@@ -4596,7 +4836,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"							"9501"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "ID"							"10404"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "BaseClass"						"item_recipe_bloodstone"
         "AbilityTextureName" 			"item_recipe_bloodstone"
         "Model"							"models/props_gameplay/recipe.vmdl"
@@ -4619,7 +4859,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"							"9502"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "ID"							"10405"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "BaseClass"						"item_bloodstone"
         // "ScriptFile"                    "items/item_bloodstone_v2"
         "AbilityTextureName"			"item_bloodstone"
@@ -4665,7 +4905,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"							"9503"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "ID"							"10406"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "BaseClass"						"item_datadriven"
         "AbilityTextureName" 			"item_recipe_refresh_core"
         "Model"							"models/props_gameplay/recipe.vmdl"
@@ -4687,7 +4927,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"							"9504"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "ID"							"10407"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "BaseClass"						"item_lua"
         "ScriptFile"                    "items/item_refresh_core"
         "AbilityTextureName"			"item_refresh_core"
@@ -4702,7 +4942,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"19800"
+        "ItemCost"						"19200"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mana;mb;refresh core;refresher orb;octarine core"
@@ -4730,7 +4970,7 @@
 	"item_recipe_rapier_ultra"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"9594"
+		"ID"							"10408"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
 		"ItemCost"						"2000"
@@ -4747,7 +4987,7 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ID"							"9595"
+		"ID"							"10409"
 		"AbilityTextureName"			"item_rapier_ultra"
 		"ItemCost"						"32000"
 
@@ -4795,7 +5035,7 @@
 	"item_recipe_rapier_ultra_bot"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"9596"
+		"ID"							"10410"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
 		"ItemCost"						"2000"
@@ -4811,7 +5051,7 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ID"							"9597"
+		"ID"							"10411"
 		"AbilityTextureName"			"item_rapier_ultra"
 		"ItemCost"						"40000"
 
@@ -4857,7 +5097,7 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ID"							"9598"
+		"ID"							"10412"
 		"AbilityTextureName"			"item_rapier_ultra"
 		"ItemCost"						"40000"
 
@@ -4904,7 +5144,7 @@
 	//=================================================================================================================
 	"item_recipe_bfury_ultra"
 	{
-		"ID"							"9590"
+		"ID"							"10413"
 		"BaseClass"						"item_recipe_bfury"
 		"ItemCost"						"4100"
 		"ItemRecipe"					"1"
@@ -4917,7 +5157,7 @@
 
 	"item_bfury_ultra"
 	{
-		"ID"							"9591"
+		"ID"							"10414"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
@@ -4933,7 +5173,7 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"160"
-				"bonus_health_regen"	"20"
+				"bonus_health_regen"	"15"
 				"bonus_mana_regen"		"8"
 				"cleave_damage_percent"	"80"
 				"cleave_damage_percent_creep"	"80"
@@ -4960,7 +5200,7 @@
 	"item_recipe_bloodthorn_ultra"
 	{
 		"BaseClass"						"item_recipe_bloodthorn"
-		"ID"							"9592"
+		"ID"							"10415"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"0"
 		"ItemRecipe"					"1"
@@ -4974,7 +5214,7 @@
 	"item_bloodthorn_ultra"
 	{
 		"BaseClass"						"item_bloodthorn"
-		"ID"							"9593"
+		"ID"							"10416"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -5243,7 +5483,7 @@
 				"bonus_strength"		"60"
 				"bonus_intellect"			"60"
 				"slow_resistance"			"50"	// 25
-				"mana_regen_multiplier"		"60"	// 30
+				"mana_regen_multiplier"		"50"	// 30
 				"spell_amp"				"25"		// 12
 				"hp_regen_amp"			"40"		// 20
 				"manacost_reduction"	"40"		// 25
@@ -5278,8 +5518,8 @@
 		{
 				"bonus_strength"		"60"	// 16
 				"bonus_agility"			"60"	// 16
-				"status_resistance"		"35"	// 15
-				"bonus_attack_speed"	"50"	// 20
+				"status_resistance"		"30"	// 15
+				"bonus_attack_speed"	"40"	// 20
 				"movement_speed_percent_bonus"	"25" // 12
 				"hp_regen_amp"			"40"	// 25
 				"slow_resistance"		"50"	// 25
@@ -5314,49 +5554,11 @@
 		{
 				"bonus_agility"			"60"
 				"bonus_intellect"		"60"
-				"bonus_attack_speed"	"50" // 20
-				"mana_regen_multiplier"	"60" // 30
+				"bonus_attack_speed"	"40" // 20
+				"mana_regen_multiplier"	"50" // 30
 				"movement_speed_percent_bonus"	"25" // 12
 				"spell_amp"				"25" // 12
 				"cast_speed_pct"		"50" // 25
-		}
-	}
-
-	//=================================================================================================================
-	// 法师泳衣
-	//=================================================================================================================
-	"item_recipe_eternal_shroud_ultra"
-	{
-		"BaseClass"						"item_recipe_eternal_shroud"
-		"ItemCost"						"2200"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"AbilityTextureName"			"item_recipe_eternal_shroud_ultra"
-		"ItemResult"					"item_eternal_shroud_ultra"
-		"ItemRequirements"
-		{
-			"01"						"item_cloak;item_ogre_axe;item_vitality_booster"
-		}
-	}
-
-	"item_eternal_shroud_ultra"
-	{
-		"BaseClass"						"item_eternal_shroud"
-		"AbilityTextureName"			"item_eternal_shroud_ultra"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SuggestLategame"				"1"
-		"AbilityValues"
-		{
-			"bonus_spell_resist"					"30"	//20
-			"bonus_strength"						"20"	//10
-			"bonus_health"							"500"	//250
-			// 禁用被动防止炸房
-			"stack_threshold"						"99999"	//300
-			"stack_duration"						"0"		//5
-			"stack_resist"							"0.0"	//3.5
-
-			"mana_restore_pct"						"30"	//25
-			"max_stacks"							"8"		//6
 		}
 	}
 
@@ -5368,7 +5570,7 @@
 	"item_fusion_hawkeye"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10101"
+		"ID"						"10417"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"fusion_hawkeye"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -5382,7 +5584,7 @@
 		"ItemPermanent"				"1"
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
-		"ItemInitialStockTime"		"0"
+		"ItemInitialStockTime"		"1"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5393,7 +5595,7 @@
 	"item_fusion_forbidden"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10102"
+		"ID"						"10418"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"fusion_forbidden"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -5408,7 +5610,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"0"
+		"ItemInitialStockTime"		"1"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5418,7 +5620,7 @@
 	"item_fusion_brutal"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10103"
+		"ID"						"10419"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"fusion_brutal"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -5433,7 +5635,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"0"
+		"ItemInitialStockTime"		"1"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5443,12 +5645,12 @@
 	"item_fusion_beast"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10104"
+		"ID"						"10420"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"fusion_beast"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"					"10000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5458,7 +5660,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"0"
+		"ItemInitialStockTime"		"1"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5468,7 +5670,7 @@
 	"item_fusion_life"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10105"
+		"ID"						"10421"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"fusion_life"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -5483,7 +5685,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"0"
+		"ItemInitialStockTime"		"1"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5493,7 +5695,7 @@
 	"item_fusion_shadow"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10106"
+		"ID"						"10422"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"fusion_shadow"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -5508,7 +5710,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"0"
+		"ItemInitialStockTime"		"1"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5518,12 +5720,12 @@
 	"item_fusion_magic"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10107"
+		"ID"						"10423"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"fusion_magic"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"					"10000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5533,7 +5735,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"0"
+		"ItemInitialStockTime"		"1"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5543,7 +5745,7 @@
 	"item_fusion_agile"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10108"
+		"ID"						"10424"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"fusion_agile"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -5558,7 +5760,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"0"
+		"ItemInitialStockTime"		"1"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5571,7 +5773,7 @@
 	"item_rune_transmuter_random"
 	{
 		"BaseClass"					"item_lua"
-		"ID"						"10109"
+		"ID"						"10425"
 		"ScriptFile"				"items/item_rune_transmuter_random"
 		"AbilityTextureName"		"rune_transmuter_random"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -5602,7 +5804,7 @@
 	"item_rune_transmuter_advanced"
 	{
 		"BaseClass"					"item_lua"
-		"ID"						"10110"
+		"ID"						"10426"
 		"ScriptFile"				"items/item_rune_transmuter_advanced"
 		"AbilityTextureName"		"rune_transmuter_advanced"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -5630,40 +5832,6 @@
 	}
 
 	//=================================================================================================================
-	// 通用符文 - 自动合成物品
-	//=================================================================================================================
-	"item_universal_rune"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"10335"
-		"BaseClass"					"item_lua"
-		"ScriptFile"				"items/item_universal_rune"
-		"AbilityTextureName"		"universal_rune"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"29999"
-		"ItemPermanent"				"0"
-		"ItemStackable"				"0"
-		"ItemPurchasable"			"1"
-		"ItemKillable"				"0"
-		"ItemSellable"				"0"
-		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"		"0"
-		"ItemStockInitial"			"0"
-		"ItemStockMax"				"1"
-		"ItemStockTime"				"60"
-		"AbilityCooldown"			"1.0"
-
-		"ItemShopTags"				"consumable"
-		"ItemQuality"				"artifact"
-		"IsTempestDoubleClonable"	"0"
-		"ItemCanBeUsedWithoutInventory"	"1"
-	}
-
-	//=================================================================================================================
 	// 鹰眼炮台
 	//=================================================================================================================
 	"item_recipe_hawkeye_turret"
@@ -5671,7 +5839,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"					"item_datadriven"
-		"ID"						"10201"
+		"ID"						"10427"
 		"Model"						"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"		"item_recipe_hawkeye_turret"
 
@@ -5693,7 +5861,7 @@
 	"item_hawkeye_turret"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"10202"
+		"ID"							"10428"
 		"ScriptFile"					"items/item_hawkeye_turret"
 		"AbilityTextureName"			"hawkeye_turret"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -5829,7 +5997,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"					"item_datadriven"
-		"ID"						"10203"
+		"ID"						"10429"
 		"Model"						"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"		"item_recipe_hawkeye_fighter"
 
@@ -5850,8 +6018,13 @@
 
 	"item_hawkeye_fighter"
 	{
+		"precache"
+		{
+			"particle"				"particles/econ/events/ti10/phase_boots_ti10.vpcf"
+		}
+
 		"BaseClass"					"item_lua"
-		"ID"						"10205"
+		"ID"						"10430"
 		"ScriptFile"				"items/item_hawkeye_fighter"
 		"AbilityTextureName"		"yingyanzhanji"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -5868,13 +6041,13 @@
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
 			"bonus_all_stats"			"30"	// tooltip only - 全属性
-			"bonus_movement_speed"		"140"	// tooltip only - 移动速度
-			"bonus_movement_speed_pct"	"20"	// tooltip only - 移动速度百分比
+			"bonus_movement_speed"		"120"	// tooltip only - 移动速度
+			"bonus_movement_speed_pct"	"10"	// tooltip only - 移动速度百分比
 			"bonus_turn_rate"			"50"	// tooltip only - 转身速率
 			"bonus_evasion"			"20"	// tooltip only - 闪避
 			// 主动效果（在 Lua 中实现）
-			"active_movement_speed_pct"	"50"
-			"active_duration"			"4"
+			"active_movement_speed_pct"	"40"
+			"active_duration"			"3"
 		}
 	}
 
@@ -5884,7 +6057,7 @@
 	"item_recipe_forbidden_staff"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10301"
+		"ID"						"10431"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_forbidden_staff"
 
@@ -5902,7 +6075,7 @@
 	"item_forbidden_staff"
 	{
 		"BaseClass"					"item_lua"
-		"ID"						"10302"
+		"ID"						"10432"
 		"ScriptFile"				"items/item_forbidden_staff"
 		"AbilityTextureName"		"jinjifachui"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -5941,7 +6114,7 @@
 				"value"						"600"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
 				"affected_by_aoe_increase"	"1"
 			}
-			"necrolyte_att_multiplier"	"0.4"	// Lua 逻辑需要 - 死灵冲击全属性倍数
+			"necrolyte_att_multiplier"	"0.3"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"lightning_damage"
 			{
 				"value"					"1200"
@@ -5957,6 +6130,7 @@
 		}
 		"precache"
 		{
+			"particle"				"particles/items4_fx/meteor_hammer_spell.vpcf"
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
 			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf"
 		}
@@ -5968,7 +6142,7 @@
 	"item_recipe_forbidden_blade"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10303"
+		"ID"						"10433"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"jinjizhanren"
 
@@ -5986,7 +6160,7 @@
 	"item_forbidden_blade"
 	{
 		"BaseClass"					"item_lua"
-		"ID"						"10304"
+		"ID"						"10434"
 		"ScriptFile"				"items/item_forbidden_blade"
 		"AbilityTextureName"		"jinjizhanren"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -6046,7 +6220,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"					"item_datadriven"
-		"ID"						"9996"
+		"ID"						"10435"
 		"Model"						"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"		"item_recipe_switchable_crit_blade"
 
@@ -6068,7 +6242,7 @@
 	"item_switchable_crit_blade"
 	{
 		"BaseClass"					"item_lua"
-		"ID"						"9997"
+		"ID"						"10436"
 		"AbilityTextureName"		"guihaiyidao"
 		"ScriptFile"				"items/item_switchable_crit_blade"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -6093,21 +6267,21 @@
 
 			// 暴击参数（Lua 逻辑需要 - 动态暴击计算）
 			// 模式1:
-			"crit_chance_mode1"			"18"
+			"crit_chance_mode1"			"15"
 			"crit_multiplier_mode1"		"5"
 			"guaranteed_crit_multiplier_mode1"	"4"
 			"cooldown_mode1"			"4"
 
 			// 模式2:
-			"crit_chance_mode2"			"6"
+			"crit_chance_mode2"			"5"
 			"crit_multiplier_mode2"		"13"
 			"guaranteed_crit_multiplier_mode2"	"12"
 			"cooldown_mode2"			"12"
 
 			// 模式3:
 			"crit_chance_mode3"			"1"
-			"crit_multiplier_mode3"		"80"
-			"guaranteed_crit_multiplier_mode3"	"30"
+			"crit_multiplier_mode3"		"70"
+			"guaranteed_crit_multiplier_mode3"	"25"
 			"cooldown_mode3"			"30"
 		}
 	}
@@ -6120,7 +6294,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"					"item_datadriven"
-		"ID"						"9995"
+		"ID"						"10437"
 		"Model"						"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"		"item_recipe_magic_crit_blade"
 
@@ -6135,96 +6309,48 @@
 		"ItemResult"				"item_magic_crit_blade"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_devastator_2;item_veil_of_discord_2;item_fusion_brutal"
+			"01"					"item_hallowed_scepter;item_force_staff_3;item_veil_of_discord_2;item_fusion_brutal"
 		}
 	}
 
 	"item_magic_crit_blade"
 	{
-		"BaseClass"					"item_datadriven"
-		"ID"						"9998"
+		"BaseClass"					"item_lua"
+		"ID"						"10438"
 		"AbilityTextureName"		"molongkuangwu"
-		"ScriptFile"				"items/item_magic_crit_blade"
+		"ScriptFile"				"items/ts_items/item_magic_scepter"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"			"4"
+		"AbilityCooldown"			"60"
 		"AbilityManaCost"			"1200"
 		"AbilitySharedCooldown"		"magic_scepter"
 
-		"ItemCost"					"43800"
+		"ItemCost"					"37000"
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
+		"precache"
+		{
+			"particle"	"particles/items2_fx/veil_of_discord.vpcf"
+		}
+
 		"AbilityValues"
 		{
-			// Lua 逻辑需要 - 法术增强计算(动态)
+			"bonus_intelligence"		"180"	// tooltip, real value in item_magic_crit_blade_bonus_intelligence
 			"spell_amp_per_int"			"0.3"
+			// 慧光被动 modifier_item_kaya 按这两个键名取值
+			"spell_amp"					"40"
+			"mana_regen_multiplier"		"40"
 
-			// 主动技能 - 龙息爆发
-			"active_cooldown"			"60"
+			// 主动：龙息爆发
 			"active_duration"			"4"
 			"spell_amp_multiplier"		"2"
+			"active_radius"				"1200"
+			"active_mres_reduction"		"25"	// tooltip, real value in item_magic_crit_blade_mres_reduction
 
-			// 神圣斧
-			"bonus_intellect"			"200"
-			"bonus_attack_speed"		"80"
-			"bonus_armor"				"14"
-			// 巫师之刃 + 魔蚀 modifier
-			"projectile_speed"			"300"
-			"int_damage_multiplier"		"1.2"
-			"slow"						"50"
-			"slow_duration"				"4"
-			"active_mres_reduction"		"40"
-			"passive_cooldown"			"4"
-
-			// 法术暴击 modifier
+			// 法术暴击
 			"spell_crit_chance"			"30"
-			"spell_crit_multiplier"		"200"
-		}
-
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/item_magic_crit_blade"
-				"Function"		"MagicCritBladeOnSpellStart"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_item_magic_crit_blade"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"RemoveOnDeath"		"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_magic_crit_blade"
-						"Function"		"MagicCritBladeOnCreated"
-					}
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_magic_crit_blade"
-						"Function"		"MagicCritBladeOnDestroy"
-					}
-				}
-			}
+			"spell_crit_multiplier"		"180"
 		}
 	}
 
@@ -6234,7 +6360,7 @@
 	"item_recipe_withered_spring"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10313"
+		"ID"						"10439"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_withered_spring"
 
@@ -6252,7 +6378,7 @@
 	"item_withered_spring"
 	{
 		"BaseClass"					"item_lua"
-		"ID"						"10314"
+		"ID"						"10440"
 		"ScriptFile"				"items/ts_items/item_withered_spring"
 		"AbilityTextureName"		"withered_spring"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -6318,7 +6444,7 @@
 	"item_recipe_dracula_mask"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10315"
+		"ID"						"10441"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_dracula_mask"
 
@@ -6336,7 +6462,7 @@
 	"item_dracula_mask"
 	{
 		"BaseClass"					"item_lua"
-		"ID"						"10316"
+		"ID"						"10442"
 		"ScriptFile"				"items/item_dracula_mask"
 		"AbilityTextureName"		"xixuemianzhao"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -6389,7 +6515,7 @@
 	"item_recipe_shadow_judgment"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10311"
+		"ID"						"10443"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_shadow_judgment"
 
@@ -6407,7 +6533,7 @@
 	"item_shadow_judgment"
 	{
 		"BaseClass"					"item_lua"
-		"ID"						"10312"
+		"ID"						"10444"
 		"ScriptFile"				"items/item_shadow_judgment"
 		"AbilityTextureName"		"anyingcaijue"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -6479,7 +6605,7 @@
 	"item_recipe_shadow_impact"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10344"
+		"ID"						"10445"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_shadow_impact"
 
@@ -6497,7 +6623,7 @@
 	"item_shadow_impact"
 	{
 		"BaseClass"					"item_lua"
-		"ID"						"10345"
+		"ID"						"10446"
 		"ScriptFile"				"items/item_shadow_impact"
 		"AbilityTextureName"		"shadow_impact"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -6509,8 +6635,8 @@
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
-		"AbilityCooldown"			"3"	// 被动冷却，主动冷却见 active_cooldown
-		"AbilityManaCost"			"800"
+		"AbilityCooldown"			"0.1"	// 被动冷却，主动冷却见 active_cooldown
+		"AbilityManaCost"			"600"
 		"AbilityCastRange"			"800"
 		"AbilityCastPoint"			"0.2"
 
@@ -6525,11 +6651,11 @@
 			}
 			"pure_damage"
 			{
-				"value"					"500"
+				"value"					"400"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
-			"necrolyte_att_multiplier"	"0.8"	// Lua 逻辑需要 - 死灵冲击全属性倍数
+			"necrolyte_att_multiplier"	"0.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"120"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"		"-30"	// Lua 逻辑需要 - 魔法抗性减少
@@ -6541,9 +6667,9 @@
 			"bonus_mana_regen"			"30"
 			// "bonus_all_stats"			"25"	// 绝刃自身加成
 			"slow"						"50"	// 绝刃减速
-			"slow_duration"				"3"		// 绝刃减速持续时间
-			"bonus_spell_damage"		"900"	// 绝刃法术伤害加成
-			"passive_cooldown"			"3"		// 绝刃自身充能冷却
+			"slow_duration"				"2"		// 绝刃减速持续时间
+			"bonus_spell_damage"		"600"	// 绝刃法术伤害加成
+			"passive_cooldown"			"0.1"	// tooltip only - 被动冷却，实际读 AbilityCooldown
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
 			"bonus_intellect"			"200"	// tooltip only - 智力
@@ -6558,6 +6684,7 @@
 
 		"precache"
 		{
+			"particle"				"particles/items_fx/dagon.vpcf"
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
 			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf"
 		}
@@ -6569,7 +6696,7 @@
 	"item_recipe_swift_glove"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10317"
+		"ID"						"10447"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_swift_glove"
 		"ItemCost"					"0"
@@ -6586,7 +6713,7 @@
 	{
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_swift_glove"
-		"ID"						"10318"
+		"ID"						"10448"
 		"AbilityTextureName"		"swift_glove"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -6628,7 +6755,7 @@
 			"group_xp"			"0.5"
 			"group_gold"		"120"
 			"hero_kill_chance"	"50"
-			"chain_chance"		"40"
+			"chain_chance"		"35"
 			"chain_damage"		"500"
 			"chain_strikes"		"12"
 			"chain_radius"		"900"
@@ -6652,7 +6779,7 @@
 	"item_recipe_time_gem"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10321"
+		"ID"						"10449"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_time_gem"
 		"ItemCost"					"0"
@@ -6667,7 +6794,12 @@
 
 	"item_time_gem"
 	{
-		"ID"						"10322"
+		"precache"
+		{
+			"particle"				"particles/items2_fx/refresher.vpcf"
+		}
+
+		"ID"						"10450"
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_time_gem"
 		"AbilityTextureName"		"shijianbaoshi"
@@ -6682,7 +6814,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"62300"
+		"ItemCost"					"51700"
 		"ItemShopTags"				"move_speed;boost_mana;mana_pool"
 		"ItemQuality"				"rare"
 		"ItemAliases"				"mana;mb;refresh core;refresher orb;octarine core"
@@ -6704,11 +6836,11 @@
 			"bonus_mana_regen"			"15.0"	// tooltip only - 魔法恢复
 
 			// Lua 逻辑需要的参数
-			"manacost_reduction"		"50"	// 新增:减魔耗百分比
+			"manacost_reduction"		"45"	// 新增:减魔耗百分比
 			"cast_speed_pct"			"50"	// 新增:施法速度加成百分比
-			"bonus_cooldown"			"50"
-			"bonus_cooldown_stack"		"25"	// activates to correctly interact
-			"cast_range_bonus"			"400"
+			"bonus_cooldown"			"45"
+			"bonus_cooldown_stack"		"17"	// activates to correctly interact
+			"cast_range_bonus"			"350"
 		}
 	}
 
@@ -6718,7 +6850,7 @@
 	"item_recipe_beast_shield"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10323"
+		"ID"						"10451"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_beast_shield"
 		"ItemCost"					"0"
@@ -6726,7 +6858,7 @@
 		"ItemResult"				"item_beast_shield"
 		"ItemRequirements"
 		{
-			"01"					"item_black_king_bar_2;item_vladmir_2;item_eternal_shroud_ultra;item_insight_armor;item_fusion_beast"
+			"01"					"item_black_king_bar_2;item_vladmir_2;item_insight_armor;item_fusion_beast"
 		}
 	}
 
@@ -6734,7 +6866,7 @@
 	{
 		"BaseClass"					"item_datadriven"
 		"ScriptFile"				"items/item_beast_shield"
-		"ID"						"10324"
+		"ID"						"10452"
 		"AbilityTextureName"		"beast_shield"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
@@ -6742,39 +6874,30 @@
 		"AbilityCooldown"			"60.0"
 		"AbilityManaCost"			"300"
 
-		"ItemCost"					"57300"
+		"ItemCost"					"42200"
 
 		"AbilityValues"
 		{
 			// 主动技能
 			"active_duration"				"8"
 			"active_bonus_multiplier_tooltip"	"100"
-			// BKB
-			"magic_resist"					"100"
-
-			// 法师泳衣被动
-			// 禁用被动防止炸房
-			"stack_threshold"			"99999"
-			"stack_duration"			"0"
-			"stack_resist"				"0"
-
-			"mana_restore_pct"			"30"
-			"max_stacks"				"8"
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"					"100"
 
 			// 被动属性
-			"passive_bonus_strength"			"100"
-			"passive_bonus_health"				"2000"
+			"passive_bonus_strength"			"80"
+			"passive_bonus_health"				"1400"
 			"passive_bonus_armor"				"40"
 			"passive_bonus_spell_resist"		"40"
-			"passive_bonus_health_regen"		"50"
-			"passive_bonus_attack_speed"		"50"
+			"passive_bonus_health_regen"		"40"
+			"passive_bonus_attack_speed"		"40"
 			"passive_bonus_damage"				"100"
 
 			// 强袭光环
 			"aura_radius"					"900"
-			"aura_positive_armor"			"15"
-			"aura_attack_speed"				"90"
-			"aura_negative_armor"			"-15"
+			"aura_positive_armor"			"10"
+			"aura_attack_speed"				"50"
+			"aura_negative_armor"			"-10"
 		}
 
 		"OnSpellStart"
@@ -6785,11 +6908,10 @@
 				"Target"		"CASTER"
 			}
 
-			"ApplyModifier"
+			"RunScript"
 			{
-				"ModifierName"	"modifier_black_king_bar_immune"
-				"Target"		"CASTER"
-				"Duration"		"%active_duration"
+				"ScriptFile"	"items/item_beast_shield"
+				"Function"		"BeastShieldOnSpellStart"
 			}
 
 			"ApplyModifier"
@@ -6819,24 +6941,6 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%passive_bonus_health_regen"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%passive_bonus_attack_speed"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%passive_bonus_damage"
-				}
-
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_beast_shield"
-						"Function"		"BeastShieldOnCreated"
-					}
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_beast_shield"
-						"Function"		"BeastShieldOnDestroy"
-					}
 				}
 			}
 
@@ -6921,7 +7025,7 @@
 	"item_recipe_beast_armor"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10325"
+		"ID"						"10453"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_beast_armor"
 		"ItemCost"					"0"
@@ -6937,7 +7041,7 @@
 	{
 		"BaseClass"					"item_datadriven"
 		"ScriptFile"				"items/item_beast_armor"
-		"ID"						"10326"
+		"ID"						"10454"
 		"AbilityTextureName"		"shouhuajia"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
@@ -6945,7 +7049,7 @@
 		"AbilityCooldown"			"20.0"
 		"AbilityManaCost"			"600"
 
-		"ItemCost"					"56000"
+		"ItemCost"					"46000"
 		"ItemShopTags"				"damage;armor;int;hard_to_tag"
 		"ItemQuality"				"artifact"
 		"ItemAliases"				"beast armor"
@@ -6983,7 +7087,7 @@
 		{
 			// 刃甲属性
 			"passive_reflection_constant"	"60"	// 被动反伤固定值
-			"passive_reflection_pct"		"25"	// 被动反伤百分比
+			"passive_reflection_pct"		"20"	// 被动反伤百分比
 			"active_reflection_pct"			"100"	// 主动反伤百分比
 			"bonus_armor"					"60"	// 护甲
 
@@ -6992,16 +7096,16 @@
 
 			"active_duration"				"4"		// 主动持续时间
 			"blast_radius"					"900"	// 冲击波范围
-			"blast_damage"					"1200"	// 冲击波伤害
+			"blast_damage"					"800"	// 冲击波伤害
 
 			// 主动Debuff 需要同时修改 modifier_item_beast_armor_debuff
 			"movement_slow"					"40"	// tooltip only - 移速减缓
-			"attack_slow"					"120"	// tooltip only - 攻速减缓
+			"attack_slow"					"100"	// tooltip only - 攻速减缓
 			"spell_resist_reduction"		"20"	// tooltip only - 魔法抗性降低
 
 			// 辉耀光环（事件驱动）
 			"aura_radius"					"900"	// 光环范围
-			"aura_damage"					"180"	// 光环伤害
+			"aura_damage"					"120"	// 光环伤害
 			"blind_pct"						"10"	// 致盲百分比
 
 			// 被动属性
@@ -7009,9 +7113,9 @@
 			"bonus_strength"				"30"	// 力量
 			"bonus_agility"					"30"	// 敏捷
 			"bonus_intellect_passive"		"30"	// 智力
-			"bonus_health_regen"			"40"	// 生命回复
-			"bonus_mana_regen"				"25"	// 魔法回复
-			"bonus_damage_passive"			"120"	// 攻击力
+			"bonus_health_regen"			"20"	// 生命回复
+			"bonus_mana_regen"				"15"	// 魔法回复
+			"bonus_damage_passive"			"90"	// 攻击力
 			"evasion"						"25"	// 闪避
 
 			"bonus_aoe"						"150"	// 作用范围 lua
@@ -7079,7 +7183,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-40"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-120"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-100"
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-20"
 				}
 
@@ -7140,7 +7244,7 @@
 	"item_recipe_magic_sword"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10330"
+		"ID"						"10455"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_magic_sword"
 
@@ -7157,7 +7261,7 @@
 	"item_magic_sword"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"10328"
+		"ID"							"10456"
 		"AbilityTextureName"			"moyuanjian"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -7166,35 +7270,35 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"20.0"
+		"AbilityCooldown"				"30.0"
 		"AbilityManaCost"				"150"
 
-		"ItemCost"						"59000"
+		"ItemCost"						"49000"
 		"ItemShopTags"					"damage;agi;hard_to_tag"
 		"ItemQuality"					"artifact"
 
 		"AbilityValues"
 		{
 			// 主动技能参数（Lua 逻辑需要）
-			"active_duration"			"3"		// 主动持续时间
-			"convert_pct"				"40"	// 物理转纯粹伤害百分比
+			"active_duration"			"4"		// 主动持续时间
+			"convert_pct"				"30"	// 物理转纯粹伤害百分比
 
 			// 被动属性
 			"bonus_damage_passive"		"460"	// 攻击力
 			"bonus_all_stats"			"80"	// 全属性
 
 			// 狂战斧属性（modifier_item_battlefury）
-			"bonus_health_regen"		"30"	// 生命回复
+			"bonus_health_regen"		"25"	// 生命回复
 			"bonus_mana_regen"			"10"	// 魔法回复
 			// 狂战斧溅射参数
 			"cleave_damage_percent"			"100"	// 溅射伤害百分比（英雄）
-			"cleave_damage_percent_creep"	"120"	// 溅射伤害百分比（小兵）
+			"cleave_damage_percent_creep"	"100"	// 溅射伤害百分比（小兵）
 			"cleave_starting_width"			"150"	// 溅射起始宽度
 			"cleave_ending_width"			"500"	// 溅射结束宽度
 			"cleave_distance"				"1000"	// 溅射距离
 
 			// Desolator 参数（从 item_infernal_desolator 继承）
-			"corruption_armor"			"-50"	// 护甲降低
+			"corruption_armor"			"-45"	// 护甲降低
 			"corruption_duration"		"7.0"	// 护甲降低持续时间
 			"bonus_damage_per_kill"		"0"		// 每次击杀增加的攻击力
 			"bonus_damage_per_assist"	"0"		// 每次助攻增加的攻击力
@@ -7202,9 +7306,9 @@
 
 			// 其他 Debuff
 			"debuff_duration"			"4.0"	// Debuff持续时间
-			"attack_slow"				"-200"	// Debuff攻击速度降低
+			"attack_slow"				"-150"	// Debuff攻击速度降低
 			"slow_pct"					"-60"	// Debuff移动速度降低
-			"hp_regen_reduction_pct"	"-70"	// Debuff生命回复降低
+			"hp_regen_reduction_pct"	"-60"	// Debuff生命回复降低
 		}
 
 		"OnSpellStart"
@@ -7297,7 +7401,7 @@
 	// 技能重置书
 	"item_tome_of_ability_reset"
 	{
-		"ID"							"9999"
+		"ID"							"10457"
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"item_tome_of_aghanim"
@@ -7338,7 +7442,7 @@
 	// 洗点书
 	"item_skill_reset"
 	{
-		"ID"						"10337"
+		"ID"						"10458"
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_skill_reset"
 		"AbilityTextureName"		"skill_remover"
@@ -7370,7 +7474,7 @@
 	//=================================================================================================================
 	"item_recipe_six_paths_reincarnation_gun"
 	{
-		"ID"                            "10340"
+		"ID"                            "10459"
 		"BaseClass"                     "item_datadriven"
 		"AbilityTextureName"            "item_recipe_six_paths_reincarnation_gun"
 		"Model"                         "models/props_gameplay/recipe.vmdl"
@@ -7388,7 +7492,7 @@
 	//=================================================================================================================
 	"item_six_paths_reincarnation_gun"
 	{
-		"ID"                            "10341"
+		"ID"                            "10460"
 		"BaseClass"                     "item_lua"
 		"ScriptFile"                    "items/ts_items/item_six_paths_reincarnation_gun"
 		"AbilityTextureName"            "item_six_paths_reincarnation_gun"
@@ -7436,7 +7540,7 @@
 	//=================================================================================================================
 	"item_collector"
 	{
-		"ID"						"10338"
+		"ID"						"10461"
 		"BaseClass"					"item_datadriven"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"		"collector"
@@ -7470,7 +7574,7 @@
 	// 觉醒石：一次性消耗品，使用后为持有英雄觉醒技能（路线 A 物品觉醒）
 	"item_awaken_stone"
 	{
-		"ID"						"10336"
+		"ID"						"10462"
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/ts_items/item_awaken_stone"
 		"AbilityTextureName"		"awaken_stone"
@@ -7498,7 +7602,7 @@
 	// 被动技能书：一次性消耗品，使用后按 premium 概率随机学一个被动技能，每名玩家整局最多 3 次
 	"item_passive_skill_tome"
 	{
-		"ID"						"10339"
+		"ID"						"10463"
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/ts_items/item_passive_skill_tome"
 		"AbilityTextureName"		"passive_skill_tome"
@@ -7524,7 +7628,7 @@
 	// 扩容之书：藏宝箱专属消耗品
 	"item_inventory_slot_unlock"
 	{
-		"ID"						"10342"
+		"ID"						"10464"
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/ts_items/item_inventory_slot_unlock"
 		"AbilityTextureName"		"inventory_slot_unlock"

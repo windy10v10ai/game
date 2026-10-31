@@ -1,6 +1,5 @@
 import { LotteryDto } from '../../../../common/dto/lottery';
 import { GA4PickItemTracker } from '../../../api/analytics/ga4/ga4-pick-item-tracker';
-import { ApiClient } from '../../../api/api-client';
 import { MemberLevel, Player } from '../../../api/player';
 import { PlayerMemberPointApi } from '../../../api/player-member-point';
 import { reloadable } from '../../../utils/tstl-utils';
@@ -113,11 +112,6 @@ export class ItemLottery {
     }
 
     if (refreshed === true || refreshed === 1) {
-      if (ApiClient.IsLocalhost()) {
-        print('[ItemLottery] paid refresh denied on localhost, player ' + playerId);
-        return;
-      }
-
       const paidRefreshCount = raw.paidRefreshCount ?? 0;
       if (paidRefreshCount >= this.maxPaidRefreshCount) {
         print('[ItemLottery] paid refresh denied, refresh limit reached, player ' + playerId);

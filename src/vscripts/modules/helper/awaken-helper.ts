@@ -11,7 +11,7 @@ export class AwakenHelper {
   static ApplyUnlockedAwaken(hero: CDOTA_BaseNPC_Hero, steamAccountId: number): void {
     if (!PlayerHelper.IsHumanPlayer(hero)) return;
     const heroName = hero.GetUnitName();
-    const unlocked = Player.GetAwakenedHeroes(steamAccountId).some((h) => h.heroName === heroName);
+    const unlocked = Player.GetAwakenedHeroes(steamAccountId).includes(heroName);
     if (unlocked || FREE_TRIAL_HEROES.includes(heroName)) {
       applyAwakenByHero(hero);
     }

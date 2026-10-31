@@ -9,7 +9,7 @@ export const SPECS: AbilitySpec[] = [
       target: {
         unitCondition: {
           healthPercent: { lte: 90 },
-          noModifier: 'modifier_lich_frost_shield',
+          noModifier: ['modifier_lich_frost_shield'],
         },
       },
     },
@@ -20,7 +20,7 @@ export const SPECS: AbilitySpec[] = [
     condition: {
       target: {
         unitCondition: {
-          noModifier: 'modifier_lich_frost_shield',
+          noModifier: ['modifier_lich_frost_shield'],
         },
       },
     },

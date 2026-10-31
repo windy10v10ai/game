@@ -77,7 +77,12 @@
 				<Panel id="PointsLabel" class="PtsColumn">
 					<Panel class="PointsInner">
 						<Label id="PointsValue" class="PointsValue" text="" />
-						<Label id="PointsModifier" class="PointsModifier" text="" visible="false" />
+						<Panel class="PointsBadgeColumn">
+							<Panel id="DailyTaskBadge" class="DailyTaskBadge" visible="false">
+								<Label id="DailyTaskBadgeValue" class="DailyTaskBadgeValue" text="" />
+							</Panel>
+							<Label id="PointsModifier" class="PointsModifier" text="" visible="false" />
+						</Panel>
 					</Panel>
 				</Panel>
 				<Panel id="ItemsContainer" class="ItemsColumn LeftRightFlow" />
@@ -98,9 +103,18 @@
 				<Panel id="EndingPanel">
 					<Panel id="EndingPanelTop">
 						<Label id="GameTime" text="#DOTA_Lobby_Settings_Scenario_GameTime" />
+						<Panel id="OfflineHint">
+							<Panel id="OfflineHintRow">
+								<Panel id="OfflineHintDot" />
+								<Label id="OfflineHintLabel" text="#end_screen_offline_hint" />
+							</Panel>
+						</Panel>
+						<Panel id="SettleStatus">
+							<Panel id="SettleStatusDot" />
+							<Label id="GameEndingStatusText" text="" />
+						</Panel>
 						<TextButton id="CloseButton" class="ButtonBevel" onactivate="FinishGame()" text="#dota_safe_leave_game" />
 					</Panel>
-					<!-- <Label id="GameEndingStatusText" text="#ending_status_1" /> -->
 				</Panel>
 			</Panel>
 			<Panel id="TeamsContainer" />

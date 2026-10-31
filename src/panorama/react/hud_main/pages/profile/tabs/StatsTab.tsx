@@ -1,8 +1,10 @@
 import { useRef } from 'react';
+import { PrimaryButton } from '../../../../shared/components';
 import { useNetTable } from '../../../../shared/hooks/useNetTable';
 import { formatStatNumberParts } from '../../../../shared/utils/format-stat-number';
 import { isMemberActive } from '../../../../shared/utils/member';
-import { GetLocalPlayerSteamAccountID } from '@utils/utils';
+import { GetLocalPlayerSteamAccountID, GetWebsiteProfileUrl } from '@utils/utils';
+import { RecentFormRadar } from './RecentFormRadar';
 
 const AVATAR_BORDER_GOLD =
   'url("s2r://panorama/images/custom_game/profile/avatar-square-gold-border.png")';
@@ -19,6 +21,8 @@ const LIFETIME_STATS = [
   { key: 'damageTaken', label: '#profile_stat_lifetime_damage_taken', tone: 'bad' },
   { key: 'healing', label: '#profile_stat_lifetime_healing', tone: 'good' },
   { key: 'towerKills', label: '#profile_stat_lifetime_tower_kills', tone: 'neutral' },
+  { key: 'stuns', label: '#profile_stat_lifetime_stuns', tone: 'neutral' },
+  { key: 'roshanKills', label: '#profile_stat_lifetime_roshan_kills', tone: 'neutral' },
 ] as const;
 
 /**
@@ -35,14 +39,15 @@ export function StatsTab() {
   const winRate =
     matchCount > 0 ? Math.round(((player?.winCount ?? 0) / matchCount) * 100) + '%' : '0%';
   const conductPoint = player?.conductPoint ?? 100;
+  // 80-109 含默认起始值 100，用面板默认字色不额外强调；只在明显偏离基准时上色
   const conductColor =
     conductPoint < 60
       ? '#E87D7D'
       : conductPoint < 80
         ? '#FFA726'
         : conductPoint >= 110
-          ? '#FFD700'
-          : '#7FD47F';
+          ? '#7FD47F'
+          : undefined;
   const commendCount = player?.commendCount ?? 0;
   const reportCount = player?.reportCount ?? 0;
   const conductNet = commendCount - reportCount;
@@ -54,6 +59,8 @@ export function StatsTab() {
   const conductNetRef = useRef<Panel | null>(null);
   const lifetimeStats = player?.statsLifetime;
   const isChinese = $.Language() === 'schinese';
+  const openHistoryWebsite = () =>
+    $.DispatchEvent('ExternalBrowserGoToURL', GetWebsiteProfileUrl());
 
   return (
     <Panel className="stats-layout">
@@ -118,12 +125,23 @@ export function StatsTab() {
               onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
             />
           </Panel>
+          <RecentFormRadar />
+          <Panel className="stats-summary-spacer" />
+          <PrimaryButton
+            className="stats-history-btn"
+            variant="ghost"
+            label={$.Localize('#profile_stat_history_button')}
+            onClick={openHistoryWebsite}
+          />
         </Panel>
 
         <Panel className="stats-lifetime-column">
           <Panel className="stats-lifetime-list">
             {LIFETIME_STATS.map(({ key, label, tone }) => {
-              const formatted = formatStatNumberParts(lifetimeStats?.[key] ?? 0, isChinese);
+              const formatted = formatStatNumberParts(
+                Math.round(lifetimeStats?.[key] ?? 0),
+                isChinese,
+              );
               return (
                 <Panel key={key} className={`stat-row lifetime-${tone}`}>
                   <Label className="stat-label" text={$.Localize(label)} />

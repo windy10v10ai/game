@@ -15,6 +15,8 @@ export class PlayerMemberPointApi {
         memberPoint,
         reason,
       },
+      // 扣费没有防重键，重试会重复扣
+      retryTimes: 1,
       successFunc: (data) => {
         const player = json.decode(data)[0] as PlayerInfoDto;
         Player.MergePlayerInfo(player);

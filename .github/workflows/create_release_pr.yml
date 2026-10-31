@@ -94,7 +94,6 @@ jobs:
             ```
           branch: develop
           base: main
-          reviewers: windybirth
           labels: release
           draft: true
 

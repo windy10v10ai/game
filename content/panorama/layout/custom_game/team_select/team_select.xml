@@ -91,8 +91,17 @@
 				</Panel>
 
 				<!--API Loading Status-->
-				<Panel id="GameLoadingStatus" class="DisplayOptionsSubPanel">
-					<Label id="GameLoadingStatusText" class="DisplayOptionsLableTitle" text="#loading_status_1" style="color:#FD841F;" />
+				<Panel id="GameLoadingStatus" class="DisplayOptionsSubPanel Loading">
+					<Panel id="GameLoadingStatusBar">
+						<Panel id="GameLoadingStatusDot" />
+						<Label id="GameLoadingStatusText" class="DisplayOptionsLableTitle" text="#loading_status_1" />
+					</Panel>
+					<!--启动器联机房间：还有谁在进入-->
+					<Panel id="RoomStatusBar">
+						<Panel id="RoomStatusDot" />
+						<Label id="RoomStatusText" class="DisplayOptionsLableTitle" text="" />
+						<Label id="RoomStatusCount" text="" />
+					</Panel>
 				</Panel>
 
 				<!--Start and lock button-->
@@ -106,6 +115,24 @@
 				<!-- playerPanel background -->
 				<Panel id="UnassignedPlayersContainer"/>
 
+			</Panel>
+		</Panel>
+
+		<!--启动器房间人还没齐时，开始前确认-->
+		<Panel id="StartConfirm">
+			<!--遮罩与面板平级，点面板内部不会落到遮罩上-->
+			<Button id="StartConfirmBackdrop" onactivate="OnStartConfirmWait()" />
+			<Panel id="StartConfirmDialog">
+				<Label id="StartConfirmText" text="" />
+				<Label id="StartConfirmHint" text="#room_start_confirm_entering_hint" />
+				<Panel id="StartConfirmButtons">
+					<Button id="StartConfirmWaitButton" class="ButtonBevel" onactivate="OnStartConfirmWait()">
+						<Label text="#room_start_confirm_wait" />
+					</Button>
+					<Button id="StartConfirmStartButton" class="PlayButton" onactivate="OnStartConfirmStart()">
+						<Label id="StartConfirmStartLabel" text="#room_start_confirm_start" />
+					</Button>
+				</Panel>
 			</Panel>
 		</Panel>
 	</Panel>

@@ -64,10 +64,9 @@ jest.mock('../../../api/player', () => ({
   },
 }));
 
-const mockIsLocalhost = jest.fn(() => true);
 jest.mock('../../../api/api-client', () => ({
   ApiClient: {
-    IsLocalhost: () => mockIsLocalhost(),
+    IsLocalhost: () => true,
   },
 }));
 
@@ -92,7 +91,6 @@ describe('ItemLottery', () => {
     mockGetMemberLevel.mockReturnValue(1); // 默认 NORMAL
     mockGetUseableMemberPoint.mockReturnValue(0);
     mockDeductUseableMemberPoint.mockClear();
-    mockIsLocalhost.mockReturnValue(true);
     mockUseMemberPoint.mockClear();
     global.RandomInt = jest.fn((min: number, _max: number) => min);
     lottery = new ItemLottery();
@@ -216,19 +214,8 @@ describe('ItemLottery', () => {
       expect(netTable['lottery_item']['3'].isRefreshed).toBe(false);
     });
 
-    it('localhost 中已免费刷新过则二次刷新被拒绝', () => {
+    it('本地主机中已免费刷新过可消耗会员积分继续刷新', () => {
       mockGetMemberLevel.mockReturnValue(2);
-      lottery.onTriggered(humanOpener);
-      lottery.refreshItem(3 as PlayerID);
-      const afterFirst = netTable['lottery_item']['3'].candidates;
-      lottery.refreshItem(3 as PlayerID);
-      // 候选未再次替换（引用相同的 candidates）
-      expect(netTable['lottery_item']['3'].candidates).toBe(afterFirst);
-    });
-
-    it('官方服务器中已免费刷新过可消耗会员积分继续刷新', () => {
-      mockGetMemberLevel.mockReturnValue(2);
-      mockIsLocalhost.mockReturnValue(false);
       mockGetUseableMemberPoint.mockReturnValue(10);
       lottery.onTriggered(humanOpener);
       lottery.refreshItem(3 as PlayerID);
@@ -244,7 +231,6 @@ describe('ItemLottery', () => {
 
     it('付费刷新积分不足时拒绝刷新', () => {
       mockGetMemberLevel.mockReturnValue(2);
-      mockIsLocalhost.mockReturnValue(false);
       mockGetUseableMemberPoint.mockReturnValue(9);
       lottery.onTriggered(humanOpener);
       lottery.refreshItem(3 as PlayerID);
@@ -260,7 +246,6 @@ describe('ItemLottery', () => {
 
     it('付费刷新达到 5 次上限后拒绝刷新', () => {
       mockGetMemberLevel.mockReturnValue(2);
-      mockIsLocalhost.mockReturnValue(false);
       mockGetUseableMemberPoint.mockReturnValue(999);
       lottery.onTriggered(humanOpener);
       lottery.refreshItem(3 as PlayerID);
@@ -277,7 +262,6 @@ describe('ItemLottery', () => {
 
     it('新藏宝箱会重置已付费刷新次数', () => {
       mockGetMemberLevel.mockReturnValue(2);
-      mockIsLocalhost.mockReturnValue(false);
       mockGetUseableMemberPoint.mockReturnValue(10);
       lottery.onTriggered(humanOpener);
       lottery.refreshItem(3 as PlayerID);

@@ -1,5 +1,6 @@
 import { modifier_debug_invulnerable } from '../../modifiers/debug/modifier_debug_invulnerable';
 import { modifier_debug_manual_control } from '../../modifiers/debug/modifier_debug_manual_control';
+import { spawnTargetDummy } from '../debug/debug-test-cmd';
 
 // 调试面板默认生成英雄（npc_dota_hero_18 → sven），与原生面板初始体验一致。
 const DEFAULT_SPAWN_HERO_ID = 18;
@@ -170,10 +171,6 @@ export class HeroDebugPanel {
       // 标记为调试面板英雄：跳过出生点重置、bot AI 初始化与出装。
       hero.AddNewModifier(hero, undefined, modifier_debug_manual_control.name, {});
 
-      // DebugCreateUnit 回调晚于 npc_spawned，events.lua 已在同步阶段挂上
-      // bot AI modifier，标记拦不住，这里必须主动清除。
-      // hero.RemoveModifierByName('modifier_bot_think_item_use');
-
       FindClearSpaceForUnit(hero, spawnLoc, false);
       hero.SetRespawnPosition(spawnLoc);
       // 绑定到操作者，使其手动控制、不被 bot AI 接管。
@@ -193,18 +190,7 @@ export class HeroDebugPanel {
     if (!selectedHero) {
       return;
     }
-    const dummy = CreateUnitByName(
-      'npc_dota_hero_target_dummy',
-      selectedHero.GetAbsOrigin(),
-      true,
-      undefined,
-      undefined,
-      DotaTeam.NEUTRALS,
-    );
-    dummy.SetControllableByPlayer(event.PlayerID, false);
-    dummy.Hold();
-    dummy.SetIdleAcquire(false);
-    dummy.SetAcquisitionRange(0);
+    spawnTargetDummy(event.PlayerID, selectedHero.GetAbsOrigin());
   }
 
   private onSelectSpawnHero(event: StrEventData): void {

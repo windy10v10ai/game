@@ -4,6 +4,7 @@ interface AwakenRandomCardProps {
   enabled: boolean;
   canAfford: boolean;
   hasEnoughPool: boolean;
+  disabledTooltipText?: string;
   onClick: () => void;
 }
 
@@ -12,13 +13,16 @@ export function AwakenRandomCard({
   enabled,
   canAfford,
   hasEnoughPool,
+  disabledTooltipText,
   onClick,
 }: AwakenRandomCardProps) {
-  const tooltipText = !hasEnoughPool
-    ? $.Localize('#awaken_random_tooltip_insufficient_pool')
-    : !canAfford
-      ? $.Localize('#awaken_random_tooltip_insufficient_point')
-      : undefined;
+  const tooltipText =
+    disabledTooltipText ??
+    (!hasEnoughPool
+      ? $.Localize('#awaken_random_tooltip_insufficient_pool')
+      : !canAfford
+        ? $.Localize('#awaken_random_tooltip_insufficient_point')
+        : undefined);
 
   return (
     <Panel className="awaken-card awaken-random-card">

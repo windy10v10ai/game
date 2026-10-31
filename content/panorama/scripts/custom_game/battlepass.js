@@ -1,11 +1,42 @@
+const RESET_PROPERTY_SEASON_POINT_COST = 2000;
+const WEBSITE_URL = 'https://windy10v10ai.com';
+// 请求失败时 net table 不会更新，超时后也要恢复刷新按钮
+const PLAYER_INFO_REFRESH_TIMEOUT_S = 5;
+// 与 game.ts 中 loading_status 的离线取值一致
+const LOADING_STATUS_OFFLINE = 3;
+// 没有玩家数据时用它兜底，让页面照常显示而不是整页报错
+const EMPTY_PLAYER = {
+  seasonLevel: 0,
+  memberLevel: 0,
+  totalLevel: 0,
+  useableLevel: 0,
+  seasonPointTotal: 0,
+  memberPointTotal: 0,
+  useableSeasonPoint: 0,
+  useableMemberPoint: 0,
+  properties: [],
+};
+let playerInfoRefreshing = false;
+
 (function () {
   $.Schedule(0.1, PregameSetup);
 })();
 
 function PregameSetup() {
+  $('#PropertyWebsiteButton').SetPanelEvent('onactivate', OpenPropertyWebsite);
+  $('#RuleLink').SetPanelEvent('onactivate', OpenPropertyWebsite);
+  $('#PropertyRefreshButton').SetPanelEvent('onactivate', OnPlayerInfoRefreshActive);
   const player = GetPlayer();
   PlayerDataLoaded(player);
   SubscribePlayer(PlayerDataLoaded);
+  CustomNetTables.SubscribeNetTableListener('server_env', (_tableName, key) => {
+    if (key !== 'server_env') return;
+    SetPlayerProperty(Object.assign({}, EMPTY_PLAYER, GetPlayer()));
+  });
+  CustomNetTables.SubscribeNetTableListener('loading_status', (_tableName, key) => {
+    if (key !== 'loading_status') return;
+    UpdateOfflineHint();
+  });
 
   SetDataSelected();
   if (player) {
@@ -21,32 +52,29 @@ function PregameSetup() {
   }
 }
 
-function PlayerDataLoaded(player) {
+function PlayerDataLoaded(loadedPlayer) {
   $.Msg('LocalDataLoaded');
-  $.Msg(player);
+  $.Msg(loadedPlayer);
+  EndPlayerInfoRefresh();
+  UpdateOfflineHint();
 
-  if (player == null) {
-    $('#LoadingFail').visible = true;
-    return;
-  }
+  const player = Object.assign({}, EMPTY_PLAYER, loadedPlayer);
 
   $('#SeasonLevelNumber').text = player.seasonLevel;
-  $('#SeasonLevelNextRemainingNumber').text =
-    `${player.seasonCurrrentLevelPoint} / ${player.seasonNextLevelPoint}`;
+  SetLevelProgress(
+    '#SeasonLevelNextRemainingNumber',
+    '#SeasonLevelNextRemainingBarLeft',
+    player.seasonCurrrentLevelPoint,
+    player.seasonNextLevelPoint,
+  );
   $('#MemberLevelNumber').text = player.memberLevel;
-  $('#MemberLevelNextRemainingNumber').text =
-    `${player.memberCurrentLevelPoint} / ${player.memberNextLevelPoint}`;
+  SetLevelProgress(
+    '#MemberLevelNextRemainingNumber',
+    '#MemberLevelNextRemainingBarLeft',
+    player.memberCurrentLevelPoint,
+    player.memberNextLevelPoint,
+  );
 
-  $('#SeasonLevelNextRemainingBarLeft').style.width = `${
-    (player.seasonCurrrentLevelPoint / player.seasonNextLevelPoint) * 100
-  }%`;
-  $('#MemberLevelNextRemainingBarLeft').style.width = `${
-    (player.memberCurrentLevelPoint / player.memberNextLevelPoint) * 100
-  }%`;
-
-  $('#RuleLink').SetPanelEvent('onactivate', () => {
-    $.DispatchEvent('ExternalBrowserGoToURL', $.Localize(`#data_panel_member_point_rule_url`));
-  });
   // $('#ChargeLink').SetPanelEvent('onactivate', () => {
   //   $.DispatchEvent('ExternalBrowserGoToURL', 'https://ifdian.net/a/windy10v10?tab=shop');
   // });
@@ -59,11 +87,31 @@ function PlayerDataLoaded(player) {
   // 英雄属性
   SetPlayerProperty(player);
 
-  if (player.useableLevel === player.totalLevel) {
+  // 空页面的 0 / 0 不代表有待分配的属性点，不跳属性页
+  if (loadedPlayer != null && player.useableLevel === player.totalLevel) {
     SetPropertySelected();
   }
 
   $.Msg('BP Loaded!');
+}
+
+// 离线快照不含升级进度，缺失时不显示数值，进度条留空
+function SetLevelProgress(numberId, barId, current, next) {
+  const known = current !== undefined && next > 0;
+  $(numberId).text = known ? `${current} / ${next}` : '-';
+  $(barId).style.width = `${known ? (current / next) * 100 : 0}%`;
+}
+
+function UpdateOfflineHint() {
+  const loading = CustomNetTables.GetTableValue('loading_status', 'loading_status');
+  const offline = loading != null && loading.status === LOADING_STATUS_OFFLINE;
+  $('#OfflineHint').visible = offline;
+  $('#OfflineHintLabel').text = $.Localize('#offline_data_hint').replace(
+    '{date}',
+    (loading && loading.snapshotDate) || '-',
+  );
+  // 刷新要经服务端拉取，离线或还没有玩家数据时点了不会有结果
+  $('#PropertyRefreshButton').visible = !offline && GetPlayer() != null;
 }
 
 // --------------------------------------------------------------------------------
@@ -155,15 +203,71 @@ function SetPointTooltip(panelId, locKey, total) {
   });
 }
 
+function IsLocalHost() {
+  const serverEnv = CustomNetTables.GetTableValue('server_env', 'server_env');
+  return serverEnv !== undefined && serverEnv !== null && serverEnv.is_local_host === 1;
+}
+
+function SetLocalHostTooltip(panel, isLocalHost) {
+  if (!isLocalHost) {
+    panel.SetPanelEvent('onmouseover', () => {});
+    panel.SetPanelEvent('onmouseout', () => {});
+    return;
+  }
+
+  const text = $.Localize('#local_host_feature_unsupported_hint');
+  panel.SetPanelEvent('onmouseover', () => {
+    $.DispatchEvent('DOTAShowTextTooltip', panel, text);
+  });
+  panel.SetPanelEvent('onmouseout', () => {
+    $.DispatchEvent('DOTAHideTextTooltip');
+  });
+}
+
+// 本地主机下按钮保持置灰外观，但点击跳转网站操作
+function RedirectLocalHostButton(panel) {
+  panel.SetHasClass('deactivated', true);
+  panel.SetHasClass('activated', false);
+  panel.SetHasClass('activated-gold', false);
+  panel.SetPanelEvent('onactivate', OpenPropertyWebsite);
+  SetLocalHostTooltip(panel, true);
+}
+
+function OpenPropertyWebsite() {
+  $.DispatchEvent(
+    'ExternalBrowserGoToURL',
+    `${WEBSITE_URL}/profile/${GetSteamAccountID()}/property`,
+  );
+}
+
+function OnPlayerInfoRefreshActive() {
+  if (playerInfoRefreshing) return;
+  playerInfoRefreshing = true;
+  const button = $('#PropertyRefreshButton');
+  button.SetHasClass('deactivated', true);
+  button.SetHasClass('activated', false);
+  GameEvents.SendCustomGameEventToServer('player_info_refresh', {});
+  $.Schedule(PLAYER_INFO_REFRESH_TIMEOUT_S, EndPlayerInfoRefresh);
+}
+
+function EndPlayerInfoRefresh() {
+  playerInfoRefreshing = false;
+  const button = $('#PropertyRefreshButton');
+  button.SetHasClass('deactivated', false);
+  button.SetHasClass('activated', true);
+}
+
 // 属性
 function SetPlayerProperty(player) {
-  SetResetPropertyButton(player);
+  const isLocalHost = IsLocalHost();
+  $('#PropertyWebsitePanel').visible = isLocalHost;
+  SetResetPropertyButton(player, isLocalHost);
   ClearPlayerProperty();
 
   const panel = $.CreatePanel('Panel', $('#PropertyListContainer'), '');
   panel.BLoadLayoutSnippet('PlayerPropertyTooltip');
   for (const property of Player_Property_List) {
-    AddPlayerProperty(player, property);
+    AddPlayerProperty(player, property, isLocalHost);
   }
 }
 
@@ -172,12 +276,22 @@ function ClearPlayerProperty() {
 }
 
 // 设置重置属性按钮
-function SetResetPropertyButton(player) {
-  // 勇士积分重置
+function SetResetPropertyButton(player, isLocalHost) {
   const resetUseSeasonPointButton = $('#ResetUseSeasonPoint');
-  const text = $.Localize(`#reset_property_use_season_point`);
-  $('#ResetUseSeasonPointText').text = text.replace('{seasonPoint}', player.seasonNextLevelPoint);
-  if (player.useableSeasonPoint >= player.seasonNextLevelPoint) {
+  const resetUseMemberPointButton = $('#ResetUseMemberPoint');
+  $('#ResetUseSeasonPointText').text = $.Localize(`#reset_property_use_season_point`);
+
+  if (isLocalHost) {
+    RedirectLocalHostButton(resetUseSeasonPointButton);
+    RedirectLocalHostButton(resetUseMemberPointButton);
+    return;
+  }
+
+  SetLocalHostTooltip(resetUseSeasonPointButton, false);
+  SetLocalHostTooltip(resetUseMemberPointButton, false);
+
+  // 勇士积分重置
+  if (player.useableSeasonPoint >= RESET_PROPERTY_SEASON_POINT_COST) {
     resetUseSeasonPointButton.SetHasClass('deactivated', false);
     resetUseSeasonPointButton.SetHasClass('activated', true);
     resetUseSeasonPointButton.SetPanelEvent('onactivate', () => {
@@ -190,7 +304,6 @@ function SetResetPropertyButton(player) {
   }
 
   // 会员积分重置
-  const resetUseMemberPointButton = $('#ResetUseMemberPoint');
   if (player.useableMemberPoint >= 1000) {
     resetUseMemberPointButton.SetHasClass('deactivated', false);
     resetUseMemberPointButton.SetHasClass('activated-gold', true);
@@ -205,7 +318,7 @@ function SetResetPropertyButton(player) {
   }
 }
 
-function AddPlayerProperty(player, property) {
+function AddPlayerProperty(player, property, isLocalHost) {
   const propertiesValues = player.properties ? Object.values(player.properties) : [];
   const playerProperty = propertiesValues.find((p) => p.name === property.name);
   if (playerProperty) {
@@ -268,7 +381,9 @@ function AddPlayerProperty(player, property) {
   levelupButton.nextLevel = nextLevel;
   levelupButton.FindChildTraverse('LevelupText').text = levelupText;
 
-  if (property.level < maxLevel && player.useableLevel >= nextLevel - property.level) {
+  if (isLocalHost) {
+    RedirectLocalHostButton(levelupButton);
+  } else if (property.level < maxLevel && player.useableLevel >= nextLevel - property.level) {
     levelupButton.SetHasClass('deactivated', false);
     levelupButton.SetHasClass('activated', true);
     levelupButton.SetPanelEvent('onactivate', () => {
@@ -295,7 +410,9 @@ function AddPlayerProperty(player, property) {
     maxLevelupButton.FindChildTraverse('MaxLevelupText').text = maxLevelText;
 
     // 检查是否可以升级（至少可以升1级）
-    if (property.level < targetLevel && player.useableLevel > 0) {
+    if (isLocalHost) {
+      RedirectLocalHostButton(maxLevelupButton);
+    } else if (property.level < targetLevel && player.useableLevel > 0) {
       maxLevelupButton.SetHasClass('deactivated', false);
       maxLevelupButton.SetHasClass('activated', true);
       maxLevelupButton.SetPanelEvent('onactivate', () => {

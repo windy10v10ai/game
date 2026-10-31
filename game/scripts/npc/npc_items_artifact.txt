@@ -7,7 +7,7 @@
 	"item_dragon_ball_1"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "10001"
+		"ID"							"10100"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_1"
 		"ItemCost"						"1111"
@@ -52,7 +52,7 @@
 	"item_dragon_ball_2"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "10002"
+		"ID"							"10101"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_2"
 		"ItemCost"						"2222"
@@ -97,7 +97,7 @@
 	"item_dragon_ball_3"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "10003"
+		"ID"							"10102"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_3"
 		"ItemCost"						"3333"
@@ -142,7 +142,7 @@
 	"item_dragon_ball_4"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "10004"
+		"ID"							"10103"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_4"
 		"ItemCost"						"4444"
@@ -187,7 +187,7 @@
 	"item_dragon_ball_5"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "10005"
+		"ID"							"10104"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_5"
 		"ItemCost"						"5555"
@@ -232,7 +232,7 @@
 	"item_dragon_ball_6"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "10006"
+		"ID"							"10105"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_6"
 		"ItemCost"						"6666"
@@ -277,7 +277,7 @@
 	"item_dragon_ball_7"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "10007"
+		"ID"							"10106"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_dragon_ball_7"
 		"ItemCost"						"7777"
@@ -322,7 +322,7 @@
 	"item_wish_1"
 	{
 		"BaseClass"                     "item_circlet"
-		"ID"						    "10008"
+		"ID"							"10107"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_wish_1"
 		"ItemCost"						"1"
@@ -345,7 +345,7 @@
 	"item_wish_2"
 	{
 		"BaseClass"                     "item_circlet"
-		"ID"						    "10009"
+		"ID"							"10108"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_wish_2"
 		"ItemCost"						"1"
@@ -368,7 +368,7 @@
 	"item_wish_3"
 	{
 		"BaseClass"                     "item_circlet"
-		"ID"						    "10010"
+		"ID"							"10109"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_wish_3"
 		"ItemCost"						"1"
@@ -391,7 +391,7 @@
 	"item_wish_4"
 	{
 		"BaseClass"                     "item_circlet"
-		"ID"						    "10011"
+		"ID"							"10110"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_wish_4"
 		"ItemCost"						"1"
@@ -414,7 +414,7 @@
 	"item_recipe_blessing_of_dragon"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "9623"
+		"ID"							"10111"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
 		"ItemRecipe"                    "1"
@@ -427,7 +427,7 @@
 	"item_blessing_of_dragon"
 	{
 		"BaseClass"                     "item_circlet"
-		"ID"						    "10012"
+		"ID"							"10112"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_blessing_of_dragon"
 		"ItemCost"						"99999"
@@ -449,7 +449,7 @@
 	"item_recipe_blessing_of_dragon_1"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "9624"
+		"ID"							"10113"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
 		"ItemRecipe"                    "1"
@@ -462,7 +462,7 @@
 	"item_blessing_of_dragon_1"
 	{
 		"BaseClass"                     "item_helm_of_the_undying"
-		"ID"						    "9625"
+		"ID"							"10114"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_blessing_of_dragon_1"
 		"ItemCost"						"0"
@@ -484,7 +484,7 @@
 	"item_recipe_blessing_of_dragon_2"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "9626"
+		"ID"							"10115"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
 		"ItemRecipe"                    "1"
@@ -498,9 +498,10 @@
 	{
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/ts_items/item_blessing_of_dragon"
-		"ID"							"9627"
+		"ID"							"10116"
 		"AbilityTextureName"			"item_blessing_of_dragon_2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastPoint"				"0"
 		"AbilityHealthCost"				"0"
 		"AbilityCooldown"				"0"
@@ -522,7 +523,7 @@
 	"item_recipe_blessing_of_dragon_3"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "9628"
+		"ID"							"10117"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
 		"ItemRecipe"                    "1"
@@ -535,7 +536,7 @@
 	"item_blessing_of_dragon_3"
 	{
 		"BaseClass"                     "item_refresher"
-		"ID"						    "9629"
+		"ID"							"10118"
 		"AbilityTextureName"            "item_blessing_of_dragon_3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityCastPoint"				"0.0"
@@ -560,7 +561,7 @@
 	"item_recipe_blessing_of_dragon_4"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "9630"
+		"ID"							"10119"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
 		"ItemRecipe"                    "1"
@@ -573,7 +574,7 @@
 	"item_blessing_of_dragon_4"
 	{
 		"BaseClass"                     "item_fallen_sky"
-		"ID"						    "9631"
+		"ID"							"10120"
 		"AbilityTextureName"			"item_blessing_of_dragon_4"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityCastRange"				"99999"
@@ -605,25 +606,6 @@
 			"impact_damage_buildings"		"150"
 			"impact_damage_units"		"750"
 			"blink_damage_cooldown"	"0"
-		}
-	}
-	"item_radar_of_dragon"
-	{
-		"BaseClass"                     "item_circlet"
-		"ID"							"9632"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"item_radar_of_dragon"
-		"ItemCost"						"999999"
-		"ItemIsNeutralDrop"				"0"
-		"ItemShopTags"					""
-		"ItemQuality"					""
-		"ItemAliases"					""
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"1"
-		"ItemInitialCharges"			"1"
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"1"
 		}
 	}
 	//=================================================================================================================
@@ -702,103 +684,6 @@
 			}
 		}
 	}
-
-
-	// 混沌散魂剑
-	"item_recipe_disperser_chaos"
-	{
-		"BaseClass"						"item_datadriven"
-		"ItemCost"						"0"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_disperser_chaos"
-		"AbilityTextureName"			"item_recipe_disperser_chaos"
-		"ItemRequirements"
-		{
-			"01"						"item_disperser;item_diffusal_blade"
-		}
-	}
-
-	"item_disperser_chaos"
-	{
-		"BaseClass"						"item_disperser"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"10.0"
-		"AbilityManaCost"				"75"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemCost"						"6100"
-		"ItemShopTags"					"agi;int;unique;hard_to_tag"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"diffusal blade 1"
-		"ItemPermanent"					"1"
-		"UpgradesItems"					"item_diffusal_blade"
-		"UpgradeRecipe"					"item_recipe_diffusal_blade"
-		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_disperser_chaos"
-		"AbilityValues"
-		{
-			"bonus_agility"			"80"
-			"bonus_intellect"		"25"
-			"feedback_mana_burn"	"150"
-			"feedback_mana_burn_illusion_melee"	"50"
-			"feedback_mana_burn_illusion_ranged"	"50"
-			"purge_rate"			"5"
-			"purge_root_duration"	"6.0"
-			"damage_per_burn"		"1.0"
-			"enemy_effect_duration"	"8.0"
-			"ally_effect_duration"	"5.0"
-			"movement_speed_buff_rate"	"6"
-			"phase_movement_speed"		"100"
-		}
-	}
-	//=================================================================================================================
-	// 混沌魂戒 娱乐道具
-	//=================================================================================================================
-	"item_recipe_soul_ring_1"
-	{
-		"BaseClass"						"item_recipe_soul_ring"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"0"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_soul_ring_1"
-		"ItemRequirements"
-		{
-			"01"						"item_soul_ring;item_reaver;item_platemail"
-		}
-	}
-
-	"item_soul_ring_1"
-	{
-		"BaseClass"						"item_soul_ring"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityCooldown"				"6.0"
-		"AbilityHealthCost"				"3000"
-		"ItemShopTags"					"regen_health;boost_mana"
-		"ItemQuality"					"common"
-		"ItemAliases"					"soul ring"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-		"SuggestEarlygame"				"1"
-		"UIPickupSound"					"Item.PickUpRingShop"
-		"UIDropSound"					"Item.DropRingShop"
-		"WorldDropSound"				"Item.DropRingWorld"
-		"AbilityValues"
-		{
-				"bonus_strength"		"35"
-				"bonus_armor"			"15"
-				"mana_gain"				"3000"
-				"duration"				"20"
-		}
-	}
-
 	//=================================================================================================================
 	//  神刃甲 天地同寿甲
 	//=================================================================================================================

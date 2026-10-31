@@ -138,7 +138,7 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
     end
     --施放技能 - 使用位运算检查行为
     local target = params.target
-    local behavior = random_ability:GetBehavior()
+    local behavior = GetBehaviorBits(random_ability:GetBehavior())
     local target_team = random_ability:GetAbilityTargetTeam()
 
     -- 确定实际施放目标
@@ -164,9 +164,6 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
     end
     -- 根据技能行为类型施放
     local cast_success = false
-    if type(behavior) ~= "number" then
-        behavior = tonumber(tostring(behavior))
-    end
     if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
         -- 单位目标技能
         attacker:SetCursorCastTarget(cast_target)

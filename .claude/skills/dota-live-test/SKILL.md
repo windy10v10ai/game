@@ -1,0 +1,180 @@
+---
+name: dota-live-test
+description: 在 Dota 2 Tools 实机跑一局，用落盘日志验证 jest 覆盖不到的运行时行为（含电脑 AI）。
+---
+
+# Dota Live Test
+
+实机验证的关键是**日志落盘**：让 Dota 把控制台输出写进文件，用 `grep` 读，而不是截图读 VConsole 窗口。
+
+`con_logfile` 在 Source 2 不是有效命令，运行时开不了文件日志，只能在**启动参数**里加。
+
+## 验 bot AI 行为：用自动对局
+
+验电脑的交战、回防、推进、物品施放时，不手动开局，用 `npm run perf` 跑无人值守的一局（第 3～5 步由脚本代劳），第 1、6 步照常：
+
+```bash
+npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --games 1
+```
+
+按要验的场景加参数（全部选项见 `src/scripts/perf.js` 的 `parseArgs`）：
+
+| 场景 | 参数 |
+|---|---|
+| 1v10 按难度（N5 / N6 / N8） | `--boost false --radiantPlayers 2 --radiantMultiplier 15 --direMultiplier 7 --towerPower 300`；N6 改 `9`、`350`，N8 改 `14`、`500`。天辉 bot 扮演玩家，倍率远高于玩家实际的 1.5，补上真人比 bot 会杀会发育；5、10 倍时天辉 bot 18–21 分钟就被推平，测不到对抗 |
+| 1v10 玩家强势 | 上面任一难度把 `--radiantMultiplier` 提到 `20` |
+| 1v10 玩家碾压 | 上面任一难度加 `--radiantBoost true`：天辉开局满级满钱。天辉 bot 再高倍率也打不过 10 个 bot，要测碾压只能直接给钱给等级；看 bot 有没有犯蠢，不看阵亡数 |
+| 天辉强推电脑高地与基地 | `--boost false --radiantPlayers 5 --radiantMultiplier 10 --direMultiplier 1` |
+| 物品施放 | `--testItems item_a,item_b`：开局发物品并停掉买卖装备 |
+| 指定英雄出场 | `--botHeroes axe,lion` |
+
+- 加速不超过 2 倍，更高会拖垮服务器
+- 每局结束在运行目录写 `anomaly-<N>.md`（卡住、远路不传送、挤在一起、打撤来回切、没任务、建筑挨打没人到场），先读它再 grep 细节。手动局用 `npm run bot-anomaly [日志路径]` 出同样的报告
+- 下一局启动会删掉 `console.log`，要留的日志先拷到 scratchpad
+- 天辉满编时玩家英雄也交给 AI；天辉人少时玩家英雄留在泉水，由天辉 bot 扮演玩家，买装备与对线都走现有 bot 逻辑。报告只统计人数多的一方，天辉那侧的行为不代表真实玩家
+
+比某个物品、modifier 或机制的每帧开销时，场景选择与结果可信度核对 → `references/perf-bench.md`。
+
+## 验物品与技能：远程发命令
+
+验被动属性、主动效果、状态何时上何时掉、对单位和建筑的伤害时，不点界面：启动时带远程控制台端口（第 3 步），之后用 `npm run dota:cmd` 发 `-give` 发物品、`-cast` 代码施法、`-watch` 监视变化，直接读命令返回的日志。备用施法（Ctrl）代码触发不了，要用 computer-use 真实按键。命令清单与标准流程 → `references/remote-commands.md`。
+
+只有说明文字排版、真实键鼠手感这类必须看画面的，才截图。只要画面、不需要点击时，用引擎的 `screenshot` 命令截图，不用 computer-use，也不要用 PowerShell 截屏：切前台、截图、转 PNG、收起技能抽选面板、同一局反复截结算面板 → `references/screenshots.md`。要点击、按键、悬停时用 computer-use 操作，图仍用引擎命令截，窗口先最大化。
+
+加载或选队画面需要截图时，先在 `GameConfig` 的工具/调试分支临时延长 `SetCustomGameSetupAutoLaunchDelay`，编译并重新载入后取图。截图结束后恢复源码与本地编译产物，临时等待时间不提交。
+
+## 脚本判定：一条命令跑完一次检查
+
+数值、状态这类能用代码判对错的验证，写成检查脚本交给 `npm run dota:check`，由退出码给结论，不靠人读日志或看图：
+
+```bash
+npm run dota:check -- axe_ms --hero axe
+```
+
+命令依次做：起 Dota Tools 自动载入地图 → 等日志出现 `S:Gamerules: entering state 'DOTA_GAMERULES_STATE_GAME_IN_PROGRESS'` → 发 `say -run checks.<名字>` → 收集 `[check]` 行 → 关掉 Dota。
+
+| 退出码 | 含义 |
+|---|---|
+| `0` | 看到 `[check] DONE`，至少一项 PASS，没有 FAIL |
+| `1` | 有 FAIL、脚本加载报错（`run checks.<名字> failed`）、超时、没看到 DONE，或一项检查都没跑 |
+| `2` | 没能开跑：Dota 已在运行、脚本不存在、不在 Dota 加载的 checkout 里跑、启动或发命令出错 |
+
+最后一行固定是 `[check] RESULT PASS|FAIL pass=<n> fail=<n> (原因)`。
+
+检查脚本写在 `game/scripts/vscripts/checks/<名字>.lua`（整个目录已 gitignore，临时脚本不提交），用 `modules/debug/check.ts` 编译出的辅助判定：
+
+```lua
+local check = require("modules.debug.check")
+local hero = PlayerResource:GetSelectedHeroEntity(0)
+local ms0 = hero:GetIdealSpeed()
+hero:SetBaseMoveSpeed(hero:GetBaseMoveSpeed() + 50)
+-- 属性与移速要下一帧才重算，读数前等一下
+Timers:CreateTimer(0.5, function()
+  check.expect("move_speed_delta", hero:GetIdealSpeed() - ms0, 50, 1)
+  check.done()
+end)
+```
+
+- `check.expect(名字, 实际值, 预期值, 容差)` 打印 `[check] PASS|FAIL <名字> actual=<值> expected=<值>`，容差只对数值生效，默认 0；`check.done()` 打印 `[check] DONE`，必须在所有检查之后调用，异步检查放在最后一个回调里
+- 参数：`--hero <英雄名>` 开局选定英雄（同 `npm run launch -- --hero`）；`--timeout <秒>` 默认 300，本机从启动到开局约 70 秒；`--keep-open` 结束后不关 Dota，便于接着用 `dota:cmd` 排查
+- **只在主目录跑**：Dota 只加载主目录的 `game/`，命令发现自己不在那份 checkout 里就拒绝运行。worktree 里的改动先合到主目录当前分支，或把主目录切过去，跑前 `npm run build:vscripts`
+- **Dota 已开着就拒绝运行**，不会关掉用户正在用的 Dota；超时或出错时会关掉自己起的那个
+- 检查脚本运行时报错（定时器回调里出错）不会立即结束，命令会打印 `Script Runtime Error` 行并等到超时判失败
+- 跑完 Dota Tools 可能重新编译 `game/` 下的资源（如 `.vsndevts_c`），`git status` 出现无关改动时用 `git checkout -- <文件>` 还原
+
+## 派子代理跑
+
+下面的步骤是照本宣科的固定流程，判断日志算不算通过则要改动的上下文。分工：子代理跑流程并回报观察，主会话做判断。
+
+**实机测试一律派子代理**，只验一两个点、改完顺手回归一下也一样：等加载、发命令、读日志、截图在主会话里来回几轮，消耗远高于写一份交接。用 Agent 工具派最便宜档：发命令、读日志、悬停截图并逐字抄 tooltip 都够用；主会话再对着截图抽查核对，不要只信转述。要读懂日志判断现象、或最便宜档反复卡住时改主力档。用户设了 `CLAUDE_CODE_SUBAGENT_MODEL` 时会盖过指定的模型，要比较型号先让子代理在回报开头自报型号。**一轮验证派一个**，跑完即结束；要再验一轮就再派一个。子代理是冷启动，交接里写全：改了什么、要不要本地后端、要发的命令、期待哪几行日志和要带回的数字。
+
+- **验客户端代发链路用强制代发开关**：`src/vscripts/api/api-client.local.ts` 的 `GetForceProxy()` 改成返回 `true`（只在 Tools 生效），`npm run build:vscripts` 后重开一局，服务端的请求全部改由客户端网页控件代发；测完改回 `false`。该文件带 skip-worktree，改动不出现在 `git status`，收尾时按文件内容确认已还原
+- **客户端代发链路在 Tools 里连不上本地 API**：网页控件请求 `http://localhost`、`http://127.0.0.1` 与本机局域网 IP 一律超时，后端预热过、curl 能秒回也一样，开局请求也会因此转成离线模式。验本地代发就看服务端拼出的网址，换上本地 key 用 curl 重放；验界面就关掉强制代发，让服务端直连
+- **computer-use 授权填 `dota2.exe`**：`request_access` 写开始菜单里的「Dota 2」只授权到 Steam 启动链接，实际窗口仍被遮成色块。授权弹窗要用户本人点，交接里写明被拒就停下回报
+- **窗口焦点**：系统常驻的「Windows 输入体验」（`TextInputHost.exe`，承载表情面板、剪贴板历史、输入法候选框）偶尔挂着不可见窗口抢走前台，computer-use 因前台不是已授权应用而拒绝操作。不是用户开了什么，也关不掉（系统常驻，结束后自动重启）。被挡时 computer-use 在点击前就拒绝，点 Dota 窗口、`WScript.Shell.AppActivate` 都抢不回来。做法：在动手前要权限那一步连同 `dota2.exe` 一起 `request_access` 授权 `textinputhost.exe`，点击会穿过它落到 Dota 上；用户不授权时停下回报，请用户本人点一下 Dota 窗口
+- **同一时间只能有一个 Dota**：Dota 运行中再触发任何启动（`Start-Process`、`open_application "Dota 2"`、Steam 链接）都会弹 `Source2 - Warning: Only one instance of the game can be running at one time`，弹框抢走前台、后续操作全被拒。切语言或重启时先 `Stop-Process -Name dota2 -Force`，`Get-Process dota2` 查不到了再启动；拉回窗口只用点击，不调用 `open_application`。交接里照抄这一条
+- **只回报观察**：哪几行出现了、时间戳是多少、断在哪一步。诊断和改代码留给主会话
+- **开工先查端口**，没起的自己起——上一轮的后台进程不一定还活着
+- **不收尾**：关不关由主会话决定，见第 6 步
+
+拿到这份 skill 的子代理从第 1 步开始，不再往下派。
+
+## 步骤
+
+### 1. 编译改动
+
+改了 `src/vscripts/` 跑一次 `npm run build:vscripts`。`content/panorama/` 下的 `.js` 由 tools 自动编译并热重载，不用手动处理。
+
+完成判据：编译无报错。
+
+### 2. 决定要不要本地后端
+
+只验游戏内逻辑（技能、modifier、AI、UI）跳过。要验 API 链路时按 `references/local-backend.md` 起后端。
+
+完成判据：不需要后端，或三个端口都在 LISTENING。
+
+### 3. 启动 Dota
+
+Dota 已在运行时直接 `Start-Process` 会开出第二个实例，只弹一个 `Source2 - Warning` 窗口，要先 `Stop-Process -Name dota2 -Force`。
+
+```powershell
+$dota = "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\win64"; Start-Process -FilePath "$dota\dota2.exe" -WorkingDirectory $dota -ArgumentList '-novid','-tools','-addon','windy10v10ai','-condebug','-conclearlog','-netconport','29000','+dota_launch_custom_game','windy10v10ai','dota'
+```
+
+`-condebug` 把输出写到 `<dota>/game/dota/console.log`，`-conclearlog` 每次启动清空该文件，避免跨会话累积。`-netconport` 打开远程控制台，供 `npm run dota:cmd` 发命令（`npm run launch` 已带上）。`+dota_launch_custom_game` 让地图自动加载，不需要点任何按钮。
+
+要以指定英雄测试时改用 `npm run launch -- --hero <英雄名>`（不带 `npc_dota_hero_` 前缀），开局直接为玩家选定该英雄；不带 `--hero` 启动会清掉上次的指定。没有中途换英雄的命令：替换英雄不预载资源，也不会重建各模块记录的英雄状态。
+
+完成判据：`console.log` 出现且体积在涨。
+
+### 4. 触发要验的流程
+
+开局流程（`/game/start`、队伍选择、抽奖初始化）在地图加载时自动跑完，第 3 步就已经触发。
+
+需要再跑一遍时有两种重开方式：
+
+- **重启进程**，参数同上。慢一两分钟，任何环境都能用。
+- **VConsole 命令框**输入 `dota_launch_custom_game windy10v10ai dota`，几秒钟重新加载。需要能操作窗口，即桌面应用的 computer-use MCP；Claude Code CLI 里没有这套工具。
+
+重开前记下当前行数（`wc -l < console.log`），之后用 `awk 'NR>N'` 只看新增部分。
+
+完成判据：日志里出现目标流程的第一条输出。
+
+### 5. 读日志
+
+```bash
+grep -n "ApiHtmlProxy\|GameStartProxy" "C:/Program Files (x86)/Steam/steamapps/common/dota 2 beta/game/dota/console.log"
+```
+
+两路输出都在同一个文件里，按前缀区分：
+
+| 前缀 | 来源 |
+|---|---|
+| `[VScript]` | 服务端 `print()` |
+| `[PanoramaScript]` | 客户端 `$.Msg()` |
+
+每行带 `MM/DD HH:MM:SS` 时间戳，跨端时序（谁先谁后、间隔多久）直接读得出来，是定位握手和时机类问题的主要依据。
+
+等日志出现用 Bash 的 `run_in_background` 跑 `until grep -q ...; do sleep 5; done`。
+
+完成判据：目标流程的每一步都在日志里找到对应行，或明确指出断在哪一步。
+
+### 6. 收尾
+
+**关不关由主会话决定，子代理一律不关**——中途关掉，下一轮还要重起一遍。三种情况：
+
+- 全部验证结束 → 关
+- 还要再验一轮 → 留着
+- 用户说开着没事 → 留着
+
+留着的时候要把留了哪些进程告诉用户，别让它们在后台无声占着端口。
+
+要关的时候，`TaskStop` 只杀后台任务的外层 shell，模拟器的 java 和 API 的 node 会活下来，要按 PID 补杀，再确认三个端口都已释放。Dota 退出后按需删 `console.log`。
+
+派出去的子代理与子会话本身也要收尾：它回报完成后就停掉并归档，没提交过东西的 worktree 与分支一并删干净。这是一次派活的最后一步，不要等用户问「怎么又没关」。
+
+完成判据：关掉时三个端口全部释放；留着时已经把留了什么告诉用户；派出去的会话没有一个还挂着。
+
+## 临时调试日志
+
+为定位问题临时加的 `print` / `$.Msg` 在问题定位完后要删干净，只留下调用与结果两类。判据：一次请求的日志量不随数据量增长（不整条打印响应体）。

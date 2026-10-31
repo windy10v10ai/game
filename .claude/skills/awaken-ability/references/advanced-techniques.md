@@ -18,7 +18,6 @@
    ```
    `resolveNewLevel` 会在加新技能时取该关联技能当前等级作初始等级（在移除任何技能前求值，故 `inheritLevelFrom` 可以正是被插入槽位的技能）。
 
-> 参考：斧王 `axe_auto_culling_blade` ↔ `axe_culling_blade`。
 
 > **不要用 `Innate "1"` + `DependentOnAbility` 替代 `LinkedAbility`**：官方有「新技能比关联技能多一档等级」的场景用这个组合（古辰山 Absolute Zero 先天、玛尔斯 Sidekick），但那些都是英雄出生自带的先天技能槛位。本项目觉醒技能是运行时用觉醒石 `AddAbility()` 动态加上去的，不是原生先天槛位——给它加 `Innate "1"` 实测会导致技能/buff 图标不显示（卓尔游侠裂影箭觉醒踩过，已放弃改回固定等级）。等级关联场景老老实实用上面的 `LinkedAbility` + `inheritLevelFrom`（要求两边 `MaxLevel` 一致）；如果新技能就是想比关联技能多一档，优先考虑改成固定值/不分级，而不是引入 `DependentOnAbility`。
 
@@ -28,7 +27,9 @@
 
 - KV：`BaseClass ability_lua`、`AbilityBehavior` = `NO_TARGET | IMMEDIATE | AUTOCAST`、`ScriptFile` 指向 `abilities/ts_abilities/...` 编译产物，**不写 `Modifiers`**（intrinsic modifier 由基类提供）。
 - 继承 `AutoCastAbility`，只实现 `OnAutoCastThink(caster)`；需要时覆写 `getThinkInterval()`（默认 0.3）。共享 `modifier_autocast_think` 负责 `IsServer / IsAlive / GetAutoCastState` 守卫后回调。
-- 基类 helper：`getFullCastRange`（含施法距离增强）、`findEnemiesInRange(caster, range, targetType, allowMagicImmune?)`（始终排除迷雾/隐身，可选命中魔免）、`castImmediatelyOnTarget`。
+- 基类 helper：`getFullCastRange`（含施法距离增强）、`findEnemiesInRange(caster, range, targetType, extraFlags?)`（始终排除迷雾/隐身，`extraFlags` 可叠加命中魔免、排除幻象）、`findHeroOrCreepInRange(caster, range, extraFlags?, isExcluded?)`、`castImmediatelyOnTarget`。
+- **指向性技能的自动施放要过滤会反弹或格挡的目标**：莲花球生效中、镜盾就绪的目标会把技能弹回施法者（沉默、减速、伤害落在自己身上），用 `willReflect(target)` 排除；林肯法球就绪会白吃一次施放，只有一次性、失败要回滚的技能（如斧王斩杀）再加 `willBlock(target)`，便宜的技能让它去破球更划算。不是每个觉醒都要走，只有指向性目标技能的自动施放调用，无目标、点施放、自身范围的不用。目前斧王、军团自动决斗两处同时过滤 `willReflect` 与 `willBlock`，其余只过滤 `willReflect`。
+- **纯开关壳技能（额外占格、无蓝耗无冷却）要把名字登记进 `modules/filter/autocast-shell-click.ts` 的列表，固定 `MaxLevel 1`、觉醒时直接给 1 级，不接 `LinkedAbility`**：玩家左键或快捷键点击也算一次施法，会触发引擎的施法事件（军团先天技能「迎难而战」等），不拦截就能无限刷。列表里的技能在订单过滤阶段把点击改成翻转自动施法，不产生施法事件；右键与引擎自带的自动施法切换不受影响。不要给壳技能加 `TOGGLE` 行为（左右键是两个独立状态，错开时外框变成普通绿框），也不要靠加前摇限制点击。替换原技能的壳技能点击就是真施放，不需要登记。
 - 施放用 **`CastAbilityImmediately`**：玩家英雄的背景自动施放**不能**用 order 式（`CastAbilityOnTarget` 等会打断玩家移动/攻击）。新基类/helper 统一放 `ts_abilities/shared/`。
 
 > 参考：斧王 `ts_abilities/axe_auto_culling_blade.ts`（斩杀线阈值 + 可打魔免）、宙斯 `ts_abilities/special_bonus_unique_zuus_upgrade.ts`（英雄优先、雷击仅英雄、不打魔免）。
@@ -47,7 +48,7 @@
 
 > **关键坑**：`OnAbilityExecuted` 的 `RunScript` 里若要再给自己加一个**同一技能 KV `Modifiers` 里定义的** DataDriven modifier（如限时减伤 buff），必须用 `ability:ApplyDataDrivenModifier(caster, target, "modifier_name", {})`，**不能**用通用的 `unit:AddNewModifier(...)`——用 `AddNewModifier` 加载 DataDriven 定义的 modifier 时，**modifier 本身不会被加载**（不是 KV 占位符解析失败，是整个 modifier 都没生效），buff 图标不会出现在状态栏。`AddNewModifier` 只适用于借用别的技能/原生 hardcoded modifier（见进阶 7），不适用于自己 KV 里定义的 DataDriven modifier。
 
-> 参考：影魔 `ability_lua` + `GetIntrinsicModifierName` 监听 `nevermore_requiem`；PA `ability_datadriven`（`UNIT_TARGET`，未加 PASSIVE）的 `modifier_pa_awaken_dagger_listener` 用 `OnAbilityExecuted`；宙斯 `special_bonus_unique_zuus_upgrade` 是 PASSIVE datadriven 监听范例。
+> 参考：影魔 `ability_lua` + `GetIntrinsicModifierName` 监听 `nevermore_requiem`；PA `special_bonus_unique_phantom_assassin_upgrade`（壳技能的 intrinsic 继承 `modifier_autocast_think`，同一个 modifier 里监听 `ON_ABILITY_FULLY_CAST`，写法同军团 `legion_commander_auto_duel`）；宙斯 `special_bonus_unique_zuus_upgrade` 是 PASSIVE datadriven 监听范例。
 
 ### 进阶 4：数值仅觉醒后生效（special_bonus 关联）
 
@@ -63,7 +64,7 @@
 
 `=值` 覆盖、`+值` 增加，此外还支持 `+N%` 按百分比增加（如 `+100%` 表示翻倍，项目里已有大量原版天赋先例，如 `special_bonus_unique_dragon_knight_9 "+120%"`）——多档位字段要整体等比缩放时用这个，不需要手算每档绝对值再写数组。引擎检测英雄拥有该 key 同名技能时自动应用。
 
-> **关键坑：key 必须是 `special_bonus_` 前缀的技能名**。引擎靠前缀识别哪些子 key 是「bonus 覆盖」，非此前缀的子 key 被当无关元数据**静默忽略**（数值不变，无报错）。觉醒技能即使是普通可学习主动技（如 PA `special_bonus_unique_phantom_assassin_upgrade` 是 `UNIT_TARGET` 主动），只要名字带前缀就能当 key；反之，不带前缀的觉醒技能名（如曾用的 `sniper_assassinate_upgrade`）写进去不生效，须把觉醒技能**重命名**为 `special_bonus_unique_*`（连带改抽奖池引用、Lua 类名、本地化 key；ScriptFile 路径/Lua 文件名可不动，仅同步文件内 ability 类名）。该 key 技能还须被英雄拥有且等级 ≥ 1 才应用。
+> **关键坑：key 必须是 `special_bonus_` 前缀的技能名**。引擎靠前缀识别哪些子 key 是「bonus 覆盖」，非此前缀的子 key 被当无关元数据**静默忽略**（数值不变，无报错）。觉醒技能即使是普通可学习主动技（如 PA `special_bonus_unique_phantom_assassin_upgrade` 是占短匕槽位的 `UNIT_TARGET` 壳技能），只要名字带前缀就能当 key；反之，不带前缀的觉醒技能名（如曾用的 `sniper_assassinate_upgrade`）写进去不生效，须把觉醒技能**重命名**为 `special_bonus_unique_*`（连带改抽奖池引用、Lua 类名、本地化 key；ScriptFile 路径/Lua 文件名可不动，仅同步文件内 ability 类名）。该 key 技能还须被英雄拥有且等级 ≥ 1 才应用。
 
 > **同一 value 块可以挂多个 `special_bonus_` key，但引擎只应用块内第一个命中的**，所以觉醒键须排在 `value` 之后、其它键之前。动手前先按 `update-abilities-override` skill 的方法读该技能整段（override 差分 + `docs/reference/<version>/heroes/` 原版全集，**原版键会被合并进来，只看 override 会漏**），确认块内已有哪些 `special_bonus_*`（常见来源：原版天赋、魔晶、神杖、其它觉醒）。排首位意味着觉醒后该字段上的其它 bonus 全部失效，若不可接受则换一个干净字段，或改用其它实现方式（DataDriven Modifiers / TS）。
 
@@ -97,7 +98,7 @@ ApplyAwakenMagicImmunity(unit, ability, duration)
 
 - KV：`AbilityBehavior` 加 `DOTA_ABILITY_BEHAVIOR_HIDDEN`（不进技能栏），同时加一个 `Modifiers` 子块，子 modifier 设 `"Passive" "1"` + `"IsHidden" "0"`（非隐藏，展示为常驻 buff 图标，自动复用 `AbilityTextureName` 做图标）。
 - 本地化：ability 自身的 `DOTA_Tooltip_ability_<name>` / `_Description` **保留不删**——觉醒预览页 `AwakenTab.tsx` 用 `DOTAAbilityImage` 读取的是 ability 的 tooltip，不是 modifier 的。额外补一组 `DOTA_Tooltip_modifier_<modifier_name>` / `_Description`，内容与 ability 标题/描述完全一致，确保游玩时看到的 buff tooltip 与觉醒页说明一致。
-- modifier 描述里若有写死的字面 `%` 号，**同样要转义成 `%%`**（不要因为是 modifier 就漏掉，规则与正文一致，见 CLAUDE.md 本地化文案规约）。
+- modifier 描述里若有写死的字面 `%` 号，**同样要转义成 `%%`**（不要因为是 modifier 就漏掉，规则与正文一致，见 `game/resource/CLAUDE.md`「文案规约」）。
 - **modifier tooltip 不支持直接 `%key%` 读取 ability 的 `AbilityValues`**（会显示空白或吞掉百分号）；ability 自身的描述不受影响，仍可正常用 `%key%`。modifier 这边按实现方式分三种处理：
   - **DataDriven 且数值挂在内置 `MODIFIER_PROPERTY_*`**（如 `MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE`、`MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT` 等标准属性，`Properties` 块里已声明）：**可以**直接动态取值，本地化写 `%dMODIFIER_PROPERTY_<属性名>%%%` 即可，引擎自动读取该 modifier 当前的属性值，**不需要**任何 RunScript/OnTooltip 代码，也**不需要**手动包白色粗体（项目里已有先例：`monkey_king_defy`、`insight_armor_aura`）。
   - **DataDriven 且数值不对应任何内置 Property**（纯标记技能、无脚本）：没有代码可补，描述里**写死成具体数字**。
@@ -153,7 +154,7 @@ Timers.CreateTimer(duration, () => {
 - 关闭自动施法：技能栏显示原版技能本体，玩家手动操作，行为与不觉醒时完全一致
 - 打开自动施法：觉醒技能的 intrinsic modifier 用 `OnIntervalThink` 周期检测触发条件（如冷却是否转好、范围内是否有合适目标），满足条件时**代替玩家调用原版技能自身的 `OnSpellStart()`**（而不是重新实现一遍技能效果），原版技能命中判定、加成、伤害全部原样生效；需要玩家原本手动点第二步操作（如某个收尾/确认技能）时，同样在检测循环里判断该技能是否可施放，可施放就代为调用
 
-判断「简化操作」类需求是否走偏了的信号：如果实现过程中出现了原版技能本身没有的新数值字段（半径、持续时间、加成档位）、新的 buff/debuff modifier、或者需要"叠加/覆盖原版效果"的逻辑，那大概率是把"自动化操作"和"改变技能效果"这两件事混在一起了——先回头确认需求到底是哪一种，多数"简化操作"类诉求只需要前者。代码代为触发 `OnSpellStart()` 时须补 `UseResources`，见 CLAUDE.md「常见陷阱」。
+判断「简化操作」类需求是否走偏了的信号：如果实现过程中出现了原版技能本身没有的新数值字段（半径、持续时间、加成档位）、新的 buff/debuff modifier、或者需要"叠加/覆盖原版效果"的逻辑，那大概率是把"自动化操作"和"改变技能效果"这两件事混在一起了——先回头确认需求到底是哪一种，多数"简化操作"类诉求只需要前者。代码代为触发 `OnSpellStart()` 时须补 `UseResources`，见 `src/vscripts/CLAUDE.md`「常见陷阱」。
 
 **替换类觉醒仍需完整还原原版技能的 KV 数值和本地化文案**：这层"自动化外壳"不改变原版效果，因此觉醒技能自己的 KV（`AbilityValues`、`AbilityCooldown`、`AbilityManaCost`、`HasScepterUpgrade` 等）和本地化描述都应该与原版技能 + `npc_abilities_override.txt` 差分之后的最终值保持完全一致（玩家在未开自动施法时，看到的技能面板本质就是原版技能本身）。新增的自动施法说明追加在原版描述之后，不要替换掉原版的效果描述。
 

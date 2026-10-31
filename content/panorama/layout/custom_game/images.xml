@@ -20,14 +20,24 @@
 			<Image id="memberPointsT1" class="SeqImg" src="file://{images}/custom_game/member/member_points_t1.png" />
 			<Image id="memberPointsT2" class="SeqImg" src="file://{images}/custom_game/member/member_points_t2.png" />
 			<Image id="memberPointsT3" class="SeqImg" src="file://{images}/custom_game/member/member_points_t3.png" />
+			<Image id="memberExternalLink" class="SeqImg" src="file://{images}/custom_game/member/external-link.png" />
+			<Image id="memberStripeLogo" class="SeqImg" src="file://{images}/custom_game/member/stripe.png" />
+			<Image id="memberPayVisa" class="SeqImg" src="file://{images}/custom_game/member/pay/visa.png" />
+			<Image id="memberPayMastercard" class="SeqImg" src="file://{images}/custom_game/member/pay/mastercard.png" />
+			<Image id="memberPayApplePay" class="SeqImg" src="file://{images}/custom_game/member/pay/apple-pay.png" />
+			<Image id="memberPayGooglePay" class="SeqImg" src="file://{images}/custom_game/member/pay/google-pay.png" />
 			<Image id="conductThumbUp" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_up.png" />
 			<Image id="conductThumbDown" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_down.png" />
 			<Image id="conductThumbUpFill" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_up_fill.png" />
 			<Image id="conductThumbDownFill" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_down_fill.png" />
 			<Image id="rightFlareBg" class="SeqImg" src="file://{images}/custom_game/hud/right_flare_bg.png" />
+			<Image id="hudAnimeVersion" class="SeqImg" src="file://{images}/custom_game/hud/anime_version.png" />
+			<Image id="hudDotaSurvivor" class="SeqImg" src="file://{images}/custom_game/hud/dota_survivor.png" />
 			<Image id="snsDiscordQrCode" class="SeqImg" src="file://{images}/custom_game/sns/discord_qr_code.png" />
 			<Image id="snsQqQrCode1" class="SeqImg" src="file://{images}/custom_game/sns/qq_qr_code1.png" />
 			<Image id="snsQqQrCode2" class="SeqImg" src="file://{images}/custom_game/sns/qq_qr_code2.png" />
+			<Image id="websiteIcon" class="SeqImg" src="file://{images}/custom_game/website/icon_website.png" />
+			<Image id="feedbackIcon" class="SeqImg" src="file://{images}/custom_game/feedback/icon_feedback.png" />
 		</Panel>
 	</Panel>
 </root>

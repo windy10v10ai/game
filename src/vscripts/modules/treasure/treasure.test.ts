@@ -51,18 +51,31 @@ global.UTIL_Remove = jest.fn();
 
 let entityIndexCounter = 1;
 const createdUnits: any[] = [];
+const entitiesByIndex = new Map<number, any>();
+
+global.EntIndexToHScript = jest.fn((index: number) => entitiesByIndex.get(index));
 global.CreateUnitByName = jest.fn(() => {
   const idx = entityIndexCounter++;
+  let alive = true;
+
   const unit = {
     GetEntityIndex: () => idx,
     GetUnitName: () => 'npc_treasure_chest',
+    IsNull: () => false,
+    IsBaseNPC: () => true,
+    IsAlive: () => alive,
+    Kill: jest.fn(() => {
+      alive = false;
+    }),
     SetIdleAcquire: jest.fn(),
     SetAcquisitionRange: jest.fn(),
     AddNewModifier: jest.fn(),
     GetAbsOrigin: () => ({ x: 0, y: 0, z: 256 }),
     SetAbsOrigin: jest.fn(),
   };
+
   createdUnits.push(unit);
+  entitiesByIndex.set(idx, unit);
   return unit;
 });
 
@@ -97,6 +110,7 @@ describe('Treasure', () => {
     Object.keys(listeners).forEach((k) => delete listeners[k]);
     createdUnits.length = 0;
     entityIndexCounter = 1;
+    entitiesByIndex.clear();
     mockState = global.GameState.CUSTOM_GAME_SETUP;
     global.DOTA_MAX_TEAM_PLAYERS = 1;
     (global.CreateUnitByName as jest.Mock).mockClear();
@@ -125,6 +139,23 @@ describe('Treasure', () => {
       treasure.spawnOne();
       expect(treasure.getActiveChestCount()).toBe(Treasure.MAX_ACTIVE_CHESTS);
       expect(treasure.getSpawnCount()).toBe(Treasure.MAX_ACTIVE_CHESTS);
+    });
+    it('被外部击杀的宝箱不会永久占用 active slot', () => {
+      treasure.spawnOne();
+      treasure.spawnOne();
+
+      expect(treasure.getActiveChestCount()).toBe(Treasure.MAX_ACTIVE_CHESTS);
+      expect(treasure.getSpawnCount()).toBe(2);
+
+      // 模拟神龙赐福：毁灭等外部机制直接 Kill 宝箱，
+      // 没有经过 Treasure.openChest()
+      createdUnits[0].Kill();
+
+      treasure.spawnOne();
+
+      expect(treasure.getActiveChestCount()).toBe(Treasure.MAX_ACTIVE_CHESTS);
+      expect(treasure.getSpawnCount()).toBe(3);
+      expect(global.CreateUnitByName).toHaveBeenCalledTimes(3);
     });
 
     it('开启后允许下次 spawn', () => {
@@ -166,20 +197,26 @@ describe('Treasure', () => {
       expect(merged).toContain(point);
     });
 
-    it('spawnCount === 6 切到 JUNGLE 池', () => {
-      advance(6);
+    // RandomInt 取 max 时选中池子最后一个点，用来判断 HARD 是否已并入
+    const pickLastOfPool = () => {
+      global.RandomInt = jest.fn((_min: number, max: number) => max);
       const point = treasure.getRandomSpawnPoint();
-      expect(Treasure.SPAWN_POINTS_RADIANT_JUNGLE).toContain(point);
+      global.RandomInt = jest.fn((min: number, _max: number) => min);
+      return point;
+    };
+
+    it('spawnCount === 11 仍是 EASY+JUNGLE 池，不刷 HARD', () => {
+      advance(11);
+      const jungle = Treasure.SPAWN_POINTS_RADIANT_JUNGLE;
+      expect(treasure.getRandomSpawnPoint()).toBe(Treasure.SPAWN_POINTS_RADIANT_EASY[0]);
+      expect(pickLastOfPool()).toBe(jungle[jungle.length - 1]);
     });
 
-    it('spawnCount === 8 进入 JUNGLE+HARD 合并池', () => {
-      advance(8);
-      const point = treasure.getRandomSpawnPoint();
-      const merged = [
-        ...Treasure.SPAWN_POINTS_RADIANT_JUNGLE,
-        ...Treasure.SPAWN_POINTS_RADIANT_HARD,
-      ];
-      expect(merged).toContain(point);
+    it('spawnCount === 12 进入 EASY+JUNGLE+HARD 全池', () => {
+      advance(12);
+      const hard = Treasure.SPAWN_POINTS_RADIANT_HARD;
+      expect(treasure.getRandomSpawnPoint()).toBe(Treasure.SPAWN_POINTS_RADIANT_EASY[0]);
+      expect(pickLastOfPool()).toBe(hard[hard.length - 1]);
     });
   });
 

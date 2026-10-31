@@ -1,15 +1,20 @@
+import { BotPick } from '../../ai/bot-pick/bot-pick';
 import { InitializeItemReplaceMap } from '../../ai/build-item/item-tier-config';
 import { BotTeam } from '../../ai/team/bot-team';
 import { GA4 } from '../../api/analytics/ga4/ga4';
-import { GA4ItemTracker } from '../../api/analytics/ga4/ga4-item-tracker';
 import { Game } from '../../api/game';
-import { Ranking } from '../../api/ranking';
-import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { GameConfig } from '../GameConfig';
+import { BotOrderProbe } from '../debug/bot-order-probe';
+import { PerfAuto } from '../debug/perf-auto';
+import { WatchLauncherRoom } from '../launcher-room';
+import { IS_DEBUG_RUN } from '../debug/perf-config';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroBuyback } from '../hero/hero-buyback';
 import { HeroPick } from '../hero/hero-pick';
+import { LagTelemetry } from '../lag-telemetry/lag-telemetry';
+import { HeroItemUsage } from '../../api/analytics/hero-item-usage';
+import { GameEnd } from './game-end/game-end';
 import { CreepBuffManager } from './game-in-progress/creep-buff-manager';
 import { MidOnlyMode } from './pre-game/mid-only-mode';
 
@@ -27,10 +32,7 @@ export class EventGameStateChange {
         // 设置玩家颜色
         this.setPlayerColor();
       });
-      // 加载排行榜信息 略微延迟
-      Timers.CreateTimer(10, () => {
-        Ranking.LoadRankingInfo();
-      });
+      WatchLauncherRoom();
     } else if (state === GameState.HERO_SELECTION) {
       this.OnHeroSelection();
     } else if (state === GameState.STRATEGY_TIME) {
@@ -58,7 +60,12 @@ export class EventGameStateChange {
   private OnStrategyTime(): void {
     GameConfig.SetMaxLevelXPRequire();
     HeroPick.PickHumanHeroes();
-    HeroPick.PickBotHeroes();
+    // 延迟创建，避免在当前事件处理里耗时过长导致玩家被断开
+    Timers.CreateTimer({
+      endTime: 0.1,
+      useGameTime: false,
+      callback: () => BotPick.PickBotHeroes(),
+    });
   }
 
   /**
@@ -100,9 +107,8 @@ export class EventGameStateChange {
     const bases = Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[];
     for (const base of bases) {
       this.addModifierToTowers(base);
-      // 监听游戏结束
-      base.AddNewModifier(base, undefined, modifier_fort_think.name, {});
     }
+    GameEnd.WatchForts(bases);
 
     // 延迟为泉水设置技能等级
     Timers.CreateTimer(1, () => {
@@ -132,12 +138,15 @@ export class EventGameStateChange {
   }
 
   private OnGameInProgress(): void {
-    // 记录游戏开始时间用于 GA4 统计
-    GA4.RecordGameStartTime();
-    // 启动物品持有时长采样
-    GA4ItemTracker.StartTracking();
-    // 初始化Bot团队策略，挂载到 GameRules.AI 供 FSA 层访问
+    GA4.FetchCountryCode();
+    LagTelemetry.Start();
+    HeroItemUsage.Start();
+    // 初始化 bot 团队调度，挂载到 GameRules.AI 供英雄 AI 访问
     GameRules.AI.BotTeam = new BotTeam();
+    if (IS_DEBUG_RUN) {
+      PerfAuto.onGameInProgress();
+      BotOrderProbe.install();
+    }
     // 初始化Bot出装系统
     InitializeItemReplaceMap();
   }

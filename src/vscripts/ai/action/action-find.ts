@@ -1,3 +1,6 @@
+/** bot-base 预搜友方小兵用的半径，施法条件按同一口径计数，避免重复发起搜索。 */
+export const FRIENDLY_CREEP_SEARCH_RADIUS = 900;
+
 export class ActionFind {
   // Find Enemy
   static FindEnemyHeroes(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
@@ -10,10 +13,8 @@ export class ActionFind {
     return this.FindEnemies(self, radius, UnitTargetType.CREEP, UnitTargetFlags.NOT_ANCIENTS);
   }
 
-  static FindEnemyBuildings(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
-    const enemies = this.FindEnemies(self, radius, UnitTargetType.BUILDING);
-
-    return enemies;
+  static FindEnemyAncients(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
+    return this.FindEnemies(self, radius, UnitTargetType.CREEP).filter((unit) => unit.IsAncient());
   }
 
   static FindEnemyBuildingsInvulnerable(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {

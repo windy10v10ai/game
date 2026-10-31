@@ -302,6 +302,12 @@
 		"AttackDamageMin"			"200"			// 50
 		"AttackDamageMax"			"200"			// 50
 		"AttackRate"				"1.0"			// 1.5
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"93"		// 31
+		"BountyGoldMin"				"60"		// 20
+		"BountyGoldMax"				"78"		// 26
 	}
 
 	"npc_dota_shadow_shaman_ward_2"
@@ -324,6 +330,35 @@
 		"AttackDamageMin"			"400"			// 120
 		"AttackDamageMax"			"400"			// 120
 		"AttackRate"				"1.0"			// 1.5
+	}
+
+	// tinker_turret 修补匠炮台
+	"npc_dota_tinker_turret1"
+	{
+		"BountyXP"					"15"		// 5
+		"BountyGoldMin"				"15"		// 5
+		"BountyGoldMax"				"15"		// 5
+	}
+
+	"npc_dota_tinker_turret2"
+	{
+		"BountyXP"					"30"		// 10
+		"BountyGoldMin"				"30"		// 10
+		"BountyGoldMax"				"30"		// 10
+	}
+
+	"npc_dota_tinker_turret3"
+	{
+		"BountyXP"					"45"		// 15
+		"BountyGoldMin"				"45"		// 15
+		"BountyGoldMax"				"45"		// 15
+	}
+
+	"npc_dota_tinker_turret4"
+	{
+		"BountyXP"					"60"		// 20
+		"BountyGoldMin"				"60"		// 20
+		"BountyGoldMax"				"60"		// 20
 	}
 
 	// beastmaster_boar 兽王野猪
@@ -369,8 +404,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"90"		// Experience earn.
-		"BountyGoldMin"				"26"		// Gold earned min.
-		"BountyGoldMax"				"38"		// Gold earned max.
+		"BountyGoldMin"				"52"		// 26
+		"BountyGoldMax"				"76"		// 38
 
 		// Movement
 		//----------------------------------------------------------------
@@ -582,6 +617,12 @@
         // Status
         //----------------------------------------------------------------
         "StatusHealth"				"300"		// 180
+
+        // Bounty
+        //----------------------------------------------------------------
+        "BountyXP"					"30"		// 10
+        "BountyGoldMin"				"42"		// 14
+        "BountyGoldMax"				"60"		// 20
     }
 
     "npc_dota_eidolon"
@@ -637,6 +678,10 @@
         "AttackRate"				"1.4"		// Speed of attack.
 
         "StatusHealth"				"500"		// Base health.
+
+        "BountyXP"					"36"		// 12
+        "BountyGoldMin"				"24"		// 8
+        "BountyGoldMax"				"24"		// 8
     }
 
     "npc_dota_furion_treant_2"
@@ -646,6 +691,10 @@
        "AttackRate"				    "1.4"		// Speed of attack.
 
        "StatusHealth"				"600"		// Base health.
+
+        "BountyXP"					"36"		// 12
+        "BountyGoldMin"				"24"		// 8
+        "BountyGoldMax"				"24"		// 8
     }
 
     "npc_dota_furion_treant_3"
@@ -655,6 +704,10 @@
         "AttackRate"				"1.4"		// Speed of attack.
 
         "StatusHealth"				"700"		// Base health.
+
+        "BountyXP"					"36"		// 12
+        "BountyGoldMin"				"24"		// 8
+        "BountyGoldMax"				"24"		// 8
     }
 
     "npc_dota_furion_treant_4"
@@ -664,7 +717,19 @@
         "AttackRate"				"1.4"		// Speed of attack.
 
         "StatusHealth"				"800"		// Base health.
+
+        "BountyXP"					"36"		// 12
+        "BountyGoldMin"				"24"		// 8
+        "BountyGoldMax"				"24"		// 8
     }
+
+	// 祈求者 熔炉精灵
+	"npc_dota_invoker_forged_spirit"
+	{
+		"BountyXP"					"62"		// 31
+		"BountyGoldMin"				"64"		// 32
+		"BountyGoldMax"				"92"		// 46
+	}
 
 	// 藏宝箱
 	"npc_treasure_chest"

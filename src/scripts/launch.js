@@ -1,7 +1,7 @@
 const { exec, spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-const { getAddonName, getDotaPath } = require('./utils');
+const { getAddonName, getDotaPath, NETCON_PORT } = require('./utils');
 
 async function ensureThumbnailCachePlaceholders() {
   const gameDir = path.resolve(__dirname, '..', '..', 'game');
@@ -34,9 +34,40 @@ async function ensureThumbnailCachePlaceholders() {
   }
 }
 
+const DEBUG_LAUNCH_CONFIG = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  'game',
+  'scripts',
+  'vscripts',
+  'debug_launch_config.lua',
+);
+
+// 中途替换英雄会漏掉资源预载与各模块记录的英雄状态，测试指定英雄须在开局选定
+function writeDebugLaunchConfig() {
+  const heroIndex = process.argv.indexOf('--hero');
+  const hero = heroIndex >= 0 ? process.argv[heroIndex + 1] : undefined;
+  if (!hero) {
+    fs.rmSync(DEBUG_LAUNCH_CONFIG, { force: true });
+    return;
+  }
+  fs.writeFileSync(DEBUG_LAUNCH_CONFIG, `return { hero = "npc_dota_hero_${hero}" }\n`);
+  console.log(`[launch] player hero: npc_dota_hero_${hero}`);
+}
+
 (async () => {
   // 在启动 Dota2 Tools 之前先放置同名占位目录，阻止 Tools 创建/锁定 tools_thumbnail_cache.sqlite3*，避免发布时因这些缓存文件导致崩溃。
   await ensureThumbnailCachePlaceholders();
+  // 性能测试被强行中断时来不及清理临时配置，残留下来会让普通开发也进入自动测试
+  fs.rmSync(
+    path.resolve(__dirname, '..', '..', 'game', 'scripts', 'vscripts', 'perf_auto_config.lua'),
+    {
+      force: true,
+    },
+  );
+
+  writeDebugLaunchConfig();
 
   const dotaPath = await getDotaPath();
   const win64 = path.join(dotaPath, 'game', 'bin', 'win64');
@@ -54,11 +85,16 @@ async function ensureThumbnailCachePlaceholders() {
       const args = [
         '-novid',
         '-tools',
+        // 控制台输出落盘到 game/dota/console.log，便于事后排查
+        '-condebug',
+        // 远程控制台，供 npm run dota:cmd 从外部发命令
+        '-netconport',
+        String(NETCON_PORT),
         '-addon',
         addonName,
         '+dota_launch_custom_game',
         addonName,
-        'custom',
+        'dota',
       ];
 
       const child = spawn(path.join(win64, 'dota2.exe'), args, {

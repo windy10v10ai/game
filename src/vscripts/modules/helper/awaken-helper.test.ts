@@ -44,7 +44,7 @@ describe('AwakenHelper.ApplyUnlockedAwaken', () => {
 
   it('未解锁当前英雄时跳过', () => {
     mockIsHumanPlayer.mockReturnValue(true);
-    mockGetAwakenedHeroes.mockReturnValue([{ heroName: 'npc_dota_hero_pudge' }]);
+    mockGetAwakenedHeroes.mockReturnValue(['npc_dota_hero_pudge']);
 
     AwakenHelper.ApplyUnlockedAwaken(mockHero as any, steamAccountId);
 
@@ -53,7 +53,7 @@ describe('AwakenHelper.ApplyUnlockedAwaken', () => {
 
   it('已解锁当前英雄时调用 applyAwakenByHero', () => {
     mockIsHumanPlayer.mockReturnValue(true);
-    mockGetAwakenedHeroes.mockReturnValue([{ heroName: 'npc_dota_hero_axe' }]);
+    mockGetAwakenedHeroes.mockReturnValue(['npc_dota_hero_axe']);
 
     AwakenHelper.ApplyUnlockedAwaken(mockHero as any, steamAccountId);
 

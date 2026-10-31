@@ -173,7 +173,6 @@ export const abilityTiersActive: Tier[] = [
       // 'luna_lucent_beam', // 月光
       'magnataur_shockwave', // 震荡波
       'lich_death_charge', // 献身
-      'dark_seer_vacuum', // 真空
       'treant_natures_grasp', // 自然卷握
 
       // 自定义技能
@@ -255,6 +254,7 @@ export const abilityTiersPassive: Tier[] = [
       // 自定义技能
       'dragon_knight_dragon_blood2', // 龙骑 龙族血统
       'primal_beast_colossal2', // 獸 庞
+      'morphling_ebb_and_flow2', // 变体精灵 潮涨潮落
       'silencer_brain_drain2', // 沉默术士 默默受苦
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'centaur_sturdy', // 人马 不屈

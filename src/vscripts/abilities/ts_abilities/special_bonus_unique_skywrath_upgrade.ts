@@ -2,10 +2,13 @@ import { registerAbility } from '../../utils/dota_ts_adapter';
 import {
   AutoCastAbility,
   castImmediatelyOnTarget,
+  findAutoCastTarget,
   findEnemiesInRange,
-  findHeroOrCreepInRange,
   getFullCastRange,
+  willReflect,
 } from './shared/auto-cast-ability';
+
+const SHARD_MODIFIER = 'modifier_item_aghanims_shard';
 
 /** 天怒法师 天裔之杖-觉醒：四个主动技能的自动施法开关。冷却缩减由觉醒一并发放的原版 skywrath_mage_staff_of_the_scion 提供。 */
 @registerAbility('special_bonus_unique_skywrath_upgrade')
@@ -27,7 +30,7 @@ export class SpecialBonusUniqueSkywrathUpgrade extends AutoCastAbility {
       caster,
       getFullCastRange(caster, seal),
       UnitTargetType.HERO,
-    );
+    ).filter((enemy) => !willReflect(enemy));
     if (target === undefined) return false;
     castImmediatelyOnTarget(caster, seal, target);
     return true;
@@ -57,7 +60,13 @@ export class SpecialBonusUniqueSkywrathUpgrade extends AutoCastAbility {
       bolt.GetSpecialValueFor('pierce_spell_immunity') > 0
         ? UnitTargetFlags.MAGIC_IMMUNE_ENEMIES
         : UnitTargetFlags.NONE;
-    const target = findHeroOrCreepInRange(caster, getFullCastRange(caster, bolt), flags);
+    const target = findAutoCastTarget(
+      caster,
+      getFullCastRange(caster, bolt),
+      caster.HasModifier(SHARD_MODIFIER),
+      flags,
+      willReflect,
+    );
     if (!target) return false;
     castImmediatelyOnTarget(caster, bolt, target);
     return true;

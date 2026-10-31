@@ -9,11 +9,7 @@ end
 
 require('timers')
 require('util')
-require('bot/bot_item_data')
 require('events')
-require('bot/bot_think_item_build')
-require('bot/bot_think_ability_use')
-require('bot/bot_think_modifier')
 
 function Activate()
     AIGameMode:InitGameMode()
@@ -63,7 +59,6 @@ function AIGameMode:InitEvents()
 end
 
 function AIGameMode:LinkLuaModifiers()
-    LinkLuaModifier("modifier_bot_think_item_use", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
     -- 智力魔抗modifier
     LinkLuaModifier("modifier_intelect_magic_resist", "modifiers/global/intelect_magic_resist", LUA_MODIFIER_MOTION_NONE)
 end

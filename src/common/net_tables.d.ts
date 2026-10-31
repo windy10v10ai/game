@@ -1,4 +1,5 @@
 import { GamePresetCustomOptions, PlayerInfoDto, PointInfoDto } from '../vscripts/api/player';
+import { DailyTaskNetTableEntry, TaskCandidateDto } from './dto/daily-task';
 import { LotteryDto } from './dto/lottery';
 import { LotteryStatusDto } from './dto/lottery-status';
 
@@ -31,17 +32,27 @@ declare global {
         damagereceived: number;
         healing: number;
         points: number;
-        pointModifier: number;
+        conductDelta: number;
         conductPoint: number;
         str: number;
         agi: number;
         int: number;
         towerKills: number;
         stuns: number;
+        // 本局完成的每日任务，用于结算页展示明细；未完成则不下发
+        dailyTask?: TaskCandidateDto;
       };
     };
     loading_status: {
-      loading_status: { status: number };
+      // snapshotDate 为离线快照导出日期（YYYY-MM-DD），仅在读取快照时下发
+      loading_status: { status: number; snapshotDate?: string };
+    };
+    launcher_room: {
+      // entering 是启动器里还没进入游戏的玩家名，inGame 含主机
+      launcher_room: { entering: string[]; inGame: number; maxPlayers: number };
+    };
+    server_env: {
+      server_env: { is_local_host: number };
     };
     ending_status: {
       ending_status: { status: number };
@@ -49,16 +60,6 @@ declare global {
     };
     player_table: {
       [steamAccountID: string]: PlayerInfoDto;
-    };
-    ranking_table: {
-      topSteamIds: string[];
-      rankScores: {
-        top1000: number;
-        top2000: number;
-        top3000: number;
-        top4000: number;
-        top5000: number;
-      };
     };
     point_info: {
       [steamAccountID: string]: PointInfoDto[];
@@ -112,6 +113,15 @@ declare global {
     // 随机抽选觉醒的当前候选集（API get-or-create 的权威候选），key = steamAccountID；清空时传 {}
     awaken_random: {
       [steamAccountID: string]: { candidates?: string[] };
+    };
+    // 每日任务：本局候选、本地选择与当日完成状态，key = playerId
+    daily_task: {
+      [playerId: string]: DailyTaskNetTableEntry;
+    };
+    // 每日任务局内实时进度，key = playerId。展示所需的星级/指标/目标值都在 daily_task 里且整局不变，
+    // 这里只推每秒会变的当前值；taskId 不用于展示，只用于对齐数值归属，防止改选任务瞬间数字串号
+    daily_task_progress: {
+      [playerId: string]: { taskId: string; value: number };
     };
   }
 }

@@ -1,3 +1,4 @@
+import { calculateStatusResistedDuration } from '../../utils/damage-calculation';
 import {
   BaseAbility,
   BaseModifier,
@@ -25,10 +26,6 @@ const DEVOUR_LEVEL_INTERVAL = 0.1;
 
 function isSameTeam(caster: CDOTA_BaseNPC, target: CDOTA_BaseNPC): boolean {
   return caster.GetTeamNumber() === target.GetTeamNumber();
-}
-
-function getEnemyDoomDuration(target: CDOTA_BaseNPC, duration: number): number {
-  return Math.max(0, duration * (1 - target.GetStatusResistance()));
 }
 
 function applyBasicDispel(target: CDOTA_BaseNPC): void {
@@ -134,7 +131,7 @@ export class DoomBringerDoomAwakened extends BaseAbility {
     const baseDuration = this.GetSpecialValueFor('duration');
     const effectDuration = targetIsFriendly
       ? baseDuration
-      : getEnemyDoomDuration(target, baseDuration);
+      : calculateStatusResistedDuration(baseDuration, target);
 
     if (!targetIsFriendly) {
       applyBasicDispel(target);

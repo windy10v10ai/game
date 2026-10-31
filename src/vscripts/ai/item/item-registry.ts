@@ -1,4 +1,4 @@
-import { ItemSpec } from './item-spec';
+import { ItemPriority, ItemSpec } from './item-spec';
 
 /**
  * 按物品名注册 ItemSpec，结构与 AbilityRegistry 一致。
@@ -23,6 +23,16 @@ class ItemRegistryClass {
 
   get(itemName: string): ItemSpec[] | undefined {
     return this.map.get(itemName);
+  }
+
+  /** 物品的施放档位，没有 spec 的物品（纯属性装）排在默认档。 */
+  priorityOf(itemName: string): number {
+    return this.map.get(itemName)?.[0]?.priority ?? ItemPriority.Default;
+  }
+
+  /** 放在备用栏也能施放的物品，不必占主物品栏。 */
+  usableFromBackpack(itemName: string): boolean {
+    return this.map.get(itemName)?.some((spec) => spec.usableFromBackpack === true) ?? false;
   }
 
   getAll(): Map<string, ItemSpec[]> {

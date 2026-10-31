@@ -1,11 +1,11 @@
-import { ApiClient } from '../api/api-client';
 import { GameEndPoint } from './event/game-end/game-end-point';
 import { PlayerHelper } from './helper/player-helper';
 
 export class Option {
   radiantGoldXpMultiplier = 1;
   direGoldXpMultiplier = 1;
-  radiantPlayerNumber = 10;
+  // 房主设置没送到服务器时按 N1–N8 的默认人数开局，避免天辉补满电脑
+  radiantPlayerNumber = 1;
   direPlayerNumber = 10;
   towerPower = 100;
 
@@ -39,6 +39,9 @@ export class Option {
   }
 
   OnGameOptionChange(keys: GameOptionsChangeEventData & CustomGameEventDataBase) {
+    print(
+      `[Option] game_options_change radiant=${keys.player_number_radiant} dire=${keys.player_number_dire}`,
+    );
     this.radiantGoldXpMultiplier = keys.multiplier_radiant;
     this.direGoldXpMultiplier = keys.multiplier_dire;
     this.radiantPlayerNumber = keys.player_number_radiant;
@@ -54,11 +57,7 @@ export class Option {
     this.midOnlyMode = keys.mid_only_mode === 1;
     CustomNetTables.SetTableValue('game_options', 'game_options', keys);
     CustomNetTables.SetTableValue('game_options', 'point_multiplier', {
-      point_multiplier: GameEndPoint.GetDifficultyMultiplier(
-        this.gameDifficulty,
-        ApiClient.IsLocalhost(),
-        this,
-      ),
+      point_multiplier: GameEndPoint.GetDifficultyMultiplier(this.gameDifficulty, this),
     });
   }
 

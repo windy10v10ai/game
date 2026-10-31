@@ -19,6 +19,9 @@ var imagefile = {
 
 var _ = GameUI.CustomUIConfig()._;
 
+// 与 game.ts 中 loading_status 的离线取值一致
+var LOADING_STATUS_OFFLINE = 3;
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FinishGame() {
   Game.FinishGame();
@@ -104,35 +107,65 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.SetDialogVariableInt('heroHealing', playerData?.healing ?? 0);
   panel.SetDialogVariableInt('towerKills', playerData?.towerKills ?? 0);
   panel.SetDialogVariableInt('stuns', Math.round(playerData?.stuns ?? 0));
-  const pointModifier = playerData?.pointModifier ?? 0;
+  const conductDelta = playerData?.conductDelta ?? 0;
   const conductPoint = playerData?.conductPoint ?? 100;
   const points = playerData?.points ?? 0;
+  const dailyTask = playerData?.dailyTask;
   const pointsContainer = panel.FindChildTraverse('PointsLabel');
   const pointsValueLabel = panel.FindChildTraverse('PointsValue');
   const pointsModifierLabel = panel.FindChildTraverse('PointsModifier');
+  const dailyTaskBadge = panel.FindChildTraverse('DailyTaskBadge');
+
   if (pointsValueLabel) pointsValueLabel.text = String(points);
-  if (pointsModifierLabel && pointsContainer) {
-    if (pointModifier !== 0) {
-      const sign = pointModifier > 0 ? '+' : '-';
-      pointsModifierLabel.text = sign + Math.abs(pointModifier);
+
+  if (pointsModifierLabel) {
+    if (conductDelta !== 0) {
+      const sign = conductDelta > 0 ? '+' : '-';
+      pointsModifierLabel.text = sign + Math.abs(conductDelta);
       pointsModifierLabel.visible = true;
+    } else {
+      pointsModifierLabel.visible = false;
+    }
+  }
+
+  if (dailyTaskBadge) {
+    if (dailyTask) {
+      const dailyTaskValueLabel = dailyTaskBadge.FindChildTraverse('DailyTaskBadgeValue');
+      if (dailyTaskValueLabel) dailyTaskValueLabel.text = '+' + dailyTask.rewardSeasonPoint;
+      dailyTaskBadge.visible = true;
+    } else {
+      dailyTaskBadge.visible = false;
+    }
+  }
+
+  // 每日任务徽章热区太小难以命中，行为分与每日任务的加成合并成一个提示，
+  // 挂在整个积分区域上，悬浮到 193/+13/+N 任意一处都能看到完整说明
+  if (pointsContainer) {
+    const tooltipLines = [];
+    if (dailyTask) {
+      const dailyTaskTooltip = BuildDailyTaskTooltip(dailyTask);
+      if (dailyTaskTooltip) tooltipLines.push(dailyTaskTooltip);
+    }
+    if (conductDelta !== 0) {
+      let tooltipKey;
+      if (conductDelta > 0) {
+        tooltipKey = '#conduct_point_bonus_tooltip';
+      } else if (conductPoint < 60) {
+        tooltipKey = '#conduct_point_heavy_penalty_tooltip';
+      } else {
+        tooltipKey = '#conduct_point_light_penalty_tooltip';
+      }
+      tooltipLines.push($.Localize(tooltipKey).replace('{0}', conductPoint));
+    }
+    if (tooltipLines.length > 0) {
+      const tooltipText = tooltipLines.join('<br>');
       pointsContainer.SetPanelEvent('onmouseover', () => {
-        let tooltipKey;
-        if (pointModifier > 0) {
-          tooltipKey = '#conduct_point_bonus_tooltip';
-        } else if (conductPoint < 60) {
-          tooltipKey = '#conduct_point_heavy_penalty_tooltip';
-        } else {
-          tooltipKey = '#conduct_point_light_penalty_tooltip';
-        }
-        const tooltipText = $.Localize(tooltipKey).replace('{0}', conductPoint);
         $.DispatchEvent('DOTAShowTextTooltip', pointsContainer, tooltipText);
       });
       pointsContainer.SetPanelEvent('onmouseout', () => {
         $.DispatchEvent('DOTAHideTextTooltip');
       });
     } else {
-      pointsModifierLabel.visible = false;
       pointsContainer.ClearPanelEvent('onmouseover');
       pointsContainer.ClearPanelEvent('onmouseout');
     }
@@ -192,6 +225,24 @@ function Snippet_Player(playerId, rootPanel, index) {
   }
 }
 
+/**
+ * 结算页每日任务 tooltip 文案，复用候选卡的本地化 key（#dailytask_task_<scope>_<metric>）。
+ * 与 dailytask-ui.ts 的 getTaskTitle 逻辑一致，但这里走独立于 webpack/TSTL 的旧版 Panorama 脚本管线，无法直接共享。
+ *
+ * @param {Object} candidate TaskCandidateDto
+ * @returns {string|null} 未知 metric（本地化模板缺失）时返回 null
+ */
+function BuildDailyTaskTooltip(candidate) {
+  const scopeKey = candidate.scope === 'personal_hero' ? 'hero' : 'general';
+  const key = '#dailytask_task_' + scopeKey + '_' + candidate.metric;
+  const template = $.Localize(key);
+  if (template === key) return null;
+  const hero = candidate.heroName ? $.Localize('#' + candidate.heroName) : '';
+  const target = String(candidate.target).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const sentence = template.replace(/\{hero\}/g, hero).replace(/\{target\}/g, target);
+  return $.Localize('#dailytask_settlement_tooltip_prefix') + sentence;
+}
+
 function CreateAbilityImage(abilitiesContainer, abilityName) {
   const abilityPanel = $.CreatePanel('DOTAAbilityImage', abilitiesContainer, '', {
     abilityname: abilityName,
@@ -224,11 +275,12 @@ function CreateItemImage(container, heroIndex, slotIndex) {
  *
  * @param {Number} team Team Index
  */
-function Snippet_Team(team) {
+function Snippet_Team(team, winnerTeamId) {
   var panel = $.CreatePanel('Panel', $('#TeamsContainer'), '');
   panel.BLoadLayoutSnippet('Team');
   panel.SetHasClass('IsRight', true);
-  panel.SetHasClass('IsWinner', Game.GetGameWinner() === 2);
+  // 结算在基地推掉前就开始，那时引擎还没定出胜方
+  panel.SetHasClass('IsWinner', winnerTeamId === 2);
 
   const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
   const gameDifficulty = CustomNetTables.GetTableValue('game_difficulty', 'all').difficulty;
@@ -268,7 +320,38 @@ function Snippet_Team(team) {
   }
 }
 
+// 游戏内那份界面在开局结果回来前就已创建，离线状态要在用到时现读
+function IsOffline() {
+  const loading = CustomNetTables.GetTableValue('loading_status', 'loading_status');
+  return loading != null && loading.status === LOADING_STATUS_OFFLINE;
+}
+
+function ShowOfflineState() {
+  const offline = IsOffline();
+  $('#OfflineHint').visible = offline;
+  // 离线局本来就不记账，离线提示已经说明，再显示结算状态是重复
+  $('#SettleStatus').visible = !offline;
+  return offline;
+}
+
+// 结算请求还没回来时对局仍在进行，这时离开会让服务端来不及重发失败的请求
+function OnEndingStatus(value) {
+  if (!value?.status) {
+    return;
+  }
+  const offline = ShowOfflineState();
+  const statusPanel = $('#SettleStatus');
+  statusPanel.SetHasClass('Settling', value.status === 1);
+  statusPanel.SetHasClass('Settled', value.status === 2);
+  $('#GameEndingStatusText').text = $.Localize('#ending_status_' + value.status);
+  $('#CloseButton').enabled = offline || value.status !== 1;
+}
+
 function OnGameResult(_table, key, value) {
+  if (key === 'ending_status') {
+    OnEndingStatus(value);
+    return;
+  }
   if (key !== 'ending_data') {
     return;
   }
@@ -280,8 +363,8 @@ function OnGameResult(_table, key, value) {
   $('#EndScreenWindow').visible = true;
   $('#TeamsContainer').RemoveAndDeleteChildren();
 
-  Snippet_Team(2);
-  Snippet_Team(3);
+  Snippet_Team(2, value.winner_team_id);
+  Snippet_Team(3, value.winner_team_id);
 
   var result_label = $('#EndScreenVictory');
 
@@ -316,12 +399,10 @@ function OnGameResult(_table, key, value) {
   find_hud_element('GameEndContainer').visible = false;
 
   $.GetContextPanel().RemoveClass('FadeOut');
-  // disable the close button
-  // $("#CloseButton").enabled = false;
-  // $("#GameEndingStatusText").style.color = "#ffffff";
 
   $('#EndScreenWindow').visible = false;
+  ShowOfflineState();
   CustomNetTables.SubscribeNetTableListener('ending_status', OnGameResult);
-  // CustomNetTables.SubscribeNetTableListener("ending_status", OnGameEndingStatusChange);
   OnGameResult(null, 'ending_data', CustomNetTables.GetTableValue('ending_status', 'ending_data'));
+  OnEndingStatus(CustomNetTables.GetTableValue('ending_status', 'ending_status'));
 })();

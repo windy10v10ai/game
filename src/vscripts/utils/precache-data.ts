@@ -258,9 +258,23 @@ export const heroNameListSound = [
 
 export const abilityModelNameList = [
   'models/heroes/witchdoctor/witchdoctor_ward.vmdl', // 巫医守卫
+  'models/heroes/shadowshaman/shadowshaman_totem.vmdl', // 群蛇守卫
+  'models/items/wards/ti9_totem_ward/ti9_totem_ward.vmdl', // 群蛇守卫饰品
   'models/heroes/techies/fx_techiesfx_mine.vmdl', // 感应地雷
   // 'models/heroes/phoenix/phoenix_egg.vmdl', // 超新星
   'models/heroes/mars/mars_soldier.vmdl', // 护身甲盾
   'models/heroes/gyro/gyro_flak_cannon_fx.vmdl', // 高射火炮
   'models/heroes/dragon_knight/dragon_knight_dragon.vmdl', // 变龙
+];
+
+/** 多个技能共用的 Lua 工具库（飘字、吸血）创建的粒子，无法归到单个技能的 KV */
+export const luaParticleNameList = [
+  'particles/items3_fx/octarine_core_lifesteal.vpcf',
+  'particles/msg_fx/msg_block.vpcf',
+  'particles/msg_fx/msg_crit.vpcf',
+  'particles/msg_fx/msg_damage.vpcf',
+  'particles/msg_fx/msg_gold.vpcf',
+  'particles/msg_fx/msg_heal.vpcf',
+  'particles/msg_fx/msg_miss.vpcf',
+  'particles/msg_fx/msg_poison.vpcf',
 ];

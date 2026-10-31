@@ -61,17 +61,14 @@
 		"AbilityValues"
 		{
 			// 攻击
-			"bonus_damage"				"10 20 30 40 50 60 70 80 90 100"
-			"bonus_attack_speed"		"5 10 15 20 25 30 35 40 45 50"
+			"bonus_damage"				"5 10 15 20 25 30 35 40 45 50"
 			// 技能
-			"bonus_spell_amplify"		"4 8 12 16 20 24 28 32 36 40"
-			"bonus_cooldown"			"2 4 6 8 10 12 14 16 18 20"
+			"bonus_spell_amplify"		"2 4 6 8 10 12 14 16 18 20"
+			"bonus_cooldown"			"1 2 3 4 5 6 7 8 9 10"
 			// 防御
 			"bonus_move_speed"			"10 20 30 40 50 60 70 80 90 100"
 			"bonus_armor"				"2 4 6 8 10 12 14 16 18 20"
 			"bonus_magic_resistance"	"2 4 6 8 10 12 14 16 18 20"
-			// 全属性
-			"bonus_attributes"			"5 10 15 20 25 30 35 40 45 50"
 		}
 
 		"Modifiers"
@@ -87,15 +84,11 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%bonus_spell_amplify"
 					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"			"%bonus_cooldown"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_move_speed"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_magic_resistance"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_attributes"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_attributes"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_attributes"
 				}
 			}
 		}
@@ -151,8 +144,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"20 40 60 80 100 130 160 190 220 250"
-			"damage_reduction"		"-10 -15 -20 -25 -30 -40 -45 -50 -55 -60"
+			"bonus_damage"			"10 25 40 60 80 105 130 160 190 220"
+			"damage_reduction"		"-5 -10 -15 -20 -25 -30 -35 -40 -45 -50"
 		}
 		"Modifiers"
 		{
@@ -182,8 +175,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"40 80 120 160 200 250 300 350 400 450"
-			"damage_reduction"		"-10 -15 -20 -25 -30 -40 -45 -50 -55 -60"
+			"bonus_damage"			"20 50 80 120 160 205 250 300 350 400"
+			"damage_reduction"		"-5 -10 -15 -20 -25 -30 -35 -40 -45 -50"
 		}
 		"Modifiers"
 		{
@@ -213,8 +206,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"60 120 180 240 300 360 420 480 540 600"
-			"damage_reduction"		"-10 -15 -20 -25 -30 -40 -45 -50 -55 -60"
+			"bonus_damage"			"30 70 115 165 220 280 340 400 465 530"
+			"damage_reduction"		"-5 -10 -15 -20 -25 -30 -35 -40 -45 -50"
 		}
 		"Modifiers"
 		{
@@ -383,10 +376,31 @@
 			"illusion_percentage"		"50"
 		}
 	}
+	// 基地 结算前锁血：结算回调要在对局结束前收到，失败才来得及重发
+	"fort_min_health"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"1"
+
+		"Modifiers"
+		{
+			"modifier_fort_min_health"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"IsPurgable"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH"	"1"
+				}
+			}
+		}
+	}
 	// 基地活性护甲
 	"tower_shredder_reactive_armor"
 	{
-		"MaxLevel"						"6"
+		"MaxLevel"						"10"
 		"BaseClass"						"shredder_reactive_armor"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
@@ -409,6 +423,9 @@
 			{
 				"value"				"2"
 			}
+			// 原版神杖主动的字段只写到 4 级，不覆盖时高等级说明显示乱码
+			"AbilityCooldown"			"0"
+			"AbilityManaCost"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -995,9 +1012,8 @@
 		}
 		"precache"
 		{
-			"particle"	"particles/chibi_hit_calne.vpcf"
-			"particle"	"particles/chibi_hit.vpcf"
-			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_dragon_tail_dragonform_proj.vpcf"
+			"particle"	"particles/miku_calne_notes_hit.vpcf"
+			"particle"	"particles/miku_notes_hit.vpcf"
 		}
 	}
 
@@ -1037,6 +1053,8 @@
 			"particle"				"particles/units/heroes/hero_invoker/invoker_tornado_trail.vpcf"
 			"particle"				"particles/units/heroes/hero_invoker/invoker_tornado_base.vpcf"
 			"particle"				"particles/custom/artoria/artoria_wind_blow.vpcf"
+			"particle"				"particles/custom/artoria/invisible_air/artoria_invisible_air.vpcf"
+			"particle"				"particles/custom/artoria/strike_air/artoria_strike_air.vpcf"
 			"soundfile"				"soundevents/hero_artoria.vsndevts"
 		}
 
@@ -1323,6 +1341,11 @@
 
 	"abyss_sword_rush_night_sword_qi"
 	{
+		"precache"
+		{
+			"particle"				"particles/custom/abyss_sword/abyss_sword_rush_night_sword_qi_wave.vpcf"
+		}
+
 		"MaxLevel"      				"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_rush_night_sword_qi"
@@ -1355,6 +1378,13 @@
 
 	"abyss_sword_out_of_sheath"
 	{
+		"precache"
+		{
+			"particle"				"particles/custom/sword_spirit/abyss_sword_out_of_sheath_impact.vpcf"
+			"particle"				"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_phantom_strike_end.vpcf"
+			"particle"				"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_phantom_strike_start.vpcf"
+		}
+
 		"MaxLevel"      				"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_out_of_sheath"
@@ -1402,6 +1432,12 @@
 
 	"abyss_sword_hidden_sharp"
 	{
+		"precache"
+		{
+			"particle"				"particles/custom/sword_spirit/abyss_sword_hidden_sharp_buff.vpcf"
+			"particle"				"particles/custom/sword_spirit/abyss_sword_hidden_sharp_scepter.vpcf"
+		}
+
 		"MaxLevel"      				"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_abyss_sword/abyss_sword_hidden_sharp"
@@ -1753,6 +1789,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
+			"particle"				"particles/custom/goku/goku_super_saiyan.vpcf"
 			"model"						"models/heroes/goku/npc_dota_hero_goku_super_saiyan.vmdl"
 		}
 	}
@@ -1761,6 +1798,11 @@
 	// 元气弹
 	"goku_spirit_bomb"
 	{
+		"precache"
+		{
+			"particle"				"particles/custom/goku/goku_spirit_bomb.vpcf"
+		}
+
 		// Ability Technical Aspect
 		// base script folder	: scripts/vscripts
 		// base texture folder	: resource/flash3/images/spellicons
@@ -1877,6 +1919,7 @@
 		"AbilityCastRange"		"%cast_range"
 		"precache"
 		{
+			"particle"				"particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_merry_wanderer.vpcf"
 			"particle"	"particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
 			"soundfile"	"soundevents/yukari_yakumo.vsndevts"
@@ -2008,6 +2051,8 @@
 
 		"precache"
 		{
+			"particle"				"particles/yukari_portal.vpcf"
+			"particle"				"particles/yukari_portal_out.vpcf"
 			"particle"	"particles/generic_gameplay/generic_silenced.vpcf"
 		}
 		"AbilityValues"
@@ -2043,6 +2088,10 @@
 		"AbilityChannelTime"	"4.0"
 		"precache"
 		{
+			"particle"				"particles/econ/items/death_prophet/death_prophet_ti9/death_prophet_silence_ti9.vpcf"
+			"particle"				"particles/heroes/yukari/ability_yukari_03_teleportflash.vpcf"
+			"particle"				"particles/heroes/yukari/ability_yukari_03_teleportflash2.vpcf"
+			"particle"				"particles/heroes/yukari/ability_yukari_04_magical.vpcf"
 			"particle"	"particles/heroes/yukari/ability_yukari_04_effect.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
 		}
@@ -2132,6 +2181,7 @@
 		// "AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
 		"precache"
 		{
+			"particle"				"particles/yukari_true_moon.vpcf"
 			"particle"	"particles/yukari_morph.vpcf"
 		}
 		"AbilityValues"
@@ -2227,6 +2277,12 @@
 	//=================================================================================================================
 	"jack_presence_concealment"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/jack/jack_presence_concealment.vpcf"
+			"particle"				"particles/heroes/jack/jack_presence_concealment_start.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
@@ -2276,6 +2332,11 @@
 
 	"jack_murderer_of_the_misty_night"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/jack/jack_mist.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
@@ -2339,6 +2400,12 @@
 
 	"jack_the_mist"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/jack/jack_mist.vpcf"
+			"particle"				"particles/units/heroes/hero_night_stalker/nightstalker_ulti.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
@@ -2371,6 +2438,12 @@
 
 	"jack_maria_the_ripper"
 	{
+		"precache"
+		{
+			"particle"				"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_phantom_strike_end.vpcf"
+			"particle"				"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_phantom_strike_start.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_lua"
@@ -2451,6 +2524,11 @@
 	//=================================================================================================================
 	"sword_master_sweep"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/sword_master_sweep.vpcf"
+		}
+
 		"MaxLevel"      				"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_sweep"
@@ -2483,6 +2561,11 @@
 
 	"sword_master_thrust"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/sword_master_thrust.vpcf"
+		}
+
 		"MaxLevel"      				"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_thrust"
@@ -2517,6 +2600,11 @@
 
 	"sword_master_tap"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/sword_master_tap.vpcf"
+		}
+
 		"MaxLevel"      				"5"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_tap"
@@ -2569,6 +2657,13 @@
 
 	"sword_master_chop_kill_with_one_sword"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/children/sword_master_chop_kill_with_one_sword_impact.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_kill_with_one_sword.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_kill_with_one_sword_head.vpcf"
+		}
+
 		"MaxLevel"      				"3"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_chop_kill_with_one_sword"
@@ -2601,6 +2696,13 @@
 
 	"sword_master_chop_kill_everyone_in_world"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/children/sword_master_chop_kill_with_one_sword_impact.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_kill_everyone_in_world.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_kill_everyone_in_world_head.vpcf"
+		}
+
 		"MaxLevel"      				"3"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_chop_kill_everyone_in_world"
@@ -2638,6 +2740,12 @@
 
 	"sword_master_chop_rage_nlade_soars_the_sky"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/sword_master_chop_rage_nlade_soars_the_sky.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_rage_nlade_soars_the_sky_head.vpcf"
+		}
+
 		"MaxLevel"      				"3"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_chop_rage_nlade_soars_the_sky"
@@ -2669,6 +2777,14 @@
 
 	"sword_master_chop_swift_incomparable_swordsmanship"
 	{
+		"precache"
+		{
+			"particle"				"particles/heroes/sword_master/sword_master_chop_kill_everyone_in_world_tgt.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_swift_incomparable_swordsmanship.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_swift_incomparable_swordsmanship_head.vpcf"
+			"particle"				"particles/heroes/sword_master/sword_master_chop_swift_incomparable_swordsmanship_status_effect.vpcf"
+		}
+
 		"MaxLevel"      				"3"
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/sword_master/sword_master_chop_swift_incomparable_swordsmanship"
@@ -3169,47 +3285,6 @@
 			"base_amplify"              "2"
 		}
 	}
-	// 命运轮盘（大招池中的主动/被动混合技能）
-	"ability_fate_roulette"
-	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"                    "abilities/ability_fate_roulette"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityTextureName"            "ability_fate_roulette"
-		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-		"IsBreakable"                   "0"
-
-		"MaxLevel"                      "4"
-		"RequiredLevel"                 "6"
-		"LevelsBetweenUpgrades"         "6"
-
-		"AbilityCastPoint"              "0.1"
-		"AbilityCooldown"               "30"
-		"AbilityManaCost"               "100 150 200 250"
-
-		"precache"
-		{
-			"particle"                      "particles/items4_fx/combo_breaker_buff.vpcf"
-			"particle"                      "particles/units/heroes/hero_invoker/invoker_ghost_walk_debuff_wex.vpcf"
-			"particle"                      "particles/items4_fx/nullifier_mute.vpcf"
-			"particle"                      "particles/status_fx/status_effect_nullifier.vpcf"
-			"particle"                      "particles/generic_gameplay/generic_break.vpcf"
-			"particle"                      "particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf"
-			"particle"                      "particles/generic_gameplay/generic_stunned.vpcf"
-			"particle"                      "particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
-		}
-
-		"AbilityValues"
-		{
-			"attacks_before_proc"           "4"
-			"critical_damage"               "200 300 400 500"
-			"stun_duration"                 "0.6 0.7 0.8 0.9"
-			"effect_duration"               "2 2.25 2.5 2.75"
-			"active_duration"               "4 5 6 7"
-			"dispel_interval"               "0.2"
-		}
-	}
 
 	// 风行者 旋风
 	"windrunner_whirlwind_custom"
@@ -3336,12 +3411,12 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"action_lockenemytower"
 		"MaxLevel"						"1"
-		"AbilityCastRange"				"2000"
+		"AbilityCastRange"				"1800"
 
 		"AbilityValues"
 		{
-			"radius"						"2000"
-			"move_speed"					"400"
+			"radius"						"1800"
+			"move_speed"					"500"
 			"retaliation_damage_pct"		"30"
 			"retaliation_projectile_speed"	"2100"
 		}

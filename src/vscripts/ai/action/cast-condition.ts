@@ -1,4 +1,5 @@
 import { HeroUtil } from '../hero/hero-util';
+import type { CastStance } from '../hero/engagement';
 
 /**
  * 施法条件，必须满足所有条件才能施法
@@ -7,7 +8,13 @@ export interface CastCoindition {
   target?: {
     unitCondition?: UnitCondition;
     /**
-     * 敌人数量
+     * 生效范围内的敌人数量。范围取 range.lte，未显式指定时由 dispatcher 按施法距离自动补齐。
+     * 只按存活与距离收窄：unitCondition 是挑目标用的，不参与「这片区域值不值得放」的判断。
+     *
+     * 对英雄计数时，gte 会由 dispatcher 收敛到该队伍的英雄总数。两队人数开局可配置，
+     * 敌方只有 1 个英雄时「至少 2 个」这类阈值否则永远不成立，整条规则失效；
+     * 满编局下声明值不超过总数，收敛不生效。开关类（action）不参与收敛，
+     * 它们的开与关是一对互补阈值，只压低其中一侧会让两条规则同时成立、每 tick 反复开关。
      */
     count?: NumberRange;
     /**
@@ -31,8 +38,16 @@ export interface CastCoindition {
      */
     rangeFromAttackRange?: boolean;
     /**
+     * 将攻击距离计入搜索半径时额外增加的距离。
+     */
+    attackRangeOffset?: number;
+    /** 只选普攻够不着的目标：贴脸时普攻更好，引导长的技能留给追残血和打远处。 */
+    outOfAttackRange?: boolean;
+    /**
      * 决定 POINT 技能的释放位置：
-     * - 'targetPosition'（默认）：释放点 = 目标位置
+     * - 不设（默认）：释放点 = 目标位置；技能同时能指向单位时优先指向单位
+     * - 'targetPosition'：强制对目标位置点地施放，用于既能指向友方单位又能点地的技能
+     *   （如撼地者有 A 杖的强化图腾），对敌人指向会被引擎拒绝
      * - 'projectedOnCastRange'：
      *     - 目标距离 ≤ cast range → 释放点 = 目标位置（精准命中）
      *     - 目标距离 > cast range → 释放点 = 沿"施法者→目标"方向投影到 cast range 边缘
@@ -43,6 +58,33 @@ export interface CastCoindition {
      * 仅对 POINT behavior 的 ability 生效；UNIT_TARGET / NO_TARGET 忽略此字段。
      */
     castMode?: 'targetPosition' | 'projectedOnCastRange';
+    /**
+     * 从候选中排除施法者自己。
+     * 友方候选天然包含施法者且距离为 0 排在首位，以自身生命为代价的技能需要排掉。
+     */
+    excludeSelf?: boolean;
+    /**
+     * 只保留位于施法者正面（front）或背面（back）半区的目标。
+     * 用于带位移的技能区分追击与撤退两种用法。
+     */
+    facing?: 'front' | 'back';
+    /**
+     * 只选落在施法者身前固定距离处圆形区域内的目标，用于朝面前固定位置生效的无目标技能。
+     * 距离与半径按键名读技能数值。
+     */
+    aheadCircle?: { distanceValue: string; radiusValue: string };
+    /**
+     * 只选身边至少有 count 个敌方单位（英雄与小兵一起数）的目标，
+     * 用于对友方施放、顺带伤害其周围敌人的技能。
+     */
+    enemiesNearby?: { range: number; count: number };
+    /**
+     * 只选该距离内最近的敌方英雄位于其身后的目标，即正背对敌人逃跑的单位。
+     * 用于沿目标朝向推动的物品，推错方向会把人送进敌群。
+     */
+    fleeing?: number;
+    /** 只选正被敌方防御塔攻击的目标。 */
+    attackedByTower?: boolean;
   };
   self?: {
     unitCondition?: UnitCondition;
@@ -52,13 +94,28 @@ export interface CastCoindition {
      */
     noEnemyHeroInRange?: number;
     /**
+     * 要求 self 周围该距离内存在存活的敌方英雄才施法，是 noEnemyHeroInRange 的反面。
+     * 用于本身不指向敌人、但只在交战时才该放的技能。
+     */
+    enemyHeroInRange?: number;
+    /**
+     * 要求 self 周围该距离内存在存活的己方英雄（不含自己与幻象）才施法。
+     * 用于控制技能：有队友跟进输出时才有价值。
+     */
+    allyHeroInRange?: number;
+    /**
+     * 若 self 周围该距离内存在存活的己方英雄（不含自己与幻象），则跳过施法。
+     * 用于受到伤害就会解除的控制，避免队友的输出把它打断。
+     */
+    noAllyHeroInRange?: number;
+    /**
      * 若 self 周围该距离内存在存活的敌方建筑（塔/兵营等），则跳过施法。
      * 由 dispatcher 在 tryCast 层检查（依赖 ai.aroundEnemyBuildings 缓存）。
      */
     noEnemyBuildingInRange?: number;
     /**
      * 要求 self 周围存在至少指定数量的友方小兵才施法。
-     * range 不填时默认 900。由 dispatcher 在 tryCast 层 inline FindUnitsInRadius 检查。
+     * range 不填时默认取 bot-base 预搜友方小兵的半径。
      */
     friendlyCreepNearby?: {
       count?: NumberRange;
@@ -69,6 +126,20 @@ export interface CastCoindition {
      * （如刷新球，只在冷却压力大时使用）。
      */
     cooldownTotal?: NumberRange;
+    /**
+     * 要求至少 count 个已学会的主动技能剩余冷却不少于 seconds 才施法，不计物品。
+     * 用于技能交出去之后才该开的增益。
+     */
+    abilitiesOnCooldown?: { seconds: number; count: number };
+    /**
+     * 大招已学会且能放时跳过，用于放完会被引导锁住的技能：先把大招交出去再放它。
+     */
+    ultimateNotReady?: boolean;
+    /**
+     * 要求英雄当前的打/撤决定与之相符才施法：'fight' 用于跳进敌人身边的先手，'retreat' 用于脱身。
+     * 跳进去的用法还会跳过站在越不了的塔下的目标。
+     */
+    stance?: CastStance;
   };
   ability?: AbilityCoindition;
   action?: {
@@ -84,6 +155,10 @@ export interface CastCoindition {
      * 满足条件后，开启自动施法
      */
     autoCastOn?: boolean;
+    /**
+     * 有符合条件的目标就开启开关，没有就关闭。用于持续耗血耗蓝、只该在有目标时开着的开关技能。
+     */
+    toggleByTarget?: boolean;
   };
   debug?: boolean;
 }
@@ -100,13 +175,22 @@ export interface AbilityCoindition {
 }
 
 export interface UnitCondition {
+  health?: NumberRange;
   healthPercent?: NumberRange;
   manaPercent?: NumberRange;
+  neutralOnly?: boolean;
 
   hasScepter?: boolean;
   hasShard?: boolean;
-  noModifier?: string;
+  noModifier?: string[];
+  /** 带有其中任一 modifier 才选，用于接在别的技能效果之后施放 */
+  hasModifier?: string[];
   notActionable?: boolean;
+  /**
+   * 只选行动受限的单位，给需要目标站着不动才打得满的技能接控制用。
+   * hard：眩晕、变羊等无法行动；movement：无法行动、缠绕或被减速到跑不出范围。
+   */
+  disabled?: 'hard' | 'movement';
   /**
    * 排除远古野（大龙/小龙等）。
    */
@@ -122,7 +206,15 @@ export interface UnitCondition {
     lte?: boolean;
     gte?: boolean;
     includeSpellAmp?: boolean;
+    /** 阈值乘以该倍数，用于冷却短、预计能连放几次的技能 */
+    multiplier?: number;
   };
+}
+
+/** 只取水平面分量参与计算，Vector 天然满足该形状。 */
+export interface HorizontalVector {
+  x: number;
+  y: number;
 }
 
 export interface NumberRange {
@@ -136,48 +228,108 @@ export function FilterTargetWithCondition(
   self: CDOTA_BaseNPC_Hero,
   ability?: CDOTABaseAbility,
 ): CDOTA_BaseNPC | undefined {
-  if (CheckNumberRangeFailure(units.length, condition?.target?.count)) {
+  const count = condition?.target?.count;
+  if (count && CheckNumberRangeFailure(CountUnitsInRange(condition, units, self), count)) {
     return undefined;
   }
 
+  const targetCondition = condition?.target;
+  const range = targetCondition?.range;
+  const excludeSelf = targetCondition?.excludeSelf;
+  const unitCondition = targetCondition?.unitCondition;
+  const facing = targetCondition?.facing;
+  const aheadCircle = ability ? targetCondition?.aheadCircle : undefined;
+  const enemiesNearby = targetCondition?.enemiesNearby;
+  const fleeing = targetCondition?.fleeing;
+  const attackedByTower = targetCondition?.attackedByTower;
+  const aheadDistance = aheadCircle ? ability!.GetSpecialValueFor(aheadCircle.distanceValue) : 0;
+  const aheadRadius = aheadCircle ? ability!.GetSpecialValueFor(aheadCircle.radiusValue) : 0;
+
+  const selfEntityIndex = excludeSelf ? self.GetEntityIndex() : -1;
+  const healthCondition = ability ? unitCondition?.healthAbilityValue : undefined;
+  let healthThreshold = 0;
+  if (ability && healthCondition) {
+    const baseValue = ability.GetSpecialValueFor(healthCondition.key);
+    // GetSpellAmplification 返回增量（如 0.15 表示 +15%），+1 得完整乘数
+    healthThreshold = healthCondition.includeSpellAmp
+      ? baseValue * (1 + self.GetSpellAmplification(false))
+      : baseValue;
+    healthThreshold *= healthCondition.multiplier ?? 1;
+  }
+
   for (const unit of units) {
+    // 搜索半径远大于施法距离，多数候选都倒在距离上，先筛距离可省掉后面成串的状态查询
+    if (CheckNumberRangeFailure(self.GetRangeToUnit(unit), range)) {
+      continue;
+    }
+
     if (!unit.IsAlive()) {
+      continue;
+    }
+
+    if (excludeSelf && unit.GetEntityIndex() === selfEntityIndex) {
       continue;
     }
 
     // 魔法免疫过滤：有 ability 时才检查，避免影响非 dispatcher 调用路径
     if (ability && unit.IsMagicImmune()) {
       const canPierce =
-        condition?.target?.ignoresMagicImmune ||
+        targetCondition?.ignoresMagicImmune ||
         (ability.GetAbilityTargetFlags() & UnitTargetFlags.MAGIC_IMMUNE_ENEMIES) !== 0;
       if (!canPierce) {
         continue;
       }
     }
 
-    const unitCondition = condition?.target?.unitCondition;
-
     if (CheckUnitConditionFailure(unit, unitCondition)) {
       continue;
     }
 
     // healthAbilityValue：比较目标绝对 HP 与技能的 special value
-    if (ability && unitCondition?.healthAbilityValue) {
-      const cond = unitCondition.healthAbilityValue;
-      const baseValue = ability.GetSpecialValueFor(cond.key);
-      // GetSpellAmplification 返回增量（如 0.15 表示 +15%），+1 得完整乘数
-      const effectiveValue = cond.includeSpellAmp
-        ? baseValue * (1 + self.GetSpellAmplification(false))
-        : baseValue;
-      if (cond.lte && unit.GetHealth() > effectiveValue) {
+    if (healthCondition) {
+      if (healthCondition.lte && unit.GetHealth() > healthThreshold) {
         continue;
       }
-      if (cond.gte && unit.GetHealth() < effectiveValue) {
+      if (healthCondition.gte && unit.GetHealth() < healthThreshold) {
         continue;
       }
     }
 
-    if (CheckNumberRangeFailure(self.GetRangeToUnit(unit), condition?.target?.range)) {
+    if (
+      enemiesNearby &&
+      CountEnemiesAround(self, unit, enemiesNearby.range) < enemiesNearby.count
+    ) {
+      continue;
+    }
+
+    if (fleeing !== undefined && !IsFleeing(unit, fleeing)) {
+      continue;
+    }
+
+    if (attackedByTower && !IsAttackedByTower(unit)) {
+      continue;
+    }
+
+    if (
+      aheadCircle &&
+      CheckAheadCircleFailure(
+        self.GetForwardVector(),
+        unit.GetAbsOrigin().__sub(self.GetAbsOrigin()),
+        aheadDistance,
+        aheadRadius,
+      )
+    ) {
+      continue;
+    }
+
+    if (
+      facing &&
+      CheckFacingFailure(
+        facing,
+        self.GetForwardVector(),
+        unit.GetAbsOrigin().__sub(self.GetAbsOrigin()),
+      )
+    ) {
       continue;
     }
 
@@ -185,6 +337,119 @@ export function FilterTargetWithCondition(
   }
 
   return undefined;
+}
+
+function CountUnitsInRange(
+  condition: CastCoindition | undefined,
+  units: CDOTA_BaseNPC[],
+  self: CDOTA_BaseNPC_Hero,
+): number {
+  let total = 0;
+  for (const unit of units) {
+    if (!unit.IsAlive()) {
+      continue;
+    }
+    if (condition?.target?.excludeSelf && unit.GetEntityIndex() === self.GetEntityIndex()) {
+      continue;
+    }
+    if (CheckNumberRangeFailure(self.GetRangeToUnit(unit), condition?.target?.range)) {
+      continue;
+    }
+    total++;
+  }
+  return total;
+}
+
+/**
+ * 判断目标是否落在施法者朝向的指定半区。
+ *
+ * @param facing - 要求的半区，未指定时不过滤
+ * @param forward - 施法者朝向向量
+ * @param toTarget - 施法者指向目标的向量
+ * @returns 不满足要求时返回 `true`
+ */
+function CountEnemiesAround(self: CDOTA_BaseNPC_Hero, unit: CDOTA_BaseNPC, range: number): number {
+  return FindUnitsInRadius(
+    self.GetTeamNumber(),
+    unit.GetAbsOrigin(),
+    undefined,
+    range,
+    UnitTargetTeam.ENEMY,
+    UnitTargetType.HERO + UnitTargetType.BASIC,
+    UnitTargetFlags.NONE,
+    FindOrder.ANY,
+    false,
+  ).length;
+}
+
+function IsFleeing(unit: CDOTA_BaseNPC, range: number): boolean {
+  const enemy = FindUnitsInRadius(
+    unit.GetTeamNumber(),
+    unit.GetAbsOrigin(),
+    undefined,
+    range,
+    UnitTargetTeam.ENEMY,
+    UnitTargetType.HERO,
+    UnitTargetFlags.NO_INVIS,
+    FindOrder.CLOSEST,
+    false,
+  )[0];
+  return (
+    enemy !== undefined &&
+    !CheckFacingFailure(
+      'back',
+      unit.GetForwardVector(),
+      enemy.GetAbsOrigin().__sub(unit.GetAbsOrigin()),
+    )
+  );
+}
+
+// 覆盖防御塔攻击距离加上单位体积
+const TOWER_ATTACK_SEARCH_RADIUS = 900;
+
+function IsAttackedByTower(unit: CDOTA_BaseNPC): boolean {
+  const towers = FindUnitsInRadius(
+    unit.GetTeamNumber(),
+    unit.GetAbsOrigin(),
+    undefined,
+    TOWER_ATTACK_SEARCH_RADIUS,
+    UnitTargetTeam.ENEMY,
+    UnitTargetType.BUILDING,
+    UnitTargetFlags.INVULNERABLE,
+    FindOrder.ANY,
+    false,
+  );
+  return towers.some((tower) => tower.IsTower() && tower.GetAttackTarget() === unit);
+}
+
+/**
+ * 目标是否落在施法者身前 distance 处、半径 radius 的圆外。forward 须为单位向量。
+ */
+export function CheckAheadCircleFailure(
+  forward: HorizontalVector,
+  toTarget: HorizontalVector,
+  distance: number,
+  radius: number,
+): boolean {
+  const dx = toTarget.x - forward.x * distance;
+  const dy = toTarget.y - forward.y * distance;
+  return dx * dx + dy * dy > radius * radius;
+}
+
+export function CheckFacingFailure(
+  facing: 'front' | 'back' | undefined,
+  forward: HorizontalVector,
+  toTarget: HorizontalVector,
+): boolean {
+  if (!facing) {
+    return false;
+  }
+  const dot = forward.x * toTarget.x + forward.y * toTarget.y;
+  // 正侧方点积为 0，方位不明确，front 与 back 都判失败
+  if (facing === 'front') {
+    return dot <= 0;
+  }
+  return dot >= 0;
 }
 
 /**
@@ -202,6 +467,9 @@ export function CheckUnitConditionFailure(
     return false;
   }
 
+  if (CheckNumberRangeFailure(unit.GetHealth(), unitCondition.health)) {
+    return true;
+  }
   if (CheckNumberRangeFailure(unit.GetHealthPercent(), unitCondition.healthPercent)) {
     return true;
   }
@@ -215,17 +483,40 @@ export function CheckUnitConditionFailure(
   if (unitCondition.hasShard && !unit.HasModifier('modifier_item_aghanims_shard')) {
     return true;
   }
-  if (unitCondition.noModifier && unit.HasModifier(unitCondition.noModifier)) {
+  const noModifiers = unitCondition.noModifier;
+  if (noModifiers && noModifiers.some((modifier) => unit.HasModifier(modifier))) {
+    return true;
+  }
+  const hasModifiers = unitCondition.hasModifier;
+  if (hasModifiers && !hasModifiers.some((modifier) => unit.HasModifier(modifier))) {
     return true;
   }
   if (unitCondition.notActionable && HeroUtil.NotActionable(unit)) {
     return true;
   }
+  if (unitCondition.disabled === 'hard' && !HeroUtil.NotActionable(unit)) {
+    return true;
+  }
+  if (unitCondition.disabled === 'movement' && !IsMovementImpaired(unit)) {
+    return true;
+  }
   if (unitCondition.excludeAncient && unit.IsAncient()) {
+    return true;
+  }
+  if (unitCondition.neutralOnly && !unit.IsNeutralUnitType()) {
     return true;
   }
 
   return false;
+}
+
+// 后期玩家正常移速远高于此，降到这以下基本跑不出范围技能
+const IMPAIRED_MOVE_SPEED = 300;
+
+function IsMovementImpaired(unit: CDOTA_BaseNPC): boolean {
+  return (
+    HeroUtil.NotActionable(unit) || unit.IsRooted() || unit.GetIdealSpeed() < IMPAIRED_MOVE_SPEED
+  );
 }
 
 /**
@@ -306,9 +597,20 @@ function isNumberRange(item: object): boolean {
   return keys.length > 0 && keys.every((k) => k === 'gte' || k === 'lte');
 }
 
+/**
+ * 取技能 behavior 的低 32 位，与 util.lua 的 GetBehaviorBits 同口径。带高位标志时数值超出 bit 库的
+ * 精度范围，直接按位与会算错；自定义 Lua 技能返回 64 位 userdata，要先转成 number。
+ */
+export function GetAbilityBehaviorBits(ability: CDOTABaseAbility): number {
+  const raw = ability.GetBehavior();
+  const behavior = type(raw) === 'number' ? (raw as number) : tonumber(tostring(raw));
+  return (behavior ?? 0) % 4294967296;
+}
+
+export function HasAbilityBehavior(behaviorBits: number, behavior: AbilityBehavior): boolean {
+  return (behaviorBits & behavior) === behavior;
+}
+
 export function IsAbilityBehavior(ability: CDOTABaseAbility, behavior: AbilityBehavior): boolean {
-  const abilityBehavior = ability.GetBehavior() as number;
-  // check is behavior bit set in abilityBehavior
-  const isBitSet = (abilityBehavior & behavior) === behavior;
-  return !!isBitSet;
+  return HasAbilityBehavior(GetAbilityBehaviorBits(ability), behavior);
 }

@@ -1,3 +1,5 @@
+import { normalizeControlTime } from '../event/game-end/game-end-point';
+
 export class PlayerHelper {
   static IsHumanPlayer(npc: CDOTA_BaseNPC | undefined): boolean {
     if (npc && npc.IsRealHero()) {
@@ -79,5 +81,43 @@ export class PlayerHelper {
       }
     });
     return count;
+  }
+
+  static GetDamageTaken(playerId: PlayerID): number {
+    let damageTaken = 0;
+    for (let victimID = 0; victimID < DOTA_MAX_TEAM_PLAYERS; victimID++) {
+      if (
+        PlayerResource.IsValidPlayerID(victimID) &&
+        PlayerResource.IsValidPlayer(victimID) &&
+        PlayerResource.GetSelectedHeroEntity(victimID)
+      ) {
+        if (PlayerResource.GetTeam(victimID) !== PlayerResource.GetTeam(playerId)) {
+          damageTaken += PlayerResource.GetDamageDoneToHero(victimID, playerId);
+        }
+      }
+    }
+    return damageTaken;
+  }
+
+  // 扣除从虚拟金币库转回的金额，与 end_screen_2.js money 列口径一致
+  static GetTotalGoldEarned(playerId: PlayerID): number {
+    const virtualGoldData = CustomNetTables.GetTableValue(
+      'player_virtual_gold',
+      playerId.toString(),
+    );
+    const transferredBackTotal = virtualGoldData?.transferred_back_total ?? 0;
+    return Math.max(0, PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal);
+  }
+
+  private static maxStuns = new Map<PlayerID, number>();
+
+  // 引擎返回的控制时间偶尔会回落，取本局读到过的最大值，保证展示给玩家的数值不倒退
+  static GetStuns(playerId: PlayerID): number {
+    const stuns = Math.max(
+      this.maxStuns.get(playerId) ?? 0,
+      normalizeControlTime(PlayerResource.GetStuns(playerId)),
+    );
+    this.maxStuns.set(playerId, stuns);
+    return stuns;
   }
 }

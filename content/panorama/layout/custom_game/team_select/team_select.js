@@ -11,6 +11,9 @@ var g_TEAM_SPECATOR = 1;
 
 var g_DifficultyChosen = false;
 
+// 开始前确认的文案，空串表示直接开始
+var g_StartConfirmText = '';
+
 // 按地图保存预设相关状态
 var g_userInteracted = false; // 玩家是否手动点过难度（避免预设覆盖手动选择）
 var g_presetApplied = false; // 预设是否已应用（仅应用一次）
@@ -25,8 +28,30 @@ function OnLockAndStartPressed() {
   if (Game.GetUnassignedPlayerIDs().length > 0) {
     return;
   }
-  if (!g_DifficultyChosen) {
+  if (!g_DifficultyChosen && Game.GetAutoLaunchEnabled()) {
     return;
+  }
+  // 开始后别人就进不来，正在连接的人也可能来不及选英雄，所以只有人齐了才直接开始
+  if (g_StartConfirmText) {
+    $('#StartConfirm').SetHasClass('Open', true);
+    return;
+  }
+  StartGame();
+}
+
+function OnStartConfirmWait() {
+  $('#StartConfirm').SetHasClass('Open', false);
+}
+
+function OnStartConfirmStart() {
+  $('#StartConfirm').SetHasClass('Open', false);
+  StartGame();
+}
+
+function StartGame() {
+  if (!g_DifficultyChosen) {
+    // 关掉自动开始时投票不会超时定稿，房主开始就是投票结束
+    GameEvents.SendCustomGameEventToServer('vote_end', {});
   }
 
   // Lock the team selection so that no more team changes can be made
@@ -216,11 +241,14 @@ function CheckForHostPrivileges() {
 function UpdateTimer() {
   var gameTime = Game.GetGameTime();
   var transitionTime = Game.GetStateTransitionTime();
+  // 自动开始时投票定稿前按钮按了也没用，只在关掉自动开始时提前给房主看
+  if (g_DifficultyChosen || !Game.GetAutoLaunchEnabled()) {
+    CheckForHostPrivileges();
+  }
 
   if (g_DifficultyChosen) {
     $('#LockAndStartButton').enabled = true;
     $('#CancelAndUnlockButton').enabled = true;
-    CheckForHostPrivileges();
     if (transitionTime >= 0) {
       $('#StartGameCountdownTimer').SetDialogVariableInt(
         'countdown_timer_seconds',
@@ -243,7 +271,7 @@ function UpdateTimer() {
     $.GetContextPanel().SetHasClass('teams_unlocked', Game.GetTeamSelectionLocked() == false);
   } else {
     const voteTime = Math.max(0, Math.floor(transitionTime - gameTime - 30));
-    $('#LockAndStartButton').enabled = false;
+    $('#LockAndStartButton').enabled = !Game.GetAutoLaunchEnabled();
     $('#CancelAndUnlockButton').enabled = false;
     $('#TimerLabelVote').visible = true;
     if (transitionTime >= 0) {
@@ -270,16 +298,59 @@ function UpdateTimer() {
 function OnGameLoadingStatusChange(table, key, value) {
   if (value) {
     const status = value.status;
-    $('#GameLoadingStatusText').text = $.Localize('#loading_status_' + status);
-    if (status === 1) {
-      $('#GameLoadingStatusText').style.color = '#FD841F';
-    }
-    if (status === 2) {
-      $('#GameLoadingStatusText').style.color = '#5DA7DB';
-    }
-    if (status === 3) {
-      $('#GameLoadingStatusText').style.color = '#E14D2A';
-    }
+    $('#GameLoadingStatusText').text = $.Localize('#loading_status_' + status).replace(
+      '{date}',
+      value.snapshotDate || '-',
+    );
+    const statusPanel = $('#GameLoadingStatus');
+    statusPanel.SetHasClass('Loading', status === 1);
+    statusPanel.SetHasClass('Online', status === 2);
+    statusPanel.SetHasClass('Offline', status === 3);
+  }
+}
+
+/**
+ * 启动器联机房间的人数与正在连接的玩家，只有启动器开房时服务端才会写入
+ */
+function OnLauncherRoomChange(table, key, value) {
+  if (!value) return;
+  const entering = Object.values(value.entering || {});
+  const connecting = entering.length > 0;
+  // 公开房间不知道还会来多少人，只有主机时用中性的灰色，不暗示可以开始了
+  const alone = !connecting && value.inGame <= 1;
+  g_StartConfirmText = connecting
+    ? '#room_start_confirm_entering'
+    : alone
+      ? '#room_start_confirm_alone'
+      : '';
+  if (g_StartConfirmText) {
+    $('#StartConfirmText').text = $.Localize(g_StartConfirmText);
+    // 有人正在连接时要房主等，主次对调：等待成为绿色主按钮，开始降为灰色的「仍然开始」
+    $('#StartConfirmHint').visible = connecting;
+    $('#StartConfirmWaitButton').SetHasClass('PlayButton', connecting);
+    $('#StartConfirmWaitButton').SetHasClass('ButtonBevel', !connecting);
+    $('#StartConfirmStartButton').SetHasClass('PlayButton', !connecting);
+    $('#StartConfirmStartButton').SetHasClass('ButtonBevel', connecting);
+    $('#StartConfirmStartLabel').text = $.Localize(
+      connecting ? '#room_start_confirm_start_anyway' : '#room_start_confirm_start',
+    );
+  } else {
+    $('#StartConfirm').SetHasClass('Open', false);
+  }
+  const bar = $('#RoomStatusBar');
+  bar.SetHasClass('Loading', connecting);
+  bar.SetHasClass('Offline', alone);
+  bar.SetHasClass('Online', !connecting && !alone);
+  $('#RoomStatusCount').text = value.inGame + ' / ' + value.maxPlayers;
+  if (connecting) {
+    $('#RoomStatusText').text = $.Localize('#room_status_entering').replace(
+      '{players}',
+      entering.join($.Localize('#room_status_separator')),
+    );
+  } else if (alone) {
+    $('#RoomStatusText').text = $.Localize('#room_status_waiting');
+  } else {
+    $('#RoomStatusText').text = $.Localize('#room_status_ready');
   }
 }
 
@@ -446,7 +517,8 @@ function OnGameDifficultyChoiceChange(_table, key, value) {
     return;
   }
   g_DifficultyChosen = true;
-  if (difficulty !== 0) {
+  // 关掉自动开始时等房主手动开始，定稿不触发倒计时
+  if (difficulty !== 0 && Game.GetAutoLaunchEnabled()) {
     Game.SetRemainingSetupTime(10);
   }
 
@@ -535,6 +607,12 @@ function OnGameDifficultyChoiceChange(_table, key, value) {
     null,
     'loading_status',
     CustomNetTables.GetTableValue('loading_status', 'loading_status'),
+  );
+  CustomNetTables.SubscribeNetTableListener('launcher_room', OnLauncherRoomChange);
+  OnLauncherRoomChange(
+    null,
+    'launcher_room',
+    CustomNetTables.GetTableValue('launcher_room', 'launcher_room'),
   );
   CustomNetTables.SubscribeNetTableListener('game_difficulty', OnGameDifficultyChoiceChange);
 

@@ -2,11 +2,18 @@
   "name": "windy10v10ai",
   "private": true,
   "license": "GPL-3.0-or-later",
+  "engines": {
+    "node": ">=24.0.0 <25.0.0"
+  },
   "scripts": {
     "postinstall": "patch-package && node src/scripts/install.js",
     "launch": "node src/scripts/launch.js",
-    "predeploy": "npm run build && node src/scripts/deploy.js",
-    "deploy": "node src/scripts/publish.js",
+    "dota:cmd": "node src/scripts/dota-cmd.js",
+    "dota:check": "node src/scripts/dota-check.js",
+    "perf": "node src/scripts/perf.js",
+    "bot-anomaly": "node src/scripts/bot-anomaly.js",
+    "skills:link": "node src/scripts/link-agent-skills.js",
+    "skills:check": "node src/scripts/check-agent-skills.js",
     "build": "run-p build:*",
     "build:panorama": "node --preserve-symlinks node_modules/webpack/bin/webpack.js --config src/panorama/webpack.prod.js",
     "build:vscripts": "tstl --project src/vscripts/tsconfig.json",
@@ -16,18 +23,20 @@
     "start": "npm run launch && npm run dev",
     "test": "jest",
     "prettier-check": "prettier --check .",
-    "lint": "eslint --ext .js,.ts,.tsx \"./src/**/*.{js,ts,tsx}\" && npm run lint:images",
+    "lint": "eslint --ext .js,.ts,.tsx \"./src/**/*.{js,ts,tsx}\" && npm run lint:images && npm run lint:localization",
     "lint:fix": "eslint --ext .js,.ts,.tsx --fix  \"./src/**/*.{js,ts,tsx}\"",
-    "lint:images": "node src/scripts/check-images.js"
+    "lint:images": "node src/scripts/check-images.js",
+    "lint:localization": "node src/scripts/check-localization.js"
   },
   "devDependencies": {
     "@moddota/dota-lua-types": "^4.38.2",
     "@moddota/find-steam-app": "^1.1.0",
     "@moddota/panorama-types": "^1.38.1",
     "@types/jest": "^30.0.0",
+    "@types/node": "^24.19.0",
     "@types/react": "^17.0.82",
     "@typescript-eslint/eslint-plugin": "^8.60.1",
-    "@typescript-eslint/parser": "^8.62.0",
+    "@typescript-eslint/parser": "^8.70.1",
     "babel-loader": "^10.1.1",
     "easy-keyvalues": "^1.2.7",
     "eslint": "^8.55.0",
@@ -37,7 +46,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "file-loader": "^6.2.0",
-    "fs-extra": "^11.3.6",
+    "fs-extra": "^11.4.1",
     "jest": "^30.4.2",
     "less-loader": "^13.0.0",
     "npm-run-all": "^4.1.5",
@@ -49,16 +58,19 @@
     "replace-in-file-webpack-plugin": "^1.0.6",
     "terser-webpack-plugin": "^5.4.0",
     "ts-jest": "^29.4.11",
-    "ts-loader": "^9.6.0",
+    "ts-loader": "^9.6.2",
     "typescript": "^5.7.2",
     "typescript-to-lua": "1.28.1",
-    "webpack": "^5.108.3",
+    "webpack": "^5.111.1",
     "webpack-cli": "^7.0.3",
     "webpack-panorama-x": "^0.4.0"
   },
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
+    "setupFiles": [
+      "<rootDir>/src/scripts/jest.setup.js"
+    ],
     "moduleNameMapper": {
       "^@utils/(.*)$": "<rootDir>/src/panorama/react/utils/$1"
     },

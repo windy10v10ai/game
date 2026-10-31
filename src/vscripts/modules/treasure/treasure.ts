@@ -8,7 +8,7 @@ import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
 export class Treasure {
   static readonly UNIT_NAME = 'npc_treasure_chest';
 
-  static readonly RESPAWN_INTERVAL_SINGLE = 120; // 单人局
+  static readonly RESPAWN_INTERVAL_SINGLE = 180; // 单人局
   static readonly RESPAWN_INTERVAL_MULTI = 180; // 多人局（全队发奖励，避免刷太多）
   static readonly MAX_ACTIVE_CHESTS = 2;
   static readonly Z_SINK = 64;
@@ -25,9 +25,6 @@ export class Treasure {
   // 中期点位：天辉野区
   // 这些点位都在空旷位置，很容易找到
   static readonly SPAWN_POINTS_RADIANT_EASY: Vector[] = [
-    // 天辉上路外野区
-    Vector(-7887, 753, 0),
-
     // 天辉远古野区
     Vector(-5235, -726, 256),
     Vector(-5491, 167, 128),
@@ -42,10 +39,6 @@ export class Treasure {
     Vector(-2208, -4192, 128),
     Vector(4761, -4554, 128),
     Vector(3073, -5553, 128),
-
-    // 天辉下路外野区
-    Vector(-3, -8447, 128),
-    Vector(4640, -7205, 128),
   ];
 
   // 中期点位：天辉野区
@@ -53,6 +46,7 @@ export class Treasure {
   static readonly SPAWN_POINTS_RADIANT_JUNGLE: Vector[] = [
     // 天辉上路外野区
     Vector(-8590, 1771, 0),
+    Vector(-7887, 753, 0),
 
     Vector(-8345, -2464, 256),
     Vector(-7424, -421, 256),
@@ -77,6 +71,8 @@ export class Treasure {
     Vector(-360, -8686, 128),
     Vector(-1927, -8665, 128),
     Vector(6368, -8416, 0),
+    Vector(-3, -8447, 128),
+    Vector(4640, -7205, 128),
 
     // 夜魇上路外野区
     Vector(-7497, 3299, 128),
@@ -96,12 +92,10 @@ export class Treasure {
     Vector(-224, -2464, 256),
 
     // 天辉下路外野区
-    Vector(8472, -4897, 128),
     Vector(7692, -7822, 256),
 
     // 夜魇上路外野区
     Vector(-7456, 3552, 128),
-    Vector(-6720, 8310, 256),
     Vector(1041, 8227, 128),
 
     // 夜魇上路主野区
@@ -147,6 +141,8 @@ export class Treasure {
   }
 
   spawnOne(): void {
+    this.cleanupInvalidChests();
+
     // 增加场上同时存在的最大个数兜底，避免玩家完全找不到第一只
     if (this.activeChests.size >= Treasure.MAX_ACTIVE_CHESTS) {
       return;
@@ -156,6 +152,22 @@ export class Treasure {
 
   debugSpawnAt(point: Vector): void {
     this.spawnAt(point);
+  }
+
+  private cleanupInvalidChests(): void {
+    for (const entIndex of this.activeChests.keys()) {
+      const entity = EntIndexToHScript(entIndex);
+
+      if (
+        !entity ||
+        entity.IsNull() ||
+        !entity.IsBaseNPC() ||
+        entity.GetUnitName() !== Treasure.UNIT_NAME ||
+        !entity.IsAlive()
+      ) {
+        this.activeChests.delete(entIndex);
+      }
+    }
   }
 
   /** 调试用 */
@@ -229,14 +241,17 @@ export class Treasure {
     return finalPool[index];
   }
 
-  // spawnCount = 0 开局 → 1-3 EASY → 4-5 EASY+JUNGLE 过渡 → 6-7 JUNGLE → 8+ JUNGLE+HARD
+  // 后期玩家很少进野区找宝箱，EASY 全程保留、HARD 推迟并只占少数，避免两个找不到的宝箱占满名额
   private pickPool(): Vector[] {
     if (this.spawnCount === 0) return Treasure.SPAWN_POINTS_INITIAL;
     if (this.spawnCount <= 3) return Treasure.SPAWN_POINTS_RADIANT_EASY;
-    if (this.spawnCount <= 5)
+    if (this.spawnCount <= 11)
       return [...Treasure.SPAWN_POINTS_RADIANT_EASY, ...Treasure.SPAWN_POINTS_RADIANT_JUNGLE];
-    if (this.spawnCount <= 7) return Treasure.SPAWN_POINTS_RADIANT_JUNGLE;
-    return [...Treasure.SPAWN_POINTS_RADIANT_JUNGLE, ...Treasure.SPAWN_POINTS_RADIANT_HARD];
+    return [
+      ...Treasure.SPAWN_POINTS_RADIANT_EASY,
+      ...Treasure.SPAWN_POINTS_RADIANT_JUNGLE,
+      ...Treasure.SPAWN_POINTS_RADIANT_HARD,
+    ];
   }
 
   /** 反查点位属于哪个 tier，用于 GA 统计 */

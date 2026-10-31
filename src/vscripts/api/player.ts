@@ -10,7 +10,6 @@ export class MemberDto {
 }
 
 export class PlayerProperty {
-  steamId!: number;
   name!: string;
   level!: number;
 }
@@ -55,10 +54,6 @@ export class PlayerSetting {
   gamePresetCustom?: { gameOptions: GamePresetCustomOptions };
 }
 
-export class AwakenedHeroDto {
-  heroName!: string;
-}
-
 export class PlayerStatsLifetimeDto {
   id!: string;
   kills!: number;
@@ -70,6 +65,8 @@ export class PlayerStatsLifetimeDto {
   healing!: number;
   towerKills!: number;
   totalGoldEarned!: number;
+  stuns!: number;
+  roshanKills!: number;
   // API 返回 Date，net table 传输后为字符串；UI 暂不展示，仅占位保持契约完整
   updatedAt?: string;
 }
@@ -105,7 +102,7 @@ export class PlayerInfoDto {
   // game/start 首场结算前不下发，可缺失
   statsLifetime?: PlayerStatsLifetimeDto;
   // 仅请求带 include=heroAwakening 时才会出现
-  awakenedHeroes?: AwakenedHeroDto[];
+  awakenedHeroes?: string[];
 }
 
 // Backward-compatible alias for existing imports.
@@ -179,7 +176,7 @@ export class Player {
     return player?.useableMemberPoint ?? 0;
   }
 
-  public static GetAwakenedHeroes(steamId: number): AwakenedHeroDto[] {
+  public static GetAwakenedHeroes(steamId: number): string[] {
     const player = Player.playerInfoMap.get(steamId.toString());
     return player?.awakenedHeroes ?? [];
   }

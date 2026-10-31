@@ -37,8 +37,9 @@ export class PlayerPropertyApi {
    */
   public static ApplyPropertyModifiers(player: PlayerInfoDto) {
     if (!player.properties) return;
+    const steamId = Number(player.id);
     for (const property of player.properties) {
-      PropertyController.LevelupPlayerProperty(property);
+      PropertyController.LevelupPlayerProperty(steamId, property);
     }
   }
 
@@ -75,6 +76,8 @@ export class PlayerPropertyApi {
       method: HttpMethod.DELETE,
       path: `/player/${steamId}/property`,
       querys: { useMemberPoint: event.useMemberPoint === 1 ? 'true' : 'false' },
+      // 重置每次都扣一份积分，重试会重复扣
+      retryTimes: 1,
       successFunc: PlayerPropertyApi.PropertyResetSuccess,
       failureFunc: PlayerPropertyApi.PropertyResetFailure,
     });

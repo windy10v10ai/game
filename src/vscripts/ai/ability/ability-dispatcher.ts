@@ -1,13 +1,14 @@
 import { CastCoindition, DeepMerge } from '../action/cast-condition';
 import { TryCastBySpec } from '../action/target-dispatch';
-import type { BotBaseAIModifier } from '../hero/bot-base';
+import type { BotBaseAIModifier, BotMode } from '../hero/bot-base';
 import { AbilityRegistry } from './ability-registry';
-import { TargetSide } from './ability-spec';
+import { AbilitySpec, TargetSide } from './ability-spec';
+import { GenericAbilityFallback } from './generic-ability-fallback';
 
 /**
  * 统一的 bot 技能 AI 入口。
  *
- * 由 bot-base ActionMode 内各 ActionXxx 顶部调用：
+ * 由 bot-base ActionMode 内各 ActionXxx 在 ItemDispatcher.Run 之后调用：
  *   if (AbilityDispatcher.Run(this)) return true;
  *
  * 工作流：
@@ -19,10 +20,7 @@ import { TargetSide } from './ability-spec';
  * 关键性能优化：候选目标全部读自 ai.aroundEnemyHeroes / aroundEnemyCreeps / aroundFriendlyHeroes，
  * 整轮 dispatch 不再发起任何 FindUnitsInRadius 调用。
  */
-/**
- * 对小兵施法时自动套用的默认条件（等同旧 CastAbilityOnFindEnemyCreep 的 defaultCondition）。
- * spec 中显式指定的同路径值会通过 DeepMerge 覆盖这里的默认值。
- */
+/** 对小兵施法时自动套用的默认条件；spec 中的同路径值会通过 DeepMerge 覆盖。 */
 const CREEP_DEFAULT_CONDITION: CastCoindition = {
   self: {
     unitCondition: {
@@ -31,12 +29,40 @@ const CREEP_DEFAULT_CONDITION: CastCoindition = {
     },
     noEnemyHeroInRange: 900,
   },
-  ability: { level: { gte: 3 } },
+  ability: { level: { gte: 2 } },
+  target: { count: { gte: 2 } },
 };
+
+/** 合并结果只由两个模块级常量决定，跨 tick 恒定，重算只会白白制造垃圾对象。 */
+const creepConditionCache = new Map<AbilitySpec, CastCoindition>();
+
+export function GetCreepCondition(spec: AbilitySpec): CastCoindition {
+  const cached = creepConditionCache.get(spec);
+  if (cached) {
+    return cached;
+  }
+  const merged = DeepMerge(CREEP_DEFAULT_CONDITION, spec.condition);
+  creepConditionCache.set(spec, merged);
+  return merged;
+}
+
+export function ShouldTryCreepSpec(mode: BotMode): boolean {
+  return (
+    mode === 'laning' ||
+    mode === 'push' ||
+    mode === 'farm' ||
+    mode === 'defend' ||
+    mode === 'roshan'
+  );
+}
 
 export class AbilityDispatcher {
   static Run(ai: BotBaseAIModifier): boolean {
     const hero = ai.GetHero();
+    // 沉默时下的施法命令都会被拒绝，每 tick 重试还会挡住后面的移动和攻击
+    if (hero.IsSilenced()) {
+      return false;
+    }
 
     const abilityCount = hero.GetAbilityCount();
     for (let i = 0; i < abilityCount; i++) {
@@ -49,18 +75,22 @@ export class AbilityDispatcher {
       }
 
       const specs = AbilityRegistry.get(ability.GetName());
-      if (!specs) {
+      if (specs) {
+        for (const spec of specs) {
+          if (spec.targetSide === TargetSide.EnemyCreep && !ShouldTryCreepSpec(ai.mode)) {
+            continue;
+          }
+          const condition =
+            spec.targetSide === TargetSide.EnemyCreep ? GetCreepCondition(spec) : spec.condition;
+          if (TryCastBySpec(ai, ability, spec.targetSide, condition)) {
+            return true;
+          }
+        }
         continue;
       }
 
-      for (const spec of specs) {
-        const condition =
-          spec.targetSide === TargetSide.EnemyCreep
-            ? DeepMerge(CREEP_DEFAULT_CONDITION, spec.condition)
-            : spec.condition;
-        if (TryCastBySpec(ai, ability, spec.targetSide, condition)) {
-          return true;
-        }
+      if (GenericAbilityFallback.TryCast(ai, ability)) {
+        return true;
       }
     }
 

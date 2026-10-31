@@ -1,6 +1,6 @@
 ---
 name: awaken-ability
-description: 为英雄创作「觉醒技能」时使用——通过觉醒石（item_awaken_stone，抽奖发放）替换/插入/新增英雄技能槽的强化版技能。处理范围包括 src/vscripts/modules/awaken/ 的配置表与替换算法、game/scripts/npc/npc_abilities_custom_awaken.txt 的觉醒技能 KV、对应 Lua/TSTL 实现、game/scripts/npc/npc_abilities_override.txt 的关联差分，以及 addon_schinese.txt/addon_english.txt 的文案。当用户说「加一个觉醒技能」「给 XX 做觉醒」「觉醒后 XX 强化」「觉醒技能等级关联/自动触发/加魔免」等时触发。
+description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 ---
 
 # Awaken Ability
@@ -34,6 +34,54 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 > `targetSlot` 命中 `generic_hidden`（占位空槽）时走替换而非插入。
 
+## 选型：先决定用哪种实现
+
+动手前先判断这次觉醒**只改数值**还是**要新行为**。选错会带来大量无谓的 KV 复制和 hardcode 失效风险。
+
+| 觉醒内容 | 做法 | 参考 |
+| ---- | ---- | ---- |
+| 只改数值（伤害 / 范围 / 持续 / 冷却…） | **原技能不动**，在 `npc_abilities_override.txt` 的原技能数值块里加 `special_bonus_unique_<hero>_awaken` 加成行；觉醒发一个隐藏被动当触发器（纯新增，`newLevel: 1`） | `special_bonus_unique_bristleback_upgrade`、`special_bonus_unique_monkey_king_upgrade` |
+| 原版没有的新机制 | `ability_lua` 新技能 + TS 实现，纯新增不占原槽位 | `special_bonus_unique_underlord_demons_reach_awaken` |
+| 给原技能加自动施法 | `ability_lua` 壳技能 + `AUTOCAST`，用 `targetAbility` 替换原技能占**原槽位**；原生技能隐藏保留，壳技能调它的 `OnSpellStart()` | `elder_titan_ancestral_spirit_awaken`、`beastmaster_wild_axes_awaken` |
+
+**禁止为了改数值去克隆原版技能**（`BaseClass` 填原版技能名）。`BaseClass` 只继承代码类，**不继承 KV**：克隆块必须把原版 + override 的字段整份抄一遍，漏一个字段引擎就当 0 用；技能还换了名字，引擎按原名查找的 hardcode 联动（A 杖授予、碎晶升级、其他技能给它加层数）会静默失效。数值加成用 special bonus 一行就够，这些代价全部不存在。
+
+### special bonus 加成行
+
+在 `npc_abilities_override.txt` 原技能的数值块里加一行，`+N` 为增量、`=N` 为覆盖：
+
+```
+"damage_amp"
+{
+	"value"										"5 6 7 8 9"
+	"special_bonus_unique_beastmaster_awaken"	"+10"
+}
+```
+
+原版是**扁平值**（`"heal_pct" "20"`）时，改写成块必须把 `value` 一起写上，否则原值会丢；原版**已经是块**时只加 bonus 行，不要重复 `value`。
+
+触发器用独立的隐藏被动（`ability_datadriven` + `PASSIVE | HIDDEN` + `MaxLevel 1`），**不要拿壳技能兼任**——壳技能等级跟随玩家加点，没学就是 0 级，`special_bonus` 不生效。
+
+### 壳技能
+
+壳技能自己承担冷却与法力消耗，KV 里必须写全（含 `AbilityCooldown` 的天赋引用行）。**不要**在 TS 里覆写 `GetCooldown` / `GetManaCost` 转发给原生技能：那是服务端钩子，客户端技能面板直接读 KV、不跑这段 Lua，面板会显示成 0。
+
+壳技能调原生 `OnSpellStart()` 是**绕过引擎施法管线**，引擎负责的事全要自己补，漏了不报错、只会静默穿透：
+
+| 引擎原本负责 | 绕过时要手动做 |
+| ---- | ---- |
+| 扣蓝、进 CD | `UseResources(true, false, false, true)`，冷却写在壳技能 KV |
+| 施法距离 / 目标合法性 | 自己 `FindUnitsInRadius` 过滤 |
+| 林肯格挡 | `target.TriggerSpellAbsorb(ability)` 先破林肯 |
+| 莲花 / 神镜盾反弹 | 跳过会反弹的目标，否则效果会反弹到自己 |
+| 施法事件（`OnAbilityExecuted` 等） | 需要时手动触发，或改用 `CastAbilityImmediately` |
+
+手动施放路径走引擎，林肯由引擎处理。莲花只反弹壳技能本身，壳技能的效果由隐藏的原生技能承载时，引擎不会替原生技能反弹：`OnSpellStart` 里对会反弹的目标要调 `target.TriggerSpellReflect(原生技能)` 后返回（参考 PA），直接调原生技能的 `OnSpellStart()` 会命中莲花目标本身，直接 return 则一份都不反弹（均已实机验证）。
+
+**优先走引擎**：能 `CastAbilityImmediately` 施放原生技能就别直接调 `OnSpellStart()`。走引擎规则一致、不会漏检查；绕过引擎只在「壳技能管资源/CD、原生技能只提供效果」这种必须拆分时用。
+
+自动施法选目标时，林肯只在长 CD 大招上值得先破，短 CD 技能被格挡影响小、直接放即可；莲花除决斗外默认跳过，避免自动施法把效果反弹到自己。共享实现见 `src/vscripts/abilities/ts_abilities/shared/auto-cast-ability.ts` 的 `willReflect` / `breakSpellAbsorb`。
+
 ## 添加一个新觉醒的步骤
 
 ### 1) 配置
@@ -48,7 +96,7 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 },
 ```
 
-> **注释只写英雄名**（如 `// 齐天大圣 觉醒`），**不要**罗列会随版本变动的技能效果/数值。效果描述属于本地化文案，不该散落在配置注释里。也不要写成「移除 A，替换为 B」这类复述改动结果的叙述——哪怕不含数值，本质仍是效果描述，且与本地化文案重复，文案一改注释就过时。需要点明机制时用字段名/系统名（如「与大招 LinkedAbility 同步升级」），不要叙述玩法效果。
+> 注释只写英雄名（如 `// 齐天大圣 觉醒`），需要点明机制时用字段名/系统名（如「与大招 LinkedAbility 同步升级」）。「移除 A，替换为 B」这类效果叙述也属于本地化文案（注释规约）。
 
 ### 2) 觉醒技能本体
 
@@ -77,7 +125,10 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 - **图标** → 引用 Dota2 原版技能名则不放 png；自定义图标才复制同名 png 到 `game/resource/flash3/images/spellicons/<name>.png`。`AbilityTextureName` 也可直接填**至宝/变体 texture 路径**（如 `necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura`、`drow_ranger/immortal/drow_ranger_wave_of_silence`、`zuus_static_field_alt1`），引擎直接引用，同样无需放 png。
 
-- **本地化** → 在两个 addon 文件的 `Awaken Abilities 觉醒技能` 模块补条目（中英同步）。标题格式见下。
+- **本地化** → 写文案前先 Read `game/resource/CLAUDE.md` 与 `.claude/references/localization-format.md`（用脚本批量改文件不会自动加载目录 `CLAUDE.md`，文案规约如「不用分号」会漏掉）。新觉醒条目固定排在旧觉醒之上：
+  - `addon_schinese.txt` / `addon_english.txt`：放在 `Awaken Abilities 觉醒技能` 模块的**顶部**，中英同步。
+  - `addon_russian.txt`：放在 `Creep / Tower` 区块末尾的 `Awaken Abilities 觉醒技能` 模块，位于 `// Сундук с сокровищами`（藏宝箱）之前。
+  - 觉醒条目的开头注释统一使用中文 `// 英雄 xxx觉醒`。标题格式见下。
 
 ### 3) 标题本地化格式（统一）
 
@@ -85,12 +136,11 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 - 中文：`<font color='#d000ff'>名称 觉醒</font>`（**空格**分隔，不要 `-觉醒` 连字符）
 - 英文：`<font color='#d000ff'>Name Awakened</font>`
 
-**不要**用 `#8B008B`/`#00ff00`/`#a74abd` 等其他色值、不要漏 `</font>`。新增觉醒后核对该英雄标题与池内其它觉醒一致。
+新增觉醒后核对该英雄标题与池内其它觉醒一致（同一色值、闭合 `</font>`）。
 
 **正文关键词颜色（统一）**：
 - 魔法免疫 / 减益免疫等保护类关键词 → 金色 `#FFCC66`（参考 PA、影魔）
-- 伤害类型关键词（正文内联的「纯粹伤害 / 魔法伤害」等）→ 纯粹 `#FFE56E`（金色）、魔法 `#05CAFF`（蓝色）。项目既有约定，新增照此对齐
-- 自动施放 / 触发类提示 → 红色 `#FF0000`（参考斧王、肉钩）
+- 自动施法、伤害类型等其他术语 → 按 `.claude/references/localization-format.md`「术语着色」
 - 神杖升级说明 → 白色 `#FFFFFF` 配「神杖升级：」前缀（参考死灵竭心光环、火枪暗杀）
 - **写死的数值** → 引擎只对 `%key%` 变量自动套白色粗体，正文里手写的具体数字不会变色，须**手动**包成 `<font color='#FFFFFF'><b>数字</b></font>`（白色粗体，模拟引擎数值样式；参考钢背兽、影魔觉醒）。每个技能的强化各占一行（`<br>` 分隔）。
 
@@ -111,7 +161,6 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 `npm run build:vscripts` 不报错 + `npx jest awaken-replacer` 过。槽位顺序 / 点数退还 / 飘字 / 运行时行为须 Dota tools 实跑确认。改完 vscripts 只看编译是否通过，不读编译产物 `.lua`。
 
----
 
 ## 进阶技法
 
@@ -125,17 +174,16 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 | 某个原技能数值**仅觉醒后改变** | 4 |
 | 要**加魔免**（不能顶替玩家真 BKB） | 5 |
 | 纯被动标记技能想**省掉技能栏槽位** | 6 |
-| 要借用引擎**原生 hardcoded modifier**（隐身等） | 7，另见 `../shared-references/vanilla-modifiers.md` |
+| 要借用引擎**原生 hardcoded modifier**（隐身等） | 7，另见 `../../references/vanilla-modifiers.md` |
 | 要读取施法者**当前 AoE / 属性加成** | 8 |
 | 替换类技能的**神杖描述**不显示 | 9 |
 | 觉醒专属参数该**放哪个 KV** | 10 |
 | 需求本质是**简化原版操作**而非改效果 | 11 |
 
----
 
 ## 不明确时询问
 
-遇到这些决策点用 `AskUserQuestion` 菜单询问，不要自行假设：
+遇到这些决策点用 `AskUserQuestion` 菜单询问：
 - 操作类型不明（新增 vs 替换 vs 插入）
 - 数值/效果「仅觉醒后生效」还是「全局对该英雄生效」
 - 等级是否需要与某技能关联

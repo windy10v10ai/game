@@ -21,6 +21,57 @@ var CUSTOM_PRESET_TOGGLES = [
   ['enablePlayerAttribute', 'enable_player_attribute'],
   ['midOnlyMode', 'mid_only_mode'],
 ];
+var LOADING_FAQ_GROUPS = [
+  {
+    weight: 8,
+    entries: [
+      'loading_faq_players_instant_revive',
+      'loading_faq_illusions_summons',
+      'loading_faq_launch_mode',
+      'loading_faq_pause',
+      'loading_faq_attributes',
+      'loading_faq_treasure_rewards',
+    ],
+  },
+  {
+    weight: 2,
+    entries: [
+      'loading_faq_hero_bounty',
+      'loading_faq_member_checkin',
+      'loading_faq_duplicate_ability',
+      'loading_faq_dragon_balls',
+      'loading_faq_dota_hotkeys',
+    ],
+  },
+];
+
+function ShowLoadingFAQ() {
+  var totalWeight = LOADING_FAQ_GROUPS.reduce(function (total, group) {
+    return total + group.weight;
+  }, 0);
+  var selectedWeight = Math.random() * totalWeight;
+  var group = LOADING_FAQ_GROUPS[0];
+
+  for (var i = 0; i < LOADING_FAQ_GROUPS.length; i++) {
+    selectedWeight -= LOADING_FAQ_GROUPS[i].weight;
+    if (selectedWeight < 0) {
+      group = LOADING_FAQ_GROUPS[i];
+      break;
+    }
+  }
+
+  var entryIndex = Math.floor(Math.random() * group.entries.length);
+  var entryKey = group.entries[entryIndex];
+  $('#LoadingFaqQuestion').text = $.Localize('#' + entryKey + '_question');
+  $('#LoadingFaqAnswer').text = $.Localize('#' + entryKey + '_answer');
+}
+
+var WEBSITE_URL = 'https://windy10v10ai.com';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function OpenWebsiteLaunch() {
+  $.DispatchEvent('ExternalBrowserGoToURL', WEBSITE_URL + '/launch');
+}
 
 function CheckForHostPrivileges() {
   var player_info = Game.GetLocalPlayerInfo();
@@ -115,12 +166,26 @@ function InitCustomSetting() {
 
   // 开发模式
   if (Game.IsInToolsMode()) {
-    $('#player_gold_xp_multiplier_dropdown').SetSelected('2');
-    $('#bot_gold_xp_multiplier_dropdown').SetSelected('2');
-    $('#radiant_player_number_dropdown').SetSelected('5');
-    $('#dire_player_number_dropdown').SetSelected('5');
+    // 天辉 bot 也要出齐 T5 才能复现真实后期的负载
+    SelectToolsOnlyOption('player_gold_xp_multiplier_dropdown', '10', '10');
+    $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
+    $('#radiant_player_number_dropdown').SetSelected('10');
+    $('#dire_player_number_dropdown').SetSelected('10');
     $('#starting_gold_bot_dropdown').SetSelected('5000');
+    // 高倍经济下 500% 防御塔仍会在测完前被推平
+    SelectToolsOnlyOption('tower_power_dropdown', '700', '700%');
   }
+}
+
+// 界面上没有的档位只在工具模式下临时加进下拉框，发布版的选项不变
+function SelectToolsOnlyOption(dropdownId, id, text) {
+  var dropdown = $('#' + dropdownId);
+  if (!dropdown.FindDropDownMenuChild(id)) {
+    var option = $.CreatePanel('Label', dropdown, id);
+    option.text = text;
+    dropdown.AddOption(option);
+  }
+  dropdown.SetSelected(id);
 }
 
 // -------- Difficulty Setting --------
@@ -446,13 +511,13 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 
 // -------- 链接按钮 --------
 function DispatchLinkPanel() {
-  DispatchDotaSurvivor();
+  DispatchCustomGameLink('#AnimeVersionButton', 3788870952);
+  DispatchCustomGameLink('#DotaSurvivorButton', 3359951052);
 }
 
-function DispatchDotaSurvivor() {
-  const button = $('#DotaSurvivorButton');
-  button.SetPanelEvent('onactivate', () => {
-    $.DispatchEvent('DOTAShowCustomGamePage', 3359951052);
+function DispatchCustomGameLink(buttonId, workshopId) {
+  $(buttonId).SetPanelEvent('onactivate', () => {
+    $.DispatchEvent('DOTAShowCustomGamePage', workshopId);
   });
 }
 
@@ -492,6 +557,7 @@ function SendPlayerLanguage() {
     return;
   }
   LockOption();
+  ShowLoadingFAQ();
   // 游戏选择项目table监听
   CustomNetTables.SubscribeNetTableListener('game_options', ShowGameOptionsChange);
   CustomNetTables.SubscribeNetTableListener('game_difficulty', OnGameDifficultyChoiceChange);

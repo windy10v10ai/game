@@ -5,6 +5,160 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 敌法师 觉醒
+	"special_bonus_unique_antimage_mana_suppression_awaken"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_antimage_mana_suppression_awaken"
+		"AbilityTextureName"			"antimage_blink"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"blink_radius"				"600"
+			"mana_lock_duration"		"4"
+			"current_mana_loss_pct"		"50"
+		}
+	}
+
+	// 恐怖利刃 魂断觉醒
+	"terrorblade_sunder_awakened_status"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/terrorblade_sunder_awakened_status"
+		"AbilityTextureName"			"terrorblade_sunder"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"auto_trigger_health_pct"		"30"
+		}
+	}
+
+	// 赏金猎人 追踪术觉醒
+	// 数值仅供技能面板显示，须与 Dota2 原版数值 + npc_abilities_override.txt 差分之后的内容保持一致
+	"bounty_hunter_track_awaken"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/bounty_hunter_track_awaken"
+		"AbilityTextureName"			"bounty_hunter_track"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_BountyHunter.Target"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCooldown"				"6 5 4 3"
+		"AbilityManaCost"				"50"
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"target_damage_amp"			"8 12 16 20"
+			"bonus_gold_radius"
+			{
+				"value"							"1200"
+				"affected_by_aoe_increase"		"1"
+			}
+			"bonus_gold_self"
+			{
+				"value"									"80 160 240 320"
+				"special_bonus_unique_bounty_hunter_3"	"+50"
+			}
+			"bonus_gold"
+			{
+				"value"									"80 160 240 320"
+				"special_bonus_unique_bounty_hunter_3"	"+50"
+			}
+			"duration"					"25"
+			"gold_steal"				"0.3 0.4 0.5 0.6"
+		}
+	}
+
+	// 撼地者 余震觉醒
+	"special_bonus_unique_earthshaker_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_earthshaker_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityTextureName"			"earthshaker_aftershock"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"small_aftershock_damage_pct"		"50"
+			"small_aftershock_radius_pct"		"70"
+			"small_aftershock_stun_pct"		"50"
+		}
+	}
+
+	// 司夜刺客 钻地觉醒
+	"special_bonus_unique_nyx_assassin_mobile_burrow_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_nyx_assassin_mobile_burrow_awaken"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityTextureName"		"nyx_assassin_burrow"
+		"IsOnCastBar"				"0"
+		"MaxLevel"					"1"
+	}
+
+	// 斯拉克 精华侵蚀觉醒
+	"special_bonus_unique_slark_permanent_essence_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_slark_permanent_essence_awaken"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityTextureName"		"slark_essence_shift"
+		"IsOnCastBar"				"0"
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"permanent_steal_pct"		"10"
+		}
+	}
+
+	// 孽主 觉醒
+	"special_bonus_unique_underlord_demons_reach_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_underlord_demons_reach_awaken"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"		"abyssal_underlord_atrophy_aura"
+		"IsOnCastBar"				"0"
+		"MaxLevel"					"1"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/heroes_underlord/atrophy_aura_cleave.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"cleave_damage_pct"
+			{
+				"value"			"100"
+				"display_type"	"kPhysicalDamagePercentage"
+			}
+			"cleave_starting_width"			"150"
+			"cleave_distance_base"			"100"
+			"cleave_distance_per_stack"		"5"
+			"cleave_angle"					"75"
+		}
+	}
+
 	// 亚巴顿 觉醒
 	"special_bonus_unique_abaddon_quickening_awaken"
 	{
@@ -37,6 +191,84 @@
 			"cooldown_reduction"		"0.1"
 		}
 	}
+	// 兽王 觉醒
+	"special_bonus_unique_beastmaster_awaken"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"beastmaster_wild_axes"
+		"MaxLevel"						"1"
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_beastmaster_awaken"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsPurgable"		"0"
+				"RemoveOnDeath"		"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
+	// 兽王 野性之斧-觉醒
+	// 壳技能占原槽位提供自动施法开关，实际弹道与伤害由隐藏保留的原生技能负责
+	// AbilityValues 仅供技能面板显示，须与原版 + npc_abilities_override.txt 差分 + 觉醒加成后的最终值一致
+	"beastmaster_wild_axes_awaken"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/beastmaster_wild_axes_awaken"
+		"AbilityTextureName"			"beastmaster_wild_axes"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_Beastmaster.Wild_Axes"
+		"AbilityCastRange"				"1500"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"50 55 60 65 70"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"radius"					"175"
+			"spread"					"450"
+			"axe_damage"
+			{
+				"value"							"80 160 240 320 400"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"damage_amp"
+			{
+				"value"									"5 6 7 8 9"
+				"special_bonus_unique_beastmaster_9"	"+3"
+			}
+			"duration"
+			{
+				"value"					"10 11 12 13 14"
+				"special_bonus_unique_beastmaster_awaken"	"+6"
+			}
+			"AbilityCooldown"
+			{
+				"value"													"8"
+				"special_bonus_unique_beastmaster_wild_axe_cooldown"	"-8"
+			}
+			"min_throw_duration"
+			{
+				"value"					"0.4"
+				"special_bonus_unique_beastmaster_awaken"	"=0.4"
+			}
+			"max_throw_duration"
+			{
+				"value"					"1.0"
+				"special_bonus_unique_beastmaster_awaken"	"=0.6"
+			}
+		}
+	}
+
 
 	// 上古巨神 觉醒灵体游魂
 	// 除冷却（觉醒专属强化，免瞄准自动施放，缩短冷却体现觉醒增益）外，
@@ -160,7 +392,7 @@
 		}
 
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
-		"AbilityManaCost"				"110 120 130 140 150"
+		"AbilityManaCost"				"120"
 
 		"AbilityValues"
 		{
@@ -298,10 +530,7 @@
 		"AbilityTextureName"			"axe_auto_culling_blade"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"4"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
-		"LinkedAbility"					"axe_culling_blade"	// 与大招淘汰之刃双向联动同步升级
+		"MaxLevel"						"1"
 		"AbilityCharges"				"3"
 		"AbilityChargeRestoreTime"		"12"
 	}
@@ -314,10 +543,7 @@
 		"AbilityTextureName"			"legion_commander_duel"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"4"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
-		"LinkedAbility"					"legion_commander_duel"
+		"MaxLevel"						"1"
 		"AbilityValues"
 		{
 			"bonus_cast_range"			"200"
@@ -335,6 +561,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityTextureName"			"necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura"
 		"HasScepterUpgrade"				"1"
 		"IsBreakable"					"1"
@@ -415,94 +642,61 @@
 		"MaxLevel"						"1"
 	}
 
-	// 幻影刺客 幻影突袭-觉醒
-	// 闪烁到目标身旁，获得短暂攻速加成与魔法免疫后自动攻击
+	// 幻影刺客 窒碍短匕-觉醒
+	// 壳技能占原槽位提供自动施法开关，实际投掷由隐藏保留的原生技能负责；施放短匕或幻影突袭后获得魔法免疫
+	// AbilityValues 仅供技能面板显示，须与原版 + npc_abilities_override.txt 差分 + 觉醒加成后的最终值一致
 	"special_bonus_unique_phantom_assassin_upgrade"
 	{
-		"BaseClass"						"ability_datadriven"
-		"ScriptFile"					"abilities/special_bonus_unique_phantom_assassin_upgrade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityTextureName"			"phantom_assassin_arcana_phantom_strike"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_phantom_assassin_upgrade"
+		"AbilityTextureName"			"phantom_assassin_stifling_dagger"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_PhantomAssassin.Dagger.Cast"
+		"AbilityCastRange"				"700 850 1000 1150 1300"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"30"
 		"MaxLevel"						"5"
 
 		"precache"
 		{
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
-			"particle"		"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"
 		}
-
-		"AbilityCastPoint"				"0.3"
-		"AbilityManaCost"				"50"
 
 		"AbilityValues"
 		{
-			"bonus_attack_speed"
+			"AbilityCooldown"
 			{
-				"value"											"80 120 160 200 240"
-				"special_bonus_unique_phantom_assassin_strike_aspd"	"+60"
+				"value"				"6"
+				"special_bonus_unique_phantom_assassin_7"	"-2.0"
 			}
-			"untargetable_duration"
+			"move_slow"						"-50"
+			"dagger_speed"					"2100"
+			"duration"						"2.1 2.4 2.7 3 3.3"
+			"base_damage"					"65 70 75 80 85"
+			"attack_factor"
 			{
-				"value"						"2.0"
+				"value"				"-70 -55 -40 -25 -10"
+				"special_bonus_unique_phantom_assassin_5"	"+15"
+			}
+			"attack_factor_tooltip"
+			{
+				"value"				"30 45 60 75 90"
+				"special_bonus_unique_phantom_assassin_5"	"+15"
+				"DamageTypeTooltip"	"DAMAGE_TYPE_PHYSICAL"
+			}
+			"strike_immune_duration"
+			{
+				"value"				"2.0"
 				"special_bonus_unique_phantom_assassin_4"	"+0.8"
 			}
 			"dagger_immune_duration"		"1.0"
-			"AbilityCastRange"
-			{
-				"value"											"650 750 850 950 1050"
-				"special_bonus_unique_phantom_assassin_6"	"+200"
-			}
-			"AbilityCooldown"				"14 12 10 8 6"
 			// modifier_black_king_bar_immune 的魔抗
 			"spell_reduce"					"60"
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"abilities/special_bonus_unique_phantom_assassin_upgrade"
-				"Function"		"OnSpellStart"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_phantom_strike_datadriven"
-			{
-				"IsBuff"	"1"
-				"Duration"	"%untargetable_duration"
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
-				}
-			}
-
-			// 常驻监听：施放窒碍短匕后获得短暂魔免（不顶替真BKB）
-			"modifier_pa_awaken_dagger_listener"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"RemoveOnDeath"	"0"
-				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/special_bonus_unique_phantom_assassin_upgrade"
-						"Function"		"OnDaggerCast"
-					}
-				}
-			}
 		}
 	}
 
@@ -827,6 +1021,11 @@
 		"AbilityTextureName"			"lich_chain_frost"
 		"MaxLevel"						"1"
 
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+		}
+
 		"AbilityValues"
 		{
 			"intelligence_damage_multiplier"		"0.75"
@@ -893,6 +1092,14 @@
 		"AbilityTextureName"			"tiny_tree_grab"
 		"MaxLevel"						"1"
 
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_tiny/tiny_avalanche_projectile_lvl1.vpcf"
+			"particle"				"particles/units/heroes/hero_tiny/tiny_avalanche_projectile_lvl2.vpcf"
+			"particle"				"particles/units/heroes/hero_tiny/tiny_avalanche_projectile_lvl3.vpcf"
+			"particle"				"particles/units/heroes/hero_tiny/tiny_avalanche_projectile_lvl4.vpcf"
+		}
+
 		"Modifiers"
 		{
 			"modifier_special_bonus_unique_tiny_upgrade"
@@ -933,7 +1140,6 @@
 		"AbilityValues"
 		{
 			"vortex_duration_multiplier"		"0.5"
-			"multicast_move_speed_multiplier"	"1.5"
 			"vortex_trigger_cooldown"		"3"
 		}
 	}

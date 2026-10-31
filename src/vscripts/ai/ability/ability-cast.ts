@@ -1,4 +1,8 @@
-import { CastCoindition, IsAbilityBehavior } from '../action/cast-condition';
+import {
+  CastCoindition,
+  GetAbilityBehaviorBits,
+  HasAbilityBehavior,
+} from '../action/cast-condition';
 
 /**
  * 技能的有效施法距离 = KV 中 AbilityCastRange + 施法者的施法距离加成。
@@ -19,7 +23,7 @@ export function GetFullCastRange(self: CDOTA_BaseNPC_Hero, ability: CDOTABaseAbi
  * castPosition 可选：当 spec 配置了 castMode='projectedOnCastRange' 时，dispatcher 会
  * 算出投影点并传入，覆盖默认的"释放点 = 目标位置"。
  *
- * 抽自 ActionAbility.CastAbilityOnFindEnemy 内部分支，供 dispatcher 与现有 ActionAbility 共用。
+ * 由 dispatcher 根据技能 behavior 统一调用。
  */
 export function CastAbilityOnTargetByBehavior(
   hero: CDOTA_BaseNPC_Hero,
@@ -28,30 +32,36 @@ export function CastAbilityOnTargetByBehavior(
   castPosition?: Vector,
 ): boolean {
   const playerId = hero.GetPlayerOwnerID();
-  const abilityName = ability.GetName();
+  // const abilityName = ability.GetName();
+  const behavior = GetAbilityBehaviorBits(ability);
 
-  if (IsAbilityBehavior(ability, AbilityBehavior.UNIT_TARGET)) {
-    print(`[AI] CastByBehavior ${abilityName} on target`);
+  // spec 指定了释放点时点地优先，兼顾既能指向单位又能点地的技能
+  if (castPosition && HasAbilityBehavior(behavior, AbilityBehavior.POINT)) {
+    hero.CastAbilityOnPosition(castPosition, ability, playerId);
+    return true;
+  }
+  if (HasAbilityBehavior(behavior, AbilityBehavior.UNIT_TARGET)) {
+    // print(`[AI] CastByBehavior ${abilityName} on target`);
     hero.CastAbilityOnTarget(target, ability, playerId);
     return true;
   }
-  if (IsAbilityBehavior(ability, AbilityBehavior.POINT)) {
-    print(`[AI] CastByBehavior ${abilityName} on point`);
+  if (HasAbilityBehavior(behavior, AbilityBehavior.POINT)) {
+    // print(`[AI] CastByBehavior ${abilityName} on point`);
     hero.CastAbilityOnPosition(castPosition ?? target.GetAbsOrigin(), ability, playerId);
     return true;
   }
-  if (IsAbilityBehavior(ability, AbilityBehavior.AOE)) {
-    print(`[AI] CastByBehavior ${abilityName} on position`);
+  if (HasAbilityBehavior(behavior, AbilityBehavior.AOE)) {
+    // print(`[AI] CastByBehavior ${abilityName} on position`);
     hero.CastAbilityOnPosition(castPosition ?? target.GetAbsOrigin(), ability, playerId);
     return true;
   }
-  if (IsAbilityBehavior(ability, AbilityBehavior.NO_TARGET)) {
-    print(`[AI] CastByBehavior ${abilityName} no target`);
+  if (HasAbilityBehavior(behavior, AbilityBehavior.NO_TARGET)) {
+    // print(`[AI] CastByBehavior ${abilityName} no target`);
     hero.CastAbilityNoTarget(ability, playerId);
     return true;
   }
 
-  print(`[AI] ERROR CastByBehavior ${abilityName} behavior not supported`);
+  // print(`[AI] ERROR CastByBehavior ${abilityName} behavior not supported`);
   return false;
 }
 
@@ -62,27 +72,28 @@ export function CastAbilityOnTargetByBehavior(
  *  - toggleOn / toggleOff：切换 TOGGLE 技能开关（如分裂箭、严寒烧灼有 A 杖时）
  *  - autoCastOn：开启自动施法（毒性攻击、霜冻之箭等攻击型法球）
  *
- * 仅当目标状态与当前状态不一致时才切换并返回 true（命中本 tick），避免反复点击。
- * dispatcher 与老链路 ActionAbility.doAction 共用。
+ * 仅当目标状态与当前状态不一致时才切换；toggle 切换返回 true（命中本 tick），自动施法切换不占用本 tick。
+ * 由 dispatcher 在命中对应 action 条件时调用。
  */
 export function ApplyAbilityAction(
   ability: CDOTABaseAbility,
   action: NonNullable<CastCoindition['action']>,
 ): boolean {
   if (action.toggleOn && !ability.GetToggleState()) {
-    print(`[AI] toggleOn ${ability.GetName()}`);
+    // print(`[AI] toggleOn ${ability.GetName()}`);
     ability.ToggleAbility();
     return true;
   }
   if (action.toggleOff && ability.GetToggleState()) {
-    print(`[AI] toggleOff ${ability.GetName()}`);
+    // print(`[AI] toggleOff ${ability.GetName()}`);
     ability.ToggleAbility();
     return true;
   }
+  // 引擎自带的 bot 逻辑会把部分英雄的自动施法关回去，占用本 tick 会让后续出装等动作永远轮不到
   if (action.autoCastOn && !ability.GetAutoCastState()) {
-    print(`[AI] autoCastOn ${ability.GetName()}`);
+    // print(`[AI] autoCastOn ${ability.GetName()}`);
     ability.ToggleAutoCast();
-    return true;
+    return false;
   }
   return false;
 }

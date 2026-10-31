@@ -1,5 +1,3 @@
-import { HeroUtil } from '../hero/hero-util';
-
 export class ActionAttack {
   static MoveToAttack(
     hero: CDOTA_BaseNPC_Hero,
@@ -12,31 +10,17 @@ export class ActionAttack {
     if (hero.GetRangeToUnit(target) > maxRange) {
       return false;
     }
-    // 正在攻击时不重复下指令
-    if (hero.IsAttacking()) {
+    // 正在攻击同一目标时不重复下指令，攻击别的单位（如塔）时要转火
+    if (hero.IsAttacking() && hero.GetAttackTarget() === target) {
       return true;
     }
-    // if target in attack range perform attack order
-    if (HeroUtil.IsInAttackRange(hero, target)) {
-      // print(`[AI] Attack ${hero.GetUnitName()} to ${target.GetUnitName()}`);
-
-      ExecuteOrderFromTable({
-        OrderType: UnitOrder.ATTACK_TARGET,
-        UnitIndex: hero.GetEntityIndex(),
-        TargetIndex: target.GetEntityIndex(),
-        Queue: false,
-      });
-      return true;
-    } else {
-      // maxRange内，移动到目标处攻击
-      print(`[AI] MoveToTargetToAttack ${hero.GetUnitName()} to ${target.GetUnitName()}`);
-      ExecuteOrderFromTable({
-        OrderType: UnitOrder.ATTACK_MOVE,
-        UnitIndex: hero.GetEntityIndex(),
-        Position: target.GetAbsOrigin(),
-        Queue: false,
-      });
-      return true;
-    }
+    // 够不着时也指定目标走过去打；攻击移动会让引擎半路改打更近的单位，如旁边的远古野
+    ExecuteOrderFromTable({
+      OrderType: UnitOrder.ATTACK_TARGET,
+      UnitIndex: hero.GetEntityIndex(),
+      TargetIndex: target.GetEntityIndex(),
+      Queue: false,
+    });
+    return true;
   }
 }

@@ -1,11 +1,13 @@
 import { LotteryStatusDto } from '../../common/dto/lottery-status';
 import { PlayerInfoDto } from '../../vscripts/api/player';
+import { DailyTaskNetTableEntry } from '../../common/dto/daily-task';
 
 type FieldSchema =
   | { type: 'boolean' }
   | { type: 'array' }
   | { type: 'nested'; fields: Record<string, FieldSchema> }
-  | { type: 'optional-nested'; fields: Record<string, FieldSchema> };
+  | { type: 'optional-nested'; fields: Record<string, FieldSchema> }
+  | { type: 'array-of-nested'; fields: Record<string, FieldSchema> };
 
 type TransformSchema<T> = {
   [K in keyof T]?: FieldSchema;
@@ -29,6 +31,10 @@ function applySchema(
       if (nested != null) {
         result[key] = applySchema(nested as Record<string, unknown>, rule.fields);
       }
+    } else if (rule.type === 'array-of-nested') {
+      const arr = raw[key];
+      const items = arr != null ? Object.values(arr as Record<string, unknown>) : [];
+      result[key] = items.map((item) => applySchema(item as Record<string, unknown>, rule.fields));
     }
   }
   return result;
@@ -75,5 +81,18 @@ export const transformPlayer = createTransform<PlayerInfoDto>({
   statsLifetime: {
     type: 'optional-nested',
     fields: {},
+  },
+});
+
+export const transformDailyTask = createTransform<DailyTaskNetTableEntry>({
+  enabled: { type: 'boolean' },
+  candidates: { type: 'array' },
+  completedTasks: { type: 'array' },
+  // history 本身是数组，其中每条记录的 tasks 字段也是数组，两层都要转换——
+  // 只转外层的话，Lua 1-indexed 序列化出的 tasks 会被当成对象直接索引，
+  // 导致 tasks[0] 取不到（第一列看起来是空的）、最后一条也取不到（数量对不上）
+  history: {
+    type: 'array-of-nested',
+    fields: { tasks: { type: 'array' } },
   },
 });
