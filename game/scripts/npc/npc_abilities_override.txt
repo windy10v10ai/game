@@ -11768,7 +11768,7 @@
 	"storm_spirit_ball_lightning"
 	{
 		"MaxLevel" "4"
-		"AbilityDamage"					"6 10 14 18"
+		"AbilityDamage"					"12 16 20 24"	// 6 10 14 +6 觉醒牵引要求伤害达到共享分发门槛，1 级也能触发
 		"AbilityValues"
 		{
 				"ball_lightning_initial_mana_percentage"		"3.5"	// 7.5 -4

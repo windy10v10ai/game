@@ -96,6 +96,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_dazzle_upgrade',
     newLevel: 1,
   },
+  // 蓝猫 觉醒
+  {
+    heroName: 'npc_dota_hero_storm_spirit',
+    newAbility: 'special_bonus_unique_storm_spirit_upgrade',
+    newLevel: 1,
+  },
   // 上古巨神 觉醒
   {
     heroName: 'npc_dota_hero_elder_titan',
@@ -306,6 +312,7 @@ export const FREE_TRIAL_HEROES: string[] = [
   'npc_dota_hero_phantom_assassin', // 幻影刺客
   'npc_dota_hero_drow_ranger', // 卓尔游侠
   'npc_dota_hero_kunkka', // 昆卡
+  'npc_dota_hero_storm_spirit', // 蓝猫
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */

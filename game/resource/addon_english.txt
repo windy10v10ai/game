@@ -1352,6 +1352,12 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 蓝猫 球状涡流觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade"		"<font color='#d000ff'>Ball Lightning Vortex Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade_Description"		"After Ball Lightning damages an enemy hero, that hero is pulled toward Storm Spirit and cannot act for <font color='#FFFFFF'><b>50%%</b></font> of Electric Vortex's duration.<br>Requires Electric Vortex to be learned. Each hero can be triggered at most once every %vortex_trigger_cooldown% seconds. Creeps, illusions and <font color='#FFCC66'>spell immune</font> units are not affected."
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade"		"<font color='#d000ff'>Ball Lightning Vortex Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade_Description"		"After Ball Lightning damages an enemy hero, that hero is pulled toward Storm Spirit and cannot act for <font color='#FFFFFF'><b>50%%</b></font> of Electric Vortex's duration.<br>Requires Electric Vortex to be learned. Each hero can be triggered at most once every <font color='#FFFFFF'><b>3</b></font> seconds. Creeps, illusions and <font color='#FFCC66'>spell immune</font> units are not affected."
+
 		// 敌法师 觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Mana Suppression Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"Blink drains nearby enemy heroes' mana and stops them from regaining it, and Mana Void deals damage to each enemy hero based on their own missing mana."

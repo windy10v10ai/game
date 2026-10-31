@@ -1352,6 +1352,12 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 蓝猫 球状涡流觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade"		"<font color='#d000ff'>Вихрь шаровой молнии: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade_Description"		"После того как Шаровая молния наносит урон вражескому герою, он притягивается к Storm Spirit и не может действовать в течение <font color='#FFFFFF'><b>50%%</b></font> длительности Электрического вихря.<br>Требуется изученный Электрический вихрь. Каждый герой может быть затронут не чаще одного раза за %vortex_trigger_cooldown% сек. Крипы, иллюзии и цели с <font color='#FFCC66'>невосприимчивостью к магии</font> не затрагиваются."
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade"		"<font color='#d000ff'>Вихрь шаровой молнии: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade_Description"		"После того как Шаровая молния наносит урон вражескому герою, он притягивается к Storm Spirit и не может действовать в течение <font color='#FFFFFF'><b>50%%</b></font> длительности Электрического вихря.<br>Требуется изученный Электрический вихрь. Каждый герой может быть затронут не чаще одного раза за <font color='#FFFFFF'><b>3</b></font> сек. Крипы, иллюзии и цели с <font color='#FFCC66'>невосприимчивостью к магии</font> не затрагиваются."
+
 		// 敌法师 觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Подавление маны: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"Скачок лишает маны ближайших вражеских героев и не даёт её восстанавливать, а Пустота маны наносит урон каждому вражескому герою по его собственной недостающей мане."

@@ -18,6 +18,11 @@ import { EXTERNAL_LINK_ICON } from './member/constants';
 // freeTrial 与 vscripts awaken-config 的 FREE_TRIAL_HEROES 对应，同样需手动同步
 const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boolean }[] = [
   {
+    heroName: 'npc_dota_hero_storm_spirit',
+    abilityName: 'special_bonus_unique_storm_spirit_upgrade',
+    freeTrial: true,
+  },
+  {
     heroName: 'npc_dota_hero_antimage',
     abilityName: 'special_bonus_unique_antimage_mana_suppression_awaken',
     freeTrial: true,
