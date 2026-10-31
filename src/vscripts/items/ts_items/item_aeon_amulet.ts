@@ -1,9 +1,16 @@
 import { ModifierEventHub } from '../../modules/modifier-event/modifier-event-hub';
-import { BaseItem, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
+import {
+  BaseItem,
+  BaseModifier,
+  registerAbility,
+  registerModifier,
+} from '../../utils/dota_ts_adapter';
 import { BaseItemModifier } from './base_item_modifier';
 
 const AEON_DISK_BUFF = 'modifier_item_aeon_disk_buff';
 const GUARD_MODIFIER = 'modifier_item_aeon_amulet_guard';
+// KV 的生命回复不计入治疗统计，实机核对治疗量差值为 0，生命回复改走定时 Heal
+const HEAL_MODIFIER = 'modifier_item_aeon_amulet_heal';
 // 减速抗性与状态抗性 KV 写了不生效，只能借中立强化的原版 modifier，数值由本物品同名字段提供
 const SLOW_RESIST_MODIFIER = 'modifier_item_enhancement_brawny';
 const STATUS_RESIST_MODIFIER = 'modifier_item_enhancement_titanic';
@@ -59,6 +66,7 @@ export class ItemAeonAmulet extends BaseItem {
     // 走全局函数而非 import ModifierHelper：那个模块顶层就 CreateItem，
     // 被客户端加载时会失败，连带本文件的 modifier 注册全部不执行
     ApplyItemDataDrivenModifier(unit, unit, GUARD_MODIFIER, { duration });
+    unit.AddNewModifier(unit, this, HEAL_MODIFIER, { duration });
     unit.AddNewModifier(unit, this, SLOW_RESIST_MODIFIER, { duration });
     if (withStatusResist) {
       unit.AddNewModifier(unit, this, STATUS_RESIST_MODIFIER, { duration });
@@ -105,5 +113,44 @@ export class ModifierItemAeonAmuletPassive extends BaseItemModifier {
 
     // 持有者取 modifier 的 parent：物品不在背包时取不到施法者
     (ability as ItemAeonAmulet | undefined)?.Protect(this.GetParent(), false);
+  }
+}
+
+/** 永恒守护的生命回复：KV 回复不计入治疗统计，改成定时 Heal，只有定时器，不声明任何属性回调。 */
+@registerModifier('items/ts_items/item_aeon_amulet', 'modifier_item_aeon_amulet_heal')
+export class ModifierItemAeonAmuletHeal extends BaseModifier {
+  private ticksLeft: number = 0;
+  private healPerTick: number = 0;
+  private healPctPerTick: number = 0;
+
+  IsHidden(): boolean {
+    return true;
+  }
+
+  IsPurgable(): boolean {
+    return false;
+  }
+
+  OnCreated(): void {
+    const ability = this.GetAbility();
+    if (!IsServer() || !ability) {
+      return;
+    }
+
+    const interval = ability.GetSpecialValueFor('guard_heal_interval');
+    this.ticksLeft = ability.GetSpecialValueFor('guard_duration') / interval;
+    this.healPerTick = ability.GetSpecialValueFor('guard_regen') * interval;
+    this.healPctPerTick = (ability.GetSpecialValueFor('guard_regen_pct') / 100) * interval;
+    this.StartIntervalThink(interval);
+  }
+
+  OnIntervalThink(): void {
+    const parent = this.GetParent();
+    parent.Heal(this.healPerTick + parent.GetMaxHealth() * this.healPctPerTick, this.GetAbility());
+
+    this.ticksLeft -= 1;
+    if (this.ticksLeft <= 0) {
+      this.StartIntervalThink(-1);
+    }
   }
 }

@@ -7728,6 +7728,7 @@
 			"slow_resist"				"100"
 
 			"guard_duration"			"3"
+			"guard_heal_interval"		"0.5"
 
 			// 被动属性与永恒守护，真值在 item_apply_modifiers，此处仅供 tooltip
 			"bonus_all_stats"			"25"

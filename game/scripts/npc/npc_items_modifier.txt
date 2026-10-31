@@ -41,8 +41,6 @@
 
 			"item_aeon_amulet_bonus_all_stats"	"25"
 			"item_aeon_amulet_bonus_move_speed"	"50"
-			"item_aeon_amulet_guard_regen"	"500"
-			"item_aeon_amulet_guard_regen_pct"	"5"
 			"item_aeon_amulet_guard_mana_regen"	"500"
 			"item_aeon_amulet_guard_mana_regen_pct"	"5"
 			"item_aeon_amulet_guard_damage_reduction"	"-50"
@@ -504,7 +502,7 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%item_aeon_amulet_bonus_move_speed"
 				}
 			}
-			// 永恒护符 永恒守护，持续时间由脚本传入；减速抗性与状态抗性由脚本另挂原版 modifier
+			// 永恒护符 永恒守护，持续时间由脚本传入；生命回复、减速抗性与状态抗性由脚本另挂 modifier
 			"modifier_item_aeon_amulet_guard"
 			{
 				"IsHidden"				"0"
@@ -513,8 +511,6 @@
 				"TextureName"			"item_aeon_amulet"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%item_aeon_amulet_guard_regen"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%item_aeon_amulet_guard_regen_pct"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%item_aeon_amulet_guard_mana_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE"	"%item_aeon_amulet_guard_mana_regen_pct"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%item_aeon_amulet_guard_damage_reduction"
