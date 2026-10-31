@@ -511,6 +511,58 @@ function removeMeleeBuff() {
   meleeBuffHeroes = [];
 }
 
+interface StunPulseState {
+  interval: number;
+  duration: number;
+  modifier: string;
+  timer: string | undefined;
+  heroes: CDOTA_BaseNPC_Hero[];
+  count: number;
+  pulse(): number;
+  start(): void;
+  stop(): void;
+}
+
+// 状态抗性只在上负面状态时被查，固定间隔的短眩晕让每次查询都在同一节奏下发生。
+// 顶层局部变量已接近 Lua 主函数的 200 个上限，状态与回调收在一个对象里，不再各占一个
+const STUN_PULSE: StunPulseState = {
+  interval: 1,
+  duration: 0.1,
+  modifier: 'modifier_stunned',
+  timer: undefined,
+  heroes: [],
+  count: 0,
+  pulse() {
+    this.count++;
+    for (const hero of this.heroes) {
+      if (hero.IsNull() || !hero.IsAlive()) continue;
+      hero.AddNewModifier(hero, undefined, this.modifier, { duration: this.duration });
+    }
+    return this.interval;
+  },
+  start() {
+    this.count = 0;
+    const heroes: CDOTA_BaseNPC_Hero[] = [];
+    forEachHero((hero) => heroes.push(hero));
+    this.heroes = heroes;
+    this.timer = Timers.CreateTimer({
+      endTime: this.interval,
+      useGameTime: false,
+      callback: () => this.pulse(),
+    });
+    print(`[perf] stunpulse started heroes=${heroes.length}`);
+  },
+  stop() {
+    if (this.timer !== undefined) Timers.RemoveTimer(this.timer);
+    this.timer = undefined;
+    for (const hero of this.heroes) {
+      if (!hero.IsNull()) hero.RemoveModifierByName(this.modifier);
+    }
+    this.heroes = [];
+    print(`[perf] stunpulse stopped pulses=${this.count}`);
+  },
+};
+
 // 金钱清零前的空档里辅助 bot 仍会买到守卫，落进空着的换装格，每段开始前收走
 function clearWards(hero: CDOTA_BaseNPC_Hero) {
   for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_9; slot++) {
@@ -1234,6 +1286,11 @@ const CONDITIONS: Condition[] = [
     setup: () => addMeleeBuff(Number(stacks)),
     teardown: removeMeleeBuff,
   })),
+  {
+    name: 'stunpulse',
+    setup: () => STUN_PULSE.start(),
+    teardown: () => STUN_PULSE.stop(),
+  },
   ...(PERF_CONFIG?.moonStacks ?? '1,10,30').split(',').map((count) => ({
     name: `moonshard_x${count}`,
     setup: () => addMoonShards(Number(count)),
