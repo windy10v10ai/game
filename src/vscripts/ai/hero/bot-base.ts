@@ -149,6 +149,9 @@ export class BotBaseAIModifier extends BaseModifier {
     return this.hero;
   }
 
+  // 分段计时按英雄名累计，每次思考现算会多出字符串分配
+  private heroName: string = '';
+
   // 当前状态
   public gameTime: number = 0;
   public mode: BotMode = 'laning';
@@ -204,6 +207,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   Init() {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
+    this.heroName = HeroShortName(this.hero);
 
     this.isIntHero = this.hero.GetPrimaryAttribute() === Attributes.INTELLECT;
 
@@ -222,10 +226,24 @@ export class BotBaseAIModifier extends BaseModifier {
 
   OnIntervalThink(): void {
     if (IS_DEBUG_RUN) {
-      PerfSampler.measureAiThink(() => this.think());
+      PerfSampler.measureAiThink(() => this.measureThink());
       return;
     }
     this.think();
+  }
+
+  /** 接管后才单独计整个 think 的耗时，用来核对各步之和。 */
+  private measureThink(): void {
+    const botTeam = GameRules.AI.BotTeam;
+    if (botTeam && !botTeam.IsNativeActive()) {
+      this.measureStage('think', () => this.think());
+      return;
+    }
+    this.think();
+  }
+
+  private measureStage<T>(stage: string, run: () => T): T {
+    return PerfSampler.measureStage(stage, this.heroName, run);
   }
 
   private think(): void {
@@ -236,15 +254,20 @@ export class BotBaseAIModifier extends BaseModifier {
       return;
     }
 
-    this.FindAround();
     const botTeam = GameRules.AI.BotTeam;
+    const custom = botTeam !== undefined && !botTeam.IsNativeActive();
+    if (custom) {
+      this.measureStage('FindAround', () => this.FindAround());
+    } else {
+      this.FindAround();
+    }
     const brain = botTeam?.GetBrain(this.hero);
     brain?.Join(this.hero);
     if (!botTeam || !brain || botTeam.IsNativeActive()) {
       this.ThinkNative();
       return;
     }
-    this.ThinkCustom(brain);
+    this.measureStage('ThinkCustom', () => this.ThinkCustom(brain));
   }
 
   /** 对线期：移动交给原生，只负责施法、躲塔、插眼与出装。 */
@@ -294,18 +317,20 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.IsInAbilityPhase()) {
       return;
     }
-    if (this.DropTowerAggro()) {
+    if (this.measureStage('DropTowerAggro', () => this.DropTowerAggro())) {
       return;
     }
 
     this.brain = brain;
-    this.UpdateRecoverNeed(brain);
+    this.measureStage('UpdateRecoverNeed', () => this.UpdateRecoverNeed(brain));
     const task = brain.GetTask(this.hero);
     // 变形后打不了也放不了技能，只剩撤离一条路
-    this.stance = this.hero.IsHexed() ? 'retreat' : this.DecideStance(brain, task);
+    this.stance = this.hero.IsHexed()
+      ? 'retreat'
+      : this.measureStage('DecideStance', () => this.DecideStance(brain, task));
     brain.SetRetreating(this.hero, this.stance === 'retreat');
     // 出装与整理物品栏不占用行动，接管后几乎每轮都在行动，排在后面会一直轮不到
-    if (this.BuildItem()) {
+    if (this.measureStage('BuildItem', () => this.BuildItem())) {
       return;
     }
     this.traceTarget = '';
@@ -316,25 +341,28 @@ export class BotBaseAIModifier extends BaseModifier {
     if (acted) {
       return;
     }
-    WardPlacement.Run(this);
+    this.measureStage('WardPlacement.Run', () => WardPlacement.Run(this));
   }
 
   private ActionStance(task: Task | undefined): boolean {
     switch (this.stance) {
       case 'fight':
         this.mode = 'fight';
-        return this.ActionAttack(task) || this.ActionTask(task);
+        return (
+          this.measureStage('ActionAttack', () => this.ActionAttack(task)) ||
+          this.measureStage('ActionTask', () => this.ActionTask(task))
+        );
       case 'lastStand':
         this.mode = 'fight';
         // 跑不掉时原地还手：技能物品照放，只打够得着的敌人，不追，够不着就继续撤
-        if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this) || this.HitBackInRange()) {
+        if (this.RunItemDispatcher() || this.RunAbilityDispatcher() || this.HitBackInRange()) {
           return true;
         }
         return this.ActionRetreat();
       case 'retreat':
         this.mode = 'retreat';
         // 边撤边放技能物品，让追击或靠近有代价；不停下来普攻
-        if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
+        if (this.RunItemDispatcher() || this.RunAbilityDispatcher()) {
           return true;
         }
         return this.ActionRetreat();
@@ -342,15 +370,15 @@ export class BotBaseAIModifier extends BaseModifier {
         // 被派来打但跟得上的人还不够：原地等后面的人，不往敌人跟前凑；守塔时敌人够不着就顺手清兵
         if (this.InEnemyReach()) {
           this.mode = 'retreat';
-          if (ItemDispatcher.Run(this) || AbilityDispatcher.Run(this)) {
+          if (this.RunItemDispatcher() || this.RunAbilityDispatcher()) {
             return true;
           }
           return this.ActionRetreat();
         }
         this.mode = 'hold';
         if (
-          !ItemDispatcher.Run(this) &&
-          !AbilityDispatcher.Run(this) &&
+          !this.RunItemDispatcher() &&
+          !this.RunAbilityDispatcher() &&
           !(task?.kind === 'defend' && this.AttackNearbyCreep(task.kind))
         ) {
           this.SpreadOut();
@@ -358,7 +386,7 @@ export class BotBaseAIModifier extends BaseModifier {
         return true;
       default:
         this.mode = task?.kind ?? 'hold';
-        return this.ActionTask(task);
+        return this.measureStage('ActionTask', () => this.ActionTask(task));
     }
   }
 
@@ -595,6 +623,14 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   // Action
   // ---------------------------------------------------------
+  private RunItemDispatcher(): boolean {
+    return this.measureStage('ItemDispatcher.Run', () => ItemDispatcher.Run(this));
+  }
+
+  private RunAbilityDispatcher(): boolean {
+    return this.measureStage('AbilityDispatcher.Run', () => AbilityDispatcher.Run(this));
+  }
+
   /** 对线期只施法，移动与补刀交给原生。 */
   ActionLaning(): boolean {
     if (ItemDispatcher.Run(this)) {
@@ -604,10 +640,10 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionAttack(task: Task | undefined): boolean {
-    if (ItemDispatcher.Run(this)) {
+    if (this.RunItemDispatcher()) {
       return true;
     }
-    if (AbilityDispatcher.Run(this)) {
+    if (this.RunAbilityDispatcher()) {
       return true;
     }
     const focusId = task?.kind === 'fight' ? task.targetId : undefined;
@@ -716,10 +752,10 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.Roadside(task)) {
       return true;
     }
-    if (ItemDispatcher.Run(this)) {
+    if (this.RunItemDispatcher()) {
       return true;
     }
-    if (AbilityDispatcher.Run(this)) {
+    if (this.RunAbilityDispatcher()) {
       return true;
     }
     if (this.TryTeleportToTask(task)) {

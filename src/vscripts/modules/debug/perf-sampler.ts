@@ -7,6 +7,12 @@ const REPORT_INTERVAL = 10;
 // 100ms 约等于连丢 3 个 tick，玩家能明显感觉到顿一下
 const HITCH_THRESHOLD = 0.1;
 
+interface StageStat {
+  calls: number;
+  ms: number;
+  max: number;
+}
+
 /**
  * 后期卡顿排查用的采样器，按固定间隔把 tick 率、卡顿尖峰、自定义 AI 耗时与单位规模打到控制台，供日志汇总脚本读取。
  */
@@ -24,6 +30,8 @@ export class PerfSampler {
   private static aiTime = 0;
   private static teamTime = 0;
   private static pausedInWindow = false;
+  // 按英雄 -> 步骤累计，切段和停止时成批打印后清零
+  private static stageStats = new Map<string, Map<string, StageStat>>();
 
   static start() {
     if (this.enabled) return;
@@ -36,6 +44,7 @@ export class PerfSampler {
 
   static stop() {
     if (!this.enabled) return;
+    this.flushStages();
     this.enabled = false;
     GameRules.GetGameModeEntity().SetContextThink(THINK_NAME, undefined, 0);
     setClientSampling(false);
@@ -45,10 +54,22 @@ export class PerfSampler {
   // 切换实验段时丢掉未满的窗口，避免一个窗口混进两种条件的数据
   static setPhase(name: string) {
     // 客户端按收到通知的时刻切窗口，并带上刚结束那段的名字，几秒长的短段也能单独统计
-    if (this.enabled) flushClientWindow(this.phase, name);
+    if (this.enabled) {
+      flushClientWindow(this.phase, name);
+      this.flushStages();
+    }
     this.phase = name;
     this.resetWindow();
     print(`[perf] phase=${name}`);
+  }
+
+  /** 按英雄累计单步耗时，未开启采样时直接执行回调。 */
+  static measureStage<T>(stage: string, hero: string, run: () => T): T {
+    if (!this.enabled) return run();
+    const start = Plat_FloatTime();
+    const result = run();
+    this.recordStage(hero, stage, (Plat_FloatTime() - start) * 1000);
+    return result;
   }
 
   static measureAiThink(think: () => void) {
@@ -70,6 +91,35 @@ export class PerfSampler {
     const start = Plat_FloatTime();
     think();
     this.teamTime += Plat_FloatTime() - start;
+  }
+
+  private static recordStage(hero: string, stage: string, ms: number) {
+    let stages = this.stageStats.get(hero);
+    if (!stages) {
+      stages = new Map();
+      this.stageStats.set(hero, stages);
+    }
+    const stat = stages.get(stage);
+    if (!stat) {
+      stages.set(stage, { calls: 1, ms, max: ms });
+      return;
+    }
+    stat.calls++;
+    stat.ms += ms;
+    if (ms > stat.max) stat.max = ms;
+  }
+
+  private static flushStages() {
+    const phase = this.phase;
+    for (const [hero, stages] of this.stageStats) {
+      for (const [stage, stat] of stages) {
+        print(
+          `[perf-stage] phase=${phase} hero=${hero} stage=${stage} calls=${stat.calls}` +
+            ` ms=${string.format('%.2f', stat.ms)} max=${string.format('%.2f', stat.max)}`,
+        );
+      }
+    }
+    this.stageStats.clear();
   }
 
   private static resetWindow() {
