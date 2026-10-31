@@ -85,6 +85,20 @@ gh issue view <n> -R windy10v10ai/game --json parent                 # 查父 is
 - 父 issue 管目标、进度与验证结论；几个子 issue 共用的规约挂成父 issue 的 Markdown artifact，子 issue 的执行说明写明指向它
 - 子 issue 有先后依赖时只给当前一批打 `agent-todo`，前一批合并后再给下一批打
 
+## 主 issue 与子 issue 分工
+
+一件要优化或实现的事用一个主 issue 管，测量拆成子 issue，每条只回答一个问题：
+
+| | Type | 产出 | 关闭时机 |
+|---|---|---|---|
+| 主 issue | Feature | 目标、进度、最终结论 | 实现 PR 合并后 |
+| 测量子 issue | Task | 数据留言，不开 PR | 留言发出后 |
+
+- 测量不够就在主 issue 下再建一条 Task 子 issue，不在原测量 issue 里续写；每条测量结束，在主 issue 留一行结论
+- 实现的 PR 直接 `Fixes` 主 issue，不另建实现子 issue；实现要分几批 PR 时才拆成 Feature 子 issue
+- 项目 Status：主 issue 从开工到合并保持 In progress，测量子 issue 跑的时候 In progress，留言发出后 Done
+- 一条 issue 不同时装测量和实现。测量 issue 的标题不写「再定优化方案」这类后续动作
+
 ## 从 L4 拆出测量子 issue
 
 L4 里能写成固定步骤的测量或验证（卡顿优化前后的 perf 基准、某机制的触发频率统计），拆成子 issue，按 L2 / L3 交给 agent 在用户不在时跑；排查的思路和要不要改仍留在父 issue，用户在场时定。
