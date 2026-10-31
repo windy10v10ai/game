@@ -1503,11 +1503,9 @@
 
 		// 军团指挥官 自动决斗-觉醒
 		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Автоматическая дуэль: пробуждение</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>Автоприменение:</font> Если включено и Дуэль готова, способность автоматически применяется к ближайшему видимому вражескому герою в радиусе применения Дуэли плюс %bonus_cast_range%. Иллюзии не выбираются; применяется, только если цель с большой вероятностью будет убита и Командир легиона не окажется на грани смерти.<br><br>Автоматическая дуэль игнорирует и расходует пассивные эффекты блока и отражения заклинаний цели.<br><br>Во время Дуэли Командир легиона получает эффект <font color='#FFCC66'>Чёрного короля</font>, а цель нельзя выбрать."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>Автоприменение:</font> Если включено и Дуэль готова, способность автоматически применяется к ближайшему видимому вражескому герою в радиусе применения Дуэли плюс %bonus_cast_range%. Иллюзии не выбираются; применяется, только если цель с большой вероятностью будет убита и Командир легиона не окажется на грани смерти.<br><br>Автоматическая дуэль игнорирует и расходует пассивные эффекты блока и отражения заклинаний цели.<br><br>Во время Дуэли Командир легиона получает эффект <font color='#FFCC66'>Чёрного короля</font>."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Честь не требует приглашения — ближайший враг станет соперником."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"ДОПОЛНИТЕЛЬНАЯ ДАЛЬНОСТЬ АВТОМАТИЧЕСКОЙ ДУЭЛИ:"
-		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Автоматическая дуэль: цель нельзя выбрать"
-		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable_Description"	"Во время Дуэли эту цель нельзя выбрать."
 
 		// 死灵法师 竭心光环-觉醒
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Останавливающая сердца аура: пробуждение</font>"
