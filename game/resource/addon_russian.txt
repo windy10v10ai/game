@@ -1477,7 +1477,7 @@
 
 		// 屠夫 肉钩-觉醒
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>Мясной крюк: пробуждение</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Запускает мясной крюк, который притягивает к себе первую задетую цель.<br><br><font color='#00CED1'>Переключатель:</font> когда включён, крюк притягивает только врагов, когда выключен — может притягивать и союзников.<br><br>Значительно увеличены дальность применения и скорость крюка."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Запускает мясной крюк, который притягивает к себе первую задетую цель.<br><br><font color='#00CED1'>Автоприменение:</font> при включении крюк притягивает только врагов, при выключении может притягивать и союзников.<br><br>Значительно увеличены дальность применения и скорость крюка."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"Союзники, задетые крюком, не получают урон."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"УРОН:"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"СКОРОСТЬ КРЮКА:"
