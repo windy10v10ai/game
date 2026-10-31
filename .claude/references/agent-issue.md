@@ -38,7 +38,7 @@ firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/fir
 - **做法**：先写用哪个 skill（如「按 `clone-ability`」；`AGENTS.md` 对照表里没有对得上的写「无」），再写已拍板的实现方案，含选型（如「用 KV Properties，不新增 Lua modifier」）
 - **改动范围**：允许改的文件或目录，逐条列出
 - **不做**：明确排除的相关改动
-- **验收**：必须通过的命令（默认 `npm test`、`npm run lint`、`npm run build:vscripts`；改 Panorama 加 `npm run build:panorama`），以及要补的 jest 用例，每个用例写明输入与预期
+- **验收**：必须通过的命令（默认 `npm test`、`npm run lint`、`npm run build:vscripts`；改 Panorama 加 `npm run build:panorama`；带持续性 buff 或永久属性的技能、物品加性能基准，见根 `CLAUDE.md`「Implementation Style」），以及要补的 jest 用例，每个用例写明输入与预期
 - **实机验证**：需要 / 不需要；需要时逐项标层级（见下文「实机验证分三层」）并写到可判定
 - **Release Note**：不写 / 要写，附用户确认过的中文要点原文（面向玩家的一句话，`issue-spec` 时给用户看草稿定稿）
 ```
