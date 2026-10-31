@@ -1520,10 +1520,10 @@
 
 		// 天怒法师 天裔之杖-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>天裔之杖 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>觉醒强化：</font>天怒法师获得天裔之杖，其技能对敌方英雄造成<font color='#05CAFF'>魔法伤害</font>时，他所有技能的冷却时间都会减少%cooldown_reduction%秒。<br><br><font color='#00CED1'>自动施法：</font>开启后，施法距离内出现敌方英雄时，天怒法师自动施放上古封印、震荡光弹、神秘之耀与奥法鹰隼，其中奥法鹰隼在只有小兵时也会施放。"
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>觉醒强化：</font>天怒法师获得天裔之杖，其技能对敌方英雄造成<font color='#05CAFF'>魔法伤害</font>时，他所有技能的冷却时间都会减少%cooldown_reduction%秒。<br><br><font color='#00CED1'>自动施法：</font>开启后，施法距离内出现敌方英雄时，天怒法师自动施放上古封印、震荡光弹、神秘之耀与奥法鹰隼，其中奥法鹰隼在拥有<font color='#92ACF5'>魔晶</font>且只有小兵时也会施放。"
 		// 宙斯 神王-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>神王 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"<font color='#00CED1'>自动施法：</font>开启后，宙斯自动对施法距离内的敌人施放弧形闪电与雷击。<br><br>优先对英雄施法，范围内只有小兵时仅施放弧形闪电。"
+		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"<font color='#00CED1'>自动施法：</font>开启后，宙斯自动对施法距离内的敌人施放弧形闪电与雷击。<br><br>优先对英雄施法。<br>弧形闪电：达到<font color='#FFFFFF'><b>3</b></font>级后，范围内没有英雄时也会对小兵施放。<br>雷击：学会范围型雷击天赋后，范围内没有英雄时也会对小兵施放。"
 
 		// 幻影刺客 窒碍短匕-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"	"<font color='#d000ff'>窒碍短匕 觉醒</font>"
