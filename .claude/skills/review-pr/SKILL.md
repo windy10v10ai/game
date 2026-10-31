@@ -34,11 +34,12 @@ disable-model-invocation: true
 按本仓库历史 review 中出现频率排序。
 
 1. **根因优先于表面修补**：定位到真实机制再说修法，指出根因位置。常见根因：`LinkLuaModifier` 未注册导致 modifier 从未生效、本地常量与引擎全局同名被遮蔽（`src/vscripts/CLAUDE.md`「TSTL 陷阱」）
-2. **优先复用 Dota 原生机制**：为模拟效果手搓一整套状态同步/数值换算，是最易出 bug、最难维护的实现。即使能跑通也要问：有没有现成的原版技能机制、modifier 或项目 helper 可复用。性能上，新增的 Lua modifier（尤其常驻在每个英雄或建筑上的）即使逻辑很少也会拖慢每次伤害结算，能用原版 modifier 或 KV 的要指出（见 `src/vscripts/CLAUDE.md`「写技能、物品、modifier」）
+2. **优先复用 Dota 原生机制**：为模拟效果手搓一整套状态同步/数值换算，是最易出 bug、最难维护的实现。即使能跑通也要问：有没有现成的原版技能机制、modifier 或项目 helper 可复用。性能上，新增的 Lua modifier（尤其常驻在每个英雄或建筑上的）即使逻辑很少也会拖慢每次伤害结算，能用原版 modifier 或 KV 的要指出（见 `src/vscripts/CLAUDE.md`「写技能、物品、modifier」）。为改一个数值声明 `MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL(_VALUE)` 的，持有者每次读任何技能数值都回调 Lua，能改成 KV special bonus 行、或对产物 modifier 直接 `SetDuration` 的要指出
 3. **测试有效性**：对照 `src/vscripts/CLAUDE.md`「测试与验证」，检查新增测试是真的验证了逻辑分支，还是字符串匹配或纯 mock 调用断言
 4. **KV / 本地化一致性与去重**：格式按 `game/resource/CLAUDE.md`；多处硬编码的同一常量/价格（如出装 tier 的 cost 与 KV 的 ItemCost）收敛成单一来源；机制变更后失效的 KV 字段（如遗留的 `AbilityUnitTargetTeam`/`Flags`）一并清理
 5. **大范围玩家侧影响分阶段验证**：全难度/全局机制或平衡改动，倾向建议先做成可选项或先在自定义模式验证
-6. **Dota 专属正确性**：伤害标志位（`REFLECTION`、`NO_SPELL_AMPLIFICATION`）与技能增强的显式声明、防止数值被无限刷高的上限
+6. **按命中自动触发的效果算峰值**：每命中一个单位就代为施放一次技能或播一次特效的，估算一次施法最多触发多少次（穿过兵线、神杖范围版叠加），没有限英雄、限次数或触发冷却的要指出
+7. **Dota 专属正确性**：伤害标志位（`REFLECTION`、`NO_SPELL_AMPLIFICATION`）与技能增强的显式声明、防止数值被无限刷高的上限
 
 **依赖升级 PR**（如 dependabot）另外说明：这个包是运行时依赖还是构建/测试用、被哪些环节用到；版本跨度与已知破坏性变更、安全公告；处理建议分三档——可直接合并（devDependency 或无破坏性的小升级）/ 建议测试后合并（影响构建产物或运行时）/ 需要修改后合并（项目代码依赖了旧行为）。
 

@@ -87,6 +87,10 @@ gh issue view <n> -R windy10v10ai/game --json parent                 # 查父 is
 - 父 issue 管目标、进度与验证结论；几个子 issue 共用的规约挂成父 issue 的 Markdown artifact，子 issue 的执行说明写明指向它
 - 子 issue 有先后依赖时只给当前一批打 `agent-todo`，前一批合并后再给下一批打
 
+## 引入玩家 PR
+
+评估多条玩家 PR 的 issue 只做总览，每条要做的 PR 各开子 issue 写执行说明。执行说明默认写「基于原 PR 分支改」：`gh pr checkout <PR号>`，merge 最新 `develop` 解决冲突后追加提交，推回原分支，不另开 PR；保留贡献者的提交历史，不 rebase、不 squash、不 force push。
+
 ## 主 issue 与子 issue 分工
 
 一件要优化或实现的事用一个主 issue 管，测量拆成子 issue，每条只回答一个问题：
