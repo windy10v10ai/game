@@ -20,6 +20,7 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_storm_spirit',
     abilityName: 'special_bonus_unique_storm_spirit_upgrade',
+    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_antimage',

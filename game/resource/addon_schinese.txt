@@ -1354,9 +1354,9 @@
 
 		// 蓝猫 球状涡流觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade"		"<font color='#d000ff'>球状涡流 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade_Description"		"球状闪电伤害敌方英雄后，将其拉向蓝猫并使其无法行动，持续时间为电子涡流的<font color='#FFFFFF'><b>50%</b></font>。仅在已学习电子涡流时生效，不消耗魔法，也不影响电子涡流的冷却时间。同一英雄在%vortex_trigger_cooldown%秒内最多触发一次，小兵、幻象和<font color='#FFCC66'>魔法免疫</font>的单位不会触发。"
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade_Description"		"球状闪电伤害敌方英雄后，将其拉向蓝猫并使其无法行动，持续时间为电子涡流的<font color='#FFFFFF'><b>50%%</b></font>。<br>需已学习电子涡流。同一英雄在%vortex_trigger_cooldown%秒内最多触发一次，小兵、幻象和<font color='#FFCC66'>魔法免疫</font>的单位不会触发。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade"		"<font color='#d000ff'>球状涡流 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade_Description"		"球状闪电伤害敌方英雄后，将其拉向蓝猫并使其无法行动，持续时间为电子涡流的<font color='#FFFFFF'><b>50%</b></font>。仅在已学习电子涡流时生效，不消耗魔法，也不影响电子涡流的冷却时间。同一英雄在<font color='#FFFFFF'><b>3</b></font>秒内最多触发一次，小兵、幻象和<font color='#FFCC66'>魔法免疫</font>的单位不会触发。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade_Description"		"球状闪电伤害敌方英雄后，将其拉向蓝猫并使其无法行动，持续时间为电子涡流的<font color='#FFFFFF'><b>50%%</b></font>。<br>需已学习电子涡流。同一英雄在<font color='#FFFFFF'><b>3</b></font>秒内最多触发一次，小兵、幻象和<font color='#FFCC66'>魔法免疫</font>的单位不会触发。"
 
 		// 敌法师 觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>法力禁域 觉醒</font>"
