@@ -125,7 +125,7 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 
 - **图标** → 引用 Dota2 原版技能名则不放 png；自定义图标才复制同名 png 到 `game/resource/flash3/images/spellicons/<name>.png`。`AbilityTextureName` 也可直接填**至宝/变体 texture 路径**（如 `necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura`、`drow_ranger/immortal/drow_ranger_wave_of_silence`、`zuus_static_field_alt1`），引擎直接引用，同样无需放 png。
 
-- **本地化** → 新觉醒条目固定排在旧觉醒之上：
+- **本地化** → 写文案前先 Read `game/resource/CLAUDE.md` 与 `.claude/references/localization-format.md`（用脚本批量改文件不会自动加载目录 `CLAUDE.md`，文案规约如「不用分号」会漏掉）。新觉醒条目固定排在旧觉醒之上：
   - `addon_schinese.txt` / `addon_english.txt`：放在 `Awaken Abilities 觉醒技能` 模块的**顶部**，中英同步。
   - `addon_russian.txt`：放在 `Creep / Tower` 区块末尾的 `Awaken Abilities 觉醒技能` 模块，位于 `// Сундук с сокровищами`（藏宝箱）之前。
   - 觉醒条目的开头注释统一使用中文 `// 英雄 xxx觉醒`。标题格式见下。

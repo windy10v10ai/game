@@ -48,6 +48,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 **全局陷阱**：
 
 - TypeScript 文件行尾用 LF
+- 目录 `CLAUDE.md` 只在用 Read / Edit 工具读写该目录文件时自动加载，用 Bash / 脚本批量改文件不会触发：脚本改文案、KV 前先 Read 该目录的 `CLAUDE.md`
 - prettier 只格式化本次改动的文件：仓库里有一批文件从没按 `.prettierrc` 格式化过，通配符 `prettier --write` 会混进几百行无关 diff。误跑后的还原方法见 `.claude/references/git-workflow.md`
 - 检索代码默认跳过 `docs/reference/tenvten-*`（项目自身的历史快照，会混进过时匹配），用户要看或做版本对比时才查
 

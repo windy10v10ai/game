@@ -60,8 +60,9 @@
 
 - 魔抗降低按实现标注：Lua modifier 的 `MAGICAL_RESISTANCE_DIRECT_MODIFICATION` 写「（减法叠加）」/ `(additive)` / `(вычитается)`；`MAGICAL_RESISTANCE_BONUS` 是乘法，不加标注。两者算法见 `datadriven-properties.md`「魔抗的两种叠加」
 - 全属性总和写 `[自身属性总和]`，对齐英文 `the sum of all your attributes`
-- 「自动施法」指 `DOTA_ABILITY_BEHAVIOR_AUTOCAST` 的开关型自动触发（如法力之盾）；「多样施法」指同一技能可切换多种施法方式（如萨尔岩浆流）。技能走 `AUTOCAST` 行为时写「自动施法」
+- 「自动施法」指 `DOTA_ABILITY_BEHAVIOR_AUTOCAST` 的开关型自动触发（如法力之盾），「多样施法」指同一技能可切换多种施法方式（如萨尔岩浆流）。技能走 `AUTOCAST` 行为时写「自动施法」
 - 中文用全角标点；数字、英文、HTML、占位符保持原样
+- 句间用逗号或句号断开，中文「；」和英文 `;` 都不用。一个技能有多条独立效果时，每条各占一行（`<br>` 分隔），行首写技能名加冒号
 
 ## AbilityValues 数值展示
 
