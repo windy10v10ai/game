@@ -95,6 +95,7 @@ gh issue view <n> -R windy10v10ai/game --json parent                 # 查父 is
 | 测量子 issue | Task | 数据留言，不开 PR | 留言发出后 |
 
 - 测量不够就在主 issue 下再建一条 Task 子 issue，不在原测量 issue 里续写；每条测量结束，在主 issue 留一行结论
+- 测量结果放在测量子 issue 的留言里（结论、表格、测量条件）；数据多或要与之前的测量对比时，另挂成该子 issue 的 Markdown artifact（见下节）。主 issue 只留一行结论加子 issue 链接。原始日志留在本地 `runs/` 目录，不进仓库、不贴 issue
 - 实现的 PR 直接 `Fixes` 主 issue，不另建实现子 issue；实现要分几批 PR 时才拆成 Feature 子 issue
 - 项目 Status：主 issue 从开工到合并保持 In progress，测量子 issue 跑的时候 In progress，留言发出后 Done
 - 一条 issue 不同时装测量和实现。测量 issue 的标题不写「再定优化方案」这类后续动作
