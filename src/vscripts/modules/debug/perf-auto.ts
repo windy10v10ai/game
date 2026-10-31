@@ -260,6 +260,41 @@ function restoreBotPassives() {
   print(`[perf] bot passives added=${added}`);
 }
 
+// 抽选被动 潮涨潮落：原生被动的属性按英雄等级实时求值，全员各带 1 份量它的常驻开销
+const EBB_AND_FLOW_ABILITY = 'morphling_ebb_and_flow2';
+let ebbAndFlowHeroes: CDOTA_BaseNPC_Hero[] = [];
+
+function addEbbAndFlow() {
+  ebbAndFlowHeroes = [];
+  let added = 0;
+  forEachHero((hero) => {
+    if (hero.HasAbility(EBB_AND_FLOW_ABILITY)) return;
+    const ability = hero.AddAbility(EBB_AND_FLOW_ABILITY);
+    if (!ability) return;
+    ability.SetLevel(1);
+    ebbAndFlowHeroes.push(hero);
+    added++;
+  });
+  print(`[perf] ebb_and_flow added=${added}`);
+}
+
+// 技能挂上的 modifier 也要按来源清掉，否则会留在英雄身上污染后面的基线
+function removeEbbAndFlow() {
+  let removed = 0;
+  for (const hero of ebbAndFlowHeroes) {
+    if (!IsValidEntity(hero)) continue;
+    const ability = hero.FindAbilityByName(EBB_AND_FLOW_ABILITY);
+    if (!ability) continue;
+    for (const modifier of hero.FindAllModifiers()) {
+      if (modifier.GetAbility() === ability) modifier.Destroy();
+    }
+    hero.RemoveAbilityByHandle(ability);
+    removed++;
+  }
+  ebbAndFlowHeroes = [];
+  print(`[perf] ebb_and_flow removed=${removed}`);
+}
+
 // 物品名写成它表示这一格留空：底装空出换装格，测试物品放进去的差值就是它的完整开销
 const EMPTY_SLOT = 'empty';
 
@@ -392,6 +427,40 @@ function restoreMagicResist() {
       hero.AddNewModifier(hero, undefined, modifier_intelect_magic_resist.name, {});
     }
   });
+}
+
+// 结算前基地锁血：两座基地各带 1 份 KV 最低血量 modifier，量它的常驻开销
+const FORT_LOCK_ABILITY = 'fort_min_health';
+const FORT_LOCK_MODIFIER = 'modifier_fort_min_health';
+const FORT_UNIT_NAMES = ['npc_dota_goodguys_fort', 'npc_dota_badguys_fort'];
+
+function findForts(): CDOTA_BaseNPC[] {
+  return (Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[]).filter((fort) =>
+    FORT_UNIT_NAMES.includes(fort.GetUnitName()),
+  );
+}
+
+function removeFortLock() {
+  let removed = 0;
+  for (const fort of findForts()) {
+    const ability = fort.FindAbilityByName(FORT_LOCK_ABILITY);
+    if (!ability) continue;
+    fort.RemoveModifierByName(FORT_LOCK_MODIFIER);
+    fort.RemoveAbilityByHandle(ability);
+    removed++;
+  }
+  print(`[perf] nofortlock removed=${removed}`);
+}
+
+function restoreFortLock() {
+  let restored = 0;
+  for (const fort of findForts()) {
+    const ability = fort.FindAbilityByName(FORT_LOCK_ABILITY) ?? fort.AddAbility(FORT_LOCK_ABILITY);
+    if (!ability) continue;
+    ability.SetLevel(1);
+    restored++;
+  }
+  print(`[perf] nofortlock restored=${restored}`);
 }
 
 const MELEE_RESISTANCE_MODIFIER = 'modifier_global_melee_resistance';
@@ -1112,6 +1181,7 @@ const CONDITIONS: Condition[] = [
     teardown: restoreItems,
   })),
   { name: 'nomagicres', setup: removeMagicResist, teardown: restoreMagicResist },
+  { name: 'nofortlock', setup: removeFortLock, teardown: restoreFortLock },
   {
     name: 'prop_lua',
     setup: () => addProperties(VALUE_PROPERTIES),
@@ -1127,6 +1197,7 @@ const CONDITIONS: Condition[] = [
   { name: 'prop_player', setup: addPlayerProperties, teardown: removePlayerProperties },
   { name: 'nobotpower', setup: removeBotPower, teardown: restoreBotPower },
   { name: 'botpassives', setup: restoreBotPassives, teardown: stripBotPassives },
+  { name: 'ebb_and_flow', setup: addEbbAndFlow, teardown: removeEbbAndFlow },
   {
     name: 'prop_takedamage',
     setup: () => addProperties(DAMAGE_EVENT_PROPERTIES),
