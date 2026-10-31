@@ -5,7 +5,7 @@ description: 按 issue 末尾的「执行说明」实现一条 issue：实现、
 
 # issue-impl
 
-把一条已有「执行说明」的 issue 做到 PR。审查通过转正式，没做完或没通过的保持草稿。标签、执行说明格式与实机验证三层见 `.claude/references/agent-issue.md`，开始前先读。
+把一条已有「执行说明」的 issue 做到 PR。做完且审查通过就是正式 PR，没做完或没通过的才保持草稿。标签、执行说明格式与实机验证三层见 `.claude/references/agent-issue.md`，开始前先读。
 
 两种用法共用这一份规则：
 
@@ -20,7 +20,7 @@ description: 按 issue 末尾的「执行说明」实现一条 issue：实现、
 
 - 只改执行说明「改动范围」里的文件，执行说明以外的需求（评论里的新想法、相关 bug）不做，记进「发现」
 - 不改 issue 正文，只留言、改标签
-- 不合并、不推 `develop` / `main`。PR 先开草稿，第 9 步判定通过后转正式，有没做完或没通过的部分就保持草稿
+- 不合并、不推 `develop` / `main`。PR 草稿规则见根 `CLAUDE.md`「Git」。本流程实机验证在开 PR 之后，所以先带 `--draft`，第 9 步判定通过后立刻转正式；有没做完或没通过的部分才保持草稿
 - 不用降低标准换通过：改测试迁就代码、删失败用例、把没达成写成完成都不行
 - 没亲眼看到的结果不写进 PR，后台跑的长命令，等取到结果末尾再写数字
 - 执行者不得自己跑 `npm install` / `npm ci`（依赖由调度员保证已装好）
@@ -68,7 +68,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 
 - commit 是单行英文标题，署名行按执行者：Claude 加 `Co-Authored-By`，没有 GitHub 账号的执行者不加（会显示成无效作者）
 - `git push -u origin HEAD`，以 `git ls-remote origin <分支>` 与本地 HEAD 一致为准
-- 按 `create-pr` 的格式开 PR，先带 `--draft`（`gh pr create --draft --base develop -R windy10v10ai/game`），审查通过后再转正式。正文只写人做判断要看的关键信息，过程细节放进一条「验证记录」评论（之后更新用 `gh pr comment --edit-last`）。正文另加：
+- 按 `create-pr` 的格式开 PR，实机验证还没做就先带 `--draft`（`gh pr create --draft --base develop -R windy10v10ai/game`），验证与审查通过后立刻转正式。正文只写人做判断要看的关键信息，过程细节放进一条「验证记录」评论（之后更新用 `gh pr comment --edit-last`）。正文另加：
   - Issue 段：目标全部完成写 `Fixes #<id>`，有跳过写 `#<id>`
   - 影响玩家的数值、档位、等级用表格列出
   - Checklist：执行说明「实机验证」的每一项
