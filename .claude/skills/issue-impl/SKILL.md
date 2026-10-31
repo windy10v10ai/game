@@ -48,6 +48,8 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 
 工作区不干净就停下，不动用户的文件。
 
+开工时把这条 issue 在「开发计划」项目里的 Status 置为 In progress（命令与 ID 见 `issue-triage` 第 4 步）。这条是挂在父 issue 下的测量子 issue 时，父 issue 的 Status 保持 Plan 或 Todo，不置 In progress。
+
 ## 2. 先读
 
 `AGENTS.md` 和它的对照表里改动目录的 `CLAUDE.md`，执行说明「做法」指定的 skill 完整读完并按步骤做，实机验证前读 `.claude/skills/dota-live-test/SKILL.md`。执行说明指向设计 artifact 时用 `gh issue artifact view <issue> <编号> -R windy10v10ai/game` 读。
