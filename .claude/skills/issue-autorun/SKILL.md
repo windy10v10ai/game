@@ -149,7 +149,7 @@ gh issue edit <id> -R windy10v10ai/game --remove-label agent-todo --add-label ag
 gh issue comment <id> -R windy10v10ai/game --body "已开 PR：<链接>（保持草稿的写明原因）。等你处理 N 项，见 PR 正文。"
 ```
 
-执行说明 Release Note「要写」的，调用 `release-note` skill（来源：该 PR，写回：仅写入功能 PR），要点以执行说明为准，不另拟。
+执行说明 Release Note「要写」的，调用 `release-note` skill（来源：该 PR，写回：执行说明定的写回方式，没写时按「仅写入功能 PR」），要点以执行说明为准，不另拟。聚合 release PR 还没创建时只写入功能 PR，在 PR「等你处理」记一条「合并后写入 release PR」。写进了 release PR 的，PR「等你处理」记一条「不合并本 PR 时从 release PR #N 删掉对应条目」。
 
 整条做不了的改打 `agent-block`，留言写明卡在哪、缺什么。
 
