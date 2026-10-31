@@ -3547,8 +3547,8 @@
 		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"Grants +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
 
 		// item_aeon_amulet 永恒护符
-		"DOTA_Tooltip_Ability_item_aeon_amulet"						"Aeon Amulet"
-		"DOTA_Tooltip_ability_item_aeon_amulet_Description"						"<h1>Active: Aeon Guard</h1>Targets an allied hero (can be self) and applies a Strong Dispel. The target and the caster gain <font color='#07D738'>Aeon Guard</font> for %guard_duration% seconds: restores %guard_regen% +%guard_regen_pct%%% max health as health and %guard_mana_regen% +%guard_mana_regen_pct%%% max mana as mana per second, reduces damage taken by %guard_damage_reduction%%%, grants +%guard_attack_speed% attack speed and +%guard_move_speed% movement speed, and grants %slow_resist%%% <font color='#9EC8E3'>Slow Resistance</font> and %status_resistance%%% <font color='#B99012'>Status Resistance</font>.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Aeon Aegis</h1>When you take damage from a hero and your health falls below %health_threshold_pct%%%, automatically triggers the effects above on yourself, and for %buff_duration% seconds all damage you deal and are dealt is reduced to zero."
+		"DOTA_Tooltip_Ability_item_aeon_amulet"						"<font color='#FF9A3C'>Aeon Amulet</font>"
+		"DOTA_Tooltip_ability_item_aeon_amulet_Description"						"<h1>Active: Aeon Guard</h1>Applies a Strong Dispel to an allied hero. The target and you gain <font color='#FF9A3C'>Aeon Guard</font> for %guard_duration% seconds:<br>Restores %guard_regen% +%guard_regen_pct%%% max health and mana per second<br>-%guard_damage_reduction%%% damage taken<br>+%guard_attack_speed% attack speed<br>+%guard_move_speed% movement speed<br>+%slow_resist%%% <font color='#9EC8E3'>Slow Resistance</font><br>+%status_resistance%%% <font color='#B99012'>Status Resistance</font><br><font color='#D7CCC7'>Invisible</font> <font color='#7D7D7D'>(revealed when you attack or cast)</font><br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Aeon Aegis</h1>When you take damage from a hero and your health falls below %health_threshold_pct%%%, automatically triggers <font color='#FF9A3C'>Aeon Guard</font> on yourself, and for %buff_duration% seconds all damage you deal and are dealt is reduced to zero."
 		"DOTA_Tooltip_ability_item_aeon_amulet_Lore"						"A light sleeps inside the amulet, and it never goes out."
 		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_all_stats"						"+$all"
 		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_health"						"+$health"
@@ -3557,7 +3557,7 @@
 		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_move_speed"						"+$move_speed"
 		"DOTA_Tooltip_ability_item_aeon_amulet_Note0"						"Enters cooldown after triggering automatically, shared with the active."
 
-		"DOTA_Tooltip_modifier_item_aeon_amulet_guard"						"Aeon Guard"
+		"DOTA_Tooltip_modifier_item_aeon_amulet_guard"						"<font color='#FF9A3C'>Aeon Guard</font>"
 		"DOTA_Tooltip_modifier_item_aeon_amulet_guard_Description"						"Restores health and mana every second, reduces damage taken, increases attack speed and movement speed, and grants Slow Resistance and Status Resistance."
 
 		// 德古拉面罩/生命之盔

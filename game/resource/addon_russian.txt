@@ -3549,8 +3549,8 @@
 		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"Броня увеличена на %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, восстановление здоровья увеличено на %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
 
 		// item_aeon_amulet 永恒护符
-		"DOTA_Tooltip_Ability_item_aeon_amulet"						"Амулет вечности"
-		"DOTA_Tooltip_ability_item_aeon_amulet_Description"						"<h1>Активное: Вечная защита</h1>Применяется на союзного героя (можно на себя) и накладывает сильное развеивание. Цель и владелец на %guard_duration% сек. получают <font color='#07D738'>Вечную защиту</font>: каждую секунду восстанавливается %guard_regen% +%guard_regen_pct%%% максимального здоровья и %guard_mana_regen% +%guard_mana_regen_pct%%% максимальной маны, получаемый урон снижен на %guard_damage_reduction%%%, скорость атаки +%guard_attack_speed%, скорость передвижения +%guard_move_speed%, а также %slow_resist%%% <font color='#9EC8E3'>сопротивления замедлению</font> и %status_resistance%%% <font color='#B99012'>сопротивления эффектам</font>.<br><br>Тип развеивания: <span class=\"GameplayValues GameplayVariable\">сильное</span>\n\n<h1>Пассивное: Вечный покров</h1>При получении урона от героя и падении здоровья ниже %health_threshold_pct%%% автоматически срабатывают эффекты выше на владельце, а на %buff_duration% сек. весь получаемый и наносимый им урон становится равным нулю."
+		"DOTA_Tooltip_Ability_item_aeon_amulet"						"<font color='#FF9A3C'>Амулет вечности</font>"
+		"DOTA_Tooltip_ability_item_aeon_amulet_Description"						"<h1>Активное: Вечная защита</h1>Накладывает сильное развеивание на союзного героя. Цель и вы на %guard_duration% сек. получаете <font color='#FF9A3C'>Вечная защита</font>:<br>Каждую секунду восстанавливается %guard_regen% +%guard_regen_pct%%% максимального здоровья и маны<br>-%guard_damage_reduction%%% получаемого урона<br>+%guard_attack_speed% скорости атаки<br>+%guard_move_speed% скорости передвижения<br>+%slow_resist%%% <font color='#9EC8E3'>сопротивления замедлению</font><br>+%status_resistance%%% <font color='#B99012'>сопротивления эффектам</font><br><font color='#D7CCC7'>Невидимость</font> <font color='#7D7D7D'>(исчезает при атаке или заклинании)</font><br><br>Тип развеивания: <span class=\"GameplayValues GameplayVariable\">сильное</span>\n\n<h1>Пассивное: Вечный покров</h1>При получении урона от героя и падении здоровья ниже %health_threshold_pct%%% автоматически срабатывает <font color='#FF9A3C'>Вечная защита</font> на вас, а на %buff_duration% сек. весь получаемый и наносимый вами урон становится равным нулю."
 		"DOTA_Tooltip_ability_item_aeon_amulet_Lore"						"В амулете дремлет свет, который никогда не гаснет."
 		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_all_stats"						"+$all"
 		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_health"						"+$health"
@@ -3559,7 +3559,7 @@
 		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_move_speed"						"+$move_speed"
 		"DOTA_Tooltip_ability_item_aeon_amulet_Note0"						"После автоматического срабатывания уходит на перезарядку, общую с активным."
 
-		"DOTA_Tooltip_modifier_item_aeon_amulet_guard"						"Вечная защита"
+		"DOTA_Tooltip_modifier_item_aeon_amulet_guard"						"<font color='#FF9A3C'>Вечная защита</font>"
 		"DOTA_Tooltip_modifier_item_aeon_amulet_guard_Description"						"Каждую секунду восстанавливает здоровье и ману, снижает получаемый урон, повышает скорость атаки и передвижения, а также даёт сопротивление замедлению и эффектам."
 
 		// 德古拉面罩/生命之盔

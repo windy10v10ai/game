@@ -14,6 +14,8 @@ const HEAL_MODIFIER = 'modifier_item_aeon_amulet_heal';
 // 减速抗性与状态抗性 KV 写了不生效，只能借中立强化的原版 modifier，数值由本物品同名字段提供
 const SLOW_RESIST_MODIFIER = 'modifier_item_enhancement_brawny';
 const STATUS_RESIST_MODIFIER = 'modifier_item_enhancement_titanic';
+// 原版通用隐身，攻击或施法后自行现形
+const INVISIBLE_MODIFIER = 'modifier_invisible';
 
 /** 永恒护符：对友方英雄强驱散并给 3 秒永恒守护，被动免死交给原版永恒之盘，触发时对自己再放一次。 */
 @registerAbility('item_aeon_amulet')
@@ -67,6 +69,7 @@ export class ItemAeonAmulet extends BaseItem {
     // 被客户端加载时会失败，连带本文件的 modifier 注册全部不执行
     ApplyItemDataDrivenModifier(unit, unit, GUARD_MODIFIER, { duration });
     unit.AddNewModifier(unit, this, HEAL_MODIFIER, { duration });
+    unit.AddNewModifier(unit, this, INVISIBLE_MODIFIER, { duration });
     unit.AddNewModifier(unit, this, SLOW_RESIST_MODIFIER, { duration });
     if (withStatusResist) {
       unit.AddNewModifier(unit, this, STATUS_RESIST_MODIFIER, { duration });
