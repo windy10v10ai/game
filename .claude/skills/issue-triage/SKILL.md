@@ -1,9 +1,9 @@
 ---
-name: issue-organize
+name: issue-triage
 description: 整理 issue：查重复与过期、调整优先级、核对「开发计划」项目里的位置。
 ---
 
-# issue-organize
+# issue-triage
 
 整理 `windy10v10ai/game` 与 `windy10v10ai/firebase` 两个仓库的未关闭 issue，并核对组织项目「开发计划」（`gh project` 编号 3）的排布。先出建议、等用户拍板，再改 GitHub。
 
@@ -66,6 +66,8 @@ gh api graphql -f query='{organization(login:"windy10v10ai"){issueTypes(first:10
 - **过期**：在 Plan 栏长期没动的退回 Backlog；一年以上没动、也没人提的，列为「建议关闭」，由用户决定留不留
 - **做法与现行规则冲突**（如用 Lua modifier 实现属性）：建议改写正文，不直接关闭
 - **卡顿相关**：挂成 game#2468（后期卡顿排查与优化）的子 issue
+- **测量与实现混在一条**：同时有「先测量」和「再定做法 / 实现」的，建议拆开，原 issue 当主 issue，测量拆成 Task 子 issue；分工与 Type、Status 约定见 `.claude/references/agent-issue.md`「主 issue 与子 issue 分工」
+- **Type 与父子 Status 不一致**：按上述分工检查，填错的列进「补类型」，父子 Status 对不上的标出来
 - **优先级**：没填 Priority 的都给出建议值，Effort 能估就填
 - **项目位置**：
   - Todo 只留最优先的几条，其余挪到 Plan
@@ -73,7 +75,7 @@ gh api graphql -f query='{organization(login:"windy10v10ai"){issueTypes(first:10
   - 需要更多日志才能推进的放 Backlog
   - 没入项目的补进去；总跟踪帖（如 firebase#1404 玩家反馈跟踪）不放
   - 草稿条目转成正式 issue，补类型、标签、优先级
-- **可交给 agent**：Todo / Plan 里符合 `.claude/references/agent-autorun.md`「适合交给 agent 的 issue」的，列为候选；已带 `agent-done` 的查 PR 里「等你处理」还剩几项，`agent-block` 的列出 agent 留言里缺的信息
+- **可交给 agent**：Todo / Plan 里符合 `.claude/references/agent-issue.md`「适合交给 agent 的 issue」的，列为候选；已带 `agent-done` 的查 PR 里「等你处理」还剩几项，`agent-block` 的列出 agent 留言里缺的信息
 
 完成条件：每个 issue 要么归入某条建议，要么确认维持现状。
 
@@ -91,8 +93,8 @@ issue 留言与新建 issue 的正文用中文。
 # 关闭重复，留言写明剩余内容由谁跟踪
 gh issue close <n> -R windy10v10ai/<repo> --duplicate-of <目标n> --comment "..."
 
-# 挂子 issue（两个都是 issue 的 node id）
-gh api graphql -f query='mutation($p:ID!,$c:ID!){addSubIssue(input:{issueId:$p,subIssueId:$c}){subIssue{number}}}' -f p=<父id> -f c=<子id>
+# 挂子 issue（测量不够就在主 issue 下再建一条 Task，不在原测量 issue 里续写）
+gh issue edit <父n> -R windy10v10ai/<repo> --add-sub-issue <子n>,<子n>
 
 # 设 Priority / Effort（issueFields 可一次传多个）
 gh api graphql -f query='mutation{setIssueFieldValue(input:{issueId:"<id>",issueFields:[{fieldId:"<字段id>",singleSelectOptionId:"<选项id>"}]}){clientMutationId}}'

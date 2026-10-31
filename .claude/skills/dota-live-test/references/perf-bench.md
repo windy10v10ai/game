@@ -7,8 +7,10 @@
 标准命令（场景测试开局就拉满级发装备，热身默认 1.5 分钟，不跑到后期）：
 
 ```bash
-npm run perf -- --scenes <场景> --conditions <条件,...> --swapItems <物品>
+npm run perf -- --server tools --scenes <场景> --conditions <条件,...> --swapItems <物品>
 ```
+
+必须带 `--server tools`：只有工具模式有引擎剖析器数据，不带则报告里「每 tick ms 差」那列是空的。
 
 - 合成物品先拆部件测：`--swapItems <成品>` 量整件，`--itemModifiers <成品>:<modifier>:native`（原版）或 `<成品>:<modifier>:<脚本路径>`（Lua）以成品为来源单挂某个部件，组合条件 `a+b` 量几个部件合计
 - 同一局里条件段与基线段交替、顺序打乱，结果读各条件相对前后基线的差，不拿不同对局的绝对值比

@@ -84,7 +84,7 @@ export const itemTiers: Tier[] = [
       'item_ancient_janggo', // 韧鼓
       'item_holy_locket', // 圣洁吊坠
       'item_consecrated_wraps', // 圣化护服
-      'item_veil_of_discord_2', // 纷争面纱
+      'item_veil_of_discord', // 纷争面纱
     ],
   },
   // 1k

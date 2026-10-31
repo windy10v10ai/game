@@ -16,6 +16,8 @@ export interface ApiParameter {
   body?: object;
   successFunc: (data: string) => void;
   failureFunc?: (data: string) => void;
+  /** 2xx 时的回应内容校验，不通过按可重试失败处理 */
+  validateResponse?: (body: string) => boolean;
   /** 总尝试次数而非重试次数：1 表示只发一次不再重试，默认 3 表示首次加两次重试 */
   retryTimes?: number;
   timeoutSeconds?: number;
@@ -144,26 +146,31 @@ export class ApiClient {
     const maxRetryTimes = apiParameter.retryTimes || ApiClient.RETRY_TIMES;
     const retry = () => {
       this.send(apiParameter, (result: CScriptHTTPResponse) => {
-        // if 20X
         print(`[ApiClient] return with status code: ${result.StatusCode}`);
-        if (result.StatusCode < 200 || result.StatusCode >= 300) {
-          print(`[ApiClient] failed response body: ${result.Body}`);
-        }
-        if (result.StatusCode >= 200 && result.StatusCode < 300) {
+        const is2xx = result.StatusCode >= 200 && result.StatusCode < 300;
+        const validate = apiParameter.validateResponse;
+        if (is2xx && (!validate || validate(result.Body))) {
           apiParameter.successFunc(result.Body);
-        } else if (!isRetryableStatus(result.StatusCode)) {
-          if (apiParameter.failureFunc) {
-            apiParameter.failureFunc(result.Body);
-          }
+          return;
+        }
+        if (is2xx) {
+          print(`[ApiClient] invalid response body: ${result.Body}`);
         } else {
-          retryCount++;
-          if (retryCount < maxRetryTimes) {
-            print(`[ApiClient] getWithRetry retry ${retryCount}`);
-            retry();
-          } else {
+          print(`[ApiClient] failed response body: ${result.Body}`);
+          if (!isRetryableStatus(result.StatusCode)) {
             if (apiParameter.failureFunc) {
               apiParameter.failureFunc(result.Body);
             }
+            return;
+          }
+        }
+        retryCount++;
+        if (retryCount < maxRetryTimes) {
+          print(`[ApiClient] getWithRetry retry ${retryCount}`);
+          retry();
+        } else {
+          if (apiParameter.failureFunc) {
+            apiParameter.failureFunc(result.Body);
           }
         }
       });
