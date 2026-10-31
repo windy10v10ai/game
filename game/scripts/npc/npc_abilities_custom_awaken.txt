@@ -181,7 +181,8 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"						"abilities/ts_abilities/special_bonus_unique_skywrath_upgrade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityCastPoint"				"1.0"
 		"AbilityTextureName"			"skywrath_mage_staff_of_the_scion"
 		"MaxLevel"						"1"
 
@@ -528,7 +529,8 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/axe_auto_culling_blade"
 		"AbilityTextureName"			"axe_auto_culling_blade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityCastPoint"				"1.0"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"						"4"
 		"RequiredLevel"					"6"
@@ -544,7 +546,8 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/legion_commander_auto_duel"
 		"AbilityTextureName"			"legion_commander_duel"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityCastPoint"				"1.0"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"						"4"
 		"RequiredLevel"					"6"
@@ -643,7 +646,8 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_zuus_upgrade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityCastPoint"				"1.0"
 		"AbilityTextureName"			"zuus_static_field_alt1"
 		"MaxLevel"						"1"
 	}
@@ -811,7 +815,8 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_bristleback_upgrade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityCastPoint"				"1.0"
 		"AbilityTextureName"			"bristleback/bb_2022_immortal_ability_icon/bb_2022_immortal_bristleback"
 		"MaxLevel"						"1"
 	}
