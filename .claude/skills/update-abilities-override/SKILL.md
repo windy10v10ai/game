@@ -22,7 +22,7 @@ disable-model-invocation: true
 
 用户分批贴日志，每批走一遍：
 
-1. **核对**：把本批每条改动交给 `model: "sonnet"` 的 subagent，对比上一版与新版 `docs/reference` 目录（布局见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」），返回每条的系统名、KV 键、新旧值，以及新旧 diff 里日志没提到的改动。主会话自己读 override 与 `npc_heroes_custom.txt`（subagent 不判定改法）。
+1. **核对**：把本批每条改动交给主力档 subagent，对比上一版与新版 `docs/reference` 目录（布局见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」），返回每条的系统名、KV 键、新旧值，以及新旧 diff 里日志没提到的改动。主会话自己读 override 与 `npc_heroes_custom.txt`（subagent 不判定改法）。
 2. **出核对表**：每条日志一行，标出本图现状与处理——
    - 本图没写该键 → **自动生效**（基础属性同理：英雄不在 `npc_heroes_custom.txt` 或没写该字段即继承）
    - override 写了该键 → 按 P1–P3 给出新值

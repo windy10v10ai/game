@@ -17,7 +17,7 @@ description: 和用户一起给某个 issue 定 spec，写成执行说明交给 
 
 读 issue 正文、评论、关联的 issue / PR，再读相关代码，读到能说清「现在是什么样、要改成什么样」为止。
 
-判断是否适合交给 agent（标准见 `agent-autorun.md`「适合交给 agent 的 issue」）。不适合时告诉用户原因，打 `L4-investigate`，建议用户在场时在 Claude Desktop 用 Opus 做。其中能写成固定步骤的测量或验证，和用户商量拆成子 issue（见 `agent-autorun.md`「从 L4 拆出测量子 issue」），子 issue 按本 skill 从第 2 步定 spec，父 issue 到此结束。
+判断是否适合交给 agent（标准见 `agent-autorun.md`「适合交给 agent 的 issue」）。不适合时告诉用户原因，打 `L4-investigate`，留给用户在场时用最强档模型做。其中能写成固定步骤的测量或验证，和用户商量拆成子 issue（见 `agent-autorun.md`「从 L4 拆出测量子 issue」），子 issue 按本 skill 从第 2 步定 spec，父 issue 到此结束。
 
 完成条件：能用一两句话复述目标，并已判断适合交给 agent。
 

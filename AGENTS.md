@@ -81,5 +81,5 @@ Claude Code 直接读 `.claude/skills`；Codex 与 DSH 读仓库下的 `.agents/
 
 - `AskUserQuestion`：在对话里列出选项向用户提问，等回答再继续
 - 「调用 xxx skill」：读 `.claude/skills/xxx/SKILL.md` 并照做
-- 派 SubAgent 并指定 `model: "haiku"` / `"sonnet"`：用你自己的子任务机制，没有就直接做，模型名忽略
+- 派 SubAgent 并指定档位（最便宜档 / 主力档）：用你自己的子任务机制，没有就直接做，档位忽略
 - `CLAUDE.md` 自动加载：按第 2 节手动读
