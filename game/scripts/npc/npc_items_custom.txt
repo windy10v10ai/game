@@ -7697,7 +7697,7 @@
 		"ItemShopTags"				"str;agi;int;health;mana;regen;hard_to_tag"
 		"ItemQuality"				"epic"
 		"ItemPurchasable"			"1"
-		"ItemSellable"				"0"
+		"ItemSellable"				"1"
 
 		"precache"
 		{
