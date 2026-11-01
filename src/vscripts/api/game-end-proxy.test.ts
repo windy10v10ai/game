@@ -1,5 +1,6 @@
 import { GameEndDto, GameEndPlayerDto, GamePerfDto } from './analytics/dto/game-end-dto';
-import { canRetryGameEnd, splitGameEndByPlayer } from './game-end-proxy';
+import { isRetryableStatus } from './api-client';
+import { buildSettledResponse, canRetryGameEnd, splitGameEndByPlayer } from './game-end-proxy';
 import { MAX_SEGMENTS } from '../modules/lag-telemetry/lag-tracker';
 import { base64UrlEncode } from '../utils/base64url';
 
@@ -138,5 +139,21 @@ describe('canRetryGameEnd', () => {
     expect(canRetryGameEnd('unauthorized', 1)).toBe(false);
     expect(canRetryGameEnd('not_found', 1)).toBe(false);
     expect(canRetryGameEnd('too_long', 1)).toBe(false);
+  });
+});
+
+describe('buildSettledResponse', () => {
+  it('returns OK when every player settled', () => {
+    expect(buildSettledResponse(3, 3)).toEqual({ StatusCode: 200, Body: 'OK' });
+  });
+
+  it('returns OK when at least one player settled', () => {
+    expect(buildSettledResponse(3, 1)).toEqual({ StatusCode: 200, Body: 'OK' });
+  });
+
+  it('returns 408 that the outer layer does not retry when nobody settled', () => {
+    const result = buildSettledResponse(3, 0);
+    expect(result.StatusCode).toBe(408);
+    expect(isRetryableStatus(result.StatusCode)).toBe(false);
   });
 });
