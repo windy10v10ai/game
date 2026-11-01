@@ -509,6 +509,9 @@
 				"IsBuff"				"1"
 				"IsPurgable"			"0"
 				"TextureName"			"item_aeon_amulet"
+				// 炎阳纹章友方特效里只取头顶盾牌：外层特效的环挂在控制点 1，KV 设不了
+				"EffectName"			"particles/items3_fx/star_emblem_friend_shield.vpcf"
+				"EffectAttachType"		"follow_overhead"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%item_aeon_amulet_guard_mana_regen"

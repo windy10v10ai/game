@@ -54,14 +54,7 @@ export class ItemAeonAmulet extends BaseItem {
       return;
     }
 
-    unit.EmitSound('DOTA_Item.MedallionOfCourage.Activate');
-    const fx = ParticleManager.CreateParticle(
-      'particles/items2_fx/medallion_of_courage_friend.vpcf',
-      ParticleAttachment.ABSORIGIN_FOLLOW,
-      unit,
-    );
-    ParticleManager.ReleaseParticleIndex(fx);
-
+    unit.EmitSound('Item.StarEmblem.Friendly');
     unit.Purge(false, true, false, true, true);
 
     const duration = this.GetSpecialValueFor('guard_duration');
@@ -151,8 +144,8 @@ export class ModifierItemAeonAmuletHeal extends BaseModifier {
 
     const interval = ability.GetSpecialValueFor('guard_heal_interval');
     this.ticksLeft = ability.GetSpecialValueFor('guard_duration') / interval;
-    this.healPerTick = ability.GetSpecialValueFor('guard_regen') * interval;
-    this.healPctPerTick = (ability.GetSpecialValueFor('guard_regen_pct') / 100) * interval;
+    this.healPerTick = ability.GetSpecialValueFor('guard_heal') / this.ticksLeft;
+    this.healPctPerTick = ability.GetSpecialValueFor('guard_heal_pct') / 100 / this.ticksLeft;
     this.StartIntervalThink(interval);
   }
 

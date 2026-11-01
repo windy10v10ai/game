@@ -3548,7 +3548,7 @@
 
 		// item_aeon_amulet 永恒护符
 		"DOTA_Tooltip_Ability_item_aeon_amulet"						"<font color='#FF9A3C'>Aeon Amulet</font>"
-		"DOTA_Tooltip_ability_item_aeon_amulet_Description"						"<h1>Active: Aeon Guard</h1>Applies a Strong Dispel to an allied hero. The target and you gain <font color='#FF9A3C'>Aeon Guard</font> for %guard_duration% seconds:<br>Restores %guard_regen% +%guard_regen_pct%%% max health and mana per second<br>-%guard_damage_reduction%%% damage taken<br>+%guard_attack_speed% attack speed<br>+%guard_move_speed% movement speed<br>+%slow_resist%%% <font color='#9EC8E3'>Slow Resistance</font><br>+%status_resistance%%% <font color='#B99012'>Status Resistance</font><br><font color='#D7CCC7'>Invisible</font> <font color='#7D7D7D'>(revealed when you attack or cast)</font><br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Aeon Aegis</h1>When you take damage from a hero and your health falls below %health_threshold_pct%%%, automatically triggers <font color='#FF9A3C'>Aeon Guard</font> on yourself, and for %buff_duration% seconds all damage you deal and are dealt is reduced to zero."
+		"DOTA_Tooltip_ability_item_aeon_amulet_Description"						"<h1>Active: Aeon Guard</h1>Applies a Strong Dispel to an allied hero. The target and you gain <font color='#FF9A3C'>Aeon Guard</font> for %guard_duration% seconds, restoring a total of %guard_heal% +%guard_heal_pct%%% max health and mana, and becoming <font color='#D7CCC7'>invisible</font> and <font color='#9EC8E3'>immune to slows</font>.<br>+%guard_damage_reduction%%% damage reduction<br>+%guard_attack_speed% attack speed<br>+%guard_move_speed% movement speed<br>+%status_resistance%%% <font color='#B99012'>Status Resistance</font><br><br>Invisibility breaks when you attack or cast.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Aeon Aegis</h1>When you take damage from a hero and your health falls below %health_threshold_pct%%%, automatically triggers <font color='#FF9A3C'>Aeon Guard</font> on yourself, and for %buff_duration% seconds all damage you deal and are dealt is reduced to zero."
 		"DOTA_Tooltip_ability_item_aeon_amulet_Lore"						"A light sleeps inside the amulet, and it never goes out."
 		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_all_stats"						"+$all"
 		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_health"						"+$health"
@@ -3558,7 +3558,7 @@
 		"DOTA_Tooltip_ability_item_aeon_amulet_Note0"						"Enters cooldown after triggering automatically, shared with the active."
 
 		"DOTA_Tooltip_modifier_item_aeon_amulet_guard"						"<font color='#FF9A3C'>Aeon Guard</font>"
-		"DOTA_Tooltip_modifier_item_aeon_amulet_guard_Description"						"Restores health and mana every second, reduces damage taken, increases attack speed and movement speed, and grants Slow Resistance and Status Resistance."
+		"DOTA_Tooltip_modifier_item_aeon_amulet_guard_Description"						"Restores health and mana over time, reduces damage taken, increases attack speed and movement speed, and grants invisibility, slow immunity and Status Resistance."
 
 		// 德古拉面罩/生命之盔
 		"DOTA_Tooltip_Ability_item_dracula_mask"										"Dracula's Mask"

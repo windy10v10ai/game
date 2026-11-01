@@ -3550,7 +3550,7 @@
 
 		// item_aeon_amulet 永恒护符
 		"DOTA_Tooltip_Ability_item_aeon_amulet"						"<font color='#FF9A3C'>永恒护符</font>"
-		"DOTA_Tooltip_ability_item_aeon_amulet_Description"						"<h1>主动：永恒守护</h1>对一名友方英雄施加强驱散，目标和你获得%guard_duration%秒<font color='#FF9A3C'>永恒守护</font>：<br>每秒回复%guard_regen% +%guard_regen_pct%%%最大生命值和魔法值<br>-%guard_damage_reduction%%% 受到的伤害<br>+%guard_attack_speed% 攻击速度<br>+%guard_move_speed% 移动速度<br>+%slow_resist%%% <font color='#9EC8E3'>减速抗性</font><br>+%status_resistance%%% <font color='#B99012'>状态抗性</font><br><font color='#D7CCC7'>隐身</font><font color='#7D7D7D'>（攻击或施法后现形）</font><br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：永恒护佑</h1>受到英雄伤害且生命值低于%health_threshold_pct%%%时，自动对自己触发<font color='#FF9A3C'>永恒守护</font>，并在%buff_duration%秒内受到和造成的伤害全部归零。"
+		"DOTA_Tooltip_ability_item_aeon_amulet_Description"						"<h1>主动：永恒守护</h1>对一名友方英雄施加强驱散，目标和你获得%guard_duration%秒<font color='#FF9A3C'>永恒守护</font>，期间累计恢复%guard_heal% +%guard_heal_pct%%%最大生命值和魔法值，并获得<font color='#D7CCC7'>隐身</font>和<font color='#9EC8E3'>减速免疫</font>。<br>+%guard_damage_reduction%%% 伤害减免<br>+%guard_attack_speed% 攻击速度<br>+%guard_move_speed% 移动速度<br>+%status_resistance%%% <font color='#B99012'>状态抗性</font><br><br>攻击或施法后现形。<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：永恒护佑</h1>受到英雄伤害且生命值低于%health_threshold_pct%%%时，自动对自己触发<font color='#FF9A3C'>永恒守护</font>，并在%buff_duration%秒内受到和造成的伤害全部归零。"
 		"DOTA_Tooltip_ability_item_aeon_amulet_Lore"						"护符里沉睡着一束不会熄灭的光。"
 		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_all_stats"						"+$all"
 		"DOTA_Tooltip_ability_item_aeon_amulet_bonus_health"						"+$health"
@@ -3560,7 +3560,7 @@
 		"DOTA_Tooltip_ability_item_aeon_amulet_Note0"						"自动触发后进入冷却，与主动共用冷却。"
 
 		"DOTA_Tooltip_modifier_item_aeon_amulet_guard"						"<font color='#FF9A3C'>永恒守护</font>"
-		"DOTA_Tooltip_modifier_item_aeon_amulet_guard_Description"						"每秒回复生命和魔法，受到的伤害降低，攻击速度和移动速度提高，同时获得减速抗性与状态抗性。"
+		"DOTA_Tooltip_modifier_item_aeon_amulet_guard_Description"						"持续恢复生命和魔法，受到的伤害降低，攻击速度和移动速度提高，并获得隐身，减速免疫与状态抗性。"
 
 		// 德古拉面罩/生命之盔
 		"DOTA_Tooltip_Ability_item_dracula_mask"										"<font color='#8B0000'>生命之盔</font>"
