@@ -37,8 +37,6 @@
   $.GetContextPanel().aghsFixInstance = instance;
 
   var tooltipPanel = null;
-  var tooltipShown = false;
-  var lastTitle = null;
 
   function localize(token) {
     var text = $.Localize(token);
@@ -66,13 +64,18 @@
     return false;
   }
 
+  // 觉醒技能名带颜色标签，提示里显示的是去掉标签后的文字
+  function plainText(text) {
+    return text.replace(/<[^>]*>/g, '');
+  }
+
   // 提示面板只给了本地化后的技能名，靠它在当前选中单位的技能里反查
   function findHoveredAbility(unit, title) {
     for (var i = 0; i < MAX_ABILITY_SLOTS; i++) {
       var ability = Entities.GetAbility(unit, i);
       if (ability === -1) continue;
       var name = Abilities.GetAbilityName(ability);
-      if ($.Localize('#DOTA_Tooltip_ability_' + name) === title)
+      if (plainText($.Localize('#DOTA_Tooltip_ability_' + name)) === title)
         return { entity: ability, name: name };
     }
     return null;
@@ -131,16 +134,17 @@
   function patchKind(tooltip, hovered, kind, owned) {
     var desc = tooltip.FindChildTraverse(KINDS[kind].descriptionId);
     if (!desc) return;
-    var ours = desc.BHasClass(MARKER_CLASS);
-    if (!ours && isNativeFilled(desc, kind)) return;
     var text = upgradeText(hovered.name, kind, hovered.entity);
-    if (text !== null) {
-      buildDescription(desc, kind, text, owned);
-    } else if (ours) {
-      // 上一个技能留下的补丁内容不能带到没有说明的技能上
-      desc.RemoveAndDeleteChildren();
+    if (text === null) {
+      // 没有说明文案时原生自己会显示「未找到」或留空，不能动它的内容，只摘掉我们留下的标记
       desc.RemoveClass(MARKER_CLASS);
+      return;
     }
+    var ours = desc.BHasClass(MARKER_CLASS);
+    // 补过且内容还在就不重建；原生后来把内容换成「未找到」时这里会重新补
+    if (ours && desc.FindChildTraverse(KINDS[kind].statusId)) return;
+    if (!ours && isNativeFilled(desc, kind)) return;
+    buildDescription(desc, kind, text, owned);
   }
 
   function patch(tooltip) {
@@ -158,21 +162,15 @@
     if (!tooltipPanel) tooltipPanel = root.FindChildTraverse('DOTAAbilityTooltip');
     var tooltip = tooltipPanel;
     var shown = !!tooltip && tooltip.visible;
-    var titleLabel = shown ? tooltip.FindChildTraverse('AbilityName') : null;
-    var title = titleLabel ? titleLabel.text : null;
-    if (shown && (!tooltipShown || title !== lastTitle)) {
-      // 原生内容在显示后才填入，等一帧再改
-      $.Schedule(0.1, function () {
-        try {
-          patch(tooltip);
-        } catch (e) {
-          // 游戏更新改了原生控件结构时，保持原生提示不报错
-          $.Msg('[aghs_tooltip_fix] ' + e);
-        }
-      });
+    if (shown) {
+      // 原生面板是复用的，冷启动时内容要晚一步才填好，所以每轮都补一次，补过会跳过
+      try {
+        patch(tooltip);
+      } catch (e) {
+        // 游戏更新改了原生控件结构时，保持原生提示不报错
+        $.Msg('[aghs_tooltip_fix] ' + e);
+      }
     }
-    tooltipShown = shown;
-    lastTitle = title;
     $.Schedule(0.2, poll);
   }
   poll();

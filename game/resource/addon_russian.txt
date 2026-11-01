@@ -1130,7 +1130,8 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"						"<font color='#d000ff'>Убийственный выстрел (пробужд.)</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"			"Снайпер захватывает вражеских героев в области и выпускает сокрушительные пули, наносящие на большой дистанции атаку с гарантированным критическим ударом и дополнительным физическим уроном.<br><br><font color='#FFFFFF'>Аганимовский скипетр: поражённые герои также оглушаются.</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"			"Снайпер захватывает вражеских героев в области и выпускает сокрушительные пули, наносящие на большой дистанции атаку с гарантированным критическим ударом и дополнительным физическим уроном."
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_description"	"Поражённые герои также оглушаются."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"					"В этот миг всё поле боя затаило дыхание."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"					"Эффект прицела виден только союзникам."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"					"Невидимость не сбивает снаряд."
@@ -1596,10 +1597,12 @@
 
 		// 末日使者-觉醒
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Рок: пробуждение</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает на врага проклятие Рок, развеивает его и не позволяет ему <font color='#6db6e9'>использовать способности</font> или получать какое-либо <font color='#07d738'>лечение</font>, одновременно нанося периодический урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nС <font color='#92acf5'>Скипетр Аганима</font> Рок также накладывает <font color='#DD621E'>Разрушение</font> и может применяться к владельцу или <font color='#FFFFFF'>союзному герою</font>, который будет непрерывно накладывать Рок на врагов в радиусе %scepter_aura_radius%, сам не получая Рок.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Пожирание</font>, автоматически повышаются до максимального уровня."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает на врага проклятие Рок, применяет к нему простое развеивание и не позволяет ему <font color='#6db6e9'>использовать способности</font> или получать какое-либо <font color='#07d738'>лечение</font>, одновременно нанося периодический урон.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Пожирание</font>, автоматически повышаются до максимального уровня."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_description"	"Рок также накладывает <font color='#DD621E'>Разрушение</font> и может применяться к владельцу или <font color='#FFFFFF'>союзному герою</font>, который будет непрерывно накладывать Рок на врагов в радиусе %scepter_aura_radius%, сам не получая Рок."
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"ДЛИТЕЛЬНОСТЬ ОБЛАСТИ РОКА:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"УРОН В СЕКУНДУ:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Lore"					"По ком прозвонил колокол Вашундола, за тем последует неминуемый рок."
 		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"Область Рока"
 		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Враги в радиусе %dMODIFIER_PROPERTY_TOOLTIP% непрерывно получают Рок."
 		// 斯温-觉醒

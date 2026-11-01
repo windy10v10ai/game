@@ -1130,7 +1130,8 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"							"<font color='#d000ff'>Assassinate Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage.<br><br><font color='#FFFFFF'>Aghanim's Scepter: affected enemy heroes are also stunned.</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage."
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_description"	"Affected enemy heroes are also stunned."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
@@ -1596,10 +1597,12 @@
 
 		// Doom Awakened
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Doom Awakened</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Inflicts a curse that dispels an enemy and prevents them from casting spells or healing in any way, while taking damage over time.\n\nDISPEL TYPE: Basic Dispel\n\nWith <font color='#92acf5'>Aghanim's Scepter</font>, Doom also applies <font color='#DD621E'>Break</font> and may target the caster or an <font color='#FFFFFF'>allied hero</font> instead, continuously Dooming enemies within a %scepter_aura_radius% radius without affecting the target itself.\n\nAfter awakening, neutral abilities gained through <font color='#FFFFFF'>Devour</font> are automatically raised to their maximum level."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Inflicts a curse that applies a Basic Dispel to an enemy and prevents them from casting spells or healing in any way, while taking damage over time.\n\nAfter awakening, neutral abilities gained through <font color='#FFFFFF'>Devour</font> are automatically raised to their maximum level."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_description"	"Doom also applies <font color='#DD621E'>Break</font> and may target the caster or an <font color='#FFFFFF'>allied hero</font> instead, continuously Dooming enemies within a %scepter_aura_radius% radius without affecting the target itself."
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"DURATION:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"AREA DOOM DURATION:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Lore"					"When a name is tolled from the bell of Vashundol, doom is sure to follow."
 		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"Area Doom"
 		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Enemies within %dMODIFIER_PROPERTY_TOOLTIP% range are continuously Doomed."
 		// Sven Awakened
