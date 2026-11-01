@@ -74,7 +74,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
   - Checklist：执行说明「实机验证」的每一项
   - 验证记录评论写：测试视角、每条验收命令与结果
   - 「等你处理」：「请确认」「待你决定」「发现」三组，每条 checkbox 写清文件与步骤，都空写「无」
-  - Release Note 按执行说明：「不写」删占位段，「要写」把要点原文贴进该段，不改写，正式文案收尾时调用 `release-note`
+  - Release Note 按执行说明：「不写」删占位段，「要写」把要点原文贴进该段，不改写，单条模式收尾时调用 `release-note`（来源：该 PR，写回：执行说明定的写回方式），不再问用户，批量模式由调度员在 `issue-autorun` 第 6 步调用。执行说明没写写回方式的按「仅写入功能 PR」，写回 release PR 记进「请确认」
 - 执行说明「改动范围」写「无」的测量类 issue：不 commit、不开 PR，数据写进 issue 留言，报告格式见 `agent-issue.md`「从 L4 拆出测量子 issue」
 
 ## 6. 实机验证

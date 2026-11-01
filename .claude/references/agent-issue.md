@@ -38,9 +38,9 @@ firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/fir
 - **做法**：先写用哪个 skill（如「按 `clone-ability`」；`AGENTS.md` 对照表里没有对得上的写「无」），再写已拍板的实现方案，含选型（如「用 KV Properties，不新增 Lua modifier」）
 - **改动范围**：允许改的文件或目录，逐条列出
 - **不做**：明确排除的相关改动
-- **验收**：必须通过的命令（默认 `npm test`、`npm run lint`、`npm run build:vscripts`；改 Panorama 加 `npm run build:panorama`），以及要补的 jest 用例，每个用例写明输入与预期
+- **验收**：必须通过的命令（默认 `npm test`、`npm run lint`、`npm run build:vscripts`；改 Panorama 加 `npm run build:panorama`；带持续性 buff 或永久属性的技能、物品加性能基准，见根 `CLAUDE.md`「Implementation Style」），以及要补的 jest 用例，每个用例写明输入与预期
 - **实机验证**：需要 / 不需要；需要时逐项标层级（见下文「实机验证分三层」）并写到可判定
-- **Release Note**：不写 / 要写，附用户确认过的中文要点原文（面向玩家的一句话，`issue-spec` 时给用户看草稿定稿）
+- **Release Note**：不写 / 要写。要写时附用户确认过的中英文要点原文（面向玩家的一句话），以及写回方式：「写入功能 PR 并合并进聚合 release PR」或「仅写入功能 PR」。两者都在 `issue-spec` 时和用户定稿，`issue-autorun` 时没有机会再问。目标版本与插在版本块哪个位置不写，开 PR 时由 `release-note` 按 `.claude/references/release-version.md` 与重要度排序自己定
 ```
 
 目标拆成几条互不依赖的小项，agent 卡在其中一条时才能跳过它继续做别的。
