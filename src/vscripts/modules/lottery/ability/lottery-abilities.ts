@@ -173,7 +173,6 @@ export const abilityTiersActive: Tier[] = [
       // 'luna_lucent_beam', // 月光
       'magnataur_shockwave', // 震荡波
       'lich_death_charge', // 献身
-      'dark_seer_vacuum', // 真空
       'treant_natures_grasp', // 自然卷握
 
       // 自定义技能
@@ -319,7 +318,6 @@ export const abilityTiersPassive: Tier[] = [
       'axe_one_man_army2', // 斧王 一人成军
       'dark_seer_quick_wit2', // 才思敏捷
       'rubick_might_and_magus2', // 拉比克 力量与魔法
-      'keeper_of_the_light_bright_speed2', // 光之守卫 光明速度
     ],
   },
   {

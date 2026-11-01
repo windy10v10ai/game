@@ -22,7 +22,7 @@ disable-model-invocation: true
 
 用户分批贴日志，每批走一遍：
 
-1. **核对**：把本批每条改动交给 `model: "sonnet"` 的 subagent，对比上一版与新版 `docs/reference` 目录（布局见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」），返回每条的系统名、KV 键、新旧值，以及新旧 diff 里日志没提到的改动。主会话自己读 override 与 `npc_heroes_custom.txt`（subagent 不判定改法）。
+1. **核对**：把本批每条改动交给主力档 subagent，对比上一版与新版 `docs/reference` 目录（布局见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」），返回每条的系统名、KV 键、新旧值，以及新旧 diff 里日志没提到的改动。主会话自己读 override 与 `npc_heroes_custom.txt`（subagent 不判定改法）。
 2. **出核对表**：每条日志一行，标出本图现状与处理——
    - 本图没写该键 → **自动生效**（基础属性同理：英雄不在 `npc_heroes_custom.txt` 或没写该字段即继承）
    - override 写了该键 → 按 P1–P3 给出新值
@@ -210,4 +210,4 @@ disable-model-invocation: true
    - [ ] 百分比键（`_pct` 等）：各档不超过 100；参考最大值 > 50 时已改写差值封顶
    - [ ] 有注释的键：参考基数与当前版本一致，规则标记与 value 重算结果一致
    - [ ] `延伸` 标记与无注释的键：value 与参考差值延伸完全吻合；本次改到的纯延伸行都带 `延伸` 标记
-4. 所有英雄处理完毕后，调用 `update-heroes-custom` 对本次修改的英雄逐一验证 Bot.Build 合规性（英雄不在 `npc_heroes_custom.txt` 时无 Bot.Build，跳过）。
+4. 所有英雄处理完毕后，调用 `bot-skill-build` 对本次修改的英雄逐一验证 Bot.Build 合规性（英雄不在 `npc_heroes_custom.txt` 时无 Bot.Build，跳过）。

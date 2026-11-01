@@ -147,3 +147,23 @@ _G.ModifierEventRegisterDamageByAttacker = (attacker, owner, handler) =>
   ModifierEventHub.RegisterDamageByAttacker(attacker, owner, handler);
 _G.ModifierEventUnregisterDamageByAttacker = (attacker, owner) =>
   ModifierEventHub.UnregisterDamageByAttacker(attacker, owner);
+
+declare global {
+  /** 供 Lua 物品登记单位被加 modifier 时的处理 */
+  function ModifierEventRegisterModifierAdded(
+    this: void,
+    unit: CDOTA_BaseNPC,
+    owner: object,
+    handler: (this: void, event: ModifierAddedEvent) => void,
+  ): void;
+  function ModifierEventUnregisterModifierAdded(
+    this: void,
+    unit: CDOTA_BaseNPC,
+    owner: object,
+  ): void;
+}
+
+_G.ModifierEventRegisterModifierAdded = (unit, owner, handler) =>
+  ModifierEventHub.RegisterModifierAdded(unit, owner, handler);
+_G.ModifierEventUnregisterModifierAdded = (unit, owner) =>
+  ModifierEventHub.UnregisterModifierAdded(unit, owner);

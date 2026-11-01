@@ -23,7 +23,7 @@ disable-model-invocation: true
 2. **拿权限**：一次 `request_access` 申请 `["Dota 2", "dota2.exe"]` 两项，Workshop Tools 的窗口属于后者，只申请前者会再弹一次。
    完成：两项都在已授权列表里。
 
-3. **编译**：确认当前分支就是要发的内容，跑 `npm run build`。换机器 clone 后先用 Dota tools 完整编译一次，否则包里缺 Panorama 图片（见 `add-image` skill）。
+3. **编译**：在 `develop` 最新提交上跑 `npm run build`（`git checkout develop && git pull`）。release PR（`develop → main`）不先合并，等第 6 步做完、发布成功后，提醒用户合并 release PR。换机器 clone 后先用 Dota tools 完整编译一次，否则包里缺 Panorama 图片（见 `add-image` skill）。
    完成：编译无报错。
 
 4. **上传**：Dota tools 没开就运行 `game/bin/win64/dota2.exe -novid -tools -addon windy10v10ai`，再用 computer use：
@@ -47,7 +47,7 @@ disable-model-invocation: true
 
 ## 定时发布
 
-到点时没人能点授权弹窗，所以**设置定时任务的当下**就先做第 2 步拿到 Dota 两项权限，并确认 Chrome 已登录 Steam，再创建任务。任务内容是第 3～6 步，目标和中英文日志在设置时就向用户确认好。
+到点时没人能点授权弹窗，所以**设置定时任务的当下**就先做第 2 步拿到 Dota 两项权限，并确认 Chrome 已登录 Steam，再创建任务。任务内容是第 3～6 步（release PR 仍在发布后才合并），目标和中英文日志在设置时就向用户确认好。
 
 ## computer use 的坑
 

@@ -66,6 +66,22 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 
 壳技能自己承担冷却与法力消耗，KV 里必须写全（含 `AbilityCooldown` 的天赋引用行）。**不要**在 TS 里覆写 `GetCooldown` / `GetManaCost` 转发给原生技能：那是服务端钩子，客户端技能面板直接读 KV、不跑这段 Lua，面板会显示成 0。
 
+壳技能调原生 `OnSpellStart()` 是**绕过引擎施法管线**，引擎负责的事全要自己补，漏了不报错、只会静默穿透：
+
+| 引擎原本负责 | 绕过时要手动做 |
+| ---- | ---- |
+| 扣蓝、进 CD | `UseResources(true, false, false, true)`，冷却写在壳技能 KV |
+| 施法距离 / 目标合法性 | 自己 `FindUnitsInRadius` 过滤 |
+| 林肯格挡 | `target.TriggerSpellAbsorb(ability)` 先破林肯 |
+| 莲花 / 神镜盾反弹 | 跳过会反弹的目标，否则效果会反弹到自己 |
+| 施法事件（`OnAbilityExecuted` 等） | 需要时手动触发，或改用 `CastAbilityImmediately` |
+
+手动施放路径走引擎，林肯由引擎处理。莲花只反弹壳技能本身，壳技能的效果由隐藏的原生技能承载时，引擎不会替原生技能反弹：`OnSpellStart` 里对会反弹的目标要调 `target.TriggerSpellReflect(原生技能)` 后返回（参考 PA），直接调原生技能的 `OnSpellStart()` 会命中莲花目标本身，直接 return 则一份都不反弹（均已实机验证）。
+
+**优先走引擎**：能 `CastAbilityImmediately` 施放原生技能就别直接调 `OnSpellStart()`。走引擎规则一致、不会漏检查；绕过引擎只在「壳技能管资源/CD、原生技能只提供效果」这种必须拆分时用。
+
+自动施法选目标时，林肯只在长 CD 大招上值得先破，短 CD 技能被格挡影响小、直接放即可；莲花除决斗外默认跳过，避免自动施法把效果反弹到自己。共享实现见 `src/vscripts/abilities/ts_abilities/shared/auto-cast-ability.ts` 的 `willReflect` / `breakSpellAbsorb`。
+
 ## 添加一个新觉醒的步骤
 
 ### 1) 配置
@@ -109,7 +125,7 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 
 - **图标** → 引用 Dota2 原版技能名则不放 png；自定义图标才复制同名 png 到 `game/resource/flash3/images/spellicons/<name>.png`。`AbilityTextureName` 也可直接填**至宝/变体 texture 路径**（如 `necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura`、`drow_ranger/immortal/drow_ranger_wave_of_silence`、`zuus_static_field_alt1`），引擎直接引用，同样无需放 png。
 
-- **本地化** → 新觉醒条目固定排在旧觉醒之上：
+- **本地化** → 写文案前先 Read `game/resource/CLAUDE.md` 与 `.claude/references/localization-format.md`（用脚本批量改文件不会自动加载目录 `CLAUDE.md`，文案规约如「不用分号」会漏掉）。新觉醒条目固定排在旧觉醒之上：
   - `addon_schinese.txt` / `addon_english.txt`：放在 `Awaken Abilities 觉醒技能` 模块的**顶部**，中英同步。
   - `addon_russian.txt`：放在 `Creep / Tower` 区块末尾的 `Awaken Abilities 觉醒技能` 模块，位于 `// Сундук с сокровищами`（藏宝箱）之前。
   - 觉醒条目的开头注释统一使用中文 `// 英雄 xxx觉醒`。标题格式见下。

@@ -24,7 +24,7 @@
 }
 ```
 
-Actions 完整清单见 [Valve Wiki](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven#Actions)。KV 里可以直接 `ApplyModifier` 一个原版 modifier（范例 `item_beast_shield` 的 `modifier_black_king_bar_immune`），不必先在自己的 `Modifiers` 块声明。
+Actions 完整清单见 [Valve Wiki](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven#Actions)。KV 里可以直接 `ApplyModifier` 一个带持续时间的原版状态 modifier（范例 `item_beast_shield` 的 `modifier_black_king_bar_immune`），不必先在自己的 `Modifiers` 块声明。永久型原版物品 modifier 走 `RunScript` 挂摘，见 `datadriven-scope.md`「永久型原版 modifier 的挂/摘」。
 
 Actions 表达不了时接 `RunScript`，Lua 放 `game/scripts/vscripts/items/<name>.lua`，只写全局函数：
 

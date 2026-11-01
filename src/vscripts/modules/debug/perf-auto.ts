@@ -260,6 +260,41 @@ function restoreBotPassives() {
   print(`[perf] bot passives added=${added}`);
 }
 
+// 抽选被动 潮涨潮落：原生被动的属性按英雄等级实时求值，全员各带 1 份量它的常驻开销
+const EBB_AND_FLOW_ABILITY = 'morphling_ebb_and_flow2';
+let ebbAndFlowHeroes: CDOTA_BaseNPC_Hero[] = [];
+
+function addEbbAndFlow() {
+  ebbAndFlowHeroes = [];
+  let added = 0;
+  forEachHero((hero) => {
+    if (hero.HasAbility(EBB_AND_FLOW_ABILITY)) return;
+    const ability = hero.AddAbility(EBB_AND_FLOW_ABILITY);
+    if (!ability) return;
+    ability.SetLevel(1);
+    ebbAndFlowHeroes.push(hero);
+    added++;
+  });
+  print(`[perf] ebb_and_flow added=${added}`);
+}
+
+// 技能挂上的 modifier 也要按来源清掉，否则会留在英雄身上污染后面的基线
+function removeEbbAndFlow() {
+  let removed = 0;
+  for (const hero of ebbAndFlowHeroes) {
+    if (!IsValidEntity(hero)) continue;
+    const ability = hero.FindAbilityByName(EBB_AND_FLOW_ABILITY);
+    if (!ability) continue;
+    for (const modifier of hero.FindAllModifiers()) {
+      if (modifier.GetAbility() === ability) modifier.Destroy();
+    }
+    hero.RemoveAbilityByHandle(ability);
+    removed++;
+  }
+  ebbAndFlowHeroes = [];
+  print(`[perf] ebb_and_flow removed=${removed}`);
+}
+
 // 物品名写成它表示这一格留空：底装空出换装格，测试物品放进去的差值就是它的完整开销
 const EMPTY_SLOT = 'empty';
 
@@ -394,6 +429,40 @@ function restoreMagicResist() {
   });
 }
 
+// 结算前基地锁血：两座基地各带 1 份 KV 最低血量 modifier，量它的常驻开销
+const FORT_LOCK_ABILITY = 'fort_min_health';
+const FORT_LOCK_MODIFIER = 'modifier_fort_min_health';
+const FORT_UNIT_NAMES = ['npc_dota_goodguys_fort', 'npc_dota_badguys_fort'];
+
+function findForts(): CDOTA_BaseNPC[] {
+  return (Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[]).filter((fort) =>
+    FORT_UNIT_NAMES.includes(fort.GetUnitName()),
+  );
+}
+
+function removeFortLock() {
+  let removed = 0;
+  for (const fort of findForts()) {
+    const ability = fort.FindAbilityByName(FORT_LOCK_ABILITY);
+    if (!ability) continue;
+    fort.RemoveModifierByName(FORT_LOCK_MODIFIER);
+    fort.RemoveAbilityByHandle(ability);
+    removed++;
+  }
+  print(`[perf] nofortlock removed=${removed}`);
+}
+
+function restoreFortLock() {
+  let restored = 0;
+  for (const fort of findForts()) {
+    const ability = fort.FindAbilityByName(FORT_LOCK_ABILITY) ?? fort.AddAbility(FORT_LOCK_ABILITY);
+    if (!ability) continue;
+    ability.SetLevel(1);
+    restored++;
+  }
+  print(`[perf] nofortlock restored=${restored}`);
+}
+
 const MELEE_RESISTANCE_MODIFIER = 'modifier_global_melee_resistance';
 let meleeBuffs: CDOTA_Buff[] = [];
 let meleeBuffHeroes: CDOTA_BaseNPC_Hero[] = [];
@@ -441,6 +510,58 @@ function removeMeleeBuff() {
   meleeBuffs = [];
   meleeBuffHeroes = [];
 }
+
+interface StunPulseState {
+  interval: number;
+  duration: number;
+  modifier: string;
+  timer: string | undefined;
+  heroes: CDOTA_BaseNPC_Hero[];
+  count: number;
+  pulse(): number;
+  start(): void;
+  stop(): void;
+}
+
+// 状态抗性只在上负面状态时被查，固定间隔的短眩晕让每次查询都在同一节奏下发生。
+// 顶层局部变量已接近 Lua 主函数的 200 个上限，状态与回调收在一个对象里，不再各占一个
+const STUN_PULSE: StunPulseState = {
+  interval: 1,
+  duration: 0.1,
+  modifier: 'modifier_stunned',
+  timer: undefined,
+  heroes: [],
+  count: 0,
+  pulse() {
+    this.count++;
+    for (const hero of this.heroes) {
+      if (hero.IsNull() || !hero.IsAlive()) continue;
+      hero.AddNewModifier(hero, undefined, this.modifier, { duration: this.duration });
+    }
+    return this.interval;
+  },
+  start() {
+    this.count = 0;
+    const heroes: CDOTA_BaseNPC_Hero[] = [];
+    forEachHero((hero) => heroes.push(hero));
+    this.heroes = heroes;
+    this.timer = Timers.CreateTimer({
+      endTime: this.interval,
+      useGameTime: false,
+      callback: () => this.pulse(),
+    });
+    print(`[perf] stunpulse started heroes=${heroes.length}`);
+  },
+  stop() {
+    if (this.timer !== undefined) Timers.RemoveTimer(this.timer);
+    this.timer = undefined;
+    for (const hero of this.heroes) {
+      if (!hero.IsNull()) hero.RemoveModifierByName(this.modifier);
+    }
+    this.heroes = [];
+    print(`[perf] stunpulse stopped pulses=${this.count}`);
+  },
+};
 
 // 金钱清零前的空档里辅助 bot 仍会买到守卫，落进空着的换装格，每段开始前收走
 function clearWards(hero: CDOTA_BaseNPC_Hero) {
@@ -1112,6 +1233,7 @@ const CONDITIONS: Condition[] = [
     teardown: restoreItems,
   })),
   { name: 'nomagicres', setup: removeMagicResist, teardown: restoreMagicResist },
+  { name: 'nofortlock', setup: removeFortLock, teardown: restoreFortLock },
   {
     name: 'prop_lua',
     setup: () => addProperties(VALUE_PROPERTIES),
@@ -1127,6 +1249,7 @@ const CONDITIONS: Condition[] = [
   { name: 'prop_player', setup: addPlayerProperties, teardown: removePlayerProperties },
   { name: 'nobotpower', setup: removeBotPower, teardown: restoreBotPower },
   { name: 'botpassives', setup: restoreBotPassives, teardown: stripBotPassives },
+  { name: 'ebb_and_flow', setup: addEbbAndFlow, teardown: removeEbbAndFlow },
   {
     name: 'prop_takedamage',
     setup: () => addProperties(DAMAGE_EVENT_PROPERTIES),
@@ -1163,6 +1286,11 @@ const CONDITIONS: Condition[] = [
     setup: () => addMeleeBuff(Number(stacks)),
     teardown: removeMeleeBuff,
   })),
+  {
+    name: 'stunpulse',
+    setup: () => STUN_PULSE.start(),
+    teardown: () => STUN_PULSE.stop(),
+  },
   ...(PERF_CONFIG?.moonStacks ?? '1,10,30').split(',').map((count) => ({
     name: `moonshard_x${count}`,
     setup: () => addMoonShards(Number(count)),

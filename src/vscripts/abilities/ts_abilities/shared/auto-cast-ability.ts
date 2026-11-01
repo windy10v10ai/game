@@ -92,6 +92,20 @@ export function findHeroOrCreepInRange(
   return enemies.find((enemy) => enemy.IsHero()) ?? enemies[0];
 }
 
+/** 英雄优先；allowCreep 为 false 时只考虑英雄，不退而取小兵。 */
+export function findAutoCastTarget(
+  caster: CDOTA_BaseNPC,
+  range: number,
+  allowCreep: boolean,
+  extraFlags: UnitTargetFlags = UnitTargetFlags.NONE,
+  isExcluded: (unit: CDOTA_BaseNPC) => boolean = () => false,
+): CDOTA_BaseNPC | undefined {
+  if (allowCreep) return findHeroOrCreepInRange(caster, range, extraFlags, isExcluded);
+  return findEnemiesInRange(caster, range, UnitTargetType.HERO, extraFlags).find(
+    (enemy) => !isExcluded(enemy),
+  );
+}
+
 /** 瞬发施放（不抢玩家操作）；ability / target 须有效。 */
 export function castImmediatelyOnTarget(
   caster: CDOTA_BaseNPC,
@@ -105,8 +119,6 @@ export function castImmediatelyOnTarget(
 
 const LOTUS_MODIFIER = 'modifier_item_lotus_orb_active';
 const MIRROR_SHIELD = 'item_mirror_shield';
-const LINKENS_ITEMS = ['item_sphere', 'item_sphere_2'];
-const MAIN_INVENTORY_SLOT_COUNT = 6;
 
 /** 目标是否会反弹指向性技能（莲花球生效中，或中立栏里的镜盾已就绪）。只有指向性、被反弹有副作用的自动施放才调用。 */
 export function willReflect(target: CDOTA_BaseNPC): boolean {
@@ -117,17 +129,7 @@ export function willReflect(target: CDOTA_BaseNPC): boolean {
   });
 }
 
-/** 目标的林肯法球已就绪，会格挡下一个指向性技能。背包里的不生效。 */
-export function willBlock(target: CDOTA_BaseNPC): boolean {
-  for (let slot = 0; slot < MAIN_INVENTORY_SLOT_COUNT; slot++) {
-    const item = target.GetItemInSlot(slot);
-    if (
-      item !== undefined &&
-      LINKENS_ITEMS.includes(item.GetAbilityName()) &&
-      item.IsCooldownReady()
-    ) {
-      return true;
-    }
-  }
-  return false;
+/** 先消耗目标的法术吸收（林肯），避免后续自动施放被格挡。 */
+export function breakSpellAbsorb(target: CDOTA_BaseNPC, ability: CDOTABaseAbility): void {
+  target.TriggerSpellAbsorb(ability);
 }

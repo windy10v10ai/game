@@ -166,10 +166,10 @@ export class Game {
       method: HttpMethod.POST,
       path: isLocalhost ? Game.LOCAL_GAME_END_URL : Game.GAME_END_URL,
       body: gameEndDto,
-      // 结算是累加写入。本地结算后端有冷却，已记上的那次会挡住重发；正式结算没有，重发会让积分与战绩翻倍
-      retryTimes: isLocalhost ? 3 : 1,
       // 三次尝试要在基地锁血的等待上限内跑完；后端处理最慢约 1 秒，超时回来时前一次已记上
       timeoutSeconds: 3,
+      // 后端成功时固定回 OK，非 OK 的 2xx 说明响应不是后端给的
+      validateResponse: (data: string) => data === 'OK',
       successFunc: (data: string) => {
         // 启动器联机房间靠这行日志判断结算已结束，改写法要同步启动器
         print(`[Game] end game callback data ${data}`);

@@ -1,4 +1,4 @@
-import { BaseModifier, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
+import { registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
 import {
   calculateAttackDPS,
   calculateStatusResistedDuration,
@@ -6,16 +6,14 @@ import {
 import { applyAwakenMagicImmunity } from './shared/awaken-magic-immunity';
 import {
   AutoCastAbility,
+  breakSpellAbsorb,
   castImmediatelyOnTarget,
   findEnemiesInRange,
   getFullCastRange,
   modifier_autocast_think,
-  willBlock,
-  willReflect,
 } from './shared/auto-cast-ability';
 import { isWarlockInfernalUnitName } from './warlock-awaken-math';
 
-const MAX_SPELL_ABSORB_LAYERS = 16;
 const KILL_TIME_DUEL_DURATION_RATIO = 0.8;
 // 高等级下击杀伤害大量来自普攻以外的来源，纯普攻 DPS 估算过于保守，取消这层折扣
 const LATE_GAME_LEVEL = 30;
@@ -71,24 +69,13 @@ export class LegionCommanderAutoDuel extends AutoCastAbility {
       (enemy) =>
         !enemy.IsIllusion() &&
         !isWarlockInfernalUnitName(enemy.GetUnitName()) &&
-        !willReflect(enemy) &&
-        !willBlock(enemy) &&
         canWinDuel(caster, enemy, duration),
     );
     if (!target) return;
 
-    for (let layer = 0; layer < MAX_SPELL_ABSORB_LAYERS; layer++) {
-      if (!target.TriggerSpellAbsorb(duel)) break;
-    }
-
+    // 决斗被莲花反弹的效果与正常决斗一致，自动施法不规避莲花目标
+    breakSpellAbsorb(target, duel);
     castImmediatelyOnTarget(caster, duel, target);
-
-    target.AddNewModifier(
-      caster,
-      this,
-      modifier_legion_commander_auto_duel_target_unselectable.name,
-      { duration },
-    );
   }
 }
 
@@ -110,32 +97,5 @@ export class modifier_legion_commander_auto_duel_intrinsic extends modifier_auto
     if (!ability) return;
 
     applyAwakenMagicImmunity(parent, ability, event.ability.GetSpecialValueFor('duration'));
-  }
-}
-
-/** 自动决斗目标在决斗持续时间内不可被玩家选中。 */
-@registerModifier('abilities/ts_abilities/legion_commander_auto_duel')
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export class modifier_legion_commander_auto_duel_target_unselectable extends BaseModifier {
-  IsHidden(): boolean {
-    return false;
-  }
-
-  IsPurgable(): boolean {
-    return false;
-  }
-
-  IsPurgeException(): boolean {
-    return false;
-  }
-
-  GetTexture(): string {
-    return 'legion_commander_duel';
-  }
-
-  CheckState(): Partial<Record<ModifierState, boolean>> {
-    return {
-      [ModifierState.UNSELECTABLE]: true,
-    };
   }
 }

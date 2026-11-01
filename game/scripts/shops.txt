@@ -244,6 +244,7 @@
 		"item"		"item_black_king_bar_2"		// 天神杖
 
 		"item"		"item_shivas_guard_2"		// 雅典娜的守护
+		"item"		"item_aeon_amulet"			// 永恒护符
 		"item"		"item_sphere_2"				// 真林肯法球
 		"item"		"item_vladmir_2"			// 强袭祭品
 		"item"		"item_undying_heart"		// 不朽之心
@@ -252,6 +253,7 @@
 		"item"		"item_dracula_mask"			// 德古拉面罩
 		"item"		"item_beast_armor"			// 兽化甲
 		"item"		"item_beast_shield"			// 兽化盾
+
 	}
 	// Level 5 - 兵刃
 	"weapons"
