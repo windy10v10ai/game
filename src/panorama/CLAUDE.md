@@ -30,5 +30,5 @@ Webpack 构建，输出到 `content/panorama/scripts/custom_game/`，函数式�
 - **`TextEntry` 用 ref 写初值，不用 `text` 受控**：每次渲染回写会打断输入法组字。代码改 `text` 也会触发 `ontextentrychange`，回调里分清是不是玩家输入
 - **画图形用 `<GenericPanel type="UICanvas">`**，脚本只开放 `ClearJS` 与 `DrawSoftLinePointsJS`：填充用逐行 1px 横线铺满，描边逐段画两点线（多点折线一次画会错位），`ClearJS` 只传全透明色（参考 `react/hud_main/pages/profile/tabs/RecentFormRadar.tsx`）
 - **没有 flex stretch，高度不能父子互相引用**：父 `height: fit-children`、子 `height: 100%` 会整块塌成 0、不渲染。并排卡片要等高，给卡片同一个 `min-height`；要贴底的行放进 `flow-children: none` 的容器，用 `vertical-align: bottom`（参考 `react/hud_main/pages/profile/tabs/member/styles.less` 的 `.member-platform-card-layered`）
-- **原生技能悬停提示只给英雄自己技能列表（`npc_heroes_custom.txt` 的 `AbilityN`）里的技能找神杖/魔晶说明**：抽选加的额外技能会显示「未找到阿哈利姆升级效果」，选秀列表与技能位置都无效。`content/panorama/scripts/custom_game/aghs_tooltip_fix.js` 在提示出现后按本地化 `_scepter_description` / `_shard_description` 补上两栏
+- **原生技能悬停提示只给英雄自己技能列表（`npc_heroes_custom.txt` 的 `AbilityN`）里的技能找神杖/魔晶说明**：抽选加的额外技能会显示「未找到阿哈利姆升级效果」，选秀列表与技能位置都无效。`content/panorama/scripts/custom_game/aghs_tooltip_fix.js` 在提示出现后按本地化 `_scepter_description` / `_shard_description` 补上两栏，原生已有说明的技能不动，觉醒技能名要去掉颜色标签再匹配。补丁依赖原生控件 id（`ScepterUpgradeDescription`、`AghsScepterSnippet` 等），游戏更新改结构时静默失效，排查看控制台 `[aghs_tooltip_fix]`
 - 构建输出看起来过时时删 `node_modules/.cache`。构建检查 `npm run build:panorama`

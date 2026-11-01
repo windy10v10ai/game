@@ -135,9 +135,11 @@ Timers.CreateTimer(duration, () => {
 
 想让觉醒技能的某个数值自动叠加施法者当前的 AoE 加成（或其他类似的引擎内置加成机制）时，**不要**用「哑值探测」手法（如声明一个 `value: "1"` 的占位数值加 `affected_by_aoe_increase: "1"`，再用 `GetSpecialValueFor() - 1` 反推出加成百分比、手动相加到别的数值上）。正确做法是直接在自身 KV 里声明目标字段本身（字段名与原版一致，如 `scepter_aura_radius`），带上同样的 `affected_by_aoe_increase: "1"`，让 `GetSpecialValueFor('scepter_aura_radius')` 直接返回已经计入加成的最终值。这样既不需要跨技能读取原版 KV，也不需要额外的相加逻辑，且能直接用 `%scepter_aura_radius%` 占位符内联进本地化正文（与原版写法一致）。
 
-### 进阶 9：运行时替换类技能的 `HasScepterUpgrade` + `scepter_description` 不会正常显示
+### 进阶 9：神杖/魔晶说明写进 `_scepter_description` / `_shard_description`
 
-觉醒技能若是**运行时替换**（通过 `awaken-config.ts` 的 `targetAbility` 把原版技能整体换成新的 `ability_lua`），即使 KV 里带 `HasScepterUpgrade: "1"` 并写了 `_scepter_description`，引擎也不会渲染这个神杖对比预览面板——因为该面板依赖的是"英雄默认自带、原生学习"的技能实例，替换类技能走的是完全不同的运行时挂载路径。神杖相关的效果说明应直接写进主 `_Description` 正文（可加 `<font color='#92acf5'>阿哈利姆神杖</font>` 提示），不要指望 `_scepter_description` 单独显示。（注：常驻挂在英雄默认技能槽的觉醒技能，如 `imba_chaos_knight_phantasm`，`scepter_description` 可以正常显示，问题只出在替换类。）
+运行时替换类觉醒（`awaken-config.ts` 的 `targetAbility` 把原版技能整体换成新的 `ability_lua`）和抽选的额外技能不在英雄默认技能列表里，原生提示的 A 杖栏会显示「未找到阿哈利姆升级效果」。客户端补丁 `content/panorama/scripts/custom_game/aghs_tooltip_fix.js` 在提示出现后按 `_scepter_description` / `_shard_description` 补上两栏，样式沿用原生。
+
+所以这类技能照常把神杖/魔晶效果写进 `_scepter_description` / `_shard_description`，KV 加 `HasScepterUpgrade` / `HasShardUpgrade`（原生在技能挂进英雄技能槽时靠它显示同一栏）；写死在 `_Description` 正文会和 A 杖栏重复。补丁原理、失效排查与 `_Lore` 托底见 `src/panorama/CLAUDE.md`。
 
 ### 进阶 10：觉醒专属参数不要塞进原版技能的 override KV
 

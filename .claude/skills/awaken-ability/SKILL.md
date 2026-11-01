@@ -129,6 +129,7 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
   - `addon_schinese.txt` / `addon_english.txt`：放在 `Awaken Abilities 觉醒技能` 模块的**顶部**，中英同步。
   - `addon_russian.txt`：放在 `Creep / Tower` 区块末尾的 `Awaken Abilities 觉醒技能` 模块，位于 `// Сундук с сокровищами`（藏宝箱）之前。
   - 觉醒条目的开头注释统一使用中文 `// 英雄 xxx觉醒`。标题格式见下。
+  - 神杖/魔晶升级效果写进 `_scepter_description` / `_shard_description`，KV 同步加 `HasScepterUpgrade` / `HasShardUpgrade`。提示里的「阿哈利姆神杖/魔晶」栏由客户端补丁按这两个 key 渲染，写死在 `_Description` 正文会和它重复（细节见进阶 9）。
 
 ### 3) 标题本地化格式（统一）
 
@@ -141,7 +142,6 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 **正文关键词颜色（统一）**：
 - 魔法免疫 / 减益免疫等保护类关键词 → 金色 `#FFCC66`（参考 PA、影魔）
 - 自动施法、伤害类型等其他术语 → 按 `.claude/references/localization-format.md`「术语着色」
-- 神杖升级说明 → 白色 `#FFFFFF` 配「神杖升级：」前缀（参考死灵竭心光环、火枪暗杀）
 - **写死的数值** → 引擎只对 `%key%` 变量自动套白色粗体，正文里手写的具体数字不会变色，须**手动**包成 `<font color='#FFFFFF'><b>数字</b></font>`（白色粗体，模拟引擎数值样式；参考钢背兽、影魔觉醒）。每个技能的强化各占一行（`<br>` 分隔）。
 
 ### 4) 觉醒预览页
@@ -176,7 +176,7 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 | 纯被动标记技能想**省掉技能栏槽位** | 6 |
 | 要借用引擎**原生 hardcoded modifier**（隐身等） | 7，另见 `../../references/vanilla-modifiers.md` |
 | 要读取施法者**当前 AoE / 属性加成** | 8 |
-| 替换类技能的**神杖描述**不显示 | 9 |
+| 神杖/魔晶说明**写在哪、为什么原生栏不显示** | 9 |
 | 觉醒专属参数该**放哪个 KV** | 10 |
 | 需求本质是**简化原版操作**而非改效果 | 11 |
 
