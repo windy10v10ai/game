@@ -33,7 +33,7 @@
     "@moddota/find-steam-app": "^1.1.0",
     "@moddota/panorama-types": "^1.38.1",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.19.0",
+    "@types/node": "^26.6.5",
     "@types/react": "^17.0.82",
     "@typescript-eslint/eslint-plugin": "^8.72.1",
     "@typescript-eslint/parser": "^8.70.1",
