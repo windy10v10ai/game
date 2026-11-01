@@ -20,7 +20,7 @@ npm run perf -- --server tools --scenes <场景> --conditions <条件,...> --swa
 - 改动前后对比：每个版本一条测试分支，用同一套测试工具与参数各跑一局
 - 默认固定跑 3 局，脚本不自动加局。读报告每个条件括号里的逐局值自行判断：各局同向、量级远大于 `swap_empty` 的波动即可下结论，单局离群就点出来；方向来回且量级与 `swap_empty` 相当，就是「≈0 / 测不出」，量级介于两者之间才用 `--appendTo runs/<时间>` 带同样参数追加局
 - 放大某个 modifier 的开销时分散挂到不同单位各 1 份（参考 `bld_` 条件，全场建筑各挂 1 个），不在同一单位叠多份同名 modifier：叠挂测出的单个开销偏高一个数量级，只能看随层数增长的趋势（`meleebuff_x<N>` 属于这种）
-- 已知结论（计在伤害结算 `CDOTA_BaseNPC::DamageImpact` 里，20 个实例）：Lua modifier 空壳 +0.3～1.6；只返回常量技能增强的 Lua modifier 在 `spellbench` +3.5～4.3（写成 KV +0.7），技能增强只在带技能来源的伤害里查、普攻不查；带全图受伤监听的约为空壳的 5 倍。测新机制时空壳与监听两档可用 `bld_empty` / `bld_takedamage`，或 `--itemModifiers <物品>:modifier_perf_empty:modules/debug/perf-building-modifier` 挂到英雄上作参照。原版物品 modifier 不一定便宜：`modifier_item_eternal_shroud`、`modifier_item_devastator` 单个比空 Lua modifier 贵十倍以上，同样计在伤害结算里；KV 光环（`Aura` + `Properties`）很便宜
+- 已知结论（计在伤害结算 `CDOTA_BaseNPC::DamageImpact` 里，20 个实例）：Lua modifier 空壳 +0.3～1.6；只返回常量技能增强的 Lua modifier 在 `spellbench` +3.5～4.3（写成 KV +0.7），技能增强只在带技能来源的伤害里查、普攻不查；带全图受伤监听的约为空壳的 5 倍。测新机制时空壳与监听两档可用 `bld_empty` / `bld_takedamage`，或 `--itemModifiers <物品>:modifier_perf_empty:modules/debug/perf-building-modifier` 挂到英雄上作参照。原版物品 modifier 不一定便宜：`modifier_item_eternal_shroud`、`modifier_item_devastator` 单个比空 Lua modifier 贵十倍以上，同样计在伤害结算里；KV 光环（`Aura` + `Properties`）很便宜。永恒护符 20 件（issue #2697）：`item_lua` 版（Lua 被动挂原版永恒之盘、滋补，登记全局监听）+2.25 / +3.52 / +3.16（dmg / atk / spell），同效果的 `item_datadriven` 版 ≈0，只开全局监听 ≈0，开销在持有者挨打时的 `DamageImpact`
 
 ## 基准场景
 
@@ -37,6 +37,7 @@ npm run perf -- --server tools --scenes <场景> --conditions <条件,...> --swa
 ## 结果可信前先核对场景
 
 - 日志里没有 `Script Runtime Error`，也没有测试自己用的 modifier 出现 `Attempted to create unknown modifier type`：引擎不认的 modifier 仍会产生开销，测出来的数字作废
+- 各段的存活英雄数（`[perf] phase=` 行的 `heroes=`）要一致：`atkbench` 里英雄会被打死，加生命的物品让更多英雄活着出手，伤害结算次数变多、读数虚高。某个场景里条件段与基线段的 `heroes=` 对不上，该场景的读数记为不可信
 - 光环类条件看 `creep bench aura` 行：带物品的段里光环 buff 覆盖到全部友方 / 敌方兵，基线段为 0
 - 小兵用 `SetBaseMaxHealth` 放大血量（与出兵加强同一做法，不加 modifier），否则英雄几秒内清光一侧，兵数逐段起伏
 - 近战兵间距至少 64 才排得成单排；挤成一团时只有前排在打，「每次攻击进 Lua」的实现会被低估

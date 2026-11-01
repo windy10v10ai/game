@@ -32,6 +32,7 @@
 
 - 一次性结算：造伤害、生成单位、发金币经验、播特效音效、整理场上实体
 - 挂/摘一个原版 modifier（挂点用 DataDriven modifier 自身的 `OnCreated` / `OnDestroy` 事件块）
+- 登记 / 注销全局事件监听（同一对 `OnCreated` / `OnDestroy` 里调 `ModifierEventRegister*` / `ModifierEventUnregister*`，owner 传本物品实例的状态表）
 - 逐帧/定时的单步动作（`ThinkInterval` + `OnIntervalThink` 里 `RunScript` 结算一次伤害）
 
 **「常驻 modifier」型 → 模式 2 的 TS**
@@ -39,7 +40,7 @@
 - `MODIFIER_PROPERTY_ABSORB_SPELL`（法术格挡，如清莲宝珠）
 - `MODIFIER_PROPERTY_PROCATTACK_FEEDBACK`（攻击触发反馈）
 - 需要**动态计算**的值（按生命百分比 / 层数 / 目标护甲 / 条件判断，静态 `%value` 表达不了）
-- 带记账的事件回调：内置冷却计时、attack record 跟踪、`OnTakeDamage` 复杂分支
+- 带记账的事件回调：内置冷却计时、attack record 跟踪
 - 需要跨物品实例同步的状态（多件充能对齐等）
 
 判据不是代码长度，是**要不要写一个 modifier 类**。模式 1 的 Lua 里一旦出现 `LinkLuaModifier` + `class({})`，就说明选错了模式。
@@ -67,9 +68,7 @@
 
 **永久型原版 modifier 的挂/摘**：
 
-模式 2 声明 `BaseItemModifier` 的 `vanillaModifierNames` 即可，挂摘由基类全包，不要自己写。
-
-模式 1 在 DataDriven modifier 的 `OnCreated` / `OnDestroy` 事件块里 `RunScript`，**存句柄再 `Destroy()`**：
+新物品用模式 1（原因见 SKILL.md「选模式」）：在 DataDriven modifier 的 `OnCreated` / `OnDestroy` 事件块里 `RunScript`，**存句柄再 `Destroy()`**。KV `ApplyModifier` 挂不了永久型原版物品 modifier：`modifier_item_aeon_disk` 静默挂不上，`modifier_item_enhancement_restorative` 会多挂且不随物品摘除。存量模式 2 物品由 `BaseItemModifier.vanillaModifierNames` 挂摘。
 
 ```lua
 -- OnCreated

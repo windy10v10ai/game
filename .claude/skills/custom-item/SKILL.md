@@ -42,8 +42,10 @@ description: 从零自制新物品或合成神器，含 item_lua / item_datadriv
 
 先查 `references/datadriven-scope.md` 判断哪些部分 DataDriven 表达不了，再看表外部分的形态：
 
-- 一段**动作**（造伤害、生成单位、挂原版 modifier、发金币、整理场上物品）→ 模式 1
-- 一个**常驻 modifier**（`ABSORB_SPELL`、`PROCATTACK_FEEDBACK`、带记账的 `OnAttackLanded`、内置冷却、跨实例状态同步）→ 模式 2
+- 一段**动作**（造伤害、生成单位、挂摘原版 modifier、登记全局事件监听、发金币、整理场上物品）→ 模式 1
+- 一个**常驻 modifier**（`ABSORB_SPELL`、`PROCATTACK_FEEDBACK`、动态计算的属性、内置冷却、跨实例状态同步）→ 模式 2
+
+**要挂原版 modifier 的物品用模式 1**：`item_lua` 物品挂原版 modifier 后，持有者挨打时伤害结算明显变贵，同样效果的 `item_datadriven` 测不出开销（数字见 `dota-live-test` skill 的 `references/perf-bench.md`「已知结论」）。受伤、普攻命中、被加 modifier 这类触发经 `ModifierEventRegister*` 全局入口登记（`modules/modifier-event/modifier-event-hub.ts`），也是 `RunScript` 里的动作，范例 `game/scripts/vscripts/items/item_aeon_amulet.lua`
 
 判据是要不要写一个 modifier 类，不是行数。模式 1 的 Lua 里出现 `LinkLuaModifier` + `class({})` 就该走模式 2。`item_lua` + 手写 `class({})` 原生 Lua 是弃用写法：存量照原写法改，新物品不用。
 

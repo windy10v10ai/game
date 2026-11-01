@@ -7778,7 +7778,7 @@
 				}
 			}
 
-			// 永恒守护的生命回复：KV 回复不计入治疗统计，改成定时 Heal
+			// 永恒守护的生命回复：KV 回复不计入治疗统计，所以用定时 Heal
 			"modifier_item_aeon_amulet_heal"
 			{
 				"IsHidden"				"1"

@@ -25,7 +25,7 @@ local function Protect(unit, ability, withStatusResist)
     local duration = ability:GetSpecialValueFor("guard_duration")
     ApplyItemDataDrivenModifier(nil, unit, unit, GUARD_MODIFIER, { duration = duration })
 
-    -- KV 的生命回复不计入治疗统计，改成定时 Heal
+    -- KV 的生命回复不计入治疗统计，所以用定时 Heal
     local interval = ability:GetSpecialValueFor("guard_heal_interval")
     local ticks = duration / interval
     healStates[unit:entindex()] = {
