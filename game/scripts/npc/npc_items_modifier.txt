@@ -38,6 +38,7 @@
 
 			"item_withered_spring_bonus_armor_active"	"20"
 			"item_withered_spring_bonus_regen_active"	"300"
+			"item_withered_spring_hp_regen_passive"	"3"
 
 			"item_aeon_amulet_guard_mana_regen"	"500"
 			"item_aeon_amulet_guard_mana_regen_pct"	"5"
@@ -454,21 +455,14 @@
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "60"
 				}
 			}
-			// 枯木逢春
-			"modifier_item_withered_spring_stats"
+			// 枯木逢春 被动回复，由脚本保证每个单位只挂一份
+			"modifier_item_withered_spring_regen"
 			{
-				"Passive"				"1"
 				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				// 多个枯木逢春可叠加
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"IsPurgable"			"0"
 				"Properties"
 				{
-					// 生命与魔法由复用的 modifier_item_aeon_disk 提供，此处再写一遍会双倍
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"100"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"20"
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"20"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"	"%item_withered_spring_hp_regen_passive"
 				}
 			}
 			// 枯木逢春 主动 buff，持续时间由脚本传入

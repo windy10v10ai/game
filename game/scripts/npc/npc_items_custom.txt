@@ -6377,9 +6377,8 @@
 
 	"item_withered_spring"
 	{
-		"BaseClass"					"item_lua"
+		"BaseClass"					"item_datadriven"
 		"ID"						"10440"
-		"ScriptFile"				"items/ts_items/item_withered_spring"
 		"AbilityTextureName"		"withered_spring"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilitySharedCooldown"		"aeon"
@@ -6410,11 +6409,13 @@
 			"cooldown_duration"			"60"	// 单值 + max_level 1 关闭原版的触发递增
 			"max_level"					"1"
 			"initial_cooldown"			"6"
-			"bonus_health"				"2500"
 			"bonus_mana"				"2500"
 
-			// DataDriven 表达不了，留在 TS
-			"health_regen_pct"			"3"
+			// 力量由原版 modifier_item_heart 按原版字段名读取
+			"bonus_strength"			"100"
+			"missing_health_regen"		"0"
+			// 龙心的回复会随物品件数叠加，3% 最大生命回复由本物品的 modifier 提供，此处仅供 tooltip
+			"hp_regen_passive"			"3"
 
 			// 主动技能参数
 			"replenish_health"			"2500"
@@ -6431,10 +6432,55 @@
 			"bonus_armor_active"		"20"
 			"bonus_regen_active"		"300"
 
-			// 被动属性，真值在 item_apply_modifiers，此处仅供 tooltip
-			"bonus_strength"			"100"
+			// 被动生命、护甲与闪避，真值在本物品被动 modifier 的 Properties
+			// 生命不能用 bonus_health：原版 modifier_item_heart 也读这个字段，会和永恒之盘各加一次
+			"bonus_health_passive"		"2500"
 			"bonus_armor"				"20"
 			"bonus_evasion"				"20"
+		}
+
+		"Modifiers"
+		{
+			// 魔法由原版 modifier_item_aeon_disk 提供，力量由原版 modifier_item_heart 提供，
+			// 在 Properties 里再写一遍会双倍
+			"modifier_item_withered_spring"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health_passive"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_armor"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"%bonus_evasion"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_withered_spring"
+						"Function"		"WitheredSpringOnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_withered_spring"
+						"Function"		"WitheredSpringOnDestroy"
+					}
+				}
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_withered_spring"
+				"Function"		"WitheredSpringOnSpellStart"
+			}
 		}
 	}
 	//=================================================================================================================
