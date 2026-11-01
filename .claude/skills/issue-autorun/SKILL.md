@@ -86,7 +86,16 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 
 用户选完就开始，之后不再提问。
 
-完成条件：计划表已输出，用户已选定这批的 issue。
+用户选定后设持续目标，让会话在等执行者的间隙不停下。条件写成对话里能直接看到证据的终点，并带轮数上限（每条 issue 按 8 轮估，退回一轮另加）：
+
+```
+选中的 #<id>、#<id> 都已有 PR 和审查结论，issue 标签已改为 agent-done 或 agent-block，第 7 步汇报表（含记账表）已打印在对话中，主目录在 develop 且 git status 为空，或 <N> 轮后停
+```
+
+- DSH 会话：调用 `create_goal`，`objective` 用上面的条件，`max_goal_rounds` 填 N；第 7 步汇报打印完调用 `update_goal` 的 `complete`
+- Claude Code 会话：模型无法代输 `/goal`，把 `/goal <上面的条件>` 整行打印出来请用户粘贴，用户粘贴后再继续第 3 步
+
+完成条件：计划表已输出，用户已选定这批的 issue，持续目标已设置（DSH）或已请用户粘贴（Claude Code）。
 
 ## 3. 派执行者一口气做完
 
