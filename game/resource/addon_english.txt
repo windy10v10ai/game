@@ -1,4 +1,4 @@
-"lang"
+﻿"lang"
 {
 	"Language"		"english"
 	"Tokens"
@@ -1517,7 +1517,6 @@
 		// Necrophos Heartstopper Aura - Awakened
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Heartstopper Aura Awakened</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"Necrophos stills the hearts of his opponents, causing nearby enemy units to lose a percentage of their max health over time.<br><br><font color='#d000ff'>The damage can be amplified by abilities.</font>"
-		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Note0"				"<font color='#FFFFFF'>Scepter Upgrade: Converts %heal_regen_to_damage%%% of Necrophos's health regeneration into additional damage</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_scepter_description"	"Converts %heal_regen_to_damage%%% of Necrophos's health regeneration into additional damage"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_radius"		"Radius:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_damage"		"% Max Health Damage per Second:"

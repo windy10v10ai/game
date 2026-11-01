@@ -1,4 +1,4 @@
-"lang"
+﻿"lang"
 {
 	"Language"		"Russian"
 	"Tokens"
@@ -1517,7 +1517,6 @@
 		// 死灵法师 竭心光环-觉醒
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Останавливающая сердца аура: пробуждение</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"Некрофос заставляет сердца врагов остановиться: окружающие вражеские юниты непрерывно теряют здоровье в размере процента от максимального запаса.<br><br><font color='#d000ff'>Наносимый урон усиливается усилением способностей.</font>"
-		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Note0"				"<font color='#FFFFFF'>Улучшение от Скипетра Аганима: %heal_regen_to_damage%%% восстановления здоровья Некрофоса превращается в дополнительный урон</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_scepter_description"	"%heal_regen_to_damage%%% восстановления здоровья Некрофоса превращается в дополнительный урон"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_radius"		"РАДИУС:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_damage"		"%УРОН ОТ МАКС. ЗДОРОВЬЯ В СЕКУНДУ:"

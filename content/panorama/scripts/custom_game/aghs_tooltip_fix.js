@@ -66,7 +66,13 @@
 
   // 觉醒技能名带颜色标签，提示里显示的是去掉标签后的文字
   function plainText(text) {
-    return text.replace(/<[^>]*>/g, '');
+    var stripped = text;
+    var previous;
+    do {
+      previous = stripped;
+      stripped = stripped.replace(/<[^>]*>/g, '');
+    } while (stripped !== previous);
+    return stripped;
   }
 
   // 提示面板只给了本地化后的技能名，靠它在当前选中单位的技能里反查
