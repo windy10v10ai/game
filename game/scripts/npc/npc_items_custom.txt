@@ -7678,9 +7678,8 @@
 
 	"item_aeon_amulet"
 	{
-		"BaseClass"					"item_lua"
+		"BaseClass"					"item_datadriven"
 		"ID"						"10470"
-		"ScriptFile"				"items/ts_items/item_aeon_amulet"
 		"AbilityTextureName"		"aeon_amulet"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -7733,14 +7732,76 @@
 			"guard_heal"				"1500"
 			"guard_heal_pct"			"15"
 
-			// 被动属性与永恒守护，真值在 item_apply_modifiers，此处仅供 tooltip
+			// 被动属性由本物品被动 modifier 读取
 			"bonus_all_stats"			"25"
 			"bonus_move_speed"			"50"
+
+			// 永恒守护的真值在 item_apply_modifiers，此处仅供 tooltip
 			"guard_mana_regen"			"500"
 			"guard_mana_regen_pct"		"5"
 			"guard_damage_reduction"	"50"
 			"guard_attack_speed"		"100"
 			"guard_move_speed"			"100"
+		}
+
+		"Modifiers"
+		{
+			// 生命、魔法、治疗增强由脚本挂的原版 modifier 提供，此处再写一遍会双倍
+			"modifier_item_aeon_amulet"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_move_speed"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_aeon_amulet"
+						"Function"		"AeonAmuletOnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_aeon_amulet"
+						"Function"		"AeonAmuletOnDestroy"
+					}
+				}
+			}
+
+			// 永恒守护的生命回复：KV 回复不计入治疗统计，改成定时 Heal
+			"modifier_item_aeon_amulet_heal"
+			{
+				"IsHidden"				"1"
+				"IsPurgable"			"0"
+				"ThinkInterval"			"%guard_heal_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_aeon_amulet"
+						"Function"		"AeonAmuletHealTick"
+					}
+				}
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_aeon_amulet"
+				"Function"		"AeonAmuletOnSpellStart"
+			}
 		}
 	}
 
