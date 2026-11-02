@@ -42,6 +42,8 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 
 ## 3. 写入 issue
 
+标题按 `agent-issue.md`「issue 标题」改成想要的结果，不是具体指令。
+
 正文按 `agent-issue.md`「issue 正文结构」写：背景、目标、要求、验收、Release Note，写得最短；执行说明不进正文，写成 Markdown artifact「执行说明」，正文最后只放一行它的压缩链接。
 
 - **要求**只写用户亲口拍板的，一条一行。AI 自己推断、按默认定的取舍写进执行说明并标「建议」

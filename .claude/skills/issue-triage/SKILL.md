@@ -28,6 +28,7 @@ description: 整理 issue：查重复与过期、调整优先级、核对「开�
 - **卡顿相关**：挂成 game#2468（后期卡顿排查与优化）的子 issue
 - **测量与实现混在一条**：同时有「先测量」和「再定做法 / 实现」的，建议拆开，原 issue 当主 issue，测量拆成 Task 子 issue；分工与 Type、Status 约定见 `.claude/references/agent-issue.md`「主 issue 与子 issue 分工」
 - **Type 与父子 Status 不一致**：按上述分工检查，填错的列进「补类型」，父子 Status 对不上的标出来
+- **标题是指令而不是想要的结果**：按 `agent-issue.md`「issue 标题」建议改写
 - **优先级**：没填 Priority 的都给出建议值，Effort 能估就填
 - **项目位置**：
   - Todo 只留最优先的几条，其余挪到 Plan
