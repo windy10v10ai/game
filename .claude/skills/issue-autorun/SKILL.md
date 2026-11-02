@@ -163,7 +163,7 @@ gh issue comment <id> -R windy10v10ai/game --body "已开 PR：<链接>（保持
 
 issue 正文 Release Note 一节「要写」的，调用 `release-note` skill（来源：该 PR，写回：该节定的写回方式，没写时按「仅写入功能 PR」），要点以该节为准，不另拟。聚合 release PR 还没创建时只写入功能 PR，在 PR「等你处理」记一条「合并后写入 release PR」。写进了 release PR 的，PR「等你处理」记一条「不合并本 PR 时从 release PR #N 删掉对应条目」。
 
-整条做不了的改打 `agent-block`，留言写明卡在哪、缺什么。
+整条做不了的改打 `agent-block`，留言第一句写 `卡住：`，写明卡在哪、缺什么。做到正文「步骤」里的 `⏸ 停点` 时同样打 `agent-block`，留言第一句写 `⏸ 停点：<步骤名>` 并汇报结论，不开 PR，不算失败；步骤的写法与勾选规则见 `agent-issue.md`「步骤与停点」。领到 issue 时从第一个没勾的步骤开始。
 
 本轮留下的本地分支：对应 PR 已合并且本地末尾提交与 PR 一致的，按 `.claude/references/git-workflow.md`「合并与清理」立刻删掉。删 worktree 前先拆 `node_modules` 链接。
 
@@ -171,7 +171,7 @@ issue 正文 Release Note 一节「要写」的，调用 `release-note` skill（
 
 ## 7. 汇报
 
-按计划表的顺序逐个列出：PR 链接、「等你处理」条数、审查结论、实机验证结果、CI 状态、`agent-block` 的原因。
+按计划表的顺序逐个列出：PR 链接、「等你处理」条数、审查结论、实机验证结果、CI 状态、`agent-block` 的原因（卡住或停点）。
 
 末尾附记账表，用来判断哪类 issue 值得外包、skill 该往哪改：
 
