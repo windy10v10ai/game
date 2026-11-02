@@ -1,36 +1,12 @@
---[[ 生命之心：免死判定交给原版永恒之盘，力量借原版龙心，触发瞬间连带放一次枯木逢春。 ]]
+--[[ 生命之心：免死判定交给原版永恒之盘，力量与回复借原版龙心，触发瞬间连带放一次枯木逢春。 ]]
 
 local AEON_DISK_BUFF = "modifier_item_aeon_disk_buff"
 local ACTIVE_MODIFIER = "modifier_item_withered_spring_active"
-local REGEN_MODIFIER = "modifier_item_withered_spring_regen"
 -- 原版 modifier 的数值都取本物品的 AbilityValues；句柄按物品实例保存，多件时各摘各的
 local VANILLA_MODIFIERS = {
     "modifier_item_aeon_disk",
     "modifier_item_heart",
 }
-
--- 龙心的最大生命回复会随物品件数叠加，3% 回复由本 modifier 每单位挂一份提供，最后一件离开时摘掉
-local regenCounts = {}
-
-local function addRegen(unit)
-    local key = unit:entindex()
-    local count = (regenCounts[key] or 0) + 1
-    regenCounts[key] = count
-    if count == 1 then
-        ApplyItemDataDrivenModifier(nil, unit, unit, REGEN_MODIFIER, {})
-    end
-end
-
-local function removeRegen(unit)
-    local key = unit:entindex()
-    local count = (regenCounts[key] or 0) - 1
-    if count > 0 then
-        regenCounts[key] = count
-        return
-    end
-    regenCounts[key] = nil
-    unit:RemoveModifierByName(REGEN_MODIFIER)
-end
 
 local function Replenish(unit, ability)
     unit:EmitSound("Item.GuardianGreaves.Activate")
@@ -89,7 +65,6 @@ function WitheredSpringOnCreated(keys)
             table.insert(state.modifiers, modifier)
         end
     end
-    addRegen(unit)
 
     ModifierEventRegisterModifierAdded(unit, state, function(event)
         local buff = event.added_buff
@@ -119,7 +94,6 @@ function WitheredSpringOnDestroy(keys)
     end
     if not state.unit:IsNull() then
         ModifierEventUnregisterModifierAdded(state.unit, state)
-        removeRegen(state.unit)
     end
 end
 

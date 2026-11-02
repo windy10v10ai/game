@@ -1021,7 +1021,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_lua"
+		"BaseClass"						"item_datadriven"
 		"ID"							"10323"
 		"AbilityTextureName"			"item_undying_heart"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -1036,22 +1036,66 @@
 		"ItemAliases"					"hot;heart of tarrasque"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"ScriptFile"					"items/item_undying_heart"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_strength"		"100"	// Tooltip, real value in modifier_item_undying_heart_stats
-				"bonus_health"			"1200"	// Tooltip, real value in modifier_item_undying_heart_stats
-				"health_regen_pct"		"2"
-				"bonus_evasion"			"20"	// Tooltip, real value in modifier_item_undying_heart_stats
-				"status_resistance"		"8"
-				"dur"					"5"
-				"active_hp_regen"		"1000"
-				"active_hp_regen_pct"	"4"
-				"buff_hp_regen"			"200"
-				"buff_hp_regen_pct"		"2"
+			// 力量与回复由原版 modifier_item_heart 按原版字段名读取
+			"bonus_strength"			"100"
+			"hp_regen"					"1"
+			"missing_health_regen"		"2"
+
+			// 生命不能用 bonus_health：原版 modifier_item_heart 也读这个字段，会多加一份
+			"bonus_health_passive"		"1200"
+			"bonus_evasion"				"20"
+
+			"dur"						"5"
+			"active_hp_regen"			"1000"
+			"active_hp_regen_pct"		"4"
+			"buff_hp_regen"				"200"
+			"buff_hp_regen_pct"			"2"
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_undying_heart"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health_passive"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"%bonus_evasion"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_undying_heart"
+						"Function"		"UndyingHeartOnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_undying_heart"
+						"Function"		"UndyingHeartOnDestroy"
+					}
+				}
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_undying_heart"
+				"Function"		"UndyingHeartOnSpellStart"
+			}
 		}
 	}
 
@@ -6413,9 +6457,8 @@
 
 			// 力量由原版 modifier_item_heart 按原版字段名读取
 			"bonus_strength"			"100"
-			"missing_health_regen"		"0"
-			// 龙心的回复会随物品件数叠加，3% 最大生命回复由本物品的 modifier 提供，此处仅供 tooltip
-			"hp_regen_passive"			"3"
+			"hp_regen"					"1"
+			"missing_health_regen"		"2.5"
 
 			// 主动技能参数
 			"replenish_health"			"2500"

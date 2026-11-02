@@ -2532,14 +2532,13 @@
 
 		// item_undying_heart 不朽之心
 		"DOTA_Tooltip_Ability_item_undying_heart"				"不朽之心"
-		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>主动：巨龙复苏</font></h1>立刻回复 %active_hp_regen%+%active_hp_regen_pct%%%最大生命值 的血量，对自身施加弱驱散效果。<br>获得持续 %dur% 秒的额外回血buff，每秒恢复 %buff_hp_regen%+%buff_hp_regen_pct%%%最大生命值 的血量。"
+		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1>被动：巨兽之血</h1>生命恢复提升缺失生命值的%missing_health_regen%%%。\n\n<h1><font color='#FFFF00'>主动：巨龙复苏</font></h1>立刻回复 %active_hp_regen%+%active_hp_regen_pct%%%最大生命值 的血量，对自身施加弱驱散效果。<br>获得持续 %dur% 秒的额外回血buff，每秒恢复 %buff_hp_regen%+%buff_hp_regen_pct%%%最大生命值 的血量。"
 		"DOTA_Tooltip_ability_item_undying_heart_Lore"									"保存完好的心脏，来自早已绝种的怪兽，能提升携带者的耐久力。"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_strength"						"+$str"
-		"DOTA_Tooltip_ability_item_undying_heart_bonus_health"							"+$health"
-		"DOTA_Tooltip_ability_item_undying_heart_health_regen_pct"						"%+最大生命恢复"
+		"DOTA_Tooltip_ability_item_undying_heart_bonus_health_passive"							"+$health"
+		"DOTA_Tooltip_ability_item_undying_heart_hp_regen"						"%+最大生命值恢复"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_evasion"							"%+$evasion"
-		"DOTA_Tooltip_ability_item_undying_heart_status_resistance"						"%+状态抗性"
-		"DOTA_Tooltip_ability_item_undying_heart_note0"									"多个不朽之心的最大生命恢复效果不叠加。"
+		"DOTA_Tooltip_ability_item_undying_heart_note0"									"多个巨兽之血的效果不会叠加。"
 		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"巨龙复苏"
 		"DOTA_Tooltip_modifier_item_undying_heart_buff_Description"						"以极快的速度恢复生命值。"
 
@@ -3537,15 +3536,16 @@
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"										"<font color='#90EE90'>生命之心</font>"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>主动：枯木逢春</font></h1>使自身和周围友军回复%replenish_health%点生命 +%replenish_health_pct%%%最大生命值和%replenish_mana%点魔法，并移除施法者身上全部的负面效果。施法者在%active_duration%秒内获得%bonus_armor_active%点护甲和%bonus_regen_active%点生命回复。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：绝处逢生</h1>受到来自英雄的伤害并且生命值低于%health_threshold_pct%%%时自动触发以上效果，并在%buff_duration%秒内获得%status_resistance%%%<font color='#B99012'>状态抗性</font>，所受到和造成的伤害全部归零。"
+		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1>被动：巨兽之血</h1>生命恢复提升缺失生命值的%missing_health_regen%%%。\n\n<h1><font color='#90EE90'>主动：枯木逢春</font></h1>使自身和周围友军回复%replenish_health%点生命 +%replenish_health_pct%%%最大生命值和%replenish_mana%点魔法，并移除施法者身上全部的负面效果。施法者在%active_duration%秒内获得%bonus_armor_active%点护甲和%bonus_regen_active%点生命回复。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：绝处逢生</h1>受到来自英雄的伤害并且生命值低于%health_threshold_pct%%%时自动触发以上效果，并在%buff_duration%秒内获得%status_resistance%%%<font color='#B99012'>状态抗性</font>，所受到和造成的伤害全部归零。"
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"								"饱含生命之力的树甲，枯木逢春，绝处逢生。"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_health_passive"					"+$health"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_mana"							"+$mana"
-		"DOTA_Tooltip_ability_item_withered_spring_hp_regen_passive"					"%+最大生命值回复"
+		"DOTA_Tooltip_ability_item_withered_spring_hp_regen"					"%+最大生命值恢复"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_withered_spring_Note0"								"自动触发后进入冷却。"
+		"DOTA_Tooltip_ability_item_withered_spring_Note1"								"多个巨兽之血的效果不会叠加。"
 
 		"DOTA_Tooltip_modifier_item_withered_spring_active"								"枯木逢春"
 		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"护甲增加%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%，生命回复增加%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%。"

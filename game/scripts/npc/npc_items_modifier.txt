@@ -38,7 +38,9 @@
 
 			"item_withered_spring_bonus_armor_active"	"20"
 			"item_withered_spring_bonus_regen_active"	"300"
-			"item_withered_spring_hp_regen_passive"	"3"
+
+			"item_undying_heart_buff_hp_regen"	"200"
+			"item_undying_heart_buff_hp_regen_pct"	"2"
 
 			"item_aeon_amulet_guard_mana_regen"	"500"
 			"item_aeon_amulet_guard_mana_regen_pct"	"5"
@@ -48,20 +50,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_item_undying_heart_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"100"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"			"1200"
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"20"
-				}
-			}
 			"modifier_item_abyssal_blade_v2_stats"
 			{
 				"Passive"				"1"
@@ -455,14 +443,17 @@
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "60"
 				}
 			}
-			// 枯木逢春 被动回复，由脚本保证每个单位只挂一份
-			"modifier_item_withered_spring_regen"
+			// 不朽之心 主动 buff，持续时间由脚本传入
+			"modifier_item_undying_heart_buff"
 			{
-				"IsHidden"				"1"
-				"IsPurgable"			"0"
+				"IsHidden"				"0"
+				"IsBuff"				"1"
+				"IsPurgable"			"1"
+				"TextureName"			"item_undying_heart"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"	"%item_withered_spring_hp_regen_passive"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%item_undying_heart_buff_hp_regen"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%item_undying_heart_buff_hp_regen_pct"
 				}
 			}
 			// 枯木逢春 主动 buff，持续时间由脚本传入
