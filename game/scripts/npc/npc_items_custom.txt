@@ -6747,8 +6747,9 @@
 			"bonus_damage"				"400"	// tooltip only - 攻击力（神雷锤/光暗臂章）
 			"bonus_armor"				"60"	// tooltip only - 护甲（光暗臂章）
 
+			"bat_reduce"			"20"	// 原版粗暴按此字段读数值，本地化也引用此名
+
 			// Lua 逻辑需要的参数
-			"bat_reduction_pct"			"25"	// Lua 逻辑需要 - 动态计算 BAT
 			"self_xp"			"2"
 			"self_gold"			"600"
 			"group_range"		"1800"

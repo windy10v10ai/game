@@ -118,6 +118,33 @@ end
 
 if modifier_item_swift_glove == nil then modifier_item_swift_glove = class({}) end
 
+-- 原版粗暴同一英雄多份会按 (1+r)^n 复利放大，只能挂 1 份；多把手套共用一份并按件数记账
+local crudeStates = {}
+
+local function AcquireCrude(caster, ability)
+    local key = caster:entindex()
+    local state = crudeStates[key]
+    if not state then
+        local modifier = caster:AddNewModifier(caster, ability, "modifier_item_enhancement_crude", {})
+        if not modifier then return nil end
+        state = { modifier = modifier, count = 0 }
+        crudeStates[key] = state
+    end
+    state.count = state.count + 1
+    return key
+end
+
+local function ReleaseCrude(key)
+    local state = crudeStates[key]
+    if not state then return end
+    state.count = state.count - 1
+    if state.count > 0 then return end
+    if state.modifier and not state.modifier:IsNull() then
+        state.modifier:Destroy()
+    end
+    crudeStates[key] = nil
+end
+
 function modifier_item_swift_glove:IsHidden() return true end
 
 function modifier_item_swift_glove:IsPurgable() return false end
@@ -132,9 +159,10 @@ function modifier_item_swift_glove:OnCreated(params)
     self:OnRefresh(params)
 
     local ability = self:GetAbility()
-    self.bat_reduction_pct = ability:GetSpecialValueFor("bat_reduction_pct")
 
     if IsServer() then
+        self.crude_key = AcquireCrude(self:GetParent(), ability)
+
         -- 同步多把无限手套的充能点数
         local caster = self:GetCaster()
         for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
@@ -171,6 +199,10 @@ end
 
 function modifier_item_swift_glove:OnDestroy()
     if IsServer() then
+        if self.crude_key then
+            ReleaseCrude(self.crude_key)
+            self.crude_key = nil
+        end
         local ability = self:GetAbility()
         if ability and ability.added_modifiers then
             for _, modifier in pairs(ability.added_modifiers) do
@@ -182,32 +214,6 @@ function modifier_item_swift_glove:OnDestroy()
         end
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
-end
-
-function modifier_item_swift_glove:DeclareFunctions()
-    return {
-        MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
-    }
-end
-
-function modifier_item_swift_glove:GetModifierBaseAttackTimeConstant()
-    if self.bat_check ~= true then
-        self.bat_check = true
-        local parent = self:GetParent()
-        local current_bat = parent:GetBaseAttackTime(false)
-
-        -- 手动计算百分比减少
-        local bat_reduction_pct = self.bat_reduction_pct
-        local new_bat = current_bat * (1 - bat_reduction_pct / 100)
-
-        self.bat_check = false
-        return new_bat
-    end
-end
-
--- 低于原版技能（如炼金术士化学狂暴，默认 NORMAL），避免手套覆盖技能自带的攻击间隔
-function modifier_item_swift_glove:GetPriority()
-    return MODIFIER_PRIORITY_LOW
 end
 
 if modifier_item_swift_glove_chain_lightning == nil then modifier_item_swift_glove_chain_lightning = class({}) end
