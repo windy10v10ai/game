@@ -1,11 +1,11 @@
 ---
 name: issue-impl
-description: 按 issue 末尾的「执行说明」实现一条 issue：实现、验收、实机验证、开 PR、审一次。用户说「做 #123」「实现这个 issue」时用，issue-autorun 派执行者时也让执行者照它做。
+description: 按 issue 正文（背景、目标、要求、验收、Release Note、执行说明）实现一条 issue：实现、验收、实机验证、开 PR、审一次。用户说「做 #123」「实现这个 issue」时用，issue-autorun 派执行者时也让执行者照它做。
 ---
 
 # issue-impl
 
-把一条已有「执行说明」的 issue 做到 PR。做完且审查通过就是正式 PR，没做完或没通过的才保持草稿。标签、执行说明格式与实机验证三层见 `.claude/references/agent-issue.md`，开始前先读。
+把一条正文已按结构写好的 issue 做到 PR。做完且审查通过就是正式 PR，没做完或没通过的才保持草稿。标签、正文结构与实机验证三层见 `.claude/references/agent-issue.md`，开始前先读。
 
 两种用法共用这一份规则：
 
@@ -48,7 +48,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 
 工作区不干净就停下，不动用户的文件。
 
-开工时把这条 issue 在「开发计划」项目里的 Status 置为 In progress（命令与 ID 见 `issue-triage` 第 4 步）。这条是挂在父 issue 下的测量子 issue 时，父 issue 的 Status 保持 Plan 或 Todo，不置 In progress。
+开工时把这条 issue 在「开发计划」项目里的 Status 置为 In progress（命令与 ID 见 `.claude/references/issue-fields.md`）。这条是挂在父 issue 下的测量子 issue 时，父 issue 的 Status 保持 Plan 或 Todo，不置 In progress。
 
 ## 2. 先读
 
@@ -60,7 +60,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 
 ## 4. 验收
 
-跑执行说明「验收」里的命令（默认 `npm test`、`npm run lint`、`npm run build:vscripts`，改 Panorama 加 `npm run build:panorama`），补上要求的 jest 用例。`git diff --name-only origin/develop...HEAD` 只含改动范围内的文件。
+跑执行说明「验收命令」里的命令，并逐条核对「验收」一节（默认 `npm test`、`npm run lint`、`npm run build:vscripts`，改 Panorama 加 `npm run build:panorama`），补上要求的 jest 用例。`git diff --name-only origin/develop...HEAD` 只含改动范围内的文件。
 
 列测试视角：每条「目标」对应哪个 jest 用例或实机验证项，覆盖了哪些边界，缺的补上或写明为什么不补。
 
@@ -71,10 +71,10 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 - 按 `create-pr` 的格式开 PR，实机验证还没做就先带 `--draft`（`gh pr create --draft --base develop -R windy10v10ai/game`），验证与审查通过后立刻转正式。正文只写人做判断要看的关键信息，过程细节放进一条「验证记录」评论（之后更新用 `gh pr comment --edit-last`）。正文另加：
   - Issue 段：目标全部完成写 `Fixes #<id>`，有跳过写 `#<id>`
   - 影响玩家的数值、档位、等级用表格列出
-  - Checklist：执行说明「实机验证」的每一项
+  - Checklist：「验收」每一条与执行说明「实机验证」的每一项
   - 验证记录评论写：测试视角、每条验收命令与结果
   - 「等你处理」：「请确认」「待你决定」「发现」三组，每条 checkbox 写清文件与步骤，都空写「无」
-  - Release Note 按执行说明：「不写」删占位段，「要写」把要点原文贴进该段，不改写，单条模式收尾时调用 `release-note`（来源：该 PR，写回：执行说明定的写回方式），不再问用户，批量模式由调度员在 `issue-autorun` 第 6 步调用。执行说明没写写回方式的按「仅写入功能 PR」，写回 release PR 记进「请确认」
+  - Release Note 按 issue 正文的「Release Note」一节：「不写」删占位段，「要写」把要点原文贴进该段，不改写，单条模式收尾时调用 `release-note`（来源：该 PR，写回：该节定的写回方式），不再问用户，批量模式由调度员在 `issue-autorun` 第 6 步调用。该节没写写回方式的按「仅写入功能 PR」，写回 release PR 记进「请确认」
 - 执行说明「改动范围」写「无」的测量类 issue：不 commit、不开 PR，数据写进 issue 留言，报告格式见 `agent-issue.md`「从 L4 拆出测量子 issue」
 
 ## 6. 实机验证

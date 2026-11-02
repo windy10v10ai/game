@@ -7,53 +7,13 @@ description: 整理 issue：查重复与过期、调整优先级、核对「开�
 
 整理 `windy10v10ai/game` 与 `windy10v10ai/firebase` 两个仓库的未关闭 issue，并核对组织项目「开发计划」（`gh project` 编号 3）的排布。先出建议、等用户拍板，再改 GitHub。
 
-## 0. 前提
+## 0. 前提与字段配置
 
-`gh auth status` 的 scopes 要含 `project`，缺了让用户在终端跑 `gh auth refresh -s project`（会先问是否给 Git 认证，回车即可，再在浏览器填验证码）。
-
-## 配置
-
-| 字段 | 归属 | 取值 |
-|---|---|---|
-| Type | 组织级 issue 类型 | Task / Bug / Feature |
-| Priority | 组织级 issue 字段（存在 issue 上，项目里没有同名字段） | Urgent / High / Medium / Low |
-| Effort | 组织级 issue 字段 | High / Medium / Low |
-| Labels | 各仓库一套 | game：ability、item、hero、awaken、bot、system、UI/UX、balance 等；firebase：web、API、launcher 等 |
-| Status | 「开发计划」项目字段 | 见下表 |
-
-| Status | 含义 |
-|---|---|
-| Backlog | 尚未计划；等日志、等前置条件的也放这里 |
-| Plan | 几个月内上线 |
-| Todo | 最优先事项，只放少数几条 |
-| In progress | 正在做 / 下次更新上线 |
-| Done | 最近一周完成 |
-
-改动用到的 ID（GraphQL 报 ID 不存在时用第 1 步的查询重取）：
-
-| 对象 | ID |
-|---|---|
-| 项目 | `PVT_kwDOBviRE84Arg93` |
-| Status 字段 | `PVTSSF_lADOBviRE84Arg93zgilol8`：Backlog `16ae42aa`、Plan `e8b70f57`、Todo `f75ad846`、In progress `f2f345f2`、Done `2936bddd` |
-| Priority 字段 | `IFSS_kgDOAWdNCQ`：Urgent `IFSSO_kgDOAnSvXQ`、High `IFSSO_kgDOAnSvXg`、Medium `IFSSO_kgDOAnSvXw`、Low `IFSSO_kgDOAnSvYA` |
-| Effort 字段 | `IFSS_kgDOAWdNDA`：High `IFSSO_kgDOAnSvYQ`、Medium `IFSSO_kgDOAnSvYg`、Low `IFSSO_kgDOAnSvYw` |
-| Type | Task `IT_kwDOBviRE84BE0wc`、Bug `IT_kwDOBviRE84BE0wf`、Feature `IT_kwDOBviRE84BE0wi` |
+字段含义、Status 取值、ID、查询与修改命令都在 `.claude/references/issue-fields.md`，开始前先读，`gh` 缺 `project` 权限的处理也在那里。
 
 ## 1. 拉数据
 
-输出写进 scratchpad，不进仓库。
-
-```bash
-# 每个仓库一次：类型、Priority/Effort、标签、项目 Status、日期、正文
-gh api graphql -f r=game -f query='query($r:String!){repository(owner:"windy10v10ai",name:$r){issues(states:OPEN,first:100){nodes{number title createdAt updatedAt issueType{name} labels(first:10){nodes{name}} comments{totalCount} issueFieldValues(first:10){nodes{... on IssueFieldSingleSelectValue{name field{... on IssueFieldSingleSelect{name}}}}} projectItems(first:5){nodes{project{title} fieldValueByName(name:"Status"){... on ProjectV2ItemFieldSingleSelectValue{name}}}} body}}}}'
-
-# 项目全部条目（含草稿 DraftIssue 与 Done 栏）
-gh project item-list 3 --owner windy10v10ai --limit 200 --format json
-
-# 重取 ID
-gh project field-list 3 --owner windy10v10ai --format json
-gh api graphql -f query='{organization(login:"windy10v10ai"){issueTypes(first:10){nodes{id name}} issueFields(first:10){nodes{... on IssueFieldSingleSelect{id name options{id name}}}}}}'
-```
+输出写进 scratchpad，不进仓库。用 `issue-fields.md`「查询」里的批量查询（每个仓库一次）和项目条目列表，重取 ID 的命令也在那里。
 
 完成条件：每个未关闭 issue 和每个项目条目都有类型、Priority、Effort、Status（或「未入项目」）、创建与更新日期。
 
@@ -87,7 +47,7 @@ gh api graphql -f query='{organization(login:"windy10v10ai"){issueTypes(first:10
 
 ## 4. 执行
 
-issue 留言与新建 issue 的正文用中文。
+issue 留言与新建 issue 的正文用中文。设 Priority / Effort / Type、改 Status、补进项目、草稿转正式 issue 的命令见 `issue-fields.md`「修改」。
 
 ```bash
 # 关闭重复，留言写明剩余内容由谁跟踪
@@ -95,19 +55,6 @@ gh issue close <n> -R windy10v10ai/<repo> --duplicate-of <目标n> --comment "..
 
 # 挂子 issue（测量不够就在主 issue 下再建一条 Task，不在原测量 issue 里续写）
 gh issue edit <父n> -R windy10v10ai/<repo> --add-sub-issue <子n>,<子n>
-
-# 设 Priority / Effort（issueFields 可一次传多个）
-gh api graphql -f query='mutation{setIssueFieldValue(input:{issueId:"<id>",issueFields:[{fieldId:"<字段id>",singleSelectOptionId:"<选项id>"}]}){clientMutationId}}'
-
-# 设类型
-gh api graphql -f query='mutation{updateIssue(input:{id:"<id>",issueTypeId:"<类型id>"}){issue{number}}}'
-
-# 改 Status；补进项目先 item-add 拿到条目 id
-gh project item-add 3 --owner windy10v10ai --url <issue url> --format json -q .id
-gh project item-edit --project-id PVT_kwDOBviRE84Arg93 --field-id PVTSSF_lADOBviRE84Arg93zgilol8 --id <条目id> --single-select-option-id <状态id>
-
-# 草稿转正式 issue（转完条目 id 不变，Status 保留），再用 gh issue edit 补标题、正文、标签
-gh api graphql -f query='mutation{convertProjectV2DraftIssueItemToIssue(input:{itemId:"<条目id>",repositoryId:"<仓库node id>"}){item{content{... on Issue{number}}}}}'
 ```
 
 完成条件：每条拍板的改动都执行成功，失败的单独列出。

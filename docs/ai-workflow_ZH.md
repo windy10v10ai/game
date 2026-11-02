@@ -46,7 +46,7 @@ Windy10v10AI 的一个 issue 怎样变成上线的更新。目标是尽量自动
 |---|---|
 | 讨论中的设计 | artifact |
 | 定稿设计 | GitHub issue 上名为「设计」的 HTML artifact，外加一个指回 artifact 的链接 |
-| 执行说明 | issue 正文末尾 |
+| 要求、验收、Release Note、执行说明 | issue 正文，前几块给人看，执行说明在末尾给 AI |
 | 报告、子 issue 共用规约 | issue 上的 Markdown artifact |
 | 证据 | PR。正文只写人做判断要看的内容，日志与判定输出放一条评论，始终是最新结果 |
 | 长期设计 | 模块 `README.md` 与代码注释 |

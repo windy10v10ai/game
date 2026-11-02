@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # issue-autorun
 
-用户不在场时，把所有带 `agent-todo` 标签的 issue 做完。能做的都做完，做不了的跳过并记下来，最后统一留给用户。标签、执行说明与设计文档的约定见 `.claude/references/agent-issue.md`，开始前先读。
+用户不在场时，把所有带 `agent-todo` 标签的 issue 做完。能做的都做完，做不了的跳过并记下来，最后统一留给用户。标签、正文结构与设计文档的约定见 `.claude/references/agent-issue.md`，开始前先读。
 
 一次只做一个 issue，全部在主目录里做：Dota 只加载主目录的 `game/`，实机验证本来就只能一次一个，用户不在场，不缺时间，顺序跑省掉 worktree、依赖链接和实机排队。
 
@@ -64,7 +64,7 @@ disable-model-invocation: true
 gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json number,title,body
 ```
 
-对每个 issue 查「开发计划」项目里的 Status 与 issue 字段 Priority（查询见 `issue-triage` 第 1 步），按下面的顺序排，前一项相同再比后一项：
+对每个 issue 查「开发计划」项目里的 Status 与 issue 字段 Priority（查询见 `.claude/references/issue-fields.md`「查询」），按下面的顺序排，前一项相同再比后一项：
 
 1. Status：In progress → Todo → Plan → Backlog → 未入项目
 2. Priority：Urgent → High → Medium → Low → 未填
@@ -113,7 +113,7 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 ```markdown
 你在仓库主目录（当前目录）里做 issue windy10v10ai/game#<id>，用户不在场，从实现一直做到实机验证，中途不交回、不提问。
 
-先读 `.claude/skills/issue-impl/SKILL.md` 并照它的第 1–7 步做，分支名用 `<fix|feature>/<id>-<3–6 个英文小写单词>`。需求只看 issue 末尾的「执行说明」<有设计文档时：设计文档是 <artifact 链接>>。
+先读 `.claude/skills/issue-impl/SKILL.md` 并照它的第 1–7 步做，分支名用 `<fix|feature>/<id>-<3–6 个英文小写单词>`。需求只看 issue 正文（背景、目标、要求、验收、Release Note、执行说明）<有设计文档时：设计文档是 <artifact 链接>>。
 卡住时按 `issue-impl`「卡住时怎么办」处理。PR 末行署名：<执行者署名行>。
 最终回复按 `issue-impl` 第 7 步写。
 ```
@@ -158,7 +158,7 @@ gh issue edit <id> -R windy10v10ai/game --remove-label agent-todo --add-label ag
 gh issue comment <id> -R windy10v10ai/game --body "已开 PR：<链接>（保持草稿的写明原因）。等你处理 N 项，见 PR 正文。"
 ```
 
-执行说明 Release Note「要写」的，调用 `release-note` skill（来源：该 PR，写回：执行说明定的写回方式，没写时按「仅写入功能 PR」），要点以执行说明为准，不另拟。聚合 release PR 还没创建时只写入功能 PR，在 PR「等你处理」记一条「合并后写入 release PR」。写进了 release PR 的，PR「等你处理」记一条「不合并本 PR 时从 release PR #N 删掉对应条目」。
+issue 正文 Release Note 一节「要写」的，调用 `release-note` skill（来源：该 PR，写回：该节定的写回方式，没写时按「仅写入功能 PR」），要点以该节为准，不另拟。聚合 release PR 还没创建时只写入功能 PR，在 PR「等你处理」记一条「合并后写入 release PR」。写进了 release PR 的，PR「等你处理」记一条「不合并本 PR 时从 release PR #N 删掉对应条目」。
 
 整条做不了的改打 `agent-block`，留言写明卡在哪、缺什么。
 
