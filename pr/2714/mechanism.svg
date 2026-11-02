@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 600" width="1400" height="600" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1400" height="600" fill="#fcfcfb"/>
+<text x="40" y="52" font-size="30" font-weight="700" fill="#0b0b0b" text-anchor="start">生命之心、不朽之心：改了什么</text>
+<text x="40" y="100" font-size="24" font-weight="700" fill="#eb6834" text-anchor="start">修改前</text>
+<rect x="40" y="120" width="260" height="110" rx="12" fill="#f1efe8" stroke="#898781" stroke-width="3"/>
+<text x="170.0" y="171.0" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">两件装备</text>
+<text x="170.0" y="201.0" font-size="17" font-weight="400" fill="#52514e" text-anchor="middle">生命之心、不朽之心</text>
+<line x1="300" y1="175" x2="370" y2="175" stroke="#898781" stroke-width="4"/>
+<polygon points="370,175 356,166 356,184" fill="#898781"/>
+<rect x="370" y="120" width="560" height="110" rx="12" fill="#faece7" stroke="#eb6834" stroke-width="3"/>
+<text x="650.0" y="171.0" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">Lua 脚本里的效果</text>
+<text x="650.0" y="201.0" font-size="16" font-weight="400" fill="#52514e" text-anchor="middle">属性、回复、状态抗性（引擎每次查询都运行脚本）</text>
+<text x="40" y="290" font-size="24" font-weight="700" fill="#2a78d6" text-anchor="start">修改后</text>
+<rect x="40" y="310" width="260" height="260" rx="12" fill="#f1efe8" stroke="#898781" stroke-width="3"/>
+<text x="170.0" y="436.0" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">两件装备</text>
+<text x="170.0" y="466.0" font-size="17" font-weight="400" fill="#52514e" text-anchor="middle">改成配置里的物品</text>
+<line x1="300" y1="370" x2="370" y2="370" stroke="#898781" stroke-width="4"/>
+<polygon points="370,370 356,361 356,379" fill="#898781"/>
+<line x1="300" y1="440" x2="370" y2="440" stroke="#898781" stroke-width="4"/>
+<polygon points="370,440 356,431 356,449" fill="#898781"/>
+<line x1="300" y1="510" x2="370" y2="510" stroke="#898781" stroke-width="4"/>
+<polygon points="370,510 356,501 356,519" fill="#898781"/>
+<rect x="370" y="330" width="480" height="80" rx="12" fill="#e6f1fb" stroke="#2a78d6" stroke-width="3"/>
+<text x="610.0" y="366.0" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">生命值等属性</text>
+<text x="610.0" y="396.0" font-size="16" font-weight="400" fill="#52514e" text-anchor="middle">写在配置里，引擎原生计算</text>
+<rect x="370" y="420" width="480" height="80" rx="12" fill="#eaf3de" stroke="#3b6d11" stroke-width="3"/>
+<text x="610.0" y="456.0" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">游戏自带的「龙心」效果</text>
+<text x="610.0" y="486.0" font-size="16" font-weight="400" fill="#52514e" text-anchor="middle">提供最大生命回复和缺失生命回复</text>
+<rect x="370" y="510" width="480" height="70" rx="12" fill="#fafaf9" stroke="#898781" stroke-width="3"/>
+<text x="610.0" y="541.0" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">生命之心：游戏自带的「永恒之盘」</text>
+<text x="610.0" y="571.0" font-size="16" font-weight="400" fill="#52514e" text-anchor="middle">提供免死</text>
+<rect x="900" y="330" width="460" height="170" rx="12" fill="#f1efe8" stroke="#898781" stroke-width="3"/>
+<text x="1130.0" y="411.0" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">不朽之心的主动</text>
+<text x="1130.0" y="441.0" font-size="16" font-weight="400" fill="#52514e" text-anchor="middle">瞬发回血和驱散由一小段脚本执行</text>
+<text x="1130" y="470" font-size="16" font-weight="400" fill="#52514e" text-anchor="middle">随后 5 秒的持续回复是配置里的效果</text>
+<text x="900" y="540" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">不朽之心去掉了状态抗性。</text>
+</svg>
