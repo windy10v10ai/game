@@ -37,7 +37,7 @@ git checkout -b <prefix>/<issue-id>-<summary>
 - **Issue 段**：分支名匹配 `^(feature|fix|chore|docs)/(\d+)` 时填 `Fixes #<id>` 或 `#<id>`（选哪个见根 `CLAUDE.md`「Git」），无匹配就删掉该行。issue 挂有「设计」artifact 时下面加一行 `设计：<artifact 链接>`，实现与设计不一致的地方在正文写明
 - **Checklist 段**：待确认、待验证事项各一个 checkbox（如 `- [ ] 在 Dota Tools 中验证 bot 是否正确开启臂章`），和模板原有的那条放在一起，方便 review 逐项勾选
 - **Release Note 段**：按下节判定
-- **正文写法**：先放示意图（SVG）说明改了什么，图下一句话对照关键系统的代码名；「验收结果」一节放在正文最下方（Release Note 之后、署名行之前），用 ✅ 加图，少写文字，性能报告格式见 `dota-live-test` 的 `references/perf-bench.md`「报告格式」
+- **正文写法**：先放示意图（SVG）说明改了什么，图下一句话对照关键系统的代码名；「验收结果」一节放在正文最下方（Release Note 之后、署名行之前），用 ✅ 加图，少写文字；节末先写一句「结论」（改好了 / 没改好 / 部分改好），再把「等你处理」放在它后面，用 checkbox 每条一句话写需要用户确认的事，没有写「无」。性能报告格式见 `dota-live-test` 的 `references/perf-bench.md`「报告格式」
 - **界面截图**：改了界面，或改动结果在界面上看得到时，按 `references/screenshots.md` 拍图并放进正文
 
 ## Release Note 写不写
