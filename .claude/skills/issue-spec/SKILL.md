@@ -73,9 +73,9 @@ gh issue edit <n> -R windy10v10ai/game --body-file <文件>
 gh issue edit <n> -R windy10v10ai/game --add-label agent-todo --add-label <L1-code|L2-script|L3-visual>
 ```
 
-打完标签后把项目 Status 改成 Todo 并挪到该栏最上面（命令见 `issue-fields.md`「列内上下顺序」），这样 `issue-autorun` 下次开跑时它排在前面。
+打完标签紧接着把项目 Status 改成 Todo 并挪到该栏最上面（`item-edit` 与 `updateProjectV2ItemPosition` 命令见 `issue-fields.md`「修改」「列内上下顺序」），这样 `issue-autorun` 下次开跑时它排在前面。条目还没入项目时先 `item-add`。
 
-完成条件：issue 正文是用户确认过的新结构（背景、目标、要求、验收、Release Note，末尾一行执行说明链接），「执行说明」artifact 已挂上，带 `agent-todo` 与一个级别标签（判据见 `agent-issue.md`「级别标签」）。
+完成条件：issue 正文是用户确认过的新结构（背景、目标、要求、验收、Release Note，末尾一行执行说明链接），「执行说明」artifact 已挂上，带 `agent-todo` 与一个级别标签（判据见 `agent-issue.md`「级别标签」），项目 Status 是 Todo 且在该栏最上面。
 
 ## 处理 agent 留下的问题
 
