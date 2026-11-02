@@ -94,7 +94,7 @@ gh project item-list 3 --owner windy10v10ai --limit 200 --format json -q '.items
 ```
 
 - DSH 会话：调用 `create_goal`，`objective` 用上面的条件，`max_goal_rounds` 填 N；第 7 步汇报打印完调用 `update_goal` 的 `complete`
-- Claude Code 会话：模型无法代输 `/goal`，把 `/goal <上面的条件>` 整行打印出来请用户粘贴，用户粘贴后再继续第 3 步
+- Claude Code 会话：模型无法代输 `/goal`，把 `/goal <上面的条件>` 整行放进不带语言标签的代码块，方便用户复制粘贴，用户粘贴后再继续第 3 步
 
 完成条件：计划表已输出，用户已选定这批的 issue，持续目标已设置（DSH）或已请用户粘贴（Claude Code）。
 
