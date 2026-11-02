@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 880" width="1400" height="880" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1400" height="880" fill="#fcfcfb"/>
+<text x="40.0" y="52.0" font-size="30" font-weight="700" fill="#0b0b0b" text-anchor="start">生命之心、不朽之心：修改前后的开销对比</text>
+<text x="40.0" y="86.0" font-size="18" font-weight="400" fill="#52514e" text-anchor="start">单位：每 tick 多花的毫秒数，越小越好，0 = 没有额外开销。每项为 3 局平均</text>
+<text x="40.0" y="136.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">伤害场景（20 个英雄同时挨打）</text>
+<text x="40.0" y="172.0" font-size="20" font-weight="700" fill="#2a78d6" text-anchor="start">生命之心改好了：+2.50 → +0.80；不朽之心修改后 +0.86</text>
+<rect x="476.7" y="186" width="213.3" height="232" fill="#b4b2a9" fill-opacity="0.25"/>
+<text x="583.3" y="464.0" font-size="14" font-weight="400" fill="#52514e" text-anchor="middle">灰带 = 测量误差范围 ±0.5，带内读作约等于 0</text>
+<line x1="370.0" y1="186" x2="370.0" y2="418" stroke="#e1e0d9"/>
+<text x="370.0" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−1.0</text>
+<line x1="476.7" y1="186" x2="476.7" y2="418" stroke="#e1e0d9"/>
+<text x="476.7" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−0.5</text>
+<line x1="583.3" y1="186" x2="583.3" y2="418" stroke="#e1e0d9"/>
+<text x="583.3" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="690.0" y1="186" x2="690.0" y2="418" stroke="#e1e0d9"/>
+<text x="690.0" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.5</text>
+<line x1="796.7" y1="186" x2="796.7" y2="418" stroke="#e1e0d9"/>
+<text x="796.7" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.0</text>
+<line x1="903.3" y1="186" x2="903.3" y2="418" stroke="#e1e0d9"/>
+<text x="903.3" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.5</text>
+<line x1="1010.0" y1="186" x2="1010.0" y2="418" stroke="#e1e0d9"/>
+<text x="1010.0" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.0</text>
+<line x1="1116.7" y1="186" x2="1116.7" y2="418" stroke="#e1e0d9"/>
+<text x="1116.7" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.5</text>
+<line x1="1223.3" y1="186" x2="1223.3" y2="418" stroke="#e1e0d9"/>
+<text x="1223.3" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+3.0</text>
+<line x1="1330.0" y1="186" x2="1330.0" y2="418" stroke="#e1e0d9"/>
+<text x="1330.0" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+3.5</text>
+<line x1="583.3" y1="186" x2="583.3" y2="418" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="217.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">生命之心 修改前（旧版）</text>
+<rect x="583.3" y="194" width="533.3" height="34" rx="4" fill="#eb6834"/>
+<text x="1124.7" y="218.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+2.50</text>
+<text x="356.0" y="273.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">生命之心 修改后</text>
+<rect x="583.3" y="250" width="170.7" height="34" rx="4" fill="#2a78d6"/>
+<text x="762.0" y="274.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.80</text>
+<text x="356.0" y="329.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">不朽之心 修改后</text>
+<rect x="583.3" y="306" width="183.5" height="34" rx="4" fill="#2a78d6"/>
+<text x="774.8" y="330.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.86</text>
+<text x="356.0" y="385.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">参照：空槽（不带装备）</text>
+<rect x="583.3" y="362" width="8.5" height="34" rx="4" fill="#b4b2a9"/>
+<text x="599.9" y="386.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.04</text>
+<text x="40.0" y="496.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">魔法技能伤害场景（20 个英雄同时吃技能伤害）</text>
+<text x="40.0" y="532.0" font-size="20" font-weight="700" fill="#2a78d6" text-anchor="start">生命之心改好了：+2.80 → +0.42；不朽之心修改后 +0.43</text>
+<rect x="455.3" y="546" width="256.0" height="232" fill="#b4b2a9" fill-opacity="0.25"/>
+<text x="583.3" y="824.0" font-size="14" font-weight="400" fill="#52514e" text-anchor="middle">灰带 = 测量误差范围 ±0.6，带内读作约等于 0</text>
+<line x1="370.0" y1="546" x2="370.0" y2="778" stroke="#e1e0d9"/>
+<text x="370.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−1.0</text>
+<line x1="476.7" y1="546" x2="476.7" y2="778" stroke="#e1e0d9"/>
+<text x="476.7" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−0.5</text>
+<line x1="583.3" y1="546" x2="583.3" y2="778" stroke="#e1e0d9"/>
+<text x="583.3" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="690.0" y1="546" x2="690.0" y2="778" stroke="#e1e0d9"/>
+<text x="690.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.5</text>
+<line x1="796.7" y1="546" x2="796.7" y2="778" stroke="#e1e0d9"/>
+<text x="796.7" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.0</text>
+<line x1="903.3" y1="546" x2="903.3" y2="778" stroke="#e1e0d9"/>
+<text x="903.3" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.5</text>
+<line x1="1010.0" y1="546" x2="1010.0" y2="778" stroke="#e1e0d9"/>
+<text x="1010.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.0</text>
+<line x1="1116.7" y1="546" x2="1116.7" y2="778" stroke="#e1e0d9"/>
+<text x="1116.7" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.5</text>
+<line x1="1223.3" y1="546" x2="1223.3" y2="778" stroke="#e1e0d9"/>
+<text x="1223.3" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+3.0</text>
+<line x1="1330.0" y1="546" x2="1330.0" y2="778" stroke="#e1e0d9"/>
+<text x="1330.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+3.5</text>
+<line x1="583.3" y1="546" x2="583.3" y2="778" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="577.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">生命之心 修改前（旧版）</text>
+<rect x="583.3" y="554" width="597.3" height="34" rx="4" fill="#eb6834"/>
+<text x="1188.7" y="578.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+2.80</text>
+<text x="356.0" y="633.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">生命之心 修改后</text>
+<rect x="583.3" y="610" width="89.6" height="34" rx="4" fill="#2a78d6"/>
+<text x="680.9" y="634.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.42</text>
+<text x="356.0" y="689.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">不朽之心 修改后</text>
+<rect x="583.3" y="666" width="91.7" height="34" rx="4" fill="#2a78d6"/>
+<text x="683.1" y="690.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.43</text>
+<text x="356.0" y="745.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">参照：空槽（不带装备）</text>
+<rect x="512.9" y="722" width="70.4" height="34" rx="4" fill="#b4b2a9"/>
+<text x="504.9" y="746.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="end">−0.33</text>
+<text x="40.0" y="858.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="start">生命之心「修改前」取自改动前的单独测量，不是同批；不朽之心旧版没有测量数据，只列修改后。</text>
+</svg>
