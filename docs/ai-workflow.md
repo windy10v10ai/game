@@ -12,7 +12,7 @@ Blue steps are done by people, green steps by AI. The dashed loop is the retry w
 
 | Stage | Who | What happens |
 |---|---|---|
-| Plan | Human | Raise a need and set its priority. `issue-triage` finds duplicates and stale issues and suggests a priority. Large work is split into native GitHub sub-issues. |
+| Plan | Human | Raise an idea. `/issue-spec` checks for duplicates first, then creates the issue in Plan and fills in its priority. Large work is split into native GitHub sub-issues. `issue-triage` is not on the main line; use it when you want to tidy up (duplicates, stale issues, column order). |
 | Design | AI drafts, human approves | Use `/issue-spec` to settle the goal and requirements; complex designs are discussed in an artifact. Once approved it is attached to the issue, and the execution spec names the skill to use. |
 | Build | AI | `issue-impl` implements with the named skill, runs jest, lint and builds, play-tests in Dota 2 Tools, and opens a PR. |
 | AI review | AI | Verifies the PR against the spec and design: code, evidence and screenshots. Fixes are sent back to the implementer until it passes. |

@@ -7,7 +7,13 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 
 用户在场时，和用户把一个 issue 的做法谈定，把 issue 正文整理成 `agent-issue.md`「issue 正文结构」那几块，执行说明写成 Markdown artifact 挂到 issue，并打 `agent-todo`，留给 `issue-autorun` 在用户不在时自动做。只定到 spec 为止，不写实现计划、不改代码。标签与正文结构见 `.claude/references/agent-issue.md`，字段与项目配置见 `.claude/references/issue-fields.md`，开始前先读这两份。
 
-用户没指定 issue 时，从项目 Plan 栏最上面那条开始，Plan 栏的上下顺序就是用户想先谈的顺序。
+用户给的不是 issue 而是一句想法时，先查重再新建：
+
+1. 搜已有 issue（含已关闭的）：`gh issue list -R windy10v10ai/game --state all --search "<关键词>" --limit 20`，换两三个关键词各搜一遍。有相近的就告诉用户并接着谈那一条，不新建
+2. 没有再新建：`gh issue create -R windy10v10ai/game --title "<想要的结果>" --body "<一句背景>"`，标题按 `agent-issue.md`「issue 标题」写。用 `issue-fields.md` 的命令把它补进项目，Status 放 Plan，并问用户放 Plan 栏的哪个位置（想先谈就放最上面）
+3. 接着从第 0 步补齐字段
+
+用户没指定 issue 也没给想法时，从项目 Plan 栏最上面那条开始，Plan 栏的上下顺序就是用户想先谈的顺序。
 
 ## 0. 补齐 issue 字段
 

@@ -12,7 +12,7 @@ Windy10v10AI 的一个 issue 怎样变成上线的更新。目标是尽量自动
 
 | 环节 | 谁做 | 做什么 |
 |---|---|---|
-| 立项 | 人 | 提需求、定优先级。`issue-triage` 查重复与过期、建议优先级；大的工作拆成 GitHub 原生子 issue |
+| 立项 | 人 | 提想法。`/issue-spec` 先查重，再新建 issue 放进 Plan，并补优先级；大的工作拆成 GitHub 原生子 issue。`issue-triage` 不在主线上，想整理时才用（查重复与过期、调各栏顺序） |
 | 设计 | AI 起草，人拍板 | 用 `/issue-spec` 谈目标与要求，复杂的在 artifact 里讨论，定稿后挂到 issue；执行说明写明用哪个 skill |
 | 实现 | AI | `issue-impl` 按指定 skill 实现，跑 jest、lint 与构建，在 Dota 2 Tools 实机验证，开 PR |
 | AI 审查 | AI | 对照执行说明与设计审核 PR：代码、证据与截图。不过就退回实现者重改，直到通过 |
