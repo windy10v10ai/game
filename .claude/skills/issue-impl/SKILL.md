@@ -97,7 +97,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 - **截图判定**：照执行说明截图，只交图和截图时的状态，不写「通过 / 失效」，也不据截图改代码或文案，图按 `create-pr/references/screenshots.md` 放进 PR
 - **用户判定**：不做，列进「等你处理」
 
-验完在 PR 正文加「实机验证结果」一节，每项一行结论并勾选全过的 Checklist 项，命令与 `[check]` 行原文写进验证记录评论。临时 Lua 验完删掉，不提交。
+验完在 PR 正文最下方（署名行之前）加「验收结果」一节，性能对比图加每项一行结论（✅ / ⚠️），格式见 `dota-live-test` 的 `references/perf-bench.md`「报告格式」，并勾选全过的 Checklist 项，命令与 `[check]` 行原文写进验证记录评论。临时 Lua 验完删掉，不提交。
 
 ## 7. 收尾
 

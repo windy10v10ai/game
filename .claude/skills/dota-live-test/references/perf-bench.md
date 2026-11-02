@@ -56,7 +56,7 @@ npm run perf -- --server tools --scenes <场景> --conditions <条件,...> --swa
 
 ## 报告格式
 
-写进 PR「验收结果」和 issue 留言的性能报告，读者只想知道修改前后是改好了还是没改好：
+写进 PR「验收结果」（放正文最下方）和 issue 留言的性能报告，读者只想知道修改前后是改好了还是没改好：
 
 - **修改前 vs 修改后放最前**：同场景同参数各一条，每个场景一句结论：改好了 / 基本持平 / 变差了。差值远大于 `swap_empty` 的逐局波动才算变好或变差，量级相当写「基本持平」
 - **用图，不用大段文字**：`python -I .claude/skills/dota-live-test/scripts/perf-chart.py <spec.json> <out.svg>` 出对比图（SVG 是文本，清晰、体积小，PR 正文可直接引用）。spec 有 `title`、`note`、`footer` 和 `panels`（每栏 `title`、`verdict`、`good`、`rows`，行里 `name`、`value`、`kind`）；`kind` 取 `before`（橙）、`after`（蓝）、`ref`（灰，参照组，排在后面）。各栏共用同一根坐标轴，零线和刻度上下对齐，便于比较场景之间的量级。图按 `create-pr/references/screenshots.md` 放 assets 分支，贴在 PR「验收结果」，图下最多两三行：结论，以及数据口径（修改前不是同批测的要写明）。数据多（逐局表、多个条件）时另做 HTML artifact 挂到 issue（命令见 `doc-writing.md`「issue artifact」），PR 里只放 SVG 加链接
