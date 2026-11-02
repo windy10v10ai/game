@@ -49,7 +49,7 @@ def main(spec_path, out_path):
         noise = panel.get('noise')
         if noise:
             out.append(f'<rect x="{px(-noise):.1f}" y="{top - 8}" width="{px(noise) - px(-noise):.1f}" height="{bottom - top + 8}" fill="#b4b2a9" fill-opacity="0.25"/>')
-            out.append(text(px(noise) + 6, top - 14, f'灰带 = 测量误差范围 ±{noise:g}，带内读作约等于 0', 14, SUB))
+            out.append(text(px(0), bottom + 46, f'灰带 = 测量误差范围 ±{noise:g}，带内读作约等于 0', 14, SUB, anchor='middle'))
         t = math.ceil(lo / step) * step
         while t <= hi + 1e-9:
             out.append(f'<line x1="{px(t):.1f}" y1="{top - 8}" x2="{px(t):.1f}" y2="{bottom}" stroke="{GRID}"/>')
