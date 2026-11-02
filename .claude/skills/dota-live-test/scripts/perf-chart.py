@@ -1,19 +1,19 @@
-"""性能报告的修改前后对比图：python -I perf-chart.py <spec.json> <输出.png>，spec 格式见 references/perf-bench.md「报告格式」。"""
+"""性能报告的修改前后对比图（SVG）：python -I perf-chart.py <spec.json> <输出.svg>，spec 格式见 references/perf-bench.md「报告格式」。"""
 import json
 import math
 import sys
+from xml.sax.saxutils import escape
 
-from PIL import Image, ImageDraw, ImageFont
-
-FONT = 'C:/Windows/Fonts/msyh.ttc'
-BOLD = 'C:/Windows/Fonts/msyhbd.ttc'
-INK, SUB, GRID, AXIS = (11, 11, 11), (82, 81, 78), (225, 224, 217), (137, 135, 129)
-COLORS = {'before': (235, 104, 52), 'after': (42, 120, 214), 'ref': (180, 178, 169)}
+FONT = "Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif"
+INK, SUB, GRID, AXIS = '#0b0b0b', '#52514e', '#e1e0d9', '#898781'
+COLORS = {'before': '#eb6834', 'after': '#2a78d6', 'ref': '#b4b2a9'}
 W, PAD, BAR_H, BAR_GAP, PANEL_H = 1400, 40, 34, 22, 360
 
 
-def font(size, bold=False):
-    return ImageFont.truetype(BOLD if bold else FONT, size)
+def text(x, y, s, size, fill, bold=False, anchor='start'):
+    weight = 700 if bold else 400
+    return (f'<text x="{x:.1f}" y="{y:.1f}" font-size="{size}" font-weight="{weight}" '
+            f'fill="{fill}" text-anchor="{anchor}">{escape(s)}</text>')
 
 
 def fmt(v):
@@ -31,41 +31,43 @@ def main(spec_path, out_path):
     spec = json.load(open(spec_path, encoding='utf8'))
     panels = spec['panels']
     height = 110 + PANEL_H * len(panels) + 50
-    img = Image.new('RGB', (W, height), (252, 252, 251))
-    d = ImageDraw.Draw(img)
-    d.text((PAD, 22), spec['title'], font=font(30, True), fill=INK)
-    d.text((PAD, 66), spec['note'], font=font(18), fill=SUB)
+    out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {height}" width="{W}" height="{height}" '
+           f'font-family="{FONT}">',
+           f'<rect width="{W}" height="{height}" fill="#fcfcfb"/>',
+           text(PAD, 52, spec['title'], 30, INK, True),
+           text(PAD, 86, spec['note'], 18, SUB)]
     x0, x1 = PAD + 330, W - PAD - 30
     for i, panel in enumerate(panels):
         y0 = 110 + i * PANEL_H
         rows = panel['rows']
         lo, hi, step = axis([r['value'] for r in rows])
         px = lambda v: x0 + (v - lo) / (hi - lo) * (x1 - x0)
-        d.text((PAD, y0), panel['title'], font=font(24, True), fill=INK)
-        d.text((PAD, y0 + 36), panel['verdict'], font=font(20, True),
-               fill=COLORS['after'] if panel.get('good') else SUB)
+        out.append(text(PAD, y0 + 26, panel['title'], 24, INK, True))
+        out.append(text(PAD, y0 + 62, panel['verdict'], 20, COLORS['after'] if panel.get('good') else SUB, True))
         top = y0 + 84
         bottom = top + len(rows) * (BAR_H + BAR_GAP)
         t = math.ceil(lo / step) * step
         while t <= hi + 1e-9:
-            d.line([(px(t), top - 8), (px(t), bottom)], fill=GRID, width=1)
+            out.append(f'<line x1="{px(t):.1f}" y1="{top - 8}" x2="{px(t):.1f}" y2="{bottom}" stroke="{GRID}"/>')
             label = ('+' if t > 1e-9 else '−' if t < -1e-9 else '') + f'{abs(t):.1f}'
-            d.text((px(t), bottom + 6), label, font=font(15), fill=SUB, anchor='ma')
+            out.append(text(px(t), bottom + 24, label, 15, SUB, anchor='middle'))
             t += step
-        d.line([(px(0), top - 8), (px(0), bottom)], fill=AXIS, width=2)
+        out.append(f'<line x1="{px(0):.1f}" y1="{top - 8}" x2="{px(0):.1f}" y2="{bottom}" stroke="{AXIS}" stroke-width="2"/>')
         for j, row in enumerate(rows):
             y = top + j * (BAR_H + BAR_GAP)
             v = row['value']
-            d.text((x0 - 14, y + BAR_H / 2), row['name'], font=font(17, row['kind'] != 'ref'),
-                   fill=INK, anchor='rm')
+            mid = y + BAR_H / 2 + 6
+            out.append(text(x0 - 14, mid, row['name'], 17, INK, row['kind'] != 'ref', 'end'))
             xa, xb = sorted((px(0), px(v)))
-            d.rounded_rectangle([xa, y, max(xb, xa + 3), y + BAR_H], radius=4, fill=COLORS[row['kind']])
+            xb = max(xb, xa + 3)
+            out.append(f'<rect x="{xa:.1f}" y="{y}" width="{xb - xa:.1f}" height="{BAR_H}" rx="4" fill="{COLORS[row["kind"]]}"/>')
             if v >= 0:
-                d.text((max(xb, xa + 3) + 8, y + BAR_H / 2), fmt(v), font=font(18, True), fill=INK, anchor='lm')
+                out.append(text(xb + 8, mid + 1, fmt(v), 18, INK, True))
             else:
-                d.text((xa - 8, y + BAR_H / 2), fmt(v), font=font(18, True), fill=INK, anchor='rm')
-    d.text((PAD, height - 40), spec['footer'], font=font(15), fill=SUB)
-    img.save(out_path)
+                out.append(text(xa - 8, mid + 1, fmt(v), 18, INK, True, 'end'))
+    out.append(text(PAD, height - 22, spec['footer'], 15, SUB))
+    out.append('</svg>')
+    open(out_path, 'w', encoding='utf8', newline='\n').write('\n'.join(out))
 
 
 main(sys.argv[1], sys.argv[2])

@@ -49,6 +49,6 @@ npm run perf -- --server tools --scenes <场景> --conditions <条件,...> --swa
 写进 PR「验收结果」和 issue 留言的性能报告，读者只想知道修改前后是改好了还是没改好：
 
 - **修改前 vs 修改后放最前**：同场景同参数各一条，每个场景一句结论：改好了 / 基本持平 / 变差了。差值远大于 `swap_empty` 的逐局波动才算变好或变差，量级相当写「基本持平」
-- **用图，不用大段文字**：`python -I .claude/skills/dota-live-test/scripts/perf-chart.py <spec.json> <out.png>` 出对比图。spec 有 `title`、`note`、`footer` 和 `panels`（每栏 `title`、`verdict`、`good`、`rows`，行里 `name`、`value`、`kind`）；`kind` 取 `before`（橙）、`after`（蓝）、`ref`（灰，参照组，排在后面）。图按 `create-pr/references/screenshots.md` 放 assets 分支，贴在 PR「验收结果」，图下最多两三行：结论，以及数据口径（修改前不是同批测的要写明）
+- **用图，不用大段文字**：`python -I .claude/skills/dota-live-test/scripts/perf-chart.py <spec.json> <out.svg>` 出对比图（SVG 是文本，清晰、体积小，PR 正文可直接引用）。spec 有 `title`、`note`、`footer` 和 `panels`（每栏 `title`、`verdict`、`good`、`rows`，行里 `name`、`value`、`kind`）；`kind` 取 `before`（橙）、`after`（蓝）、`ref`（灰，参照组，排在后面）。图按 `create-pr/references/screenshots.md` 放 assets 分支，贴在 PR「验收结果」，图下最多两三行：结论，以及数据口径（修改前不是同批测的要写明）。数据多（逐局表、多个条件）时另做 HTML artifact 挂到 issue（命令见 `doc-writing.md`「issue artifact」），PR 里只放 SVG 加链接
 - **参照组只是附带**：空白对照、拆出的部件、同类做法的数据放在图里的灰条，不当修改前，也不写「某 issue 的数据」这类读者看不懂的来源；逐局值表放 PR 评论
-- **少写代码名**：报告和 PR 正文里第一次出现的 modifier、技能、函数名，先用白话说它是谁、做什么（哪件装备、哪个技能、玩家看到什么），代码名只在括号里补一次；说明机制用示意图，不堆文字
+- **用白话讲系统名**：报告和 PR 正文先用白话说清关键系统是谁、做什么（哪件装备、哪个技能、玩家看到什么），机制变化画一张前后示意图（SVG）；图下用一句话对照关键代码名，例如「隐藏技能的代码名是 `ability_x`，游戏自带的「泰坦强化」代码名是 `modifier_y`」，正文其余地方只用白话名，不堆代码名和文字
