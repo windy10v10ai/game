@@ -20,7 +20,7 @@ disable-model-invocation: true
 
 `issue-impl` 第 8 步审草稿 PR 时用（含 `issue-autorun` 审执行者开的 PR）。不问用户、不 checkout、不发 PR 评论、不写报告文件，跳过上面流程的第 3–5 步，结论交回调度员：
 
-- **读什么**：只看 PR 本身——`gh pr view <pr> -R windy10v10ai/game --comments`（正文、「验证记录」评论、截图）、`gh pr diff`、`gh pr checks`；需求以关联 issue 正文（要求、验收、执行说明）与「设计文档」「设计」artifact 为准
+- **读什么**：只看 PR 本身——`gh pr view <pr> -R windy10v10ai/game --comments`（正文、「验证记录」评论、截图）、`gh pr diff`、`gh pr checks`；需求以关联 issue 正文（要求、验收）与「执行说明」「设计」artifact 为准
 - **审什么**：
   - 代码：下方「判断标准」
   - **测试视角**：每条目标都有 jest 用例或实机验证项对应，边界和易错处有覆盖

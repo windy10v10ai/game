@@ -29,7 +29,7 @@ firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/fir
 
 ## issue 正文结构
 
-用户先看的几块放前面、写得最短，写给执行 AI 的细节放最后，用户不用细看：
+issue 正文只放用户要看的几块，写得最短；写给执行 AI 的细节放进挂在 issue 上的 Markdown artifact「执行说明」，正文最后一块只留指向它的链接：
 
 `````markdown
 ## 背景
@@ -48,10 +48,10 @@ firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/fir
 不写（只写这两个字）；或要写，格式见下
 
 ## 执行说明
-（写给执行的 AI）
+执行说明（https://github.com/windy10v10ai/game/issues/<n>/artifacts/<编号>）
 `````
 
-`issue-impl` 与 `issue-autorun` 按整份正文干活。几块之间有冲突时，「要求」最大，其次「验收」，再其次执行说明。执行 AI 不读对话，所以「要求」里别写只有对话里才懂的话。
+`issue-impl` 与 `issue-autorun` 先读正文，再用 `gh issue artifact view <n> <编号> -R windy10v10ai/game` 读「执行说明」artifact，读不到当作没有执行说明，按「卡住时怎么办」处理。几块之间有冲突时，「要求」最大，其次「验收」，再其次执行说明。执行 AI 不读对话，所以「要求」里别写只有对话里才懂的话。
 
 ### Release Note
 
@@ -77,10 +77,10 @@ firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/fir
 
 ### 执行说明
 
-标题固定为 `## 执行说明`，写在正文最后，面向执行者而不是用户。每一项都要写到不用再问的程度：
+名为「执行说明」的 Markdown artifact（`gh issue artifact create <n> -R windy10v10ai/game '<文件>.md#执行说明'`，改动用 `edit` 覆盖），面向执行者而不是用户。文件以 `# 执行说明` 开头，每一项都要写到不用再问的程度：
 
 ```markdown
-## 执行说明
+# 执行说明
 
 - **做法**：先写用哪个 skill（如「按 `clone-ability`」；`AGENTS.md` 对照表里没有对得上的写「无」），再写已拍板的实现方案，含选型（如「用 KV Properties，不新增 Lua modifier」）。AI 自己推断、用户没拍板的取舍标「建议」
 - **改动范围**：允许改的文件或目录，逐条列出
@@ -88,6 +88,8 @@ firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/fir
 - **验收命令**：必须通过的命令（默认 `npm test`、`npm run lint`、`npm run build:vscripts`；改 Panorama 加 `npm run build:panorama`；带持续性 buff 或永久属性的技能、物品加性能基准，见根 `CLAUDE.md`「Implementation Style」），以及要补的 jest 用例，每个用例写明输入与预期
 - **实机验证**：需要 / 不需要；需要时逐项标层级（见下文「实机验证分三层」）并写到可判定
 ```
+
+artifact 是 GitHub 的预览功能，命令失败时把执行说明临时写回正文末尾的 `## 执行说明` 兜底，并在留言里说明，功能恢复后再迁回。
 
 目标拆成几条互不依赖的小项，agent 卡在其中一条时才能跳过它继续做别的。
 
@@ -108,17 +110,9 @@ firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/fir
 | **截图判定** | 图标、特效、面板布局、悬停或点击后才出现的 tooltip 与界面 | 截哪个状态、裁哪块、正确时应该看到什么 | 执行者操作并截图，只交图不下结论；调度员看图判定 |
 | **用户判定** | 手感、动画节奏、需要连续观察的表现 | 要看什么、和什么对比 | 记进「等你处理」，用户回来测 |
 
-### 复杂 issue：指向设计 artifact
+### 设计 artifact（可选）
 
-执行说明写不进一屏、要讲数据流或跨多层改动时，按 `.claude/references/doc-writing.md`「设计 spec」把设计挂成该 issue 的 artifact（HTML「设计」给人看，Markdown「设计文档」给 agent 读），背景、目标、要求、验收、Release Note 仍写在 issue 正文，执行说明只留指针：
-
-```markdown
-## 执行说明
-
-- **设计文档**：设计文档（https://github.com/windy10v10ai/game/issues/<n>/artifacts/<Markdown 的编号>）
-```
-
-设计文档包含上面执行说明的全部五项。
+要讲数据流或跨多层改动时，在「执行说明」之外，把和用户讨论的页面定稿成 HTML「设计」挂到 issue（给人看，流程图、方案对比），见 `.claude/references/doc-writing.md`「设计 spec」。agent 以「执行说明」为准，它要把设计里和实现有关的结论写全，不靠 agent 去读 HTML。
 
 ## 子 issue
 

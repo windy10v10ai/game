@@ -5,7 +5,7 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 
 # issue-spec
 
-用户在场时，和用户把一个 issue 的做法谈定，把 issue 正文整理成 `agent-issue.md`「issue 正文结构」那几块，并打 `agent-todo`，留给 `issue-autorun` 在用户不在时自动做。只定到 spec 为止，不写实现计划、不改代码。标签与正文结构见 `.claude/references/agent-issue.md`，字段与项目配置见 `.claude/references/issue-fields.md`，开始前先读这两份。
+用户在场时，和用户把一个 issue 的做法谈定，把 issue 正文整理成 `agent-issue.md`「issue 正文结构」那几块，执行说明写成 Markdown artifact 挂到 issue，并打 `agent-todo`，留给 `issue-autorun` 在用户不在时自动做。只定到 spec 为止，不写实现计划、不改代码。标签与正文结构见 `.claude/references/agent-issue.md`，字段与项目配置见 `.claude/references/issue-fields.md`，开始前先读这两份。
 
 ## 0. 补齐 issue 字段
 
@@ -42,7 +42,7 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 
 ## 3. 写入 issue
 
-正文按 `agent-issue.md`「issue 正文结构」写：背景、目标、要求、验收、Release Note 放前面，写得最短；执行说明放最后，面向执行的 AI。
+正文按 `agent-issue.md`「issue 正文结构」写：背景、目标、要求、验收、Release Note，写得最短；执行说明不进正文，写成 Markdown artifact「执行说明」，正文最后一块只放它的链接。
 
 - **要求**只写用户亲口拍板的，一条一行。AI 自己推断、按默认定的取舍写进执行说明并标「建议」
 - **验收**用白话写怎么判对错，命令与用例放执行说明
@@ -51,18 +51,19 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 
 给用户确认时不贴全文，只列三组重点：用户拍板的（即「要求」）、按默认做的（附「不同意就说」）、实机验证要读什么；全文写进 issue 后给链接。
 
-执行说明写不进一屏、要讲数据流或跨多层改动时，把第 2 步的讨论页定稿成设计文档：按 `.claude/references/doc-writing.md`「设计 spec」挂到 issue（HTML「设计」给人看、Markdown「设计文档」给 agent 读、链接备用），文档里包含执行说明的全部五项，issue 里的执行说明只留指向 Markdown 设计文档的一行（格式见 `agent-issue.md`「复杂 issue」）。
+第 2 步用过讨论页的，定稿后按 `.claude/references/doc-writing.md`「设计 spec」把 HTML「设计」也挂到 issue（给人看），设计里和实现有关的结论要写进「执行说明」（见 `agent-issue.md`「设计 artifact」）。
 
 要拆成几批时，每批开一个子 issue，按 `agent-issue.md`「子 issue」挂到父 issue 下，各自写完整正文。
 
-用户确认后写进 issue 正文（已有同名块时整块替换，旧 issue 的 `## 执行说明` 也按新结构重排，原有内容保留），再打标签：
+用户确认后写进 issue：正文用 `gh issue edit --body-file`，执行说明先建 artifact 再把链接写进正文（已有同名块时整块替换，旧 issue 正文里的执行说明迁进 artifact，内容保留），再打标签：
 
 ```bash
+gh issue artifact create <n> -R windy10v10ai/game '<文件>.md#执行说明'   # 已有时用 edit <n> <编号> --body-file
 gh issue edit <n> -R windy10v10ai/game --body-file <文件>
 gh issue edit <n> -R windy10v10ai/game --add-label agent-todo --add-label <L1-code|L2-script|L3-visual>
 ```
 
-完成条件：issue 正文是用户确认过的新结构（背景、目标、要求、验收、Release Note、执行说明，或执行说明指向用户确认过的设计文档），带 `agent-todo` 与一个级别标签（判据见 `agent-issue.md`「级别标签」）。
+完成条件：issue 正文是用户确认过的新结构（背景、目标、要求、验收、Release Note、执行说明链接），「执行说明」artifact 已挂上，带 `agent-todo` 与一个级别标签（判据见 `agent-issue.md`「级别标签」）。
 
 ## 处理 agent 留下的问题
 
