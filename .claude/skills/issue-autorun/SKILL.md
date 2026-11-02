@@ -62,15 +62,16 @@ disable-model-invocation: true
 
 ```bash
 gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json number,title,body
+gh project item-list 3 --owner windy10v10ai --limit 200 --format json -q '.items[]|select(.content.repository=="windy10v10ai/game" and (.status=="In progress" or .status=="Todo"))|"\(.status)	\(.content.number)"'
 ```
 
-对每个 issue 查「开发计划」项目里的 Status 与 issue 字段 Priority（查询见 `.claude/references/issue-fields.md`「查询」），按下面的顺序排，前一项相同再比后一项：
+第二条列出的顺序就是用户在项目里排的上下顺序（查询说明见 `.claude/references/issue-fields.md`），调度员**只按它排，不按 Priority 重排**：
 
-1. Status：In progress → Todo → Plan → Backlog → 未入项目
-2. Priority：Urgent → High → Medium → Low → 未填
-3. 编号从小到大
+1. 只看项目里 **In progress** 和 **Todo** 两栏里带 `agent-todo` 的 issue。其他栏（Plan、Backlog）和没入项目的 `agent-todo` issue 不做，在计划里单独列出并写明原因
+2. 先 In progress 栏，做完再 Todo 栏
+3. 每一栏内按项目里从上到下的顺序，用户想调先后就在项目里拖动
 
-完成条件：每个 `agent-todo` issue 都有序号，执行说明缺项或「执行说明」artifact 读不到的，直接按「卡住时怎么办」第三行处理。
+完成条件：每个要做的 `agent-todo` issue 都有序号，执行说明缺项或「执行说明」artifact 读不到的，直接按「卡住时怎么办」第三行处理。
 
 ## 2. 出计划
 

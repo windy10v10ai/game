@@ -53,7 +53,7 @@ gh api graphql -f r=game -F n=<n> -f query='query($r:String!,$n:Int!){repository
 # 一个仓库的全部未关闭 issue（含正文，整批整理用）
 gh api graphql -f r=game -f query='query($r:String!){repository(owner:"windy10v10ai",name:$r){issues(states:OPEN,first:100){nodes{number title createdAt updatedAt issueType{name} labels(first:10){nodes{name}} comments{totalCount} issueFieldValues(first:10){nodes{... on IssueFieldSingleSelectValue{name field{... on IssueFieldSingleSelect{name}}}}} projectItems(first:5){nodes{project{title} fieldValueByName(name:"Status"){... on ProjectV2ItemFieldSingleSelectValue{name}}}} body}}}}'
 
-# 项目全部条目（含草稿 DraftIssue 与 Done 栏）
+# 项目全部条目（含草稿 DraftIssue 与 Done 栏），返回顺序就是项目里列内从上到下的顺序
 gh project item-list 3 --owner windy10v10ai --limit 200 --format json
 ```
 
