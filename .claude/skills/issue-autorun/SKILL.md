@@ -113,7 +113,7 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 ```markdown
 你在仓库主目录（当前目录）里做 issue windy10v10ai/game#<id>，用户不在场，从实现一直做到实机验证，中途不交回、不提问。
 
-先读 `.claude/skills/issue-impl/SKILL.md` 并照它的第 1–7 步做，分支名用 `<fix|feature>/<id>-<3–6 个英文小写单词>`。需求只看 issue 正文（背景、目标、要求、验收、Release Note）和正文末尾链接指向的「执行说明」artifact（编号 <编号>）。
+先读 `.claude/skills/issue-impl/SKILL.md` 并照它的第 1–7 步做（这条 issue 已有未合并的 PR 就接着做，按它第 1 步处理），新切分支时分支名用 `<fix|feature>/<id>-<3–6 个英文小写单词>`。需求只看 issue 正文（背景、目标、要求、验收、Release Note）和正文末尾链接指向的「执行说明」artifact（编号 <编号>）。
 卡住时按 `issue-impl`「卡住时怎么办」处理。PR 末行署名：<执行者署名行>。
 最终回复按 `issue-impl` 第 7 步写。
 ```

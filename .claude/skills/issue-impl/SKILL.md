@@ -43,6 +43,18 @@ description: 按 issue 正文（背景、目标、要求、验收、Release Note
 ```bash
 git status --porcelain      # 必须为空
 git switch develop && git pull --ff-only
+gh issue view <issue-id> -R windy10v10ai/game --json closedByPullRequestsReferences -q '.closedByPullRequestsReferences[]|"\(.number) \(.state) \(.headRefName)"'
+```
+
+上面最后一条查这条 issue 有没有关联的 PR。有**未合并**的（状态 OPEN，草稿也算）就接着做，不另切分支、不另开 PR：
+
+```bash
+git fetch origin && git switch -C <该 PR 的分支> origin/<该 PR 的分支>   # 远端历史可能被改写过，不用本地旧分支
+```
+
+没有未合并的 PR 才新切分支：
+
+```bash
 git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用 fix/
 ```
 
