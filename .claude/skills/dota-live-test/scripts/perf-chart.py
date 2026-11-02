@@ -46,6 +46,10 @@ def main(spec_path, out_path):
         out.append(text(PAD, y0 + 62, panel['verdict'], 20, COLORS['after'] if panel.get('good') else SUB, True))
         top = y0 + 84
         bottom = top + len(rows) * (BAR_H + BAR_GAP)
+        noise = panel.get('noise')
+        if noise:
+            out.append(f'<rect x="{px(-noise):.1f}" y="{top - 8}" width="{px(noise) - px(-noise):.1f}" height="{bottom - top + 8}" fill="#b4b2a9" fill-opacity="0.25"/>')
+            out.append(text(px(noise) + 6, top + 6, f'测量误差范围 ±{noise:g}（带内读作约等于 0）', 14, SUB))
         t = math.ceil(lo / step) * step
         while t <= hi + 1e-9:
             out.append(f'<line x1="{px(t):.1f}" y1="{top - 8}" x2="{px(t):.1f}" y2="{bottom}" stroke="{GRID}"/>')
