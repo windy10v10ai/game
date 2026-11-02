@@ -2532,14 +2532,13 @@
 
 		// item_undying_heart 不朽之心
 		"DOTA_Tooltip_Ability_item_undying_heart"				"Сердце бессмертия"
-		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>Активное: Драконье возрождение</font></h1>Мгновенно восстанавливает %active_hp_regen% + %active_hp_regen_pct%%% от максимального здоровья и накладывает на владельца нормальное развеивание.<br>Даёт дополнительный эффект восстановления здоровья на %dur% сек., восстанавливая %buff_hp_regen% + %buff_hp_regen_pct%%% от максимального здоровья в секунду."
+		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>Активное: Драконье возрождение</font></h1>Мгновенно восстанавливает %active_hp_regen% + %active_hp_regen_pct%%% от максимального здоровья и накладывает на владельца нормальное развеивание.<br>Даёт дополнительный эффект восстановления здоровья на %dur% сек., восстанавливая %buff_hp_regen% + %buff_hp_regen_pct%%% от максимального здоровья в секунду.\n\n<h1>Пассивное: Behemoth's Blood</h1>Восстановление здоровья увеличивается на %missing_health_regen%%% от недостающего здоровья."
 		"DOTA_Tooltip_ability_item_undying_heart_Lore"									"Хорошо сохранившееся сердце давно вымершего чудовища повышает выносливость владельца."
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_strength"						"+$str"
-		"DOTA_Tooltip_ability_item_undying_heart_bonus_health"							"+$health"
-		"DOTA_Tooltip_ability_item_undying_heart_health_regen_pct"						"%+Макс. восстановление здоровья"
+		"DOTA_Tooltip_ability_item_undying_heart_bonus_health_passive"							"+$health"
+		"DOTA_Tooltip_ability_item_undying_heart_hp_regen"						"%+макс. здоровья в секунду"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_evasion"							"%+$evasion"
-		"DOTA_Tooltip_ability_item_undying_heart_status_resistance"						"%+Сопротивление эффектам"
-		"DOTA_Tooltip_ability_item_undying_heart_note0"									"Эффекты максимального восстановления здоровья от нескольких Сердец бессмертия не складываются."
+		"DOTA_Tooltip_ability_item_undying_heart_note0"									"Эффекты от нескольких заклинаний Behemoth's Blood не складываются."
 		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"Драконье возрождение"
 		"DOTA_Tooltip_modifier_item_undying_heart_buff_Description"						"Очень быстро восстанавливает здоровье."
 
@@ -3537,15 +3536,16 @@
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"										"<font color='#90EE90'>Источник жизни</font>"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>Активное: Цветение сухого древа</font></h1>Восстанавливает владельцу и окружающим союзникам %replenish_health% здоровья +%replenish_health_pct%%% максимального здоровья и %replenish_mana% маны, а также снимает с владельца все отрицательные эффекты. На %active_duration% сек. владелец получает %bonus_armor_active% брони и %bonus_regen_active% восстановления здоровья.<br><br>Радиус действия: %replenish_radius%<br>Тип развеивания: <span class=\"GameplayValues GameplayVariable\">сильное</span>\n\n<h1>Пассивное: Спасение на краю гибели</h1>При получении урона от героя и падении здоровья ниже %health_threshold_pct%%% автоматически срабатывает эффект выше, а на %buff_duration% сек. владелец получает +%status_resistance%%% <font color='#B99012'>сопротивления эффектам</font>, при этом весь получаемый и наносимый им урон становится равным нулю."
+		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>Активное: Цветение сухого древа</font></h1>Восстанавливает владельцу и окружающим союзникам %replenish_health% здоровья +%replenish_health_pct%%% максимального здоровья и %replenish_mana% маны, а также снимает с владельца все отрицательные эффекты. На %active_duration% сек. владелец получает %bonus_armor_active% брони и %bonus_regen_active% восстановления здоровья.<br><br>Радиус действия: %replenish_radius%<br>Тип развеивания: <span class=\"GameplayValues GameplayVariable\">сильное</span>\n\n<h1>Пассивное: Behemoth's Blood</h1>Восстановление здоровья увеличивается на %missing_health_regen%%% от недостающего здоровья.\n\n<h1>Пассивное: Спасение на краю гибели</h1>При получении урона от героя и падении здоровья ниже %health_threshold_pct%%% автоматически срабатывает эффект выше, а на %buff_duration% сек. владелец получает +%status_resistance%%% <font color='#B99012'>сопротивления эффектам</font>, при этом весь получаемый и наносимый им урон становится равным нулю."
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"								"Доспех из древа, полный жизненной силы: сухое древо вновь цветёт, а гибель оборачивается спасением."
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"						"+$str"
-		"DOTA_Tooltip_ability_item_withered_spring_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_withered_spring_bonus_health_passive"					"+$health"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_mana"							"+$mana"
-		"DOTA_Tooltip_ability_item_withered_spring_health_regen_pct"					"%+Восстановление максимального здоровья"
+		"DOTA_Tooltip_ability_item_withered_spring_hp_regen"					"%+макс. здоровья в секунду"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_withered_spring_Note0"								"После автоматического срабатывания уходит на перезарядку."
+		"DOTA_Tooltip_ability_item_withered_spring_Note1"								"Эффекты от нескольких заклинаний Behemoth's Blood не складываются."
 
 		"DOTA_Tooltip_modifier_item_withered_spring_active"								"Цветение сухого древа"
 		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"Броня увеличена на %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, восстановление здоровья увеличено на %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
