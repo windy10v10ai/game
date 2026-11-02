@@ -77,8 +77,10 @@ gh project item-list 3 --owner windy10v10ai --limit 200 --format json -q '.items
 
 先输出计划表：
 
-| 序号 | issue（链接 + 标题） | 级别 | Status / Priority | 执行说明 | 实机验证（各层项数） |
-|---|---|---|---|---|
+| 序号 | issue（链接 + 标题） | 级别 | Status / Priority | 执行说明 | 实机验证（各层项数） | 预计时长 |
+|---|---|---|---|---|---|---|
+
+预计时长按每条的实机验证量（局数、截图数）和改动范围粗估，表后再给一行总时长；没有历史数据时注明是粗估。用户选完后开始前，把选中那批的总时长再报一次。
 
 再用一次 `AskUserQuestion`（`multiSelect: true`）请用户选这批跑哪些。`AskUserQuestion` 的框会挡住它前面的文字，判断要用的信息写进选项的 `description`（级别、Status / Priority、改动范围大小、有没有截图或用户判定项）：
 
