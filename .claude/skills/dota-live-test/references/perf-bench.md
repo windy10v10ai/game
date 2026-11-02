@@ -19,7 +19,7 @@ npm run perf -- --server tools --scenes <场景> --conditions <条件,...> --swa
 - 要分清开销算在出手方还是挨打方时加 `--benchSide attacker`（只换给不被选为目标的 18 人）或 `--benchSide victim`（只换给两队 1 号，各挨对面 10 人打），对 `--swapItems` 与 `--itemModifiers` 都生效。伤害基准里只有这 2 个挨打方，单件比较要按件数折算
 - 改动前后对比：每个版本一条测试分支，用同一套测试工具与参数各跑一局
 - 默认固定跑 3 局，脚本不自动加局。读报告每个条件括号里的逐局值自行判断：各局同向、量级远大于 `swap_empty` 的波动即可下结论，单局离群就点出来；方向来回且量级与 `swap_empty` 相当，就是「≈0 / 测不出」，量级介于两者之间才用 `--appendTo runs/<时间>` 带同样参数追加局
-- 放大某个 modifier 的开销时分散挂到不同单位各 1 份（参考 `bld_` 条件，全场建筑各挂 1 个），不在同一单位叠多份同名 modifier：叠挂测出的单个开销偏高一个数量级，只能看随层数增长的趋势（`meleebuff_x<N>` 属于这种）
+- 放大某个 modifier 的开销时分散挂到不同单位各 1 份（参考 `bld_` 条件，全场建筑各挂 1 个），不在同一单位叠多份同名 modifier：叠挂测出的单个开销偏高一个数量级，只能看随层数增长的趋势
 - 已知结论（计在伤害结算 `CDOTA_BaseNPC::DamageImpact` 里，20 个实例）：Lua modifier 空壳 +0.3～1.6；只返回常量技能增强的 Lua modifier 在 `spellbench` +3.5～4.3（写成 KV +0.7），技能增强只在带技能来源的伤害里查、普攻不查；带全图受伤监听的约为空壳的 5 倍。测新机制时空壳与监听两档可用 `bld_empty` / `bld_takedamage`，或 `--itemModifiers <物品>:modifier_perf_empty:modules/debug/perf-building-modifier` 挂到英雄上作参照。原版物品 modifier 不一定便宜：`modifier_item_eternal_shroud`、`modifier_item_devastator` 单个比空 Lua modifier 贵十倍以上，同样计在伤害结算里；KV 光环（`Aura` + `Properties`）很便宜。永恒护符 20 件（issue #2697）：`item_lua` 版（Lua 被动挂原版永恒之盘、滋补，登记全局监听）+2.25 / +3.52 / +3.16（dmg / atk / spell），同效果的 `item_datadriven` 版 ≈0，只开全局监听 ≈0，开销在持有者挨打时的 `DamageImpact`
 
 ## 基准场景
@@ -43,3 +43,12 @@ npm run perf -- --server tools --scenes <场景> --conditions <条件,...> --swa
 - 近战兵间距至少 64 才排得成单排；挤成一团时只有前排在打，「每次攻击进 Lua」的实现会被低估
 - 0 号玩家英雄不受 AI 开关控制、会自动攻击，留在泉水不参与场景
 - 排兵线避开地形：站位落在石头或高低差上会被推到最近空地，开局后看一眼实际站位
+
+## 报告格式
+
+写进 PR「验收结果」和 issue 留言的性能报告，读者只想知道修改前后是改好了还是没改好：
+
+- **修改前 vs 修改后放最前**：同场景同参数各一条，每个场景一句结论：改好了 / 基本持平 / 变差了。差值远大于 `swap_empty` 的逐局波动才算变好或变差，量级相当写「基本持平」
+- **用图，不用大段文字**：`python -I .claude/skills/dota-live-test/scripts/perf-chart.py <spec.json> <out.png>` 出对比图。spec 有 `title`、`note`、`footer` 和 `panels`（每栏 `title`、`verdict`、`good`、`rows`，行里 `name`、`value`、`kind`）；`kind` 取 `before`（橙）、`after`（蓝）、`ref`（灰，参照组，排在后面）。图按 `create-pr/references/screenshots.md` 放 assets 分支，贴在 PR「验收结果」，图下最多两三行：结论，以及数据口径（修改前不是同批测的要写明）
+- **参照组只是附带**：空白对照、拆出的部件、同类做法的数据放在图里的灰条，不当修改前，也不写「某 issue 的数据」这类读者看不懂的来源；逐局值表放 PR 评论
+- **少写代码名**：报告和 PR 正文里第一次出现的 modifier、技能、函数名，先用白话说它是谁、做什么（哪件装备、哪个技能、玩家看到什么），代码名只在括号里补一次；说明机制用示意图，不堆文字
