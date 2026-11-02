@@ -47,7 +47,7 @@ description: 整理 issue：查重复与过期、调整优先级、核对「开�
 
 ## 4. 执行
 
-issue 留言与新建 issue 的正文用中文。设 Priority / Effort / Type、改 Status、补进项目、草稿转正式 issue 的命令见 `issue-fields.md`「修改」。
+设 Priority / Effort / Type、改 Status、补进项目、草稿转正式 issue 的命令见 `issue-fields.md`「修改」。
 
 ```bash
 # 关闭重复，留言写明剩余内容由谁跟踪
