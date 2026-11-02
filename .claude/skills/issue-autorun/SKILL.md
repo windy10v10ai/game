@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # issue-autorun
 
-用户不在场时，把所有带 `agent-todo` 标签的 issue 做完。能做的都做完，做不了的跳过并记下来，最后统一留给用户。标签、执行说明与设计文档的约定见 `.claude/references/agent-issue.md`，开始前先读。
+用户不在场时，把所有带 `agent-todo` 标签的 issue 做完。能做的都做完，做不了的跳过并记下来，最后统一留给用户。标签、正文结构与执行说明 artifact 的约定见 `.claude/references/agent-issue.md`，开始前先读。
 
 一次只做一个 issue，全部在主目录里做：Dota 只加载主目录的 `game/`，实机验证本来就只能一次一个，用户不在场，不缺时间，顺序跑省掉 worktree、依赖链接和实机排队。
 
@@ -25,7 +25,7 @@ disable-model-invocation: true
 ## 硬规则
 
 - **只在开工前问一次**：第 2 步请用户选 issue，之后用户不在场，根 `CLAUDE.md`「Skill 交互」的 `AskUserQuestion` 不适用。拿不准的按「卡住时怎么办」处理，然后继续
-- **只做有执行说明的 issue**：没有 `## 执行说明` 的不派，按「卡住时怎么办」第三行处理
+- **只做有执行说明的 issue**：正文末尾没有执行说明链接（也找不到名为「执行说明」的 artifact）、或读不到的不派，按「卡住时怎么办」第三行处理
 - **主目录只在干净时用**：开工前和每个 issue 之间检查 `git status --porcelain` 为空。不干净就停掉剩下的全部 issue，写进汇报，不动用户的文件
 - **不合并、不推 `develop` / `main`**，PR 审查通过前保持草稿，通过后转正式，没做完的保持草稿
 - **只改执行说明「改动范围」里的文件**
@@ -62,21 +62,22 @@ disable-model-invocation: true
 
 ```bash
 gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json number,title,body
+gh project item-list 3 --owner windy10v10ai --limit 200 --format json -q '.items[]|select(.content.repository=="windy10v10ai/game" and (.status=="In progress" or .status=="Todo"))|"\(.status)	\(.content.number)"'
 ```
 
-对每个 issue 查「开发计划」项目里的 Status 与 issue 字段 Priority（查询见 `issue-triage` 第 1 步），按下面的顺序排，前一项相同再比后一项：
+第二条列出的顺序就是用户在项目里排的上下顺序（查询说明见 `.claude/references/issue-fields.md`），调度员**只按它排，不按 Priority 重排**：
 
-1. Status：In progress → Todo → Plan → Backlog → 未入项目
-2. Priority：Urgent → High → Medium → Low → 未填
-3. 编号从小到大
+1. 只看项目里 **In progress** 和 **Todo** 两栏里带 `agent-todo` 的 issue。其他栏（Plan、Backlog）和没入项目的 `agent-todo` issue 不做，在计划里单独列出并写明原因
+2. 先 In progress 栏，做完再 Todo 栏
+3. 每一栏内按项目里从上到下的顺序，用户想调先后就在项目里拖动
 
-完成条件：每个 `agent-todo` issue 都有序号，执行说明缺项或指向的设计文档不存在的，直接按「卡住时怎么办」第三行处理。
+完成条件：每个要做的 `agent-todo` issue 都有序号，执行说明缺项或「执行说明」artifact 读不到的，直接按「卡住时怎么办」第三行处理。
 
 ## 2. 出计划
 
 先输出计划表：
 
-| 序号 | issue（链接 + 标题） | 级别 | Status / Priority | 设计文档 | 实机验证（各层项数） |
+| 序号 | issue（链接 + 标题） | 级别 | Status / Priority | 执行说明 | 实机验证（各层项数） |
 |---|---|---|---|---|
 
 再用一次 `AskUserQuestion`（`multiSelect: true`）请用户选这批跑哪些。`AskUserQuestion` 的框会挡住它前面的文字，判断要用的信息写进选项的 `description`（级别、Status / Priority、改动范围大小、有没有截图或用户判定项）：
@@ -113,7 +114,7 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 ```markdown
 你在仓库主目录（当前目录）里做 issue windy10v10ai/game#<id>，用户不在场，从实现一直做到实机验证，中途不交回、不提问。
 
-先读 `.claude/skills/issue-impl/SKILL.md` 并照它的第 1–7 步做，分支名用 `<fix|feature>/<id>-<3–6 个英文小写单词>`。需求只看 issue 末尾的「执行说明」<有设计文档时：设计文档是 <artifact 链接>>。
+先读 `.claude/skills/issue-impl/SKILL.md` 并照它的第 1–7 步做（这条 issue 已有未合并的 PR 就接着做，按它第 1 步处理），新切分支时分支名用 `<fix|feature>/<id>-<3–6 个英文小写单词>`。需求只看 issue 正文（背景、目标、要求、验收、Release Note）和正文末尾链接指向的「执行说明」artifact（编号 <编号>）。
 卡住时按 `issue-impl`「卡住时怎么办」处理。PR 末行署名：<执行者署名行>。
 最终回复按 `issue-impl` 第 7 步写。
 ```
@@ -127,9 +128,9 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 - `gh pr view <pr> -R windy10v10ai/game --json additions,deletions` 的增删合计超过 500 行
 - 本批选了超过 5 条 issue
 
-不由用户选：条件是机械的，调度员照判即可。派子代理时交接只给证据，不让它从头调研：PR 编号、执行说明来源（issue 编号与设计 artifact 链接）、执行者的日志路径。
+不由用户选：条件是机械的，调度员照判即可。派子代理时交接只给证据，不让它从头调研：PR 编号、执行说明来源（issue 编号与「执行说明」artifact 链接）、执行者的日志路径。
 
-不论谁审，都读 `.claude/skills/review-pr/SKILL.md`，按其中「自动模式」审：只看 PR（正文、评论里的验证记录、截图）、执行说明与设计 artifact，给出 PASS / NEEDS-FIX / NEEDS-DECISION。子代理回报限 400 字以内。
+不论谁审，都读 `.claude/skills/review-pr/SKILL.md`，按其中「自动模式」审：只看 PR（正文、评论里的验证记录、截图）、执行说明 artifact，给出 PASS / NEEDS-FIX / NEEDS-DECISION。子代理回报限 400 字以内。
 
 完成条件：该 PR（或测量结果）有审查结论。
 
@@ -158,7 +159,7 @@ gh issue edit <id> -R windy10v10ai/game --remove-label agent-todo --add-label ag
 gh issue comment <id> -R windy10v10ai/game --body "已开 PR：<链接>（保持草稿的写明原因）。等你处理 N 项，见 PR 正文。"
 ```
 
-执行说明 Release Note「要写」的，调用 `release-note` skill（来源：该 PR，写回：执行说明定的写回方式，没写时按「仅写入功能 PR」），要点以执行说明为准，不另拟。聚合 release PR 还没创建时只写入功能 PR，在 PR「等你处理」记一条「合并后写入 release PR」。写进了 release PR 的，PR「等你处理」记一条「不合并本 PR 时从 release PR #N 删掉对应条目」。
+issue 正文 Release Note 一节「要写」的，调用 `release-note` skill（来源：该 PR，写回：该节定的写回方式，没写时按「仅写入功能 PR」），要点以该节为准，不另拟。聚合 release PR 还没创建时只写入功能 PR，在 PR「等你处理」记一条「合并后写入 release PR」。写进了 release PR 的，PR「等你处理」记一条「不合并本 PR 时从 release PR #N 删掉对应条目」。
 
 整条做不了的改打 `agent-block`，留言写明卡在哪、缺什么。
 

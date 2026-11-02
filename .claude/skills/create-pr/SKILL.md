@@ -51,7 +51,7 @@ git checkout -b <prefix>/<issue-id>-<summary>
 「删掉 Release Note 段」只指本功能 PR 正文里模板自带的占位段，聚合 release PR 里已有的 Release Note 一律不动。
 
 - **是**：删掉本 PR 正文的 `## Release Note` 占位段，在描述里说明本次无玩法影响。不提问、不查版本号
-- **issue 执行说明已定要点与写回方式**（`issue-impl` / `issue-autorun`）：照执行说明调用 `release-note`，不提问
+- **issue 的 Release Note 一节已定要点与写回方式**（`issue-impl` / `issue-autorun`）：照该节调用 `release-note`，不提问
 - **不是或无法确定**：先出草稿再问一次，不先问写回方式。
   1. 按 `.claude/references/release-version.md` 算出目标版本，并记下聚合 release PR 是否已存在
   2. PR 创建后调用 `release-note`，写回方式为「仅出草稿」

@@ -39,11 +39,10 @@
 <line class="dash" x1="525" y1="40" x2="525" y2="1170"/>
 <line class="grid" x1="150" y1="0" x2="150" y2="1170"/>
 <text class="st" x="16" y="80.0">立项</text>
-<text class="ss" x="16" y="98.0">issue-triage</text>
+<text class="ss" x="16" y="98.0">issue-spec</text>
 <line class="grid" x1="0" y1="126" x2="900" y2="126"/>
 <text class="st" x="16" y="263.0">设计</text>
-<text class="ss" x="16" y="281.0">brainstorming</text>
-<text class="ss" x="16" y="296.0">issue-spec</text>
+<text class="ss" x="16" y="281.0">issue-spec</text>
 <line class="grid" x1="0" y1="420" x2="900" y2="420"/>
 <text class="st" x="16" y="645">实现</text>
 <text class="ss" x="16" y="663">issue-impl</text>
@@ -58,15 +57,18 @@
 <text class="ss" x="16" y="1135">release-note</text>
 <text class="ss" x="16" y="1150">deploy</text>
 <rect class="nh" x="177.5" y="54" width="320" height="58" rx="8"/>
-<text class="t" x="189.5" y="79">提需求，定优先级</text>
-<text class="d" x="189.5" y="99">issue-triage 查重复、建议优先级</text>
+<text class="t" x="189.5" y="79">提想法</text>
+<text class="d" x="189.5" y="99">/issue-spec 查重并新建 issue，放入 Plan</text>
+<rect x="552.5" y="54" width="320" height="58" rx="8" fill="none" class="dash"/>
+<text class="d" x="564.5" y="79">定期整理（不在主线上）</text>
+<text class="d" x="564.5" y="99">issue-triage：查过期与重复、调各栏顺序</text>
 <rect class="na" x="552.5" y="140" width="320" height="76" rx="8"/>
 <text class="t" x="564.5" y="165">起草设计与执行说明</text>
-<text class="d" x="564.5" y="185">在 artifact 里讨论；</text>
-<text class="d" x="564.5" y="203">执行说明写明用哪个 skill</text>
+<text class="d" x="564.5" y="185">谈目标与要求，复杂的用网页讨论；</text>
+<text class="d" x="564.5" y="203">执行说明写成 artifact</text>
 <rect class="nh" x="177.5" y="244" width="320" height="58" rx="8"/>
 <text class="t" x="189.5" y="269">拍板</text>
-<text class="d" x="189.5" y="289">设计挂到 issue，打 agent-todo</text>
+<text class="d" x="189.5" y="289">挪到 Todo，打 agent-todo</text>
 <rect class="nh" x="177.5" y="330" width="320" height="76" rx="8"/>
 <text class="t" x="189.5" y="355">开工</text>
 <text class="d" x="189.5" y="375">/issue-impl 123：现在做一条</text>

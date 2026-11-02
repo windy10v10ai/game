@@ -92,7 +92,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 - 手上有未合并的 PR 时，文档、skill、注释、几行的 KV / 本地化修正这类小改动直接并进该 PR，不另切分支，判定见 `.claude/references/git-workflow.md`「小改动搭车」
 - 其余改动的分支从最新 `develop` 切出，确定要写文件前先切好。issue 驱动命名 `feature/<issue-id>-<3–6 个英文小写单词>`（如 `feature/2411-web-link-refresh`），其他用 `fix/` `chore/` `docs/` 前缀
 - 切分支前的检查、worktree、小改动搭车、合并与清理 → `.claude/references/git-workflow.md`
-- issue 标题与 PR 正文用中文，PR 标题与 commit 用英文。commit 是 ≤72 字符的单行标题，正文只写 `Co-Authored-By`
+- PR 标题尽量用英文，commit 用英文；issue 和 PR 正文的语言随用户习惯，不锁定。commit 是 ≤72 字符的单行标题，正文只写 `Co-Authored-By`
 - PR base 固定 `develop`。PR 解决了 issue 描述的问题就写 `Fixes #<id>`；issue 里「方向」「建议」没全做、或另开了后续 issue 的，照样写 `Fixes`。只有 issue 本身拆成多步、本 PR 只做其中一步时才写 `#<id>`
 - 只 stage 本次请求相关的文件，commit 前看 `git status`；当前分支不符合预期（如处于 `develop`/`main`）先请用户确认
 - PR 做完（验收与验证都完成）就直接开正式，没做完的才开草稿，正文写明没做完什么；草稿一做完就转正式。审出要大改时 `gh pr ready <编号> --undo` 退回草稿，改完再转正式

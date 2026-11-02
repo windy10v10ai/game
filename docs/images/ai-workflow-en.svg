@@ -39,11 +39,10 @@
 <line class="dash" x1="525" y1="40" x2="525" y2="1224"/>
 <line class="grid" x1="150" y1="0" x2="150" y2="1224"/>
 <text class="st" x="16" y="89.0">Plan</text>
-<text class="ss" x="16" y="107.0">issue-triage</text>
+<text class="ss" x="16" y="107.0">issue-spec</text>
 <line class="grid" x1="0" y1="144" x2="900" y2="144"/>
 <text class="st" x="16" y="290.0">Design</text>
-<text class="ss" x="16" y="308.0">brainstorming</text>
-<text class="ss" x="16" y="323.0">issue-spec</text>
+<text class="ss" x="16" y="308.0">issue-spec</text>
 <line class="grid" x1="0" y1="456" x2="900" y2="456"/>
 <text class="st" x="16" y="681.0">Build</text>
 <text class="ss" x="16" y="699.0">issue-impl</text>
@@ -59,16 +58,20 @@
 <text class="ss" x="16" y="1189.0">release-note</text>
 <text class="ss" x="16" y="1204.0">deploy</text>
 <rect class="nh" x="177.5" y="54" width="320" height="76" rx="8"/>
-<text class="t" x="189.5" y="79">Raise a need, set priority</text>
-<text class="d" x="189.5" y="99">issue-triage finds duplicates</text>
-<text class="d" x="189.5" y="117">and suggests priority</text>
+<text class="t" x="189.5" y="79">Raise an idea</text>
+<text class="d" x="189.5" y="99">/issue-spec checks duplicates and</text>
+<text class="d" x="189.5" y="117">creates the issue in Plan</text>
+<rect x="552.5" y="54" width="320" height="76" rx="8" fill="none" class="dash"/>
+<text class="d" x="564.5" y="79">Periodic tidy-up (off the main line)</text>
+<text class="d" x="564.5" y="99">issue-triage: stale and duplicate</text>
+<text class="d" x="564.5" y="117">issues, column order</text>
 <rect class="na" x="552.5" y="158" width="320" height="76" rx="8"/>
 <text class="t" x="564.5" y="183">Draft the design and spec</text>
-<text class="d" x="564.5" y="203">Discussed in an artifact;</text>
-<text class="d" x="564.5" y="221">the spec names the skill to use</text>
+<text class="d" x="564.5" y="203">Talks through goal and requirements;</text>
+<text class="d" x="564.5" y="221">writes the spec as an artifact</text>
 <rect class="nh" x="177.5" y="262" width="320" height="76" rx="8"/>
 <text class="t" x="189.5" y="287">Approve</text>
-<text class="d" x="189.5" y="307">Design attached to the issue,</text>
+<text class="d" x="189.5" y="307">Moved to Todo,</text>
 <text class="d" x="189.5" y="325">labeled agent-todo</text>
 <rect class="nh" x="177.5" y="366" width="320" height="76" rx="8"/>
 <text class="t" x="189.5" y="391">Start</text>
