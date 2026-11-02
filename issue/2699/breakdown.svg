@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1240" width="1400" height="1240" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1400" height="1240" fill="#fcfcfb"/>
+<text x="40.0" y="52.0" font-size="30" font-weight="700" fill="#0b0b0b" text-anchor="start">无限手套 20 份：开销都花在哪</text>
+<text x="40.0" y="86.0" font-size="18" font-weight="400" fill="#52514e" text-anchor="start">单位：每 tick 多花的毫秒数，越小越好。「其余」= 整件减去连锁闪电和粗暴，即属性和物品本体。每项为 3 局平均</text>
+<text x="40.0" y="136.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">攻击场景（20 个英雄互相普攻）</text>
+<text x="40.0" y="172.0" font-size="20" font-weight="700" fill="#52514e" text-anchor="start">整件 +10.84，最大一块是「其余」+6.04，连锁闪电 +4.28，粗暴只有 +0.53</text>
+<rect x="445.4" y="186" width="123.4" height="232" fill="#b4b2a9" fill-opacity="0.25"/>
+<text x="507.1" y="464.0" font-size="14" font-weight="400" fill="#52514e" text-anchor="middle">灰带 = 测量误差范围 ±0.9，带内读作约等于 0</text>
+<line x1="370.0" y1="186" x2="370.0" y2="418" stroke="#e1e0d9"/>
+<text x="370.0" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−2.0</text>
+<line x1="507.1" y1="186" x2="507.1" y2="418" stroke="#e1e0d9"/>
+<text x="507.1" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="644.3" y1="186" x2="644.3" y2="418" stroke="#e1e0d9"/>
+<text x="644.3" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.0</text>
+<line x1="781.4" y1="186" x2="781.4" y2="418" stroke="#e1e0d9"/>
+<text x="781.4" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+4.0</text>
+<line x1="918.6" y1="186" x2="918.6" y2="418" stroke="#e1e0d9"/>
+<text x="918.6" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+6.0</text>
+<line x1="1055.7" y1="186" x2="1055.7" y2="418" stroke="#e1e0d9"/>
+<text x="1055.7" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+8.0</text>
+<line x1="1192.9" y1="186" x2="1192.9" y2="418" stroke="#e1e0d9"/>
+<text x="1192.9" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+10.0</text>
+<line x1="1330.0" y1="186" x2="1330.0" y2="418" stroke="#e1e0d9"/>
+<text x="1330.0" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+12.0</text>
+<line x1="507.1" y1="186" x2="507.1" y2="418" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="217.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">整件</text>
+<rect x="507.1" y="194" width="743.3" height="34" rx="4" fill="#2a78d6"/>
+<text x="1258.5" y="218.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+10.84</text>
+<text x="356.0" y="273.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">其余（属性和物品本体）</text>
+<rect x="507.1" y="250" width="414.2" height="34" rx="4" fill="#eb6834"/>
+<text x="929.3" y="274.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+6.04</text>
+<text x="356.0" y="329.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">连锁闪电</text>
+<rect x="507.1" y="306" width="293.5" height="34" rx="4" fill="#b4b2a9"/>
+<text x="808.6" y="330.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+4.28</text>
+<text x="356.0" y="385.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">粗暴（替换攻击间隔）</text>
+<rect x="507.1" y="362" width="36.3" height="34" rx="4" fill="#b4b2a9"/>
+<text x="551.5" y="386.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.53</text>
+<text x="40.0" y="496.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">魔法技能伤害场景（没有普攻）</text>
+<text x="40.0" y="532.0" font-size="20" font-weight="700" fill="#52514e" text-anchor="start">整件 +6.01，几乎全是「其余」+5.16，闪电 +1.30，粗暴测不出</text>
+<rect x="466.0" y="546" width="82.3" height="232" fill="#b4b2a9" fill-opacity="0.25"/>
+<text x="507.1" y="824.0" font-size="14" font-weight="400" fill="#52514e" text-anchor="middle">灰带 = 测量误差范围 ±0.6，带内读作约等于 0</text>
+<line x1="370.0" y1="546" x2="370.0" y2="778" stroke="#e1e0d9"/>
+<text x="370.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−2.0</text>
+<line x1="507.1" y1="546" x2="507.1" y2="778" stroke="#e1e0d9"/>
+<text x="507.1" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="644.3" y1="546" x2="644.3" y2="778" stroke="#e1e0d9"/>
+<text x="644.3" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.0</text>
+<line x1="781.4" y1="546" x2="781.4" y2="778" stroke="#e1e0d9"/>
+<text x="781.4" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+4.0</text>
+<line x1="918.6" y1="546" x2="918.6" y2="778" stroke="#e1e0d9"/>
+<text x="918.6" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+6.0</text>
+<line x1="1055.7" y1="546" x2="1055.7" y2="778" stroke="#e1e0d9"/>
+<text x="1055.7" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+8.0</text>
+<line x1="1192.9" y1="546" x2="1192.9" y2="778" stroke="#e1e0d9"/>
+<text x="1192.9" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+10.0</text>
+<line x1="1330.0" y1="546" x2="1330.0" y2="778" stroke="#e1e0d9"/>
+<text x="1330.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+12.0</text>
+<line x1="507.1" y1="546" x2="507.1" y2="778" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="577.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">整件</text>
+<rect x="507.1" y="554" width="412.1" height="34" rx="4" fill="#2a78d6"/>
+<text x="927.3" y="578.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+6.01</text>
+<text x="356.0" y="633.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">其余（属性和物品本体）</text>
+<rect x="507.1" y="610" width="353.8" height="34" rx="4" fill="#eb6834"/>
+<text x="869.0" y="634.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+5.16</text>
+<text x="356.0" y="689.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">连锁闪电</text>
+<rect x="507.1" y="666" width="89.1" height="34" rx="4" fill="#b4b2a9"/>
+<text x="604.3" y="690.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+1.30</text>
+<text x="356.0" y="745.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">粗暴（替换攻击间隔）</text>
+<rect x="476.3" y="722" width="30.9" height="34" rx="4" fill="#b4b2a9"/>
+<text x="468.3" y="746.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="end">−0.45</text>
+<text x="40.0" y="856.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">伤害场景（没有普攻）</text>
+<text x="40.0" y="892.0" font-size="20" font-weight="700" fill="#52514e" text-anchor="start">整件 +5.25，「其余」+4.34，闪电 +0.92，粗暴测不出</text>
+<rect x="472.9" y="906" width="68.6" height="232" fill="#b4b2a9" fill-opacity="0.25"/>
+<text x="507.1" y="1184.0" font-size="14" font-weight="400" fill="#52514e" text-anchor="middle">灰带 = 测量误差范围 ±0.5，带内读作约等于 0</text>
+<line x1="370.0" y1="906" x2="370.0" y2="1138" stroke="#e1e0d9"/>
+<text x="370.0" y="1162.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−2.0</text>
+<line x1="507.1" y1="906" x2="507.1" y2="1138" stroke="#e1e0d9"/>
+<text x="507.1" y="1162.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="644.3" y1="906" x2="644.3" y2="1138" stroke="#e1e0d9"/>
+<text x="644.3" y="1162.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.0</text>
+<line x1="781.4" y1="906" x2="781.4" y2="1138" stroke="#e1e0d9"/>
+<text x="781.4" y="1162.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+4.0</text>
+<line x1="918.6" y1="906" x2="918.6" y2="1138" stroke="#e1e0d9"/>
+<text x="918.6" y="1162.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+6.0</text>
+<line x1="1055.7" y1="906" x2="1055.7" y2="1138" stroke="#e1e0d9"/>
+<text x="1055.7" y="1162.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+8.0</text>
+<line x1="1192.9" y1="906" x2="1192.9" y2="1138" stroke="#e1e0d9"/>
+<text x="1192.9" y="1162.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+10.0</text>
+<line x1="1330.0" y1="906" x2="1330.0" y2="1138" stroke="#e1e0d9"/>
+<text x="1330.0" y="1162.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+12.0</text>
+<line x1="507.1" y1="906" x2="507.1" y2="1138" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="937.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">整件</text>
+<rect x="507.1" y="914" width="360.0" height="34" rx="4" fill="#2a78d6"/>
+<text x="875.1" y="938.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+5.25</text>
+<text x="356.0" y="993.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">其余（属性和物品本体）</text>
+<rect x="507.1" y="970" width="297.6" height="34" rx="4" fill="#eb6834"/>
+<text x="812.7" y="994.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+4.34</text>
+<text x="356.0" y="1049.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">连锁闪电</text>
+<rect x="507.1" y="1026" width="63.1" height="34" rx="4" fill="#b4b2a9"/>
+<text x="578.2" y="1050.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.92</text>
+<text x="356.0" y="1105.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">粗暴（替换攻击间隔）</text>
+<rect x="506.5" y="1082" width="3.0" height="34" rx="4" fill="#b4b2a9"/>
+<text x="498.5" y="1106.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="end">−0.01</text>
+<text x="40.0" y="1218.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="start">蓝 = 整件，橙 = 最大的一块，灰 = 其他部分。攻击场景只有 11～13 名英雄存活，绝对值偏低，不能和旧数据直接比。</text>
+</svg>
