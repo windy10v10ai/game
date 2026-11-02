@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 880" width="1400" height="880" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1400" height="880" fill="#fcfcfb"/>
+<text x="40.0" y="52.0" font-size="30" font-weight="700" fill="#0b0b0b" text-anchor="start">近战威压：修改前后的开销对比</text>
+<text x="40.0" y="86.0" font-size="18" font-weight="400" fill="#52514e" text-anchor="start">单位：每 tick 多花的毫秒数，越小越好，0 = 没有额外开销。每项为 3 局平均</text>
+<text x="40.0" y="136.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">伤害场景（20 个英雄同时挨打）</text>
+<text x="40.0" y="172.0" font-size="20" font-weight="700" fill="#52514e" text-anchor="start">基本持平：+0.15 → +0.38，差别在测量误差内</text>
+<line x1="370.0" y1="186" x2="370.0" y2="418" stroke="#e1e0d9"/>
+<text x="370.0" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−0.6</text>
+<line x1="507.1" y1="186" x2="507.1" y2="418" stroke="#e1e0d9"/>
+<text x="507.1" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−0.4</text>
+<line x1="644.3" y1="186" x2="644.3" y2="418" stroke="#e1e0d9"/>
+<text x="644.3" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−0.2</text>
+<line x1="781.4" y1="186" x2="781.4" y2="418" stroke="#e1e0d9"/>
+<text x="781.4" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="918.6" y1="186" x2="918.6" y2="418" stroke="#e1e0d9"/>
+<text x="918.6" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.2</text>
+<line x1="1055.7" y1="186" x2="1055.7" y2="418" stroke="#e1e0d9"/>
+<text x="1055.7" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.4</text>
+<line x1="1192.9" y1="186" x2="1192.9" y2="418" stroke="#e1e0d9"/>
+<text x="1192.9" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.6</text>
+<line x1="1330.0" y1="186" x2="1330.0" y2="418" stroke="#e1e0d9"/>
+<text x="1330.0" y="442.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.8</text>
+<line x1="781.4" y1="186" x2="781.4" y2="418" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="217.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">修改前（旧 Lua 版）</text>
+<rect x="781.4" y="194" width="102.9" height="34" rx="4" fill="#eb6834"/>
+<text x="892.3" y="218.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.15</text>
+<text x="356.0" y="273.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">修改后（本 PR）</text>
+<rect x="781.4" y="250" width="260.6" height="34" rx="4" fill="#2a78d6"/>
+<text x="1050.0" y="274.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.38</text>
+<text x="356.0" y="329.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">参照：空白对照（不挂任何东西）</text>
+<rect x="733.4" y="306" width="48.0" height="34" rx="4" fill="#b4b2a9"/>
+<text x="725.4" y="330.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="end">−0.07</text>
+<text x="356.0" y="385.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">参照：只挂原版泰坦强化</text>
+<rect x="568.9" y="362" width="212.6" height="34" rx="4" fill="#b4b2a9"/>
+<text x="560.9" y="386.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="end">−0.31</text>
+<text x="40.0" y="496.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">技能场景（20 个英雄同时吃技能伤害）</text>
+<text x="40.0" y="532.0" font-size="20" font-weight="700" fill="#2a78d6" text-anchor="start">改好了：+1.09 → −0.02，开销降到约等于 0</text>
+<line x1="370.0" y1="546" x2="370.0" y2="778" stroke="#e1e0d9"/>
+<text x="370.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−0.4</text>
+<line x1="466.0" y1="546" x2="466.0" y2="778" stroke="#e1e0d9"/>
+<text x="466.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−0.2</text>
+<line x1="562.0" y1="546" x2="562.0" y2="778" stroke="#e1e0d9"/>
+<text x="562.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="658.0" y1="546" x2="658.0" y2="778" stroke="#e1e0d9"/>
+<text x="658.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.2</text>
+<line x1="754.0" y1="546" x2="754.0" y2="778" stroke="#e1e0d9"/>
+<text x="754.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.4</text>
+<line x1="850.0" y1="546" x2="850.0" y2="778" stroke="#e1e0d9"/>
+<text x="850.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.6</text>
+<line x1="946.0" y1="546" x2="946.0" y2="778" stroke="#e1e0d9"/>
+<text x="946.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.8</text>
+<line x1="1042.0" y1="546" x2="1042.0" y2="778" stroke="#e1e0d9"/>
+<text x="1042.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.0</text>
+<line x1="1138.0" y1="546" x2="1138.0" y2="778" stroke="#e1e0d9"/>
+<text x="1138.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.2</text>
+<line x1="1234.0" y1="546" x2="1234.0" y2="778" stroke="#e1e0d9"/>
+<text x="1234.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.4</text>
+<line x1="1330.0" y1="546" x2="1330.0" y2="778" stroke="#e1e0d9"/>
+<text x="1330.0" y="802.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.6</text>
+<line x1="562.0" y1="546" x2="562.0" y2="778" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="577.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">修改前（旧 Lua 版）</text>
+<rect x="562.0" y="554" width="523.2" height="34" rx="4" fill="#eb6834"/>
+<text x="1093.2" y="578.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+1.09</text>
+<text x="356.0" y="633.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">修改后（本 PR）</text>
+<rect x="552.4" y="610" width="9.6" height="34" rx="4" fill="#2a78d6"/>
+<text x="544.4" y="634.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="end">−0.02</text>
+<text x="356.0" y="689.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">参照：空白对照（不挂任何东西）</text>
+<rect x="528.4" y="666" width="33.6" height="34" rx="4" fill="#b4b2a9"/>
+<text x="520.4" y="690.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="end">−0.07</text>
+<text x="356.0" y="745.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">参照：只挂原版泰坦强化</text>
+<rect x="562.0" y="722" width="76.8" height="34" rx="4" fill="#b4b2a9"/>
+<text x="646.8" y="746.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.16</text>
+<text x="40.0" y="858.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="start">修改前与「泰坦」参照来自改动前的同口径测量，「空白对照」与修改后同批测得。</text>
+</svg>
