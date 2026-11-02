@@ -25,7 +25,7 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 
 读 issue 正文、评论、关联的 issue / PR，再读相关代码，读到能说清「现在是什么样、要改成什么样」为止。
 
-判断是否适合交给 agent（标准见 `agent-issue.md`「适合交给 agent 的 issue」）。不适合时告诉用户原因，打 `L4-investigate`，留给用户在场时用最强档模型做。其中能写成固定步骤的测量或验证，和用户商量拆成子 issue（见 `agent-issue.md`「从 L4 拆出测量子 issue」），子 issue 按本 skill 从第 2 步定 spec，父 issue 到此结束。
+判断是否适合交给 agent（标准见 `agent-issue.md`「适合交给 agent 的 issue」）。原因不明但再现步骤写得出来的算适合，第 3 步写「步骤」并在定位后设停点。要做设计取舍或评估、写不出固定步骤的不适合，告诉用户原因，打 `L4-investigate`，留给用户在场时用最强档模型做。其中能写成固定步骤的测量或验证，和用户商量拆成子 issue（见 `agent-issue.md`「从 L4 拆出测量子 issue」），子 issue 按本 skill 从第 2 步定 spec，父 issue 到此结束。
 
 完成条件：能用一两句话复述目标，并已判断适合交给 agent。
 
@@ -52,7 +52,7 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 
 标题按 `agent-issue.md`「issue 标题」改成想要的结果，不是具体指令。
 
-正文按 `agent-issue.md`「issue 正文结构」写：背景、目标、要求、验收、Release Note，写得最短；执行说明不进正文，写成 Markdown artifact「执行说明」，正文最后只放一行它的压缩链接。
+正文按 `agent-issue.md`「issue 正文结构」写：背景、目标、要求、验收、步骤（分阶段才写，格式见 `agent-issue.md`「步骤与停点」）、Release Note，写得最短；执行说明不进正文，写成 Markdown artifact「执行说明」，正文最后只放一行它的压缩链接。
 
 - **要求**只写用户亲口拍板的，一条一行。AI 自己推断、按默认定的取舍写进执行说明并标「建议」
 - **验收**用白话写怎么判对错，命令与用例放执行说明
@@ -73,16 +73,16 @@ gh issue edit <n> -R windy10v10ai/game --body-file <文件>
 gh issue edit <n> -R windy10v10ai/game --add-label agent-todo --add-label <L1-code|L2-script|L3-visual>
 ```
 
-打完标签后把项目 Status 改成 Todo 并挪到该栏最上面（命令见 `issue-fields.md`「列内上下顺序」），这样 `issue-autorun` 下次开跑时它排在前面。
+打完标签紧接着把项目 Status 改成 Todo 并挪到该栏最上面（`item-edit` 与 `updateProjectV2ItemPosition` 命令见 `issue-fields.md`「修改」「列内上下顺序」），这样 `issue-autorun` 下次开跑时它排在前面。条目还没入项目时先 `item-add`。
 
-完成条件：issue 正文是用户确认过的新结构（背景、目标、要求、验收、Release Note，末尾一行执行说明链接），「执行说明」artifact 已挂上，带 `agent-todo` 与一个级别标签（判据见 `agent-issue.md`「级别标签」）。
+完成条件：issue 正文是用户确认过的新结构（背景、目标、要求、验收、Release Note，末尾一行执行说明链接），「执行说明」artifact 已挂上，带 `agent-todo` 与一个级别标签（判据见 `agent-issue.md`「级别标签」），项目 Status 是 Todo 且在该栏最上面。
 
 ## 处理 agent 留下的问题
 
 用户要收拾 `issue-autorun` 的结果时：
 
 - **`agent-done`**：读 PR 正文的「等你处理」，逐条和用户过。「请确认」的确认或改掉；「待你决定」的谈定后直接在该 PR 分支上补改，或写进「要求」另起一轮
-- **`agent-block`**：读 issue 下 agent 的留言，按第 2 步补齐缺的信息，更新正文后把标签换回 `agent-todo`
+- **`agent-block`**：读 issue 下 agent 的留言。第一句是 `卡住：` 的，按第 2 步补齐缺的信息，更新正文后把标签换回 `agent-todo`。第一句是 `⏸ 停点：` 的，和用户过一遍留言里的结论，需要时调整后面的步骤，确认后直接换回 `agent-todo`
 
 ```bash
 gh issue edit <n> -R windy10v10ai/game --remove-label agent-block --add-label agent-todo

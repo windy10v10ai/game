@@ -36,7 +36,7 @@ description: 整理 issue：查重复与过期、调整优先级、核对「开�
   - 需要更多日志才能推进的放 Backlog
   - 没入项目的补进去；总跟踪帖（如 firebase#1404 玩家反馈跟踪）不放
   - 草稿条目转成正式 issue，补类型、标签、优先级
-- **可交给 agent**：Todo / Plan 里符合 `.claude/references/agent-issue.md`「适合交给 agent 的 issue」的，列为候选；已带 `agent-done` 的查 PR 里「等你处理」还剩几项，`agent-block` 的列出 agent 留言里缺的信息
+- **可交给 agent**：Todo / Plan 里符合 `.claude/references/agent-issue.md`「适合交给 agent 的 issue」的，列为候选；已带 `agent-done` 的查 PR 里「等你处理」还剩几项，`agent-block` 的列出 agent 留言里缺的信息（`卡住：`）或等你确认的结论（`⏸ 停点：`）
 
 完成条件：每个 issue 要么归入某条建议，要么确认维持现状。
 
