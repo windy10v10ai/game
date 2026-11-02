@@ -77,10 +77,12 @@ gh project item-list 3 --owner windy10v10ai --limit 200 --format json -q '.items
 
 先输出计划表：
 
-| 序号 | issue（链接 + 标题） | 级别 | Status / Priority | 执行说明 | 实机验证（各层项数） |
-|---|---|---|---|---|
+| 序号 | issue（链接 + 标题） | 级别 | Status / Priority | 执行说明 | 实机验证（各层项数） | 预计时长 |
+|---|---|---|---|---|---|---|
 
-再用一次 `AskUserQuestion`（`multiSelect: true`）请用户选这批跑哪些。`AskUserQuestion` 的框会挡住它前面的文字，判断要用的信息写进选项的 `description`（级别、Status / Priority、改动范围大小、有没有截图或用户判定项）：
+预计时长按每条的实机验证量（局数、截图数）和改动范围粗估，表后再给一行总时长；没有历史数据时注明是粗估。用户选完后开始前，把选中那批的总时长再报一次。
+
+计划表和总时长先完整输出，再用一次 `AskUserQuestion`（`multiSelect: true`）请用户选这批跑哪些。选项只放短标签和一句 `description`（级别、执行者、预计时长），详细信息都在表里，不在选项里重复：
 
 - 不超过 4 条：每条 issue 一个选项，按序号排，默认推荐全部
 - 超过 4 条：选项为「全部按顺序」（推荐）、「前 3 条」，要挑别的让用户在 Other 里写编号
@@ -94,7 +96,7 @@ gh project item-list 3 --owner windy10v10ai --limit 200 --format json -q '.items
 ```
 
 - DSH 会话：调用 `create_goal`，`objective` 用上面的条件，`max_goal_rounds` 填 N；第 7 步汇报打印完调用 `update_goal` 的 `complete`
-- Claude Code 会话：模型无法代输 `/goal`，把 `/goal <上面的条件>` 整行打印出来请用户粘贴，用户粘贴后再继续第 3 步
+- Claude Code 会话：模型无法代输 `/goal`，把 `/goal <上面的条件>` 整行放进不带语言标签的代码块，方便用户复制粘贴，用户粘贴后再继续第 3 步
 
 完成条件：计划表已输出，用户已选定这批的 issue，持续目标已设置（DSH）或已请用户粘贴（Claude Code）。
 
