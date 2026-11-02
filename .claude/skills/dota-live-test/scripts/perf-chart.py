@@ -37,11 +37,11 @@ def main(spec_path, out_path):
            text(PAD, 52, spec['title'], 30, INK, True),
            text(PAD, 86, spec['note'], 18, SUB)]
     x0, x1 = PAD + 330, W - PAD - 30
+    lo, hi, step = axis([r['value'] for panel in panels for r in panel['rows']])
+    px = lambda v: x0 + (v - lo) / (hi - lo) * (x1 - x0)
     for i, panel in enumerate(panels):
         y0 = 110 + i * PANEL_H
         rows = panel['rows']
-        lo, hi, step = axis([r['value'] for r in rows])
-        px = lambda v: x0 + (v - lo) / (hi - lo) * (x1 - x0)
         out.append(text(PAD, y0 + 26, panel['title'], 24, INK, True))
         out.append(text(PAD, y0 + 62, panel['verdict'], 20, COLORS['after'] if panel.get('good') else SUB, True))
         top = y0 + 84
