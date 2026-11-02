@@ -6747,7 +6747,7 @@
 			"bonus_damage"				"400"	// tooltip only - 攻击力（神雷锤/光暗臂章）
 			"bonus_armor"				"60"	// tooltip only - 护甲（光暗臂章）
 
-			"bat_reduce"			"25"	// 原版粗暴按此字段读数值，本地化也引用此名
+			"bat_reduce"			"20"	// 原版粗暴按此字段读数值，本地化也引用此名
 
 			// Lua 逻辑需要的参数
 			"self_xp"			"2"
