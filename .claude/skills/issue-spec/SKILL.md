@@ -7,6 +7,8 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 
 用户在场时，和用户把一个 issue 的做法谈定，把 issue 正文整理成 `agent-issue.md`「issue 正文结构」那几块，执行说明写成 Markdown artifact 挂到 issue，并打 `agent-todo`，留给 `issue-autorun` 在用户不在时自动做。只定到 spec 为止，不写实现计划、不改代码。标签与正文结构见 `.claude/references/agent-issue.md`，字段与项目配置见 `.claude/references/issue-fields.md`，开始前先读这两份。
 
+用户没指定 issue 时，从项目 Plan 栏最上面那条开始，Plan 栏的上下顺序就是用户想先谈的顺序。
+
 ## 0. 补齐 issue 字段
 
 只看当前这条 issue，缺哪项补哪项，已有的不动，不跑整批 triage。按 `issue-fields.md` 检查 Type、Priority、Effort、仓库标签、项目 Status，查询与设置命令都在那里。缺项按 issue 内容给建议值，随第 2 步一并让用户确认后再设。
@@ -64,6 +66,8 @@ gh issue artifact create <n> -R windy10v10ai/game '<文件>.md#执行说明'   #
 gh issue edit <n> -R windy10v10ai/game --body-file <文件>
 gh issue edit <n> -R windy10v10ai/game --add-label agent-todo --add-label <L1-code|L2-script|L3-visual>
 ```
+
+打完标签后把项目 Status 改成 Todo 并挪到该栏最上面（命令见 `issue-fields.md`「列内上下顺序」），这样 `issue-autorun` 下次开跑时它排在前面。
 
 完成条件：issue 正文是用户确认过的新结构（背景、目标、要求、验收、Release Note，末尾一行执行说明链接），「执行说明」artifact 已挂上，带 `agent-todo` 与一个级别标签（判据见 `agent-issue.md`「级别标签」）。
 

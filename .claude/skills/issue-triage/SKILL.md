@@ -23,7 +23,7 @@ description: 整理 issue：查重复与过期、调整优先级、核对「开�
 
 - **重复**：从另一条拆出、剩余内容已被别的 issue 覆盖；或同一英雄 / 物品的同类改动。建议关闭并入，或挂成子 issue
 - **前置已完成**：正文写着「等 #xxx」而 #xxx 已关闭的，标出来需要复测或解除等待
-- **过期**：在 Plan 栏长期没动的退回 Backlog；一年以上没动、也没人提的，列为「建议关闭」，由用户决定留不留
+- **过期**：在 Plan 栏长期没人定 spec 的退回 Backlog；一年以上没动、也没人提的，列为「建议关闭」，由用户决定留不留
 - **做法与现行规则冲突**（如用 Lua modifier 实现属性）：建议改写正文，不直接关闭
 - **卡顿相关**：挂成 game#2468（后期卡顿排查与优化）的子 issue
 - **测量与实现混在一条**：同时有「先测量」和「再定做法 / 实现」的，建议拆开，原 issue 当主 issue，测量拆成 Task 子 issue；分工与 Type、Status 约定见 `.claude/references/agent-issue.md`「主 issue 与子 issue 分工」
@@ -31,8 +31,8 @@ description: 整理 issue：查重复与过期、调整优先级、核对「开�
 - **标题是指令而不是想要的结果**：按 `agent-issue.md`「issue 标题」建议改写
 - **优先级**：没填 Priority 的都给出建议值，Effort 能估就填
 - **项目位置**：
-  - Todo 只留最优先的几条，其余挪到 Plan
-  - 正在做的放 In progress
+  - Todo 只放 spec 已定（有「执行说明」和 `agent-todo`）的，没有 spec 的放 Plan；含义见 `issue-fields.md`
+  - 已开工的放 In progress：有分支或 PR，或带 `agent-block`、`agent-done`
   - 需要更多日志才能推进的放 Backlog
   - 没入项目的补进去；总跟踪帖（如 firebase#1404 玩家反馈跟踪）不放
   - 草稿条目转成正式 issue，补类型、标签、优先级
