@@ -29,7 +29,7 @@ firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/fir
 
 ## issue 正文结构
 
-issue 正文只放用户要看的几块，写得最短；写给执行 AI 的细节放进挂在 issue 上的 Markdown artifact「执行说明」，正文最后一块只留指向它的链接：
+issue 正文只放用户要看的几块，写得最短；写给执行 AI 的细节放进挂在 issue 上的 Markdown artifact「执行说明」，正文最后留一行压缩的链接，既方便人点开，也是 AI 找执行说明的依据：
 
 `````markdown
 ## 背景
@@ -47,11 +47,10 @@ issue 正文只放用户要看的几块，写得最短；写给执行 AI 的细�
 ## Release Note
 不写（只写这两个字）；或要写，格式见下
 
-## 执行说明
-执行说明（https://github.com/windy10v10ai/game/issues/<n>/artifacts/<编号>）
+[执行说明](https://github.com/windy10v10ai/game/issues/<n>/artifacts/<编号>)
 `````
 
-`issue-impl` 与 `issue-autorun` 先读正文，再用 `gh issue artifact view <n> <编号> -R windy10v10ai/game` 读「执行说明」artifact，读不到当作没有执行说明，按「卡住时怎么办」处理。几块之间有冲突时，「要求」最大，其次「验收」，再其次执行说明。执行 AI 不读对话，所以「要求」里别写只有对话里才懂的话。
+`issue-impl` 与 `issue-autorun` 先读正文，从最后那行链接取 artifact 编号，用 `gh issue artifact view <n> <编号> -R windy10v10ai/game` 读内容；正文没有链接时才退回 `gh issue artifact list <n> -R windy10v10ai/game` 按名字找「执行说明」，仍找不到或读不到当作没有执行说明，按「卡住时怎么办」处理。几块之间有冲突时，「要求」最大，其次「验收」，再其次执行说明。执行 AI 不读对话，所以「要求」里别写只有对话里才懂的话。
 
 ### Release Note
 

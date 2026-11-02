@@ -25,7 +25,7 @@ disable-model-invocation: true
 ## 硬规则
 
 - **只在开工前问一次**：第 2 步请用户选 issue，之后用户不在场，根 `CLAUDE.md`「Skill 交互」的 `AskUserQuestion` 不适用。拿不准的按「卡住时怎么办」处理，然后继续
-- **只做有执行说明的 issue**：正文没有 `## 执行说明` 链接、或「执行说明」artifact 读不到的不派，按「卡住时怎么办」第三行处理
+- **只做有执行说明的 issue**：正文末尾没有执行说明链接（也找不到名为「执行说明」的 artifact）、或读不到的不派，按「卡住时怎么办」第三行处理
 - **主目录只在干净时用**：开工前和每个 issue 之间检查 `git status --porcelain` 为空。不干净就停掉剩下的全部 issue，写进汇报，不动用户的文件
 - **不合并、不推 `develop` / `main`**，PR 审查通过前保持草稿，通过后转正式，没做完的保持草稿
 - **只改执行说明「改动范围」里的文件**
@@ -113,7 +113,7 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 ```markdown
 你在仓库主目录（当前目录）里做 issue windy10v10ai/game#<id>，用户不在场，从实现一直做到实机验证，中途不交回、不提问。
 
-先读 `.claude/skills/issue-impl/SKILL.md` 并照它的第 1–7 步做，分支名用 `<fix|feature>/<id>-<3–6 个英文小写单词>`。需求只看 issue 正文（背景、目标、要求、验收、Release Note）和「执行说明」artifact（链接 <artifact 链接>）。
+先读 `.claude/skills/issue-impl/SKILL.md` 并照它的第 1–7 步做，分支名用 `<fix|feature>/<id>-<3–6 个英文小写单词>`。需求只看 issue 正文（背景、目标、要求、验收、Release Note）和正文末尾链接指向的「执行说明」artifact（编号 <编号>）。
 卡住时按 `issue-impl`「卡住时怎么办」处理。PR 末行署名：<执行者署名行>。
 最终回复按 `issue-impl` 第 7 步写。
 ```

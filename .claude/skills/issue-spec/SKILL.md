@@ -42,7 +42,7 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 
 ## 3. 写入 issue
 
-正文按 `agent-issue.md`「issue 正文结构」写：背景、目标、要求、验收、Release Note，写得最短；执行说明不进正文，写成 Markdown artifact「执行说明」，正文最后一块只放它的链接。
+正文按 `agent-issue.md`「issue 正文结构」写：背景、目标、要求、验收、Release Note，写得最短；执行说明不进正文，写成 Markdown artifact「执行说明」，正文最后只放一行它的压缩链接。
 
 - **要求**只写用户亲口拍板的，一条一行。AI 自己推断、按默认定的取舍写进执行说明并标「建议」
 - **验收**用白话写怎么判对错，命令与用例放执行说明
@@ -63,7 +63,7 @@ gh issue edit <n> -R windy10v10ai/game --body-file <文件>
 gh issue edit <n> -R windy10v10ai/game --add-label agent-todo --add-label <L1-code|L2-script|L3-visual>
 ```
 
-完成条件：issue 正文是用户确认过的新结构（背景、目标、要求、验收、Release Note、执行说明链接），「执行说明」artifact 已挂上，带 `agent-todo` 与一个级别标签（判据见 `agent-issue.md`「级别标签」）。
+完成条件：issue 正文是用户确认过的新结构（背景、目标、要求、验收、Release Note，末尾一行执行说明链接），「执行说明」artifact 已挂上，带 `agent-todo` 与一个级别标签（判据见 `agent-issue.md`「级别标签」）。
 
 ## 处理 agent 留下的问题
 

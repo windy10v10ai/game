@@ -14,7 +14,7 @@ description: 按 issue 正文（背景、目标、要求、验收、Release Note
 | 单条（默认） | 主对话直接实现 | 在场：拿不准的用 `AskUserQuestion` 问 |
 | 批量（`issue-autorun`） | 主对话派执行者子代理做第 1–7 步，回来后自己做第 8–9 步 | 不在场：不提问，按「卡住时怎么办」处理 |
 
-正文没有 `## 执行说明` 链接、或「执行说明」artifact 读不到的 issue 不做：单条模式先用 `issue-spec` 补，批量模式按「卡住时怎么办」第三行处理。
+正文末尾没有执行说明链接（也找不到名为「执行说明」的 artifact）、或读不到的 issue 不做：单条模式先用 `issue-spec` 补，批量模式按「卡住时怎么办」第三行处理。
 
 ## 硬规则
 
@@ -52,7 +52,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 
 ## 2. 先读
 
-`AGENTS.md` 和它的对照表里改动目录的 `CLAUDE.md`，执行说明「做法」指定的 skill 完整读完并按步骤做，实机验证前读 `.claude/skills/dota-live-test/SKILL.md`。「执行说明」artifact 用 `gh issue artifact list <issue>` 找编号，再 `gh issue artifact view <issue> <编号> -R windy10v10ai/game` 读。
+`AGENTS.md` 和它的对照表里改动目录的 `CLAUDE.md`，执行说明「做法」指定的 skill 完整读完并按步骤做，实机验证前读 `.claude/skills/dota-live-test/SKILL.md`。「执行说明」artifact 从正文末尾链接取编号（没有链接时用 `gh issue artifact list <issue>` 按名字找），再 `gh issue artifact view <issue> <编号> -R windy10v10ai/game` 读。
 
 ## 3. 实现
 
