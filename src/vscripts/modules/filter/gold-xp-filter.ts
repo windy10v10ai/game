@@ -1,5 +1,7 @@
 import { reloadable } from '../../utils/tstl-utils';
+import { TowerPushStatus } from '../event/event-entity-killed';
 import { PlayerHelper } from '../helper/player-helper';
+import { farmRewardBonus } from './comeback-reward';
 
 @reloadable
 export class GoldXPFilter {
@@ -55,6 +57,10 @@ export class GoldXPFilter {
       mul = this.filterHeroKillGoldByMultiplier(mul);
     }
 
+    if (reason === ModifyGoldReason.CREEP_KILL || reason === ModifyGoldReason.NEUTRAL_KILL) {
+      gold = gold * this.getFarmRewardBonus(playerID);
+    }
+
     args.gold = Math.floor(gold * mul);
 
     return true;
@@ -73,7 +79,7 @@ export class GoldXPFilter {
   }
 
   private filterXP(args: ModifyExperienceFilterEvent): boolean {
-    const xp = args.experience;
+    let xp = args.experience;
     const playerID = args.player_id_const;
     const reason = args.reason_const;
     let mul = this.getPlayerGoldXpMultiplier(playerID);
@@ -82,9 +88,39 @@ export class GoldXPFilter {
       mul = this.filterHeroKillGoldByMultiplier(mul);
     }
 
+    if (reason === ModifyXpReason.CREEP_KILL) {
+      xp = xp * this.getFarmRewardBonus(playerID);
+    }
+
     args.experience = Math.floor(xp * mul);
 
     return true;
+  }
+
+  /**
+   * 真人玩家丢塔后打野与补兵的收益倍数，电脑玩家保持原收益。
+   *
+   * @param playerID - 要计算收益倍数的玩家ID。
+   * @returns 按己方丢塔数计算的收益倍数。
+   */
+  private getFarmRewardBonus(playerID: PlayerID): number {
+    if (!PlayerHelper.IsHumanPlayerByPlayerId(playerID)) {
+      return 1;
+    }
+
+    // 字段按推掉塔的一方命名：天辉的塔被推掉记在 Bad，夜魇的记在 Good
+    const towersLost =
+      PlayerResource.GetTeam(playerID) === DotaTeam.GOODGUYS
+        ? TowerPushStatus.tower1PushedBad +
+          TowerPushStatus.tower2PushedBad +
+          TowerPushStatus.tower3PushedBad +
+          TowerPushStatus.tower4PushedBad
+        : TowerPushStatus.tower1PushedGood +
+          TowerPushStatus.tower2PushedGood +
+          TowerPushStatus.tower3PushedGood +
+          TowerPushStatus.tower4PushedGood;
+
+    return farmRewardBonus(towersLost);
   }
 
   /**
