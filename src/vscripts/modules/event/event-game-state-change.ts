@@ -223,12 +223,6 @@ export class EventGameStateChange {
     // 检查是否是基地
     if (buildingName.includes('fort')) {
       this.addTowerAbilities(building, towerLevel);
-      // 基地额外添加法力破坏
-      const manaBreak = building.AddAbility('tower_antimage_mana_break');
-      if (manaBreak !== undefined) {
-        // 修改这里
-        manaBreak.SetLevel(towerLevel);
-      }
     }
   }
 
