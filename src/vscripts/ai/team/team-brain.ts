@@ -1428,7 +1428,8 @@ export class TeamBrain {
       const tier4Forwards: number[] = [];
       let baseForward: number | undefined;
       for (const building of enemyBuildings) {
-        if (building.tier === 5 && building.lane === path.lane) {
+        // 四塔与基地没有路名，按当前这一路投影后的进度算
+        if (building.tier === 5) {
           tier4Forwards.push(ProjectForward(path, building, isRadiant));
         } else if (building.tier === 6) {
           baseForward = ProjectForward(path, building, isRadiant);
