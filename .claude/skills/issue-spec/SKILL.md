@@ -5,7 +5,7 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 
 # issue-spec
 
-用户在场时，和用户把一个 issue 的做法谈定，把 issue 正文整理成 `agent-issue.md`「issue 正文结构」那几块，执行说明写成 Markdown artifact 挂到 issue，并打 `agent-todo`，留给 `issue-autorun` 在用户不在时自动做。只定到 spec 为止，不写实现计划、不改代码。标签与正文结构见 `.claude/references/agent-issue.md`，字段与项目配置见 `.claude/references/issue-fields.md`，开始前先读这两份。
+用户在场时，和用户把一个 issue 的做法谈定，把 issue 正文整理成 `agent-issue.md`「issue 正文结构」那几块，执行说明写成 Markdown artifact 挂到 issue，并打 `agent-todo`，留给 `issue-autorun` 在用户不在时自动做。只定到 spec 为止，不写实现计划、不改代码（前提探针用临时脚本，验完删）。标签与正文结构见 `.claude/references/agent-issue.md`，字段与项目配置见 `.claude/references/issue-fields.md`，开始前先读这两份。
 
 用户给的不是 issue 而是一句想法时，先查重再新建：
 
@@ -43,10 +43,12 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 - 不做什么：相关但这次不做的改动
 - 要补哪些 jest 用例
 - 目标能否拆成几条互不依赖的小项，让 agent 卡在一条时能跳过它继续做别的
+- 方案依赖的引擎行为或读数：还没实测过的，打 `agent-todo` 前先跑探针；用户不在跑不了或太久的，定好不成立时走哪条后备
+- 实机环境跑不通时怎么判，以及哪些项要用户试玩（发版前写进 release PR 的 Checklist）
 
 能从代码或项目规则直接得出的不问，直接写进草稿。用户在对话里亲口拍板的，记下来，第 3 步写进「要求」。
 
-完成条件：每一项都有答案，不留「待定」。
+完成条件：每一项都有答案，不留「待定」。按 `agent-issue.md`「合入 develop」逐条预演：每条验收都说得出 AI 怎么判对错，判不了的已定死或归用户判定，前提不成立、环境跑不通时都有去处，agent 做完不用问用户就能决定合不合并。
 
 ## 3. 写入 issue
 
@@ -81,11 +83,12 @@ gh issue edit <n> -R windy10v10ai/game --add-label agent-todo --add-label <L1-co
 
 用户要收拾 `issue-autorun` 的结果时：
 
-- **`agent-done`**：读 PR 正文的「等你处理」，逐条和用户过。「请确认」的确认或改掉；「待你决定」的谈定后直接在该 PR 分支上补改，或写进「要求」另起一轮
+- **`agent-done`，PR 还开着**：读 PR 正文的「等你处理」，逐条和用户过。「待你决定」的谈定后直接在该 PR 分支上补改，或写进「要求」另起一轮
+- **release PR 的 Checklist**：逐条和用户过。不满意的在新分支上改，或写进新 issue
 - **`agent-block`**：读 issue 下 agent 的留言。第一句是 `卡住：` 的，按第 2 步补齐缺的信息，更新正文后把标签换回 `agent-todo`。第一句是 `⏸ 停点：` 的，和用户过一遍留言里的结论，需要时调整后面的步骤，确认后直接换回 `agent-todo`
 
 ```bash
 gh issue edit <n> -R windy10v10ai/game --remove-label agent-block --add-label agent-todo
 ```
 
-完成条件：「等你处理」的每一条都已勾掉或转成新的正文要求。
+完成条件：「等你处理」和 Checklist 的每一条都已勾掉或转成新的正文要求。
