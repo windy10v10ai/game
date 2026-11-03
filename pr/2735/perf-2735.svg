@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 880" width="1400" height="880" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1400" height="880" fill="#fcfcfb"/>
+<text x="40.0" y="52.0" font-size="30" font-weight="700" fill="#0b0b0b" text-anchor="start">泉水光环改写前后：基线段每 tick 服务器计算时间</text>
+<text x="40.0" y="86.0" font-size="18" font-weight="400" fill="#52514e" text-anchor="start">atkbench / dmgbench，profile 条件，各 1 局 2 轮；柱值为相对「改动前第 2 次（同一份 develop 代码）」的差</text>
+<text x="40.0" y="136.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">atkbench 基线 ms/tick（改动前 15.30，改动后 16.30）</text>
+<text x="40.0" y="172.0" font-size="20" font-weight="700" fill="#52514e" text-anchor="start">基本持平：改动后 +1.00，同代码两次跑摆动 4.56</text>
+<rect x="412.2" y="186" width="875.5" height="120" fill="#b4b2a9" fill-opacity="0.25"/>
+<text x="850.0" y="352.0" font-size="14" font-weight="400" fill="#52514e" text-anchor="middle">灰带 = 测量误差范围 ±4.56，带内读作约等于 0</text>
+<line x1="370.0" y1="186" x2="370.0" y2="306" stroke="#e1e0d9"/>
+<text x="370.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−5.0</text>
+<line x1="466.0" y1="186" x2="466.0" y2="306" stroke="#e1e0d9"/>
+<text x="466.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−4.0</text>
+<line x1="562.0" y1="186" x2="562.0" y2="306" stroke="#e1e0d9"/>
+<text x="562.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−3.0</text>
+<line x1="658.0" y1="186" x2="658.0" y2="306" stroke="#e1e0d9"/>
+<text x="658.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−2.0</text>
+<line x1="754.0" y1="186" x2="754.0" y2="306" stroke="#e1e0d9"/>
+<text x="754.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−1.0</text>
+<line x1="850.0" y1="186" x2="850.0" y2="306" stroke="#e1e0d9"/>
+<text x="850.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="946.0" y1="186" x2="946.0" y2="306" stroke="#e1e0d9"/>
+<text x="946.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.0</text>
+<line x1="1042.0" y1="186" x2="1042.0" y2="306" stroke="#e1e0d9"/>
+<text x="1042.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.0</text>
+<line x1="1138.0" y1="186" x2="1138.0" y2="306" stroke="#e1e0d9"/>
+<text x="1138.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+3.0</text>
+<line x1="1234.0" y1="186" x2="1234.0" y2="306" stroke="#e1e0d9"/>
+<text x="1234.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+4.0</text>
+<line x1="1330.0" y1="186" x2="1330.0" y2="306" stroke="#e1e0d9"/>
+<text x="1330.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+5.0</text>
+<line x1="850.0" y1="186" x2="850.0" y2="306" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="217.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">改动前第 1 次</text>
+<rect x="850.0" y="194" width="437.8" height="34" rx="4" fill="#b4b2a9"/>
+<text x="1295.8" y="218.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+4.56</text>
+<text x="356.0" y="273.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">改动后</text>
+<rect x="850.0" y="250" width="96.0" height="34" rx="4" fill="#2a78d6"/>
+<text x="954.0" y="274.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+1.00</text>
+<text x="40.0" y="496.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">dmgbench 基线 ms/tick（改动前 16.79，改动后 17.37）</text>
+<text x="40.0" y="532.0" font-size="20" font-weight="700" fill="#52514e" text-anchor="start">基本持平：改动后 +0.58，同代码两次跑摆动 3.92</text>
+<rect x="473.7" y="546" width="752.6" height="120" fill="#b4b2a9" fill-opacity="0.25"/>
+<text x="850.0" y="712.0" font-size="14" font-weight="400" fill="#52514e" text-anchor="middle">灰带 = 测量误差范围 ±3.92，带内读作约等于 0</text>
+<line x1="370.0" y1="546" x2="370.0" y2="666" stroke="#e1e0d9"/>
+<text x="370.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−5.0</text>
+<line x1="466.0" y1="546" x2="466.0" y2="666" stroke="#e1e0d9"/>
+<text x="466.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−4.0</text>
+<line x1="562.0" y1="546" x2="562.0" y2="666" stroke="#e1e0d9"/>
+<text x="562.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−3.0</text>
+<line x1="658.0" y1="546" x2="658.0" y2="666" stroke="#e1e0d9"/>
+<text x="658.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−2.0</text>
+<line x1="754.0" y1="546" x2="754.0" y2="666" stroke="#e1e0d9"/>
+<text x="754.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−1.0</text>
+<line x1="850.0" y1="546" x2="850.0" y2="666" stroke="#e1e0d9"/>
+<text x="850.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="946.0" y1="546" x2="946.0" y2="666" stroke="#e1e0d9"/>
+<text x="946.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.0</text>
+<line x1="1042.0" y1="546" x2="1042.0" y2="666" stroke="#e1e0d9"/>
+<text x="1042.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.0</text>
+<line x1="1138.0" y1="546" x2="1138.0" y2="666" stroke="#e1e0d9"/>
+<text x="1138.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+3.0</text>
+<line x1="1234.0" y1="546" x2="1234.0" y2="666" stroke="#e1e0d9"/>
+<text x="1234.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+4.0</text>
+<line x1="1330.0" y1="546" x2="1330.0" y2="666" stroke="#e1e0d9"/>
+<text x="1330.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+5.0</text>
+<line x1="850.0" y1="546" x2="850.0" y2="666" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="577.0" font-size="17" font-weight="400" fill="#0b0b0b" text-anchor="end">改动前第 1 次</text>
+<rect x="473.7" y="554" width="376.3" height="34" rx="4" fill="#b4b2a9"/>
+<text x="465.7" y="578.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="end">−3.92</text>
+<text x="356.0" y="633.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">改动后</text>
+<rect x="850.0" y="610" width="55.7" height="34" rx="4" fill="#2a78d6"/>
+<text x="913.7" y="634.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.58</text>
+<text x="40.0" y="858.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="start">灰带 = 同一份代码两次跑的摆动幅度，带内读作约等于 0；各次绝对值见 PR 正文表</text>
+</svg>
