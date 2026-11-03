@@ -31,7 +31,7 @@ gh issue artifact edit <n> <编号> -R windy10v10ai/game --body-file <文件>
 - agent 用 `gh issue artifact view` 读内容，HTML 读的是源码
 - 定稿后再改：HTML 与 Markdown 都用 `edit` 覆盖（保留版本历史，不删了重建），讨论用 artifact 同步改。名称不能含括号等字符
 - issue 正文引用时写名称加 URL（`https://github.com/windy10v10ai/game/issues/<n>/artifacts/<编号>`）
-- 预览功能，命令失败时把内容写进 issue 正文或评论兜底
+- 预览功能，需要 `gh` 2.103.0 以上，报 `unknown command "artifact"` 时先升级 `gh`（`brew upgrade gh`）；其他失败把内容写进 issue 正文或评论兜底
 
 ## 模块 README
 
