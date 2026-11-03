@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 880" width="1400" height="880" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1400" height="880" fill="#fcfcfb"/>
+<text x="40.0" y="52.0" font-size="30" font-weight="700" fill="#0b0b0b" text-anchor="start">无限手套配置写法：改造前后每 tick 额外开销</text>
+<text x="40.0" y="86.0" font-size="18" font-weight="400" fill="#52514e" text-anchor="start">20 个英雄同时带无限手套；修改前（develop）与修改后（PR 分支）同批现测，dmgbench / spellbench 各 1 局 2 轮</text>
+<text x="40.0" y="136.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">dmgbench：每帧固定伤害</text>
+<text x="40.0" y="172.0" font-size="20" font-weight="700" fill="#2a78d6" text-anchor="start">改好了：+4.74 → −0.43，回到噪音带内（≈0）</text>
+<rect x="405.7" y="186" width="203.0" height="120" fill="#b4b2a9" fill-opacity="0.25"/>
+<text x="507.1" y="352.0" font-size="14" font-weight="400" fill="#52514e" text-anchor="middle">灰带 = 测量误差范围 ±0.74，带内读作约等于 0</text>
+<line x1="370.0" y1="186" x2="370.0" y2="306" stroke="#e1e0d9"/>
+<text x="370.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−1.0</text>
+<line x1="507.1" y1="186" x2="507.1" y2="306" stroke="#e1e0d9"/>
+<text x="507.1" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="644.3" y1="186" x2="644.3" y2="306" stroke="#e1e0d9"/>
+<text x="644.3" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.0</text>
+<line x1="781.4" y1="186" x2="781.4" y2="306" stroke="#e1e0d9"/>
+<text x="781.4" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.0</text>
+<line x1="918.6" y1="186" x2="918.6" y2="306" stroke="#e1e0d9"/>
+<text x="918.6" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+3.0</text>
+<line x1="1055.7" y1="186" x2="1055.7" y2="306" stroke="#e1e0d9"/>
+<text x="1055.7" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+4.0</text>
+<line x1="1192.9" y1="186" x2="1192.9" y2="306" stroke="#e1e0d9"/>
+<text x="1192.9" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+5.0</text>
+<line x1="1330.0" y1="186" x2="1330.0" y2="306" stroke="#e1e0d9"/>
+<text x="1330.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+6.0</text>
+<line x1="507.1" y1="186" x2="507.1" y2="306" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="217.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">修改前（develop）</text>
+<rect x="507.1" y="194" width="650.1" height="34" rx="4" fill="#eb6834"/>
+<text x="1165.2" y="218.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+4.74</text>
+<text x="356.0" y="273.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">修改后（PR 分支）</text>
+<rect x="448.2" y="250" width="59.0" height="34" rx="4" fill="#2a78d6"/>
+<text x="440.2" y="274.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="end">−0.43</text>
+<text x="40.0" y="496.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">spellbench：每帧技能魔法伤害</text>
+<text x="40.0" y="532.0" font-size="20" font-weight="700" fill="#2a78d6" text-anchor="start">改好了：+4.28 → +1.38，剩下的是保留的 Lua 连锁闪电</text>
+<rect x="457.8" y="546" width="98.7" height="120" fill="#b4b2a9" fill-opacity="0.25"/>
+<text x="507.1" y="712.0" font-size="14" font-weight="400" fill="#52514e" text-anchor="middle">灰带 = 测量误差范围 ±0.36，带内读作约等于 0</text>
+<line x1="370.0" y1="546" x2="370.0" y2="666" stroke="#e1e0d9"/>
+<text x="370.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−1.0</text>
+<line x1="507.1" y1="546" x2="507.1" y2="666" stroke="#e1e0d9"/>
+<text x="507.1" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="644.3" y1="546" x2="644.3" y2="666" stroke="#e1e0d9"/>
+<text x="644.3" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.0</text>
+<line x1="781.4" y1="546" x2="781.4" y2="666" stroke="#e1e0d9"/>
+<text x="781.4" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.0</text>
+<line x1="918.6" y1="546" x2="918.6" y2="666" stroke="#e1e0d9"/>
+<text x="918.6" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+3.0</text>
+<line x1="1055.7" y1="546" x2="1055.7" y2="666" stroke="#e1e0d9"/>
+<text x="1055.7" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+4.0</text>
+<line x1="1192.9" y1="546" x2="1192.9" y2="666" stroke="#e1e0d9"/>
+<text x="1192.9" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+5.0</text>
+<line x1="1330.0" y1="546" x2="1330.0" y2="666" stroke="#e1e0d9"/>
+<text x="1330.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+6.0</text>
+<line x1="507.1" y1="546" x2="507.1" y2="666" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="577.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">修改前（develop）</text>
+<rect x="507.1" y="554" width="587.0" height="34" rx="4" fill="#eb6834"/>
+<text x="1102.1" y="578.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+4.28</text>
+<text x="356.0" y="633.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">修改后（PR 分支）</text>
+<rect x="507.1" y="610" width="189.3" height="34" rx="4" fill="#2a78d6"/>
+<text x="704.4" y="634.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+1.38</text>
+<text x="40.0" y="858.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="start">正数 = 比不带手套每 tick 多花的服务器计算时间（ms/tick）；灰带 = 同一条件前后两段基线的摆动范围，带内读作约等于 0</text>
+</svg>
