@@ -3422,4 +3422,33 @@
 		}
 	}
 
+	// 近战英雄威压：魔抗由本技能的 modifier 提供，状态抗性借原版泰坦强化读本技能数值，避免 Lua modifier 的常驻开销
+	"ability_melee_pressure"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"bulldozer"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"status_resistance"			"15"
+		}
+
+		"Modifiers"
+		{
+			"modifier_global_melee_resistance"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"RemoveOnDeath"			"0"
+				"TextureName"			"bulldozer"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"20"
+				}
+			}
+		}
+	}
 }

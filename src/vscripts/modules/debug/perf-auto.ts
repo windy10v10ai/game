@@ -15,15 +15,14 @@ import {
   property_status_resistance_stacking,
 } from '../../modifiers/property/property_declare';
 import { GameConfig } from '../GameConfig';
-import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { PropertyController } from '../property/property_controller';
 import { BotPick } from '../../ai/bot-pick/bot-pick';
 import { PerfProfiler } from './perf-profiler';
 import { PERF_CONFIG } from './perf-config';
-import { modifier_perf_melee_stack } from './perf-melee-stack';
 import { modifier_perf_empty, modifier_perf_takedamage } from './perf-building-modifier';
 import { PerfSampler } from './perf-sampler';
+import { applyMeleePressure } from '../event/event-npc-spawned';
 import { findAllUnits } from '../helper/unit-helper';
 
 export interface PerfAutoConfig {
@@ -463,51 +462,26 @@ function restoreFortLock() {
   print(`[perf] nofortlock restored=${restored}`);
 }
 
-const MELEE_RESISTANCE_MODIFIER = 'modifier_global_melee_resistance';
-let meleeBuffs: CDOTA_Buff[] = [];
+const MELEE_PRESSURE_ABILITY = 'ability_melee_pressure';
 let meleeBuffHeroes: CDOTA_BaseNPC_Hero[] = [];
-let meleeBuffCalls = 0;
-let meleeBuffStart = 0;
 
-// 威压平时只给近战玩家，这里给全员挂上，状态抗性那一半按层数叠加放大开销；回调次数说明引擎多久查一次这个属性
-function addMeleeBuff(stacks: number) {
-  meleeBuffs = [];
+// 威压平时只给近战玩家，这里给全员走正式挂法，量 20 个实例的开销
+function addMeleeBuff() {
   meleeBuffHeroes = [];
-  meleeBuffCalls = 0;
-  meleeBuffStart = Plat_FloatTime();
   forEachHero((hero) => {
-    if (!hero.HasModifier(MELEE_RESISTANCE_MODIFIER)) {
-      ModifierHelper.applyGlobalModifier(hero, MELEE_RESISTANCE_MODIFIER);
-      meleeBuffHeroes.push(hero);
-    }
-    for (let i = 0; i < stacks; i++) {
-      const modifier = hero.AddNewModifier(hero, undefined, modifier_perf_melee_stack.name, {}) as
-        | modifier_perf_melee_stack
-        | undefined;
-      if (!modifier) continue;
-      // 方法在注册时已复制到全局表，计数只能覆盖在实例上
-      const original = modifier.GetModifierStatusResistanceStacking;
-      modifier.GetModifierStatusResistanceStacking = function (this: typeof modifier) {
-        meleeBuffCalls++;
-        return original.call(this);
-      };
-      meleeBuffs.push(modifier);
-    }
+    if (hero.HasAbility(MELEE_PRESSURE_ABILITY)) return;
+    applyMeleePressure(hero);
+    meleeBuffHeroes.push(hero);
   });
+  print(`[perf] meleebuff added=${meleeBuffHeroes.length}`);
 }
 
 function removeMeleeBuff() {
-  for (const modifier of meleeBuffs) {
-    if (!modifier.IsNull()) modifier.Destroy();
-  }
   for (const hero of meleeBuffHeroes) {
-    if (IsValidEntity(hero)) hero.RemoveModifierByName(MELEE_RESISTANCE_MODIFIER);
+    if (!IsValidEntity(hero)) continue;
+    hero.RemoveModifierByName('modifier_item_enhancement_titanic');
+    hero.RemoveAbility(MELEE_PRESSURE_ABILITY);
   }
-  const seconds = Plat_FloatTime() - meleeBuffStart;
-  print(
-    `[perf] meleebuff instances=${meleeBuffs.length} calls_per_sec=${string.format('%.1f', meleeBuffCalls / seconds)}`,
-  );
-  meleeBuffs = [];
   meleeBuffHeroes = [];
 }
 
@@ -1281,11 +1255,11 @@ const CONDITIONS: Condition[] = [
       setup: () => swapItem(itemName),
       teardown: restoreSwappedItem,
     })),
-  ...(PERF_CONFIG?.buffStacks ?? '1').split(',').map((stacks) => ({
-    name: `meleebuff_x${stacks}`,
-    setup: () => addMeleeBuff(Number(stacks)),
+  {
+    name: 'meleebuff',
+    setup: addMeleeBuff,
     teardown: removeMeleeBuff,
-  })),
+  },
   {
     name: 'stunpulse',
     setup: () => STUN_PULSE.start(),

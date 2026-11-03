@@ -6,7 +6,6 @@ import {
   modifier_modifier_added_event_listener,
 } from '../modules/modifier-event/modifier-event-listener';
 import { modifier_debug_manual_control } from './debug/modifier_debug_manual_control';
-import { modifier_global_melee_status_resistance } from './global/melee_status_resistance';
 import { modifier_treasure_chest } from './global/modifier_treasure_chest';
 import {
   property_aoe_bonus_constant_stacking,
@@ -48,11 +47,6 @@ export function RegisterModifiers() {
   LinkLuaModifier(
     modifier_attack_landed_event_listener.name,
     'modules/modifier-event/modifier-event-listener',
-    LuaModifierMotionType.NONE,
-  );
-  LinkLuaModifier(
-    modifier_global_melee_status_resistance.name,
-    'modifiers/global/melee_status_resistance',
     LuaModifierMotionType.NONE,
   );
   LinkLuaModifier(

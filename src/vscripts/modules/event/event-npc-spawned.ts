@@ -3,7 +3,6 @@ import { Player } from '../../api/player';
 import { PlayerPropertyApi } from '../../api/player-property';
 import { modifier_debug_manual_control } from '../../modifiers/debug/modifier_debug_manual_control';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
-import { modifier_global_melee_status_resistance } from '../../modifiers/global/melee_status_resistance';
 import { AwakenHelper } from '../helper/awaken-helper';
 import { BotAbility } from '../helper/bot-ability';
 import { MemberHelper } from '../helper/member-helper';
@@ -13,6 +12,16 @@ import { PlayerHelper } from '../helper/player-helper';
 function IsHeroDemoDebugHero(hero: CDOTA_BaseNPC_Hero): boolean {
   // 调试面板生成的英雄由玩家手动控制：停在指定位置，不挂 bot AI 与随机被动。
   return hero.HasModifier(modifier_debug_manual_control.name);
+}
+
+const MELEE_PRESSURE_ABILITY = 'ability_melee_pressure';
+
+/** 近战威压：隐藏技能自带魔抗 modifier，并作为原版泰坦强化的来源提供状态抗性 */
+export function applyMeleePressure(hero: CDOTA_BaseNPC_Hero): void {
+  const ability =
+    hero.FindAbilityByName(MELEE_PRESSURE_ABILITY) ?? hero.AddAbility(MELEE_PRESSURE_ABILITY);
+  ability.SetLevel(1);
+  hero.AddNewModifier(hero, ability, 'modifier_item_enhancement_titanic', {});
 }
 
 export class EventNpcSpawned {
@@ -188,8 +197,7 @@ export class EventNpcSpawned {
       (hero.GetAttackCapability() === UnitAttackCapability.MELEE_ATTACK ||
         hero.GetName() === 'npc_dota_hero_troll_warlord')
     ) {
-      ModifierHelper.applyGlobalModifier(hero, 'modifier_global_melee_resistance');
-      hero.AddNewModifier(hero, undefined, modifier_global_melee_status_resistance.name, {});
+      applyMeleePressure(hero);
     }
     // 魔抗修正
     hero.AddNewModifier(hero, undefined, modifier_intelect_magic_resist.name, {});
