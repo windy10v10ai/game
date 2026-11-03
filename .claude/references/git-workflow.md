@@ -20,7 +20,7 @@
 
 ## 合并与清理
 
-用户给出合并指令时执行：
+用户给出合并指令时执行，按 `issue-impl` 做的 issue 见 `agent-issue.md`「合入 develop」：
 
 | PR | 命令 |
 |---|---|

@@ -2,14 +2,14 @@
 
 `issue-triage`、`issue-spec`（用户在场时拍板）、`issue-impl`（做一条）与 `issue-autorun`（用户不在时批量做）之间的约定。`issue-impl` 与 `issue-autorun` 只认这里定义的标签、issue 正文结构和执行说明指向的 issue artifact，不读对话。issue 的字段（Type、Priority、Effort、Status）见 `issue-fields.md`。
 
-firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/firebase/blob/develop/.claude/references/agent-issue.md)。标签含义、正文结构、排序规则两边保持一致，改这几处要两边同步；实机验证与验收命令各仓库自己定。
+firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/firebase/blob/develop/.claude/references/agent-issue.md)。标签含义、正文结构、排序规则、「合入 develop」两边保持一致，改这几处要两边同步；实机验证与验收命令各仓库自己定。
 
 ## 标签
 
 | 标签 | 谁打 | 含义 |
 |---|---|---|
 | `agent-todo` | `issue-spec`，用户确认后 | spec 已拍板，等 agent 自动做 |
-| `agent-done` | `issue-autorun` | 已开 PR（审查通过为正式，没做完的保持草稿），等用户审；PR 里的「等你处理」只列用户本人要看或拍板的事 |
+| `agent-done` | `issue-autorun`、`issue-impl` | 已开 PR。合并条件全过的已合入 `develop`，没过的 PR 保持开着，原因写在 PR「等你处理」，见「合入 develop」 |
 | `agent-block` | `issue-autorun`、`issue-impl` | agent 停下等用户，原因写在 issue 留言里，留言第一句区分两种：`卡住：…` 整条 issue 一点都做不了；`⏸ 停点：…` 做到正文「步骤」里标的停点，等用户看过再继续 |
 
 一个 issue 同时只带其中一个。用户处理完 `agent-block` 的留言后换回 `agent-todo`：卡住的先补好正文，停点的直接确认即可，agent 从第一个没勾的步骤接着做。
@@ -25,7 +25,7 @@ firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/fir
 | `L3-visual` | 截图判定 | 实机验证含「截图判定」项（留证截图不算） |
 | `L4-investigate` | 要判断力 | 写不出固定步骤：要做设计取舍或评估，或改动范围列不出来；不打 `agent-todo`，用户在场时用最强档模型做 |
 
-「用户判定」项不影响级别，统一进「等你处理」。原因不明但再现步骤写得出来的（加技能、触发、读数），不算 L4：按验证方式定 L1 到 L3，正文写「步骤」并在定位结论后设停点，见「issue 正文结构」。
+「用户判定」项不影响级别，统一写进 release PR 的 Checklist。原因不明但再现步骤写得出来的（加技能、触发、读数），不算 L4：按验证方式定 L1 到 L3，正文写「步骤」并在定位结论后设停点，见「issue 正文结构」。
 
 ## issue 标题
 
@@ -117,6 +117,8 @@ issue 正文只放用户要看的几块，写得最短；写给执行 AI 的细�
 - **不做**：明确排除的相关改动
 - **验收命令**：必须通过的命令（默认 `npm test`、`npm run lint`、`npm run build:vscripts`；改 Panorama 加 `npm run build:panorama`；带持续性 buff 或永久属性的技能、物品加性能基准，见根 `CLAUDE.md`「Implementation Style」），以及要补的 jest 用例，每个用例写明输入与预期
 - **实机验证**：需要 / 不需要；需要时逐项标层级（见下文「实机验证分三层」）并写到可判定
+- **前提与后备**：方案依赖、还没实测过的引擎行为或读数，逐条写已验证（探针与结果）或不成立时走哪条后备；都没有写「无」
+- **跑不通时**：实机环境起不来或连不上时怎么判（如「只靠 jest 判定，试玩项写进 Checklist」或「不合并，留给用户」）；不需要实机写「无」
 ```
 
 artifact 是 GitHub 的预览功能，命令失败时把执行说明临时写回正文末尾的 `## 执行说明` 兜底，并在留言里说明，功能恢复后再迁回。
@@ -129,6 +131,8 @@ artifact 是 GitHub 的预览功能，命令失败时把执行说明临时写回
 - 档位、数值、等级这类平衡性取舍在执行说明里定死，不留给 agent 类比；定不下来的写明「agent 暂定，记为待你决定」
 - **实机验证**逐项写到可判定：装到哪类英雄、做什么操作、哪个数值应该怎么变，而不是「能生效」
 - 写到「agent 不需要做判断」为止：定「做什么」和「怎么判对错」，不写代码怎么改。要判断的地方要么在执行说明里定死，要么按下文交给调度员或用户
+- 预期值来自实测或原版 KV，不抄被替换实现的读数；手算的写明公式并用探针核对
+- 手感、观感能量化的（时长、距离、帧率）写成脚本判定，剩下的才归用户判定
 
 ### 实机验证分三层
 
@@ -138,13 +142,62 @@ artifact 是 GitHub 的预览功能，命令失败时把执行说明临时写回
 |---|---|---|---|
 | **脚本判定** | 属性、移速、攻击距离、冷却、伤害、modifier 有无与层数、事件是否触发 | 操作步骤与每项预期值（含容差）；只要读数不判对错的写「只记录」 | 执行者写临时 Lua，每项打印 `[check] PASS` / `[check] FAIL`，`FAIL` 行数为 0 才算过 |
 | **截图判定** | 图标、特效、面板布局、悬停或点击后才出现的 tooltip 与界面 | 截哪个状态、裁哪块、正确时应该看到什么 | 执行者操作并截图，只交图不下结论；调度员看图判定 |
-| **用户判定** | 手感、动画节奏、需要连续观察的表现 | 要看什么、和什么对比 | 记进「等你处理」，用户回来测 |
+| **用户判定** | 手感、动画节奏、需要连续观察的表现 | 要看什么、和什么对比 | 不挡合并，写进 release PR 的 Checklist，用户发版前测 |
 
 **留证截图**：脚本判定的项，只要结果在界面上看得到（技能栏的充能数字、tooltip 里的数值），执行说明里另写一张留证截图（拍哪个状态、修正前后各一张）。它不参与判对错，对错仍以脚本为准，所以不升级到 L3；图按 `create-pr/references/screenshots.md` 放进 PR，让审的人一眼看到结果。
 
 ### 设计 artifact（可选）
 
 要讲数据流或跨多层改动时，在「执行说明」之外，把和用户讨论的页面定稿成 HTML「设计」挂到 issue（给人看，流程图、方案对比），见 `.claude/references/doc-writing.md`「设计 spec」。agent 以「执行说明」为准，它要把设计里和实现有关的结论写全，不靠 agent 去读 HTML。
+
+## 合入 develop
+
+用户确认 spec 就是授权：issue 做完且下面每条都成立时，调度员（单条模式是主对话）不等用户，直接合入 `develop`。合入 `develop` 不上线，要用户看的事写进 release PR 的 Checklist，`main` 由用户审批。
+
+合并条件：
+
+- 「要求」没写合并前要用户看
+- 目标全部完成（`Fixes #<id>`），没有跳过的部分，「步骤」全勾完
+- 「验收」每条、实机验证的脚本判定与截图判定项都通过，没有没跑成的项；跑不通时按执行说明「跑不通时」判定，它写了只靠 jest 才能过
+- 结果没有偏离「要求」和「验收」写的预期值
+- 要跑性能基准的，达到执行说明写的门槛
+- 改动只在「改动范围」内，加「顺手发现的问题」带着修的小改动
+- 审查结论 PASS，审查者不是写这份代码的会话
+- 必过的 CI 全过
+
+全部成立时：
+
+```bash
+gh pr checks <编号> -R windy10v10ai/game --required --watch   # 退出码 0 才继续
+gh pr merge <编号> -R windy10v10ai/game --squash
+```
+
+有一条不成立就不合并：PR 保持开着（没做完的是草稿），原因写进 PR「等你处理」的「待你决定」，等用户处理。
+
+### 写进 release PR
+
+合并后把 PR「等你处理」的「发版前」各条追加到 release PR 的 `## Checklist` 末尾，一件事一行：
+
+```markdown
+- [ ] 试玩：<看什么、和什么比>（[<这件事>](<PR 链接>)）
+- [ ] 确认：<按什么默认做了、不同意要改哪里>（[<这件事>](<PR 链接>)）
+- [ ] 上线后：<核对什么>（[<这件事>](<PR 链接>)）
+- [ ] 是否开 issue：<问题与对玩家的影响>（[<这件事>](<PR 链接>)）
+```
+
+- 只写用户本人要做或要确认的事：「用户判定」项、玩家看得到且用户可能想改的默认取舍、上线后才能核对的事、严重问题。其余写在 PR 正文
+- 用 `gh pr list -R windy10v10ai/game --state open --label release --json number` 找 release PR。改之前重读正文，只追加，其他内容原样保留
+- 没有 release PR 时等这次推送的 `Create Release PR` 工作流跑完再找（`gh run list -R windy10v10ai/game --workflow create_release_pr.yml --branch develop --limit 1`、`gh run watch <id>`）；仍没有就把这些项写进汇报
+
+### 顺手发现的问题
+
+和这条 issue 无关的旧问题都不挡合并，也不擅自开 issue：
+
+| 问题 | 做法 |
+|---|---|
+| 小问题：几行，不改玩法、数值和接口行为，验收命令能兜底（错别字、注释、过时文档、本地化占位符） | 带着修，PR 正文写一句 |
+| 不小也不严重 | 不修，PR 正文写一句 |
+| 严重：玩家数据或金钱受损、崩溃、线上报错、明显卡顿、安全问题 | 用户在场时用 `AskUserQuestion` 问要不要开 issue；不在场写进「发版前」的「是否开 issue」 |
 
 ## 子 issue
 

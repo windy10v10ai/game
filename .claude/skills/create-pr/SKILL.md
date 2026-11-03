@@ -68,4 +68,4 @@ git checkout -b <prefix>/<issue-id>-<summary>
 
 `release-note` 在 SubAgent 里运行、不能提问，参数写 PR 号、目标版本、写回方式。它回报待选项时问用户，带着答案重新调用。
 
-选了「合并后再写入聚合 release PR」时，写回按「仅写入功能 PR」调用 `release-note`；合并只在用户指令下执行，合并后聚合 release PR 才会出现，用户确认合并完成后再调用 `release-note`，来源仍写该功能 PR 号，写回方式为「仅写入聚合 release PR」。
+选了「合并后再写入聚合 release PR」时，写回按「仅写入功能 PR」调用 `release-note`；合并后聚合 release PR 才会出现，确认合并完成后再调用 `release-note`，来源仍写该功能 PR 号，写回方式为「仅写入聚合 release PR」。
