@@ -656,7 +656,7 @@ export class BotBaseAIModifier extends BaseModifier {
       }
       if (
         this.IsProtectedByTower(enemy) ||
-        (range > reach && this.brain?.IsPastFront(enemy.GetAbsOrigin()))
+        (range > reach && this.brain?.IsPastChaseFront(enemy.GetAbsOrigin()))
       ) {
         continue;
       }
