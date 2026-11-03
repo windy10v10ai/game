@@ -6800,8 +6800,7 @@
 
 	"item_swift_glove"
 	{
-		"BaseClass"					"item_lua"
-		"ScriptFile"				"items/item_swift_glove"
+		"BaseClass"					"item_datadriven"
 		"ID"						"10448"
 		"AbilityTextureName"		"swift_glove"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -6830,15 +6829,15 @@
 
 		"AbilityValues"
 		{
-			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_strength"			"200"	// tooltip only - 力量（光暗臂章切换部分折算）
-			"bonus_attack_speed"		"240"	// tooltip only - 攻击速度（取材料常驻较大值）
-			"bonus_damage"				"400"	// tooltip only - 攻击力（神雷锤/光暗臂章）
-			"bonus_armor"				"60"	// tooltip only - 护甲（光暗臂章）
+			// 被动属性
+			"bonus_strength"			"200"	// 力量（光暗臂章切换部分折算）
+			"bonus_attack_speed"		"240"	// 攻击速度（取材料常驻较大值）
+			"bonus_damage"				"400"	// 攻击力（神雷锤/光暗臂章）
+			"bonus_armor"				"60"	// 护甲（光暗臂章）
 
 			"bat_reduce"			"20"	// 原版粗暴按此字段读数值，本地化也引用此名
 
-			// Lua 逻辑需要的参数
+			// 脚本需要的参数
 			"self_xp"			"2"
 			"self_gold"			"600"
 			"group_range"		"1800"
@@ -6859,6 +6858,50 @@
 			"decuple_damage_chance"	"1"
 			"decuple_damage_multiplier"	"3"
 			"decuple_damage_cooldown"	"1"
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_swift_glove"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"IsPurgable"			"0"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_strength"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_swift_glove"
+						"Function"		"SwiftGloveOnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_swift_glove"
+						"Function"		"SwiftGloveOnDestroy"
+					}
+				}
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_swift_glove"
+				"Function"		"SwiftGloveOnSpellStart"
+			}
 		}
 	}
 
