@@ -267,10 +267,12 @@
 			}
 		}
 	}
-	// 泉水护甲
-	"fountain_armor_aura"
+	// 泉水光环：护甲与魔抗合并成独立技能，不再与数值更低的塔、兵营光环共用原版技能类
+	"fountain_aura"
 	{
-		"BaseClass"						"black_dragon_dragonhide_aura"
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"1"
 
 		"AbilityValues"
 		{
@@ -278,32 +280,45 @@
 			{
 				"value" "150"
 			}
+			"bonus_magical_armor"
+			{
+				"value" "90"
+			}
 			"radius"
 			{
 				"value" "1500"
 				"affected_by_aoe_increase"	"1"
 			}
 		}
-	}
-	// 泉水魔抗
-	"fountain_magical_armor_aura"
-	{
-		"BaseClass"						"mudgolem_cloak_aura"
 
-		"AbilityValues"
+		"Modifiers"
 		{
-			"bonus_magical_armor"
+			"modifier_fountain_aura_emitter"
 			{
-				"value" "90"
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"IsPurgable"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Aura"					"modifier_fountain_defense_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_ApplyToCaster"	"0"
 			}
-			"bonus_magical_armor_creeps"
+
+			// 引擎自带 modifier_fountain_aura，撞名会让这个 buff 每 tick 多叠一层
+			"modifier_fountain_defense_aura"
 			{
-				"value" "90"
-			}
-			"radius"
-			{
-				"value" "1500"
-				"affected_by_aoe_increase"	"1"
+				"IsBuff"				"1"
+				"IsPurgable"			"0"
+				"TextureName"			"item_hood_of_defiance"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_magical_armor"
+				}
 			}
 		}
 	}
