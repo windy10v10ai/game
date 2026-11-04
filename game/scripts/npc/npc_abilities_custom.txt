@@ -278,15 +278,15 @@
 		{
 			"bonus_armor"
 			{
-				"value" "150"
+				"value" "100"
 			}
 			"bonus_magical_armor"
 			{
-				"value" "90"
+				"value" "85"
 			}
 			"radius"
 			{
-				"value" "1500"
+				"value" "1800"
 				"affected_by_aoe_increase"	"1"
 			}
 		}
