@@ -3,6 +3,17 @@ import { TowerPushStatus } from '../event/event-entity-killed';
 import { PlayerHelper } from '../helper/player-helper';
 import { farmRewardBonus } from './comeback-reward';
 
+/** 多人局开局前期的英雄击杀金币衰减：前 3 分钟七成，3–6 分钟八成五。 */
+export function earlyKillGoldRate(gameTime: number): number {
+  if (gameTime < 180) {
+    return 0.7;
+  }
+  if (gameTime < 360) {
+    return 0.85;
+  }
+  return 1;
+}
+
 @reloadable
 export class GoldXPFilter {
   private readonly REDUCE_RATE_3_MIN = 0.6;
@@ -52,6 +63,12 @@ export class GoldXPFilter {
 
     if (reason === ModifyGoldReason.HERO_KILL) {
       gold = this.filterHeroKillGold(gold);
+
+      // 过滤器先于击杀事件触发，拿不到击杀/助攻信息，这里只能整体压前期击杀金币；
+      // 助攻与击杀者的助攻加成由 HeroKillReward 在击杀后补发
+      if (PlayerHelper.IsMultiplayerGame()) {
+        gold = gold * earlyKillGoldRate(GameRules.GetDOTATime(false, false));
+      }
 
       gold = gold * this.rewardFilterByKill(playerID);
       mul = this.filterHeroKillGoldByMultiplier(mul);
@@ -144,19 +161,22 @@ export class GoldXPFilter {
     return rewardMulti;
   }
 
-  public getPlayerGoldXpMultiplier(playerID: PlayerID): number {
-    let mul = 1;
-
+  /** 玩家所属阵营的基础金币经验倍率，不含开局前期的额外衰减。 */
+  public getModeGoldXpMultiplier(playerID: PlayerID): number {
     // 所有人类玩家都使用天辉倍率
     if (PlayerHelper.IsHumanPlayerByPlayerId(playerID)) {
-      mul = GameRules.Option.radiantGoldXpMultiplier;
-    } else if (PlayerHelper.IsGoodTeamPlayer(playerID)) {
-      // Bot玩家在天辉队伍使用天辉倍率
-      mul = GameRules.Option.radiantGoldXpMultiplier;
-    } else {
-      // Bot玩家在夜魇队伍使用夜魇倍率
-      mul = GameRules.Option.direGoldXpMultiplier;
+      return GameRules.Option.radiantGoldXpMultiplier;
     }
+    if (PlayerHelper.IsGoodTeamPlayer(playerID)) {
+      // Bot玩家在天辉队伍使用天辉倍率
+      return GameRules.Option.radiantGoldXpMultiplier;
+    }
+    // Bot玩家在夜魇队伍使用夜魇倍率
+    return GameRules.Option.direGoldXpMultiplier;
+  }
+
+  public getPlayerGoldXpMultiplier(playerID: PlayerID): number {
+    let mul = this.getModeGoldXpMultiplier(playerID);
 
     // 游戏前期降低倍率
     const gameTime = GameRules.GetDOTATime(false, false);
