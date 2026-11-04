@@ -25,7 +25,12 @@ import {
   progressFromForward,
   projectOnLane,
 } from './lane-geometry';
-import { FRONT_MARGIN, resolveChaseFront, resolvePushStaging } from './push-staging';
+import {
+  FRONT_MARGIN,
+  resolveChaseFront,
+  resolveOuterTowerState,
+  resolvePushStaging,
+} from './push-staging';
 import { FindRoshan, RoshanTiming } from './roshan';
 import { SupplyWards } from '../ward/ward-supply';
 import { ControlSummons } from './summon-control';
@@ -342,6 +347,11 @@ export class TeamBrain {
       return;
     }
     const buildings = CollectBuildings();
+    const enemyOuterTowers = buildings.filter(
+      (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 2,
+    ).length;
+    this.enemyOuterTowers = enemyOuterTowers;
+    const outerTowerState = resolveOuterTowerState(enemyOuterTowers);
     const defend = this.RememberDefendTargets(
       this.FindDefendTargets(buildings, recentEnemies),
       now,
@@ -362,7 +372,7 @@ export class TeamBrain {
     }
     const lanePower = this.EnemyPowerByLane(enemies, now);
     // 推进目标同时决定了每路的前线，交战点要按前线判断，先算推进
-    const lanes = this.FindPushLanes(buildings, lanePower);
+    const lanes = this.FindPushLanes(buildings, lanePower, outerTowerState.outerTowersLeft);
     this.TrackPlayerCombat(allies, now);
     this.fights = this.BuildFights(recentEnemies, allies);
 
@@ -386,10 +396,7 @@ export class TeamBrain {
       bots.filter((bot) => !bot.needsRecover).length,
       now,
     );
-    const enemyStrength = this.UpdateGroupPush(enemies, now);
-    const enemyOuter = buildings.filter(
-      (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 2,
-    ).length;
+    const enemyStrength = this.UpdateGroupPush(enemies, now, outerTowerState.enemyOuterTowersDown);
     const enemyLane = buildings.filter(
       (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 4,
     ).length;
@@ -398,12 +405,11 @@ export class TeamBrain {
       if (IS_DEBUG_RUN) {
         const time = Math.floor(GameRules.GetDOTATime(false, true));
         print(
-          `[bot-ai] team=${this.team} t=${time} building-fell left=${enemyLane} outer=${enemyOuter}`,
+          `[bot-ai] team=${this.team} t=${time} building-fell left=${enemyLane} outer=${enemyOuterTowers}`,
         );
       }
     }
     this.enemyLaneBuildings = enemyLane;
-    this.enemyOuterTowers = enemyOuter;
     const roshan = FindRoshan();
     const squadBefore = this.RoshanSquad();
     const result = planTasks({
@@ -411,7 +417,7 @@ export class TeamBrain {
       enemyPower: enemyStrength,
       groupPush: this.groupPush?.activeSince !== undefined,
       teamStrength: this.TeamStrength(),
-      outerTowersLeft: enemyOuter > 0,
+      outerTowersLeft: outerTowerState.outerTowersLeft,
       laneBuildingFellAt: this.laneBuildingFellAt,
       roshanSquad: squadBefore,
       avoided: this.avoided.map((entry) => entry.pos),
@@ -564,7 +570,11 @@ export class TeamBrain {
   }
 
   /** 更新抱团推进的状态，返回敌方英雄的总战力。 */
-  private UpdateGroupPush(enemies: CDOTA_BaseNPC_Hero[], now: number): number {
+  private UpdateGroupPush(
+    enemies: CDOTA_BaseNPC_Hero[],
+    now: number,
+    enemyOuterTowersDown: boolean,
+  ): number {
     let total = 0;
     let down = 0;
     let longestRespawn = 0;
@@ -586,7 +596,7 @@ export class TeamBrain {
       now,
       enemyDownShare: total > 0 ? down / total : 0,
       longestRespawn,
-      enemyOuterTowersDown: this.enemyOuterTowers === 0,
+      enemyOuterTowersDown,
     });
     if (
       IS_DEBUG_RUN &&
@@ -1380,7 +1390,11 @@ export class TeamBrain {
     return forward > front + FRONT_MARGIN;
   }
 
-  private FindPushLanes(buildings: BuildingInfo[], lanePower: Map<Lane, number>): PushLane[] {
+  private FindPushLanes(
+    buildings: BuildingInfo[],
+    lanePower: Map<Lane, number>,
+    outerTowersLeft: boolean,
+  ): PushLane[] {
     const isRadiant = this.team === DotaTeam.GOODGUYS;
     const enemyTargets = buildings.filter(
       (building) =>
@@ -1394,7 +1408,6 @@ export class TeamBrain {
       this.team === DotaTeam.GOODGUYS
         ? TowerPushStatus.tower3PushedGood > 0
         : TowerPushStatus.tower3PushedBad > 0;
-    const outerTowersLeft = enemyBuildings.some((building) => building.tier <= 2);
     this.fronts.clear();
     this.chaseFronts.clear();
     if (enemyTargets.length === 0) {

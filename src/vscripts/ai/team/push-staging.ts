@@ -26,6 +26,19 @@ export function resolvePushStaging(
   };
 }
 
+export interface OuterTowerState {
+  /** 敌方外塔还没推完：追击仍停在本路推进目标 */
+  outerTowersLeft: boolean;
+  /** 敌方外塔已全部推完：抱团按强攻高地选更短的冷却 */
+  enemyOuterTowersDown: boolean;
+}
+
+/** 追击档位与抱团频率共用外塔状态，避免两处各算一遍口径不一致。 */
+export function resolveOuterTowerState(enemyOuterTowerCount: number): OuterTowerState {
+  const left = enemyOuterTowerCount > 0;
+  return { outerTowersLeft: left, enemyOuterTowersDown: !left };
+}
+
 export interface ChaseFrontInput {
   /** 本路推进目标的前进进度 */
   targetForward: number;

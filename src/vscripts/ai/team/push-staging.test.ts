@@ -1,4 +1,5 @@
-import { resolveChaseFront } from './push-staging';
+import { startGroupPush, updateGroupPush } from './group-push';
+import { resolveChaseFront, resolveOuterTowerState } from './push-staging';
 
 const base = {
   targetForward: 7000,
@@ -31,5 +32,32 @@ describe('chase front', () => {
 
   it('falls back to the push target when no tier 4 tower is left', () => {
     expect(resolveChaseFront({ ...base, tier4Forwards: [] })).toBe(7000);
+  });
+});
+
+describe('outer tower state', () => {
+  const active = { ...startGroupPush(0), activeSince: 100 };
+  const calm = { enemyDownShare: 0, longestRespawn: 0, now: 200 };
+
+  it('drives the chase tier and the group push cooldown from one source', () => {
+    const down = resolveOuterTowerState(0);
+    expect(down).toEqual({ outerTowersLeft: false, enemyOuterTowersDown: true });
+    expect(resolveChaseFront({ ...base, outerTowersLeft: down.outerTowersLeft })).toBe(8300);
+    expect(
+      updateGroupPush(active, { ...calm, enemyOuterTowersDown: down.enemyOuterTowersDown }),
+    ).toEqual({
+      cooldownUntil: 320,
+      fallbackAt: 380,
+    });
+
+    const left = resolveOuterTowerState(6);
+    expect(left).toEqual({ outerTowersLeft: true, enemyOuterTowersDown: false });
+    expect(resolveChaseFront({ ...base, outerTowersLeft: left.outerTowersLeft })).toBe(7000);
+    expect(
+      updateGroupPush(active, { ...calm, enemyOuterTowersDown: left.enemyOuterTowersDown }),
+    ).toEqual({
+      cooldownUntil: 380,
+      fallbackAt: 500,
+    });
   });
 });
