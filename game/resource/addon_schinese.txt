@@ -633,10 +633,8 @@
 		//			泉水光环
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_ability_fountain_armor_aura"									"泉水护甲光环"
-		"DOTA_Tooltip_ability_fountain_armor_aura_Description"						"增加附近友军%bonus_armor%点护甲。"
-		"DOTA_Tooltip_ability_fountain_magical_armor_aura"							"泉水魔抗光环"
-		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"				"增加附近友军%bonus_magical_armor%%%魔法抗性。"
+		"DOTA_Tooltip_modifier_fountain_defense_aura"							"泉水光环"
+		"DOTA_Tooltip_modifier_fountain_defense_aura_Description"				"获得%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点护甲，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%魔法抗性。"
 
 		///////////////////////////////////////////////////
 		//

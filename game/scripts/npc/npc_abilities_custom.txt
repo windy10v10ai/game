@@ -267,43 +267,58 @@
 			}
 		}
 	}
-	// 泉水护甲
-	"fountain_armor_aura"
+	// 泉水光环：独立技能，不与塔、兵营光环共用原版技能类，否则离开泉水时魔抗 modifier 会被同类光环接管
+	"fountain_aura"
 	{
-		"BaseClass"						"black_dragon_dragonhide_aura"
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"1"
 
 		"AbilityValues"
 		{
 			"bonus_armor"
 			{
-				"value" "150"
+				"value" "100"
+			}
+			"bonus_magical_armor"
+			{
+				"value" "85"
 			}
 			"radius"
 			{
-				"value" "1500"
+				"value" "1800"
 				"affected_by_aoe_increase"	"1"
 			}
 		}
-	}
-	// 泉水魔抗
-	"fountain_magical_armor_aura"
-	{
-		"BaseClass"						"mudgolem_cloak_aura"
 
-		"AbilityValues"
+		"Modifiers"
 		{
-			"bonus_magical_armor"
+			"modifier_fountain_aura_emitter"
 			{
-				"value" "90"
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"IsPurgable"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Aura"					"modifier_fountain_defense_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_ApplyToCaster"	"0"
 			}
-			"bonus_magical_armor_creeps"
+
+			// 引擎自带 modifier_fountain_aura，撞名会让这个 buff 每 tick 多叠一层
+			"modifier_fountain_defense_aura"
 			{
-				"value" "90"
-			}
-			"radius"
-			{
-				"value" "1500"
-				"affected_by_aoe_increase"	"1"
+				"IsBuff"				"1"
+				"IsPurgable"			"0"
+				"TextureName"			"granite_golem_hp_aura"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_magical_armor"
+				}
 			}
 		}
 	}
@@ -367,11 +382,11 @@
 		"BaseClass"						"antimage_mana_break"
 		"AbilityValues"
 		{
-			"percent_damage_per_burn"		"50"
-			"mana_per_hit"			"10 20 30 40 50 60 70 80 90 100"
+			"percent_damage_per_burn"		"25"
+			"mana_per_hit"			"5 10 15 20 25 30 35 40 45 50"
 			"mana_per_hit_pct"
 			{
-				"value"		"0.2 0.4 0.6 0.8 1.0 1.5 2.0 2.5 3.0 3.5"
+				"value"		"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.8 2.0"
 			}
 			"illusion_percentage"		"50"
 		}

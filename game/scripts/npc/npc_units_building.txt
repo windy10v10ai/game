@@ -802,11 +802,6 @@
 	//=================================================================================
 	"npc_dota_goodguys_fort"
 	{
-		// Ability
-		//----------------------------------------------------------------
-		"Ability3"					"tower_armor_aura"
-		"Ability4"					"tower_magical_armor_aura"
-
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"60"		// 13
@@ -835,11 +830,6 @@
 	//=================================================================================
 	"npc_dota_badguys_fort"
 	{
-		// Ability
-		//----------------------------------------------------------------
-		"Ability3"					"tower_armor_aura"
-		"Ability4"					"tower_magical_armor_aura"
-
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"60"		// 13
@@ -873,8 +863,7 @@
 		"Ability3"					"tower_ursa_fury_swipes"
 		"Ability4"					"tower_antimage_mana_break"
 		"Ability5"					"fountain_anti_camp"
-		"Ability6"					"fountain_armor_aura"
-		"Ability7"					"fountain_magical_armor_aura"
+		"Ability6"					"fountain_aura"
 
 		"AttackDamageMin"			"390"		// 290
 		"AttackDamageMax"			"410"		// 310
