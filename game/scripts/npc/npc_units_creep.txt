@@ -5,12 +5,12 @@
 	//=================================================================================
 	// Creeps: 小兵 普通
 	//=================================================================================
-	// 近战远程 1.5x
+	// 近战 经验/金币 1.5x；远程：天辉 1.5x，夜魇 经验/金币 3x（仅夜魇 ×2）
 	"npc_dota_creep_badguys_ranged"
 	{
-		"BountyXP"					"104"		// 69
-		"BountyGoldMin"				"65"		// 43
-		"BountyGoldMax"				"78"		// 52
+		"BountyXP"					"208"		// 69
+		"BountyGoldMin"				"130"		// 43
+		"BountyGoldMax"				"156"		// 52
 	}
 	"npc_dota_creep_goodguys_ranged"
 	{
@@ -30,12 +30,12 @@
 		"BountyGoldMin"				"51"		// 34
 		"BountyGoldMax"				"59"		// 39
 	}
-	// 旗手 1.5x
+	// 旗手：天辉 1.5x，夜魇 经验/金币 3x（仅夜魇 ×2）
 	"npc_dota_creep_badguys_flagbearer"
 	{
-		"BountyXP"					"86"		// 57
-		"BountyGoldMin"				"51"		// 34
-		"BountyGoldMax"				"59"		// 39
+		"BountyXP"					"172"		// 57
+		"BountyGoldMin"				"102"		// 34
+		"BountyGoldMax"				"118"		// 39
 
 		"StatusHealth"				"800"		// 550
 	}
@@ -47,7 +47,7 @@
 
 		"StatusHealth"				"800"		// 550
 	}
-	// 投石车 1.5x
+	// 投石车：天辉 1.5x，夜魇 经验/金币 3x（仅夜魇 ×2）
 	"npc_dota_goodguys_siege"
 	{
 		"BaseAttackSpeed"			"130"		// 100
@@ -62,9 +62,9 @@
 		"BaseAttackSpeed"			"130"		// 100
 		"AttackRange"				"800"		// 690
 
-		"BountyXP"					"132"		// 88
-		"BountyGoldMin"				"88"		// 59
-		"BountyGoldMax"				"108"		// 72
+		"BountyXP"					"264"		// 88
+		"BountyGoldMin"				"176"		// 59
+		"BountyGoldMax"				"216"		// 72
 	}
 	//=================================================================================
 	// Creeps: 小兵 高级
@@ -87,9 +87,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"60"		// 22
-		"BountyGoldMin"				"45"		// 19
-		"BountyGoldMax"				"50"		// 25
+		"BountyXP"					"120"		// 22
+		"BountyGoldMin"				"90"		// 19
+		"BountyGoldMax"				"100"		// 25
 
 		// Movement
 		//----------------------------------------------------------------
@@ -215,9 +215,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"86"		// 25
-		"BountyGoldMin"				"51"		// 20
-		"BountyGoldMax"				"59"		// 26
+		"BountyXP"					"172"		// 25
+		"BountyGoldMin"				"102"		// 20
+		"BountyGoldMax"				"118"		// 26
 
 		// Movement
 		//----------------------------------------------------------------
@@ -309,9 +309,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"180"		// 88
-		"BountyGoldMin"				"150"		// 59
-		"BountyGoldMax"				"160"		// 72
+		"BountyXP"					"360"		// 88
+		"BountyGoldMin"				"300"		// 59
+		"BountyGoldMax"				"320"		// 72
 
 		// Movement
 		//----------------------------------------------------------------
@@ -344,9 +344,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"60"		// 22
-		"BountyGoldMin"				"45"		// 19
-		"BountyGoldMax"				"50"		// 25
+		"BountyXP"					"120"		// 22
+		"BountyGoldMin"				"90"		// 19
+		"BountyGoldMax"				"100"		// 25
 
 		// Movement
 		//----------------------------------------------------------------
@@ -472,9 +472,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"86"		// 25
-		"BountyGoldMin"				"51"		// 20
-		"BountyGoldMax"				"59"		// 26
+		"BountyXP"					"172"		// 25
+		"BountyGoldMin"				"102"		// 20
+		"BountyGoldMax"				"118"		// 26
 
 		// Movement
 		//----------------------------------------------------------------
@@ -566,9 +566,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"180"		// 88
-		"BountyGoldMin"				"150"		// 59
-		"BountyGoldMax"				"160"		// 72
+		"BountyXP"					"360"		// 88
+		"BountyGoldMin"				"300"		// 59
+		"BountyGoldMax"				"320"		// 72
 
 		// Movement
 		//----------------------------------------------------------------
