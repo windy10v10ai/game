@@ -633,10 +633,8 @@
 		//			泉水光环
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_ability_fountain_armor_aura"									"Аура брони фонтана"
-		"DOTA_Tooltip_ability_fountain_armor_aura_Description"						"Увеличивает броню ближайших союзников на %bonus_armor%."
-		"DOTA_Tooltip_ability_fountain_magical_armor_aura"							"Аура сопротивления магии фонтана"
-		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"				"Увеличивает сопротивление магии ближайших союзников на %bonus_magical_armor%%%."
+		"DOTA_Tooltip_modifier_fountain_defense_aura"							"Аура фонтана"
+		"DOTA_Tooltip_modifier_fountain_defense_aura_Description"				"Даёт %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% брони и %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% сопротивления магии."
 
 		///////////////////////////////////////////////////
 		//
