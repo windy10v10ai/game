@@ -115,7 +115,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 | 设计稿、测量报告、说明页 | 讨论用 artifact，定稿挂到 issue 的 artifact，见 `.claude/references/doc-writing.md`「设计 spec」「issue artifact」 |
 | 进度、验证结论 | issue / PR |
 
-项目规则、流程、约定的单一真相源只在上表的文档里，不写进自动记忆，已在文档里的也不另存记忆副本；自动记忆只放文档里不适合放的个人偏好。
+项目规则、流程、约定只写进上表的文档，不写进自动记忆；个人偏好才归自动记忆。
 
 README 还是 `CLAUDE.md`：违反它是「这次改动做错了」进 `CLAUDE.md`，是「系统的结构变了」进 README。写 README、spec、issue 的细则见 `.claude/references/doc-writing.md`。
 
