@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 600" width="1400" height="600" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1400" height="600" fill="#fcfcfb"/>
+<text x="40" y="52" font-size="30" font-weight="700" fill="#0b0b0b">泉水光环：改了什么</text>
+<text x="40" y="100" font-size="24" font-weight="700" fill="#eb6834">修改前</text>
+<rect x="40" y="120" width="260" height="110" rx="12" fill="#f1efe8" stroke="#898781" stroke-width="3"/>
+<text x="170" y="171" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">泉水</text>
+<text x="170" y="201" font-size="16" fill="#52514e" text-anchor="middle">挂两个光环技能（+150 / 90%，半径 1500）</text>
+<rect x="400" y="120" width="440" height="110" rx="12" fill="#faece7" stroke="#eb6834" stroke-width="3"/>
+<text x="620" y="171" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">护甲光环 + 魔抗光环</text>
+<text x="620" y="201" font-size="16" fill="#52514e" text-anchor="middle">与塔、兵营共用原版光环类，buff 同名</text>
+<rect x="930" y="120" width="430" height="110" rx="12" fill="#f1efe8" stroke="#898781" stroke-width="3"/>
+<text x="1145" y="171" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">走进塔、兵营范围时</text>
+<text x="1145" y="201" font-size="16" fill="#52514e" text-anchor="middle">魔抗光环只留一个：泉水那个被接管，一直带着 90%</text>
+<line x1="300" y1="175" x2="400" y2="175" stroke="#898781" stroke-width="4"/><polygon points="400,175 386,166 386,184" fill="#898781"/>
+<line x1="840" y1="175" x2="930" y2="175" stroke="#898781" stroke-width="4"/><polygon points="930,175 916,166 916,184" fill="#898781"/>
+<text x="40" y="322" font-size="24" font-weight="700" fill="#2a78d6">修改后</text>
+<rect x="40" y="350" width="260" height="110" rx="12" fill="#f1efe8" stroke="#898781" stroke-width="3"/>
+<text x="170" y="401" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">泉水</text>
+<text x="170" y="431" font-size="16" fill="#52514e" text-anchor="middle">挂一个隐藏光环技能</text>
+<rect x="400" y="350" width="440" height="110" rx="12" fill="#e6f1fb" stroke="#2a78d6" stroke-width="3"/>
+<text x="620" y="401" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">独立的「泉水光环」buff</text>
+<text x="620" y="431" font-size="16" fill="#52514e" text-anchor="middle">护甲 +100、魔抗 85%、半径 1800，玩家可见</text>
+<rect x="930" y="350" width="430" height="110" rx="12" fill="#eaf3de" stroke="#3b6d11" stroke-width="3"/>
+<text x="1145" y="401" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">基地光环去掉，兵营光环不动</text>
+<text x="1145" y="431" font-size="16" fill="#52514e" text-anchor="middle">兵营光环与泉水光环互不相干，魔抗新建，回到正常值</text>
+<line x1="300" y1="405" x2="400" y2="405" stroke="#898781" stroke-width="4"/><polygon points="400,405 386,396 386,414" fill="#898781"/>
+<text x="40" y="560" font-size="18" font-weight="700" fill="#0b0b0b">没有新增 Lua 脚本：整个光环用配置实现，引擎原生计算。</text>
+</svg>
