@@ -312,7 +312,7 @@
 			{
 				"IsBuff"				"1"
 				"IsPurgable"			"0"
-				"TextureName"			"item_hood_of_defiance"
+				"TextureName"			"granite_golem_hp_aura"
 
 				"Properties"
 				{
