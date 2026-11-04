@@ -82,7 +82,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 - commit 是单行英文标题，署名行按执行者：Claude 加 `Co-Authored-By`，没有 GitHub 账号的执行者不加（会显示成无效作者）
 - `git push -u origin HEAD`，以 `git ls-remote origin <分支>` 与本地 HEAD 一致为准
 - 按 `create-pr` 的格式开 PR，实机验证还没做就先带 `--draft`（`gh pr create --draft --base develop -R windy10v10ai/game`），验证与审查通过后立刻转正式。正文只写人做判断要看的关键信息，过程细节放进一条「验证记录」评论（之后更新用 `gh pr comment --edit-last`）。正文另加：
-  - Issue 段：目标全部完成写 `Fixes #<id>`，有跳过写 `#<id>`
+  - Issue 段：目标全部完成写 `- Fixes #<id>`，有跳过写 `- #<id>`（行首带 `- `，GitHub 会自动显示 issue 标题）
   - 影响玩家的数值、档位、等级用表格列出
   - Checklist：「验收」每一条与执行说明「实机验证」的每一项
   - 「实现思路」一节：放在 Checklist 与 Release Note 之后、「验收结果」之前，一张 SVG 前后示意图（左改前、右改后，改前橙、改后蓝，样例 PR #2725 的 `mechanism.svg`），图里只用白话名，图下一句话对照关键代码名；没有机制变化的纯文案、数值改动不画。图在 PR 创建后按 `create-pr/references/screenshots.md` 推到 `assets` 分支 `pr/<PR 编号>/`，再 `gh pr edit` 写进正文
@@ -102,7 +102,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 
 验完在 PR 正文最下方（署名行之前）加「验收结果」一节，紧跟在「实现思路」之后，用 ✅ / ⚠️ 逐条简短报告每条验收的实测结果（改前、改后各是什么），性能对比图加每项一行结论，格式见 `dota-live-test` 的 `references/perf-bench.md`「报告格式」，节末先一句「结论」，再放「等你处理」（格式见第 5 步），并勾选全过的 Checklist 项，命令与 `[check]` 行原文写进验证记录评论。临时 Lua 验完删掉，不提交。
 
-PR 正文按这个顺序且保持短（一屏能看完）：顶部一句话（做了什么、对玩家的影响）加 `Fixes`；「实现思路」图；改动在界面上看得到时（新 buff、图标、文案、技能栏数字）的截图，自动拍并放进 PR，按 `create-pr/references/screenshots.md`，不等用户提醒；「验收结果」一张表加一句结论；「等你处理」；模板 Checklist 与 Release Note 放进 `<details>` 折叠。偏差说明、性能表、脚本原文与逐项日志放进「验证记录」评论，不进正文。
+PR 正文按这个顺序且保持短（一屏能看完）：顶部一句话（做了什么、对玩家的影响）加 `- Fixes #<id>`；「实现思路」图；改动在界面上看得到时（新 buff、图标、文案、技能栏数字）的截图，自动拍并放进 PR，按 `create-pr/references/screenshots.md`，不等用户提醒；「验收结果」一张表加一句结论；「等你处理」；模板 Checklist 与 Release Note 放进 `<details>` 折叠。偏差说明、性能表、脚本原文与逐项日志放进「验证记录」评论，不进正文。
 
 PR 正文是用户判断的唯一入口，不靠对话补充：只看正文就要能知道改动思路和每条验收的实测结果。「实现思路」「验收结果」两节每个 PR 都必须有，没通过、没复现、没做的项也写进「验收结果」，写清现象与原因；实测中推翻了之前的判断（如复现场景改了）就整节改写，不留旧结论。第 6、9 步每次产生新数据或返工后，回报前先 `gh pr view` 核对正文与最新结果一致，不等用户催。
 
