@@ -85,7 +85,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
   - Issue 段：目标全部完成写 `- Fixes #<id>`，有跳过写 `- #<id>`（行首带 `- `，GitHub 会自动显示 issue 标题）
   - 影响玩家的数值、档位、等级用表格列出
   - Checklist：「验收」每一条与执行说明「实机验证」的每一项
-  - 「实现思路」一节：放在 Checklist 与 Release Note 之后、「验收结果」之前，一张 SVG 前后示意图（左改前、右改后，改前橙、改后蓝，样例 PR #2725 的 `mechanism.svg`），图里只用白话名，图下一句话对照关键代码名；没有机制变化的纯文案、数值改动不画。图在 PR 创建后按 `create-pr/references/screenshots.md` 推到 `assets` 分支 `pr/<PR 编号>/`，再 `gh pr edit` 写进正文
+  - 「实现思路」一节：一张 SVG 前后示意图（左改前、右改后，改前橙、改后蓝，样例 PR #2725 的 `mechanism.svg`），图里只用白话名，图下只有一行代码名对照。顶部一句话已说明改了什么和玩家影响，图下不再重复文字；没有机制变化的纯文案、数值改动不画。图在 PR 创建后按 `create-pr/references/screenshots.md` 推到 `assets` 分支 `pr/<PR 编号>/`，再 `gh pr edit` 写进正文
   - 验证记录评论写：测试视角、每条验收命令与结果
   - 「等你处理」：「待你决定」（挡合并）「发版前」（合并后写进 release PR，四种写法见 `agent-issue.md`「写进 release PR」）两组，每条 checkbox 一句话写清看什么、选什么，都空写「无」；放在正文最下方「验收结果」一节的结论之后，不单独成节
   - 按默认做的取舍、顺手改动、不严重的发现各写一句，放在「等你处理」之前，不用用户处理
