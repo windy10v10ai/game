@@ -1,7 +1,7 @@
 import { GroupPushState, startGroupPush, updateGroupPush } from './group-push';
 
-const calm = { enemyDownShare: 0, longestRespawn: 0 };
-const wiped = { enemyDownShare: 1, longestRespawn: 40 };
+const calm = { enemyDownShare: 0, longestRespawn: 0, enemyOuterTowersDown: false };
+const wiped = { enemyDownShare: 1, longestRespawn: 40, enemyOuterTowersDown: false };
 
 describe('group push', () => {
   const fresh = startGroupPush(0);
@@ -13,7 +13,7 @@ describe('group push', () => {
 
   it('does not start for a short respawn or during the cooldown', () => {
     expect(
-      updateGroupPush(fresh, { enemyDownShare: 1, longestRespawn: 5, now: 100 }).activeSince,
+      updateGroupPush(fresh, { ...wiped, longestRespawn: 5, now: 100 }).activeSince,
     ).toBeUndefined();
     expect(updateGroupPush(fresh, { ...wiped, now: 10 }).activeSince).toBeUndefined();
   });
@@ -34,5 +34,21 @@ describe('group push', () => {
   it('never lasts past the time cap', () => {
     const active: GroupPushState = { ...fresh, activeSince: 100 };
     expect(updateGroupPush(active, { ...wiped, now: 300 }).activeSince).toBeUndefined();
+  });
+
+  it('keeps the longer wait while the outer towers stand', () => {
+    const active: GroupPushState = { ...fresh, activeSince: 100 };
+    expect(updateGroupPush(active, { ...calm, now: 200 })).toEqual({
+      cooldownUntil: 380,
+      fallbackAt: 500,
+    });
+  });
+
+  it('comes back sooner once the outer towers are down', () => {
+    const active: GroupPushState = { ...fresh, activeSince: 100 };
+    expect(updateGroupPush(active, { ...calm, now: 200, enemyOuterTowersDown: true })).toEqual({
+      cooldownUntil: 320,
+      fallbackAt: 380,
+    });
   });
 });

@@ -18,6 +18,8 @@ export interface GroupPushInput {
   enemyDownShare: number;
   /** 阵亡敌方英雄里最长的剩余复活时间 */
   longestRespawn: number;
+  /** 敌方外塔已全部推完：这时抱团就是强攻高地，频率更高 */
+  enemyOuterTowersDown: boolean;
 }
 
 // 敌方大半战力阵亡才算打开了缺口
@@ -29,6 +31,9 @@ const MIN_SECONDS = 40;
 const MAX_SECONDS = 90;
 const COOLDOWN_SECONDS = 180;
 const FALLBACK_SECONDS = 300;
+// 外塔推完后抱团就是强攻高地，一波结束得更快再聚下一波
+const HIGH_GROUND_COOLDOWN_SECONDS = 120;
+const HIGH_GROUND_FALLBACK_SECONDS = 180;
 // 接管后先分路推一阵再考虑抱团
 const FIRST_COOLDOWN_SECONDS = 60;
 
@@ -45,8 +50,10 @@ export function updateGroupPush(state: GroupPushState, input: GroupPushInput): G
       return state;
     }
     return {
-      cooldownUntil: input.now + COOLDOWN_SECONDS,
-      fallbackAt: input.now + FALLBACK_SECONDS,
+      cooldownUntil:
+        input.now + (input.enemyOuterTowersDown ? HIGH_GROUND_COOLDOWN_SECONDS : COOLDOWN_SECONDS),
+      fallbackAt:
+        input.now + (input.enemyOuterTowersDown ? HIGH_GROUND_FALLBACK_SECONDS : FALLBACK_SECONDS),
     };
   }
   if (input.now >= state.cooldownUntil && (opening || input.now >= state.fallbackAt)) {

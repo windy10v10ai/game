@@ -3,6 +3,7 @@
  * 敌方英雄与小兵只认本队看得到的，建筑位置固定、始终可读。
  */
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
+import { TowerPushStatus } from '../../modules/event/event-entity-killed';
 import { AbilityRegistry } from '../ability/ability-registry';
 import { TargetSide } from '../ability/ability-spec';
 import { HeroUtil } from '../hero/hero-util';
@@ -24,7 +25,12 @@ import {
   progressFromForward,
   projectOnLane,
 } from './lane-geometry';
-import { resolvePushStaging } from './push-staging';
+import {
+  FRONT_MARGIN,
+  resolveChaseFront,
+  resolveOuterTowerState,
+  resolvePushStaging,
+} from './push-staging';
 import { FindRoshan, RoshanTiming } from './roshan';
 import { SupplyWards } from '../ward/ward-supply';
 import { ControlSummons } from './summon-control';
@@ -82,8 +88,6 @@ const DEFEND_FACING_RADIUS = 3000;
 const DISABLED_POWER_FACTOR = 0.5;
 // 交战点在建筑射程外这么远以内也算建筑参战，英雄走几步就进射程
 const FIGHT_TOWER_MARGIN = 300;
-// 超过敌方最前面那座塔这么远，就算越过了还没推掉的塔
-const FRONT_MARGIN = 400;
 // 同一片野区的野怪合成一个发育点
 const FARM_CAMP_RADIUS = 800;
 // 集合点允许与交战点差不多深入，推塔的队友往往就站在交战点旁边
@@ -133,6 +137,8 @@ export interface FightView extends FightSpot {
   ourPower: number;
   ourNames: string[];
   withTower: boolean;
+  /** 交战点已经越过敌方还没推掉的建筑：没有塔覆盖也算越塔，赶路时不绕回去 */
+  beyondTowers: boolean;
 }
 
 interface BuildingInfo {
@@ -200,6 +206,8 @@ export class TeamBrain {
   private fights: FightView[] = [];
   // 每路敌方最前面还没推掉的建筑，按己方视角的前进距离记
   private readonly fronts = new Map<Lane, number>();
+  // 每路追击前线：外塔推完后比推进目标更靠前，打架与追人按它判断
+  private readonly chaseFronts = new Map<Lane, number>();
 
   constructor(
     public readonly team: DotaTeam,
@@ -339,6 +347,11 @@ export class TeamBrain {
       return;
     }
     const buildings = CollectBuildings();
+    const enemyOuterTowers = buildings.filter(
+      (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 2,
+    ).length;
+    this.enemyOuterTowers = enemyOuterTowers;
+    const outerTowerState = resolveOuterTowerState(enemyOuterTowers);
     const defend = this.RememberDefendTargets(
       this.FindDefendTargets(buildings, recentEnemies),
       now,
@@ -359,7 +372,7 @@ export class TeamBrain {
     }
     const lanePower = this.EnemyPowerByLane(enemies, now);
     // 推进目标同时决定了每路的前线，交战点要按前线判断，先算推进
-    const lanes = this.FindPushLanes(buildings, lanePower);
+    const lanes = this.FindPushLanes(buildings, lanePower, outerTowerState.outerTowersLeft);
     this.TrackPlayerCombat(allies, now);
     this.fights = this.BuildFights(recentEnemies, allies);
 
@@ -383,10 +396,7 @@ export class TeamBrain {
       bots.filter((bot) => !bot.needsRecover).length,
       now,
     );
-    const enemyStrength = this.UpdateGroupPush(enemies, now);
-    const enemyOuter = buildings.filter(
-      (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 2,
-    ).length;
+    const enemyStrength = this.UpdateGroupPush(enemies, now, outerTowerState.enemyOuterTowersDown);
     const enemyLane = buildings.filter(
       (building) => building.unit.GetTeamNumber() === this.enemyTeam && building.tier <= 4,
     ).length;
@@ -395,12 +405,11 @@ export class TeamBrain {
       if (IS_DEBUG_RUN) {
         const time = Math.floor(GameRules.GetDOTATime(false, true));
         print(
-          `[bot-ai] team=${this.team} t=${time} building-fell left=${enemyLane} outer=${enemyOuter}`,
+          `[bot-ai] team=${this.team} t=${time} building-fell left=${enemyLane} outer=${enemyOuterTowers}`,
         );
       }
     }
     this.enemyLaneBuildings = enemyLane;
-    this.enemyOuterTowers = enemyOuter;
     const roshan = FindRoshan();
     const squadBefore = this.RoshanSquad();
     const result = planTasks({
@@ -408,7 +417,7 @@ export class TeamBrain {
       enemyPower: enemyStrength,
       groupPush: this.groupPush?.activeSince !== undefined,
       teamStrength: this.TeamStrength(),
-      outerTowersLeft: enemyOuter > 0,
+      outerTowersLeft: outerTowerState.outerTowersLeft,
       laneBuildingFellAt: this.laneBuildingFellAt,
       roshanSquad: squadBefore,
       avoided: this.avoided.map((entry) => entry.pos),
@@ -561,7 +570,11 @@ export class TeamBrain {
   }
 
   /** 更新抱团推进的状态，返回敌方英雄的总战力。 */
-  private UpdateGroupPush(enemies: CDOTA_BaseNPC_Hero[], now: number): number {
+  private UpdateGroupPush(
+    enemies: CDOTA_BaseNPC_Hero[],
+    now: number,
+    enemyOuterTowersDown: boolean,
+  ): number {
     let total = 0;
     let down = 0;
     let longestRespawn = 0;
@@ -583,6 +596,7 @@ export class TeamBrain {
       now,
       enemyDownShare: total > 0 ? down / total : 0,
       longestRespawn,
+      enemyOuterTowersDown,
     });
     if (
       IS_DEBUG_RUN &&
@@ -887,11 +901,14 @@ export class TeamBrain {
     });
   }
 
-  /** 这个敌人所在的交战点团队判断能越塔抓。 */
+  /** 这个敌人所在的交战点团队判断能越塔抓：敌人所在处有塔算，越过还没推掉的塔也算。 */
   DivesOn(enemy: CDOTA_BaseNPC): boolean {
     const index = enemy.GetEntityIndex();
     return this.fights.some(
-      (fight) => fight.enemyIds.includes(index) && fight.withTower && fight.towerSafe !== true,
+      (fight) =>
+        fight.enemyIds.includes(index) &&
+        fight.towerSafe !== true &&
+        (fight.withTower || fight.beyondTowers),
     );
   }
 
@@ -955,7 +972,8 @@ export class TeamBrain {
       ourNames,
       withTower: enemyTowerPower > 0,
       towerSafe,
-      pastFront: this.IsPastFront(pos),
+      pastFront: this.IsPastChaseFront(pos),
+      beyondTowers: this.IsPastFront(pos),
       engaged,
     };
   }
@@ -1348,13 +1366,22 @@ export class TeamBrain {
     return role;
   }
 
-  /** 这个位置是否在某一路敌方还没推掉的塔后面，bot 不越过它追人或打架。 */
-  IsPastFront(pos: Point): boolean {
+  /** 这个位置是否越过追击前线，bot 不越过它追人或打架。 */
+  IsPastChaseFront(pos: Point): boolean {
+    return this.IsPastFrontOf(pos, this.chaseFronts);
+  }
+
+  /** 这个位置是否越过敌方还没推掉的建筑，发育时按它判断，不越过三塔去刷兵。 */
+  private IsPastFront(pos: Point): boolean {
+    return this.IsPastFrontOf(pos, this.fronts);
+  }
+
+  private IsPastFrontOf(pos: Point, fronts: Map<Lane, number>): boolean {
     const hit = nearestLane(this.lanes, pos, Infinity);
     if (!hit) {
       return false;
     }
-    const front = this.fronts.get(hit.path.lane) ?? Infinity;
+    const front = fronts.get(hit.path.lane) ?? Infinity;
     const forward = forwardProgress(
       hit.path,
       hit.projection.progress,
@@ -1363,13 +1390,26 @@ export class TeamBrain {
     return forward > front + FRONT_MARGIN;
   }
 
-  private FindPushLanes(buildings: BuildingInfo[], lanePower: Map<Lane, number>): PushLane[] {
+  private FindPushLanes(
+    buildings: BuildingInfo[],
+    lanePower: Map<Lane, number>,
+    outerTowersLeft: boolean,
+  ): PushLane[] {
     const isRadiant = this.team === DotaTeam.GOODGUYS;
     const enemyTargets = buildings.filter(
       (building) =>
         building.unit.GetTeamNumber() === this.enemyTeam && !building.unit.IsInvulnerable(),
     );
+    const enemyBuildings = buildings.filter(
+      (building) => building.unit.GetTeamNumber() === this.enemyTeam,
+    );
+    // 三塔按全图算：基地三路共用，按路算时同一个位置可能投影到不同的路
+    const tower3Pushed =
+      this.team === DotaTeam.GOODGUYS
+        ? TowerPushStatus.tower3PushedGood > 0
+        : TowerPushStatus.tower3PushedBad > 0;
     this.fronts.clear();
+    this.chaseFronts.clear();
     if (enemyTargets.length === 0) {
       return [];
     }
@@ -1398,6 +1438,26 @@ export class TeamBrain {
         continue;
       }
       this.fronts.set(path.lane, targetForward);
+      const tier4Forwards: number[] = [];
+      let baseForward: number | undefined;
+      for (const building of enemyBuildings) {
+        // 四塔与基地没有路名，按当前这一路投影后的进度算
+        if (building.tier === 5) {
+          tier4Forwards.push(ProjectForward(path, building, isRadiant));
+        } else if (building.tier === 6) {
+          baseForward = ProjectForward(path, building, isRadiant);
+        }
+      }
+      this.chaseFronts.set(
+        path.lane,
+        resolveChaseFront({
+          targetForward,
+          tier4Forwards,
+          baseForward,
+          outerTowersLeft,
+          tower3Pushed,
+        }),
+      );
       const front = creepFront.get(path.lane);
       // 这一路没有己方小兵时不去推，一个人站在塔前等只会被抓
       if (front === undefined) {
@@ -1663,6 +1723,15 @@ function CollectBuildings(): BuildingInfo[] {
     // 高地塔起打不过也要派人守
     return { unit, lane: BuildingLane(name), tier, importance: tier, isBase: tier >= 3 };
   });
+}
+
+/** 建筑沿着某一路朝敌方高地方向前进了多少。 */
+function ProjectForward(path: LanePath, building: BuildingInfo, isRadiant: boolean): number {
+  return forwardProgress(
+    path,
+    projectOnLane(path, building.unit.GetAbsOrigin()).progress,
+    isRadiant,
+  );
 }
 
 /** 射程能盖到这个位置的一方建筑的战力之和，几座挨着的高地建筑一起算。 */
