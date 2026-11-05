@@ -25,7 +25,7 @@ function OnAwakenCreated(keys)
 	end
 end
 
--- 每次扫描吃掉 6 格和背包里自己买的全部锁子甲，走原版对自己施放以保持不打断玩家操作
+-- 每次扫描吃掉 6 格里自己买的全部锁子甲，走原版对自己施放以保持不打断玩家操作
 function OnAutoConsumeThink(keys)
 	local caster = keys.caster
 	local awaken = keys.ability
@@ -36,7 +36,7 @@ function OnAutoConsumeThink(keys)
 		return
 	end
 	local playerId = caster:GetPlayerOwnerID()
-	for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+	for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
 		local item = caster:GetItemInSlot(slot)
 		if item and item:GetAbilityName() == "item_chainmail" and item:GetPurchaser() == caster then
 			caster:SetCursorCastTarget(caster)
