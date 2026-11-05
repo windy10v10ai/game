@@ -4,7 +4,7 @@ import { PlayerHelper } from '../helper/player-helper';
 // 助攻经验以受害者死亡经验为基准
 const ASSIST_XP_RATE = 0.3;
 
-// 击杀者周围这个范围内有敌方防御塔，或没有其他友方真人，就不算安全的以多打少
+// 判定击杀者周围这个范围内有没有敌方防御塔与友方英雄
 const NEARBY_RADIUS = 1500;
 
 // 助攻事件与死亡事件的先后顺序由引擎决定，短暂缓冲后仍能配到同一次击杀
@@ -43,7 +43,7 @@ interface OrphanAssist {
 }
 
 /**
- * 多人局的助攻与击杀收益：助攻者额外拿经验，击杀者前期击杀金币与经验按附近塔和真人情况决定是否减半。
+ * 多人局的助攻与击杀收益：助攻者额外拿经验，击杀者前期击杀金币与经验按附近敌方塔和友方英雄决定是否减半。
  * 引擎在金币/经验过滤器之后才给出击杀信息，所以衰减在过滤器里做，这里只做击杀后的补回。
  */
 @reloadable
@@ -131,7 +131,7 @@ export class HeroKillReward {
     return killerPlayerId;
   }
 
-  // 击杀者周围没有敌方防御塔、且有其他友方真人玩家一起，才按原收益结算；否则前期击杀奖励减半
+  // 击杀者周围有敌方防御塔、且附近没有其他友方英雄，才把前期击杀奖励压一半；否则按原收益结算
   private canRestoreReward(killerPlayerId: PlayerID | undefined): boolean {
     if (killerPlayerId === undefined) {
       return false;
@@ -140,10 +140,7 @@ export class HeroKillReward {
     if (!killer || !killer.IsAlive()) {
       return false;
     }
-    if (this.hasEnemyTowerNearby(killer)) {
-      return false;
-    }
-    return this.hasFriendlyHumanNearby(killerPlayerId, killer);
+    return !this.hasEnemyTowerNearby(killer) || this.hasFriendlyHeroNearby(killerPlayerId, killer);
   }
 
   private hasEnemyTowerNearby(killer: CDOTA_BaseNPC): boolean {
@@ -161,27 +158,21 @@ export class HeroKillReward {
     return towers.some((tower) => tower.IsTower() && tower.IsAlive());
   }
 
-  private hasFriendlyHumanNearby(killerPlayerId: PlayerID, killer: CDOTA_BaseNPC): boolean {
-    let found = false;
-    PlayerHelper.ForEachPlayer((playerId) => {
-      if (found || playerId === killerPlayerId) {
-        return;
-      }
-      if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
-        return;
-      }
-      if (PlayerResource.GetTeam(playerId) !== killer.GetTeamNumber()) {
-        return;
-      }
-      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-      if (!hero || !hero.IsAlive()) {
-        return;
-      }
-      if (hero.GetAbsOrigin().__sub(killer.GetAbsOrigin()).Length2D() <= NEARBY_RADIUS) {
-        found = true;
-      }
-    });
-    return found;
+  private hasFriendlyHeroNearby(killerPlayerId: PlayerID, killer: CDOTA_BaseNPC): boolean {
+    const heroes = FindUnitsInRadius(
+      killer.GetTeamNumber(),
+      killer.GetAbsOrigin(),
+      undefined,
+      NEARBY_RADIUS,
+      UnitTargetTeam.FRIENDLY,
+      UnitTargetType.HERO,
+      UnitTargetFlags.NONE,
+      FindOrder.ANY,
+      false,
+    );
+    return heroes.some(
+      (hero) => hero.IsRealHero() && hero.IsAlive() && hero.GetPlayerOwnerID() !== killerPlayerId,
+    );
   }
 
   private rewardAssist(pending: PendingKill, assisterPlayerId: PlayerID): void {
