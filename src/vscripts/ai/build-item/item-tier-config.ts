@@ -653,7 +653,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_force_staff_3: {
     name: 'item_force_staff_3',
     nameCN: '黄金法杖',
-    tier: ItemTier.T3,
+    tier: ItemTier.T2,
     cost: 5000,
     baseItems: ['item_force_staff', 'item_force_staff_2'],
   },
