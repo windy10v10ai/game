@@ -3,9 +3,21 @@ import { TowerPushStatus } from '../event/event-entity-killed';
 import { PlayerHelper } from '../helper/player-helper';
 import { farmRewardBonus } from './comeback-reward';
 
-/** 多人局从开局准备阶段到开局 3 分钟内的英雄击杀金币衰减。 */
+/** 多人局从开局准备阶段到开局 2 分半内的英雄击杀金币衰减。 */
 export function earlyKillGoldRate(gameTime: number): number {
-  return gameTime < 180 ? 0.7 : 1;
+  return gameTime < 150 ? 0.7 : 1;
+}
+
+/** 同一窗口内击杀经验的衰减，无助攻时击杀者只拿到一半，有助攻时由击杀结算补回。 */
+export function earlyKillXpRate(gameTime: number): number {
+  return gameTime < 150 ? 0.5 : 1;
+}
+
+/** 过滤器里暂时扣下的击杀经验，等确认这次击杀有没有助攻再决定补不补。 */
+export interface KillXpCut {
+  playerId: PlayerID;
+  xp: number;
+  at: number;
 }
 
 @reloadable
@@ -13,6 +25,9 @@ export class GoldXPFilter {
   private readonly REDUCE_RATE_3_MIN = 0.6;
   private readonly REDUCE_RATE_6_MIN = 0.8;
   private readonly REDUCE_RATE_HERO_KILL = 0.5;
+
+  private readonly KILL_XP_CUT_TTL = 2;
+  private killXpCuts: KillXpCut[] = [];
 
   constructor() {
     GameRules.GetGameModeEntity().SetModifyGoldFilter((args) => this.filterGold(args), this);
@@ -104,9 +119,44 @@ export class GoldXPFilter {
       xp = xp * this.getFarmRewardBonus(playerID);
     }
 
-    args.experience = Math.floor(xp * mul);
+    let value = Math.floor(xp * mul);
+
+    // 击杀经验的扣减同样只能整体先扣，等击杀事件确认没有助攻后再保留
+    if (reason === ModifyXpReason.HERO_KILL && PlayerHelper.IsMultiplayerGame()) {
+      const rate = earlyKillXpRate(GameRules.GetDOTATime(false, true));
+      const cut = value - Math.floor(value * rate);
+      if (cut > 0) {
+        this.killXpCuts.push({ playerId: playerID, xp: cut, at: GameRules.GetGameTime() });
+        value = value - cut;
+      }
+    }
+
+    args.experience = value;
 
     return true;
+  }
+
+  /**
+   * 取走 fromTime 之后记录的击杀经验扣减，供击杀结算按助攻情况补回。
+   *
+   * @param fromTime - 只取这个时间点之后的记录，其余留给别的击杀或超时清理。
+   */
+  TakeKillXpCuts(fromTime: number): KillXpCut[] {
+    const now = GameRules.GetGameTime();
+    const due: KillXpCut[] = [];
+    const keep: KillXpCut[] = [];
+    for (const cut of this.killXpCuts) {
+      if (now - cut.at > this.KILL_XP_CUT_TTL) {
+        continue;
+      }
+      if (cut.at >= fromTime) {
+        due.push(cut);
+      } else {
+        keep.push(cut);
+      }
+    }
+    this.killXpCuts = keep;
+    return due;
   }
 
   /**

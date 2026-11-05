@@ -1,4 +1,4 @@
-import { GoldXPFilter, earlyKillGoldRate } from './gold-xp-filter';
+import { GoldXPFilter, earlyKillGoldRate, earlyKillXpRate } from './gold-xp-filter';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare let global: any;
@@ -46,12 +46,25 @@ describe('GoldFilter', () => {
     it.each([
       [-60, 0.7],
       [0, 0.7],
-      [179, 0.7],
-      [180, 1],
-      [359, 1],
+      [149, 0.7],
+      [150, 1],
+      [179, 1],
       [600, 1],
     ])('should return the early kill gold rate at %i seconds', (gameTime, expected) => {
       expect(earlyKillGoldRate(gameTime)).toBe(expected);
+    });
+  });
+
+  describe('earlyKillXpRate', () => {
+    it.each([
+      [-60, 0.5],
+      [0, 0.5],
+      [149, 0.5],
+      [150, 1],
+      [179, 1],
+      [600, 1],
+    ])('should return the early kill xp rate at %i seconds', (gameTime, expected) => {
+      expect(earlyKillXpRate(gameTime)).toBe(expected);
     });
   });
 

@@ -1,4 +1,9 @@
-import { assistGoldReward, assistXpReward, killerAssistGoldReward } from './hero-kill-reward';
+import {
+  assistGoldReward,
+  assistXpReward,
+  killerAssistGoldReward,
+  refundKillXpInput,
+} from './hero-kill-reward';
 
 describe('HeroKillReward', () => {
   describe('assistGoldReward', () => {
@@ -24,6 +29,15 @@ describe('HeroKillReward', () => {
       expect(killerAssistGoldReward(1000, 2)).toBe(400);
       expect(killerAssistGoldReward(1000, 5)).toBe(400);
       expect(killerAssistGoldReward(333, 1)).toBe(66);
+    });
+  });
+
+  describe('refundKillXpInput', () => {
+    it('should divide the cut by the filter multiplier', () => {
+      expect(refundKillXpInput(100, 1)).toBe(100);
+      expect(refundKillXpInput(100, 2)).toBe(50);
+      expect(refundKillXpInput(49, 1.5)).toBe(33);
+      expect(refundKillXpInput(100, 0)).toBe(100);
     });
   });
 });

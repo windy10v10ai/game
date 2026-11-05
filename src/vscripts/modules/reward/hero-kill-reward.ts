@@ -26,10 +26,16 @@ export function killerAssistGoldReward(baseBounty: number, assistCount: number):
   return Math.floor(baseBounty * KILLER_ASSIST_GOLD_RATE * counted);
 }
 
+/** 补发经验要经过经验过滤器，按当前倍率折算成过滤器输入值，落地后正好是扣掉的量。 */
+export function refundKillXpInput(cutXp: number, mul: number): number {
+  return mul > 0 ? Math.round(cutXp / mul) : cutXp;
+}
+
 interface PendingKill {
   killerPlayerId: PlayerID | undefined;
   baseBounty: number;
   deathXp: number;
+  deathAt: number;
   assisters: Set<PlayerID>;
 }
 
@@ -71,6 +77,7 @@ export class HeroKillReward {
       killerPlayerId: this.getKillerPlayerId(keys, victim),
       baseBounty: GameRules.GoldXPFilter.filterHeroKillGold(victim.GetGoldBounty()),
       deathXp: victim.GetDeathXP(),
+      deathAt: GameRules.GetGameTime(),
       assisters: new Set<PlayerID>(),
     };
     this.pendingKills.set(victimPlayerId, pending);
@@ -159,6 +166,7 @@ export class HeroKillReward {
       return;
     }
     this.pendingKills.delete(victimPlayerId);
+    this.refundKillXp(pending);
 
     const killerPlayerId = pending.killerPlayerId;
     if (killerPlayerId === undefined) {
@@ -175,6 +183,30 @@ export class HeroKillReward {
     );
     if (gold > 0) {
       hero.ModifyGold(gold, true, ModifyGoldReason.UNSPECIFIED);
+    }
+  }
+
+  // 过滤器分不出击杀者，先把拿到击杀经验的人整体扣一半；这里确认助攻后把人补回，
+  // 只有无助攻击杀时击杀者保留扣减，附近队友也回到原经验
+  private refundKillXp(pending: PendingKill): void {
+    const cuts = GameRules.GoldXPFilter.TakeKillXpCuts(pending.deathAt - 0.5);
+    const hasAssist = pending.assisters.size > 0;
+    for (const cut of cuts) {
+      if (!hasAssist && cut.playerId === pending.killerPlayerId) {
+        continue;
+      }
+      const hero = PlayerResource.GetSelectedHeroEntity(cut.playerId);
+      if (!hero) {
+        continue;
+      }
+      const mul = GameRules.GoldXPFilter.getPlayerGoldXpMultiplier(cut.playerId);
+      hero.AddExperience(
+        refundKillXpInput(cut.xp, mul),
+        ModifyXpReason.UNSPECIFIED,
+        false,
+        true,
+        0,
+      );
     }
   }
 
