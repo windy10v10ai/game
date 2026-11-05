@@ -653,7 +653,8 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_force_staff_3: {
     name: 'item_force_staff_3',
     nameCN: '黄金法杖',
-    tier: ItemTier.T2,
+    // 风力法杖占着 T2，升级品放 T3 才有出装节奏，价格按 T2 区间算
+    tier: ItemTier.T3,
     cost: 5000,
     baseItems: ['item_force_staff', 'item_force_staff_2'],
   },
