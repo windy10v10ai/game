@@ -44,11 +44,11 @@ describe('GoldFilter', () => {
 
   describe('earlyKillGoldRate', () => {
     it.each([
+      [-60, 0.7],
       [0, 0.7],
       [179, 0.7],
-      [180, 0.85],
-      [359, 0.85],
-      [360, 1],
+      [180, 1],
+      [359, 1],
       [600, 1],
     ])('should return the early kill gold rate at %i seconds', (gameTime, expected) => {
       expect(earlyKillGoldRate(gameTime)).toBe(expected);

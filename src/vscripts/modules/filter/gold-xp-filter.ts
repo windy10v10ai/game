@@ -3,15 +3,9 @@ import { TowerPushStatus } from '../event/event-entity-killed';
 import { PlayerHelper } from '../helper/player-helper';
 import { farmRewardBonus } from './comeback-reward';
 
-/** 多人局开局前期的英雄击杀金币衰减：前 3 分钟七成，3–6 分钟八成五。 */
+/** 多人局从开局准备阶段到开局 3 分钟内的英雄击杀金币衰减。 */
 export function earlyKillGoldRate(gameTime: number): number {
-  if (gameTime < 180) {
-    return 0.7;
-  }
-  if (gameTime < 360) {
-    return 0.85;
-  }
-  return 1;
+  return gameTime < 180 ? 0.7 : 1;
 }
 
 @reloadable
@@ -67,7 +61,8 @@ export class GoldXPFilter {
       // 过滤器先于击杀事件触发，拿不到击杀/助攻信息，这里只能整体压前期击杀金币；
       // 助攻与击杀者的助攻加成由 HeroKillReward 在击杀后补发
       if (PlayerHelper.IsMultiplayerGame()) {
-        gold = gold * earlyKillGoldRate(GameRules.GetDOTATime(false, false));
+        // 带负时间才能把开局准备阶段也算进衰减窗口
+        gold = gold * earlyKillGoldRate(GameRules.GetDOTATime(false, true));
       }
 
       gold = gold * this.rewardFilterByKill(playerID);
