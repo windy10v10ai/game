@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 520" width="1400" height="520" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1400" height="520" fill="#fcfcfb"/>
+<text x="40" y="52" font-size="30" font-weight="700" fill="#0b0b0b">发条觉醒：自动吃锁子甲</text>
+<text x="40" y="100" font-size="24" font-weight="700" fill="#eb6834">修改前</text>
+<rect x="40" y="120" width="300" height="110" rx="12" fill="#f1efe8" stroke="#898781" stroke-width="3"/>
+<text x="190" y="171" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">身上有锁子甲</text>
+<text x="190" y="201" font-size="17" fill="#52514e" text-anchor="middle">觉醒只有魔免减伤</text>
+<line x1="340" y1="175" x2="420" y2="175" stroke="#898781" stroke-width="4"/>
+<polygon points="420,175 406,166 406,184" fill="#898781"/>
+<rect x="420" y="120" width="560" height="110" rx="12" fill="#faece7" stroke="#eb6834" stroke-width="3"/>
+<text x="700" y="171" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">玩家每件都要手动点一次对自己使用</text>
+<text x="700" y="201" font-size="17" fill="#52514e" text-anchor="middle">忘了就一直放在格子里</text>
+<text x="40" y="300" font-size="24" font-weight="700" fill="#2a78d6">修改后</text>
+<rect x="40" y="320" width="300" height="150" rx="12" fill="#f1efe8" stroke="#898781" stroke-width="3"/>
+<text x="190" y="378" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">觉醒技能（技能栏图标）</text>
+<text x="190" y="408" font-size="17" fill="#52514e" text-anchor="middle">自动施法开关，默认开启</text>
+<text x="190" y="434" font-size="17" fill="#52514e" text-anchor="middle">点击或右键切换</text>
+<line x1="340" y1="395" x2="420" y2="395" stroke="#898781" stroke-width="4"/>
+<polygon points="420,395 406,386 406,404" fill="#898781"/>
+<rect x="420" y="320" width="440" height="150" rx="12" fill="#e6f1fb" stroke="#2a78d6" stroke-width="3"/>
+<text x="640" y="372" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">每 0.5 秒扫描一次</text>
+<text x="640" y="402" font-size="17" fill="#52514e" text-anchor="middle">6 格里自己买的锁子甲，一次全吃</text>
+<text x="640" y="428" font-size="17" fill="#52514e" text-anchor="middle">储藏处、队友买的、死亡时不吃</text>
+<line x1="860" y1="395" x2="940" y2="395" stroke="#898781" stroke-width="4"/>
+<polygon points="940,395 926,386 926,404" fill="#898781"/>
+<rect x="940" y="320" width="420" height="150" rx="12" fill="#eaf3de" stroke="#3b6d11" stroke-width="3"/>
+<text x="1150" y="372" font-size="22" font-weight="700" fill="#0b0b0b" text-anchor="middle">游戏自带的发条吃甲</text>
+<text x="1150" y="402" font-size="17" fill="#52514e" text-anchor="middle">对自己瞬发施放，不打断移动攻击</text>
+<text x="1150" y="428" font-size="17" fill="#52514e" text-anchor="middle">每件永久 +4 护甲，不自己算层数</text>
+</svg>
