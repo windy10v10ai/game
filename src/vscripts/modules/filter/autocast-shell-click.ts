@@ -5,7 +5,6 @@ const AUTOCAST_SHELL_ABILITIES = [
   'special_bonus_unique_zuus_upgrade',
   'special_bonus_unique_bristleback_upgrade',
   'special_bonus_unique_skywrath_upgrade',
-  'special_bonus_unique_rattletrap_upgrade',
 ];
 
 /** 命中壳技能的点击命令时翻转自动施法并返回 true，调用方应丢弃该命令。 */
