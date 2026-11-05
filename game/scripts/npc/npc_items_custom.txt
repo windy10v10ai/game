@@ -7556,7 +7556,7 @@
 		"ItemInitialStockTime"			"660"	// 10分钟买（开局准备1分钟）
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"300"
+		"ItemStockTime"					"120"
 		"ItemCanBeUsedWithoutInventory"	"1"
 		"OnSpellStart"
 		{
