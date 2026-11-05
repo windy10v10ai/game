@@ -82,7 +82,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 - commit 是单行英文标题，署名行按执行者：Claude 加 `Co-Authored-By`，没有 GitHub 账号的执行者不加（会显示成无效作者）
 - `git push -u origin HEAD`，以 `git ls-remote origin <分支>` 与本地 HEAD 一致为准
 - 按 `create-pr` 的格式开 PR，实机验证还没做就先带 `--draft`（`gh pr create --draft --base develop -R windy10v10ai/game`），验证与审查通过后立刻转正式。正文只写人做判断要看的关键信息，过程细节放进一条「验证记录」评论（之后更新用 `gh pr comment --edit-last`）。正文另加：
-  - Issue 段：目标全部完成写 `- Fixes #<id>`，有跳过写 `- #<id>`（行首带 `- `，GitHub 会自动显示 issue 标题）
+  - Issue 段：本 PR 是该 issue 唯一的 PR 时一律写 `- Fixes #<id>`（行首带 `- `，GitHub 会自动显示 issue 标题）；有跳过或没验到的项写进「待你决定」，用户合并就是认可，issue 随合并关闭。只有 issue 拆成多个 PR 时才写 `- #<id>`
   - 影响玩家的数值、档位、等级用表格列出
   - Checklist：「验收」每一条与执行说明「实机验证」的每一项
   - 「实现思路」一节：一张 SVG 前后示意图（左改前、右改后，改前橙、改后蓝，样例 PR #2725 的 `mechanism.svg`），图里只用白话名，图下只有一行代码名对照。顶部一句话已说明改了什么和玩家影响，图下不再重复文字；没有机制变化的纯文案、数值改动不画。图在 PR 创建后按 `create-pr/references/screenshots.md` 推到 `assets` 分支 `pr/<PR 编号>/`，再 `gh pr edit` 写进正文
