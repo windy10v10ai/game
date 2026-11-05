@@ -633,10 +633,8 @@
 		//			泉水光环
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_ability_fountain_armor_aura"									"泉水护甲光环"
-		"DOTA_Tooltip_ability_fountain_armor_aura_Description"						"增加附近友军%bonus_armor%点护甲。"
-		"DOTA_Tooltip_ability_fountain_magical_armor_aura"							"泉水魔抗光环"
-		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"				"增加附近友军%bonus_magical_armor%%%魔法抗性。"
+		"DOTA_Tooltip_modifier_fountain_defense_aura"							"泉水光环"
+		"DOTA_Tooltip_modifier_fountain_defense_aura_Description"				"获得%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点护甲，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%魔法抗性。"
 
 		///////////////////////////////////////////////////
 		//
@@ -1130,7 +1128,8 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"							"<font color='#d000ff'>暗杀 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。<br><br><font color='#FFFFFF'>神杖升级：命中的敌方英雄附加眩晕效果。</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_description"	"命中的敌方英雄附加眩晕效果。"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"						"扣下扳机的那一刻，整片战场都为之屏息。"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"
@@ -1516,7 +1515,6 @@
 		// 死灵法师 竭心光环-觉醒
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>竭心光环 觉醒</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"死灵法师让敌人的心脏停跳，使附近敌方单位按最大生命值一定百分比持续流失生命。<br><br><font color='#d000ff'>造成的伤害可以被技能增强。</font>"
-		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Note0"				"<font color='#FFFFFF'>神杖升级：将死灵法师的生命恢复值的%heal_regen_to_damage%%%转化为额外伤害</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_scepter_description"	"将死灵法师的生命恢复值的%heal_regen_to_damage%%%转化为额外伤害"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_radius"		"作用范围："
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_damage"		"%每秒最大生命值伤害："
@@ -1596,10 +1594,12 @@
 
 		// 末日使者-觉醒
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>末日 觉醒</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对敌人施加末日诅咒，对其进行驱散，并且使其<font color='#6db6e9'>无法施放技能</font>或获得任何<font color='#07d738'>治疗</font>效果，同时造成持续伤害。\n\n驱散类型：弱驱散\n\n持有<font color='#92acf5'>阿哈利姆神杖</font>时，末日额外施加<font color='#DD621E'>破坏</font>效果，并可对自己或<font color='#FFFFFF'>友方英雄</font>释放，持续对周围%scepter_aura_radius%范围内的敌人造成末日效果，自身不受影响。\n\n觉醒后，<font color='#FFFFFF'>吞噬</font>获得的野怪技能会自动提升至最高等级。"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对敌人施加末日诅咒，对其进行弱驱散，并且使其<font color='#6db6e9'>无法施放技能</font>或获得任何<font color='#07d738'>治疗</font>效果，同时造成持续伤害。\n\n觉醒后，<font color='#FFFFFF'>吞噬</font>获得的野怪技能会自动提升至最高等级。"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_description"	"末日额外施加<font color='#DD621E'>破坏</font>效果，并可对自己或<font color='#FFFFFF'>友方英雄</font>释放，持续对周围%scepter_aura_radius%范围内的敌人造成末日效果，自身不受影响。"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"持续时间："
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"范围末日持续时间："
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"每秒伤害："
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Lore"					"每当佤什昂都的丧钟传出一个名字，这个名字的主人就必将迎来末日。"
 		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"范围末日"
 		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"%dMODIFIER_PROPERTY_TOOLTIP%范围内的敌人持续受到末日效果。"
 		// 斯温-觉醒
@@ -2530,14 +2530,13 @@
 
 		// item_undying_heart 不朽之心
 		"DOTA_Tooltip_Ability_item_undying_heart"				"不朽之心"
-		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>主动：巨龙复苏</font></h1>立刻回复 %active_hp_regen%+%active_hp_regen_pct%%%最大生命值 的血量，对自身施加弱驱散效果。<br>获得持续 %dur% 秒的额外回血buff，每秒恢复 %buff_hp_regen%+%buff_hp_regen_pct%%%最大生命值 的血量。"
+		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>主动：巨龙复苏</font></h1>立刻回复 %active_hp_regen%+%active_hp_regen_pct%%%最大生命值 的血量，对自身施加弱驱散效果。<br>获得持续 %dur% 秒的额外回血buff，每秒恢复 %buff_hp_regen%+%buff_hp_regen_pct%%%最大生命值 的血量。\n\n<h1>被动：巨兽之血</h1>生命恢复提升缺失生命值的%missing_health_regen%%%。"
 		"DOTA_Tooltip_ability_item_undying_heart_Lore"									"保存完好的心脏，来自早已绝种的怪兽，能提升携带者的耐久力。"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_strength"						"+$str"
-		"DOTA_Tooltip_ability_item_undying_heart_bonus_health"							"+$health"
-		"DOTA_Tooltip_ability_item_undying_heart_health_regen_pct"						"%+最大生命恢复"
+		"DOTA_Tooltip_ability_item_undying_heart_bonus_health_passive"							"+$health"
+		"DOTA_Tooltip_ability_item_undying_heart_hp_regen"						"%+最大生命值恢复"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_evasion"							"%+$evasion"
-		"DOTA_Tooltip_ability_item_undying_heart_status_resistance"						"%+状态抗性"
-		"DOTA_Tooltip_ability_item_undying_heart_note0"									"多个不朽之心的最大生命恢复效果不叠加。"
+		"DOTA_Tooltip_ability_item_undying_heart_note0"									"多个巨兽之血的效果不会叠加。"
 		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"巨龙复苏"
 		"DOTA_Tooltip_modifier_item_undying_heart_buff_Description"						"以极快的速度恢复生命值。"
 
@@ -3535,15 +3534,16 @@
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"										"<font color='#90EE90'>生命之心</font>"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>主动：枯木逢春</font></h1>使自身和周围友军回复%replenish_health%点生命 +%replenish_health_pct%%%最大生命值和%replenish_mana%点魔法，并移除施法者身上全部的负面效果。施法者在%active_duration%秒内获得%bonus_armor_active%点护甲和%bonus_regen_active%点生命回复。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：绝处逢生</h1>受到来自英雄的伤害并且生命值低于%health_threshold_pct%%%时自动触发以上效果，并在%buff_duration%秒内获得%status_resistance%%%<font color='#B99012'>状态抗性</font>，所受到和造成的伤害全部归零。"
+		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>主动：枯木逢春</font></h1>使自身和周围友军回复%replenish_health%点生命 +%replenish_health_pct%%%最大生命值和%replenish_mana%点魔法，并移除施法者身上全部的负面效果。施法者在%active_duration%秒内获得%bonus_armor_active%点护甲和%bonus_regen_active%点生命回复。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：巨兽之血</h1>生命恢复提升缺失生命值的%missing_health_regen%%%。\n\n<h1>被动：绝处逢生</h1>受到来自英雄的伤害并且生命值低于%health_threshold_pct%%%时自动触发以上效果，并在%buff_duration%秒内获得%status_resistance%%%<font color='#B99012'>状态抗性</font>，所受到和造成的伤害全部归零。"
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"								"饱含生命之力的树甲，枯木逢春，绝处逢生。"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"						"+$str"
-		"DOTA_Tooltip_ability_item_withered_spring_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_withered_spring_bonus_health_passive"					"+$health"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_mana"							"+$mana"
-		"DOTA_Tooltip_ability_item_withered_spring_health_regen_pct"					"%+最大生命值回复"
+		"DOTA_Tooltip_ability_item_withered_spring_hp_regen"					"%+最大生命值恢复"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_withered_spring_Note0"								"自动触发后进入冷却。"
+		"DOTA_Tooltip_ability_item_withered_spring_Note1"								"多个巨兽之血的效果不会叠加。"
 
 		"DOTA_Tooltip_modifier_item_withered_spring_active"								"枯木逢春"
 		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"护甲增加%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%，生命回复增加%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%。"
@@ -3626,7 +3626,7 @@
 
 
 		"DOTA_Tooltip_Ability_item_swift_glove"											"无限手套"
-		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>主动：灭世响指</font></h1>立刻湮灭目标单位，获得 %self_gold% 金钱和 %self_xp% 倍经验值。<br>周围 %group_range% 范围内的友军获得 %group_gold% 金钱和 %group_xp% 倍经验值。<br><br>可以对远古单位使用，但无法对肉山使用。<br><br><font color='#FFFF00'>对敌方英雄释放时有%hero_kill_chance%%%概率直接将其湮灭。</font>\n\n<h1>被动：极速</h1>减少%bat_reduction_pct%%%基础攻击间隔。\n\n<h1>被动：强化连环闪电</h1>攻击有%chain_chance%%%几率释放一道强化连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避，并且吃技能增强。<br>强化闪电有%double_damage_chance%%%几率造成%double_damage_multiplier%倍伤害，%quintuple_damage_chance%%%几率造成%quintuple_damage_multiplier%倍伤害，%decuple_damage_chance%%%几率造成%decuple_damage_multiplier%倍伤害。内置冷却为%chain_cooldown%秒，倍率触发对应冷却时间为%double_damage_cooldown%秒，%quintuple_damage_cooldown%秒，%decuple_damage_cooldown%秒。"
+		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>主动：灭世响指</font></h1>立刻湮灭目标单位，获得 %self_gold% 金钱和 %self_xp% 倍经验值。<br>周围 %group_range% 范围内的友军获得 %group_gold% 金钱和 %group_xp% 倍经验值。<br><br>可以对远古单位使用，但无法对肉山使用。<br><br><font color='#FFFF00'>对敌方英雄释放时有%hero_kill_chance%%%概率直接将其湮灭。</font>\n\n<h1>被动：极速</h1>减少%bat_reduce%%%基础攻击间隔。\n\n<h1>被动：强化连环闪电</h1>攻击有%chain_chance%%%几率释放一道强化连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避，并且吃技能增强。<br>强化闪电有%double_damage_chance%%%几率造成%double_damage_multiplier%倍伤害，%quintuple_damage_chance%%%几率造成%quintuple_damage_multiplier%倍伤害，%decuple_damage_chance%%%几率造成%decuple_damage_multiplier%倍伤害。内置冷却为%chain_cooldown%秒，倍率触发对应冷却时间为%double_damage_cooldown%秒，%quintuple_damage_cooldown%秒，%decuple_damage_cooldown%秒。"
 		"DOTA_Tooltip_ability_item_swift_glove_Lore"									"传说中的手套，能让佩戴者的速度快到看不见。"
 		"DOTA_Tooltip_ability_item_swift_glove_Note0"									"获得的金钱经验，享有倍率加成！"
 		"DOTA_Tooltip_ability_item_swift_glove_Note1"									"基础攻击间隔减少效果无法叠加。"

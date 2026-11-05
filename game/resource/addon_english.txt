@@ -1,4 +1,4 @@
-"lang"
+﻿"lang"
 {
 	"Language"		"english"
 	"Tokens"
@@ -633,10 +633,8 @@
 		//			泉水光环
 		//
 		///////////////////////////////////////////////////
-		"DOTA_Tooltip_ability_fountain_armor_aura"									"Fountain Armor Aura"
-		"DOTA_Tooltip_ability_fountain_armor_aura_Description"						"Provides %bonus_armor% armor to nearby allies."
-		"DOTA_Tooltip_ability_fountain_magical_armor_aura"							"Fountain Magical Resistance Aura"
-		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"				"Provides %bonus_magical_armor%%% magical resistance to nearby allies."
+		"DOTA_Tooltip_modifier_fountain_defense_aura"							"Fountain Aura"
+		"DOTA_Tooltip_modifier_fountain_defense_aura_Description"				"Provides %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magic resistance."
 
 		///////////////////////////////////////////////////
 		//
@@ -1130,7 +1128,8 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"							"<font color='#d000ff'>Assassinate Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage.<br><br><font color='#FFFFFF'>Aghanim's Scepter: affected enemy heroes are also stunned.</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage."
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_description"	"Affected enemy heroes are also stunned."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
@@ -1516,7 +1515,6 @@
 		// Necrophos Heartstopper Aura - Awakened
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Heartstopper Aura Awakened</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"Necrophos stills the hearts of his opponents, causing nearby enemy units to lose a percentage of their max health over time.<br><br><font color='#d000ff'>The damage can be amplified by abilities.</font>"
-		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Note0"				"<font color='#FFFFFF'>Scepter Upgrade: Converts %heal_regen_to_damage%%% of Necrophos's health regeneration into additional damage</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_scepter_description"	"Converts %heal_regen_to_damage%%% of Necrophos's health regeneration into additional damage"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_radius"		"Radius:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_damage"		"% Max Health Damage per Second:"
@@ -1596,10 +1594,12 @@
 
 		// Doom Awakened
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Doom Awakened</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Inflicts a curse that dispels an enemy and prevents them from casting spells or healing in any way, while taking damage over time.\n\nDISPEL TYPE: Basic Dispel\n\nWith <font color='#92acf5'>Aghanim's Scepter</font>, Doom also applies <font color='#DD621E'>Break</font> and may target the caster or an <font color='#FFFFFF'>allied hero</font> instead, continuously Dooming enemies within a %scepter_aura_radius% radius without affecting the target itself.\n\nAfter awakening, neutral abilities gained through <font color='#FFFFFF'>Devour</font> are automatically raised to their maximum level."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Inflicts a curse that applies a Basic Dispel to an enemy and prevents them from casting spells or healing in any way, while taking damage over time.\n\nAfter awakening, neutral abilities gained through <font color='#FFFFFF'>Devour</font> are automatically raised to their maximum level."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_description"	"Doom also applies <font color='#DD621E'>Break</font> and may target the caster or an <font color='#FFFFFF'>allied hero</font> instead, continuously Dooming enemies within a %scepter_aura_radius% radius without affecting the target itself."
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"DURATION:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"AREA DOOM DURATION:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Lore"					"When a name is tolled from the bell of Vashundol, doom is sure to follow."
 		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"Area Doom"
 		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Enemies within %dMODIFIER_PROPERTY_TOOLTIP% range are continuously Doomed."
 		// Sven Awakened
@@ -2528,14 +2528,13 @@
 
 		// item_undying_heart 不朽之心
 		"DOTA_Tooltip_Ability_item_undying_heart"				"<font color='#FFFF00'>Undying Heart</font>"
-		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>Active: Draconic Recovery</font></h1>Heal %active_hp_regen% + %active_hp_regen_pct%%% of max health and applies a dispel, then receive %buff_hp_regen% + %buff_hp_regen_pct%%% max health as health regeneration for %dur% seconds afterward.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>Active: Draconic Recovery</font></h1>Heal %active_hp_regen% + %active_hp_regen_pct%%% of max health and applies a dispel, then receive %buff_hp_regen% + %buff_hp_regen_pct%%% max health as health regeneration for %dur% seconds afterward.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Behemoth's Blood</h1>Your health regeneration is increased by %missing_health_regen%%% of your missing health."
 		"DOTA_Tooltip_ability_item_undying_heart_Lore"									"The powerful heart of a dead necromancer."
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_strength"						"+$str"
-		"DOTA_Tooltip_ability_item_undying_heart_bonus_health"							"+$health"
-		"DOTA_Tooltip_ability_item_undying_heart_health_regen_pct"						"%+Max Health Regen"
+		"DOTA_Tooltip_ability_item_undying_heart_bonus_health_passive"							"+$health"
+		"DOTA_Tooltip_ability_item_undying_heart_hp_regen"						"%+Max Health Regen"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_evasion"							"%+$evasion"
-		"DOTA_Tooltip_ability_item_undying_heart_status_resistance"						"%+Status Resistance"
-		"DOTA_Tooltip_ability_item_undying_heart_note0"									"Max health regeneration from multiple Undying Hearts do not stack."
+		"DOTA_Tooltip_ability_item_undying_heart_note0"									"Multiple instances of Behemoth's Blood do not stack."
 		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"Draconic Recovery"
 		"DOTA_Tooltip_modifier_item_undying_heart_buff_Description"						"Regenerating health at a rapid rate based on your max HP."
 
@@ -3533,15 +3532,16 @@
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"										"Withered Spring"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor and %bonus_regen_active% health regeneration.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Rebirth</h1>When you take damage from a hero and your health falls below %health_threshold_pct%%%, automatically triggers the effects above, and for %buff_duration% seconds you gain +%status_resistance%%% <font color='#B99012'>Status Resistance</font> and all damage you deal and are dealt is reduced to zero."
+		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor and %bonus_regen_active% health regeneration.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Behemoth's Blood</h1>Your health regeneration is increased by %missing_health_regen%%% of your missing health.\n\n<h1>Passive: Rebirth</h1>When you take damage from a hero and your health falls below %health_threshold_pct%%%, automatically triggers the effects above, and for %buff_duration% seconds you gain +%status_resistance%%% <font color='#B99012'>Status Resistance</font> and all damage you deal and are dealt is reduced to zero."
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"								"From withered wood, spring blooms anew."
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"						"+$str"
-		"DOTA_Tooltip_ability_item_withered_spring_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_withered_spring_bonus_health_passive"					"+$health"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_mana"							"+$mana"
-		"DOTA_Tooltip_ability_item_withered_spring_health_regen_pct"					"%+Max Health Regen"
+		"DOTA_Tooltip_ability_item_withered_spring_hp_regen"					"%+Max Health Regen"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_withered_spring_Note0"								"Enters cooldown after triggering automatically."
+		"DOTA_Tooltip_ability_item_withered_spring_Note1"								"Multiple instances of Behemoth's Blood do not stack."
 
 		"DOTA_Tooltip_modifier_item_withered_spring_active"								"Withering Bloom"
 		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"Grants +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
@@ -3624,7 +3624,7 @@
 
 
 		"DOTA_Tooltip_Ability_item_swift_glove"											"Swift Glove"
-		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>Active: The Snap</font></h1>Kills the target unit for %self_gold% gold and %self_xp%x experience.<br>Allies within %group_range% gain %group_gold% gold and %group_xp%x experience.<br><br>Can be used on Ancient Creeps, but cannot be used on Roshan.<br><br><font color='#FFFF00'>When cast on an enemy hero, has a %hero_kill_chance%%% chance to instantly kill it.</font>\n\n<h1>Passive: Rapid Strikes</h1>Reduces Base Attack Time by %bat_reduction_pct%%%.\n\n<h1>Passive: Empowered Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release an empowered bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion and benefits from spell amplification.<br>Empowered lightning has a %double_damage_chance%%% chance to deal %double_damage_multiplier%x damage, %quintuple_damage_chance%%% chance to deal %quintuple_damage_multiplier%x damage, and %decuple_damage_chance%%% chance to deal %decuple_damage_multiplier%x damage. Internal cooldown is %chain_cooldown%s, and the matching cooldowns for empowered strikes are %double_damage_cooldown%s, %quintuple_damage_cooldown%s, and %decuple_damage_cooldown%s."
+		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>Active: The Snap</font></h1>Kills the target unit for %self_gold% gold and %self_xp%x experience.<br>Allies within %group_range% gain %group_gold% gold and %group_xp%x experience.<br><br>Can be used on Ancient Creeps, but cannot be used on Roshan.<br><br><font color='#FFFF00'>When cast on an enemy hero, has a %hero_kill_chance%%% chance to instantly kill it.</font>\n\n<h1>Passive: Rapid Strikes</h1>Reduces Base Attack Time by %bat_reduce%%%.\n\n<h1>Passive: Empowered Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release an empowered bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion and benefits from spell amplification.<br>Empowered lightning has a %double_damage_chance%%% chance to deal %double_damage_multiplier%x damage, %quintuple_damage_chance%%% chance to deal %quintuple_damage_multiplier%x damage, and %decuple_damage_chance%%% chance to deal %decuple_damage_multiplier%x damage. Internal cooldown is %chain_cooldown%s, and the matching cooldowns for empowered strikes are %double_damage_cooldown%s, %quintuple_damage_cooldown%s, and %decuple_damage_cooldown%s."
 		"DOTA_Tooltip_ability_item_swift_glove_Lore"									"Gloves that grant unmatched speed and precision."
 		"DOTA_Tooltip_ability_item_swift_glove_Note0"									"The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
 		"DOTA_Tooltip_ability_item_swift_glove_Note1"									"Base Attack Time reduction effect cannot be stacked."

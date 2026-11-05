@@ -7,6 +7,8 @@ const SAMPLE_INTERVAL_SECONDS = 30;
 const SAMPLING_CONVAR = 'hero_item_usage_sampling';
 // Lag rises sharply from 30 minutes after the horn, so late holdings are tracked separately.
 export const LATE_GAME_START_SEC = 1800;
+// Bots make up most of the requests, so only a share of matches report them; human players are always sent.
+const BOT_SAMPLE_RATE = 0.2;
 
 /** Samples selected heroes without issuing requests during the match. */
 export class HeroItemUsage {
@@ -35,7 +37,12 @@ export class HeroItemUsage {
     this.tracking = false;
     if (Convars.GetInt(SAMPLING_CONVAR) === 0) return;
 
+    // Drawn once per match so a sampled match carries every bot and the others carry none.
+    const sendBots = RandomFloat(0, 1) < BOT_SAMPLE_RATE;
     PlayerHelper.ForEachPlayer((playerId) => {
+      // Keyed on the Steam ID because a disconnected player has no player entity but is still human.
+      const steamId = PlayerResource.GetSteamAccountID(playerId);
+      if (!sendBots && steamId <= 0) return;
       const hero = PlayerResource.GetSelectedHeroEntity(playerId);
       if (!hero) return;
       const teamId = PlayerResource.GetTeam(playerId);
@@ -46,7 +53,7 @@ export class HeroItemUsage {
         dotaTimeMsec: gameEnd.dotaTimeMsec,
         playerCount: gameEnd.playerCount,
         playerId,
-        steamId: PlayerResource.GetSteamAccountID(playerId),
+        steamId,
         heroName: PlayerResource.GetSelectedHeroName(playerId),
         teamId,
         isWin: teamId === gameEnd.winnerTeamId,

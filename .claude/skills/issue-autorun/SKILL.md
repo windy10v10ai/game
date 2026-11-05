@@ -1,12 +1,12 @@
 ---
 name: issue-autorun
-description: 用户不在时，按优先级在主目录依次派执行者把带 agent-todo 标签的 issue 从实现做到实机验证，调度员审查判定，各开 PR（审查通过转正式，没做完的保持草稿）。
+description: 用户不在时，按优先级在主目录依次派执行者把带 agent-todo 标签的 issue 从实现做到实机验证，调度员审查判定，合并条件全过的合入 develop，其余 PR 保持开着。
 disable-model-invocation: true
 ---
 
 # issue-autorun
 
-用户不在场时，把所有带 `agent-todo` 标签的 issue 做完。能做的都做完，做不了的跳过并记下来，最后统一留给用户。标签、执行说明与设计文档的约定见 `.claude/references/agent-issue.md`，开始前先读。
+用户不在场时，把所有带 `agent-todo` 标签的 issue 做完。能做的都做完，做不了的跳过并记下来，最后统一留给用户。标签、正文结构与执行说明 artifact 的约定见 `.claude/references/agent-issue.md`，开始前先读。
 
 一次只做一个 issue，全部在主目录里做：Dota 只加载主目录的 `game/`，实机验证本来就只能一次一个，用户不在场，不缺时间，顺序跑省掉 worktree、依赖链接和实机排队。
 
@@ -16,7 +16,7 @@ disable-model-invocation: true
 | 执行者（子代理） | 默认执行者，用谁由用户的全局约定决定。同一个会话里一口气做完：切分支、实现、验收、开 PR（先草稿）、实机验证、把证据写进 PR。只做能机械判定的事，截图只交图不下结论 |
 | 升级执行者 | 默认执行者退回两轮仍不过时接手同一个 PR，用谁同样看用户的全局约定，没有约定就用 Agent 工具派子代理 |
 | 审查子代理 | 只在第 4 步的条件下替调度员审某一条 |
-| 用户 | 回来后测「用户判定」层的项（手感、动画） |
+| 用户 | 发版前按 release PR 的 Checklist 测「用户判定」层的项（手感、动画） |
 
 每批在一个新对话里跑（用户新开对话后调用本 skill）：调度员每一步都要重读整段上下文，背着之前的讨论跑会成倍增加开销。调度员要做的判断都被执行说明和本 skill 的规则框住，拿不准的记为「待你决定」，不靠更强的模型硬判。
 
@@ -25,23 +25,23 @@ disable-model-invocation: true
 ## 硬规则
 
 - **只在开工前问一次**：第 2 步请用户选 issue，之后用户不在场，根 `CLAUDE.md`「Skill 交互」的 `AskUserQuestion` 不适用。拿不准的按「卡住时怎么办」处理，然后继续
-- **只做有执行说明的 issue**：没有 `## 执行说明` 的不派，按「卡住时怎么办」第三行处理
+- **只做有执行说明的 issue**：正文末尾没有执行说明链接（也找不到名为「执行说明」的 artifact）、或读不到的不派，按「卡住时怎么办」第三行处理
 - **主目录只在干净时用**：开工前和每个 issue 之间检查 `git status --porcelain` 为空。不干净就停掉剩下的全部 issue，写进汇报，不动用户的文件
-- **不合并、不推 `develop` / `main`**，PR 审查通过前保持草稿，通过后转正式，没做完的保持草稿
+- **合并条件全过才合入 `develop`**，见 `agent-issue.md`「合入 develop」，下一条 issue 从合并后的 `develop` 切出。不直接推 `develop` / `main`，不审批、不合并 release PR。PR 审查通过前保持草稿，通过后转正式，没做完的保持草稿
 - **只改执行说明「改动范围」里的文件**
 - **不改 issue 正文**，只留言、改标签
 - **改 PR、返工都接着原会话**，不为同一个 issue 另开会话
 - 调度员不改代码、不跑 `npm test` 这类命令，不重跑执行者已跑过的验收：以 CI 和日志里看得到的结果为准
-- 执行说明以外的需求（issue 评论里的新想法、相关 bug）不做，记进「等你处理」的「发现」
+- 执行说明以外的需求（issue 评论里的新想法）不做；顺手发现的旧问题按 `agent-issue.md`「顺手发现的问题」处理
 
 ## 卡住时怎么办
 
-执行者与调度员都按这张表处理，并把每一处记进该 issue 的「等你处理」清单：
+执行者与调度员都按这张表处理：
 
 | 情况 | 做法 | 记成 |
 |---|---|---|
-| 有合理的默认做法（项目规则、相邻代码的惯例、原版行为） | 按默认做 | **请确认**：按什么默认做了、改成别的要动哪里 |
-| 没有默认，但这一处不影响其他部分 | 跳过这一处，继续做其余部分，代码里不留半成品 | **待你决定**：缺什么信息、有哪几种选法 |
+| 有合理的默认做法（项目规则、相邻代码的惯例、原版行为） | 按默认做，不问 | 玩家看得到、用户可能想改的记**发版前**：按什么默认做了、改成别的要动哪里；其余 PR 正文写一句 |
+| 没有默认，但这一处不影响其他部分 | 跳过这一处，继续做其余部分，代码里不留半成品 | **待你决定**（挡合并）：缺什么信息、有哪几种选法 |
 | 影响整条 issue，什么都做不了 | 放弃这条 issue，做下一条 | 写进 issue 留言，打 `agent-block` |
 
 失败分两类，处理人不同：
@@ -50,7 +50,7 @@ disable-model-invocation: true
 - **检查不过**（jest 失败、实机 `[check] FAIL`、日志不对）：预期值由执行说明定死，执行者可以改自己的实现重跑，最多三轮，不许改预期值与断言
 - **三轮仍不过、或预期本身说不通**：执行者停下回报试过什么、日志原文、推测原因，由调度员判定，四选一：
   1. 给出修正方向，退回原会话
-  2. 执行说明本身有误：不改 issue，按更合理的理解退回并记为「请确认」
+  2. 执行说明本身有误：不改 issue，按更合理的理解退回。结果偏离了「要求」「验收」的记为「待你决定」，只偏离做法的记进「发版前」
   3. 记为「待你决定」，其余部分照常提交
   4. 整条做不了，打 `agent-block`
 
@@ -62,31 +62,43 @@ disable-model-invocation: true
 
 ```bash
 gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json number,title,body
+gh project item-list 3 --owner windy10v10ai --limit 200 --format json -q '.items[]|select(.content.repository=="windy10v10ai/game" and (.status=="In progress" or .status=="Todo"))|"\(.status)	\(.content.number)"'
 ```
 
-对每个 issue 查「开发计划」项目里的 Status 与 issue 字段 Priority（查询见 `issue-triage` 第 1 步），按下面的顺序排，前一项相同再比后一项：
+第二条列出的顺序就是用户在项目里排的上下顺序（查询说明见 `.claude/references/issue-fields.md`），调度员**只按它排，不按 Priority 重排**：
 
-1. Status：In progress → Todo → Plan → Backlog → 未入项目
-2. Priority：Urgent → High → Medium → Low → 未填
-3. 编号从小到大
+1. 只看项目里 **In progress** 和 **Todo** 两栏里带 `agent-todo` 的 issue。其他栏（Plan、Backlog）和没入项目的 `agent-todo` issue 不做，在计划里单独列出并写明原因
+2. 先 In progress 栏，做完再 Todo 栏
+3. 每一栏内按项目里从上到下的顺序，用户想调先后就在项目里拖动
 
-完成条件：每个 `agent-todo` issue 都有序号，执行说明缺项或指向的设计文档不存在的，直接按「卡住时怎么办」第三行处理。
+完成条件：每个要做的 `agent-todo` issue 都有序号，执行说明缺项或「执行说明」artifact 读不到的，直接按「卡住时怎么办」第三行处理。
 
 ## 2. 出计划
 
 先输出计划表：
 
-| 序号 | issue（链接 + 标题） | 级别 | Status / Priority | 设计文档 | 实机验证（各层项数） |
-|---|---|---|---|---|
+| 序号 | issue（链接 + 标题） | 级别 | Status / Priority | 执行说明 | 实机验证（各层项数） | 预计时长 |
+|---|---|---|---|---|---|---|
 
-再用一次 `AskUserQuestion`（`multiSelect: true`）请用户选这批跑哪些。`AskUserQuestion` 的框会挡住它前面的文字，判断要用的信息写进选项的 `description`（级别、Status / Priority、改动范围大小、有没有截图或用户判定项）：
+预计时长按每条的实机验证量（局数、截图数）和改动范围粗估，表后再给一行总时长；没有历史数据时注明是粗估。用户选完后开始前，把选中那批的总时长再报一次。
+
+计划表和总时长先完整输出，再用一次 `AskUserQuestion`（`multiSelect: true`）请用户选这批跑哪些。选项只放短标签和一句 `description`（级别、执行者、预计时长），详细信息都在表里，不在选项里重复：
 
 - 不超过 4 条：每条 issue 一个选项，按序号排，默认推荐全部
 - 超过 4 条：选项为「全部按顺序」（推荐）、「前 3 条」，要挑别的让用户在 Other 里写编号
 
 用户选完就开始，之后不再提问。
 
-完成条件：计划表已输出，用户已选定这批的 issue。
+用户选定后设持续目标，让会话在等执行者的间隙不停下。条件写成对话里能直接看到证据的终点，并带轮数上限（每条 issue 按 8 轮估，退回一轮另加）：
+
+```
+选中的 #<id>、#<id> 都已有 PR 和审查结论，合并条件全过的已合入 develop，issue 标签已改为 agent-done 或 agent-block，第 7 步汇报表（含记账表）已打印在对话中，主目录在 develop 且 git status 为空，或 <N> 轮后停
+```
+
+- DSH 会话：调用 `create_goal`，`objective` 用上面的条件，`max_goal_rounds` 填 N；第 7 步汇报打印完调用 `update_goal` 的 `complete`
+- Claude Code 会话：模型无法代输 `/goal`，把 `/goal <上面的条件>` 整行放进不带语言标签的代码块，方便用户复制粘贴，用户粘贴后再继续第 3 步
+
+完成条件：计划表已输出，用户已选定这批的 issue，持续目标已设置（DSH）或已请用户粘贴（Claude Code）。
 
 ## 3. 派执行者一口气做完
 
@@ -104,7 +116,7 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 ```markdown
 你在仓库主目录（当前目录）里做 issue windy10v10ai/game#<id>，用户不在场，从实现一直做到实机验证，中途不交回、不提问。
 
-先读 `.claude/skills/issue-impl/SKILL.md` 并照它的第 1–7 步做，分支名用 `<fix|feature>/<id>-<3–6 个英文小写单词>`。需求只看 issue 末尾的「执行说明」<有设计文档时：设计文档是 <artifact 链接>>。
+先读 `.claude/skills/issue-impl/SKILL.md` 并照它的第 1–7 步做（这条 issue 已有未合并的 PR 就接着做，按它第 1 步处理），新切分支时分支名用 `<fix|feature>/<id>-<3–6 个英文小写单词>`。需求只看 issue 正文（背景、目标、要求、验收、Release Note）和正文末尾链接指向的「执行说明」artifact（编号 <编号>）。
 卡住时按 `issue-impl`「卡住时怎么办」处理。PR 末行署名：<执行者署名行>。
 最终回复按 `issue-impl` 第 7 步写。
 ```
@@ -118,9 +130,9 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 - `gh pr view <pr> -R windy10v10ai/game --json additions,deletions` 的增删合计超过 500 行
 - 本批选了超过 5 条 issue
 
-不由用户选：条件是机械的，调度员照判即可。派子代理时交接只给证据，不让它从头调研：PR 编号、执行说明来源（issue 编号与设计 artifact 链接）、执行者的日志路径。
+不由用户选：条件是机械的，调度员照判即可。派子代理时交接只给证据，不让它从头调研：PR 编号、执行说明来源（issue 编号与「执行说明」artifact 链接）、执行者的日志路径。
 
-不论谁审，都读 `.claude/skills/review-pr/SKILL.md`，按其中「自动模式」审：只看 PR（正文、评论里的验证记录、截图）、执行说明与设计 artifact，给出 PASS / NEEDS-FIX / NEEDS-DECISION。子代理回报限 400 字以内。
+不论谁审，都读 `.claude/skills/review-pr/SKILL.md`，按其中「自动模式」审：只看 PR（正文、评论里的验证记录、截图）、执行说明 artifact，给出 PASS / NEEDS-FIX / NEEDS-DECISION。子代理回报限 400 字以内。
 
 完成条件：该 PR（或测量结果）有审查结论。
 
@@ -132,13 +144,17 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 - 要改的按「卡住时怎么办」四选一，退回原会话时交接只写要改的几条，同一 PR 最多退回两轮。审查结论只经调度员转达，不发到 PR 上，返工后 PR 正文与验证记录直接更新成最新结果，不保留各轮过程
 - 两轮仍不过就升级：换升级执行者新开一个会话接手同一个 PR 分支，交接写明 PR 链接、还没解决的几条、前两轮的失败原因，升级执行者也只给两轮，仍不过记为「待你决定」
 - L1–L3 默认都派执行者，Claude 主对话的额度留给用户在场时的工作
-- 精简 PR 的「等你处理」：执行者写的三组是原始记录，调度员改写成只含用户本人要做的事，每条一句话写清看什么、选什么：
-  - 留：「用户判定」层的实机项、执行说明没定的玩法或文案取舍、要用户改执行说明的冲突
+- 审查发现按影响分流，同 `issue-impl` 第 9 步：注释、命名、重复代码、格式、文档同步、自己能核对的小疑点，只要不违反项目规定与用户要求，调度员或退回执行者直接改完，不写进 PR、不在汇报里提；只有影响玩家体验、系统架构、性能，或要用户拍板的才进「等你处理」
+- PR 正文的格式按 `issue-impl` 第 5、6 步：一屏看完，顶部一句话加 `- Fixes #<id>`，「实现思路」一张图，「验收结果」一张表加结论（没通过、没复现的项也写原因），「等你处理」，模板 Checklist 与 Release Note 放进 `<details>`；偏差说明、性能表、脚本原文放进「验证记录」评论。返工或补测后回报前先核对正文与最新结果一致
+- 精简 PR 的「等你处理」：执行者写的是原始记录，调度员改写成只含用户本人要做的事，每条一句话写清看什么、选什么：
+  - 留在「待你决定」：不满足合并条件的项
+  - 留在「发版前」：「用户判定」层的实机项、玩家看得到且用户可能想改的默认取舍、上线后才能核对的事、严重问题
   - 删：执行说明已定的事（照原版、照抄数值）、与本 PR 无关的工具问题、测试过程细节与日志噪音、重复条目
   - 自己补：调度员或执行者能补验的截图项（悬停、点击后截图）退回补做，不留给用户，规则文档之间的冲突由调度员按 `doc-update` 处理
+- 按 `issue-impl` 第 10 步合入 `develop`，不合并的写明原因
 - 收尾前主目录切回 `develop`，确认工作区干净
 
-完成条件：每条发现都已改完或记进「等你处理」，主目录回到 `develop`。
+完成条件：每条发现都已改完或记进「等你处理」，PR 已合并或写明了不合并的原因，主目录回到 `develop`。
 
 ## 6. 收尾
 
@@ -146,22 +162,18 @@ gh issue list -R windy10v10ai/game -l agent-todo --state open --limit 100 --json
 
 ```bash
 gh issue edit <id> -R windy10v10ai/game --remove-label agent-todo --add-label agent-done
-gh issue comment <id> -R windy10v10ai/game --body "已开 PR：<链接>（保持草稿的写明原因）。等你处理 N 项，见 PR 正文。"
+gh issue comment <id> -R windy10v10ai/game --body "已合入 develop：<PR 链接>，发版前要看的 N 项已写进 release PR 的 Checklist。"   # 没合并时写：已开 PR：<链接>，没合并的原因：<一句话>
 ```
 
-执行说明 Release Note「要写」的，调用 `release-note` skill（来源：该 PR，写回：执行说明定的写回方式，没写时按「仅写入功能 PR」），要点以执行说明为准，不另拟。聚合 release PR 还没创建时只写入功能 PR，在 PR「等你处理」记一条「合并后写入 release PR」。写进了 release PR 的，PR「等你处理」记一条「不合并本 PR 时从 release PR #N 删掉对应条目」。
-
-整条做不了的改打 `agent-block`，留言写明卡在哪、缺什么。
-
-本轮留下的本地分支：对应 PR 已合并且本地末尾提交与 PR 一致的，按 `.claude/references/git-workflow.md`「合并与清理」立刻删掉。删 worktree 前先拆 `node_modules` 链接。
+整条做不了的改打 `agent-block`，留言第一句写 `卡住：`，写明卡在哪、缺什么。做到正文「步骤」里的 `⏸ 停点` 时同样打 `agent-block`，留言第一句写 `⏸ 停点：<步骤名>` 并汇报结论，不开 PR，不算失败；步骤的写法与勾选规则见 `agent-issue.md`「步骤与停点」。领到 issue 时从第一个没勾的步骤开始。
 
 完成条件：每个领过的 issue 都是 `agent-done` 或 `agent-block`，已合并的本地分支已清理，主目录在 `develop` 且干净。
 
 ## 7. 汇报
 
-按计划表的顺序逐个列出：PR 链接、「等你处理」条数、审查结论、实机验证结果、CI 状态、`agent-block` 的原因。
+按计划表的顺序逐个列出：PR 链接、合并了没有（没合并的写原因）、写进 Checklist 的条数、审查结论、实机验证结果、CI 状态、`agent-block` 的原因（卡住或停点）。末尾附 release PR 链接。只展开需要用户决策的地方（待你决定、严重问题），通过的项一句带过；数据对比画图，格式见 `perf-bench.md`「报告格式」。
 
 末尾附记账表，用来判断哪类 issue 值得外包、skill 该往哪改：
 
 | issue | 级别 | 执行者（升级过的写全） | 用时 / token | 审查方式（调度员 / 子代理）与 token | 退回轮数 | 退回原因 |
-|---|---|---|---|---|---|issue 和 PR 编号都写成链接。用户回来按这份汇报用 `issue-spec` 逐个收拾。
+|---|---|---|---|---|---|issue 和 PR 编号都写成链接。用户回来按这份汇报和 Checklist 用 `issue-spec` 收拾。

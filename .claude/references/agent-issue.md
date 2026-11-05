@@ -1,18 +1,18 @@
 # 交给 agent 自动做的 issue
 
-`issue-triage`、`issue-spec`（用户在场时拍板）、`issue-impl`（做一条）与 `issue-autorun`（用户不在时批量做）之间的约定。`issue-impl` 与 `issue-autorun` 只认这里定义的标签、执行说明和它指向的 issue artifact，不读对话。
+`issue-triage`、`issue-spec`（用户在场时拍板）、`issue-impl`（做一条）与 `issue-autorun`（用户不在时批量做）之间的约定。`issue-impl` 与 `issue-autorun` 只认这里定义的标签、issue 正文结构和执行说明指向的 issue artifact，不读对话。issue 的字段（Type、Priority、Effort、Status）见 `issue-fields.md`。
 
-firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/firebase/blob/develop/.claude/references/agent-issue.md)。标签含义、执行说明格式、排序规则两边保持一致，改这几处要两边同步；实机验证与验收命令各仓库自己定。
+firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/firebase/blob/develop/.claude/references/agent-issue.md)。标签含义、正文结构、排序规则、「合入 develop」两边保持一致，改这几处要两边同步；实机验证与验收命令各仓库自己定。
 
 ## 标签
 
 | 标签 | 谁打 | 含义 |
 |---|---|---|
 | `agent-todo` | `issue-spec`，用户确认后 | spec 已拍板，等 agent 自动做 |
-| `agent-done` | `issue-autorun` | 已开 PR（审查通过为正式，没做完的保持草稿），等用户审；PR 里的「等你处理」只列用户本人要看或拍板的事 |
-| `agent-block` | `issue-autorun` | 整条 issue 一点都做不了，原因写在 issue 留言里 |
+| `agent-done` | `issue-autorun`、`issue-impl` | 已开 PR。合并条件全过的已合入 `develop`，没过的 PR 保持开着，原因写在 PR「等你处理」，见「合入 develop」 |
+| `agent-block` | `issue-autorun`、`issue-impl` | agent 停下等用户，原因写在 issue 留言里，留言第一句区分两种：`卡住：…` 整条 issue 一点都做不了；`⏸ 停点：…` 做到正文「步骤」里标的停点，等用户看过再继续 |
 
-一个 issue 同时只带其中一个。用户处理完 `agent-block` 的留言、补好执行说明后换回 `agent-todo`。
+一个 issue 同时只带其中一个。用户处理完 `agent-block` 的留言后换回 `agent-todo`：卡住的先补好正文，停点的直接确认即可，agent 从第一个没勾的步骤接着做。
 
 ### 级别标签
 
@@ -21,27 +21,107 @@ firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/fir
 | 标签 | 含义 | 判据 |
 |---|---|---|
 | `L1-code` | 代码端完结 | 实机验证「不需要」，jest / lint / 编译就能判对错 |
-| `L2-script` | 脚本实机验证 | 实机验证只有「脚本判定」项 |
-| `L3-visual` | 截图判定 | 实机验证含「截图判定」项 |
-| `L4-investigate` | 排查倒查 | 原因不明、要做假设反复试，或改动范围列不出来；不打 `agent-todo`，用户在场时用最强档模型做 |
+| `L2-script` | 脚本实机验证 | 实机验证只有「脚本判定」项，可附留证截图 |
+| `L3-visual` | 截图判定 | 实机验证含「截图判定」项（留证截图不算） |
+| `L4-investigate` | 要判断力 | 写不出固定步骤：要做设计取舍或评估，或改动范围列不出来；不打 `agent-todo`，用户在场时用最强档模型做 |
 
-「用户判定」项不影响级别，统一进「等你处理」。
+「用户判定」项不影响级别，统一写进 release PR 的 Checklist。原因不明但再现步骤写得出来的（加技能、触发、读数），不算 L4：按验证方式定 L1 到 L3，正文写「步骤」并在定位结论后设停点，见「issue 正文结构」。
 
-## 执行说明
+## issue 标题
 
-写在 issue 正文末尾，标题固定为 `## 执行说明`，agent 只按这一段（及它指向的 issue artifact）干活。每一项都要写到不用再问的程度：
+标题从用户视角写想要实现的结果，不写具体改哪个东西的指令。判断方法：标题读起来像「想要什么」，不像「做什么操作」。
+
+| 不好（指令） | 好（结果） |
+|---|---|
+| 生命之心改成 DataDriven 物品，生命回复借原版龙心 | 优化生命之心的回复 buff 性能 |
+| 泉水光环合并为独立光环，避免传送后继承过高数值 | 传送离开泉水后不再继承过高的护甲与魔抗 |
+| 削蓝减弱：基地去掉，泉水数值降低 | 减弱防御塔对英雄的削蓝 |
+
+做法、字段名、文件名不进标题，写进正文或执行说明。新建 issue 和整理旧 issue 都按这个写，标题可以随用户习惯用中文或英文。
+
+## issue 正文结构
+
+issue 正文只放用户要看的几块，写得最短；写给执行 AI 的细节放进挂在 issue 上的 Markdown artifact「执行说明」，正文最后留一行压缩的链接，既方便人点开，也是 AI 找执行说明的依据：
+
+`````markdown
+## 背景
+一两句：现状是什么、为什么要做
+
+## 目标
+做完后玩家或开发者能观察到的结果，可拆成几条，各条尽量互不依赖
+
+## 要求
+用户亲口拍板的指示，一条一行；用户没说过的不写在这里
+
+## 验收
+用白话写怎么判对错：玩家会看到什么、哪个数值变成多少；命令、用例、脚本步骤放进执行说明
+
+## 步骤
+（可选，分阶段才写）每步一行勾选框，用户看得懂的白话
+
+## Release Note
+不写（只写这两个字）；或要写，格式见下
+
+[执行说明](https://github.com/windy10v10ai/game/issues/<n>/artifacts/<编号>)
+`````
+
+`issue-impl` 与 `issue-autorun` 先读正文，从最后那行链接取 artifact 编号，用 `gh issue artifact view <n> <编号> -R windy10v10ai/game` 读内容；正文没有链接时才退回 `gh issue artifact list <n> -R windy10v10ai/game` 按名字找「执行说明」，仍找不到或读不到当作没有执行说明，按「卡住时怎么办」处理。几块之间有冲突时，「要求」最大，其次「验收」，再其次执行说明。执行 AI 不读对话，所以「要求」里别写只有对话里才懂的话。
+
+### 步骤与停点
+
+只有原因不明、需要先查清再改，或中途要用户看过再继续的 issue 才写「步骤」。步骤写在正文里让用户直接看进度，每步一行，要看结论再继续的地方插一行 `⏸ 停点`：
 
 ```markdown
-## 执行说明
+## 步骤
+- [ ] 1. 再现：给英雄加上疑似技能，击杀后读真眼充能
+- [ ] 2. 定位：确认是哪个技能、用什么方式补的充能，结论写进 issue 留言
+- ⏸ 停点：留言汇报，等用户确认
+- [ ] 3. 修正并验收
+```
 
-- **目标**：做完后玩家或开发者能观察到的结果，可拆成几条，各条尽量互不依赖
-- **做法**：先写用哪个 skill（如「按 `clone-ability`」；`AGENTS.md` 对照表里没有对得上的写「无」），再写已拍板的实现方案，含选型（如「用 KV Properties，不新增 Lua modifier」）
+- agent 做完一步就把 `[ ]` 改成 `[x]`，领到 issue 时从第一个没勾的步骤开始，已勾的不重做
+- 做到停点：把结论写进 issue 留言，第一句写 `⏸ 停点：<步骤名>`，打 `agent-block` 后停下，不开 PR。这不算失败，用户确认后换回 `agent-todo`
+- 步骤只管顺序与进度，每步怎么做、怎么判对错仍写在执行说明里，两边冲突以「要求」「验收」为准
+
+### Release Note
+
+要写时跟 PR 模板的 Release Note 同结构：中文一块、英文一块，各是一句话要点，标题里的版本号照抄模板占位 `v5.00a`，目标版本与插在版本块哪个位置不写，开 PR 时由 `release-note` 按 `.claude/references/release-version.md` 与重要度排序自己定。第一行写回方式：「写入功能 PR 并合并进聚合 release PR」或「仅写入功能 PR」。要点与写回方式都在 `issue-spec` 时和用户定稿，`issue-autorun` 时没有机会再问。
+
+````markdown
+## Release Note
+
+写回：写入功能 PR 并合并进聚合 release PR
+
+```
+[b]游戏性更新 v5.00a[/b]
+
+- 基地不再削蓝，泉水削蓝减半
+```
+
+```
+[b]Gameplay update v5.00a[/b]
+
+- Bases no longer burn mana; fountain mana burn halved
+```
+````
+
+### 执行说明
+
+名为「执行说明」的 Markdown artifact（`gh issue artifact create <n> -R windy10v10ai/game '<文件>.md#执行说明'`，改动用 `edit` 覆盖），面向执行者而不是用户。文件以 `# 执行说明` 开头，每一项都要写到不用再问的程度：
+
+```markdown
+# 执行说明
+
+- **做法**：先写用哪个 skill（如「按 `clone-ability`」；`AGENTS.md` 对照表里没有对得上的写「无」），再写已拍板的实现方案，含选型（如「用 KV Properties，不新增 Lua modifier」）。AI 自己推断、用户没拍板的取舍标「建议」
 - **改动范围**：允许改的文件或目录，逐条列出
 - **不做**：明确排除的相关改动
-- **验收**：必须通过的命令（默认 `npm test`、`npm run lint`、`npm run build:vscripts`；改 Panorama 加 `npm run build:panorama`；带持续性 buff 或永久属性的技能、物品加性能基准，见根 `CLAUDE.md`「Implementation Style」），以及要补的 jest 用例，每个用例写明输入与预期
+- **验收命令**：必须通过的命令（默认 `npm test`、`npm run lint`、`npm run build:vscripts`；改 Panorama 加 `npm run build:panorama`；带持续性 buff 或永久属性的技能、物品加性能基准，见根 `CLAUDE.md`「Implementation Style」），以及要补的 jest 用例，每个用例写明输入与预期
 - **实机验证**：需要 / 不需要；需要时逐项标层级（见下文「实机验证分三层」）并写到可判定
-- **Release Note**：不写 / 要写。要写时附用户确认过的中英文要点原文（面向玩家的一句话），以及写回方式：「写入功能 PR 并合并进聚合 release PR」或「仅写入功能 PR」。两者都在 `issue-spec` 时和用户定稿，`issue-autorun` 时没有机会再问。目标版本与插在版本块哪个位置不写，开 PR 时由 `release-note` 按 `.claude/references/release-version.md` 与重要度排序自己定
+- **前提与后备**：方案依赖、还没实测过的引擎行为或读数，逐条写已验证（探针与结果）或不成立时走哪条后备；都没有写「无」
+- **跑不通时**：实机环境起不来或连不上时怎么判（如「只靠 jest 判定，试玩项写进 Checklist」或「不合并，留给用户」）；不需要实机写「无」
 ```
+
+artifact 是 GitHub 的预览功能，命令失败时把执行说明临时写回正文末尾的 `## 执行说明` 兜底，并在留言里说明，功能恢复后再迁回。
 
 目标拆成几条互不依赖的小项，agent 卡在其中一条时才能跳过它继续做别的。
 
@@ -51,6 +131,8 @@ firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/fir
 - 档位、数值、等级这类平衡性取舍在执行说明里定死，不留给 agent 类比；定不下来的写明「agent 暂定，记为待你决定」
 - **实机验证**逐项写到可判定：装到哪类英雄、做什么操作、哪个数值应该怎么变，而不是「能生效」
 - 写到「agent 不需要做判断」为止：定「做什么」和「怎么判对错」，不写代码怎么改。要判断的地方要么在执行说明里定死，要么按下文交给调度员或用户
+- 预期值来自实测或原版 KV，不抄被替换实现的读数；手算的写明公式并用探针核对
+- 手感、观感能量化的（时长、距离、帧率）写成脚本判定，剩下的才归用户判定
 
 ### 实机验证分三层
 
@@ -60,19 +142,62 @@ firebase 仓库有精简版 [agent-issue.md](https://github.com/windy10v10ai/fir
 |---|---|---|---|
 | **脚本判定** | 属性、移速、攻击距离、冷却、伤害、modifier 有无与层数、事件是否触发 | 操作步骤与每项预期值（含容差）；只要读数不判对错的写「只记录」 | 执行者写临时 Lua，每项打印 `[check] PASS` / `[check] FAIL`，`FAIL` 行数为 0 才算过 |
 | **截图判定** | 图标、特效、面板布局、悬停或点击后才出现的 tooltip 与界面 | 截哪个状态、裁哪块、正确时应该看到什么 | 执行者操作并截图，只交图不下结论；调度员看图判定 |
-| **用户判定** | 手感、动画节奏、需要连续观察的表现 | 要看什么、和什么对比 | 记进「等你处理」，用户回来测 |
+| **用户判定** | 手感、动画节奏、需要连续观察的表现 | 要看什么、和什么对比 | 不挡合并，写进 release PR 的 Checklist，用户发版前测 |
 
-### 复杂 issue：指向设计 artifact
+**留证截图**：脚本判定的项，只要结果在界面上看得到（技能栏的充能数字、tooltip 里的数值），执行说明里另写一张留证截图（拍哪个状态、修正前后各一张）。它不参与判对错，对错仍以脚本为准，所以不升级到 L3；图按 `create-pr/references/screenshots.md` 放进 PR，让审的人一眼看到结果。
 
-上面几项写不进一屏、要讲数据流或跨多层改动时，按 `.claude/references/doc-writing.md`「设计 spec」把设计挂成该 issue 的 HTML artifact，issue 里只留指针：
+### 设计 artifact（可选）
 
-```markdown
-## 执行说明
+要讲数据流或跨多层改动时，在「执行说明」之外，把和用户讨论的页面定稿成 HTML「设计」挂到 issue（给人看，流程图、方案对比），见 `.claude/references/doc-writing.md`「设计 spec」。agent 以「执行说明」为准，它要把设计里和实现有关的结论写全，不靠 agent 去读 HTML。
 
-- **设计文档**：设计（https://github.com/windy10v10ai/game/issues/<n>/artifacts/<编号>）
+## 合入 develop
+
+用户确认 spec 就是授权：issue 做完且下面每条都成立时，调度员（单条模式是主对话）不等用户，直接合入 `develop`。合入 `develop` 不上线，要用户看的事写进 release PR 的 Checklist，`main` 由用户审批。
+
+合并条件：
+
+- 「要求」没写合并前要用户看
+- 目标全部完成（`Fixes #<id>`），没有跳过的部分，「步骤」全勾完
+- 「验收」每条、实机验证的脚本判定与截图判定项都通过，没有没跑成的项；跑不通时按执行说明「跑不通时」判定，它写了只靠 jest 才能过
+- 结果没有偏离「要求」和「验收」写的预期值
+- 要跑性能基准的，达到执行说明写的门槛
+- 改动只在「改动范围」内，加「顺手发现的问题」带着修的小改动
+- 审查结论 PASS，审查者不是写这份代码的会话
+- 必过的 CI 全过
+
+全部成立时：
+
+```bash
+gh pr checks <编号> -R windy10v10ai/game --required --watch   # 退出码 0 才继续
+gh pr merge <编号> -R windy10v10ai/game --squash
 ```
 
-设计文档包含上面执行说明的全部七项。
+有一条不成立就不合并：PR 保持开着（没做完的是草稿），原因写进 PR「等你处理」的「待你决定」，等用户处理。
+
+### 写进 release PR
+
+合并后把 PR「等你处理」的「发版前」各条追加到 release PR 的 `## Checklist` 末尾，一件事一行：
+
+```markdown
+- [ ] 试玩：<看什么、和什么比>（[<这件事>](<PR 链接>)）
+- [ ] 确认：<按什么默认做了、不同意要改哪里>（[<这件事>](<PR 链接>)）
+- [ ] 上线后：<核对什么>（[<这件事>](<PR 链接>)）
+- [ ] 是否开 issue：<问题与对玩家的影响>（[<这件事>](<PR 链接>)）
+```
+
+- 只写用户本人要做或要确认的事：「用户判定」项、玩家看得到且用户可能想改的默认取舍、上线后才能核对的事、严重问题。其余写在 PR 正文
+- 用 `gh pr list -R windy10v10ai/game --state open --label release --json number` 找 release PR。改之前重读正文，只追加，其他内容原样保留
+- 没有 release PR 时等这次推送的 `Create Release PR` 工作流跑完再找（`gh run list -R windy10v10ai/game --workflow create_release_pr.yml --branch develop --limit 1`、`gh run watch <id>`）；仍没有就把这些项写进汇报
+
+### 顺手发现的问题
+
+和这条 issue 无关的旧问题都不挡合并，也不擅自开 issue：
+
+| 问题 | 做法 |
+|---|---|
+| 小问题：几行，不改玩法、数值和接口行为，验收命令能兜底（错别字、注释、过时文档、本地化占位符） | 带着修，PR 正文写一句 |
+| 不小也不严重 | 不修，PR 正文写一句 |
+| 严重：玩家数据或金钱受损、崩溃、线上报错、明显卡顿、安全问题 | 用户在场时用 `AskUserQuestion` 问要不要开 issue；不在场写进「发版前」的「是否开 issue」 |
 
 ## 子 issue
 
@@ -118,4 +243,4 @@ L4 里能写成固定步骤的测量或验证（卡顿优化前后的 perf 基�
 
 适合：本地化、KV 数值、文档、有 jest 兜底的 bot 规则与模块逻辑、方案已定的小功能；靠实机才能判断对错的，执行说明里写清实机验证步骤也可以交。
 
-不交：要排查或评估的（卡顿、设计评估）、改动范围列不出来的。这类打 `L4-investigate`，留给用户在场时做。
+不交：要做设计取舍或评估的（卡顿优化方案、设计评估）、改动范围列不出来的。这类打 `L4-investigate`，留给用户在场时做。要排查但再现步骤写得出来的可以交，写成「步骤」并设停点。

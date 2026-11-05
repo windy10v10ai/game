@@ -127,6 +127,7 @@ tinker_rearm_lua.ItemException = {
 	["item_sphere"] = true,
 
 	["item_aeon_pendant"] = true,
+	["item_aeon_amulet"] = true,
 	["item_black_king_bar_2"] = true,
 	["item_sphere_2"] = true,
 	["item_insight_armor"] = true,

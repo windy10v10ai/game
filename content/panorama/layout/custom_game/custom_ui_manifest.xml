@@ -6,6 +6,7 @@
 		<include src="file://{resources}/scripts/custom_game/shop_fix.js"/>
 		<include src="file://{resources}/scripts/custom_game/api_html_proxy.js"/>
 		<include src="file://{resources}/scripts/custom_game/perf_client.js"/>
+		<include src="file://{resources}/scripts/custom_game/aghs_tooltip_fix.js"/>
 	</scripts>
 	<styles>
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />

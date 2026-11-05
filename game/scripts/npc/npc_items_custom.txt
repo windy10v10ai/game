@@ -1021,7 +1021,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_lua"
+		"BaseClass"						"item_datadriven"
 		"ID"							"10323"
 		"AbilityTextureName"			"item_undying_heart"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -1036,22 +1036,66 @@
 		"ItemAliases"					"hot;heart of tarrasque"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"ScriptFile"					"items/item_undying_heart"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_strength"		"100"	// Tooltip, real value in modifier_item_undying_heart_stats
-				"bonus_health"			"1200"	// Tooltip, real value in modifier_item_undying_heart_stats
-				"health_regen_pct"		"2"
-				"bonus_evasion"			"20"	// Tooltip, real value in modifier_item_undying_heart_stats
-				"status_resistance"		"8"
-				"dur"					"5"
-				"active_hp_regen"		"1000"
-				"active_hp_regen_pct"	"4"
-				"buff_hp_regen"			"200"
-				"buff_hp_regen_pct"		"2"
+			// 力量与回复由原版 modifier_item_heart 按原版字段名读取
+			"bonus_strength"			"100"
+			"hp_regen"					"1"
+			"missing_health_regen"		"2"
+
+			// 生命不能用 bonus_health：原版 modifier_item_heart 也读这个字段，会多加一份
+			"bonus_health_passive"		"1200"
+			"bonus_evasion"				"20"
+
+			"dur"						"5"
+			"active_hp_regen"			"1000"
+			"active_hp_regen_pct"		"4"
+			"buff_hp_regen"				"200"
+			"buff_hp_regen_pct"			"2"
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_undying_heart"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health_passive"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"%bonus_evasion"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_undying_heart"
+						"Function"		"UndyingHeartOnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_undying_heart"
+						"Function"		"UndyingHeartOnDestroy"
+					}
+				}
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_undying_heart"
+				"Function"		"UndyingHeartOnSpellStart"
+			}
 		}
 	}
 
@@ -6377,9 +6421,8 @@
 
 	"item_withered_spring"
 	{
-		"BaseClass"					"item_lua"
+		"BaseClass"					"item_datadriven"
 		"ID"						"10440"
-		"ScriptFile"				"items/ts_items/item_withered_spring"
 		"AbilityTextureName"		"withered_spring"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilitySharedCooldown"		"aeon"
@@ -6410,11 +6453,12 @@
 			"cooldown_duration"			"60"	// 单值 + max_level 1 关闭原版的触发递增
 			"max_level"					"1"
 			"initial_cooldown"			"6"
-			"bonus_health"				"2500"
 			"bonus_mana"				"2500"
 
-			// DataDriven 表达不了，留在 TS
-			"health_regen_pct"			"3"
+			// 力量由原版 modifier_item_heart 按原版字段名读取
+			"bonus_strength"			"100"
+			"hp_regen"					"1"
+			"missing_health_regen"		"2.5"
 
 			// 主动技能参数
 			"replenish_health"			"2500"
@@ -6431,10 +6475,55 @@
 			"bonus_armor_active"		"20"
 			"bonus_regen_active"		"300"
 
-			// 被动属性，真值在 item_apply_modifiers，此处仅供 tooltip
-			"bonus_strength"			"100"
+			// 被动生命、护甲与闪避，真值在本物品被动 modifier 的 Properties
+			// 生命不能用 bonus_health：原版 modifier_item_heart 也读这个字段，会和永恒之盘各加一次
+			"bonus_health_passive"		"2500"
 			"bonus_armor"				"20"
 			"bonus_evasion"				"20"
+		}
+
+		"Modifiers"
+		{
+			// 魔法由原版 modifier_item_aeon_disk 提供，力量由原版 modifier_item_heart 提供，
+			// 在 Properties 里再写一遍会双倍
+			"modifier_item_withered_spring"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health_passive"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_armor"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"%bonus_evasion"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_withered_spring"
+						"Function"		"WitheredSpringOnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_withered_spring"
+						"Function"		"WitheredSpringOnDestroy"
+					}
+				}
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_withered_spring"
+				"Function"		"WitheredSpringOnSpellStart"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -6711,8 +6800,7 @@
 
 	"item_swift_glove"
 	{
-		"BaseClass"					"item_lua"
-		"ScriptFile"				"items/item_swift_glove"
+		"BaseClass"					"item_datadriven"
 		"ID"						"10448"
 		"AbilityTextureName"		"swift_glove"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -6741,14 +6829,15 @@
 
 		"AbilityValues"
 		{
-			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_strength"			"200"	// tooltip only - 力量（光暗臂章切换部分折算）
-			"bonus_attack_speed"		"240"	// tooltip only - 攻击速度（取材料常驻较大值）
-			"bonus_damage"				"400"	// tooltip only - 攻击力（神雷锤/光暗臂章）
-			"bonus_armor"				"60"	// tooltip only - 护甲（光暗臂章）
+			// 被动属性
+			"bonus_strength"			"200"	// 力量（光暗臂章切换部分折算）
+			"bonus_attack_speed"		"240"	// 攻击速度（取材料常驻较大值）
+			"bonus_damage"				"400"	// 攻击力（神雷锤/光暗臂章）
+			"bonus_armor"				"60"	// 护甲（光暗臂章）
 
-			// Lua 逻辑需要的参数
-			"bat_reduction_pct"			"25"	// Lua 逻辑需要 - 动态计算 BAT
+			"bat_reduce"			"20"	// 原版粗暴按此字段读数值，本地化也引用此名
+
+			// 脚本需要的参数
 			"self_xp"			"2"
 			"self_gold"			"600"
 			"group_range"		"1800"
@@ -6769,6 +6858,50 @@
 			"decuple_damage_chance"	"1"
 			"decuple_damage_multiplier"	"3"
 			"decuple_damage_cooldown"	"1"
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_swift_glove"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"IsPurgable"			"0"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_strength"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_swift_glove"
+						"Function"		"SwiftGloveOnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_swift_glove"
+						"Function"		"SwiftGloveOnDestroy"
+					}
+				}
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_swift_glove"
+				"Function"		"SwiftGloveOnSpellStart"
+			}
 		}
 	}
 

@@ -17,6 +17,7 @@ GitHub issues and pull requests are for code changes, made by the person who wil
 - **Small fixes**: typos, documentation, translations and obvious small bug fixes can go straight to a pull request.
 - **Bug fixes and features you plan to implement yourself**: open an [issue](https://github.com/windy10v10ai/game/issues/new/choose) first. Explain the problem and how you would change the code, then wait for the maintainer to agree before you start. By default the maintainer implements features, so a feature pull request without prior agreement may be closed. This saves you from building something that doesn't fit the project.
 - **Only an idea, or you are not going to write it**: use the [feedback page](https://windy10v10ai.com/feedback) instead. The maintainer reads it and decides.
+- **Going to build it, but the approach is still vague**: use `/issue-spec` in Claude Code to work it out; see the [AI development workflow](../docs/ai-workflow.md).
 
 Gameplay changes include new heroes, abilities, items and game modes, and any balance or numeric change.
 

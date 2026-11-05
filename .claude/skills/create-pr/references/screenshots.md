@@ -1,6 +1,6 @@
 # PR 界面截图
 
-改了界面时才放（Panorama 布局、样式、玩家能看到的文案）。PR 正文是实机截图的存档处，跟代码一起 review、合并后仍可翻到；设计画布（Artifact）只用于动手前让用户挑方案。
+改了界面时才放（Panorama 布局、样式、玩家能看到的文案），结果在界面上看得到的改动也放（技能栏的充能数字、tooltip 数值，见 `agent-issue.md`「留证截图」）。PR 正文是实机截图的存档处，跟代码一起 review、合并后仍可翻到；设计画布（Artifact）只用于动手前让用户挑方案。
 
 ## 拍什么
 
@@ -23,5 +23,7 @@ git add -A && git commit -m "Add screenshots for PR #<PR 编号>" && git push or
 ```
 
 用完 `git worktree remove <临时目录>/wt-assets --force`。正文用 `https://raw.githubusercontent.com/windy10v10ai/game/assets/pr/<PR 编号>/<名字>.png` 引用，推完先 `curl -o /dev/null -w '%{http_code}'` 确认 200。重拍的图换新文件名：GitHub 按网址缓存 PR 里的图，同名覆盖后仍显示旧图。
+
+对比图、示意图用 SVG（文本、清晰、体积小），放同一个 `pr/<PR 编号>/`，引用写法相同。
 
 截图放在 `## Checklist` 之前，单独一段 `## Screenshots`。

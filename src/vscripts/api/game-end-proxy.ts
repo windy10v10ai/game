@@ -33,6 +33,15 @@ export function splitGameEndByPlayer(gameEnd: GameEndDto): GameEndPlayerRequest[
   return requests;
 }
 
+/** 把逐人代发的完成人数折成交给外层的结果：至少一人完成按后端成功的约定回 OK */
+export function buildSettledResponse(
+  total: number,
+  succeeded: number,
+): { StatusCode: number; Body: string } {
+  if (succeeded > 0) return { StatusCode: 200, Body: 'OK' };
+  return { StatusCode: ALL_FAILED_STATUS, Body: '' };
+}
+
 export function canRetryGameEnd(reason: string, attempt: number): boolean {
   return attempt < MAX_ATTEMPTS && NON_RETRYABLE_REASONS.indexOf(reason) < 0;
 }
@@ -63,10 +72,8 @@ export class GameEndProxy {
       if (ok) succeeded++;
       pending--;
       if (pending > 0) return;
-      callbackFunc({
-        StatusCode: succeeded > 0 ? 200 : ALL_FAILED_STATUS,
-        Body: json.encode({ total: requests.length, succeeded }),
-      } as CScriptHTTPResponse);
+      print(`[GameEndProxy] settled total=${requests.length} succeeded=${succeeded}`);
+      callbackFunc(buildSettledResponse(requests.length, succeeded) as CScriptHTTPResponse);
     };
 
     for (const request of requests) {

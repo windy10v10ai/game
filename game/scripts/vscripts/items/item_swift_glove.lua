@@ -1,41 +1,36 @@
-if item_swift_glove == nil then item_swift_glove = class({}) end
-LinkLuaModifier("modifier_item_swift_glove", "items/item_swift_glove.lua", LUA_MODIFIER_MOTION_NONE)
+--[[ 无限手套：点石成金、原版粗暴与连锁闪电的挂摘由配置物品的 RunScript 驱动。 ]]
+
+if modifier_item_swift_glove_chain_lightning == nil then modifier_item_swift_glove_chain_lightning = class({}) end
 LinkLuaModifier("modifier_item_swift_glove_chain_lightning", "items/item_swift_glove.lua", LUA_MODIFIER_MOTION_NONE)
 -- This Lua item must register the shared kill modifier instead of relying on Dragon Destruction loading first.
 LinkLuaModifier("modifier_ignore_invulnerable_kill", "modifiers/global/modifier_ignore_invulnerable_kill",
     LUA_MODIFIER_MOTION_NONE)
 
-function item_swift_glove:GetIntrinsicModifierName()
-    return "modifier_item_swift_glove"
+-- 原版粗暴同一英雄多份会按 (1+r)^n 复利放大，只能挂 1 份；多把手套共用一份并按件数记账
+local crudeStates = {}
+
+local function AcquireCrude(caster, ability)
+    local key = caster:entindex()
+    local state = crudeStates[key]
+    if not state then
+        local modifier = caster:AddNewModifier(caster, ability, "modifier_item_enhancement_crude", {})
+        if not modifier then return nil end
+        state = { modifier = modifier, count = 0 }
+        crudeStates[key] = state
+    end
+    state.count = state.count + 1
+    return key
 end
 
--- 自定义 CastFilterResultTarget 会绕过 KV 的 AbilityUnitTargetTeam/Type/Flags 自动过滤，
--- 必须用 UnitFilter 手动复刻一遍，否则会变成可以对友军释放
-function item_swift_glove:CastFilterResultTarget(target)
-    local nResult = UnitFilter(target, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(),
-        self:GetAbilityTargetFlags(), self:GetCaster():GetTeamNumber())
-    if nResult ~= UF_SUCCESS then
-        return nResult
+local function ReleaseCrude(key)
+    local state = crudeStates[key]
+    if not state then return end
+    state.count = state.count - 1
+    if state.count > 0 then return end
+    if state.modifier and not state.modifier:IsNull() then
+        state.modifier:Destroy()
     end
-
-    -- 允许对远古生物释放，但排除肉山和建筑
-    if target:GetUnitName() == "npc_dota_roshan" then
-        return UF_FAIL_CUSTOM
-    end
-    if target:IsBuilding() then
-        return UF_FAIL_CUSTOM
-    end
-    return UF_SUCCESS
-end
-
-function item_swift_glove:GetCustomCastErrorTarget(target)
-    if target:GetUnitName() == "npc_dota_roshan" then
-        return "#dota_hud_error_swift_glove_no_roshan"
-    end
-    if target:IsBuilding() then
-        return "#dota_hud_error_swift_glove_no_building"
-    end
-    return ""
+    crudeStates[key] = nil
 end
 
 local function SpendSwiftGloveCharge(caster)
@@ -47,13 +42,84 @@ local function SpendSwiftGloveCharge(caster)
     end
 end
 
--- 继承自团队之手的主动技能：点石成金
-function item_swift_glove:OnSpellStart()
-    local caster = self:GetCaster()
-    local target = self:GetCursorTarget()
+-- 多把无限手套的充能点数以最少的那把为准
+local function SyncSwiftGloveCharges(caster, ability)
+    for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
+        local item = caster:GetItemInSlot(item_slot)
+        if item and item:GetName() == "item_swift_glove" then
+            local charges = item:GetCurrentCharges()
+            if charges < ability:GetCurrentCharges() then
+                ability:SetCurrentCharges(charges)
+            end
+        end
+    end
+end
+
+function SwiftGloveOnCreated(keys)
+    if not IsServer() then return end
+
+    local caster = keys.caster
+    local ability = keys.ability
+    if not caster or not ability then return end
+
+    ability.swift_glove_crude_key = AcquireCrude(caster, ability)
+    SyncSwiftGloveCharges(caster, ability)
+
+    -- 句柄按物品实例保存，多件时各摘各的
+    local chain = ability.swift_glove_chain_modifier
+    if not chain or chain:IsNull() then
+        ability.swift_glove_chain_modifier = caster:AddNewModifier(caster, ability,
+            "modifier_item_swift_glove_chain_lightning", {})
+    end
+end
+
+function SwiftGloveOnDestroy(keys)
+    if not IsServer() then return end
+
+    local ability = keys.ability
+    if not ability then return end
+
+    if ability.swift_glove_crude_key then
+        ReleaseCrude(ability.swift_glove_crude_key)
+        ability.swift_glove_crude_key = nil
+    end
+
+    local chain = ability.swift_glove_chain_modifier
+    ability.swift_glove_chain_modifier = nil
+    if chain and not chain:IsNull() then
+        chain:Destroy()
+    end
+end
+
+local function ShowSwiftGloveError(caster, message)
+    local player = PlayerResource:GetPlayer(caster:GetPlayerOwnerID())
+    if player then
+        CustomGameEventManager:Send_ServerToPlayer(player, "dota_hud_error_message", {
+            reason = 0,
+            message = message,
+        })
+    end
+end
+
+-- 点石成金
+function SwiftGloveOnSpellStart(keys)
+    if not IsServer() then return end
+
+    local caster = keys.caster
+    local target = keys.target
+    local ability = keys.ability
+    if not caster or not target or not ability then return end
+
+    -- 肉山能通过 KV 的兵种过滤，只能在施法时拦下；不消耗这次充能
+    if target:GetUnitName() == "npc_dota_roshan" or target:IsBuilding() then
+        ability:EndCooldown()
+        ShowSwiftGloveError(caster, target:IsBuilding() and "#dota_hud_error_swift_glove_no_building"
+            or "#dota_hud_error_swift_glove_no_roshan")
+        return
+    end
 
     -- 对英雄目标按 hero_kill_chance 概率失败，给逃过一劫的目标和施法者反馈，避免毫无手感
-    if target:IsHero() and not RollPercentage(self:GetSpecialValueFor("hero_kill_chance")) then
+    if target:IsHero() and not RollPercentage(ability:GetSpecialValueFor("hero_kill_chance")) then
         target:EmitSound("DOTA_Item.LinkensSphere.Activate")
         SendOverheadEventMessage(caster, OVERHEAD_ALERT_MISS, target, 0, caster)
         SpendSwiftGloveCharge(caster)
@@ -61,10 +127,10 @@ function item_swift_glove:OnSpellStart()
     end
 
     local target_pos = target:GetAbsOrigin()
-    local self_xp = self:GetSpecialValueFor("self_xp")
-    local self_gold = self:GetSpecialValueFor("self_gold")
-    local group_xp = self:GetSpecialValueFor("group_xp")
-    local group_gold = self:GetSpecialValueFor("group_gold")
+    local self_xp = ability:GetSpecialValueFor("self_xp")
+    local self_gold = ability:GetSpecialValueFor("self_gold")
+    local group_xp = ability:GetSpecialValueFor("group_xp")
+    local group_gold = ability:GetSpecialValueFor("group_gold")
     local caster_playerid = -1
 
     if caster then
@@ -76,8 +142,8 @@ function item_swift_glove:OnSpellStart()
     ParticleManager:SetParticleControl(pfx, 1, target_pos)
     ParticleManager:ReleaseParticleIndex(pfx)
 
-    target:AddNewModifier(caster, self, "modifier_ignore_invulnerable_kill", {})
-    target:Kill(self, caster) -- Preserve standard kill credit and death rewards.
+    target:AddNewModifier(caster, ability, "modifier_ignore_invulnerable_kill", {})
+    target:Kill(ability, caster) -- Preserve standard kill credit and death rewards.
     target:RemoveModifierByName("modifier_ignore_invulnerable_kill")
     caster:EmitSound("DOTA_Item.Hand_Of_Midas")
     caster:ModifyGoldFiltered(self_gold, true, DOTA_ModifyGold_CreepKill)
@@ -95,7 +161,7 @@ function item_swift_glove:OnSpellStart()
     local playerId = caster:GetPlayerOwnerID()
     local team = caster:GetTeamNumber()
     local self_pos = caster:GetAbsOrigin()
-    local all = FindUnitsInRadius(team, self_pos, nil, self:GetSpecialValueFor("group_range"),
+    local all = FindUnitsInRadius(team, self_pos, nil, ability:GetSpecialValueFor("group_range"),
         DOTA_UNIT_TARGET_TEAM_FRIENDLY,
         DOTA_UNIT_TARGET_HERO,
         DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
@@ -115,102 +181,6 @@ function item_swift_glove:OnSpellStart()
 
     SpendSwiftGloveCharge(caster)
 end
-
-if modifier_item_swift_glove == nil then modifier_item_swift_glove = class({}) end
-
-function modifier_item_swift_glove:IsHidden() return true end
-
-function modifier_item_swift_glove:IsPurgable() return false end
-
-function modifier_item_swift_glove:RemoveOnDeath() return false end
-
-function modifier_item_swift_glove:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
-function modifier_item_swift_glove:OnCreated(params)
-    self:OnRefresh(params)
-
-    local ability = self:GetAbility()
-    self.bat_reduction_pct = ability:GetSpecialValueFor("bat_reduction_pct")
-
-    if IsServer() then
-        -- 同步多把无限手套的充能点数
-        local caster = self:GetCaster()
-        for item_slot = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
-            local item = caster:GetItemInSlot(item_slot)
-            if item and item:GetName() == "item_swift_glove" then
-                local charges = item:GetCurrentCharges()
-                if charges < ability:GetCurrentCharges() then
-                    ability:SetCurrentCharges(charges)
-                end
-            end
-        end
-    end
-end
-
-function modifier_item_swift_glove:OnRefresh(params)
-    self.stats_modifier_name = "modifier_item_swift_glove_stats"
-
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-
-        local ability = self:GetAbility()
-        local parent = self:GetParent()
-        if ability and parent then
-            if not ability.added_modifiers then
-                ability.added_modifiers = {}
-            end
-            if not ability.added_modifiers.chain_lightning or ability.added_modifiers.chain_lightning:IsNull() then
-                ability.added_modifiers.chain_lightning = parent:AddNewModifier(parent, ability,
-                    "modifier_item_swift_glove_chain_lightning", {})
-            end
-        end
-    end
-end
-
-function modifier_item_swift_glove:OnDestroy()
-    if IsServer() then
-        local ability = self:GetAbility()
-        if ability and ability.added_modifiers then
-            for _, modifier in pairs(ability.added_modifiers) do
-                if modifier and not modifier:IsNull() then
-                    modifier:Destroy()
-                end
-            end
-            ability.added_modifiers = nil
-        end
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-    end
-end
-
-function modifier_item_swift_glove:DeclareFunctions()
-    return {
-        MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
-    }
-end
-
-function modifier_item_swift_glove:GetModifierBaseAttackTimeConstant()
-    if self.bat_check ~= true then
-        self.bat_check = true
-        local parent = self:GetParent()
-        local current_bat = parent:GetBaseAttackTime(false)
-
-        -- 手动计算百分比减少
-        local bat_reduction_pct = self.bat_reduction_pct
-        local new_bat = current_bat * (1 - bat_reduction_pct / 100)
-
-        self.bat_check = false
-        return new_bat
-    end
-end
-
--- 低于原版技能（如炼金术士化学狂暴，默认 NORMAL），避免手套覆盖技能自带的攻击间隔
-function modifier_item_swift_glove:GetPriority()
-    return MODIFIER_PRIORITY_LOW
-end
-
-if modifier_item_swift_glove_chain_lightning == nil then modifier_item_swift_glove_chain_lightning = class({}) end
 
 function modifier_item_swift_glove_chain_lightning:IsHidden() return true end
 

@@ -34,10 +34,11 @@ git checkout -b <prefix>/<issue-id>-<summary>
 用模板 `.github/pull_request_template.md`，`gh pr create --base develop --title "<英文标题>" --body-file <文件>`：
 
 - **标题**英文，≤70 字符
-- **Issue 段**：分支名匹配 `^(feature|fix|chore|docs)/(\d+)` 时填 `Fixes #<id>` 或 `#<id>`（选哪个见根 `CLAUDE.md`「Git」），无匹配就删掉该行。issue 挂有「设计」artifact 时下面加一行 `设计：<artifact 链接>`，实现与设计不一致的地方在正文写明
+- **Issue 段**：分支名匹配 `^(feature|fix|chore|docs)/(\d+)` 时填 `- Fixes #<id>` 或 `- #<id>`（行首带 `- `，GitHub 才会在列表里显示 issue 标题；选哪个见根 `CLAUDE.md`「Git」），无匹配就删掉该行。issue 挂有「设计」artifact 时下面加一行 `设计：<artifact 链接>`，实现与设计不一致的地方在正文写明
 - **Checklist 段**：待确认、待验证事项各一个 checkbox（如 `- [ ] 在 Dota Tools 中验证 bot 是否正确开启臂章`），和模板原有的那条放在一起，方便 review 逐项勾选
 - **Release Note 段**：按下节判定
-- **界面截图**：改了界面时按 `references/screenshots.md` 拍图并放进正文
+- **正文写法**：示意图（SVG）说明改了什么，图下一句话对照关键系统的代码名（`issue-impl` 的 PR 把它放在 Checklist 之后的「实现思路」一节）；「验收结果」一节放在正文最下方（Release Note 之后、署名行之前），用 ✅ 加图，少写文字；节末先写一句「结论」（改好了 / 没改好 / 部分改好），再把「等你处理」放在它后面，用 checkbox 每条一句话写需要用户确认的事，没有写「无」。性能报告格式见 `dota-live-test` 的 `references/perf-bench.md`「报告格式」
+- **界面截图**：改了界面，或改动结果在界面上看得到时，按 `references/screenshots.md` 拍图并放进正文
 
 ## Release Note 写不写
 
@@ -51,7 +52,7 @@ git checkout -b <prefix>/<issue-id>-<summary>
 「删掉 Release Note 段」只指本功能 PR 正文里模板自带的占位段，聚合 release PR 里已有的 Release Note 一律不动。
 
 - **是**：删掉本 PR 正文的 `## Release Note` 占位段，在描述里说明本次无玩法影响。不提问、不查版本号
-- **issue 执行说明已定要点与写回方式**（`issue-impl` / `issue-autorun`）：照执行说明调用 `release-note`，不提问
+- **issue 的 Release Note 一节已定要点与写回方式**（`issue-impl` / `issue-autorun`）：照该节调用 `release-note`，不提问
 - **不是或无法确定**：先出草稿再问一次，不先问写回方式。
   1. 按 `.claude/references/release-version.md` 算出目标版本，并记下聚合 release PR 是否已存在
   2. PR 创建后调用 `release-note`，写回方式为「仅出草稿」
@@ -67,4 +68,4 @@ git checkout -b <prefix>/<issue-id>-<summary>
 
 `release-note` 在 SubAgent 里运行、不能提问，参数写 PR 号、目标版本、写回方式。它回报待选项时问用户，带着答案重新调用。
 
-选了「合并后再写入聚合 release PR」时，写回按「仅写入功能 PR」调用 `release-note`；合并只在用户指令下执行，合并后聚合 release PR 才会出现，用户确认合并完成后再调用 `release-note`，来源仍写该功能 PR 号，写回方式为「仅写入聚合 release PR」。
+选了「合并后再写入聚合 release PR」时，写回按「仅写入功能 PR」调用 `release-note`；合并后聚合 release PR 才会出现，确认合并完成后再调用 `release-note`，来源仍写该功能 PR 号，写回方式为「仅写入聚合 release PR」。

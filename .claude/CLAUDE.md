@@ -11,7 +11,9 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 - **先说结论，再展开**，重点放第一句
 - **短**：短词、短句、短段落，用标题或列表分层；砍掉不重要的细节和客套铺垫
 - **说人话**：常见技术词（缓存、接口、轮询）可以用，生僻词和行话换成白话
-- **少提代码名字**：先用中文说清它干什么，代码名只作补充；路径和命令照写
+- **少提代码名字**：先用中文说清它干什么，代码名只作补充；路径和命令照写。PR 正文与报告同样：先用白话说清关键系统是谁（哪个技能、哪件装备、玩家看到什么），图下一句话对照代码名，能用图就不用文字
+- **提 issue / PR 先说是什么事**：先用一句中文说清它要做什么、对玩家有什么影响，编号只作链接附带，不单独写数字；列任务清单、表格、选项里同样适用
+- **只讲要决策的**：汇报与审查结论里没问题的项不展开，只写可能有问题、需要用户决策的地方，每项写清是什么、对玩家的影响、建议
 - **给出行动**：告诉用户下一步该做什么
 - **先交代背景**：下结论前说清这是什么、发生在什么情况下
 - **解释改动按固定顺序**：原来是什么 → 改成什么 → 代码要做的事 → 问题在哪 → 用户要做什么
@@ -63,7 +65,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 - 布尔方法名用常见直接的动词，不重复所属类或文件已表达的语境：`CanCast` 优于 `IsEligible`、`CanUseGenericFallback`
 - 多处需要同一逻辑（尤其要求口径一致的计算）时提取共享函数，避免只改一处产生口径分歧
 - 新物品、新技能、新机制的效果先找原版 modifier 或 KV，最后才写 Lua modifier：Lua modifier 即使什么都不做也会拖慢全图每次伤害结算，在后期卡顿里随实例数累积。选型顺序与原因见 `src/vscripts/CLAUDE.md`「写技能、物品、modifier」
-- 带持续性 buff 或永久属性的技能、物品（KV 实现也算），验收要跑性能基准，把每 tick 开销写进 PR：整件物品用 `--swapItems`，单个 modifier 用 `--itemModifiers`，命令、场景选择与判读见 `.claude/skills/dota-live-test/references/perf-bench.md`
+- 带持续性 buff 或永久属性的技能、物品（KV 实现也算），验收要跑性能基准，把每 tick 开销写进 PR：整件物品用 `--swapItems`，单个 modifier 用 `--itemModifiers`，命令、场景选择与判读见 `.claude/skills/dota-live-test/references/perf-bench.md`，报告按其中「报告格式」画修改前后对比图
 
 ## 注释规约
 
@@ -92,11 +94,11 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 - 手上有未合并的 PR 时，文档、skill、注释、几行的 KV / 本地化修正这类小改动直接并进该 PR，不另切分支，判定见 `.claude/references/git-workflow.md`「小改动搭车」
 - 其余改动的分支从最新 `develop` 切出，确定要写文件前先切好。issue 驱动命名 `feature/<issue-id>-<3–6 个英文小写单词>`（如 `feature/2411-web-link-refresh`），其他用 `fix/` `chore/` `docs/` 前缀
 - 切分支前的检查、worktree、小改动搭车、合并与清理 → `.claude/references/git-workflow.md`
-- issue 标题与 PR 正文用中文，PR 标题与 commit 用英文。commit 是 ≤72 字符的单行标题，正文只写 `Co-Authored-By`
-- PR base 固定 `develop`。PR 解决了 issue 描述的问题就写 `Fixes #<id>`；issue 里「方向」「建议」没全做、或另开了后续 issue 的，照样写 `Fixes`。只有 issue 本身拆成多步、本 PR 只做其中一步时才写 `#<id>`
+- PR 标题尽量用英文，commit 用英文；issue 和 PR 正文的语言随用户习惯，不锁定。commit 是 ≤72 字符的单行标题，正文只写 `Co-Authored-By`
+- PR base 固定 `develop`。PR 解决了 issue 描述的问题就写 `- Fixes #<id>`（行首带 `- `，GitHub 才会显示 issue 标题）；issue 里「方向」「建议」没全做、或另开了后续 issue 的，照样写 `Fixes`。只有 issue 本身拆成多步、本 PR 只做其中一步时才写 `#<id>`
 - 只 stage 本次请求相关的文件，commit 前看 `git status`；当前分支不符合预期（如处于 `develop`/`main`）先请用户确认
 - PR 做完（验收与验证都完成）就直接开正式，没做完的才开草稿，正文写明没做完什么；草稿一做完就转正式。审出要大改时 `gh pr ready <编号> --undo` 退回草稿，改完再转正式
-- 合并只在用户给出指令时执行
+- 合并只在用户给出指令时执行。例外：按 `issue-impl` 做的 issue 合并条件全过时直接合入 `develop`，见 `.claude/references/agent-issue.md`「合入 develop」。release PR 始终由用户审批
 - 开 PR 走 `create-pr` skill：纯内部改动（重构、构建、CI、文档、测试）自行跳过 Release Note，其余算出目标版本后问用户写不写，要写时调用 `release-note` 生成
 
 ## 文档分工
@@ -113,6 +115,8 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 | 设计稿、测量报告、说明页 | 讨论用 artifact，定稿挂到 issue 的 artifact，见 `.claude/references/doc-writing.md`「设计 spec」「issue artifact」 |
 | 进度、验证结论 | issue / PR |
 
+项目规则、流程、约定只写进上表的文档，不写进自动记忆；个人偏好才归自动记忆。
+
 README 还是 `CLAUDE.md`：违反它是「这次改动做错了」进 `CLAUDE.md`，是「系统的结构变了」进 README。写 README、spec、issue 的细则见 `.claude/references/doc-writing.md`。
 
 新增、删除或改名 skill 与 `CLAUDE.md` 时，同步根 `AGENTS.md` 的对照表（Codex 不会自动加载子目录 `CLAUDE.md`，也不认 Claude 的 skill 机制）。
@@ -127,7 +131,7 @@ README 还是 `CLAUDE.md`：违反它是「这次改动做错了」进 `CLAUDE.m
 | 方案已定、跨 3 个以上文件的照方案改动 | 主力档 |
 | 读日志判断现象、审查，或最便宜档反复卡住 | 主力档 |
 
-留在主对话（最强档）：设计取舍、L4 排查、单文件小改、需要用户确认的步骤、几行输出就结束的命令（派 SubAgent 的冷启动成本更高）。
+留在主对话（最强档）：设计取舍、L4（要判断力的设计与评估）、单文件小改、需要用户确认的步骤、几行输出就结束的命令（派 SubAgent 的冷启动成本更高）。
 
 ## Skill 交互
 

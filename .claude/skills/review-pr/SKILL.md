@@ -20,13 +20,13 @@ disable-model-invocation: true
 
 `issue-impl` 第 8 步审草稿 PR 时用（含 `issue-autorun` 审执行者开的 PR）。不问用户、不 checkout、不发 PR 评论、不写报告文件，跳过上面流程的第 3–5 步，结论交回调度员：
 
-- **读什么**：只看 PR 本身——`gh pr view <pr> -R windy10v10ai/game --comments`（正文、「验证记录」评论、截图）、`gh pr diff`、`gh pr checks`；需求以关联 issue 的执行说明与「设计」artifact 为准
+- **读什么**：只看 PR 本身——`gh pr view <pr> -R windy10v10ai/game --comments`（正文、「验证记录」评论、截图）、`gh pr diff`、`gh pr checks`；需求以关联 issue 正文（要求、验收）与「执行说明」「设计」artifact 为准
 - **审什么**：
   - 代码：下方「判断标准」
   - **测试视角**：每条目标都有 jest 用例或实机验证项对应，边界和易错处有覆盖
   - **证据与结论一致**：每条「通过」「已完成」都有出处（CI 结果、命令与 exit code、`[check]` 原文与数字）。测试通过以 CI 为准；推送以远端 SHA 为准
   - **截图**：打开每张图，对照执行说明写的正确画面判定，PR 里的文字描述不算结论
-  - **范围与降标**：只改了改动范围；没有改测试迁就代码、删用例；预期值与执行说明一致；做法与执行说明「做法」一致
+  - **范围与降标**：只改了改动范围，范围外只有符合 `agent-issue.md`「顺手发现的问题」的小改动；没有改测试迁就代码、删用例；预期值与执行说明一致；做法与执行说明「做法」一致
 - **结论**：PASS / NEEDS-FIX / NEEDS-DECISION，逐条发现带 `file:line`（截图写图名与看到的画面）与严重度。测量类 issue（不开 PR）审留言与报告：每个数字有出处，局数和步骤与执行说明一致，结论没有超出数据
 
 ## 判断标准
