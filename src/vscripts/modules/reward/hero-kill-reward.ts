@@ -1,29 +1,18 @@
 import { reloadable } from '../../utils/tstl-utils';
 import { PlayerHelper } from '../helper/player-helper';
 
-// 助攻收益以受害者压缩后的赏金和死亡经验为基准，数字与开局击杀衰减配套调整
-const ASSIST_GOLD_RATE = 0.2;
-const ASSIST_XP_RATE = 0.4;
-const KILLER_ASSIST_GOLD_RATE = 0.2;
-const MAX_COUNTED_ASSISTS = 2;
+// 助攻经验以受害者死亡经验为基准
+const ASSIST_XP_RATE = 0.3;
+
+// 击杀者周围这个范围内有敌方防御塔，或没有其他友方真人，就不算安全的以多打少
+const NEARBY_RADIUS = 1500;
 
 // 助攻事件与死亡事件的先后顺序由引擎决定，短暂缓冲后仍能配到同一次击杀
 const ORPHAN_ASSIST_TTL = 1;
 
-/** 每名助攻者额外获得的金币。 */
-export function assistGoldReward(baseBounty: number): number {
-  return Math.floor(baseBounty * ASSIST_GOLD_RATE);
-}
-
 /** 每名助攻者额外获得的经验。 */
 export function assistXpReward(deathXp: number): number {
   return Math.floor(deathXp * ASSIST_XP_RATE);
-}
-
-/** 击杀者按助攻人数获得的额外金币，超出上限的助攻不再计入。 */
-export function killerAssistGoldReward(baseBounty: number, assistCount: number): number {
-  const counted = Math.min(assistCount, MAX_COUNTED_ASSISTS);
-  return Math.floor(baseBounty * KILLER_ASSIST_GOLD_RATE * counted);
 }
 
 /** 补发经验要经过经验过滤器，按当前倍率折算成过滤器输入值，落地后正好是扣掉的量。 */
@@ -31,11 +20,20 @@ export function refundKillXpInput(cutXp: number, mul: number): number {
   return mul > 0 ? Math.round(cutXp / mul) : cutXp;
 }
 
+/** 被扣的击杀奖励是否补回：满足条件时全部补回，否则只保留击杀者自己的那份。 */
+export function shouldRefundCut(
+  restoreReward: boolean,
+  cutPlayerId: PlayerID,
+  killerPlayerId: PlayerID | undefined,
+): boolean {
+  return restoreReward || cutPlayerId !== killerPlayerId;
+}
+
 interface PendingKill {
   killerPlayerId: PlayerID | undefined;
-  baseBounty: number;
   deathXp: number;
   deathAt: number;
+  restoreReward: boolean;
   assisters: Set<PlayerID>;
 }
 
@@ -45,8 +43,8 @@ interface OrphanAssist {
 }
 
 /**
- * 多人局的助攻与击杀收益：助攻者额外拿金币经验，击杀者按助攻人数补金币。
- * 引擎在金币过滤器之后才给出击杀信息，所以击杀金币的衰减在过滤器里做，这里只做击杀后的补发。
+ * 多人局的助攻与击杀收益：助攻者额外拿经验，击杀者前期击杀金币与经验按附近塔和真人情况决定是否减半。
+ * 引擎在金币/经验过滤器之后才给出击杀信息，所以衰减在过滤器里做，这里只做击杀后的补回。
  */
 @reloadable
 export class HeroKillReward {
@@ -73,17 +71,18 @@ export class HeroKillReward {
       return;
     }
 
+    const killerPlayerId = this.getKillerPlayerId(keys, victim);
     const pending: PendingKill = {
-      killerPlayerId: this.getKillerPlayerId(keys, victim),
-      baseBounty: GameRules.GoldXPFilter.filterHeroKillGold(victim.GetGoldBounty()),
+      killerPlayerId,
       deathXp: victim.GetDeathXP(),
       deathAt: GameRules.GetGameTime(),
+      restoreReward: this.canRestoreReward(killerPlayerId),
       assisters: new Set<PlayerID>(),
     };
     this.pendingKills.set(victimPlayerId, pending);
 
     this.consumeOrphanAssists(victimPlayerId, pending);
-    Timers.CreateTimer(this.SETTLE_DELAY, () => this.settleKiller(victimPlayerId));
+    Timers.CreateTimer(this.SETTLE_DELAY, () => this.settleKillRewards(victimPlayerId));
   }
 
   private OnAssistEarned(keys: GameEventProvidedProperties & DotaAssistEarnedEvent): void {
@@ -132,6 +131,59 @@ export class HeroKillReward {
     return killerPlayerId;
   }
 
+  // 击杀者周围没有敌方防御塔、且有其他友方真人玩家一起，才按原收益结算；否则前期击杀奖励减半
+  private canRestoreReward(killerPlayerId: PlayerID | undefined): boolean {
+    if (killerPlayerId === undefined) {
+      return false;
+    }
+    const killer = PlayerResource.GetSelectedHeroEntity(killerPlayerId);
+    if (!killer || !killer.IsAlive()) {
+      return false;
+    }
+    if (this.hasEnemyTowerNearby(killer)) {
+      return false;
+    }
+    return this.hasFriendlyHumanNearby(killerPlayerId, killer);
+  }
+
+  private hasEnemyTowerNearby(killer: CDOTA_BaseNPC): boolean {
+    const towers = FindUnitsInRadius(
+      killer.GetTeamNumber(),
+      killer.GetAbsOrigin(),
+      undefined,
+      NEARBY_RADIUS,
+      UnitTargetTeam.ENEMY,
+      UnitTargetType.BUILDING,
+      UnitTargetFlags.NONE,
+      FindOrder.ANY,
+      false,
+    );
+    return towers.some((tower) => tower.IsTower() && tower.IsAlive());
+  }
+
+  private hasFriendlyHumanNearby(killerPlayerId: PlayerID, killer: CDOTA_BaseNPC): boolean {
+    let found = false;
+    PlayerHelper.ForEachPlayer((playerId) => {
+      if (found || playerId === killerPlayerId) {
+        return;
+      }
+      if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
+        return;
+      }
+      if (PlayerResource.GetTeam(playerId) !== killer.GetTeamNumber()) {
+        return;
+      }
+      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+      if (!hero || !hero.IsAlive()) {
+        return;
+      }
+      if (hero.GetAbsOrigin().__sub(killer.GetAbsOrigin()).Length2D() <= NEARBY_RADIUS) {
+        found = true;
+      }
+    });
+    return found;
+  }
+
   private rewardAssist(pending: PendingKill, assisterPlayerId: PlayerID): void {
     if (pending.killerPlayerId === undefined || assisterPlayerId === pending.killerPlayerId) {
       return;
@@ -146,53 +198,41 @@ export class HeroKillReward {
       return;
     }
 
-    const gold = Math.floor(
-      assistGoldReward(pending.baseBounty) *
-        GameRules.GoldXPFilter.getModeGoldXpMultiplier(assisterPlayerId),
-    );
-    if (gold > 0) {
-      hero.ModifyGold(gold, false, ModifyGoldReason.UNSPECIFIED);
-    }
-
     const xp = assistXpReward(pending.deathXp);
     if (xp > 0) {
       hero.AddExperience(xp, ModifyXpReason.HERO_KILL, false, true, 0);
     }
   }
 
-  private settleKiller(victimPlayerId: PlayerID): void {
+  private settleKillRewards(victimPlayerId: PlayerID): void {
     const pending = this.pendingKills.get(victimPlayerId);
     if (pending === undefined) {
       return;
     }
     this.pendingKills.delete(victimPlayerId);
+
+    this.refundKillGold(pending);
     this.refundKillXp(pending);
+  }
 
-    const killerPlayerId = pending.killerPlayerId;
-    if (killerPlayerId === undefined) {
-      return;
-    }
-    const hero = PlayerResource.GetSelectedHeroEntity(killerPlayerId);
-    if (!hero) {
-      return;
-    }
-
-    const gold = Math.floor(
-      killerAssistGoldReward(pending.baseBounty, pending.assisters.size) *
-        GameRules.GoldXPFilter.getModeGoldXpMultiplier(killerPlayerId),
-    );
-    if (gold > 0) {
-      hero.ModifyGold(gold, true, ModifyGoldReason.UNSPECIFIED);
+  // 过滤器分不出击杀者，先把拿到击杀金币的人整体扣一半；这里把队友补回，击杀者只在满足条件时补满
+  private refundKillGold(pending: PendingKill): void {
+    for (const cut of GameRules.GoldXPFilter.TakeKillGoldCuts(pending.deathAt - 0.5)) {
+      if (!shouldRefundCut(pending.restoreReward, cut.playerId, pending.killerPlayerId)) {
+        continue;
+      }
+      const hero = PlayerResource.GetSelectedHeroEntity(cut.playerId);
+      if (!hero) {
+        continue;
+      }
+      hero.ModifyGold(cut.gold, true, ModifyGoldReason.UNSPECIFIED);
     }
   }
 
-  // 过滤器分不出击杀者，先把拿到击杀经验的人整体扣一半；这里确认助攻后把人补回，
-  // 只有无助攻击杀时击杀者保留扣减，附近队友也回到原经验
+  // 经验同理：队友补回原值，击杀者保留一半的扣减
   private refundKillXp(pending: PendingKill): void {
-    const cuts = GameRules.GoldXPFilter.TakeKillXpCuts(pending.deathAt - 0.5);
-    const hasAssist = pending.assisters.size > 0;
-    for (const cut of cuts) {
-      if (!hasAssist && cut.playerId === pending.killerPlayerId) {
+    for (const cut of GameRules.GoldXPFilter.TakeKillXpCuts(pending.deathAt - 0.5)) {
+      if (!shouldRefundCut(pending.restoreReward, cut.playerId, pending.killerPlayerId)) {
         continue;
       }
       const hero = PlayerResource.GetSelectedHeroEntity(cut.playerId);

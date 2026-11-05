@@ -3,17 +3,19 @@ import { TowerPushStatus } from '../event/event-entity-killed';
 import { PlayerHelper } from '../helper/player-helper';
 import { farmRewardBonus } from './comeback-reward';
 
-/** 多人局从开局准备阶段到开局 2 分半内的英雄击杀金币衰减。 */
-export function earlyKillGoldRate(gameTime: number): number {
-  return gameTime < 150 ? 0.7 : 1;
-}
-
-/** 同一窗口内击杀经验的衰减，无助攻时击杀者只拿到一半，有助攻时由击杀结算补回。 */
-export function earlyKillXpRate(gameTime: number): number {
+/** 多人局从开局准备阶段到开局 2 分半内，击杀金币与经验先统一按一半结算。 */
+export function earlyKillRewardRate(gameTime: number): number {
   return gameTime < 150 ? 0.5 : 1;
 }
 
-/** 过滤器里暂时扣下的击杀经验，等确认这次击杀有没有助攻再决定补不补。 */
+/** 过滤器里暂时扣下的击杀金币，等击杀事件按击杀者附近的塔与真人情况决定补不补。 */
+export interface KillGoldCut {
+  playerId: PlayerID;
+  gold: number;
+  at: number;
+}
+
+/** 过滤器里暂时扣下的击杀经验，同上。 */
 export interface KillXpCut {
   playerId: PlayerID;
   xp: number;
@@ -26,7 +28,8 @@ export class GoldXPFilter {
   private readonly REDUCE_RATE_6_MIN = 0.8;
   private readonly REDUCE_RATE_HERO_KILL = 0.5;
 
-  private readonly KILL_XP_CUT_TTL = 2;
+  private readonly KILL_CUT_TTL = 2;
+  private killGoldCuts: KillGoldCut[] = [];
   private killXpCuts: KillXpCut[] = [];
 
   constructor() {
@@ -72,14 +75,6 @@ export class GoldXPFilter {
 
     if (reason === ModifyGoldReason.HERO_KILL) {
       gold = this.filterHeroKillGold(gold);
-
-      // 过滤器先于击杀事件触发，拿不到击杀/助攻信息，这里只能整体压前期击杀金币；
-      // 助攻与击杀者的助攻加成由 HeroKillReward 在击杀后补发
-      if (PlayerHelper.IsMultiplayerGame()) {
-        // 带负时间才能把开局准备阶段也算进衰减窗口
-        gold = gold * earlyKillGoldRate(GameRules.GetDOTATime(false, true));
-      }
-
       gold = gold * this.rewardFilterByKill(playerID);
       mul = this.filterHeroKillGoldByMultiplier(mul);
     }
@@ -88,7 +83,20 @@ export class GoldXPFilter {
       gold = gold * this.getFarmRewardBonus(playerID);
     }
 
-    args.gold = Math.floor(gold * mul);
+    let value = Math.floor(gold * mul);
+
+    // 过滤器先于击杀事件触发，分不出击杀者和助攻者，击杀金币先整体压一半；
+    // 击杀事件确认击杀者附近有敌方塔或没有其他真人后，再由 HeroKillReward 决定谁的扣减补回
+    if (reason === ModifyGoldReason.HERO_KILL && PlayerHelper.IsMultiplayerGame()) {
+      const rate = earlyKillRewardRate(GameRules.GetDOTATime(false, true));
+      const cut = value - Math.floor(value * rate);
+      if (cut > 0) {
+        this.killGoldCuts.push({ playerId: playerID, gold: cut, at: GameRules.GetGameTime() });
+        value = value - cut;
+      }
+    }
+
+    args.gold = value;
 
     return true;
   }
@@ -121,9 +129,9 @@ export class GoldXPFilter {
 
     let value = Math.floor(xp * mul);
 
-    // 击杀经验的扣减同样只能整体先扣，等击杀事件确认没有助攻后再保留
+    // 击杀经验也只能整体先扣，等击杀事件确认击杀者附近情况后再决定补回
     if (reason === ModifyXpReason.HERO_KILL && PlayerHelper.IsMultiplayerGame()) {
-      const rate = earlyKillXpRate(GameRules.GetDOTATime(false, true));
+      const rate = earlyKillRewardRate(GameRules.GetDOTATime(false, true));
       const cut = value - Math.floor(value * rate);
       if (cut > 0) {
         this.killXpCuts.push({ playerId: playerID, xp: cut, at: GameRules.GetGameTime() });
@@ -137,16 +145,29 @@ export class GoldXPFilter {
   }
 
   /**
-   * 取走 fromTime 之后记录的击杀经验扣减，供击杀结算按助攻情况补回。
+   * 取走 fromTime 之后记录的击杀金币扣减，供击杀结算按击杀者附近情况补回。
    *
    * @param fromTime - 只取这个时间点之后的记录，其余留给别的击杀或超时清理。
    */
+  TakeKillGoldCuts(fromTime: number): KillGoldCut[] {
+    const result = this.splitCuts(this.killGoldCuts, fromTime);
+    this.killGoldCuts = result[1];
+    return result[0];
+  }
+
+  /** 取走 fromTime 之后记录的击杀经验扣减，规则同击杀金币。 */
   TakeKillXpCuts(fromTime: number): KillXpCut[] {
+    const result = this.splitCuts(this.killXpCuts, fromTime);
+    this.killXpCuts = result[1];
+    return result[0];
+  }
+
+  private splitCuts<T extends { at: number }>(cuts: T[], fromTime: number): [T[], T[]] {
     const now = GameRules.GetGameTime();
-    const due: KillXpCut[] = [];
-    const keep: KillXpCut[] = [];
-    for (const cut of this.killXpCuts) {
-      if (now - cut.at > this.KILL_XP_CUT_TTL) {
+    const due: T[] = [];
+    const keep: T[] = [];
+    for (const cut of cuts) {
+      if (now - cut.at > this.KILL_CUT_TTL) {
         continue;
       }
       if (cut.at >= fromTime) {
@@ -155,8 +176,7 @@ export class GoldXPFilter {
         keep.push(cut);
       }
     }
-    this.killXpCuts = keep;
-    return due;
+    return [due, keep];
   }
 
   /**

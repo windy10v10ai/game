@@ -1,34 +1,11 @@
-import {
-  assistGoldReward,
-  assistXpReward,
-  killerAssistGoldReward,
-  refundKillXpInput,
-} from './hero-kill-reward';
+import { assistXpReward, refundKillXpInput, shouldRefundCut } from './hero-kill-reward';
 
 describe('HeroKillReward', () => {
-  describe('assistGoldReward', () => {
-    it('should give 20% of the base bounty to each assister', () => {
-      expect(assistGoldReward(1000)).toBe(200);
-      expect(assistGoldReward(0)).toBe(0);
-      expect(assistGoldReward(333)).toBe(66);
-    });
-  });
-
   describe('assistXpReward', () => {
-    it('should give 40% of the death xp to each assister', () => {
-      expect(assistXpReward(1000)).toBe(400);
+    it('should give 30% of the death xp to each assister', () => {
+      expect(assistXpReward(1000)).toBe(300);
       expect(assistXpReward(0)).toBe(0);
-      expect(assistXpReward(333)).toBe(133);
-    });
-  });
-
-  describe('killerAssistGoldReward', () => {
-    it('should scale with assister count and stop counting after two', () => {
-      expect(killerAssistGoldReward(1000, 0)).toBe(0);
-      expect(killerAssistGoldReward(1000, 1)).toBe(200);
-      expect(killerAssistGoldReward(1000, 2)).toBe(400);
-      expect(killerAssistGoldReward(1000, 5)).toBe(400);
-      expect(killerAssistGoldReward(333, 1)).toBe(66);
+      expect(assistXpReward(333)).toBe(99);
     });
   });
 
@@ -38,6 +15,19 @@ describe('HeroKillReward', () => {
       expect(refundKillXpInput(100, 2)).toBe(50);
       expect(refundKillXpInput(49, 1.5)).toBe(33);
       expect(refundKillXpInput(100, 0)).toBe(100);
+    });
+  });
+
+  describe('shouldRefundCut', () => {
+    it('should refund every cut when the reward is restored', () => {
+      expect(shouldRefundCut(true, 3, 3)).toBe(true);
+      expect(shouldRefundCut(true, 4, 3)).toBe(true);
+    });
+
+    it('should keep only the killer cut when the reward is halved', () => {
+      expect(shouldRefundCut(false, 3, 3)).toBe(false);
+      expect(shouldRefundCut(false, 4, 3)).toBe(true);
+      expect(shouldRefundCut(false, 4, undefined)).toBe(true);
     });
   });
 });
