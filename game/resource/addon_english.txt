@@ -1586,9 +1586,9 @@
 
 		// Clockwerk Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>Power Cogs Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"Casting Power Cogs grants the <font color='#FFCC66'>Black King Bar</font> effect for <font color='#FFFFFF'><b>3</b></font> seconds, reducing damage taken by <font color='#FFFFFF'><b>60%%</b></font> during that time."
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"Casting Power Cogs grants the <font color='#FFCC66'>Black King Bar</font> effect for <font color='#FFFFFF'><b>3</b></font> seconds, reducing damage taken by <font color='#FFFFFF'><b>60%%</b></font> during that time.<br>Automatically consumes Chainmails you bought in your six main item slots, permanently gaining <font color='#FFFFFF'><b>4</b></font> armor each."
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>Power Cogs Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"Casting Power Cogs grants the <font color='#FFCC66'>Black King Bar</font> effect for <font color='#FFFFFF'><b>3</b></font> seconds, reducing damage taken by <font color='#FFFFFF'><b>60%%</b></font> during that time."
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"Casting Power Cogs grants the <font color='#FFCC66'>Black King Bar</font> effect for <font color='#FFFFFF'><b>3</b></font> seconds, reducing damage taken by <font color='#FFFFFF'><b>60%%</b></font> during that time.<br>Automatically consumes Chainmails you bought in your six main item slots, permanently gaining <font color='#FFFFFF'><b>4</b></font> armor each."
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"Power Cogs Awakened"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"Damage taken is reduced by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 

@@ -12,3 +12,20 @@ function OnCogsCast(keys)
 	ApplyAwakenMagicImmunity(caster, awaken, duration)
 	awaken:ApplyDataDrivenModifier(caster, caster, "modifier_special_bonus_unique_rattletrap_upgrade_shield", {})
 end
+
+-- 每次扫描吃掉 6 格里自己买的全部锁子甲，走原版对自己施放以保持不打断玩家操作
+function OnAutoConsumeThink(keys)
+	local caster = keys.caster
+	if not caster:IsAlive() or not caster:IsRealHero() then
+		return
+	end
+	local playerId = caster:GetPlayerOwnerID()
+	for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+		local item = caster:GetItemInSlot(slot)
+		if item and item:GetAbilityName() == "item_chainmail" and item:GetPurchaser() == caster then
+			caster:SetCursorCastTarget(caster)
+			caster:CastAbilityImmediately(item, playerId)
+			caster:SetCursorCastTarget(nil)
+		end
+	end
+end

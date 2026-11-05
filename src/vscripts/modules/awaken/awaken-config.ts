@@ -308,11 +308,11 @@ export const FREE_TRIAL_HEROES: string[] = [
   'npc_dota_hero_terrorblade', // 恐怖利刃
   'npc_dota_hero_bounty_hunter', // 赏金猎人
   'npc_dota_hero_nyx_assassin', // 司夜刺客
-  'npc_dota_hero_beastmaster', // 兽王
   'npc_dota_hero_phantom_assassin', // 幻影刺客
   'npc_dota_hero_drow_ranger', // 卓尔游侠
   'npc_dota_hero_kunkka', // 昆卡
   'npc_dota_hero_storm_spirit', // 蓝猫
+  'npc_dota_hero_rattletrap', // 发条技师
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */
