@@ -445,7 +445,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_force_staff_2',
     nameCN: '风力法杖',
     tier: ItemTier.T2,
-    cost: 3700,
+    cost: 3500,
     baseItems: ['item_force_staff'],
   },
   item_pipe: { name: 'item_pipe', nameCN: '洞察烟斗', tier: ItemTier.T2, cost: 3725 },
@@ -654,7 +654,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_force_staff_3',
     nameCN: '黄金法杖',
     tier: ItemTier.T3,
-    cost: 5200,
+    cost: 5000,
     baseItems: ['item_force_staff', 'item_force_staff_2'],
   },
   item_swift_blink: {
@@ -1298,7 +1298,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_magic_crit_blade',
     nameCN: '魔龙狂舞',
     tier: ItemTier.T5,
-    cost: 37000,
+    cost: 36800,
     baseItems: ['item_hallowed_scepter'],
   },
   item_beast_armor: {

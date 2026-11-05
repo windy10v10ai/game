@@ -1113,7 +1113,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1000"
+		"ItemCost"						"800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -6369,7 +6369,7 @@
 		"AbilityManaCost"			"1200"
 		"AbilitySharedCooldown"		"magic_scepter"
 
-		"ItemCost"					"37000"
+		"ItemCost"					"36800"
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
