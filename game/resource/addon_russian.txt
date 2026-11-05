@@ -1586,9 +1586,9 @@
 
 		// 发条技师-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>Часовщик: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"После применения Силовых шестерён даётся эффект <font color='#FFCC66'>Чёрного короля</font> на <font color='#FFFFFF'><b>3</b></font> сек., а получаемый урон снижается на <font color='#FFFFFF'><b>60%%</b></font>."
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"После применения Силовых шестерён даётся эффект <font color='#FFCC66'>Чёрного короля</font> на <font color='#FFFFFF'><b>3</b></font> сек., а получаемый урон снижается на <font color='#FFFFFF'><b>60%%</b></font>.<br>При включённом <font color='#00CED1'>автоприменении</font> кольчуги в инвентаре съедаются автоматически, каждая навсегда даёт <font color='#FFFFFF'><b>4</b></font> брони. Отключите, если кольчуги нужны для создания предметов."
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>Часовщик: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"После применения Силовых шестерён даётся эффект <font color='#FFCC66'>Чёрного короля</font> на <font color='#FFFFFF'><b>3</b></font> сек., а получаемый урон снижается на <font color='#FFFFFF'><b>60%%</b></font>."
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"После применения Силовых шестерён даётся эффект <font color='#FFCC66'>Чёрного короля</font> на <font color='#FFFFFF'><b>3</b></font> сек., а получаемый урон снижается на <font color='#FFFFFF'><b>60%%</b></font>.<br>При включённом <font color='#00CED1'>автоприменении</font> кольчуги в инвентаре съедаются автоматически, каждая навсегда даёт <font color='#FFFFFF'><b>4</b></font> брони. Отключите, если кольчуги нужны для создания предметов."
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"Часовщик: пробуждение"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"Получаемый урон снижен на %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 

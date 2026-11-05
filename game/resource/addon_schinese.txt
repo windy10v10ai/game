@@ -1586,9 +1586,9 @@
 
 		// 发条技师-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>发条 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>黑皇杖</font>效果，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。"
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>黑皇杖</font>效果，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。<br>开启<font color='#00CED1'>自动施法</font>时，自动吃掉身上的锁子甲，每件永久增加<font color='#FFFFFF'><b>4</b></font>点护甲。要用锁子甲合成装备时可以关闭。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>发条 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>黑皇杖</font>效果，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>黑皇杖</font>效果，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。<br>开启<font color='#00CED1'>自动施法</font>时，自动吃掉身上的锁子甲，每件永久增加<font color='#FFFFFF'><b>4</b></font>点护甲。要用锁子甲合成装备时可以关闭。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"发条 觉醒"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"受到的伤害降低%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
 

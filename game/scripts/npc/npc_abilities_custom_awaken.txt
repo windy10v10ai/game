@@ -857,8 +857,8 @@
 	"special_bonus_unique_rattletrap_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"rattletrap_power_cogs"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityTextureName"			"rattletrap_armor_power"
 		"MaxLevel"						"1"
 
 		"AbilityValues"
@@ -878,6 +878,25 @@
 				"IsPurgable"		"0"
 				"RemoveOnDeath"		"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"		"0.5"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/special_bonus_unique_rattletrap_upgrade"
+						"Function"		"OnAwakenCreated"
+					}
+				}
+
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/special_bonus_unique_rattletrap_upgrade"
+						"Function"		"OnAutoConsumeThink"
+					}
+				}
 
 				"OnAbilityExecuted"
 				{
