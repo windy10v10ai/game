@@ -32,7 +32,6 @@ import { GoldXPFilter } from './filter/gold-xp-filter';
 import { Lottery } from './lottery/lottery';
 import { Option } from './option';
 import { PropertyController } from './property/property_controller';
-import { HeroKillReward } from './reward/hero-kill-reward';
 import { Treasure } from './treasure/treasure';
 import { WardSlot } from './ward-slot/ward-slot';
 
@@ -45,7 +44,6 @@ declare global {
     Lottery: Lottery;
     Event: Event;
     GoldXPFilter: GoldXPFilter;
-    HeroKillReward: HeroKillReward;
     Treasure: Treasure;
     WardSlot: WardSlot;
     DailyTask: DailyTask;
@@ -116,8 +114,6 @@ export function ActivateModules() {
   if (GameRules.Event == null) GameRules.Event = new Event();
 
   if (GameRules.GoldXPFilter == null) GameRules.GoldXPFilter = new GoldXPFilter();
-
-  if (GameRules.HeroKillReward == null) GameRules.HeroKillReward = new HeroKillReward();
 
   if (GameRules.Treasure == null) GameRules.Treasure = new Treasure();
 

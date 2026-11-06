@@ -1,8 +1,5 @@
 import { normalizeControlTime } from '../event/game-end/game-end-point';
 
-// 真人达到该数量才按多人局规则结算，1–2 人仍按单人节奏
-const MIN_HUMAN_PLAYERS = 3;
-
 export class PlayerHelper {
   static IsHumanPlayer(npc: CDOTA_BaseNPC | undefined): boolean {
     if (npc && npc.IsRealHero()) {
@@ -84,11 +81,6 @@ export class PlayerHelper {
       }
     });
     return count;
-  }
-
-  /** 是否按多人局规则结算收益；工具模式放行以便单人实机验证。 */
-  static IsMultiplayerGame(): boolean {
-    return IsInToolsMode() || this.GetHumamPlayerCount() >= MIN_HUMAN_PLAYERS;
   }
 
   static GetDamageTaken(playerId: PlayerID): number {

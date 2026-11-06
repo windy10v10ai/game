@@ -3,34 +3,11 @@ import { TowerPushStatus } from '../event/event-entity-killed';
 import { PlayerHelper } from '../helper/player-helper';
 import { farmRewardBonus } from './comeback-reward';
 
-/** 多人局从开局准备阶段到开局 2 分半内，击杀金币与经验先统一按一半结算。 */
-export function earlyKillRewardRate(gameTime: number): number {
-  return gameTime < 150 ? 0.5 : 1;
-}
-
-/** 过滤器里暂时扣下的击杀金币，等击杀事件按击杀者附近的塔与真人情况决定补不补。 */
-export interface KillGoldCut {
-  playerId: PlayerID;
-  gold: number;
-  at: number;
-}
-
-/** 过滤器里暂时扣下的击杀经验，同上。 */
-export interface KillXpCut {
-  playerId: PlayerID;
-  xp: number;
-  at: number;
-}
-
 @reloadable
 export class GoldXPFilter {
   private readonly REDUCE_RATE_3_MIN = 0.6;
   private readonly REDUCE_RATE_6_MIN = 0.8;
   private readonly REDUCE_RATE_HERO_KILL = 0.5;
-
-  private readonly KILL_CUT_TTL = 2;
-  private killGoldCuts: KillGoldCut[] = [];
-  private killXpCuts: KillXpCut[] = [];
 
   constructor() {
     GameRules.GetGameModeEntity().SetModifyGoldFilter((args) => this.filterGold(args), this);
@@ -75,6 +52,7 @@ export class GoldXPFilter {
 
     if (reason === ModifyGoldReason.HERO_KILL) {
       gold = this.filterHeroKillGold(gold);
+
       gold = gold * this.rewardFilterByKill(playerID);
       mul = this.filterHeroKillGoldByMultiplier(mul);
     }
@@ -83,20 +61,7 @@ export class GoldXPFilter {
       gold = gold * this.getFarmRewardBonus(playerID);
     }
 
-    let value = Math.floor(gold * mul);
-
-    // 过滤器先于击杀事件触发，分不出击杀者和助攻者，击杀金币先整体压一半；
-    // 击杀事件确认击杀者附近有敌方塔或没有其他真人后，再由 HeroKillReward 决定谁的扣减补回
-    if (reason === ModifyGoldReason.HERO_KILL && PlayerHelper.IsMultiplayerGame()) {
-      const rate = earlyKillRewardRate(GameRules.GetDOTATime(false, true));
-      const cut = value - Math.floor(value * rate);
-      if (cut > 0) {
-        this.killGoldCuts.push({ playerId: playerID, gold: cut, at: GameRules.GetGameTime() });
-        value = value - cut;
-      }
-    }
-
-    args.gold = value;
+    args.gold = Math.floor(gold * mul);
 
     return true;
   }
@@ -127,56 +92,9 @@ export class GoldXPFilter {
       xp = xp * this.getFarmRewardBonus(playerID);
     }
 
-    let value = Math.floor(xp * mul);
-
-    // 击杀经验也只能整体先扣，等击杀事件确认击杀者附近情况后再决定补回
-    if (reason === ModifyXpReason.HERO_KILL && PlayerHelper.IsMultiplayerGame()) {
-      const rate = earlyKillRewardRate(GameRules.GetDOTATime(false, true));
-      const cut = value - Math.floor(value * rate);
-      if (cut > 0) {
-        this.killXpCuts.push({ playerId: playerID, xp: cut, at: GameRules.GetGameTime() });
-        value = value - cut;
-      }
-    }
-
-    args.experience = value;
+    args.experience = Math.floor(xp * mul);
 
     return true;
-  }
-
-  /**
-   * 取走 fromTime 之后记录的击杀金币扣减，供击杀结算按击杀者附近情况补回。
-   *
-   * @param fromTime - 只取这个时间点之后的记录，其余留给别的击杀或超时清理。
-   */
-  TakeKillGoldCuts(fromTime: number): KillGoldCut[] {
-    const result = this.splitCuts(this.killGoldCuts, fromTime);
-    this.killGoldCuts = result[1];
-    return result[0];
-  }
-
-  /** 取走 fromTime 之后记录的击杀经验扣减，规则同击杀金币。 */
-  TakeKillXpCuts(fromTime: number): KillXpCut[] {
-    const result = this.splitCuts(this.killXpCuts, fromTime);
-    this.killXpCuts = result[1];
-    return result[0];
-  }
-
-  private splitCuts<T extends { at: number }>(cuts: T[], fromTime: number): [T[], T[]] {
-    const now = GameRules.GetGameTime();
-    const due: T[] = [];
-    const keep: T[] = [];
-    for (const cut of cuts) {
-      if (now - cut.at > this.KILL_CUT_TTL) {
-        continue;
-      }
-      if (cut.at >= fromTime) {
-        due.push(cut);
-      } else {
-        keep.push(cut);
-      }
-    }
-    return [due, keep];
   }
 
   /**
@@ -226,22 +144,19 @@ export class GoldXPFilter {
     return rewardMulti;
   }
 
-  /** 玩家所属阵营的基础金币经验倍率，不含开局前期的额外衰减。 */
-  public getModeGoldXpMultiplier(playerID: PlayerID): number {
+  public getPlayerGoldXpMultiplier(playerID: PlayerID): number {
+    let mul = 1;
+
     // 所有人类玩家都使用天辉倍率
     if (PlayerHelper.IsHumanPlayerByPlayerId(playerID)) {
-      return GameRules.Option.radiantGoldXpMultiplier;
-    }
-    if (PlayerHelper.IsGoodTeamPlayer(playerID)) {
+      mul = GameRules.Option.radiantGoldXpMultiplier;
+    } else if (PlayerHelper.IsGoodTeamPlayer(playerID)) {
       // Bot玩家在天辉队伍使用天辉倍率
-      return GameRules.Option.radiantGoldXpMultiplier;
+      mul = GameRules.Option.radiantGoldXpMultiplier;
+    } else {
+      // Bot玩家在夜魇队伍使用夜魇倍率
+      mul = GameRules.Option.direGoldXpMultiplier;
     }
-    // Bot玩家在夜魇队伍使用夜魇倍率
-    return GameRules.Option.direGoldXpMultiplier;
-  }
-
-  public getPlayerGoldXpMultiplier(playerID: PlayerID): number {
-    let mul = this.getModeGoldXpMultiplier(playerID);
 
     // 游戏前期降低倍率
     const gameTime = GameRules.GetDOTATime(false, false);
