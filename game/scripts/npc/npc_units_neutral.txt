@@ -3,7 +3,8 @@
 "DOTAUnits"
 {
 	// 远古
-	// Armor x2 Attack x4 Bounty x2 Status x3
+	// Armor x2 Attack x4 Status x3
+	// 赏金：营地总量为原版 2.7 倍，大怪偏经验、小怪偏金币
 	//=================================================================================
 	// Neutral: Ancient - Black Drake 远古小黑龙
 	//=================================================================================
@@ -23,8 +24,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"190"		// 95
-		"BountyGoldMin"				"78"		// 37
-		"BountyGoldMax"				"90"		// 43
+		"BountyGoldMin"				"133"		// 37
+		"BountyGoldMax"				"151"		// 43
 
 		// Status
 		//----------------------------------------------------------------
@@ -49,7 +50,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"248"		// 124
+		"BountyXP"					"468"		// 124
 		"BountyGoldMin"				"156"		// 76
 		"BountyGoldMax"				"164"		// 80
 
@@ -79,8 +80,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"190"		// 95
-		"BountyGoldMin"				"78"		// 37
-		"BountyGoldMax"				"90"		// 43
+		"BountyGoldMin"				"133"		// 37
+		"BountyGoldMax"				"151"		// 43
 
 		// Movement
 		//----------------------------------------------------------------
@@ -111,7 +112,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"248"		// 124
+		"BountyXP"					"468"		// 124
 		"BountyGoldMin"				"156"		// 76
 		"BountyGoldMax"				"164"		// 80
 
@@ -145,7 +146,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"248"		// 124
+		"BountyXP"					"468"		// 124
 		"BountyGoldMin"				"156"		// 76
 		"BountyGoldMax"				"164"		// 80
 
@@ -181,8 +182,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"190"		// 95
-		"BountyGoldMin"				"88"		// 42
-		"BountyGoldMax"				"102"		// 49
+		"BountyGoldMin"				"147"		// 42
+		"BountyGoldMax"				"167"		// 49
 
 		// Movement
 		//----------------------------------------------------------------
@@ -211,7 +212,7 @@
 		"AttackDamageMax"			"248"		// 62
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"248"		// 124
+		"BountyXP"					"468"		// 124
 		"BountyGoldMin"				"156"		// 76
 		"BountyGoldMax"				"164"		// 80
 		// Status
@@ -240,8 +241,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"190"		// 95
-		"BountyGoldMin"				"78"		// 37
-		"BountyGoldMax"				"90"		// 43
+		"BountyGoldMin"				"133"		// 37
+		"BountyGoldMax"				"151"		// 43
 
 		// Status
 		//----------------------------------------------------------------
@@ -270,8 +271,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"190"		// 95
-		"BountyGoldMin"				"74"		// 37
-		"BountyGoldMax"				"86"		// 43
+		"BountyGoldMin"				"127"		// 37
+		"BountyGoldMax"				"145"		// 43
 
 		// Movement
 		//----------------------------------------------------------------
@@ -309,7 +310,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"248"		// 124
+		"BountyXP"					"468"		// 124
 		"BountyGoldMin"				"152"		// 76
 		"BountyGoldMax"				"160"		// 80
 
@@ -343,9 +344,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"208"		// 104
-		"BountyGoldMin"				"106"		// 53
-		"BountyGoldMax"				"112"		// 56
+		"BountyXP"					"281"		// 104
+		"BountyGoldMin"				"144"		// 53
+		"BountyGoldMax"				"152"		// 56
 
 		// Movement
 		//----------------------------------------------------------------
@@ -377,9 +378,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"208"		// 104
-		"BountyGoldMin"				"106"		// 53
-		"BountyGoldMax"				"112"		// 56
+		"BountyXP"					"281"		// 104
+		"BountyGoldMin"				"144"		// 53
+		"BountyGoldMax"				"152"		// 56
 
 		// Movement
 		//----------------------------------------------------------------
@@ -395,7 +396,7 @@
 
 	//=================================================================================
 	// Neutral Creeps: 普通中立生物
-	// Bounty x1.2
+	// 赏金：小野怪为原版 1.2 倍，大野怪与沼蛙见各段
 	//=================================================================================
 	// 小野怪
 	//=================================================================================
@@ -516,38 +517,39 @@
 
 	//=================================================================================
 	// 大野怪
+	// 赏金：营地总量为原版约 1.6 倍，大怪偏经验、小怪偏金币；萨特的大、中营地共用单位，按两营地合计
 	//=================================================================================
 	"npc_dota_neutral_centaur_outrunner" // 半人马猎手
 	{
 		"BountyXP"						"38"		//32
-		"BountyGoldMin"					"19"		//16
-		"BountyGoldMax"					"22"		//18
+		"BountyGoldMin"					"49"		//16
+		"BountyGoldMax"					"55"		//18
 	}
 
 	"npc_dota_neutral_centaur_khan" // 半人马征服者
 	{
-		"BountyXP"						"108"		//90
+		"BountyXP"						"160"		//90
 		"BountyGoldMin"					"65"		//54
 		"BountyGoldMax"					"72"		//60
 	}
 
 	"npc_dota_neutral_warpine_raider" // 斗松掠夺者
 	{
-		"BountyXP"						"91"		//76
-		"BountyGoldMin"					"58"		//48
-		"BountyGoldMax"					"60"		//50
+		"BountyXP"						"123"		//76
+		"BountyGoldMin"					"79"		//48
+		"BountyGoldMax"					"81"		//50
 	}
 
 	"npc_dota_neutral_polar_furbolg_champion" // 地狱熊怪
 	{
 		"BountyXP"						"79"		//66
-		"BountyGoldMin"					"36"		//30
-		"BountyGoldMax"					"46"		//38
+		"BountyGoldMin"					"75"		//30
+		"BountyGoldMax"					"90"		//38
 	}
 
 	"npc_dota_neutral_polar_furbolg_ursa_warrior" // 地狱熊怪粉碎者
 	{
-		"BountyXP"						"108"		//90
+		"BountyXP"						"174"		//90
 		"BountyGoldMin"					"74"		//62
 		"BountyGoldMax"					"79"		//66
 	}
@@ -555,27 +557,27 @@
 	"npc_dota_neutral_wildkin" // 枭兽
 	{
 		"BountyXP"						"31"		//26
-		"BountyGoldMin"					"19"		//16
-		"BountyGoldMax"					"22"		//18
+		"BountyGoldMin"					"38"		//16
+		"BountyGoldMax"					"44"		//18
 	}
 
 	"npc_dota_neutral_enraged_wildkin" // 枭兽撕裂者
 	{
-		"BountyXP"						"108"		//90
+		"BountyXP"						"168"		//90
 		"BountyGoldMin"					"70"		//58
 		"BountyGoldMax"					"77"		//64
 	}
 
 	"npc_dota_neutral_satyr_soulstealer" // 萨特窃神者
 	{
-		"BountyXP"						"55"		//46
-		"BountyGoldMin"					"22"		//18
-		"BountyGoldMax"					"26"		//22
+		"BountyXP"						"84"		//46
+		"BountyGoldMin"					"29"		//18
+		"BountyGoldMax"					"33"		//22
 	}
 
 	"npc_dota_neutral_satyr_hellcaller" // 萨特苦难使者
 	{
-		"BountyXP"						"108"		//90
+		"BountyXP"						"172"		//90
 		"BountyGoldMin"					"72"		//60
 		"BountyGoldMax"					"79"		//66
 	}
@@ -583,66 +585,66 @@
 	"npc_dota_neutral_satyr_trickster" // 萨特放逐者
 	{
 		"BountyXP"						"29"		//24
-		"BountyGoldMin"					"14"		//12
-		"BountyGoldMax"					"17"		//14
+		"BountyGoldMin"					"21"		//12
+		"BountyGoldMax"					"24"		//14
 	}
 
 	"npc_dota_neutral_dark_troll" // 丘陵巨魔
 	{
 		"BountyXP"						"50"		//42
-		"BountyGoldMin"					"20"		//17
-		"BountyGoldMax"					"23"		//19
+		"BountyGoldMin"					"36"		//17
+		"BountyGoldMax"					"41"		//19
 	}
 
 	"npc_dota_neutral_dark_troll_warlord" // 黑暗巨魔召唤法师
 	{
-		"BountyXP"						"108"		//90
+		"BountyXP"						"181"		//90
 		"BountyGoldMin"					"48"		//40
 		"BountyGoldMax"					"55"		//46
 	}
 
 	"npc_dota_neutral_forest_troll_high_priest" // 丘陵巨魔牧师
 	{
-		"BountyXP"						"34"		//28
-		"BountyGoldMin"					"22"		//18
-		"BountyGoldMax"					"24"		//20
+		"BountyXP"						"46"		//28
+		"BountyGoldMin"					"30"		//18
+		"BountyGoldMax"					"33"		//20
 	}
 
 	//=================================================================================
-	// 沼蛙系（Bounty x1.2）
+	// 沼蛙系 赏金为原版约 2 倍，每只怪经验与金币同比例
 	//=================================================================================
 	"npc_dota_neutral_tadpole" // 蝌蚪
 	{
-		"BountyXP"						"36"		//30
-		"BountyGoldMin"					"20"		//17
-		"BountyGoldMax"					"23"		//19
+		"BountyXP"						"60"		//30
+		"BountyGoldMin"					"33"		//17
+		"BountyGoldMax"					"38"		//19
 	}
 
 	"npc_dota_neutral_froglet" // 沼蛙
 	{
-		"BountyXP"						"50"		//42
-		"BountyGoldMin"					"30"		//25
-		"BountyGoldMax"					"35"		//29
+		"BountyXP"						"83"		//42
+		"BountyGoldMin"					"50"		//25
+		"BountyGoldMax"					"58"		//29
 	}
 
 	"npc_dota_neutral_grown_frog" // 长须蛙
 	{
-		"BountyXP"						"66"		//55
-		"BountyGoldMin"					"44"		//37
-		"BountyGoldMax"					"49"		//41
+		"BountyXP"						"109"		//55
+		"BountyGoldMin"					"73"		//37
+		"BountyGoldMax"					"81"		//41
 	}
 
 	"npc_dota_neutral_froglet_mage" // 沼蛙法师学徒
 	{
-		"BountyXP"						"50"		//42
-		"BountyGoldMin"					"30"		//25
-		"BountyGoldMax"					"35"		//29
+		"BountyXP"						"83"		//42
+		"BountyGoldMin"					"50"		//25
+		"BountyGoldMax"					"58"		//29
 	}
 
 	"npc_dota_neutral_grown_frog_mage" // 沼蛙法师
 	{
-		"BountyXP"						"66"		//55
-		"BountyGoldMin"					"44"		//37
-		"BountyGoldMax"					"49"		//41
+		"BountyXP"						"109"		//55
+		"BountyGoldMin"					"73"		//37
+		"BountyGoldMax"					"81"		//41
 	}
 }
