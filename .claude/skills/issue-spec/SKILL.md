@@ -17,7 +17,7 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 
 ## 0. 补齐 issue 字段
 
-只看当前这条 issue，缺哪项补哪项，已有的不动，不跑整批 triage。按 `issue-fields.md` 检查 Type、Priority、Effort、仓库标签、项目 Status，查询与设置命令都在那里。缺项按 issue 内容给建议值，随第 2 步一并让用户确认后再设。
+只看当前这条 issue，缺哪项补哪项，已有的不动，不跑整批 triage。按 `issue-fields.md` 检查 Type、Priority、Effort、仓库标签、项目 Status，查询与设置命令都在那里。缺项按 issue 内容给建议值，随第 2 步一并问用户，谈定后直接设。
 
 完成条件：Type、Priority、Effort、标签、项目 Status 都有值。
 
@@ -45,8 +45,12 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 - 目标能否拆成几条互不依赖的小项，让 agent 卡在一条时能跳过它继续做别的
 - 方案依赖的引擎行为或读数：还没实测过的，打 `agent-todo` 前先跑探针；用户不在跑不了或太久的，定好不成立时走哪条后备
 - 实机环境跑不通时怎么判，以及哪些项要用户试玩（发版前写进 release PR 的 Checklist）
+- **要不要写 Release Note**：必问，用 `AskUserQuestion` 让用户选（写入功能 PR 并合并进聚合 release PR / 仅写入功能 PR / 不写），不自行判定。选写的，草稿放进当前 release PR 的版本块里通读（规则见 `release-note`「写条目」），和用户对到定稿
+- 缺的字段值（Type、Priority、Effort）：按 issue 内容给建议值，和上面的问题一起问
 
 能从代码或项目规则直接得出的不问，直接写进草稿。用户在对话里亲口拍板的，记下来，第 3 步写进「要求」。
+
+第 2 步的完成就是用户的确认：第 3 步直接执行，不再停下来请用户确认。
 
 完成条件：每一项都有答案，不留「待定」。按 `agent-issue.md`「合入 develop」逐条预演：每条验收都说得出 AI 怎么判对错，判不了的已定死或归用户判定，前提不成立、环境跑不通时都有去处，agent 做完不用问用户就能决定合不合并。
 
@@ -58,17 +62,17 @@ description: 和用户一起给某个 issue 定 spec，写成 issue 正文（背
 
 - **要求**只写用户亲口拍板的，一条一行。AI 自己推断、按默认定的取舍写进执行说明并标「建议」
 - **验收**用白话写怎么判对错，命令与用例放执行说明
-- **Release Note** 要写时放进当前 release PR 的版本块里通读（规则见 `release-note`「写条目」），和用户对到定稿，格式同 PR 模板（中文块、英文块、写回方式）
+- **Release Note** 按第 2 步用户的选择写，格式同 PR 模板（中文块、英文块、写回方式）；选不写的写「不写」
 - 写入前逐项核对正文与执行说明里的数值（范围、倍率、门槛）。两边不一致时把两个数都摆给用户定，不自己选
 - 实机验证逐项标层级（「实机验证分三层」）：能脚本判定的写出预期值，截图判定的写出正确画面，剩下的才归用户
 
-给用户确认时不贴全文，只列三组重点：用户拍板的（即「要求」）、按默认做的（附「不同意就说」）、实机验证要读什么；全文写进 issue 后给链接。
+写完后向用户汇报，不贴全文，只列三组重点：用户拍板的（即「要求」）、按默认做的（附「不同意就说」）、实机验证要读什么，并给 issue 链接。用户有异议再改 issue。
 
 第 2 步用过讨论页的，定稿后按 `.claude/references/doc-writing.md`「设计 spec」把 HTML「设计」也挂到 issue（给人看），设计里和实现有关的结论要写进「执行说明」（见 `agent-issue.md`「设计 artifact」）。
 
 要拆成几批时，每批开一个子 issue，按 `agent-issue.md`「子 issue」挂到父 issue 下，各自写完整正文。
 
-用户确认后写进 issue：正文用 `gh issue edit --body-file`，执行说明先建 artifact 再把链接写进正文（已有同名块时整块替换，旧 issue 正文里的执行说明迁进 artifact，内容保留），再打标签：
+第 2 步谈定后立即写进 issue（新建 issue 时的一句背景只是占位，这一步必须把它换成标准正文）：正文用 `gh issue edit --body-file`，执行说明先建 artifact 再把链接写进正文（已有同名块时整块替换，旧 issue 正文里的执行说明迁进 artifact，内容保留），再打标签：
 
 ```bash
 gh issue artifact create <n> -R windy10v10ai/game '<文件>.md#执行说明'   # 已有时用 edit <n> <编号> --body-file
@@ -78,7 +82,7 @@ gh issue edit <n> -R windy10v10ai/game --add-label agent-todo --add-label <L1-co
 
 打完标签紧接着把项目 Status 改成 Todo 并挪到该栏最上面（`item-edit` 与 `updateProjectV2ItemPosition` 命令见 `issue-fields.md`「修改」「列内上下顺序」），这样 `issue-autorun` 下次开跑时它排在前面。条目还没入项目时先 `item-add`。
 
-完成条件：issue 正文是用户确认过的新结构（背景、目标、要求、验收、Release Note，末尾一行执行说明链接），「执行说明」artifact 已挂上，带 `agent-todo` 与一个级别标签（判据见 `agent-issue.md`「级别标签」），项目 Status 是 Todo 且在该栏最上面。
+完成条件：issue 正文是第 2 步谈定的新结构（背景、目标、要求、验收、Release Note，末尾一行执行说明链接），「执行说明」artifact 已挂上，带 `agent-todo` 与一个级别标签（判据见 `agent-issue.md`「级别标签」），项目 Status 是 Todo 且在该栏最上面。
 
 ## 处理 agent 留下的问题
 

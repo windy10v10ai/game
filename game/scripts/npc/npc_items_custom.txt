@@ -1113,7 +1113,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1000"
+		"ItemCost"						"800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -6369,7 +6369,7 @@
 		"AbilityManaCost"			"1200"
 		"AbilitySharedCooldown"		"magic_scepter"
 
-		"ItemCost"					"37000"
+		"ItemCost"					"36800"
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
@@ -7556,7 +7556,7 @@
 		"ItemInitialStockTime"			"660"	// 10分钟买（开局准备1分钟）
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"300"
+		"ItemStockTime"					"120"
 		"ItemCanBeUsedWithoutInventory"	"1"
 		"OnSpellStart"
 		{
@@ -7823,7 +7823,7 @@
 		"FightRecapLevel"			"1"
 
 		"AbilityCastRange"			"1200"
-		"AbilityCooldown"			"25"
+		"AbilityCooldown"			"30"
 		"AbilityManaCost"			"250"
 
 		"ItemCost"					"18000"
@@ -7844,7 +7844,7 @@
 			"health_threshold_pct"		"50"
 			"buff_duration"				"3"
 			"status_resistance"			"80"
-			"cooldown_duration"			"25"	// 单值 + max_level 1 关闭原版的触发递增
+			"cooldown_duration"			"30"	// 单值 + max_level 1 关闭原版的触发递增
 			"max_level"					"1"
 			"initial_cooldown"			"6"
 			"bonus_health"				"2000"

@@ -45,7 +45,6 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_beastmaster',
     abilityName: 'beastmaster_wild_axes_awaken',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_earthshaker',
@@ -122,6 +121,7 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_rattletrap',
     abilityName: 'special_bonus_unique_rattletrap_upgrade',
+    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_windrunner',

@@ -82,7 +82,7 @@ git switch -c <fix|feature>/<issue-id>-<3–6 个英文小写单词>   # Bug 用
 - commit 是单行英文标题，署名行按执行者：Claude 加 `Co-Authored-By`，没有 GitHub 账号的执行者不加（会显示成无效作者）
 - `git push -u origin HEAD`，以 `git ls-remote origin <分支>` 与本地 HEAD 一致为准
 - 按 `create-pr` 的格式开 PR，实机验证还没做就先带 `--draft`（`gh pr create --draft --base develop -R windy10v10ai/game`），验证与审查通过后立刻转正式。正文只写人做判断要看的关键信息，过程细节放进一条「验证记录」评论（之后更新用 `gh pr comment --edit-last`）。正文另加：
-  - Issue 段：目标全部完成写 `- Fixes #<id>`，有跳过写 `- #<id>`（行首带 `- `，GitHub 会自动显示 issue 标题）
+  - Issue 段：本 PR 是该 issue 唯一的 PR 时一律写 `- Fixes #<id>`（行首带 `- `，GitHub 会自动显示 issue 标题）；有跳过或没验到的项写进「待你决定」，用户合并就是认可，issue 随合并关闭。只有 issue 拆成多个 PR 时才写 `- #<id>`
   - 影响玩家的数值、档位、等级用表格列出
   - Checklist：「验收」每一条与执行说明「实机验证」的每一项
   - 「实现思路」一节：一张 SVG 前后示意图（左改前、右改后，改前橙、改后蓝，样例 PR #2725 的 `mechanism.svg`），图里只用白话名，图下只有一行代码名对照。顶部一句话已说明改了什么和玩家影响，图下不再重复文字；没有机制变化的纯文案、数值改动不画。图在 PR 创建后按 `create-pr/references/screenshots.md` 推到 `assets` 分支 `pr/<PR 编号>/`，再 `gh pr edit` 写进正文
@@ -137,9 +137,9 @@ PR 正文是用户判断的唯一入口，不靠对话补充：只看正文就�
 
 全部成立时依次做：
 
-1. issue 正文 Release Note 要写的，调用 `release-note`（来源：该 PR，写回：该节定的写回方式，没写时按「仅写入功能 PR」），要点以该节为准，不另拟。聚合 release PR 还没创建时先写入功能 PR，合并后再写入聚合 release PR；改了 `GAME_VERSION` 的提交进该 PR 并等 CI 重跑。合并后才写入时不提交版本号，`git restore` 还原，留给 release PR 的「更新游戏版本号」
+1. 聚合 release PR 还没创建、且 issue 正文 Release Note 要写时，调用 `release-note`（来源：该 PR，写回：「仅写入功能 PR」），要点以该节为准，不另拟；改了 `GAME_VERSION` 的提交进该 PR 并等 CI 重跑
 2. 按「合入 develop」的命令等 CI 并合并
-3. 把「发版前」各条写进 release PR 的 Checklist
+3. 合并后读一次 release PR 正文，一次改完两节：「Release Note」节（要写且还没写入的，调用 `release-note`，写回：该节定的写回方式，不提交版本号，`git restore` 还原，留给 release PR 的「更新游戏版本号」）和「Checklist」节（「发版前」各条追加）
 4. 按 `.claude/references/git-workflow.md`「合并与清理」删本地分支，主目录回到 `develop`；在 worktree 里做的，先 `cmd //c rmdir <path>/node_modules` 拆掉链接再删 worktree
 
 完成条件：PR 已合并、「发版前」各条都在 release PR 的 Checklist 里、主目录在 `develop` 且干净；或 PR 开着且「等你处理」写明了不合并的原因。

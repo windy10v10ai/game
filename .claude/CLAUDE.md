@@ -99,6 +99,7 @@ Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽
 - 只 stage 本次请求相关的文件，commit 前看 `git status`；当前分支不符合预期（如处于 `develop`/`main`）先请用户确认
 - PR 做完（验收与验证都完成）就直接开正式，没做完的才开草稿，正文写明没做完什么；草稿一做完就转正式。审出要大改时 `gh pr ready <编号> --undo` 退回草稿，改完再转正式
 - 合并只在用户给出指令时执行。例外：按 `issue-impl` 做的 issue 合并条件全过时直接合入 `develop`，见 `.claude/references/agent-issue.md`「合入 develop」。release PR 始终由用户审批
+- **合并功能 PR（含用户在对话里说「合并」）前后，按 `issue-impl` 第 10 步清单走一遍**：先对照 issue 正文的「Release Note」节，合并后读一次 release PR 正文，一次改完「Release Note」（要写的）与「Checklist」（「发版前」各条）两节。用户当场调整了改动内容时，同步判断日志要不要增删条目，不靠「PR 描述里写了」当作已处理
 - 开 PR 走 `create-pr` skill：纯内部改动（重构、构建、CI、文档、测试）自行跳过 Release Note，其余算出目标版本后问用户写不写，要写时调用 `release-note` 生成
 
 ## 文档分工
