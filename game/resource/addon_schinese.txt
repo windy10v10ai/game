@@ -3720,9 +3720,8 @@
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"							"重新规划你的能力路线。"
 
 		"DOTA_Tooltip_ability_item_skill_reset"											"遗忘技能书"
-		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>使用：遗忘</h1>选择一个被动技能书得到的额外被动技能遗忘，返还已花费的技能点，并退回一次被动技能书使用次数。"
+		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>使用：遗忘</h1>选择一个被动技能书得到的额外被动技能遗忘，返还已花费的技能点，并退回一次被动技能书使用次数。\n英雄自带技能和开局抽奖得到的技能不能遗忘。"
 		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"后悔药。"
-		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"英雄自带技能和开局抽奖得到的技能不受影响。"
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"洗炼石"
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>使用：洗炼</h1>洗炼背包中所有符文、圣兽符的拥有者印记<br><br>只洗炼拥有者不是自己的符文、圣兽符，对自己的符文不会生效"
