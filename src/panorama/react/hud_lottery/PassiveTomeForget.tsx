@@ -39,6 +39,9 @@ const cancelButtonStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'center',
   marginTop: '4px',
   marginBottom: '8px',
+  backgroundColor: '#000000aa',
+  borderRadius: '4px',
+  border: '1px solid #ffd70088',
 };
 
 const cancelLabelStyle: Partial<VCSSStyleDeclaration> = {
