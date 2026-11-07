@@ -83,6 +83,11 @@ export class PlayerHelper {
     return count;
   }
 
+  /** 真人不少于 2 人的多人局，Tools 模式放行以便单机验证。 */
+  static IsMultiplayerGame(): boolean {
+    return IsInToolsMode() || this.GetHumamPlayerCount() >= 2;
+  }
+
   static GetDamageTaken(playerId: PlayerID): number {
     let damageTaken = 0;
     for (let victimID = 0; victimID < DOTA_MAX_TEAM_PLAYERS; victimID++) {
