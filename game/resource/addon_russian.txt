@@ -297,7 +297,7 @@
 		"lottery_tooltip_item_refresh_paid"						"Потратить <font color='#FFD700'>{cost}</font> доступных очков на обновление предметов<br>Осталось обновлений: {remaining}<br>(общие очки и уровень подписки не изменятся)"
 		"lottery_tooltip_item_refresh_limit"					"Доступные обновления закончились<br>Осталось обновлений: 0"
 		"lottery_tooltip_item_refresh_insufficient"				"Недостаточно доступных очков. Нажмите, чтобы открыть страницу подписки"
-		"lottery_tooltip_passive_tome_refresh"					"Первое обновление бесплатно"
+		"lottery_tooltip_passive_tome_refresh"					"Обновить навыки"
 		"lottery_tooltip_passive_tome_refresh_paid"				"Потратить <font color='#FFD700'>{cost}</font> доступных очков на обновление пассивных навыков<br>Осталось обновлений: {remaining}<br>(общие очки и уровень подписки не изменятся)"
 		"lottery_tooltip_passive_tome_refresh_limit"			"Доступные обновления закончились<br>Осталось обновлений: 0"
 		"lottery_tooltip_passive_tome_refresh_insufficient"		"Недостаточно доступных очков. Нажмите, чтобы открыть страницу очков подписки"

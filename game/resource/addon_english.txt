@@ -297,7 +297,7 @@
 		"lottery_tooltip_item_refresh_paid"						"Spend <font color='#FFD700'>{cost}</font> usable points to reroll items<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
 		"lottery_tooltip_item_refresh_limit"					"No available rerolls left.<br>Remaining available rerolls: 0"
 		"lottery_tooltip_item_refresh_insufficient"				"Not enough usable points. Click to open the membership page."
-		"lottery_tooltip_passive_tome_refresh"					"The first reroll is free."
+		"lottery_tooltip_passive_tome_refresh"					"Reroll abilities"
 		"lottery_tooltip_passive_tome_refresh_paid"				"Spend <font color='#FFD700'>{cost}</font> usable points to reroll passive abilities<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
 		"lottery_tooltip_passive_tome_refresh_limit"			"No available rerolls left.<br>Remaining available rerolls: 0"
 		"lottery_tooltip_passive_tome_refresh_insufficient"		"Not enough usable points. Click to open the member points page."
