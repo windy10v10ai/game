@@ -7743,7 +7743,7 @@
 
 		"AbilityCooldown"			"1.0"
 		"AbilityManaCost"			"0"
-		"ItemCost"					"99999"
+		"ItemCost"					"80000"
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 		"ItemDroppable"				"1"
