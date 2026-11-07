@@ -8,6 +8,7 @@ const containerStyle: Partial<VCSSStyleDeclaration> = {
   verticalAlign: 'bottom',
   marginBottom: '250px',
   flowChildren: 'down',
+  padding: '4px 8px',
 };
 
 const titleStyle: Partial<VCSSStyleDeclaration> = {
@@ -18,6 +19,9 @@ const titleStyle: Partial<VCSSStyleDeclaration> = {
   fontSize: '20px',
   color: 'gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), color-stop(0.6, #FFE982), to(#CA8E25))',
   fontWeight: 'bold',
+  maxWidth: '300px',
+  textAlign: 'center',
+  whiteSpace: 'normal',
   textShadow: '1px 1px 8px 3.0 #000000FF',
 };
 
@@ -32,12 +36,17 @@ const rowStyle: Partial<VCSSStyleDeclaration> = {
 
 const abilityStyle: Partial<VCSSStyleDeclaration> = {
   width: '80px',
-  margin: '2px 10px',
+  height: '80px',
+  margin: '2px 8px',
+  border: '2px solid #6b7078',
+  borderRadius: '4px',
+  boxShadow: '#000000cc 0px 4px 10px 0px',
 };
 
 const cancelButtonStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'center',
-  marginTop: '4px',
+  width: '120px',
+  marginTop: '8px',
   marginBottom: '8px',
   backgroundColor: '#000000aa',
   borderRadius: '4px',
@@ -47,8 +56,7 @@ const cancelButtonStyle: Partial<VCSSStyleDeclaration> = {
 const cancelLabelStyle: Partial<VCSSStyleDeclaration> = {
   fontSize: '16px',
   color: '#FFFFFF',
-  marginLeft: '16px',
-  marginRight: '16px',
+  horizontalAlign: 'center',
   marginTop: '4px',
   marginBottom: '4px',
 };
