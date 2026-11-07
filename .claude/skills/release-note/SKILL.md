@@ -54,7 +54,8 @@ background: false
 - 一个 PR 只写它的主线改动；顺带的文案、推广语、PR 里其他小调整不单列；拿不准要不要写的列在回报里，由调用方问用户
 - 中文全角标点，英文半角。直接陈述：英文写 `Fixed X`（不写 `Fixed an issue where`），中文去掉「由于」「本次」
 - 用玩家熟悉的简称与主动句式（「魔免」「不再触发 X」）
-- 玩家视角：写加强、削弱、修正了谁、哪类玩法变了。数值改动用定性表述（用户指定或玩家需要理解的档位除外）。KV、override、AbilityValues、注释、文件路径这类维护用语不出现
+- 条目不写具体数字（分钟数、价格、次数、百分比、倍率），只写做了什么：「被动技能书可刷新」而不是「首次刷新免费、11 分钟后可买」。只有用户在对话里明确要求写某个数字时才写
+- 玩家视角：写加强、削弱、修正了谁、哪类玩法变了。数值改动用定性表述。KV、override、AbilityValues、注释、文件路径这类维护用语不出现
 - **bot 行为改动只写行为方向**：「电脑现在会主动使用 XX」「电脑不再误用 XX」/ `Bot now actively uses XX`、`Bot no longer misuses XX`。为配合物品改动顺带调整几个英雄的出装不写
 - 觉醒限时免费清单（`FREE_TRIAL_HEROES`）的增减、注释同步、KV 对照、纯文档变更不写
 - **名词以本地化文件为准**：英雄、物品、技能及其效果名 grep `game/resource/addon_schinese.txt` / `addon_english.txt` 核实（英雄键 `npc_dota_hero_<id>`）；项目里没有时查 `docs/reference/<version>/abilities_*.txt` 的 `npc_dota_hero_<id>:n`

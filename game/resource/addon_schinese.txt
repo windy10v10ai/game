@@ -297,6 +297,10 @@
 		"lottery_tooltip_item_refresh_paid"						"消耗 <font color='#FFD700'>{cost}</font> 可用积分刷新物品<br>剩余可用刷新次数：{remaining}<br>（不降低总会员积分及会员等级）"
 		"lottery_tooltip_item_refresh_limit"					"可用刷新次数已用完<br>剩余可用刷新次数：0"
 		"lottery_tooltip_item_refresh_insufficient"				"可用积分不足，点击前往会员页"
+		"lottery_tooltip_passive_tome_refresh"					"首次刷新免费"
+		"lottery_tooltip_passive_tome_refresh_paid"				"消耗 <font color='#FFD700'>{cost}</font> 可用积分刷新被动技能<br>剩余可用刷新次数：{remaining}<br>（不降低总会员积分及会员等级）"
+		"lottery_tooltip_passive_tome_refresh_limit"			"可用刷新次数已用完<br>剩余可用刷新次数：0"
+		"lottery_tooltip_passive_tome_refresh_insufficient"		"可用积分不足，点击前往会员积分页"
 
 		"lottery_button_ability_reset"							"重置"
 		"lottery_tooltip_ability_reset_enable"					"移除已选择的技能，并重新抽选一组新技能"
@@ -305,6 +309,8 @@
 
 		"lottery_item_header"									"宝箱开启！选择你的奖励"
 		"lottery_passive_tome_header"							"选择一个被动技能"
+		"lottery_forget_passive_tome_header"					"选择要遗忘的被动技能"
+		"lottery_forget_passive_tome_cancel"					"取消"
 
 		///////////////////////////////////////////////////
 		//
@@ -3031,7 +3037,7 @@
 
 		// 被动技能书
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"被动技能书"
-		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 有更高概率获得强力技能，从 4 个随机被动技能中任选其一学习。\n每名玩家整局最多使用 2 次\n可以分享给队友\n可在商店购买，不可出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 有更高概率获得强力技能，从 4 个随机被动技能中任选其一学习。\n每名玩家整局最多使用 2 次\n可刷新候选，首次刷新免费\n可以分享给队友\n可在商店购买，不可出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"翻开它，便能习得前人沉淀的力量。"
 
 		// 圣女白莲
@@ -3713,11 +3719,10 @@
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>使用：能力重置</h1>打开能力重置界面，可以移除已学习的技能并学习新技能。<br>移除技能时会返还技能点。<br><br>一本书只能选择一个技能进行重置。\n\n可以分享给队友"
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"							"重新规划你的能力路线。"
 
-		"DOTA_Tooltip_ability_item_skill_reset"											"技能洗点书"
-		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>使用：洗点</h1>重置英雄技能等级并返还已花费的技能点。主动技能清零，被动、攻击触发及开关型技能保留至1级。"
+		"DOTA_Tooltip_ability_item_skill_reset"											"遗忘技能书"
+		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>使用：遗忘</h1>选择一个被动技能书得到的额外被动技能遗忘，返还已花费的技能点，并退回一次被动技能书使用次数。"
 		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"后悔药，人手一颗。"
-		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"最高等级只有1级的先天技能不受影响。"
-		"DOTA_Tooltip_ability_item_skill_reset_Note1"									"被动、攻击触发及开关型技能会保留至1级（不清零），避免出现冷却异常等问题。"
+		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"英雄自带技能和开局抽奖得到的技能不受影响。"
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"洗炼石"
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>使用：洗炼</h1>洗炼背包中所有符文、圣兽符的拥有者印记<br><br>只洗炼拥有者不是自己的符文、圣兽符，对自己的符文不会生效"
@@ -3731,6 +3736,7 @@
 		"dota_hud_error_awaken_stone_awakened"											"该英雄已经觉醒过了"
 		"dota_hud_error_assassinate_no_target"											"范围内没有敌方英雄"
 		"dota_hud_error_passive_skill_tome_max_usage"									"被动技能书使用次数已达上限"
+		"dota_hud_error_skill_forget_no_passive"										"没有可遗忘的额外被动技能"
 		"dota_hud_error_ward_no_cast_zone"												"肉山坑附近不能放置守卫"
 		"dota_hud_error_swift_glove_no_roshan"											"无法对肉山使用"
 		"dota_hud_error_swift_glove_no_building"										"无法对建筑使用"

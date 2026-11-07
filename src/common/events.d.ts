@@ -26,6 +26,9 @@ interface CustomGameEventDeclarations {
   lottery_pick_item: LotteryPickItemEventData;
   lottery_refresh_item: Record<string, never>;
   lottery_pick_passive_tome: LotteryPickItemEventData;
+  lottery_refresh_passive_tome: Record<string, never>;
+  lottery_forget_passive_tome: LotteryForgetPassiveTomeEventData;
+  lottery_cancel_forget_passive_tome: Record<string, never>;
   player_info_refresh: Record<string, never>;
   awaken_unlock_hero: AwakenUnlockHeroEventData;
   awaken_unlock_result: Record<string, never>;
@@ -152,6 +155,10 @@ interface LotteryRefreshEventData {
 interface LotteryPickItemEventData {
   name: string;
   level: number;
+}
+
+interface LotteryForgetPassiveTomeEventData {
+  name: string;
 }
 
 interface AlipayOrderCreateEventData {

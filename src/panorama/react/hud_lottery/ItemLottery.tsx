@@ -1,16 +1,18 @@
 import 'panorama-polyfill-x/lib/console';
 import 'panorama-polyfill-x/lib/timers';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LotteryDto } from '../../../common/dto/lottery';
 import { useNetTable } from '../shared/hooks/useNetTable';
 import { isPremiumMember } from '../shared/utils/member';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { colors } from './colors';
+import LotteryRefreshButton, {
+  MAX_PAID_REFRESH_COUNT,
+  getPaidRefreshCost,
+} from './components/LotteryRefreshButton';
 
 const EXPIRE_SECONDS = 12;
 const TICK_INTERVAL_MS = 100;
-const PAID_REFRESH_COSTS = [10, 20, 30, 50];
-const MAX_PAID_REFRESH_COUNT = 5;
 
 const containerStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'center',
@@ -45,17 +47,6 @@ const itemStyle: Partial<VCSSStyleDeclaration> = {
   margin: '2px 6px',
 };
 
-const refreshButtonStyle: Partial<VCSSStyleDeclaration> = {
-  marginLeft: '5px',
-  marginRight: '5px',
-  verticalAlign: 'center',
-};
-
-const refreshImageStyle: Partial<VCSSStyleDeclaration> = {
-  width: '40px',
-  height: '40px',
-};
-
 const progressTrackStyle: Partial<VCSSStyleDeclaration> = {
   width: '100%',
   height: '10px',
@@ -88,9 +79,6 @@ const getTierGlow = (level: number): string => {
   return `0 0 2px 1px ${map[level] ?? colors.tier1}`;
 };
 
-const getPaidRefreshCost = (paidCount: number) =>
-  PAID_REFRESH_COSTS[Math.min(paidCount, PAID_REFRESH_COSTS.length - 1)];
-
 function pickItem(candidate: LotteryDto) {
   GameEvents.SendCustomGameEventToServer('lottery_pick_item', {
     name: candidate.name,
@@ -117,10 +105,6 @@ function RefreshIconButton({
   const canAfford = useableMemberPoint >= nextCost;
   const guideToMember = !isPremium || (isRefreshed && !isPaidRefreshLimitReached && !canAfford);
   const canRefresh = isPremium && canAfford && !isPaidRefreshLimitReached;
-  const imageSrc = canRefresh
-    ? 'file://{images}/custom_game/lottery/icon_rerolltoken.png'
-    : 'file://{images}/custom_game/lottery/icon_rerolltoken_disabled.png';
-
   const getTooltipText = () => {
     if (!isPremium) {
       return $.Localize('#lottery_tooltip_item_refresh_not_premium');
@@ -140,13 +124,6 @@ function RefreshIconButton({
   };
 
   const tooltipText = getTooltipText();
-  const hoverPanelRef = useRef<Panel | null>(null);
-
-  useEffect(() => {
-    if (hoverPanelRef.current) {
-      $.DispatchEvent('DOTAShowTextTooltip', hoverPanelRef.current, tooltipText);
-    }
-  }, [tooltipText]);
 
   const handleClick = () => {
     if (guideToMember) {
@@ -165,20 +142,7 @@ function RefreshIconButton({
   };
 
   return (
-    <Button
-      onactivate={handleClick}
-      style={refreshButtonStyle}
-      onmouseover={(panel) => {
-        hoverPanelRef.current = panel;
-        $.DispatchEvent('DOTAShowTextTooltip', panel, tooltipText);
-      }}
-      onmouseout={() => {
-        hoverPanelRef.current = null;
-        $.DispatchEvent('DOTAHideTextTooltip');
-      }}
-    >
-      <Image src={imageSrc} style={refreshImageStyle} />
-    </Button>
+    <LotteryRefreshButton tooltipText={tooltipText} canRefresh={canRefresh} onClick={handleClick} />
   );
 }
 

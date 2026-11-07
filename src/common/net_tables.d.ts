@@ -87,10 +87,17 @@ declare global {
         poolType: string;
       };
     };
-    // 被动技能书抽奖（使用技能书触发，瞬时事件，key = playerId）
+    // 被动技能书抽奖与遗忘（key = playerId）
     lottery_passive_tome: {
       [playerId: string]: {
         candidates: LotteryDto[];
+        isRefreshed: boolean;
+        // 已使用会员积分刷新的次数，每次使用技能书从 0 开始
+        paidRefreshCount: number;
+        // 遗忘选择窗口是否打开
+        forgetting: boolean;
+        // 技能书得到的额外被动，供遗忘技能书选择
+        owned: string[];
       };
     };
     // 添加虚拟金币表定义

@@ -297,6 +297,10 @@
 		"lottery_tooltip_item_refresh_paid"						"Spend <font color='#FFD700'>{cost}</font> usable points to reroll items<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
 		"lottery_tooltip_item_refresh_limit"					"No available rerolls left.<br>Remaining available rerolls: 0"
 		"lottery_tooltip_item_refresh_insufficient"				"Not enough usable points. Click to open the membership page."
+		"lottery_tooltip_passive_tome_refresh"					"The first reroll is free."
+		"lottery_tooltip_passive_tome_refresh_paid"				"Spend <font color='#FFD700'>{cost}</font> usable points to reroll passive abilities<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
+		"lottery_tooltip_passive_tome_refresh_limit"			"No available rerolls left.<br>Remaining available rerolls: 0"
+		"lottery_tooltip_passive_tome_refresh_insufficient"		"Not enough usable points. Click to open the member points page."
 
 		"lottery_button_ability_reset"							"Reset"
 		"lottery_tooltip_ability_reset_enable"					"Remove the selected ability and reroll a new set of abilities"
@@ -305,6 +309,8 @@
 
 		"lottery_item_header"									"Pick Your Treasure"
 		"lottery_passive_tome_header"							"Choose a Passive Ability"
+		"lottery_forget_passive_tome_header"					"Choose a Passive Ability to Forget"
+		"lottery_forget_passive_tome_cancel"					"Cancel"
 
 		///////////////////////////////////////////////////
 		//
@@ -3029,7 +3035,7 @@
 
 		// 被动技能书
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"Passive Skill Tome"
-		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Higher chance of strong abilities. Choose one passive ability to learn from 4 random options.\nEach player can use this up to 2 times per game.\nShareable with teammates.\nCan be bought in the shop but cannot be sold. Has a chance to appear in treasure chests."
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Higher chance of strong abilities. Choose one passive ability to learn from 4 random options.\nEach player can use this up to 2 times per game.\nThe choices can be rerolled, the first reroll is free.\nShareable with teammates.\nCan be bought in the shop but cannot be sold. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"Open it, and the power distilled by those before you becomes yours."
 
 		// 圣女白莲
@@ -3711,11 +3717,10 @@
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>Use: Ability Reset</h1>Opens the ability draft interface, allowing you to remove selected abilities and learn new ones.<br>Skill points are refunded when removing abilities.<br><br>One tome can only be used to reset one ability.\n\nCan be shared with teammates."
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"							"Redesign your ability path."
 
-		"DOTA_Tooltip_ability_item_skill_reset"											"Respec Tome"
-		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>Use: Respec</h1>Resets hero ability levels and refunds spent skill points. Active abilities reset to 0; passive, attack-triggered and toggle abilities are kept at level 1."
+		"DOTA_Tooltip_ability_item_skill_reset"											"Skill Forget Tome"
+		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>Use: Forget</h1>Choose one extra passive ability gained from the Passive Skill Tome to forget. Refunds its spent skill points and one Passive Skill Tome use."
 		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"Everyone deserves a second chance."
-		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"Innate abilities with a max level of 1 are not affected."
-		"DOTA_Tooltip_ability_item_skill_reset_Note1"									"Passive, attack-triggered and toggle abilities are kept at level 1 (not reset to 0) to avoid cooldown bugs."
+		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"Hero innate abilities and abilities from the starting lottery are not affected."
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"Rune Signer"
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>Use: Re-sign</h1>Re-signs the owner mark on all runes and sacred beast sigils in your inventory.<br><br>Only affects runes and sacred beast sigils not owned by you; has no effect on your own runes."
@@ -3729,6 +3734,7 @@
 		"dota_hud_error_awaken_stone_awakened"											"This hero has already awakened"
 		"dota_hud_error_assassinate_no_target"											"No enemy heroes in range"
 		"dota_hud_error_passive_skill_tome_max_usage"									"Passive Skill Tome usage limit reached"
+		"dota_hud_error_skill_forget_no_passive"										"No extra passive ability to forget"
 		"dota_hud_error_ward_no_cast_zone"												"Cannot place wards near Roshan's pit"
 		"dota_hud_error_swift_glove_no_roshan"											"Cannot be used on Roshan"
 		"dota_hud_error_swift_glove_no_building"										"Cannot be used on buildings"
