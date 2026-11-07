@@ -6,6 +6,7 @@ import Lottery from './Lottery';
 import KeyBind from './KeyBind';
 import ItemLottery from './ItemLottery';
 import PassiveTomeLottery from './PassiveTomeLottery';
+import PassiveTomeForget from './PassiveTomeForget';
 import WardSlot from './WardSlot';
 
 function Root() {
@@ -13,6 +14,7 @@ function Root() {
     <Panel style={{ width: '100%', height: '100%' }} hittest={false}>
       <ItemLottery />
       <PassiveTomeLottery />
+      <PassiveTomeForget />
       <Lottery />
       <KeyBind />
       <WardSlot />
