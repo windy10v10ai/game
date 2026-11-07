@@ -2,6 +2,7 @@ import { Player } from '../../api/player';
 import { PlayerHelper } from '../helper/player-helper';
 import { GameEnd } from './game-end/game-end';
 import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
+import { teamKillGold } from '../filter/team-kill-gold';
 
 // 全局游戏状态 - 记录塔摧毁情况
 export class TowerPushStatus {
@@ -32,7 +33,7 @@ export class EventEntityKilled {
       return;
     }
     if (killedUnit.IsRealHero()) {
-      this.onHeroKilled(killedUnit as CDOTA_BaseNPC_Hero);
+      this.onHeroKilled(killedUnit as CDOTA_BaseNPC_Hero, keys.entindex_attacker);
       return;
     }
     if (killedUnit.GetClassname() === 'npc_dota_fort') {
@@ -175,10 +176,11 @@ export class EventEntityKilled {
 
   private readonly respawnCheckDelay = 1;
 
-  private onHeroKilled(hero: CDOTA_BaseNPC_Hero): void {
+  private onHeroKilled(hero: CDOTA_BaseNPC_Hero, attackerIndex?: EntityIndex): void {
     const reincarnating = hero.IsReincarnating();
     if (!reincarnating) {
       this.setRespawnTime(hero);
+      this.rewardTeamKillGold(hero, attackerIndex);
     }
 
     // 线上偶发复活时间异常巨大且来源未明，死后复查兜底并留日志追查
@@ -194,6 +196,40 @@ export class EventEntityKilled {
           `[EventEntityKilled] respawn time fallback: ${hero.GetUnitName()} reincarnating=${reincarnating} ${remaining} -> ${hero.GetTimeUntilRespawn()}`,
         );
       }
+    });
+  }
+
+  /** 天辉玩家击杀夜魇英雄时，给其余天辉玩家发保底金币。 */
+  private rewardTeamKillGold(hero: CDOTA_BaseNPC_Hero, attackerIndex?: EntityIndex): void {
+    if (!attackerIndex) {
+      return;
+    }
+    const attacker = EntIndexToHScript(attackerIndex) as CDOTA_BaseNPC | undefined;
+    const killer = attacker?.GetPlayerOwner();
+    if (!killer) {
+      return;
+    }
+    const killerId = killer.GetPlayerID();
+    if (
+      !PlayerHelper.IsGoodTeamPlayer(killerId) ||
+      PlayerResource.GetTeam(hero.GetPlayerID()) !== DotaTeam.BADGUYS
+    ) {
+      return;
+    }
+
+    const baseGold = teamKillGold(hero.GetLevel(), PlayerHelper.IsMultiplayerGame());
+    PlayerHelper.ForEachPlayer((playerId) => {
+      if (playerId === killerId || !PlayerHelper.IsGoodTeamPlayer(playerId)) {
+        return;
+      }
+      const teammate = PlayerResource.GetSelectedHeroEntity(playerId);
+      if (!teammate) {
+        return;
+      }
+      // 到账值已算完所有倍率，飘字用同一个数；UNSPECIFIED 不再经过金币过滤器
+      const gold = GameRules.GoldXPFilter.getHeroKillGold(playerId, baseGold);
+      teammate.ModifyGold(gold, true, ModifyGoldReason.UNSPECIFIED);
+      SendOverheadEventMessage(undefined, OverheadAlert.GOLD, teammate, gold, undefined);
     });
   }
 
