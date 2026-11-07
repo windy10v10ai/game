@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300" font-family="Microsoft YaHei,PingFang SC,sans-serif" font-size="15">
+<rect width="820" height="300" fill="#fff"/>
+<rect x="15" y="15" width="385" height="270" rx="8" fill="#fff4e8" stroke="#e8862a" stroke-width="2"/>
+<rect x="420" y="15" width="385" height="270" rx="8" fill="#e9f2fd" stroke="#2f7ad6" stroke-width="2"/>
+<text x="35" y="46" font-size="18" font-weight="bold" fill="#b85f10">改前</text>
+<text x="440" y="46" font-size="18" font-weight="bold" fill="#1f5fae">改后（多人局天辉）</text>
+<g fill="#222">
+<text x="35" y="86" font-weight="bold">击杀领先的玩家</text>
+<text x="35" y="112">全队 10 杀后才打折</text>
+<text x="35" y="136">只压金币，经验不打折</text>
+<text x="35" y="182" font-weight="bold">其他队友</text>
+<text x="35" y="208">保底金币：10 级 10、30 级 20</text>
+<text x="35" y="232">头上飘字比实际到账高</text>
+<text x="440" y="86" font-weight="bold">击杀领先的玩家</text>
+<text x="440" y="112">全队 5 杀后就打折</text>
+<text x="440" y="136">金币和经验同样打折</text>
+<text x="440" y="182" font-weight="bold">其他队友</text>
+<text x="440" y="208">保底金币翻倍：10 级 20、30 级 40</text>
+<text x="440" y="232">飘字等于实际到账</text>
+<text x="440" y="268" fill="#555">单人局和夜魇电脑的收益不变</text>
+</g>
+</svg>
