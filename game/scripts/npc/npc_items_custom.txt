@@ -7732,7 +7732,7 @@
 		"ItemQuality"				"consumable"
 	}
 
-	// 被动技能书：一次性消耗品，使用后按 premium 概率随机学一个被动技能，每名玩家整局最多 3 次
+	// 被动技能书：一次性消耗品，使用后按 premium 概率随机学一个被动技能，每名玩家整局最多 2 次；商店购买，不可出售
 	"item_passive_skill_tome"
 	{
 		"ID"						"10463"
@@ -7743,15 +7743,18 @@
 
 		"AbilityCooldown"			"1.0"
 		"AbilityManaCost"			"0"
-		"ItemCost"					"0"
-		"ItemPurchasable"			"0"
+		"ItemCost"					"80000"
+		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 		"ItemDroppable"				"1"
 		"ItemKillable"				"0"
 		"ItemPermanent"				"0"
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		// 库存设置
+		"ItemInitialStockTime"		"660"	// 11分钟买（开局准备1分钟）
 		"ItemStockInitial"			"0"
-		"ItemStockMax"				"0"
+		"ItemStockMax"				"2"
+		"ItemStockTime"				"300"
 		"ItemCanBeUsedWithoutInventory"	"1"
 
 		"ItemShopTags"				"consumable"

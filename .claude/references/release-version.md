@@ -12,14 +12,14 @@ curl -s -m 15 https://steamcommunity.com/sharedfiles/filedetails/changelog/23074
 
 首条匹配即最新版本。用 curl 而不是 WebFetch：WebFetch 把整页交给模型总结，经常失败。curl 失败或无匹配时，向用户要 Steam 当前版本号（SubAgent 里停下回报）。
 
-**release PR 版本**：`gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url`，标题即大版本号（如 `v5.65`）。它在任意 PR 合入 `develop` 后自动创建，`develop` 上的代码就是这个版本。没有或有多条时问用户；没有时同时记下「release PR 未创建」，`create-pr` 的写回选项按它出。release PR 存在时同时读正文（`gh pr view <N> --repo windy10v10ai/game --json body -q .body`），取目标版本块里的现有条目，供 `release-note` 对照合并、定位置。
+**release PR 版本**：`gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url`，标题即大版本号（如 `v5.65`）。它在任意 PR 合入 `develop` 后自动创建，`develop` 上的代码就是这个版本。有多条时问用户；没有时按创建工作流的公式算：`git tag -l "v*.*" | sort -V | tail -1` 的小版本号加 1（如 `v5.69` 得 `v5.70`），同时记下「release PR 未创建」，`create-pr` 的写回选项按它出。release PR 存在时同时读正文（`gh pr view <N> --repo windy10v10ai/game --json body -q .body`），取目标版本块里的现有条目，供 `release-note` 对照合并、定位置。
 
 ## 2. 算目标版本
 
 | Steam 最新 | 目标版本 | 写进 release PR 的位置 |
 |---|---|---|
 | 低于 release PR（Steam `v5.64`、PR `v5.65`） | release PR 版本 `v5.65` | 大版本块 |
-| 与 release PR 同大版本（`v5.65` / `v5.65a`） | 下一个补丁字母 `v5.65a` / `v5.65b` | `---` 之下的补丁块 |
+| 与 release PR 同大版本（`v5.65` / `v5.65a`） | 用户明确要求小版本时取下一个补丁字母 `v5.65a` / `v5.65b`，否则取 release PR 版本 `v5.65` | 补丁版本不写入 release PR，写回只能选「仅写入功能 PR」或「不写」 |
 | 高于 release PR | 问用户 | — |
 
 完成：目标版本是具体的 `v…` 字符串。

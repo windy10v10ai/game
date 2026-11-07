@@ -137,9 +137,9 @@ PR 正文是用户判断的唯一入口，不靠对话补充：只看正文就�
 
 全部成立时依次做：
 
-1. 聚合 release PR 还没创建、且 issue 正文 Release Note 要写时，调用 `release-note`（来源：该 PR，写回：「仅写入功能 PR」），要点以该节为准，不另拟；改了 `GAME_VERSION` 的提交进该 PR 并等 CI 重跑
+1. 不论 Release Note 写不写，先按 `release-note` 第 1 步「同步 `GAME_VERSION`」核对，不一致就改成目标版本，提交进该 PR 并等 CI 重跑；已一致就跳过。聚合 release PR 还没创建、且 issue 正文 Release Note 要写时，再调用 `release-note`（来源：该 PR，写回：「仅写入功能 PR」），要点以该节为准，不另拟
 2. 按「合入 develop」的命令等 CI 并合并
-3. 合并后读一次 release PR 正文，一次改完两节：「Release Note」节（要写且还没写入的，调用 `release-note`，写回：该节定的写回方式，不提交版本号，`git restore` 还原，留给 release PR 的「更新游戏版本号」）和「Checklist」节（「发版前」各条追加）
+3. 合并后读一次 release PR 正文，一次改完两节：「Release Note」节（要写且还没写入的，调用 `release-note`，写回：该节定的写回方式；版本号已在第 1 步处理，这里不再改代码）和「Checklist」节（「发版前」各条追加）
 4. 按 `.claude/references/git-workflow.md`「合并与清理」删本地分支，主目录回到 `develop`；在 worktree 里做的，先 `cmd //c rmdir <path>/node_modules` 拆掉链接再删 worktree
 
 完成条件：PR 已合并、「发版前」各条都在 release PR 的 Checklist 里、主目录在 `develop` 且干净；或 PR 开着且「等你处理」写明了不合并的原因。
