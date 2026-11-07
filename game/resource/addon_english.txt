@@ -3035,7 +3035,7 @@
 
 		// 被动技能书
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"Passive Skill Tome"
-		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Higher chance of strong abilities. Choose one passive ability to learn from 4 random options.\nEach player can use this up to 2 times per game.\nThe choices can be rerolled, the first reroll is free.\nShareable with teammates.\nCan be bought in the shop but cannot be sold. Has a chance to appear in treasure chests."
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Higher chance of strong abilities. Choose one passive ability to learn from 4 random options.\nEach player can use this up to 2 times per game, choices can be rerolled, shareable with teammates.\nCan be bought in the shop but cannot be sold. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"Open it, and the power distilled by those before you becomes yours."
 
 		// 圣女白莲
@@ -3719,7 +3719,7 @@
 
 		"DOTA_Tooltip_ability_item_skill_reset"											"Skill Forget Tome"
 		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>Use: Forget</h1>Choose one extra passive ability gained from the Passive Skill Tome to forget. Refunds its spent skill points and one Passive Skill Tome use."
-		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"Everyone deserves a second chance."
+		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"A pill for regrets."
 		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"Hero innate abilities and abilities from the starting lottery are not affected."
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"Rune Signer"

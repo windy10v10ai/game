@@ -3037,7 +3037,7 @@
 
 		// 被动技能书
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"被动技能书"
-		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 有更高概率获得强力技能，从 4 个随机被动技能中任选其一学习。\n每名玩家整局最多使用 2 次\n可刷新候选，首次刷新免费\n可以分享给队友\n可在商店购买，不可出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 有更高概率获得强力技能，从 4 个随机被动技能中任选其一学习。\n每名玩家整局最多使用 2 次，可刷新候选，可分享给队友\n可在商店购买，不可出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"翻开它，便能习得前人沉淀的力量。"
 
 		// 圣女白莲
@@ -3721,7 +3721,7 @@
 
 		"DOTA_Tooltip_ability_item_skill_reset"											"遗忘技能书"
 		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>使用：遗忘</h1>选择一个被动技能书得到的额外被动技能遗忘，返还已花费的技能点，并退回一次被动技能书使用次数。"
-		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"后悔药，人手一颗。"
+		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"后悔药。"
 		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"英雄自带技能和开局抽奖得到的技能不受影响。"
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"洗炼石"
