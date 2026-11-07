@@ -61,7 +61,7 @@ function cancelForget() {
   GameEvents.SendCustomGameEventToServer('lottery_cancel_forget_passive_tome', {});
 }
 
-/** 遗忘技能书的选择窗口：列出被动技能书得到的额外被动，点一个遗忘，取消不消耗书 */
+/** 遗忘技能书的选择窗口：列出被动技能书学到的被动，点一个遗忘，取消不消耗书 */
 function PassiveTomeForget() {
   const playerId = Game.GetLocalPlayerID().toString();
   const raw = useNetTable('lottery_passive_tome', playerId);

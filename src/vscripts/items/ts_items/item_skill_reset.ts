@@ -1,6 +1,6 @@
 import { BaseItem, registerAbility } from '../../utils/dota_ts_adapter';
 
-/** 遗忘技能书:使用后选择一个被动技能书得到的额外被动遗忘，选定后才消耗 */
+/** 遗忘技能书:使用后从被动技能书学到的被动里选一个遗忘，选定后才消耗 */
 @registerAbility('item_skill_reset')
 export class ItemSkillReset extends BaseItem {
   CastFilterResult(): UnitFilterResult {

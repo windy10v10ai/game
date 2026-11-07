@@ -169,7 +169,7 @@ describe('PassiveTomeLottery', () => {
       expect(mockDeductUseableMemberPoint).not.toHaveBeenCalled();
     });
 
-    it('第二次起按档位扣积分，第 6 次起拒绝', () => {
+    it('第二次起按档位扣积分，付费第 6 次起拒绝', () => {
       lottery.onTriggered(mockHero as any);
       for (let i = 0; i < 7; i++) lottery.refreshAbility(3 as PlayerID);
 
@@ -248,7 +248,7 @@ describe('PassiveTomeLottery', () => {
       expect(lottery.isUsageLimitReached(3 as PlayerID)).toBe(true);
     });
 
-    it('技能不在 owned 里时拒绝（防客户端伪造，如开局抽奖得到的技能）', () => {
+    it('技能不在 owned 里时拒绝', () => {
       pickFirst();
       const item = mockItem();
       lottery.openForget(mockHero as any, item as any);
@@ -275,7 +275,7 @@ describe('PassiveTomeLottery', () => {
       expect(item.SpendCharge).not.toHaveBeenCalled();
     });
 
-    it('没有额外被动时不打开窗口', () => {
+    it('没有记录的被动时不打开窗口', () => {
       lottery.openForget(mockHero as any, mockItem() as any);
       expect(netTable['lottery_passive_tome']).toBeUndefined();
     });

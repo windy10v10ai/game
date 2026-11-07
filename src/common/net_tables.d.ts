@@ -96,7 +96,7 @@ declare global {
         paidRefreshCount: number;
         // 遗忘选择窗口是否打开
         forgetting: boolean;
-        // 技能书得到的额外被动，供遗忘技能书选择
+        // 被动技能书学到的被动，供遗忘技能书选择
         owned: string[];
       };
     };

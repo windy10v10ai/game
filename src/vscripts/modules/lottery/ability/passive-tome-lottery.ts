@@ -14,7 +14,7 @@ interface PassiveTomeState {
 
 /**
  * 被动技能书抽奖：使用技能书触发后弹 4 选 1，倒计时由客户端驱动，归零自动随机选 1。
- * 同时记录每名玩家由技能书得到的额外被动，供遗忘技能书选择遗忘。
+ * 同时记录每名玩家学到的被动，供遗忘技能书选择。
  */
 @reloadable
 export class PassiveTomeLottery {
