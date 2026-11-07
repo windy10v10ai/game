@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" font-family="sans-serif" font-size="15">
+  <rect width="900" height="380" fill="#ffffff"/>
+  <text x="225" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#c2561a">改前</text>
+  <text x="675" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#1d5fa8">改后</text>
+  <line x1="450" y1="45" x2="450" y2="365" stroke="#bbbbbb" stroke-dasharray="6 6"/>
+
+  <rect x="40" y="55" width="370" height="90" rx="8" fill="#fdeedd" stroke="#e8823a"/>
+  <text x="225" y="85" text-anchor="middle">使用被动技能书</text>
+  <text x="225" y="115" text-anchor="middle">弹出 4 选 1，只能硬选</text>
+  <rect x="40" y="175" width="370" height="90" rx="8" fill="#fdeedd" stroke="#e8823a"/>
+  <text x="225" y="205" text-anchor="middle">遗忘技能书</text>
+  <text x="225" y="235" text-anchor="middle">重置所有技能等级</text>
+  <text x="225" y="320" text-anchor="middle" fill="#7a3a0c">抽到不想要的被动无法更换</text>
+
+  <rect x="490" y="55" width="370" height="90" rx="8" fill="#e3eefb" stroke="#3a7fd0"/>
+  <text x="675" y="85" text-anchor="middle">使用被动技能书，弹出 4 选 1</text>
+  <text x="675" y="115" text-anchor="middle">可刷新，首次免费，之后花会员积分</text>
+  <rect x="490" y="175" width="370" height="90" rx="8" fill="#e3eefb" stroke="#3a7fd0"/>
+  <text x="675" y="205" text-anchor="middle">遗忘技能书，弹窗选一个额外被动</text>
+  <text x="675" y="235" text-anchor="middle">清掉技能效果，退技能点和书的次数</text>
+  <path d="M675 145 L675 175" stroke="#3a7fd0" stroke-width="2" marker-end="url(#a)"/>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#3a7fd0"/></marker></defs>
+  <text x="675" y="320" text-anchor="middle" fill="#0f3f73">不满意可刷新，选错可遗忘后重抽</text>
+</svg>
