@@ -7577,7 +7577,7 @@
 	{
 		"ID"						"10458"
 		"BaseClass"					"item_lua"
-		"ScriptFile"				"items/item_skill_reset"
+		"ScriptFile"				"items/ts_items/item_skill_reset"
 		"AbilityTextureName"		"skill_remover"
 		"Model"						"models/gameplay/attrib_tome_xp.vmdl"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -7595,10 +7595,10 @@
 		"ItemPermanent"				"0"
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
 		// 库存设置
-		"ItemInitialStockTime"		"180"	// 2分钟买（开局准备1分钟）
+		"ItemInitialStockTime"		"660"	// 11分钟买（开局准备1分钟）
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"1"
-		"ItemStockTime"				"120"
+		"ItemStockTime"				"1"
 		"ItemCanBeUsedWithoutInventory"	"1"
 	}
 
