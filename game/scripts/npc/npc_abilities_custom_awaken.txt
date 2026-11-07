@@ -858,7 +858,7 @@
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"rattletrap_power_cogs"
+		"AbilityTextureName"			"rattletrap_overclocking"
 		"MaxLevel"						"1"
 
 		"AbilityValues"
@@ -878,6 +878,17 @@
 				"IsPurgable"		"0"
 				"RemoveOnDeath"		"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"TextureName"		"rattletrap_overclocking"
+				"ThinkInterval"		"0.5"
+
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/special_bonus_unique_rattletrap_upgrade"
+						"Function"		"OnAutoConsumeThink"
+					}
+				}
 
 				"OnAbilityExecuted"
 				{

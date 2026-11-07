@@ -1,9 +1,19 @@
 ---
 name: add-image
-description: 加自定义图标或 UI 图片，或图标显示成紫块。
+description: 为技能、物品或 buff 选用或更换图标，加自定义图标或 UI 图片，或图标显示成紫块。
 ---
 
 # 加图片
+
+## 第 0 步：选图标先给用户看参考图
+
+需要为技能、物品、modifier 选图标，或用户嫌现有图标不好时，不只报图标名：先从 vpk 解出 3–5 个候选（同英雄技能、相关物品、同主题技能），拼成一张带名字的对比图，用 `SendUserFile` 发给用户，附一句推荐和理由，用户选定后再改 KV。
+
+- 解包：`Source2Viewer-CLI.exe -i "<dota>/game/dota/pak01_dir.vpk" -o <输出目录> -d -f "panorama/images/spellicons/<关键字>"`；物品在 `panorama/images/items/`。CLI 位置见 `fix-asset-override`
+- 先确认选定的名字在 vpk 里有对应文件：`AbilityTextureName` 写了 vpk 里不存在的名字，游戏里图标会不对
+- 拼图用 Python PIL，统一缩放到 128px，下方标文件名
+
+完成条件：用户看到了带名字的对比图，并选定了其中一个。
 
 ## 第一步：判断要不要放 png
 

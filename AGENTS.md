@@ -52,7 +52,7 @@ Claude Code 直接读 `.claude/skills`；Codex 与 DSH 读仓库下的 `.agents/
 | 英雄觉醒技能 | `awaken-ability` |
 | 从零自制物品、合成神器 | `custom-item` |
 | 克隆原版物品 | `clone-item` |
-| 加图标、UI 图片，排查紫块 | `add-image` |
+| 选用或更换图标（先给用户看参考图）、加图标与 UI 图片，排查紫块 | `add-image` |
 | 原版特效 / 模型在 Tools 不显示，修覆盖原版路径的编译资源 | `fix-asset-override` |
 | bot 技能施法规则 | `bot-ability-usage` |
 | bot 战斗物品使用规则 | `bot-item-usage` |

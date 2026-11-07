@@ -62,7 +62,7 @@ git checkout -b <prefix>/<issue-id>-<summary>
 |---|---|
 | 大版本，release PR 已存在 | 写入功能 PR 并合并进聚合 release PR / 不写 |
 | 大版本，release PR 未创建 | 先写入功能 PR，功能 PR 合并后再写入聚合 release PR / 不写 |
-| 补丁版本 | 写入功能 PR 并合并进聚合 release PR / 仅写入功能 PR / 不写 |
+| 补丁版本（仅用户明确要求时） | 仅写入功能 PR / 不写 |
 
   4. 用户对草稿提了修改意见：改完草稿再问一次。选了写入：带着写回方式重新调用 `release-note`。选了「不写」：删掉本 PR 正文的占位段，聚合 release PR 已有内容不动
 

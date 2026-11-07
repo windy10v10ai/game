@@ -25,29 +25,6 @@ local function HeroKilled(keys)
     local iLevel = hHero:GetLevel()
     local GameTime = GameRules:GetDOTATime(false, false)
 
-    -- 玩家团队奖励逻辑
-    if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
-        -- 前期增长慢，电脑等级较高时，增长快
-        local gold = 0
-        if iLevel <= 30 then
-            gold = 5 + iLevel * 0.5
-        elseif iLevel <= 50 then
-            gold = 20 + (iLevel - 30) * 1
-        else
-            gold = 40
-        end
-        gold = math.ceil(gold)
-        for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-            if attackerPlayerID ~= playerID and PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
-                PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
-                GameRules:ModifyGoldFiltered(playerID, gold, true, DOTA_ModifyGold_HeroKill)
-                local playerHero = PlayerResource:GetSelectedHeroEntity(playerID)
-                SendOverheadEventMessage(playerHero, OVERHEAD_ALERT_GOLD, playerHero,
-                    gold * AIGameMode:GetPlayerGoldXpMultiplier(playerID), playerHero)
-            end
-        end
-    end
-
     -- AI连续死亡记录
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
         if AIGameMode.BotRecordSuccessiveDeathTable[playerId] then

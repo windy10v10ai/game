@@ -48,7 +48,7 @@
 		"item"		"item_ghost"				// 幽魂权杖
 
 		// 额外
-		"item"		"item_collector"			// 收纳符
+		"item"		"item_passive_skill_tome"	// 被动技能书
 		"item"		"item_skill_reset"			// 遗忘技能书
 		// "item"		"item_recipe_greater_famango" // 巨大疗伤莲花配方
 	}
@@ -114,7 +114,7 @@
 
 		"item"		"item_light_part"			// 圣光组件
 		"item"		"item_dark_part"			// 暗影组件
-		"item"		"item_roshans_banner"		// 肉山的战旗
+		"item"		"item_collector"			// 收纳符
 		"item"		"item_tome_of_ability_reset"	// 技能重选书
 
 		// FIXME 暂时移动到

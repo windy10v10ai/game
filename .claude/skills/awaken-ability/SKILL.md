@@ -123,7 +123,7 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 
   走 buff 图标这条时 `GetTexture()` 和 `DOTA_Tooltip_modifier_<modifier_name>` / `_Description` 都要补齐，否则图标是紫块、悬停无说明。**只写了 tooltip 文案却把 modifier 设成隐藏**是最容易漏的组合——文案在文件里躺着，游戏里永远看不到。
 
-- **图标** → 引用 Dota2 原版技能名则不放 png；自定义图标才复制同名 png 到 `game/resource/flash3/images/spellicons/<name>.png`。`AbilityTextureName` 也可直接填**至宝/变体 texture 路径**（如 `necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura`、`drow_ranger/immortal/drow_ranger_wave_of_silence`、`zuus_static_field_alt1`），引擎直接引用，同样无需放 png。
+- **图标** → 选图标前按 `add-image` 第 0 步给用户看参考对比图。引用 Dota2 原版技能名则不放 png；自定义图标才复制同名 png 到 `game/resource/flash3/images/spellicons/<name>.png`。`AbilityTextureName` 也可直接填**至宝/变体 texture 路径**（如 `necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura`、`drow_ranger/immortal/drow_ranger_wave_of_silence`、`zuus_static_field_alt1`），引擎直接引用，同样无需放 png。
 
 - **本地化** → 写文案前先 Read `game/resource/CLAUDE.md` 与 `.claude/references/localization-format.md`（用脚本批量改文件不会自动加载目录 `CLAUDE.md`，文案规约如「不用分号」会漏掉）。新觉醒条目固定排在旧觉醒之上：
   - `addon_schinese.txt` / `addon_english.txt`：放在 `Awaken Abilities 觉醒技能` 模块的**顶部**，中英同步。
