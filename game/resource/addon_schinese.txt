@@ -2697,7 +2697,7 @@
 		"DOTA_Tooltip_Ability_item_veil_of_discord_2"							"赫拉的神秘面纱"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"				"<h1>主动：法术虚弱</h1>发出一波弱化冲击，使%debuff_radius%范围内敌方英雄受到的技能伤害增加%spell_amp%%%。<br><br>可以在持续施法期间施放。<br><br>持续时间：%resist_debuff_duration%秒。"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"一个堕落法师的头饰。"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_Note0"					"法术虚弱不与血精石的法术虚弱光环叠加。"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Note0"					"法术虚弱不与血精神石的法术虚弱光环叠加。"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_health"				"+$health"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_lifesteal"			"%+$spell_lifesteal"
@@ -3067,10 +3067,9 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"明智的选择，科学的投资。"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"获得的金钱经验，享有倍率加成！"
 
-	    // item_bloodstone_v2 血精神石
+	    // item_bloodstone 血精神石
 	    "DOTA_Tooltip_ability_item_bloodstone"										"血精神石"
 	    "DOTA_Tooltip_ability_item_bloodstone_v2"									"迷你血精石"
-	    // "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"这块魔石使人能够从魔法中吸取鲜血..."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
@@ -3249,7 +3248,7 @@
 		"DOTA_Tooltip_ability_item_arcane_blink_2_bonus_intellect"                "+$int"
 		// 大智力跳
 		"DOTA_Tooltip_ability_item_arcane_blink"								"爱因斯坦闪光"
-		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>主动：爱因斯坦闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后回复%heal_amount%点生命和%mana_amount%点魔法。<br><br>受到来自敌方英雄或肉山的攻击时，秘奥闪光将在%blink_damage_cooldown%秒内无法使用。"
+		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>主动：爱因斯坦闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后回复%heal_amount%点生命和%mana_amount%点魔法。<br><br>受到来自敌方英雄或肉山的攻击时，爱因斯坦闪光将在%blink_damage_cooldown%秒内无法使用。"
 		"DOTA_Tooltip_ability_item_arcane_blink_Lore"                          "让人精神焕发的工具，可以帮忙分担施展奥术耗费的精力。"
 		"DOTA_Tooltip_ability_item_arcane_blink_Note0"                          "快速点击两次会将自己往己方泉水方向传送。"
 		"DOTA_Tooltip_ability_item_arcane_blink_bonus_intellect"                "+$int"
@@ -3644,7 +3643,7 @@
 		"DOTA_Tooltip_Ability_item_time_gem"											"时间宝石"
 		"DOTA_Tooltip_ability_item_time_gem_Description"								"<h1><font color='#FFFF00'>主动：时间重置</font></h1>重置所有物品和技能的冷却时间。<br><br>冷却时间：%AbilityCooldown%秒\n<h1>被动：时间加速</h1>降低所有技能和物品%bonus_cooldown%%%的冷却时间。"
 		"DOTA_Tooltip_ability_item_time_gem_Lore"										"掌控时间的神秘宝石，能让使用者操纵时间的流速。"
-		"DOTA_Tooltip_ability_item_time_gem_Note0"										"时间重置不会刷新刷新球系列物品（刷新球，刷新核心，时间宝石）。"
+		"DOTA_Tooltip_ability_item_time_gem_Note0"										"时间重置不会刷新刷新球系列物品（刷新球，熔火核心，时间宝石）。"
 		"DOTA_Tooltip_ability_item_time_gem_Note1"										"与其他刷新球系列物品共享冷却时间。"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_cooldown"								"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_all_stats"							"+$all"
@@ -3724,7 +3723,7 @@
 		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"后悔药。"
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"洗炼石"
-		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>使用：洗炼</h1>洗炼背包中所有符文、圣兽符的拥有者印记<br><br>只洗炼拥有者不是自己的符文、圣兽符，对自己的符文不会生效"
+		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>使用：洗炼</h1>洗炼背包中所有符文的拥有者印记<br><br>只洗炼拥有者不是自己的符文，对自己的符文不会生效"
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Lore"							"尽量不是自己的还是别好奇"
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_advanced"							"转化石"
