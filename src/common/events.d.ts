@@ -59,6 +59,7 @@ interface CustomGameEventDeclarations {
   api_html_proxy_request: ApiHtmlProxyRequestEventData;
   api_html_proxy_response: ApiHtmlProxyResponseEventData;
   api_html_proxy_failure: ApiHtmlProxyFailureEventData;
+  api_html_proxy_cancel: ApiHtmlProxyCancelEventData;
 }
 
 interface CustomGameEventDataBase {
@@ -204,6 +205,10 @@ interface DailyTaskSelectCandidateEventData {
 interface ApiHtmlProxyRequestEventData {
   requestId: string;
   url: string;
+}
+
+interface ApiHtmlProxyCancelEventData {
+  requestId: string;
 }
 
 interface ApiHtmlProxyResponseEventData {
