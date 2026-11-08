@@ -3068,7 +3068,6 @@
 	    // item_bloodstone_v2 血精神石
 	    "DOTA_Tooltip_ability_item_bloodstone"										"Godly Bloodstone"
 	    "DOTA_Tooltip_ability_item_bloodstone_v2"									"Mini Bloodstone"
-	    // "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>Active: Bloodpact</h1> Increases Godness Bloodstone's Spell Lifesteal by %lifesteal_multiplier%x and also converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"It's like a Bloodstone, except one-eighth the size!"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
@@ -3247,7 +3246,7 @@
 		"DOTA_Tooltip_ability_item_arcane_blink_2_bonus_intellect"                "+$int"
 		// 大智力跳
 		"DOTA_Tooltip_ability_item_arcane_blink"								"Blink of Einstein"
-		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>Active: Blink of Einstein</h1> Teleport to a target point up to %blink_range% units away. <br><br>After teleportation, you restore %heal_amount% health and %mana_amount% mana.<br><br>Arcane Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
+		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>Active: Blink of Einstein</h1> Teleport to a target point up to %blink_range% units away. <br><br>After teleportation, you restore %heal_amount% health and %mana_amount% mana.<br><br>Blink of Einstein cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
 		"DOTA_Tooltip_ability_item_arcane_blink_Lore"                          "The arcane arts' greatest contribution to assassination."
 		"DOTA_Tooltip_ability_item_arcane_blink_Note0"                          "Self-casting will cause you to teleport in the direction of your team's fountain."
 		"DOTA_Tooltip_ability_item_arcane_blink_bonus_intellect"                "+$int"
@@ -3642,7 +3641,7 @@
 		"DOTA_Tooltip_Ability_item_time_gem"											"Time Gem"
 		"DOTA_Tooltip_ability_item_time_gem_Description"								"<h1><font color='#FFFF00'>Active: Time Manipulation</font></h1>Reset the cooldowns of all items and abilities.<br><br>Cooldown: %AbilityCooldown% seconds\n<h1>Passive: Time Acceleration</h1>Reduces the cooldowns of all abilities and items by %bonus_cooldown%%%."
 		"DOTA_Tooltip_ability_item_time_gem_Lore"										"The mysterious gem that controls the flow of time, allowing the user to manipulate the flow of time."
-		"DOTA_Tooltip_ability_item_time_gem_Note0"										"Time Reset will not refresh the refresh ball series items (refresh ball, refresh core, time gem). Time Reset will not refresh the refresh ball series items (refresh ball, refresh core, time gem)."
+		"DOTA_Tooltip_ability_item_time_gem_Note0"										"Time Reset will not refresh the Refresher series items (Refresher Orb, Refresher Core, Time Gem)."
 		"DOTA_Tooltip_ability_item_time_gem_Note1"										"Shares cooling time with other refresh ball series items."
 		"DOTA_Tooltip_ability_item_time_gem_bonus_cooldown"								"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_all_stats"							"+$all"
@@ -3722,7 +3721,7 @@
 		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"A pill for regrets."
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"Rune Signer"
-		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>Use: Re-sign</h1>Re-signs the owner mark on all runes and sacred beast sigils in your inventory.<br><br>Only affects runes and sacred beast sigils not owned by you; has no effect on your own runes."
+		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>Use: Re-sign</h1>Re-signs the owner mark on all runes in your inventory.<br><br>Only affects runes not owned by you; has no effect on your own runes."
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Lore"							"Curiosity is best saved for runes that are not yours."
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_advanced"							"Advanced Rune Transmuter"

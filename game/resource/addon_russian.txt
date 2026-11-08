@@ -3070,7 +3070,6 @@
 	    // item_bloodstone_v2 血精神石
 	    "DOTA_Tooltip_ability_item_bloodstone"										"Божественный Bloodstone"
 	    "DOTA_Tooltip_ability_item_bloodstone_v2"									"Мини-Bloodstone"
-	    // "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"Этот магический камень позволяет вытягивать кровь из самой магии..."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
@@ -3724,7 +3723,7 @@
 		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"Таблетка от сожалений."
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"Камень перековки рун"
-		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>Применение: Смена владельца</h1>Сбрасывает метку владельца у всех рун и печатей священных зверей в инвентаре.<br><br>Сбрасывает метку только у рун и печатей священных зверей, владельцем которых вы не являетесь; на ваши собственные руны не действует."
+		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>Применение: Смена владельца</h1>Сбрасывает метку владельца у всех рун в инвентаре.<br><br>Сбрасывает метку только у рун, владельцем которых вы не являетесь; на ваши собственные руны не действует."
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Lore"							"Если руна не ваша, лучше не любопытствуйте."
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_advanced"							"Продвинутый преобразователь рун"
