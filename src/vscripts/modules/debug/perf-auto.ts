@@ -263,38 +263,59 @@ function restoreBotPassives() {
 const EBB_AND_FLOW_ABILITY = 'morphling_ebb_and_flow2';
 let ebbAndFlowHeroes: CDOTA_BaseNPC_Hero[] = [];
 
-const CENTAUR_AWAKEN_ABILITY = 'special_bonus_unique_centaur_upgrade';
-const CENTAUR_AWAKEN_MODIFIERS = [
-  'modifier_special_bonus_unique_centaur_upgrade_shield',
-  'modifier_special_bonus_unique_centaur_upgrade',
-];
+// 觉醒条件不按英雄名筛，全员都挂，基线段就是全员未觉醒。声明收进一个对象，避免撑爆 Lua 主函数 200 个局部变量上限
+const CENTAUR_PERF = {
+  awakenAbility: 'special_bonus_unique_centaur_upgrade',
+  awakenModifier: 'modifier_special_bonus_unique_centaur_upgrade',
+  shieldModifier: 'modifier_special_bonus_unique_centaur_upgrade_shield',
+  castAbility: 'centaur_double_edge',
+  castLevel: 5,
+  castInterval: 3.5,
 
-// 觉醒条件不按英雄名筛，全员都挂，基线段就是全员未觉醒
-function addCentaurAwaken() {
-  let added = 0;
-  forEachHero((hero) => {
-    if (hero.HasAbility(CENTAUR_AWAKEN_ABILITY)) return;
-    const ability = hero.AddAbility(CENTAUR_AWAKEN_ABILITY);
+  addAwaken() {
+    let added = 0;
+    forEachHero((hero) => {
+      if (hero.HasAbility(this.awakenAbility)) return;
+      const ability = hero.AddAbility(this.awakenAbility);
+      if (!ability) return;
+      ability.SetLevel(1);
+      if (!hero.HasModifier(this.awakenModifier)) {
+        hero.AddNewModifier(hero, ability, this.awakenModifier, {});
+      }
+      added++;
+    });
+    print(`[perf] awaken_centaur added=${added}`);
+  },
+
+  removeAwaken() {
+    let removed = 0;
+    forEachHero((hero) => {
+      hero.RemoveModifierByName(this.shieldModifier);
+      hero.RemoveModifierByName(this.awakenModifier);
+      if (!hero.HasAbility(this.awakenAbility)) return;
+      hero.RemoveAbility(this.awakenAbility);
+      removed++;
+    });
+    print(`[perf] awaken_centaur removed=${removed}`);
+  },
+
+  giveCastAbility() {
+    forEachHero((hero) => {
+      const ability = hero.FindAbilityByName(this.castAbility) ?? hero.AddAbility(this.castAbility);
+      ability?.SetLevel(this.castLevel);
+    });
+  },
+
+  cast(caster: CDOTA_BaseNPC_Hero, target: CDOTA_BaseNPC) {
+    const ability = caster.FindAbilityByName(this.castAbility);
     if (!ability) return;
-    ability.SetLevel(1);
-    if (!hero.HasModifier(CENTAUR_AWAKEN_MODIFIERS[1])) {
-      hero.AddNewModifier(hero, ability, CENTAUR_AWAKEN_MODIFIERS[1], {});
-    }
-    added++;
-  });
-  print(`[perf] awaken_centaur added=${added}`);
-}
-
-function removeCentaurAwaken() {
-  let removed = 0;
-  forEachHero((hero) => {
-    for (const modifierName of CENTAUR_AWAKEN_MODIFIERS) hero.RemoveModifierByName(modifierName);
-    if (!hero.HasAbility(CENTAUR_AWAKEN_ABILITY)) return;
-    hero.RemoveAbility(CENTAUR_AWAKEN_ABILITY);
-    removed++;
-  });
-  print(`[perf] awaken_centaur removed=${removed}`);
-}
+    // 类型声明里缺 SetCursorCastTarget，引擎实际提供
+    (
+      ability as CDOTABaseAbility & { SetCursorCastTarget(t: CDOTA_BaseNPC): void }
+    ).SetCursorCastTarget(target);
+    ability.OnSpellStart();
+  },
+};
 
 function addEbbAndFlow() {
   ebbAndFlowHeroes = [];
@@ -648,36 +669,15 @@ function forEachSideHero(callback: (hero: CDOTA_BaseNPC_Hero) => void) {
 let benchMode: BenchMode = 'damage';
 
 // 技能场景在普攻之外按固定间隔放双刃剑，量技能结算与技能事件监听的开销
-const CAST_BENCH_ABILITY = 'centaur_double_edge';
-const CAST_BENCH_LEVEL = 5;
-const CAST_BENCH_INTERVAL = 3.5;
-
-function giveCastBenchAbility() {
-  forEachHero((hero) => {
-    const ability =
-      hero.FindAbilityByName(CAST_BENCH_ABILITY) ?? hero.AddAbility(CAST_BENCH_ABILITY);
-    ability?.SetLevel(CAST_BENCH_LEVEL);
-  });
-}
-
-function castBenchAbility(caster: CDOTA_BaseNPC_Hero, target: CDOTA_BaseNPC) {
-  const ability = caster.FindAbilityByName(CAST_BENCH_ABILITY);
-  if (!ability) return;
-  // 类型声明里缺 SetCursorCastTarget，引擎实际提供
-  (
-    ability as CDOTABaseAbility & { SetCursorCastTarget(target: CDOTA_BaseNPC): void }
-  ).SetCursorCastTarget(target);
-  ability.OnSpellStart();
-}
 
 function startDamageBench(mode: BenchMode) {
   benchActive = true;
   benchMode = mode;
-  if (mode === 'cast') giveCastBenchAbility();
+  if (mode === 'cast') CENTAUR_PERF.giveCastAbility();
   if (benchTicking) return;
   benchTicking = true;
   let magical = false;
-  let lastCast = -CAST_BENCH_INTERVAL;
+  let lastCast = -CENTAUR_PERF.castInterval;
   Timers.CreateTimer(0, () => {
     if (!benchActive) {
       benchTicking = false;
@@ -690,7 +690,7 @@ function startDamageBench(mode: BenchMode) {
     const limit = PERF_CONFIG?.benchAttackers ?? 0;
     const attackers = limit > 0 ? limit : heroes.length;
     const now = GameRules.GetGameTime();
-    const castNow = benchMode === 'cast' && now - lastCast >= CAST_BENCH_INTERVAL;
+    const castNow = benchMode === 'cast' && now - lastCast >= CENTAUR_PERF.castInterval;
     if (castNow) lastCast = now;
     heroes.forEach((attacker, index) => {
       if (index >= attackers) return;
@@ -699,7 +699,7 @@ function startDamageBench(mode: BenchMode) {
       target.SetHealth(target.GetMaxHealth());
       if (benchMode === 'attack' || benchMode === 'cast') {
         attacker.PerformAttack(target, true, true, true, true, false, false, true);
-        if (castNow) castBenchAbility(attacker, target);
+        if (castNow) CENTAUR_PERF.cast(attacker, target);
         return;
       }
       if (benchMode === 'dot' || benchMode === 'dotbig') {
@@ -767,12 +767,14 @@ function stageFight() {
 // 光环在小兵多时的开销：两队小兵面对面排成一条横排，几乎每个都打得到对面；天辉英雄站在己方排后，
 // 横排长度控制在光环半径内。全员定时回满、小兵血量放大，兵数不起伏
 // 小兵碰撞体积撑开间距才排得成单排；兵数按光环半径能覆盖的长度取
-const CREEP_BENCH_COUNT = 24;
-const CREEP_BENCH_HEALTH = 1000000;
-const CREEP_BENCH_CENTER = Vector(-400, -400, 0);
-const CREEP_BENCH_SPACING = 64;
-const CREEP_BENCH_ROW_GAP = 60;
-const CREEP_BENCH_HERO_BACK = 160;
+const CREEP_BENCH = {
+  COUNT: 24,
+  HEALTH: 1000000,
+  CENTER: Vector(-400, -400, 0),
+  SPACING: 64,
+  ROW_GAP: 60,
+  HERO_BACK: 160,
+};
 // 统计光环覆盖：KV 光环与原版光环在小兵身上的 buff
 const CREEP_BENCH_AURAS = [
   'modifier_item_vladmir_2_general_aura',
@@ -802,27 +804,27 @@ function startCreepBench() {
     if (hero.GetPlayerOwnerID() === 0) return;
     FindClearSpaceForUnit(
       hero,
-      CREEP_BENCH_CENTER.__sub(towardDire.__mul(CREEP_BENCH_HERO_BACK)),
+      CREEP_BENCH.CENTER.__sub(towardDire.__mul(CREEP_BENCH.HERO_BACK)),
       true,
     );
     hero.Stop();
   });
   const sides: [DotaTeam, string, number][] = [
-    [DotaTeam.GOODGUYS, 'npc_dota_creep_goodguys_melee', -CREEP_BENCH_ROW_GAP],
-    [DotaTeam.BADGUYS, 'npc_dota_creep_badguys_melee', CREEP_BENCH_ROW_GAP],
+    [DotaTeam.GOODGUYS, 'npc_dota_creep_goodguys_melee', -CREEP_BENCH.ROW_GAP],
+    [DotaTeam.BADGUYS, 'npc_dota_creep_badguys_melee', CREEP_BENCH.ROW_GAP],
   ];
   for (const [team, unitName, offset] of sides) {
-    for (let i = 0; i < CREEP_BENCH_COUNT; i++) {
-      const slot = (i - (CREEP_BENCH_COUNT - 1) / 2) * CREEP_BENCH_SPACING;
-      const position = CREEP_BENCH_CENTER.__add(towardDire.__mul(offset)).__add(along.__mul(slot));
+    for (let i = 0; i < CREEP_BENCH.COUNT; i++) {
+      const slot = (i - (CREEP_BENCH.COUNT - 1) / 2) * CREEP_BENCH.SPACING;
+      const position = CREEP_BENCH.CENTER.__add(towardDire.__mul(offset)).__add(along.__mul(slot));
       const creep = CreateUnitByName(unitName, position, true, undefined, undefined, team);
       // 英雄攻击力远高于小兵血量，血量放大到打不死，兵数才稳定
-      creep.SetBaseMaxHealth(CREEP_BENCH_HEALTH);
-      creep.SetMaxHealth(CREEP_BENCH_HEALTH);
-      creep.SetHealth(CREEP_BENCH_HEALTH);
+      creep.SetBaseMaxHealth(CREEP_BENCH.HEALTH);
+      creep.SetMaxHealth(CREEP_BENCH.HEALTH);
+      creep.SetHealth(CREEP_BENCH.HEALTH);
     }
   }
-  print(`[perf-auto] creep bench started count=${CREEP_BENCH_COUNT * 2}`);
+  print(`[perf-auto] creep bench started count=${CREEP_BENCH.COUNT * 2}`);
   Timers.CreateTimer(3, () => {
     if (creepBenchActive) printCreepAuraCoverage();
   });
@@ -1318,7 +1320,11 @@ const CONDITIONS: Condition[] = [
       setup: () => swapItem(itemName),
       teardown: restoreSwappedItem,
     })),
-  { name: 'awaken_centaur', setup: addCentaurAwaken, teardown: removeCentaurAwaken },
+  {
+    name: 'awaken_centaur',
+    setup: () => CENTAUR_PERF.addAwaken(),
+    teardown: () => CENTAUR_PERF.removeAwaken(),
+  },
   {
     name: 'meleebuff',
     setup: addMeleeBuff,
