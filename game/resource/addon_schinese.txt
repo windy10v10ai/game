@@ -3126,22 +3126,22 @@
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_mana_regen"		"+$mana_regen"
 
 		// item_bfury_copy 珍藏·狂战斧
-		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#A98BE8'>珍藏·狂战斧</font>"
+		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#B87333'>珍藏·狂战斧</font>"
 		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"属性与狂战斧相同。只能从藏宝箱开出，仅用于合成救世狂战。"
 		"DOTA_Tooltip_ability_item_bfury_copy_Lore"			"从藏宝箱翻出来的仿制品，和真货一样顺手，只是卖不上价。"
 
 		// item_radiance_copy 珍藏·辉耀
-		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#A98BE8'>珍藏·辉耀</font>"
+		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#B87333'>珍藏·辉耀</font>"
 		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"属性与辉耀相同。只能从藏宝箱开出，仅用于合成圣焰之光。"
 		"DOTA_Tooltip_ability_item_radiance_copy_Lore"			"从藏宝箱翻出来的仿制品，火光不减，只是卖不上价。"
 
 		// item_blade_mail_copy 珍藏·刃甲
-		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#A98BE8'>珍藏·刃甲</font>"
+		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#B87333'>珍藏·刃甲</font>"
 		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"属性与刃甲相同。只能从藏宝箱开出，仅用于合成刃甲2。"
 		"DOTA_Tooltip_ability_item_blade_mail_copy_Lore"			"从藏宝箱翻出来的仿制品，扎手的程度一模一样，只是卖不上价。"
 
 		// item_heart_copy 珍藏·龙心
-		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#A98BE8'>珍藏·龙心</font>"
+		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#B87333'>珍藏·龙心</font>"
 		"DOTA_Tooltip_ability_item_heart_copy_Description"		"属性与龙心相同。只能从藏宝箱开出，仅用于合成不朽之心。"
 		"DOTA_Tooltip_ability_item_heart_copy_Lore"			"从藏宝箱翻出来的仿制品，跳得一样有力，只是卖不上价。"
 

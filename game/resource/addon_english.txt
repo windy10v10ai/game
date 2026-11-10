@@ -1,4 +1,4 @@
-﻿"lang"
+"lang"
 {
 	"Language"		"english"
 	"Tokens"
@@ -3124,22 +3124,22 @@
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_mana_regen"		"+$mana_regen"
 
 		// item_bfury_copy Treasured Battle Fury
-		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#A98BE8'>Treasured Battle Fury</font>"
+		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#B87333'>Treasured Battle Fury</font>"
 		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"Has the same stats as Battle Fury. Only found in treasure chests and only used to build Worldcleaver."
 		"DOTA_Tooltip_ability_item_bfury_copy_Lore"			"A forgery pulled out of a treasure chest. Just as handy as the real thing, it simply will not sell for much."
 
 		// item_radiance_copy Treasured Radiance
-		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#A98BE8'>Treasured Radiance</font>"
+		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#B87333'>Treasured Radiance</font>"
 		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"Has the same stats as Radiance. Only found in treasure chests and only used to build Fiery Radiance."
 		"DOTA_Tooltip_ability_item_radiance_copy_Lore"			"A forgery pulled out of a treasure chest. It burns just as bright, it simply will not sell for much."
 
 		// item_blade_mail_copy Treasured Blade Mail
-		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#A98BE8'>Treasured Blade Mail</font>"
+		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#B87333'>Treasured Blade Mail</font>"
 		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"Has the same stats as Blade Mail. Only found in treasure chests and only used to build Upgraded Blade Mail."
 		"DOTA_Tooltip_ability_item_blade_mail_copy_Lore"			"A forgery pulled out of a treasure chest. Just as spiky as the real thing, it simply will not sell for much."
 
 		// item_heart_copy Treasured Heart
-		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#A98BE8'>Treasured Heart</font>"
+		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#B87333'>Treasured Heart</font>"
 		"DOTA_Tooltip_ability_item_heart_copy_Description"		"Has the same stats as Heart of Tarrasque. Only found in treasure chests and only used to build Undying Heart."
 		"DOTA_Tooltip_ability_item_heart_copy_Lore"			"A forgery pulled out of a treasure chest. It beats just as strongly, it simply will not sell for much."
 
