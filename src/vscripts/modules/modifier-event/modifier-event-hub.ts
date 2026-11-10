@@ -86,24 +86,25 @@ class EventChannel<TEvent> {
   }
 }
 
+// 受伤的两条通道共用一个监听。放在类外：静态字段互相引用时类还没赋值完，编译后会取到 nil
+const damageListener = new SharedListener(DAMAGE_LISTENER_MODIFIER);
+
+// 高频低伤的持续伤害每跳都会进来，小伤害对各处理都没有意义，查表前先挡掉
+function acceptDamage(this: void, event: ModifierInstanceEvent): boolean {
+  return event.damage >= MIN_DISPATCH_DAMAGE;
+}
+
 export class ModifierEventHub {
-  // 受伤的两条通道共用一个监听
-  private static readonly damageListener = new SharedListener(DAMAGE_LISTENER_MODIFIER);
-
-  // 高频低伤的持续伤害每跳都会进来，小伤害对各处理都没有意义，查表前先挡掉
-  private static readonly acceptDamage = (event: ModifierInstanceEvent): boolean =>
-    event.damage >= MIN_DISPATCH_DAMAGE;
-
   private static readonly damageByAttacker = new EventChannel<ModifierInstanceEvent>(
-    ModifierEventHub.damageListener,
+    damageListener,
     (event) => event.attacker,
-    ModifierEventHub.acceptDamage,
+    acceptDamage,
   );
 
   private static readonly damageByVictim = new EventChannel<ModifierInstanceEvent>(
-    ModifierEventHub.damageListener,
+    damageListener,
     (event) => event.unit,
-    ModifierEventHub.acceptDamage,
+    acceptDamage,
   );
 
   private static readonly attackLandedByAttacker = new EventChannel<ModifierAttackEvent>(
