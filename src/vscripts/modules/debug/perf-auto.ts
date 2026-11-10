@@ -263,6 +263,39 @@ function restoreBotPassives() {
 const EBB_AND_FLOW_ABILITY = 'morphling_ebb_and_flow2';
 let ebbAndFlowHeroes: CDOTA_BaseNPC_Hero[] = [];
 
+const CENTAUR_AWAKEN_ABILITY = 'special_bonus_unique_centaur_upgrade';
+const CENTAUR_AWAKEN_MODIFIERS = [
+  'modifier_special_bonus_unique_centaur_upgrade_shield',
+  'modifier_special_bonus_unique_centaur_upgrade',
+];
+
+// 觉醒条件不按英雄名筛，全员都挂，基线段就是全员未觉醒
+function addCentaurAwaken() {
+  let added = 0;
+  forEachHero((hero) => {
+    if (hero.HasAbility(CENTAUR_AWAKEN_ABILITY)) return;
+    const ability = hero.AddAbility(CENTAUR_AWAKEN_ABILITY);
+    if (!ability) return;
+    ability.SetLevel(1);
+    if (!hero.HasModifier(CENTAUR_AWAKEN_MODIFIERS[1])) {
+      hero.AddNewModifier(hero, ability, CENTAUR_AWAKEN_MODIFIERS[1], {});
+    }
+    added++;
+  });
+  print(`[perf] awaken_centaur added=${added}`);
+}
+
+function removeCentaurAwaken() {
+  let removed = 0;
+  forEachHero((hero) => {
+    for (const modifierName of CENTAUR_AWAKEN_MODIFIERS) hero.RemoveModifierByName(modifierName);
+    if (!hero.HasAbility(CENTAUR_AWAKEN_ABILITY)) return;
+    hero.RemoveAbility(CENTAUR_AWAKEN_ABILITY);
+    removed++;
+  });
+  print(`[perf] awaken_centaur removed=${removed}`);
+}
+
 function addEbbAndFlow() {
   ebbAndFlowHeroes = [];
   let added = 0;
@@ -580,13 +613,14 @@ function parkHeroes() {
 const BENCH_DAMAGE = 100;
 // 高频小额伤害：模拟持续伤害每跳，一帧多次、每次伤害很低
 const DOT_HITS = 5;
-type BenchMode = 'damage' | 'attack' | 'dot' | 'dotbig' | 'spell';
+type BenchMode = 'damage' | 'attack' | 'dot' | 'dotbig' | 'spell' | 'cast';
 const BENCH_SCENES: Record<string, BenchMode> = {
   dmgbench: 'damage',
   atkbench: 'attack',
   spellbench: 'spell',
   dotbench: 'dot',
   dotbigbench: 'dotbig',
+  castbench: 'cast',
 };
 let benchActive = false;
 let benchTicking = false;
@@ -613,12 +647,37 @@ function forEachSideHero(callback: (hero: CDOTA_BaseNPC_Hero) => void) {
 }
 let benchMode: BenchMode = 'damage';
 
+// 技能场景在普攻之外按固定间隔放双刃剑，量技能结算与技能事件监听的开销
+const CAST_BENCH_ABILITY = 'centaur_double_edge';
+const CAST_BENCH_LEVEL = 5;
+const CAST_BENCH_INTERVAL = 3.5;
+
+function giveCastBenchAbility() {
+  forEachHero((hero) => {
+    const ability =
+      hero.FindAbilityByName(CAST_BENCH_ABILITY) ?? hero.AddAbility(CAST_BENCH_ABILITY);
+    ability?.SetLevel(CAST_BENCH_LEVEL);
+  });
+}
+
+function castBenchAbility(caster: CDOTA_BaseNPC_Hero, target: CDOTA_BaseNPC) {
+  const ability = caster.FindAbilityByName(CAST_BENCH_ABILITY);
+  if (!ability) return;
+  // 类型声明里缺 SetCursorCastTarget，引擎实际提供
+  (
+    ability as CDOTABaseAbility & { SetCursorCastTarget(target: CDOTA_BaseNPC): void }
+  ).SetCursorCastTarget(target);
+  ability.OnSpellStart();
+}
+
 function startDamageBench(mode: BenchMode) {
   benchActive = true;
   benchMode = mode;
+  if (mode === 'cast') giveCastBenchAbility();
   if (benchTicking) return;
   benchTicking = true;
   let magical = false;
+  let lastCast = -CAST_BENCH_INTERVAL;
   Timers.CreateTimer(0, () => {
     if (!benchActive) {
       benchTicking = false;
@@ -630,13 +689,17 @@ function startDamageBench(mode: BenchMode) {
     forEachHero((hero) => heroes.push(hero));
     const limit = PERF_CONFIG?.benchAttackers ?? 0;
     const attackers = limit > 0 ? limit : heroes.length;
+    const now = GameRules.GetGameTime();
+    const castNow = benchMode === 'cast' && now - lastCast >= CAST_BENCH_INTERVAL;
+    if (castNow) lastCast = now;
     heroes.forEach((attacker, index) => {
       if (index >= attackers) return;
       const target = benchTarget(heroes, index);
       if (!target || !attacker.IsAlive() || !target.IsAlive()) return;
       target.SetHealth(target.GetMaxHealth());
-      if (benchMode === 'attack') {
+      if (benchMode === 'attack' || benchMode === 'cast') {
         attacker.PerformAttack(target, true, true, true, true, false, false, true);
+        if (castNow) castBenchAbility(attacker, target);
         return;
       }
       if (benchMode === 'dot' || benchMode === 'dotbig') {
@@ -1255,6 +1318,7 @@ const CONDITIONS: Condition[] = [
       setup: () => swapItem(itemName),
       teardown: restoreSwappedItem,
     })),
+  { name: 'awaken_centaur', setup: addCentaurAwaken, teardown: removeCentaurAwaken },
   {
     name: 'meleebuff',
     setup: addMeleeBuff,

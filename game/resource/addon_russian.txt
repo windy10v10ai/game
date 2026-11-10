@@ -1357,6 +1357,14 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 英雄 半人马战行者觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Двойной клинок: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade_Description"		"Урон от врагов, полученный Centaur Warrunner за последние %damage_window% сек., накапливается как Сила отпора, не более %stored_damage_cap_pct%%% обычного урона Двойного клинка.<br>Когда Двойной клинок попадает по врагу, вся Сила отпора расходуется и увеличивает урон этого применения, а %shield_pct%%% израсходованного значения превращается в щит от любого урона на %shield_duration% сек.<br>Урон Двойного клинка по самому кентавру тоже растёт.<br>Иллюзии и состояние «Разрыв» не накапливают Силу отпора."
+		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Двойной клинок: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_Description"		"Текущая Сила отпора: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_shield"		"Щит отпора"
+		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_shield_Description"		"Оставшийся щит от любого урона: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>"
+
 		// 蓝猫 球状涡流觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade"		"<font color='#d000ff'>Вихрь шаровой молнии: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade_Description"		"После того как Шаровая молния наносит урон вражескому герою, он притягивается к Storm Spirit и не может действовать в течение <font color='#FFFFFF'><b>50%%</b></font> длительности Электрического вихря.<br>Требуется изученный Электрический вихрь. Каждый герой может быть затронут не чаще одного раза за %vortex_trigger_cooldown% сек. Крипы, иллюзии и цели с <font color='#FFCC66'>невосприимчивостью к магии</font> не затрагиваются."

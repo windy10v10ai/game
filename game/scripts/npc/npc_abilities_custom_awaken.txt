@@ -5,6 +5,25 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 半人马战行者 双刃剑觉醒
+	"special_bonus_unique_centaur_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_centaur_upgrade"
+		"AbilityTextureName"			"centaur_double_edge"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"damage_window"				"6"
+			"damage_conversion_pct"		"100"
+			"stored_damage_cap_pct"		"300"
+			"shield_pct"				"100"
+			"shield_duration"			"4"
+		}
+	}
+
 	// 敌法师 觉醒
 	"special_bonus_unique_antimage_mana_suppression_awaken"
 	{
