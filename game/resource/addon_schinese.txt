@@ -3125,6 +3125,26 @@
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_health_regen"		"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_mana_regen"		"+$mana_regen"
 
+		// item_bfury_copy 珍藏·狂战斧
+		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#A98BE8'>珍藏·狂战斧</font>"
+		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"属性与狂战斧相同。只能从藏宝箱开出，仅用于合成救世狂战。"
+		"DOTA_Tooltip_ability_item_bfury_copy_Lore"			"从藏宝箱翻出来的仿制品，和真货一样顺手，只是卖不上价。"
+
+		// item_radiance_copy 珍藏·辉耀
+		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#A98BE8'>珍藏·辉耀</font>"
+		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"属性与辉耀相同。只能从藏宝箱开出，仅用于合成圣焰之光。"
+		"DOTA_Tooltip_ability_item_radiance_copy_Lore"			"从藏宝箱翻出来的仿制品，火光不减，只是卖不上价。"
+
+		// item_blade_mail_copy 珍藏·刃甲
+		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#A98BE8'>珍藏·刃甲</font>"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"属性与刃甲相同。只能从藏宝箱开出，仅用于合成刃甲2。"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Lore"			"从藏宝箱翻出来的仿制品，扎手的程度一模一样，只是卖不上价。"
+
+		// item_heart_copy 珍藏·龙心
+		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#A98BE8'>珍藏·龙心</font>"
+		"DOTA_Tooltip_ability_item_heart_copy_Description"		"属性与龙心相同。只能从藏宝箱开出，仅用于合成不朽之心。"
+		"DOTA_Tooltip_ability_item_heart_copy_Lore"			"从藏宝箱翻出来的仿制品，跳得一样有力，只是卖不上价。"
+
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#e03e2e'>变态辣</font>"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>主动：灵魂撕裂</h1>使目标沉默%silence_duration%秒，沉默结束后其间所受伤害的%silence_damage_percent%%%将以额外魔法伤害的形式结算。<br><br>英雄/非英雄对目标发动攻击会分别额外造成%proc_damage_heroes% / %proc_damage_creeps%点伤害。另外，自身和控制单位对目标发动的所有攻击都拥有克敌机先效果。\n\n<h1>被动：穿刺</h1>每次攻击有%proc_chance%%%几率无视闪避并造成额外%passive_proc_damage%点魔法伤害。"

@@ -21,9 +21,11 @@
 			<Image id="awaken_stone" class="SeqImg" src="file://{images}/items/awaken_stone.png" />
 			<Image id="beast_shield" class="SeqImg" src="file://{images}/items/beast_shield.png" />
 			<Image id="bfury_2" class="SeqImg" src="file://{images}/items/bfury_2.png" />
+			<Image id="bfury_copy" class="SeqImg" src="file://{images}/items/bfury_copy.png" />
 			<Image id="bfury_ultra" class="SeqImg" src="file://{images}/items/bfury_ultra.png" />
 			<Image id="black_king_bar_2" class="SeqImg" src="file://{images}/items/black_king_bar_2.png" />
 			<Image id="blade_mail_2" class="SeqImg" src="file://{images}/items/blade_mail_2.png" />
+			<Image id="blade_mail_copy" class="SeqImg" src="file://{images}/items/blade_mail_copy.png" />
 			<Image id="blessing_of_dragon" class="SeqImg" src="file://{images}/items/blessing_of_dragon.png" />
 			<Image id="blessing_of_dragon_1" class="SeqImg" src="file://{images}/items/blessing_of_dragon_1.png" />
 			<Image id="blessing_of_dragon_2" class="SeqImg" src="file://{images}/items/blessing_of_dragon_2.png" />
@@ -73,6 +75,7 @@
 			<Image id="hallowed_scepter" class="SeqImg" src="file://{images}/items/hallowed_scepter.png" />
 			<Image id="hand_of_group" class="SeqImg" src="file://{images}/items/hand_of_group.png" />
 			<Image id="hawkeye_turret" class="SeqImg" src="file://{images}/items/hawkeye_turret.png" />
+			<Image id="heart_copy" class="SeqImg" src="file://{images}/items/heart_copy.png" />
 			<Image id="heavens_halberd_v2" class="SeqImg" src="file://{images}/items/heavens_halberd_v2.png" />
 			<Image id="hurricane_pike_2" class="SeqImg" src="file://{images}/items/hurricane_pike_2.png" />
 			<Image id="hydras_breath_2" class="SeqImg" src="file://{images}/items/hydras_breath_2.png" />
@@ -103,6 +106,7 @@
 			<Image id="quelling_blade_2_datadriven" class="SeqImg" src="file://{images}/items/quelling_blade_2_datadriven.png" />
 			<Image id="radiance_2" class="SeqImg" src="file://{images}/items/radiance_2.png" />
 			<Image id="radiance_2_inactive" class="SeqImg" src="file://{images}/items/radiance_2_inactive.png" />
+			<Image id="radiance_copy" class="SeqImg" src="file://{images}/items/radiance_copy.png" />
 			<Image id="rapier_ultra" class="SeqImg" src="file://{images}/items/rapier_ultra.png" />
 			<Image id="refresh_core" class="SeqImg" src="file://{images}/items/refresh_core.png" />
 			<Image id="revenants_brooch_2" class="SeqImg" src="file://{images}/items/revenants_brooch_2.png" />

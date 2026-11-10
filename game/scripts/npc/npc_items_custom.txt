@@ -503,6 +503,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_blade_mail;item_platemail"
+			"02"						"item_blade_mail_copy;item_platemail"
 		}
 	}
 
@@ -571,6 +572,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_radiance;item_talisman_of_evasion"
+			"02"						"item_radiance_copy;item_talisman_of_evasion"
 		}
 	}
 	"item_radiance_2"
@@ -1011,6 +1013,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_heart;item_reaver;item_talisman_of_evasion"
+			"02"						"item_heart_copy;item_reaver;item_talisman_of_evasion"
 		}
 	}
 
@@ -5196,6 +5199,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_bfury;item_relic;item_quelling_blade_2_datadriven"
+			"02"						"item_bfury_copy;item_relic;item_quelling_blade_2_datadriven"
 		}
 	}
 
@@ -7939,6 +7943,54 @@
 				"Function"		"AeonAmuletOnSpellStart"
 			}
 		}
+	}
+
+
+	//=================================================================================================================
+	// 珍藏版：属性同原版，只能由藏宝箱开出，只作上位装备的合成材料
+	//=================================================================================================================
+	"item_bfury_copy"
+	{
+		"ID"							"10471"
+		"BaseClass"						"item_bfury"
+		"AbilityTextureName"			"bfury_copy"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+	}
+
+	"item_radiance_copy"
+	{
+		"ID"							"10472"
+		"BaseClass"						"item_radiance"
+		"AbilityTextureName"			"radiance_copy"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+	}
+
+	"item_blade_mail_copy"
+	{
+		"ID"							"10473"
+		"BaseClass"						"item_blade_mail"
+		"AbilityTextureName"			"blade_mail_copy"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+	}
+
+	"item_heart_copy"
+	{
+		"ID"							"10474"
+		"BaseClass"						"item_heart"
+		"AbilityTextureName"			"heart_copy"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
 	}
 
 }

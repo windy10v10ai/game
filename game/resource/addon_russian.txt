@@ -3125,6 +3125,26 @@
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_health_regen"		"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_mana_regen"		"+$mana_regen"
 
+		// item_bfury_copy Драгоценный Battle Fury
+		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#A98BE8'>Драгоценный Battle Fury</font>"
+		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"Свойства совпадают с Battle Fury. Встречается только в сундуках с сокровищами и нужен только для создания Worldcleaver."
+		"DOTA_Tooltip_ability_item_bfury_copy_Lore"			"Подделка из сундука с сокровищами. Ничуть не хуже оригинала, только много за неё не выручить."
+
+		// item_radiance_copy Драгоценный Radiance
+		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#A98BE8'>Драгоценный Radiance</font>"
+		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"Свойства совпадают с Radiance. Встречается только в сундуках с сокровищами и нужен только для создания Fiery Radiance."
+		"DOTA_Tooltip_ability_item_radiance_copy_Lore"			"Подделка из сундука с сокровищами. Светит так же ярко, только много за неё не выручить."
+
+		// item_blade_mail_copy Драгоценная Blade Mail
+		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#A98BE8'>Драгоценная Blade Mail</font>"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"Свойства совпадают с Blade Mail. Встречается только в сундуках с сокровищами и нужна только для создания Upgraded Blade Mail."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Lore"			"Подделка из сундука с сокровищами. Колется так же больно, только много за неё не выручить."
+
+		// item_heart_copy Драгоценное Heart of Tarrasque
+		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#A98BE8'>Драгоценное Heart of Tarrasque</font>"
+		"DOTA_Tooltip_ability_item_heart_copy_Description"		"Свойства совпадают с Heart of Tarrasque. Встречается только в сундуках с сокровищами и нужно только для создания Undying Heart."
+		"DOTA_Tooltip_ability_item_heart_copy_Lore"			"Подделка из сундука с сокровищами. Бьётся так же сильно, только много за неё не выручить."
+
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#e03e2e'>Ультра Bloodthorn</font>"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>Активное: Разрыв души</h1>Заставляет цель замолчать на %silence_duration% сек. По окончании немоты наносит цели магический урон в размере %silence_damage_percent%%% от урона, полученного за время действия.<br><br>Атаки героев дополнительно наносят цели %proc_damage_heroes% урона, а атаки существ, не являющихся героями, — %proc_damage_creeps%. Кроме того, владелец и подконтрольные ему существа не могут промахнуться по цели.\n\n<h1>Пассивное: Пронзание</h1>Каждая атака с вероятностью %proc_chance%%% проходит сквозь уклонение и наносит дополнительно %passive_proc_damage% магического урона."

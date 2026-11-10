@@ -3123,6 +3123,26 @@
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_health_regen"		"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_mana_regen"		"+$mana_regen"
 
+		// item_bfury_copy Treasured Battle Fury
+		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#A98BE8'>Treasured Battle Fury</font>"
+		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"Has the same stats as Battle Fury. Only found in treasure chests and only used to build Worldcleaver."
+		"DOTA_Tooltip_ability_item_bfury_copy_Lore"			"A forgery pulled out of a treasure chest. Just as handy as the real thing, it simply will not sell for much."
+
+		// item_radiance_copy Treasured Radiance
+		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#A98BE8'>Treasured Radiance</font>"
+		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"Has the same stats as Radiance. Only found in treasure chests and only used to build Fiery Radiance."
+		"DOTA_Tooltip_ability_item_radiance_copy_Lore"			"A forgery pulled out of a treasure chest. It burns just as bright, it simply will not sell for much."
+
+		// item_blade_mail_copy Treasured Blade Mail
+		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#A98BE8'>Treasured Blade Mail</font>"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"Has the same stats as Blade Mail. Only found in treasure chests and only used to build Upgraded Blade Mail."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Lore"			"A forgery pulled out of a treasure chest. Just as spiky as the real thing, it simply will not sell for much."
+
+		// item_heart_copy Treasured Heart
+		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#A98BE8'>Treasured Heart</font>"
+		"DOTA_Tooltip_ability_item_heart_copy_Description"		"Has the same stats as Heart of Tarrasque. Only found in treasure chests and only used to build Undying Heart."
+		"DOTA_Tooltip_ability_item_heart_copy_Lore"			"A forgery pulled out of a treasure chest. It beats just as strongly, it simply will not sell for much."
+
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#F74042'>Ultra</font> Bloodthorn"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>Active: Soul Tear</h1> Silences a target for %silence_duration% seconds. At the end of the silence, an additional %silence_damage_percent%%% of all damage taken during the silence will be dealt to the target as magical damage.<br><br>All attacks on the silenced target will deal additional damage equal to %proc_damage_heroes% if the attacker is a hero, and %proc_damage_creeps%, if the attacker is a creep. Provides True Strike for your attacks and attacks from your controlled units against the silenced target.\n\n<h1>Passive: Pierce</h1>Grants each attack a %proc_chance%%% chance to pierce through evasion and deal %passive_proc_damage% bonus magical damage."
