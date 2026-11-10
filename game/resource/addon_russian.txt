@@ -3125,25 +3125,35 @@
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_health_regen"		"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_mana_regen"		"+$mana_regen"
 
-		// item_bfury_copy Драгоценный Battle Fury
+		// item_bfury_copy 珍藏·狂战斧
 		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#B87333'>Драгоценный Battle Fury</font>"
 		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"Свойства совпадают с Battle Fury. Встречается только в сундуках с сокровищами и нужен только для создания Worldcleaver."
 		"DOTA_Tooltip_ability_item_bfury_copy_Lore"			"Подделка из сундука с сокровищами. Ничуть не хуже оригинала, только много за неё не выручить."
+		"DOTA_Tooltip_ability_item_bfury_copy_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_bfury_copy_bonus_health_regen"						"+$hp_regen"
+		"DOTA_Tooltip_ability_item_bfury_copy_bonus_mana_regen"						"+$mana_regen"
 
-		// item_radiance_copy Драгоценный Radiance
+		// item_radiance_copy 珍藏·辉耀
 		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#B87333'>Драгоценный Radiance</font>"
 		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"Свойства совпадают с Radiance. Встречается только в сундуках с сокровищами и нужен только для создания Fiery Radiance."
 		"DOTA_Tooltip_ability_item_radiance_copy_Lore"			"Подделка из сундука с сокровищами. Светит так же ярко, только много за неё не выручить."
+		"DOTA_Tooltip_ability_item_radiance_copy_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_radiance_copy_evasion"						"%+$evasion"
 
-		// item_blade_mail_copy Драгоценная Blade Mail
+		// item_blade_mail_copy 珍藏·刃甲
 		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#B87333'>Драгоценная Blade Mail</font>"
 		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"Свойства совпадают с Blade Mail. Встречается только в сундуках с сокровищами и нужна только для создания Upgraded Blade Mail."
 		"DOTA_Tooltip_ability_item_blade_mail_copy_Lore"			"Подделка из сундука с сокровищами. Колется так же больно, только много за неё не выручить."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_bonus_armor"						"+$armor"
 
-		// item_heart_copy Драгоценное Heart of Tarrasque
+		// item_heart_copy 珍藏·龙心
 		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#B87333'>Драгоценное Heart of Tarrasque</font>"
 		"DOTA_Tooltip_ability_item_heart_copy_Description"		"Свойства совпадают с Heart of Tarrasque. Встречается только в сундуках с сокровищами и нужно только для создания Undying Heart."
 		"DOTA_Tooltip_ability_item_heart_copy_Lore"			"Подделка из сундука с сокровищами. Бьётся так же сильно, только много за неё не выручить."
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_heart_copy_hp_regen"						"%+макс. здоровья в секунду"
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#e03e2e'>Ультра Bloodthorn</font>"
