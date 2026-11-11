@@ -297,6 +297,10 @@
 		"lottery_tooltip_item_refresh_paid"						"消耗 <font color='#FFD700'>{cost}</font> 可用积分刷新物品<br>剩余可用刷新次数：{remaining}<br>（不降低总会员积分及会员等级）"
 		"lottery_tooltip_item_refresh_limit"					"可用刷新次数已用完<br>剩余可用刷新次数：0"
 		"lottery_tooltip_item_refresh_insufficient"				"可用积分不足，点击前往会员页"
+		"lottery_tooltip_passive_tome_refresh"					"刷新技能"
+		"lottery_tooltip_passive_tome_refresh_paid"				"消耗 <font color='#FFD700'>{cost}</font> 可用积分刷新被动技能<br>剩余可用刷新次数：{remaining}<br>（不降低总会员积分及会员等级）"
+		"lottery_tooltip_passive_tome_refresh_limit"			"可用刷新次数已用完<br>剩余可用刷新次数：0"
+		"lottery_tooltip_passive_tome_refresh_insufficient"		"可用积分不足，点击前往会员积分页"
 
 		"lottery_button_ability_reset"							"重置"
 		"lottery_tooltip_ability_reset_enable"					"移除已选择的技能，并重新抽选一组新技能"
@@ -305,6 +309,8 @@
 
 		"lottery_item_header"									"宝箱开启！选择你的奖励"
 		"lottery_passive_tome_header"							"选择一个被动技能"
+		"lottery_forget_passive_tome_header"					"选择要遗忘的被动技能"
+		"lottery_forget_passive_tome_cancel"					"取消"
 
 		///////////////////////////////////////////////////
 		//
@@ -383,7 +389,7 @@
 		"profile_stat_lifetime_stuns"		"眩晕"
 		"profile_stat_lifetime_roshan_kills"	"肉山击杀"
 		"profile_stat_history_button"		"查看历史战绩"
-		"profile_stat_conduct_tooltip"	"行为分反映你的游戏行为，默认 100 分，上限 120 分。<br><br><b>分数变化</b><br>• 完成一局 <font color='#7FD47F'>+1</font>（仅限 100 分以内）<br>• 秒退一局 <font color='#E87D7D'>-10</font>（单人 / 全员退出不计）<br>• 被点赞 <font color='#7FD47F'>+2</font> / 被举报 <font color='#E87D7D'>-2</font>（同一玩家每周对你最多生效一次）<br><br><b>结算积分倍率</b>（仅组队局）<br>• <font color='#7FD47F'>≥110</font>：×1.1<br>• 80–109：×1.0<br>• <font color='#F5A623'>60–79</font>：×0.8<br>• <font color='#E87D7D'>&lt;60</font>：×0.5"
+		"profile_stat_conduct_tooltip"	"行为分反映你的游戏行为，默认 100 分，上限 120 分。<br><br><b>分数变化</b><br>• 完成一局 <font color='#7FD47F'>+1</font>（仅限 100 分以内）<br>• 中途退出游戏 <font color='#E87D7D'>-5</font>（单人 / 全员退出不计）<br>• 被点赞 <font color='#7FD47F'>+2</font> / 被举报 <font color='#E87D7D'>-2</font>（同一玩家每周对你最多生效一次）<br><br><b>结算积分倍率</b>（仅组队局）<br>• <font color='#7FD47F'>≥110</font>：×1.1<br>• 80–109：×1.0<br>• <font color='#F5A623'>60–79</font>：×0.8<br>• <font color='#E87D7D'>&lt;60</font>：×0.5"
 		"profile_stat_conduct_net_tooltip"	"累计点赞 减 累计举报"
 		"profile_radar_title"				"近期表现"
 		"profile_radar_matches"				"最近 {n} 场"
@@ -2691,7 +2697,7 @@
 		"DOTA_Tooltip_Ability_item_veil_of_discord_2"							"赫拉的神秘面纱"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"				"<h1>主动：法术虚弱</h1>发出一波弱化冲击，使%debuff_radius%范围内敌方英雄受到的技能伤害增加%spell_amp%%%。<br><br>可以在持续施法期间施放。<br><br>持续时间：%resist_debuff_duration%秒。"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"一个堕落法师的头饰。"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_Note0"					"法术虚弱不与血精石的法术虚弱光环叠加。"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Note0"					"法术虚弱不与血精神石的法术虚弱光环叠加。"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_health"				"+$health"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_lifesteal"			"%+$spell_lifesteal"
@@ -3031,7 +3037,7 @@
 
 		// 被动技能书
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"被动技能书"
-		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 有更高概率获得强力技能，从 4 个随机被动技能中任选其一学习。\n每名玩家整局最多使用 2 次\n可以分享给队友\n可在商店购买，不可出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 有更高概率获得强力技能，从 4 个随机被动技能中任选其一学习。\n每名玩家整局最多使用 2 次，可刷新候选，可分享给队友\n可在商店购买，不可出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"翻开它，便能习得前人沉淀的力量。"
 
 		// 圣女白莲
@@ -3061,10 +3067,9 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"明智的选择，科学的投资。"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"获得的金钱经验，享有倍率加成！"
 
-	    // item_bloodstone_v2 血精神石
+	    // item_bloodstone 血精神石
 	    "DOTA_Tooltip_ability_item_bloodstone"										"血精神石"
 	    "DOTA_Tooltip_ability_item_bloodstone_v2"									"迷你血精石"
-	    // "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>主动：血之契约</h1>血精石的技能吸血效果提升%lifesteal_multiplier%倍，并且造成伤害的相同百分比将转化为魔法。持续%buff_duration%秒。"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"这块魔石使人能够从魔法中吸取鲜血..."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
@@ -3243,7 +3248,7 @@
 		"DOTA_Tooltip_ability_item_arcane_blink_2_bonus_intellect"                "+$int"
 		// 大智力跳
 		"DOTA_Tooltip_ability_item_arcane_blink"								"爱因斯坦闪光"
-		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>主动：爱因斯坦闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后回复%heal_amount%点生命和%mana_amount%点魔法。<br><br>受到来自敌方英雄或肉山的攻击时，秘奥闪光将在%blink_damage_cooldown%秒内无法使用。"
+		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>主动：爱因斯坦闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后回复%heal_amount%点生命和%mana_amount%点魔法。<br><br>受到来自敌方英雄或肉山的攻击时，爱因斯坦闪光将在%blink_damage_cooldown%秒内无法使用。"
 		"DOTA_Tooltip_ability_item_arcane_blink_Lore"                          "让人精神焕发的工具，可以帮忙分担施展奥术耗费的精力。"
 		"DOTA_Tooltip_ability_item_arcane_blink_Note0"                          "快速点击两次会将自己往己方泉水方向传送。"
 		"DOTA_Tooltip_ability_item_arcane_blink_bonus_intellect"                "+$int"
@@ -3638,7 +3643,7 @@
 		"DOTA_Tooltip_Ability_item_time_gem"											"时间宝石"
 		"DOTA_Tooltip_ability_item_time_gem_Description"								"<h1><font color='#FFFF00'>主动：时间重置</font></h1>重置所有物品和技能的冷却时间。<br><br>冷却时间：%AbilityCooldown%秒\n<h1>被动：时间加速</h1>降低所有技能和物品%bonus_cooldown%%%的冷却时间。"
 		"DOTA_Tooltip_ability_item_time_gem_Lore"										"掌控时间的神秘宝石，能让使用者操纵时间的流速。"
-		"DOTA_Tooltip_ability_item_time_gem_Note0"										"时间重置不会刷新刷新球系列物品（刷新球，刷新核心，时间宝石）。"
+		"DOTA_Tooltip_ability_item_time_gem_Note0"										"时间重置不会刷新刷新球系列物品（刷新球，熔火核心，时间宝石）。"
 		"DOTA_Tooltip_ability_item_time_gem_Note1"										"与其他刷新球系列物品共享冷却时间。"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_cooldown"								"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_all_stats"							"+$all"
@@ -3713,14 +3718,12 @@
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>使用：能力重置</h1>打开能力重置界面，可以移除已学习的技能并学习新技能。<br>移除技能时会返还技能点。<br><br>一本书只能选择一个技能进行重置。\n\n可以分享给队友"
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"							"重新规划你的能力路线。"
 
-		"DOTA_Tooltip_ability_item_skill_reset"											"技能洗点书"
-		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>使用：洗点</h1>重置英雄技能等级并返还已花费的技能点。主动技能清零，被动、攻击触发及开关型技能保留至1级。"
-		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"后悔药，人手一颗。"
-		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"最高等级只有1级的先天技能不受影响。"
-		"DOTA_Tooltip_ability_item_skill_reset_Note1"									"被动、攻击触发及开关型技能会保留至1级（不清零），避免出现冷却异常等问题。"
+		"DOTA_Tooltip_ability_item_skill_reset"											"遗忘技能书"
+		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>使用：遗忘</h1>选择一个被动技能书得到的额外被动技能遗忘，返还已花费的技能点，并退回一次被动技能书使用次数。\n英雄自带技能和开局抽奖得到的技能不能遗忘。"
+		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"后悔药。"
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"洗炼石"
-		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>使用：洗炼</h1>洗炼背包中所有符文、圣兽符的拥有者印记<br><br>只洗炼拥有者不是自己的符文、圣兽符，对自己的符文不会生效"
+		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>使用：洗炼</h1>洗炼背包中所有符文的拥有者印记<br><br>只洗炼拥有者不是自己的符文，对自己的符文不会生效"
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Lore"							"尽量不是自己的还是别好奇"
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_advanced"							"转化石"
@@ -3731,6 +3734,7 @@
 		"dota_hud_error_awaken_stone_awakened"											"该英雄已经觉醒过了"
 		"dota_hud_error_assassinate_no_target"											"范围内没有敌方英雄"
 		"dota_hud_error_passive_skill_tome_max_usage"									"被动技能书使用次数已达上限"
+		"dota_hud_error_skill_forget_no_passive"										"没有可遗忘的额外被动技能"
 		"dota_hud_error_ward_no_cast_zone"												"肉山坑附近不能放置守卫"
 		"dota_hud_error_swift_glove_no_roshan"											"无法对肉山使用"
 		"dota_hud_error_swift_glove_no_building"										"无法对建筑使用"

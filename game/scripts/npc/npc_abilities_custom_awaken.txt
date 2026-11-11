@@ -879,7 +879,7 @@
 				"RemoveOnDeath"		"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"TextureName"		"rattletrap_overclocking"
-				"ThinkInterval"		"0.5"
+				"ThinkInterval"		"0.3"
 
 				"OnIntervalThink"
 				{

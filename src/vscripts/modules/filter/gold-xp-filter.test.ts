@@ -114,6 +114,37 @@ describe('GoldFilter', () => {
     });
   });
 
+  describe('multiplier by game time', () => {
+    beforeEach(() => {
+      global.GameRules.Option = { radiantGoldXpMultiplier: 1.5, direGoldXpMultiplier: 14 };
+    });
+
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
+
+    it.each([
+      [100, 1.25, 7.5],
+      [300, 1.35, 10.1],
+      [600, 1.5, 14],
+    ])('at %i seconds pays humans %f and dire bots %f', (time, human, bot) => {
+      global.GameRules.GetDOTATime = () => time;
+      const isHuman = jest.spyOn(PlayerHelper, 'IsHumanPlayerByPlayerId').mockReturnValue(true);
+      expect(goldFilter.getPlayerGoldXpMultiplier(0 as PlayerID)).toBeCloseTo(human);
+
+      isHuman.mockReturnValue(false);
+      jest.spyOn(PlayerHelper, 'IsGoodTeamPlayer').mockReturnValue(false);
+      expect(goldFilter.getPlayerGoldXpMultiplier(0 as PlayerID)).toBeCloseTo(bot);
+    });
+
+    it.each([
+      [1.5, 1.2],
+      [14, 6.2],
+    ])('hero kills turn multiplier %f into %f', (mul, expected) => {
+      expect(goldFilter.filterHeroKillGoldByMultiplier(mul)).toBeCloseTo(expected);
+    });
+  });
+
   describe('filterMultiplier', () => {
     it('should return the same multiplier if it is less than or equal to 1', () => {
       expect(goldFilter.filterMultiplier(0.5, 0.4)).toBe(0.5);

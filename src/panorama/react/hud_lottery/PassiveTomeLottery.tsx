@@ -3,7 +3,12 @@ import 'panorama-polyfill-x/lib/timers';
 import React, { useEffect, useState } from 'react';
 import { LotteryDto } from '../../../common/dto/lottery';
 import { useNetTable } from '../shared/hooks/useNetTable';
+import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { colors } from './colors';
+import LotteryRefreshButton, {
+  MAX_PAID_REFRESH_COUNT,
+  getPaidRefreshCost,
+} from './components/LotteryRefreshButton';
 
 const EXPIRE_SECONDS = 12;
 const TICK_INTERVAL_MS = 100;
@@ -76,14 +81,76 @@ function pickAbility(candidate: LotteryDto) {
   });
 }
 
+interface RefreshControlProps {
+  isRefreshed: boolean;
+  paidRefreshCount: number;
+  useableMemberPoint: number;
+}
+
+function RefreshControl({
+  isRefreshed,
+  paidRefreshCount,
+  useableMemberPoint,
+}: RefreshControlProps) {
+  const remainingPaidRefreshCount = Math.max(0, MAX_PAID_REFRESH_COUNT - paidRefreshCount);
+  const isLimitReached = isRefreshed && remainingPaidRefreshCount <= 0;
+  const nextCost = isRefreshed ? getPaidRefreshCost(paidRefreshCount) : 0;
+  const canAfford = useableMemberPoint >= nextCost;
+  const canRefresh = canAfford && !isLimitReached;
+
+  const getTooltipText = () => {
+    if (!isRefreshed) {
+      return $.Localize('#lottery_tooltip_passive_tome_refresh');
+    }
+    if (isLimitReached) {
+      return $.Localize('#lottery_tooltip_passive_tome_refresh_limit');
+    }
+    if (!canAfford) {
+      return $.Localize('#lottery_tooltip_passive_tome_refresh_insufficient');
+    }
+    return $.Localize('#lottery_tooltip_passive_tome_refresh_paid')
+      .replace('{cost}', nextCost.toString())
+      .replace('{remaining}', remainingPaidRefreshCount.toString());
+  };
+
+  const handleClick = () => {
+    if (isLimitReached) {
+      return;
+    }
+    if (!canAfford) {
+      GameEvents.SendCustomGameEventToAllClients('hud_open_page', {
+        page: 'profile',
+        param: 'member:points',
+        playerId: Game.GetLocalPlayerID(),
+      });
+      return;
+    }
+    GameEvents.SendCustomGameEventToServer('lottery_refresh_passive_tome', {});
+  };
+
+  return (
+    <LotteryRefreshButton
+      tooltipText={getTooltipText()}
+      canRefresh={canRefresh}
+      onClick={handleClick}
+    />
+  );
+}
+
 function PassiveTomeLottery() {
   const playerId = Game.GetLocalPlayerID().toString();
   const raw = useNetTable('lottery_passive_tome', playerId);
+  const player = useNetTable('player_table', GetLocalPlayerSteamAccountID());
 
   // TSTL array 经 net 同步为 object，转回数组
   const candidates: LotteryDto[] = raw?.candidates
     ? (Object.values(raw.candidates) as LotteryDto[])
     : [];
+
+  // 引擎把 boolean 同步为 0/1
+  const isRefreshed = Boolean(raw?.isRefreshed);
+  const paidRefreshCount = raw?.paidRefreshCount ?? 0;
+  const useableMemberPoint = player?.useableMemberPoint ?? 0;
 
   const [remaining, setRemaining] = useState(EXPIRE_SECONDS);
 
@@ -135,6 +202,11 @@ function PassiveTomeLottery() {
             }}
           />
         ))}
+        <RefreshControl
+          isRefreshed={isRefreshed}
+          paidRefreshCount={paidRefreshCount}
+          useableMemberPoint={useableMemberPoint}
+        />
       </Panel>
       <Panel style={progressTrackStyle}>
         <Panel style={{ ...progressFillStyle, width: `${progressPct}%` }} />

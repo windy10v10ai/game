@@ -160,8 +160,19 @@ export class ApiHtmlProxy {
       Timers.RemoveTimer(request.timerName);
     }
     request.timerName = Timers.CreateTimer(seconds, () => {
+      ApiHtmlProxy.cancelOnClient(request);
       ApiHtmlProxy.markRelayFailed(request.relayPlayerId);
       ApiHtmlProxy.finish(request.requestId, undefined, 'timeout');
+    });
+  }
+
+  // 服务端超时早于客户端控件自己的超时，不让它继续加载，否则调用方重发时同一请求有两份在途
+  private static cancelOnClient(request: PendingRequest): void {
+    if (request.relayPlayerId === undefined) return;
+    const player = PlayerResource.GetPlayer(request.relayPlayerId);
+    if (!player) return;
+    CustomGameEventManager.Send_ServerToPlayer(player, 'api_html_proxy_cancel', {
+      requestId: request.requestId,
     });
   }
 

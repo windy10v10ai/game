@@ -7,6 +7,7 @@
   var READY_RETRY_SECONDS = 1;
   var READY_MAX_ATTEMPTS = 60;
 
+  var cancelers = {};
   var readyAcked = false;
   var readyAttempts = 0;
 
@@ -42,8 +43,14 @@
     function finish() {
       if (finished) return;
       finished = true;
+      delete cancelers[requestId];
       removePanel(panel);
     }
+    cancelers[requestId] = function () {
+      if (finished) return;
+      finish();
+      $.Msg('[ApiHtmlProxy] cancel ' + requestId);
+    };
 
     $.RegisterEventHandler('HTMLTitle', panel, function (_sourcePanel, title) {
       if (finished || typeof title !== 'string') return;
@@ -76,5 +83,9 @@
 
   GameEvents.Subscribe('api_html_proxy_request', onProxyRequest);
   GameEvents.Subscribe('api_html_proxy_ack', onProxyAck);
+  GameEvents.Subscribe('api_html_proxy_cancel', function (event) {
+    var cancel = cancelers[String(event.requestId)];
+    if (cancel) cancel();
+  });
   sendReady();
 })();

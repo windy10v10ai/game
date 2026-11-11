@@ -26,6 +26,9 @@ interface CustomGameEventDeclarations {
   lottery_pick_item: LotteryPickItemEventData;
   lottery_refresh_item: Record<string, never>;
   lottery_pick_passive_tome: LotteryPickItemEventData;
+  lottery_refresh_passive_tome: Record<string, never>;
+  lottery_forget_passive_tome: LotteryForgetPassiveTomeEventData;
+  lottery_cancel_forget_passive_tome: Record<string, never>;
   player_info_refresh: Record<string, never>;
   awaken_unlock_hero: AwakenUnlockHeroEventData;
   awaken_unlock_result: Record<string, never>;
@@ -56,6 +59,7 @@ interface CustomGameEventDeclarations {
   api_html_proxy_request: ApiHtmlProxyRequestEventData;
   api_html_proxy_response: ApiHtmlProxyResponseEventData;
   api_html_proxy_failure: ApiHtmlProxyFailureEventData;
+  api_html_proxy_cancel: ApiHtmlProxyCancelEventData;
 }
 
 interface CustomGameEventDataBase {
@@ -154,6 +158,10 @@ interface LotteryPickItemEventData {
   level: number;
 }
 
+interface LotteryForgetPassiveTomeEventData {
+  name: string;
+}
+
 interface AlipayOrderCreateEventData {
   productCode: string;
   quantity: number;
@@ -197,6 +205,10 @@ interface DailyTaskSelectCandidateEventData {
 interface ApiHtmlProxyRequestEventData {
   requestId: string;
   url: string;
+}
+
+interface ApiHtmlProxyCancelEventData {
+  requestId: string;
 }
 
 interface ApiHtmlProxyResponseEventData {

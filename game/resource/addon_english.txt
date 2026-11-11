@@ -297,6 +297,10 @@
 		"lottery_tooltip_item_refresh_paid"						"Spend <font color='#FFD700'>{cost}</font> usable points to reroll items<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
 		"lottery_tooltip_item_refresh_limit"					"No available rerolls left.<br>Remaining available rerolls: 0"
 		"lottery_tooltip_item_refresh_insufficient"				"Not enough usable points. Click to open the membership page."
+		"lottery_tooltip_passive_tome_refresh"					"Reroll abilities"
+		"lottery_tooltip_passive_tome_refresh_paid"				"Spend <font color='#FFD700'>{cost}</font> usable points to reroll passive abilities<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
+		"lottery_tooltip_passive_tome_refresh_limit"			"No available rerolls left.<br>Remaining available rerolls: 0"
+		"lottery_tooltip_passive_tome_refresh_insufficient"		"Not enough usable points. Click to open the member points page."
 
 		"lottery_button_ability_reset"							"Reset"
 		"lottery_tooltip_ability_reset_enable"					"Remove the selected ability and reroll a new set of abilities"
@@ -305,6 +309,8 @@
 
 		"lottery_item_header"									"Pick Your Treasure"
 		"lottery_passive_tome_header"							"Choose a Passive Ability"
+		"lottery_forget_passive_tome_header"					"Choose a Passive Ability to Forget"
+		"lottery_forget_passive_tome_cancel"					"Cancel"
 
 		///////////////////////////////////////////////////
 		//
@@ -383,7 +389,7 @@
 		"profile_stat_lifetime_stuns"		"Stun Duration"
 		"profile_stat_lifetime_roshan_kills"	"Roshan Kills"
 		"profile_stat_history_button"		"Match History"
-		"profile_stat_conduct_tooltip"	"Conduct Score reflects your in-game behavior. Default 100, cap 120.<br><br><b>Score changes</b><br>• Finish a game: <font color='#7FD47F'>+1</font> (only below 100)<br>• Early disconnect: <font color='#E87D7D'>-10</font> (solo / all quit doesn't count)<br>• Commended <font color='#7FD47F'>+2</font> / Reported <font color='#E87D7D'>-2</font> (same player counts at most once per week)<br><br><b>End-game points multiplier</b> (team games only)<br>• <font color='#7FD47F'>≥110</font>: ×1.1<br>• 80–109: ×1.0<br>• <font color='#F5A623'>60–79</font>: ×0.8<br>• <font color='#E87D7D'>&lt;60</font>: ×0.5"
+		"profile_stat_conduct_tooltip"	"Conduct Score reflects your in-game behavior. Default 100, cap 120.<br><br><b>Score changes</b><br>• Finish a game: <font color='#7FD47F'>+1</font> (only below 100)<br>• Leave mid-game: <font color='#E87D7D'>-5</font> (solo / all quit doesn't count)<br>• Commended <font color='#7FD47F'>+2</font> / Reported <font color='#E87D7D'>-2</font> (same player counts at most once per week)<br><br><b>End-game points multiplier</b> (team games only)<br>• <font color='#7FD47F'>≥110</font>: ×1.1<br>• 80–109: ×1.0<br>• <font color='#F5A623'>60–79</font>: ×0.8<br>• <font color='#E87D7D'>&lt;60</font>: ×0.5"
 		"profile_stat_conduct_net_tooltip"	"Total Commends minus Total Reports"
 		"profile_radar_title"				"Recent Form"
 		"profile_radar_matches"				"Last {n} matches"
@@ -3029,7 +3035,7 @@
 
 		// 被动技能书
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"Passive Skill Tome"
-		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Higher chance of strong abilities. Choose one passive ability to learn from 4 random options.\nEach player can use this up to 2 times per game.\nShareable with teammates.\nCan be bought in the shop but cannot be sold. Has a chance to appear in treasure chests."
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Higher chance of strong abilities. Choose one passive ability to learn from 4 random options.\nEach player can use this up to 2 times per game, choices can be rerolled, shareable with teammates.\nCan be bought in the shop but cannot be sold. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"Open it, and the power distilled by those before you becomes yours."
 
 		// 圣女白莲
@@ -3062,7 +3068,6 @@
 	    // item_bloodstone_v2 血精神石
 	    "DOTA_Tooltip_ability_item_bloodstone"										"Godly Bloodstone"
 	    "DOTA_Tooltip_ability_item_bloodstone_v2"									"Mini Bloodstone"
-	    // "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>Active: Bloodpact</h1> Increases Godness Bloodstone's Spell Lifesteal by %lifesteal_multiplier%x and also converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"It's like a Bloodstone, except one-eighth the size!"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
@@ -3241,7 +3246,7 @@
 		"DOTA_Tooltip_ability_item_arcane_blink_2_bonus_intellect"                "+$int"
 		// 大智力跳
 		"DOTA_Tooltip_ability_item_arcane_blink"								"Blink of Einstein"
-		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>Active: Blink of Einstein</h1> Teleport to a target point up to %blink_range% units away. <br><br>After teleportation, you restore %heal_amount% health and %mana_amount% mana.<br><br>Arcane Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
+		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>Active: Blink of Einstein</h1> Teleport to a target point up to %blink_range% units away. <br><br>After teleportation, you restore %heal_amount% health and %mana_amount% mana.<br><br>Blink of Einstein cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
 		"DOTA_Tooltip_ability_item_arcane_blink_Lore"                          "The arcane arts' greatest contribution to assassination."
 		"DOTA_Tooltip_ability_item_arcane_blink_Note0"                          "Self-casting will cause you to teleport in the direction of your team's fountain."
 		"DOTA_Tooltip_ability_item_arcane_blink_bonus_intellect"                "+$int"
@@ -3636,7 +3641,7 @@
 		"DOTA_Tooltip_Ability_item_time_gem"											"Time Gem"
 		"DOTA_Tooltip_ability_item_time_gem_Description"								"<h1><font color='#FFFF00'>Active: Time Manipulation</font></h1>Reset the cooldowns of all items and abilities.<br><br>Cooldown: %AbilityCooldown% seconds\n<h1>Passive: Time Acceleration</h1>Reduces the cooldowns of all abilities and items by %bonus_cooldown%%%."
 		"DOTA_Tooltip_ability_item_time_gem_Lore"										"The mysterious gem that controls the flow of time, allowing the user to manipulate the flow of time."
-		"DOTA_Tooltip_ability_item_time_gem_Note0"										"Time Reset will not refresh the refresh ball series items (refresh ball, refresh core, time gem). Time Reset will not refresh the refresh ball series items (refresh ball, refresh core, time gem)."
+		"DOTA_Tooltip_ability_item_time_gem_Note0"										"Time Reset will not refresh the Refresher series items (Refresher Orb, Refresher Core, Time Gem)."
 		"DOTA_Tooltip_ability_item_time_gem_Note1"										"Shares cooling time with other refresh ball series items."
 		"DOTA_Tooltip_ability_item_time_gem_bonus_cooldown"								"%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_all_stats"							"+$all"
@@ -3711,14 +3716,12 @@
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>Use: Ability Reset</h1>Opens the ability draft interface, allowing you to remove selected abilities and learn new ones.<br>Skill points are refunded when removing abilities.<br><br>One tome can only be used to reset one ability.\n\nCan be shared with teammates."
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"							"Redesign your ability path."
 
-		"DOTA_Tooltip_ability_item_skill_reset"											"Respec Tome"
-		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>Use: Respec</h1>Resets hero ability levels and refunds spent skill points. Active abilities reset to 0; passive, attack-triggered and toggle abilities are kept at level 1."
-		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"Everyone deserves a second chance."
-		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"Innate abilities with a max level of 1 are not affected."
-		"DOTA_Tooltip_ability_item_skill_reset_Note1"									"Passive, attack-triggered and toggle abilities are kept at level 1 (not reset to 0) to avoid cooldown bugs."
+		"DOTA_Tooltip_ability_item_skill_reset"											"Skill Forget Tome"
+		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>Use: Forget</h1>Choose one extra passive ability gained from the Passive Skill Tome to forget. Refunds its spent skill points and one Passive Skill Tome use.\nHero innate abilities and abilities from the starting lottery cannot be forgotten."
+		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"A pill for regrets."
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"Rune Signer"
-		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>Use: Re-sign</h1>Re-signs the owner mark on all runes and sacred beast sigils in your inventory.<br><br>Only affects runes and sacred beast sigils not owned by you; has no effect on your own runes."
+		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>Use: Re-sign</h1>Re-signs the owner mark on all runes in your inventory.<br><br>Only affects runes not owned by you; has no effect on your own runes."
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Lore"							"Curiosity is best saved for runes that are not yours."
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_advanced"							"Advanced Rune Transmuter"
@@ -3729,6 +3732,7 @@
 		"dota_hud_error_awaken_stone_awakened"											"This hero has already awakened"
 		"dota_hud_error_assassinate_no_target"											"No enemy heroes in range"
 		"dota_hud_error_passive_skill_tome_max_usage"									"Passive Skill Tome usage limit reached"
+		"dota_hud_error_skill_forget_no_passive"										"No extra passive ability to forget"
 		"dota_hud_error_ward_no_cast_zone"												"Cannot place wards near Roshan's pit"
 		"dota_hud_error_swift_glove_no_roshan"											"Cannot be used on Roshan"
 		"dota_hud_error_swift_glove_no_building"										"Cannot be used on buildings"

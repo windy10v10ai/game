@@ -5,9 +5,9 @@ import { farmRewardBonus } from './comeback-reward';
 
 @reloadable
 export class GoldXPFilter {
-  private readonly REDUCE_RATE_3_MIN = 0.6;
-  private readonly REDUCE_RATE_6_MIN = 0.8;
-  private readonly REDUCE_RATE_HERO_KILL = 0.5;
+  private readonly REDUCE_RATE_3_MIN = 0.5;
+  private readonly REDUCE_RATE_6_MIN = 0.7;
+  private readonly REDUCE_RATE_HERO_KILL = 0.4;
   private readonly KILL_SHARE_MIN_TEAM_KILLS = 10;
   // 多人局强势玩家的领先在开局就形成，要更早介入
   private readonly KILL_SHARE_MIN_TEAM_KILLS_MULTIPLAYER = 5;
