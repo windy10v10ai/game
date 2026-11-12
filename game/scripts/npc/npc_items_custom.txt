@@ -138,6 +138,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_ultimate_scepter"
+			"02"						"item_ultimate_scepter_copy"
 		}
 	}
 	"item_ultimate_scepter_2"

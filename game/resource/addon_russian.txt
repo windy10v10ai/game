@@ -3138,18 +3138,18 @@
 		"DOTA_Tooltip_ability_item_haste_moon_bundle_Description"		"При использовании даёт Wings of Haste и Moon Shard. Оба расходуются ради постоянных бонусов. Встречается только в сундуках с сокровищами."
 		"DOTA_Tooltip_ability_item_haste_moon_bundle_Lore"			"Всё, что нужно скороходу, в одном сундуке."
 
-		// item_ultimate_scepter_copy Aghanim's Scepter
-		"DOTA_Tooltip_ability_item_ultimate_scepter_copy"						"Aghanim's Scepter"
+		// item_ultimate_scepter_copy Драгоценный Aghanim's Scepter
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy"						"<font color='#B87333'>Драгоценный Aghanim's Scepter</font>"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>Пассивное: Ability Upgrade</h1>Улучшает ульт и некоторые способности."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Lore"			"Скипетр колдуна, мощью сходного с полубогами."
 
-		// item_wings_of_haste_copy Крылья спешки
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"Крылья спешки"
+		// item_wings_of_haste_copy Драгоценные Крылья спешки
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"<font color='#B87333'>Драгоценные Крылья спешки</font>"
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>Применение: Постоянное улучшение</h1>Поглощает Крылья спешки, навсегда давая %bonus_movement_speed% к скорости передвижения, %bonus_attack_speed% к скорости атаки, %bonus_health_regen% к восстановлению здоровья и %bonus_mana_regen% к восстановлению маны."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Lore"			"Крылья, дарующие скорое возмездие в бою."
 
-		// item_moon_shard_copy Moon Shard
-		"DOTA_Tooltip_ability_item_moon_shard_copy"						"Moon Shard"
+		// item_moon_shard_copy Драгоценный Moon Shard
+		"DOTA_Tooltip_ability_item_moon_shard_copy"						"<font color='#B87333'>Драгоценный Moon Shard</font>"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>Использование: Consume</h1> Поглощает предмет и навсегда увеличивает скорость атаки на %consumed_bonus%, а радиус обзора ночью — на %consumed_bonus_night_vision%. Можно поглотить лишь один Moon Shard.
 
 <h1>Пассивное: Shade Sight</h1>Увеличивает радиус обзора ночью."
