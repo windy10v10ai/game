@@ -8085,6 +8085,7 @@
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"1"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
 
 		"OnSpellStart"
 		{
