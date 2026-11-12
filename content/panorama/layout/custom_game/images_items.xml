@@ -10,6 +10,7 @@
 			<Image id="aeon_amulet" class="SeqImg" src="file://{images}/items/aeon_amulet.png" />
 			<Image id="aeon_pendant" class="SeqImg" src="file://{images}/items/aeon_pendant.png" />
 			<Image id="aether_lens_2" class="SeqImg" src="file://{images}/items/aether_lens_2.png" />
+			<Image id="aghanim_bundle" class="SeqImg" src="file://{images}/items/aghanim_bundle.png" />
 			<Image id="anyingcaijue" class="SeqImg" src="file://{images}/items/anyingcaijue.png" />
 			<Image id="arcane_blink_2" class="SeqImg" src="file://{images}/items/arcane_blink_2.png" />
 			<Image id="arcane_octarine_core" class="SeqImg" src="file://{images}/items/arcane_octarine_core.png" />

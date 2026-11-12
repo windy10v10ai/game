@@ -1,4 +1,4 @@
-﻿"lang"
+﻿﻿"lang"
 {
 	"Language"		"english"
 	"Tokens"
@@ -3130,6 +3130,11 @@
 		"DOTA_Tooltip_ability_item_bfury_copy_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_bfury_copy_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_copy_bonus_mana_regen"						"+$mana_regen"
+
+		// item_aghanim_bundle Treasured Aghanim's Gift
+		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>Treasured Aghanim's Gift</font>"
+		"DOTA_Tooltip_ability_item_aghanim_bundle_Description"		"Grants Aghanim's Scepter and Aghanim's Shard when used. Only found in treasure chests. If you already own one of them, only the other is granted."
+		"DOTA_Tooltip_ability_item_aghanim_bundle_Lore"			"Aghanim bundled both of his gifts so you would not have to wish twice."
 
 		// item_radiance_copy 珍藏·辉耀
 		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#B87333'>Treasured Radiance</font>"

@@ -3133,6 +3133,11 @@
 		"DOTA_Tooltip_ability_item_bfury_copy_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_copy_bonus_mana_regen"						"+$mana_regen"
 
+		// item_aghanim_bundle 珍藏·阿哈利姆的馈赠
+		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>珍藏·阿哈利姆的馈赠</font>"
+		"DOTA_Tooltip_ability_item_aghanim_bundle_Description"		"使用后获得阿哈利姆神杖与阿哈利姆魔晶。只能从藏宝箱开出，已拥有其中一件时只补另一件。"
+		"DOTA_Tooltip_ability_item_aghanim_bundle_Lore"			"阿哈利姆把两样宝贝打了个包，省得你分两次许愿。"
+
 		// item_radiance_copy 珍藏·辉耀
 		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#B87333'>珍藏·辉耀</font>"
 		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"属性与辉耀相同。只能从藏宝箱开出，仅用于合成圣焰之光。"

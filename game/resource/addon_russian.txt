@@ -3133,6 +3133,11 @@
 		"DOTA_Tooltip_ability_item_bfury_copy_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_copy_bonus_mana_regen"						"+$mana_regen"
 
+		// item_aghanim_bundle Драгоценный Aghanim's Gift
+		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>Драгоценный Aghanim's Gift</font>"
+		"DOTA_Tooltip_ability_item_aghanim_bundle_Description"		"При использовании даёт Aghanim's Scepter и Aghanim's Shard. Встречается только в сундуках с сокровищами. Если один из них уже есть, выдаётся только второй."
+		"DOTA_Tooltip_ability_item_aghanim_bundle_Lore"			"Аghanim упаковал оба дара вместе, чтобы не пришлось загадывать дважды."
+
 		// item_radiance_copy 珍藏·辉耀
 		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#B87333'>Драгоценный Radiance</font>"
 		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"Свойства совпадают с Radiance. Встречается только в сундуках с сокровищами и нужен только для создания Fiery Radiance."

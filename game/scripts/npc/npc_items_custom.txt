@@ -8071,4 +8071,29 @@
 		}
 	}
 
+
+	//=================================================================================================================
+	// 珍藏·阿哈利姆的馈赠：使用后得到阿哈利姆神杖与魔晶
+	//=================================================================================================================
+	"item_aghanim_bundle"
+	{
+		"ID"							"10475"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"aghanim_bundle"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"ItemCost"						"2000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_aghanim_bundle"
+				"Function"			"AghanimBundleOnSpell"
+			}
+		}
+	}
+
 }
