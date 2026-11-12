@@ -75,6 +75,7 @@
 			<Image id="gungir_2" class="SeqImg" src="file://{images}/items/gungir_2.png" />
 			<Image id="hallowed_scepter" class="SeqImg" src="file://{images}/items/hallowed_scepter.png" />
 			<Image id="hand_of_group" class="SeqImg" src="file://{images}/items/hand_of_group.png" />
+			<Image id="haste_moon_bundle" class="SeqImg" src="file://{images}/items/haste_moon_bundle.png" />
 			<Image id="hawkeye_turret" class="SeqImg" src="file://{images}/items/hawkeye_turret.png" />
 			<Image id="heart_copy" class="SeqImg" src="file://{images}/items/heart_copy.png" />
 			<Image id="heavens_halberd_v2" class="SeqImg" src="file://{images}/items/heavens_halberd_v2.png" />

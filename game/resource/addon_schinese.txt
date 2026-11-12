@@ -3133,6 +3133,11 @@
 		"DOTA_Tooltip_ability_item_bfury_copy_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_copy_bonus_mana_regen"						"+$mana_regen"
 
+		// item_haste_moon_bundle 珍藏·快男的馈赠
+		"DOTA_Tooltip_ability_item_haste_moon_bundle"						"<font color='#B87333'>珍藏·快男的馈赠</font>"
+		"DOTA_Tooltip_ability_item_haste_moon_bundle_Description"		"使用后获得急速之翼与银月之晶。两件都是消耗后永久提升属性的物品，只能从藏宝箱开出。"
+		"DOTA_Tooltip_ability_item_haste_moon_bundle_Lore"			"快男必备，捡到就停不下来。"
+
 		// item_aghanim_bundle 珍藏·阿哈利姆的馈赠
 		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>珍藏·阿哈利姆的馈赠</font>"
 		"DOTA_Tooltip_ability_item_aghanim_bundle_Description"		"使用后获得阿哈利姆神杖与阿哈利姆魔晶。只能从藏宝箱开出，已拥有其中一件时只补另一件。"

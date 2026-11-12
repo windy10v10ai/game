@@ -1,4 +1,4 @@
-﻿﻿"lang"
+﻿﻿﻿"lang"
 {
 	"Language"		"english"
 	"Tokens"
@@ -3130,6 +3130,11 @@
 		"DOTA_Tooltip_ability_item_bfury_copy_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_bfury_copy_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_copy_bonus_mana_regen"						"+$mana_regen"
+
+		// item_haste_moon_bundle Treasured Speedster's Gift
+		"DOTA_Tooltip_ability_item_haste_moon_bundle"						"<font color='#B87333'>Treasured Speedster's Gift</font>"
+		"DOTA_Tooltip_ability_item_haste_moon_bundle_Description"		"Grants Wings of Haste and Moon Shard when used. Both are consumed for permanent bonuses. Only found in treasure chests."
+		"DOTA_Tooltip_ability_item_haste_moon_bundle_Lore"			"Everything a speedster needs, wrapped in one chest."
 
 		// item_aghanim_bundle Treasured Aghanim's Gift
 		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>Treasured Aghanim's Gift</font>"

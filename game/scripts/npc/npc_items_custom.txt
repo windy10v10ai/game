@@ -8097,4 +8097,30 @@
 		}
 	}
 
+
+	//=================================================================================================================
+	// 珍藏·快男的馈赠：使用后得到急速之翼与银月之晶
+	//=================================================================================================================
+	"item_haste_moon_bundle"
+	{
+		"ID"							"10476"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"haste_moon_bundle"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"ItemCost"						"2000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_haste_moon_bundle"
+				"Function"			"HasteMoonBundleOnSpell"
+			}
+		}
+	}
+
 }

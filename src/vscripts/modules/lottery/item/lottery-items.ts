@@ -106,6 +106,7 @@ export const itemTiers: Tier[] = [
       'item_blade_mail_copy', // 珍藏·刃甲
       'item_heart_copy', // 珍藏·龙心
       'item_aghanim_bundle', // 珍藏·阿哈利姆的馈赠
+      'item_haste_moon_bundle', // 珍藏·快男的馈赠
     ],
   },
 ];
