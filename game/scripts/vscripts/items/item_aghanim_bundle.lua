@@ -1,4 +1,4 @@
-local SCEPTER_ITEM = "item_ultimate_scepter"
+local SCEPTER_ITEM = "item_ultimate_scepter_copy"
 local SHARD_ITEM = "item_aghanims_shard"
 -- 拿着原版神杖与吃掉神杖是两种来源的同一个效果，两种都算已有
 local SCEPTER_MODIFIERS = { "modifier_item_ultimate_scepter", "modifier_item_ultimate_scepter_consumed" }
