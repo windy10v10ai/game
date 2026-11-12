@@ -6,6 +6,7 @@ const TREASURED_ITEMS = [
   'item_blade_mail_copy',
   'item_heart_copy',
   'item_aghanim_bundle',
+  'item_haste_moon_bundle',
 ];
 
 const ORIGINAL_ITEMS = ['item_bfury', 'item_radiance', 'item_blade_mail', 'item_heart'];
