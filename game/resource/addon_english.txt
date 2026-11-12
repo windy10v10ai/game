@@ -1,4 +1,4 @@
-﻿﻿﻿"lang"
+﻿﻿﻿﻿"lang"
 {
 	"Language"		"english"
 	"Tokens"
@@ -3135,6 +3135,23 @@
 		"DOTA_Tooltip_ability_item_haste_moon_bundle"						"<font color='#B87333'>Treasured Speedster's Gift</font>"
 		"DOTA_Tooltip_ability_item_haste_moon_bundle_Description"		"Grants Wings of Haste and Moon Shard when used. Both are consumed for permanent bonuses. Only found in treasure chests."
 		"DOTA_Tooltip_ability_item_haste_moon_bundle_Lore"			"Everything a speedster needs, wrapped in one chest."
+
+		// item_ultimate_scepter_copy Aghanim's Scepter
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy"						"Aghanim's Scepter"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>Passive: Ability Upgrade</h1>Upgrades the ultimate, and some abilities, of all heroes."
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Lore"			"The scepter of a wizard with demigod-like powers."
+
+		// item_wings_of_haste_copy Wings of Haste
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"Wings of Haste"
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>Use: Hasten</h1> Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, %bonus_health_regen% health regeneration, and %bonus_mana_regen% mana regeneration."
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Lore"			"Wings that grant swift retribution in battle."
+
+		// item_moon_shard_copy Moon Shard
+		"DOTA_Tooltip_ability_item_moon_shard_copy"						"Moon Shard"
+		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>Use: Consume</h1> Consume the Moon Shard to permanently gain %consumed_bonus% attack speed and %consumed_bonus_night_vision% bonus night vision. Max 1 use.
+
+<h1>Passive: Shade Sight</h1>Grants bonus night vision."
+		"DOTA_Tooltip_ability_item_moon_shard_copy_Lore"			"Said to be a tear from the lunar goddess Selemene."
 
 		// item_aghanim_bundle Treasured Aghanim's Gift
 		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>Treasured Aghanim's Gift</font>"

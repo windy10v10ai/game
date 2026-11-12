@@ -1,5 +1,5 @@
-local HASTE_ITEM = "item_wings_of_haste"
-local MOON_SHARD_ITEM = "item_moon_shard"
+local HASTE_ITEM = "item_wings_of_haste_copy"
+local MOON_SHARD_ITEM = "item_moon_shard_copy"
 
 -- 两件都是吃掉后永久加成，玩家自己决定什么时候吃，这里只负责发到背包
 function HasteMoonBundleOnSpell(keys)

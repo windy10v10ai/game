@@ -3138,6 +3138,23 @@
 		"DOTA_Tooltip_ability_item_haste_moon_bundle_Description"		"使用后获得急速之翼与银月之晶。两件都是消耗后永久提升属性的物品，只能从藏宝箱开出。"
 		"DOTA_Tooltip_ability_item_haste_moon_bundle_Lore"			"快男必备，捡到就停不下来。"
 
+		// item_ultimate_scepter_copy 阿哈利姆神杖
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy"						"阿哈利姆神杖"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>被动：技能升级</h1>提升所有英雄的终极技能或基础技能效果。"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Lore"			"这把权杖属于拥有半神之力的法师。"
+
+		// item_wings_of_haste_copy 急速之翼
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"急速之翼"
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>使用：永久升级</h1>消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。"
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Lore"			"带来迅速报应的翅膀。"
+
+		// item_moon_shard_copy 银月之晶
+		"DOTA_Tooltip_ability_item_moon_shard_copy"						"银月之晶"
+		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>使用：吞噬</h1> 吞噬银月之晶，永久获得%consumed_bonus%攻击速度和%consumed_bonus_night_vision%夜间视野加成。最多使用1次。
+
+<h1>被动：月夜之视</h1>提供额外夜间视野。"
+		"DOTA_Tooltip_ability_item_moon_shard_copy_Lore"			"相传这是月之女神赛莉蒙妮流下的一滴眼泪。"
+
 		// item_aghanim_bundle 珍藏·阿哈利姆的馈赠
 		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>珍藏·阿哈利姆的馈赠</font>"
 		"DOTA_Tooltip_ability_item_aghanim_bundle_Description"		"使用后获得阿哈利姆神杖与阿哈利姆魔晶。只能从藏宝箱开出，已拥有其中一件时只补另一件。"

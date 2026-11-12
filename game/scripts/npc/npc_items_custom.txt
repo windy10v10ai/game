@@ -8123,4 +8123,130 @@
 		}
 	}
 
+	//=================================================================================================================
+	// 阿哈利姆神杖复制品：效果与原版一致，只能由宝箱开出，卖价更低
+	//=================================================================================================================
+	"item_ultimate_scepter_copy"
+	{
+		"ID"							"10477"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_ultimate_scepter"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"						"2000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"Modifiers"
+		{
+			"modifier_item_ultimate_scepter_copy"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_scepter_copy"
+						"Function"			"ScepterCopyOnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_scepter_copy"
+						"Function"			"ScepterCopyOnDestroy"
+					}
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// 急速之翼复制品：吃掉后的永久加成与原版一致，只能由宝箱开出，卖价更低
+	//=================================================================================================================
+	"item_wings_of_haste_copy"
+	{
+		"ID"							"10478"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_wings_of_haste"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityCastRange"				"0"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"100"
+			"bonus_attack_speed"		"25"
+			"bonus_all_stats"			"15"
+			"bonus_health_regen"		"8"
+			"bonus_mana_regen"			"5"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_wings_of_haste"
+				"Function"			"WingsOfHasteOnSpell"
+
+				"modifier"			"modifier_item_wings_of_haste_consumed"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_item_wings_of_haste_copy"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"%bonus_movement_speed"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%bonus_mana_regen"
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// 银月之晶复制品：吞噬效果与原版一致，只能由宝箱开出，卖价更低
+	//=================================================================================================================
+	"item_moon_shard_copy"
+	{
+		"ID"							"10479"
+		"BaseClass"						"item_moon_shard"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityValues"
+		{
+			"bonus_attack_speed"			"100"
+			"bonus_night_vision"			"200"
+			"consumed_bonus"				"60"
+			"consumed_bonus_night_vision"	"200"
+		}
+	}
+
 }
