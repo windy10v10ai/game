@@ -8092,8 +8092,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"		"items/item_aghanim_bundle"
-				"Function"			"AghanimBundleOnSpell"
+				"ScriptFile"		"items/item_loot_bundle"
+				"Function"			"LootBundleOnSpell"
 			}
 		}
 	}
@@ -8118,8 +8118,8 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"		"items/item_haste_moon_bundle"
-				"Function"			"HasteMoonBundleOnSpell"
+				"ScriptFile"		"items/item_loot_bundle"
+				"Function"			"LootBundleOnSpell"
 			}
 		}
 	}
@@ -8130,41 +8130,14 @@
 	"item_ultimate_scepter_copy"
 	{
 		"ID"							"10477"
-		"BaseClass"						"item_datadriven"
+		"BaseClass"						"item_ultimate_scepter"
 		"AbilityTextureName"			"ultimate_scepter_copy"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"1000"
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
-
-		"Modifiers"
-		{
-			"modifier_item_ultimate_scepter_copy"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"items/item_scepter_copy"
-						"Function"			"ScepterCopyOnCreated"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"items/item_scepter_copy"
-						"Function"			"ScepterCopyOnDestroy"
-					}
-				}
-			}
-		}
 	}
 
 	//=================================================================================================================
