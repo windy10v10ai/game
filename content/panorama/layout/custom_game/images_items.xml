@@ -98,6 +98,7 @@
 			<Image id="molongkuangwu" class="SeqImg" src="file://{images}/items/molongkuangwu.png" />
 			<Image id="monkey_king_bar_2" class="SeqImg" src="file://{images}/items/monkey_king_bar_2.png" />
 			<Image id="moon_shard_datadriven" class="SeqImg" src="file://{images}/items/moon_shard_datadriven.png" />
+			<Image id="moon_shard_copy" class="SeqImg" src="file://{images}/items/moon_shard_copy.png" />
 			<Image id="moyuanjian" class="SeqImg" src="file://{images}/items/moyuanjian.png" />
 			<Image id="necronomicon_staff" class="SeqImg" src="file://{images}/items/necronomicon_staff.png" />
 			<Image id="orb_of_the_brine" class="SeqImg" src="file://{images}/items/orb_of_the_brine.png" />
@@ -139,6 +140,7 @@
 			<Image id="tome_of_luoshu" class="SeqImg" src="file://{images}/items/tome_of_luoshu.png" />
 			<Image id="tome_of_strength" class="SeqImg" src="file://{images}/items/tome_of_strength.png" />
 			<Image id="ultimate_regalia" class="SeqImg" src="file://{images}/items/ultimate_regalia.png" />
+			<Image id="ultimate_scepter_copy" class="SeqImg" src="file://{images}/items/ultimate_scepter_copy.png" />
 			<Image id="undying_heart" class="SeqImg" src="file://{images}/items/undying_heart.png" />
 			<Image id="veil_of_discord_2" class="SeqImg" src="file://{images}/items/veil_of_discord_2.png" />
 			<Image id="vladmir_2" class="SeqImg" src="file://{images}/items/vladmir_2.png" />
@@ -146,6 +148,7 @@
 			<Image id="wasp_despotic" class="SeqImg" src="file://{images}/items/wasp_despotic.png" />
 			<Image id="wasp_golden" class="SeqImg" src="file://{images}/items/wasp_golden.png" />
 			<Image id="wings_of_haste" class="SeqImg" src="file://{images}/items/wings_of_haste.png" />
+			<Image id="wings_of_haste_copy" class="SeqImg" src="file://{images}/items/wings_of_haste_copy.png" />
 			<Image id="wish_1" class="SeqImg" src="file://{images}/items/wish_1.png" />
 			<Image id="wish_2" class="SeqImg" src="file://{images}/items/wish_2.png" />
 			<Image id="wish_3" class="SeqImg" src="file://{images}/items/wish_3.png" />

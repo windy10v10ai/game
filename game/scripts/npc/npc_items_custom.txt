@@ -8131,7 +8131,7 @@
 	{
 		"ID"							"10477"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_ultimate_scepter"
+		"AbilityTextureName"			"ultimate_scepter_copy"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"1000"
 		"ItemShopTags"					""
@@ -8174,7 +8174,7 @@
 	{
 		"ID"							"10478"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_wings_of_haste"
+		"AbilityTextureName"			"wings_of_haste_copy"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
@@ -8234,6 +8234,7 @@
 	{
 		"ID"							"10479"
 		"BaseClass"						"item_moon_shard"
+		"AbilityTextureName"			"moon_shard_copy"
 		"ItemCost"						"500"
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
