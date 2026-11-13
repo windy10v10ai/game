@@ -52,6 +52,7 @@
 			<Image id="dragon_ball_6" class="SeqImg" src="file://{images}/items/dragon_ball_6.png" />
 			<Image id="dragon_ball_7" class="SeqImg" src="file://{images}/items/dragon_ball_7.png" />
 			<Image id="echo_sabre_2" class="SeqImg" src="file://{images}/items/echo_sabre_2.png" />
+			<Image id="echo_sabre_2_copy" class="SeqImg" src="file://{images}/items/echo_sabre_2_copy.png" />
 			<Image id="essence_distiller_2" class="SeqImg" src="file://{images}/items/essence_distiller_2.png" />
 			<Image id="excalibur" class="SeqImg" src="file://{images}/items/excalibur.png" />
 			<Image id="exchange" class="SeqImg" src="file://{images}/items/exchange.png" />
