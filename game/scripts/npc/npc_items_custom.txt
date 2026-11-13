@@ -7967,9 +7967,9 @@
 		{
 			"bonus_damage"					"50"	// 原版 50
 			"bonus_strength"				"30"	// 原版 30
-			"bonus_mana_regen"				"1.75"	// 原版 1.75
+			"bonus_mana_regen"				"2.0"	// 原版 1.75
 			"movement_slow"					"100"	// 原版 100
-			"slow_duration"					"0.8"	// 原版 0.8
+			"slow_duration"					"0.5"	// 原版 0.8
 		}
 	}
 
