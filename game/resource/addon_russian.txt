@@ -3127,7 +3127,7 @@
 
 		// item_bfury_copy
 		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#B87333'>Драгоценный Battle Fury</font>"
-		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"<h1>Активное: Chop Tree</h1> Срубает выбранное дерево.\n\n<h1>Пассивное: Quell</h1> Увеличивает урон от атак по существам, не являющимися героями, на %quelling_bonus% для героев ближнего боя и на %quelling_bonus_ranged% — для дальнего. \n\n<h1>Пассивное: Cleave</h1> Атаки героя прорубают жертву, нанося врагам в радиусе %cleave_distance% вокруг неё физический урон (только в ближнем бою).<br><br>• Урон героям: %cleave_damage_percent%%%<br>• Урон крипам: %cleave_damage_percent_creep%%%\n\n<h1>Источник</h1>Встречается только в сундуках."
+		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"<h1>Активное: Chop Tree</h1> Срубает выбранное дерево.\n\n<h1>Пассивное: Quell</h1> Увеличивает урон от атак по существам, не являющимися героями, на %quelling_bonus% для героев ближнего боя и на %quelling_bonus_ranged% — для дальнего. \n\n<h1>Пассивное: Cleave</h1> Атаки героя прорубают жертву, нанося врагам в радиусе %cleave_distance% вокруг неё физический урон (только в ближнем бою).<br><br>• Урон героям: %cleave_damage_percent%%%<br>• Урон крипам: %cleave_damage_percent_creep%%%\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nИз-за долгого забвения характеристики предмета немного изменились."
 		"DOTA_Tooltip_ability_item_bfury_copy_Lore"			"Владелец этого могучего топора может выкашивать врагов целыми рядами."
 		"DOTA_Tooltip_ability_item_bfury_copy_Note0"			"Прорубающий урон проходит сквозь невосприимчивость к магии."
 		"DOTA_Tooltip_ability_item_bfury_copy_Note1"			"Каждый предмет или способность, дарующие прорубающую атаку, наносят урон отдельно друг от друга."
@@ -3142,7 +3142,7 @@
 
 		// item_ultimate_scepter_copy
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy"						"<font color='#B87333'>Драгоценный Aghanim's Scepter</font>"
-		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>Пассивное: Ability Upgrade</h1>Улучшает ульт и некоторые способности.\n\n<h1>Источник</h1>Встречается только в сундуках."
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>Пассивное: Ability Upgrade</h1>Улучшает ульт и некоторые способности.\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nИз-за долгого забвения характеристики предмета немного изменились."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Lore"			"Скипетр колдуна, мощью сходного с полубогами."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_health"		"+$health"
@@ -3150,7 +3150,7 @@
 
 		// item_wings_of_haste_copy
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"<font color='#B87333'>Драгоценные Крылья спешки</font>"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>Применение: Постоянное улучшение</h1>Поглощает Крылья спешки, навсегда давая %bonus_movement_speed% к скорости передвижения, %bonus_attack_speed% к скорости атаки, %bonus_health_regen% к восстановлению здоровья и %bonus_mana_regen% к восстановлению маны.\n\n<h1>Источник</h1>Встречается только в сундуках."
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>Применение: Постоянное улучшение</h1>Поглощает Крылья спешки, навсегда давая %bonus_movement_speed% к скорости передвижения, %bonus_attack_speed% к скорости атаки, %bonus_health_regen% к восстановлению здоровья и %bonus_mana_regen% к восстановлению маны.\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nИз-за долгого забвения характеристики предмета немного изменились."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Lore"			"Крылья, дарующие скорое возмездие в бою."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_movement_speed"		"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_attack_speed"		"+$attack"
@@ -3160,7 +3160,7 @@
 
 		// item_moon_shard_copy
 		"DOTA_Tooltip_ability_item_moon_shard_copy"						"<font color='#B87333'>Драгоценный Moon Shard</font>"
-		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>Использование: Consume</h1> Поглощает предмет и навсегда увеличивает скорость атаки на %consumed_bonus%, а радиус обзора ночью — на %consumed_bonus_night_vision%. Можно поглотить лишь один Moon Shard.\n\n<h1>Пассивное: Shade Sight</h1>Увеличивает радиус обзора ночью.\n\n<h1>Источник</h1>Встречается только в сундуках."
+		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>Использование: Consume</h1> Поглощает предмет и навсегда увеличивает скорость атаки на %consumed_bonus%, а радиус обзора ночью — на %consumed_bonus_night_vision%. Можно поглотить лишь один Moon Shard.\n\n<h1>Пассивное: Shade Sight</h1>Увеличивает радиус обзора ночью.\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nИз-за долгого забвения характеристики предмета немного изменились."
 		"DOTA_Tooltip_ability_item_moon_shard_copy_Lore"			"Говорят, что это слеза Селемине — богини Луны."
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_night_vision"		"+к радиусу обзора ночью"
@@ -3172,14 +3172,14 @@
 
 		// item_radiance_copy
 		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#B87333'>Драгоценный Radiance</font>"
-		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"<h1>Переключаемое: Burn</h1> Если включена, каждую секунду наносит наносит противникам вокруг %aura_damage% магического урона. На иллюзиях наносит %aura_damage_illusions% магического урона в секунду.<br><br>Радиус: %aura_radius%\n\n<h1>Источник</h1>Встречается только в сундуках."
+		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"<h1>Переключаемое: Burn</h1> Если включена, каждую секунду наносит наносит противникам вокруг %aura_damage% магического урона. На иллюзиях наносит %aura_damage_illusions% магического урона в секунду.<br><br>Радиус: %aura_radius%\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nИз-за долгого забвения характеристики предмета немного изменились."
 		"DOTA_Tooltip_ability_item_radiance_copy_Lore"			"Божественный меч, окружающий владельца ярким сиянием, которое обращает в пепел всех врагов вокруг."
 		"DOTA_Tooltip_ability_item_radiance_copy_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_radiance_copy_evasion"		"%+$evasion"
 
 		// item_blade_mail_copy
 		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#B87333'>Драгоценная Blade Mail</font>"
-		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"<h1>Активное: Damage Return</h1>Увеличивает долю возвращаемого урона на %active_reflection_pct%%% и делает так, что владелец отражает любой получаемый урон. Длится %duration% сек.\n\n<h1>Пассивное: Damage Return</h1>Возвращает %passive_reflection_constant% + %passive_reflection_pct%%% урона от каждой атаки атакующим вас существам.\n\n<h1>Источник</h1>Встречается только в сундуках."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"<h1>Активное: Damage Return</h1>Увеличивает долю возвращаемого урона на %active_reflection_pct%%% и делает так, что владелец отражает любой получаемый урон. Длится %duration% сек.\n\n<h1>Пассивное: Damage Return</h1>Возвращает %passive_reflection_constant% + %passive_reflection_pct%%% урона от каждой атаки атакующим вас существам.\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nИз-за долгого забвения характеристики предмета немного изменились."
 		"DOTA_Tooltip_ability_item_blade_mail_copy_Lore"			"Острый, как лезвие бритвы, панцирь — выбор самоотверженных мучеников."
 		"DOTA_Tooltip_ability_item_blade_mail_copy_Note0"			"Урон возвращается в изначальном количестве, до его уменьшения."
 		"DOTA_Tooltip_ability_item_blade_mail_copy_Note1"			"Возвращаемый урон имеет тот же тип, что и полученный."
@@ -3189,7 +3189,7 @@
 
 		// item_heart_copy
 		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#B87333'>Драгоценное Heart of Tarrasque</font>"
-		"DOTA_Tooltip_ability_item_heart_copy_Description"		"<h1>Пассивное: Behemoth's Blood</h1>Восстановление здоровья увеличивается на %missing_health_regen%%% от недостающего здоровья.\n\n<h1>Источник</h1>Встречается только в сундуках."
+		"DOTA_Tooltip_ability_item_heart_copy_Description"		"<h1>Пассивное: Behemoth's Blood</h1>Восстановление здоровья увеличивается на %missing_health_regen%%% от недостающего здоровья.\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nИз-за долгого забвения характеристики предмета немного изменились."
 		"DOTA_Tooltip_ability_item_heart_copy_Lore"			"Сохранившееся сердце вымершего монстра, которое укрепляет стойкость владельца."
 		"DOTA_Tooltip_ability_item_heart_copy_Note0"			"Эффекты от нескольких заклинаний Behemoth's Blood не складываются."
 		"DOTA_Tooltip_ability_item_heart_copy_bonus_strength"		"+$str"
