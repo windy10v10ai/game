@@ -3165,9 +3165,6 @@
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_night_vision"		"+к радиусу обзора ночью"
 
-<h1>Пассивное: Shade Sight</h1>Увеличивает радиус обзора ночью."
-		"DOTA_Tooltip_ability_item_moon_shard_copy_Lore"			"Говорят, что это слеза Селемине — богини Луны."
-
 		// item_aghanim_bundle Драгоценный Aghanim's Gift
 		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>Драгоценный Aghanim's Gift</font>"
 		"DOTA_Tooltip_ability_item_aghanim_bundle_Description"		"При использовании даёт Aghanim's Scepter и Aghanim's Shard. Встречается только в сундуках с сокровищами. Если один из них уже есть, выдаётся только второй."

@@ -3165,9 +3165,6 @@
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_night_vision"		"+额外夜间视野"
 
-<h1>被动：月夜之视</h1>提供额外夜间视野。"
-		"DOTA_Tooltip_ability_item_moon_shard_copy_Lore"			"相传这是月之女神赛莉蒙妮流下的一滴眼泪。"
-
 		// item_aghanim_bundle 珍藏·阿哈利姆的馈赠
 		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>珍藏·阿哈利姆的馈赠</font>"
 		"DOTA_Tooltip_ability_item_aghanim_bundle_Description"		"使用后获得阿哈利姆神杖与阿哈利姆魔晶。只能从藏宝箱开出，已拥有其中一件时只补另一件。"

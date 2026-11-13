@@ -3163,9 +3163,6 @@
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_night_vision"		"+Bonus Night Vision"
 
-<h1>Passive: Shade Sight</h1>Grants bonus night vision."
-		"DOTA_Tooltip_ability_item_moon_shard_copy_Lore"			"Said to be a tear from the lunar goddess Selemene."
-
 		// item_aghanim_bundle Treasured Aghanim's Gift
 		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>Treasured Aghanim's Gift</font>"
 		"DOTA_Tooltip_ability_item_aghanim_bundle_Description"		"Grants Aghanim's Scepter and Aghanim's Shard when used. Only found in treasure chests. If you already own one of them, only the other is granted."
