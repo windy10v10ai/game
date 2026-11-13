@@ -3186,6 +3186,16 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+Cast Speed Bonus"
 
+		// item_meteor_hammer_copy
+		"DOTA_Tooltip_ability_item_meteor_hammer_copy"						"<font color='#B87333'>Treasured Meteor Hammer</font>"
+		"DOTA_Tooltip_ability_item_meteor_hammer_copy_Description"		"<h1>Active: Meteor Hammer</h1> CHANNELED - After a successful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds and dealing impact damage. Continues to deal damage over time to enemies units and buildings for %burn_duration% seconds. Non-building units are also slowed for %burn_slow%%% for the duration of the burn. <BR><BR>Building Impact Damage: %impact_damage_buildings% <BR>Building Over Time Damage: %burn_dps_buildings% <BR><BR>Non-Building Impact Damage: %impact_damage_units% <BR>Non-Building Over Time Damage: %burn_dps_units% <BR><BR>Channel Duration: %max_duration% seconds.<BR>Landing Time: %land_time% seconds.\n\n<h1>Source</h1>Only dropped from treasure chests.\n\nOwing to prolonged neglect, the attributes of this collectible have been somewhat altered."
+		"DOTA_Tooltip_ability_item_meteor_hammer_copy_Lore"			"An enchanted hammer forged of metals discovered in the ruins of a village destroyed by a great star storm."
+		"DOTA_Tooltip_ability_item_meteor_hammer_copy_bonus_strength"		"+$str"
+		"DOTA_Tooltip_ability_item_meteor_hammer_copy_bonus_agility"		"+$agi"
+		"DOTA_Tooltip_ability_item_meteor_hammer_copy_bonus_intellect"		"+$int"
+		"DOTA_Tooltip_ability_item_meteor_hammer_copy_spell_amp"		"%+Spell Amplification"
+		"DOTA_Tooltip_ability_item_meteor_hammer_copy_mana_regen_multiplier"		"%+Mana Regen Amplification"
+
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>Asteroid Hammer</font>"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_Description"                   "<h1>Active: Meteor</h1> CHANNELED - After a successful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds and dealing impact damage. <font color='#e03e77'>Stuns enemies regardless of debuff immunity.</font> Continues to deal damage over time to enemy units and buildings for %burn_duration% seconds. Non-building units are also slowed for %burn_slow%%% for the duration of the burn. <br><br>Building Impact Damage: %impact_damage_buildings% <br>Building Damage Over Time: %burn_dps_buildings% <br><br>Non-Building Impact Damage: %impact_damage_units% <br>Non-Building Damage Over Time: %burn_dps_units% <br><br>Channel Duration: %max_duration% seconds.<br>Landing Time: %land_time% seconds."
