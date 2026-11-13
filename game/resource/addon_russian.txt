@@ -2660,7 +2660,7 @@
 
 		// item_echo_sabre_2_copy
 		"DOTA_Tooltip_ability_item_echo_sabre_2_copy"						"<font color='#B87333'>Драгоценный Echo Sabre</font>"
-		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Description"		"<h1>Пассивное: Звуковой удар</h1>Атаки ближнего боя проводятся дважды подряд. Каждая из двух атак замедляет скорость передвижения на %movement_slow%%% на %slow_duration% сек.\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nИз-за долгого забвения характеристики предмета немного изменились."
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Description"		"<h1>Пассивное: Звуковой удар</h1>Атаки ближнего боя проводятся дважды подряд. Каждая из двух атак замедляет скорость передвижения на %movement_slow%%% на %slow_duration% сек.\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nВследствие длительного отсутствия ухода характеристики предмета претерпели некоторые изменения."
 		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Lore"			"Если бить достаточно быстро, противник просто не успеет заметить удар."
 		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_strength"		"+$str"
