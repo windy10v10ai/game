@@ -4808,6 +4808,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_hand_of_midas;item_hyperstone"
+			"02"						"item_hand_of_midas_copy;item_hyperstone"
 		}
 	}
 
@@ -7939,6 +7940,47 @@
 				"Function"		"AeonAmuletOnSpellStart"
 			}
 		}
+	}
+
+	//=================================================================================================================
+	// item_hand_of_midas_copy：属性同item_hand_of_midas，只能由宝箱开出
+	//=================================================================================================================
+	"item_hand_of_midas_copy"
+	{
+		"ID"							"10483"
+		"BaseClass"						"item_hand_of_midas"
+		"AbilityTextureName"			"hand_of_midas_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityCastRange"				"80000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityCharges"				"2"
+		"AbilityChargeRestoreTime"		"90"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"1"
+		"SpeciallyBannedFromNeutralSlot"		"1"
+		"AbilityManaCost"				"0"
+		"ItemQuality"					"common"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"AbilityValues"
+		{
+				"bonus_attack_speed"	"20"	// 原版 40
+				"bonus_gold"			"240"	// 原版 160
+		}
+
+		"ItemCost"						"1000"	// 原版造价 2200
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
 	}
 
 }
