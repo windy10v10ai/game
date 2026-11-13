@@ -7971,13 +7971,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"50"	// 原版 50
-			"bonus_health_regen"	"7.5"	// 原版 7.5
-			"bonus_mana_regen"		"2.75"	// 原版 2.75
-			"cleave_damage_percent"	"60"	// 原版 60
-			"cleave_damage_percent_creep"	"40"	// 原版 40
-			"quelling_bonus"			"10"	// 原版 10
-			"quelling_bonus_ranged"	"5"	// 原版 5
+			"bonus_damage"			"5"	// 原版 50
+			"bonus_health_regen"	"15"	// 原版 7.5
+			"bonus_mana_regen"		"5.5"	// 原版 2.75
+			"cleave_damage_percent"	"50"	// 原版 60
+			"cleave_damage_percent_creep"	"50"	// 原版 40
+			"quelling_bonus"			"40"	// 原版 10
+			"quelling_bonus_ranged"	"20"	// 原版 5
 			"cleave_starting_width"
 			{
 			"value"	"150"	// 原版 360
@@ -8009,11 +8009,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"55"	// 原版 55
+			"bonus_damage"			"15"	// 原版 55
 			"aura_damage"			"60"	// 原版 60
 			"aura_damage_illusions"	"35"	// 原版 35
-			"upgrade_day_vision"	"250"	// 原版 250
-			"evasion"				"25"	// 原版 25
+			"upgrade_day_vision"	"500"	// 原版 250
+			"evasion"				"50"	// 原版 25
 			"blind_pct"				"0"	// 原版 0
 			"aura_radius"
 			{
@@ -8042,11 +8042,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"15"	// 原版 15
-			"bonus_armor"			"7"	// 原版 7
+			"bonus_damage"			"25"	// 原版 15
+			"bonus_armor"			"10"	// 原版 7
 			"bonus_intellect"		"0"	// 原版 0
 			"duration"				"4"	// 原版 5.5，本模组 4
-			"passive_reflection_constant"			"10"	// 原版 10
+			"passive_reflection_constant"			"100"	// 原版 10
 			"passive_reflection_pct"			"15"	// 原版 15
 			"active_reflection_pct"			"85"	// 原版 85
 		}
@@ -8067,9 +8067,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_strength"		"40"	// 原版 40
-			"hp_regen"				"1"	// 原版 1
-			"missing_health_regen"	"1.5"	// 原版 1.5
+			"bonus_strength"		"30"	// 原版 40
+			"hp_regen"				"3.5"	// 原版 1
+			"missing_health_regen"	"0"	// 原版 1.5
 		}
 	}
 
@@ -8138,9 +8138,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_all_stats"					"10"	// 原版 10
-			"bonus_health"					"175"	// 原版 175
-			"bonus_mana"					"175"	// 原版 175
+			"bonus_all_stats"					"5"	// 原版 10
+			"bonus_health"					"50"	// 原版 175
+			"bonus_mana"					"500"	// 原版 175
 		}
 
 		"ItemCost"						"1000"	// 原版造价 4200
@@ -8174,9 +8174,9 @@
 		{
 			"bonus_movement_speed"		"100"	// 原版 100
 			"bonus_attack_speed"		"25"	// 原版 25
-			"bonus_all_stats"			"15"	// 原版 15
-			"bonus_health_regen"		"8"	// 原版 8
-			"bonus_mana_regen"			"5"	// 原版 5
+			"bonus_all_stats"			"10"	// 原版 15
+			"bonus_health_regen"		"2.5"	// 原版 8
+			"bonus_mana_regen"			"1.5"	// 原版 5
 		}
 
 		"OnSpellStart"
@@ -8248,10 +8248,10 @@
 
 		"AbilityValues"
 		{
-			"bonus_attack_speed"			"100"	// 原版 140，本模组 100
-			"bonus_night_vision"			"200"	// 原版 400，本模组 200
+			"bonus_attack_speed"			"70"	// 原版 140，本模组 100
+			"bonus_night_vision"			"400"	// 原版 400，本模组 200
 			"consumed_bonus"				"60"	// 原版 60
-			"consumed_bonus_night_vision"	"200"	// 原版 200
+			"consumed_bonus_night_vision"	"400"	// 原版 200
 		}
 	}
 
