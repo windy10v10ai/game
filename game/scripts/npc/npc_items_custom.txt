@@ -4566,6 +4566,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_helm_of_iron_will;item_armlet"
+			"02"						"item_helm_of_iron_will;item_armlet_copy"
 		}
 	}
 	"item_armlet_plus"
@@ -7938,6 +7939,38 @@
 				"ScriptFile"	"items/item_aeon_amulet"
 				"Function"		"AeonAmuletOnSpellStart"
 			}
+		}
+	}
+
+	//=================================================================================================================
+	// 珍藏·臂章：属性同莫尔迪基安的臂章，只能由宝箱开出，可合成小鸡臂章Plus
+	//=================================================================================================================
+	"item_armlet_copy"
+	{
+		"ID"							"10481"
+		"BaseClass"						"item_armlet"
+		"AbilityTextureName"			"armlet_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"0.0"
+		"ItemCost"						"1000"	// 原版造价 2500
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityValues"
+		{
+			"bonus_damage"		"20"	// 原版 15
+			"bonus_attack_speed"		"30"	// 原版 25
+			"bonus_armor"		"8"	// 原版 6
+			"bonus_health_regen"		"8"	// 原版 5
+			"unholy_bonus_damage"		"30"	// 原版 35
+			"unholy_bonus_strength"		"35"	// 原版 25
+			"unholy_bonus_armor"		"6"	// 原版 4
+			"unholy_bonus_slow_resistance"		"35"	// 原版 0
+			"unholy_health_drain_per_second"		"40"	// 原版 45
+			"toggle_cooldown"		"0.036f"	// 原版 0.036
 		}
 	}
 
