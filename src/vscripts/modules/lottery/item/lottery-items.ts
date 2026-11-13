@@ -100,7 +100,7 @@ export const itemTiers: Tier[] = [
       'item_arcane_boots', // 秘法鞋
       'item_phase_boots', // 相位鞋
       'item_power_treads', // 动力鞋
-      'item_armlet_plus_copy', // 珍藏·小鸡臂章Plus
+      'item_armlet_copy', // 珍藏·臂章
     ],
   },
 ];

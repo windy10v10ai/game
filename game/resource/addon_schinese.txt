@@ -3005,17 +3005,16 @@
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"死灵冲击"
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"变成一只羊。不能攻击，释放技能或使用物品。降低魔法抗性（固定值）。"
 
-		// item_armlet_plus_copy
-		"DOTA_Tooltip_ability_item_armlet_plus_copy"						"<font color='#B87333'>珍藏·小鸡臂章Plus</font>"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_Description"		"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量，+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。\n\n<h1>来源</h1>只能从藏宝箱开出。\n\n因长期疏于保管，藏品的属性已发生一定变动。"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_Lore"			"你知道什么是小鸡臂章吗？"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_Note0"			"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_Note1"			"力量的增加将在0.6秒内完成。"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_Note2"			"开启或关闭邪恶之力并不会打断持续施法。"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_bonus_damage"		"+$damage"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_bonus_attack_speed"		"+$attack"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_bonus_armor"		"+$armor"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_bonus_health_regen"		"+$hp_regen"
+		// item_armlet_copy 珍藏·臂章
+		"DOTA_Tooltip_ability_item_armlet_copy"						"<font color='#B87333'>珍藏·臂章</font>"
+		"DOTA_Tooltip_ability_item_armlet_copy_Description"		"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。\n\n<h1>来源</h1>只能从藏宝箱开出。\n\n因长期疏于保管，藏品的属性已发生一定变动。"
+		"DOTA_Tooltip_ability_item_armlet_copy_Lore"			"暴徒们首选的武器，持有者牺牲自己的生命能量来获得巨大力量。"
+		"DOTA_Tooltip_ability_item_armlet_copy_Note0"			"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
+		"DOTA_Tooltip_ability_item_armlet_copy_Note1"			"力量的增加将在0.6秒内完成。"
+		"DOTA_Tooltip_ability_item_armlet_copy_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_armlet_copy_bonus_attack_speed"						"+$attack"
+		"DOTA_Tooltip_ability_item_armlet_copy_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_ability_item_armlet_copy_bonus_health_regen"						"+$hp_regen"
 
 		// 小鸡臂章
 		"DOTA_Tooltip_Ability_item_armlet_plus"				"小鸡臂章Plus"

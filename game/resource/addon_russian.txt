@@ -3005,17 +3005,16 @@
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"Удар Некрономикона"
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"Вы превращены в овцу. Нельзя атаковать, применять способности и использовать предметы. Сопротивление магии снижено (фиксированное значение)."
 
-		// item_armlet_plus_copy
-		"DOTA_Tooltip_ability_item_armlet_plus_copy"						"<font color='#B87333'>Драгоценный Куриный Armlet Plus</font>"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_Description"		"<h1>Переключение: Unholy Strength</h1>Во включённом состоянии даёт +%unholy_bonus_damage% урона от атак, +%unholy_bonus_strength% силы, +%unholy_bonus_slow_resistance%%% к сопротивлению замедлениям и +%unholy_bonus_armor% брони, но отнимает %unholy_health_drain_per_second% здоровья в секунду.<br><br>Вы не можете умереть ни от потери здоровья при включении Unholy Strength, ни от спада силы при его выключении.\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nВследствие длительного отсутствия ухода характеристики предмета претерпели некоторые изменения."
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_Lore"			"А вы знаете, что такое Куриный Armlet?"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_Note0"			"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_Note1"			"Изменение силы происходит спустя 0,6 секунды."
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_Note2"			"Включение и выключение Unholy Strength не останавливает прерываемые заклинания."
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_bonus_damage"		"+$damage"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_bonus_attack_speed"		"+$attack"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_bonus_armor"		"+$armor"
-		"DOTA_Tooltip_ability_item_armlet_plus_copy_bonus_health_regen"		"+$hp_regen"
+		// item_armlet_copy Драгоценный Armlet
+		"DOTA_Tooltip_ability_item_armlet_copy"						"<font color='#B87333'>Драгоценный Armlet</font>"
+		"DOTA_Tooltip_ability_item_armlet_copy_Description"		"<h1>Переключаемое: Unholy Strength</h1>Если включено, увеличивает урон на %unholy_bonus_damage%, силу на %unholy_bonus_strength% и броню на %unholy_bonus_armor%, но отнимает %unholy_health_drain_per_second% здоровья в секунду.<br><br>Вы не можете умереть ни от потери здоровья из-за способности, ни от спада бонуса к силе после её выключения.\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nВследствие длительного отсутствия ухода характеристики предмета претерпели некоторые изменения."
+		"DOTA_Tooltip_ability_item_armlet_copy_Lore"			"Это оружие, горячо любимое дикарями, забирает жизненные силы владельца, взамен наделяя его безмерной силой и мощью."
+		"DOTA_Tooltip_ability_item_armlet_copy_Note0"			"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
+		"DOTA_Tooltip_ability_item_armlet_copy_Note1"			"Изменение силы происходит спустя 0,6 секунды."
+		"DOTA_Tooltip_ability_item_armlet_copy_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_armlet_copy_bonus_attack_speed"						"+$attack"
+		"DOTA_Tooltip_ability_item_armlet_copy_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_ability_item_armlet_copy_bonus_health_regen"						"+$hp_regen"
 
 		// 小鸡臂章
 		"DOTA_Tooltip_Ability_item_armlet_plus"				"Куриный Armlet Plus"
