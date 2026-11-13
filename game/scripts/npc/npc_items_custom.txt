@@ -7954,7 +7954,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"80000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0"
 		"AbilityCharges"				"2"
@@ -7971,8 +7971,8 @@
 		"SuggestLategame"				"1"
 		"AbilityValues"
 		{
-				"bonus_attack_speed"	"40"	// 原版 40
-				"bonus_gold"			"160"	// 原版 160
+				"bonus_attack_speed"	"20"	// 原版 40
+				"bonus_gold"			"240"	// 原版 160
 		}
 
 		"ItemCost"						"1000"	// 原版造价 2200
