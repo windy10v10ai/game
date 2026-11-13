@@ -7941,4 +7941,36 @@
 		}
 	}
 
+	//=================================================================================================================
+	// 珍藏·音速战刃：属性同音速战刃，只能由宝箱开出，可合成鱼叉
+	//=================================================================================================================
+	"item_echo_sabre_2_copy"
+	{
+		"ID"							"10480"
+		"BaseClass"						"item_echo_sabre"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"3.0"
+		"AbilitySharedCooldown"			"echo_sabre"
+		"AbilityTextureName"			"echo_sabre_2_copy"
+		"AbilityManaCost"				"0"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"					"50"
+			"bonus_strength"				"30"
+			"bonus_mana_regen"				"1.75"
+			"movement_slow"					"100"
+			"slow_duration"					"0.8"
+		}
+	}
+
 }

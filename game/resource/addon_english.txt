@@ -2656,6 +2656,14 @@
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_mana"							"+$mana"
 
+		// item_echo_sabre_2_copy Treasured Echo Sabre
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy"						"<font color='#B87333'>Treasured Echo Sabre</font>"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Description"		"<h1>Passive: Echo Strike</h1> Causes melee attacks to attack twice in quick succession. The double attacks apply a %movement_slow%%% movement slow for %slow_duration% seconds on each strike."
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Lore"			"A deceptively swift blade imbued with resonant magic."
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_mana_regen"						"+$mana_regen"
+
 		// item_echo_sabre_2 回音刀2
 		"DOTA_Tooltip_Ability_item_echo_sabre_2"				"<font color='#67188B'>Upgraded</font> Echo Sabre"
 		"DOTA_Tooltip_Ability_item_echo_sabre_2_Description"			        "<h1>Passive: Echo Strike</h1> Causes melee attacks to attack twice in quick succession. The double attacks apply a %movement_slow%%% movement slow for %slow_duration% seconds on each strike."

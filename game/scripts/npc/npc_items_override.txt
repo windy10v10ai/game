@@ -409,6 +409,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_echo_sabre_2;item_diadem"
+			"02"						"item_echo_sabre_2_copy;item_diadem"
 		}
 	}
 	"item_harpoon"
