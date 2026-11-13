@@ -7955,7 +7955,7 @@
 		"ID"							"10471"
 		"BaseClass"						"item_bfury"
 		"AbilityTextureName"			"bfury_copy"
-		"ItemCost"						"1000"
+		"ItemCost"						"1000"	// 原版造价 3900
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"1"
@@ -7970,26 +7970,26 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"50"
-			"bonus_health_regen"	"7.5"
-			"bonus_mana_regen"		"2.75"
-			"cleave_damage_percent"	"60"
-			"cleave_damage_percent_creep"	"40"
-			"quelling_bonus"			"10"
-			"quelling_bonus_ranged"	"5"
+			"bonus_damage"			"50"	// 原版 50
+			"bonus_health_regen"	"7.5"	// 原版 7.5
+			"bonus_mana_regen"		"2.75"	// 原版 2.75
+			"cleave_damage_percent"	"60"	// 原版 60
+			"cleave_damage_percent_creep"	"40"	// 原版 40
+			"quelling_bonus"			"10"	// 原版 10
+			"quelling_bonus_ranged"	"5"	// 原版 5
 			"cleave_starting_width"
 			{
-			"value"	"150"
-			"affected_by_aoe_increase"	"1"
+			"value"	"150"	// 原版 360
+			"affected_by_aoe_increase"	"1"	// 原版 1
 			}
 			"cleave_ending_width"
 			{
-			"value"	"360"
-			"affected_by_aoe_increase"	"1"
+			"value"	"360"	// 原版 360
+			"affected_by_aoe_increase"	"1"	// 原版 1
 			}
-			"cleave_distance"			"650"
-			"upgraded_cleave_bonus"			"25"
-			"upgraded_damage_bonus"			"15"
+			"cleave_distance"			"650"	// 原版 650
+			"upgraded_cleave_bonus"			"25"	// 原版 25
+			"upgraded_damage_bonus"			"15"	// 原版 15
 		}
 	}
 
@@ -7998,7 +7998,7 @@
 		"ID"							"10472"
 		"BaseClass"						"item_radiance"
 		"AbilityTextureName"			"radiance_copy"
-		"ItemCost"						"1000"
+		"ItemCost"						"1000"	// 原版造价 4700
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"1"
@@ -8008,18 +8008,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"55"
-			"aura_damage"			"60"
-			"aura_damage_illusions"	"35"
-			"upgrade_day_vision"	"250"
-			"evasion"				"25"
-			"blind_pct"				"0"
+			"bonus_damage"			"55"	// 原版 55
+			"aura_damage"			"60"	// 原版 60
+			"aura_damage_illusions"	"35"	// 原版 35
+			"upgrade_day_vision"	"250"	// 原版 250
+			"evasion"				"25"	// 原版 25
+			"blind_pct"				"0"	// 原版 0
 			"aura_radius"
 			{
-			"value"		"650"
-			"affected_by_aoe_increase"	"1"
+			"value"		"650"	// 原版 650
+			"affected_by_aoe_increase"	"1"	// 原版 1
 			}
-			"illusion_multiplier_pct"	"100"
+			"illusion_multiplier_pct"	"100"	// 原版 100
 		}
 	}
 
@@ -8029,7 +8029,7 @@
 		"BaseClass"						"item_blade_mail"
 		"AbilityTextureName"			"blade_mail_copy"
 		"AbilitySharedCooldown"			"blade_mail"
-		"ItemCost"						"1000"
+		"ItemCost"						"1000"	// 原版造价 2400
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"1"
@@ -8041,13 +8041,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"15"
-			"bonus_armor"			"7"
-			"bonus_intellect"		"0"
-			"duration"				"4"
-			"passive_reflection_constant"			"10"
-			"passive_reflection_pct"			"15"
-			"active_reflection_pct"			"85"
+			"bonus_damage"			"15"	// 原版 15
+			"bonus_armor"			"7"	// 原版 7
+			"bonus_intellect"		"0"	// 原版 0
+			"duration"				"4"	// 原版 5.5，本模组 4
+			"passive_reflection_constant"			"10"	// 原版 10
+			"passive_reflection_pct"			"15"	// 原版 15
+			"active_reflection_pct"			"85"	// 原版 85
 		}
 	}
 
@@ -8056,7 +8056,7 @@
 		"ID"							"10474"
 		"BaseClass"						"item_heart"
 		"AbilityTextureName"			"heart_copy"
-		"ItemCost"						"1000"
+		"ItemCost"						"1000"	// 原版造价 5300
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"1"
@@ -8066,9 +8066,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_strength"		"40"
-			"hp_regen"				"1"
-			"missing_health_regen"	"1.5"
+			"bonus_strength"		"40"	// 原版 40
+			"hp_regen"				"1"	// 原版 1
+			"missing_health_regen"	"1.5"	// 原版 1.5
 		}
 	}
 
@@ -8132,7 +8132,17 @@
 		"ID"							"10477"
 		"BaseClass"						"item_ultimate_scepter"
 		"AbilityTextureName"			"ultimate_scepter_copy"
-		"ItemCost"						"1000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_all_stats"					"10"	// 原版 10
+			"bonus_health"					"175"	// 原版 175
+			"bonus_mana"					"175"	// 原版 175
+		}
+
+		"ItemCost"						"1000"	// 原版造价 4200
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"1"
@@ -8152,7 +8162,7 @@
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
 		"AbilityCastRange"				"0"
-		"ItemCost"						"500"
+		"ItemCost"						"500"	// 原版造价 3625
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"1"
@@ -8161,11 +8171,11 @@
 
 		"AbilityValues"
 		{
-			"bonus_movement_speed"		"100"
-			"bonus_attack_speed"		"25"
-			"bonus_all_stats"			"15"
-			"bonus_health_regen"		"8"
-			"bonus_mana_regen"			"5"
+			"bonus_movement_speed"		"100"	// 原版 100
+			"bonus_attack_speed"		"25"	// 原版 25
+			"bonus_all_stats"			"15"	// 原版 15
+			"bonus_health_regen"		"8"	// 原版 8
+			"bonus_mana_regen"			"5"	// 原版 5
 		}
 
 		"OnSpellStart"
@@ -8175,7 +8185,7 @@
 				"ScriptFile"		"items/item_wings_of_haste"
 				"Function"			"WingsOfHasteOnSpell"
 
-				"modifier"			"modifier_item_wings_of_haste_consumed"
+				"modifier"			"modifier_item_wings_of_haste_consumed"	// 原版 modifier_item_wings_of_haste_consumed
 			}
 		}
 		"Modifiers"
@@ -8208,7 +8218,7 @@
 		"ID"							"10479"
 		"BaseClass"						"item_moon_shard"
 		"AbilityTextureName"			"moon_shard_copy"
-		"ItemCost"						"500"
+		"ItemCost"						"500"	// 原版造价 4000
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"1"
@@ -8217,10 +8227,10 @@
 
 		"AbilityValues"
 		{
-			"bonus_attack_speed"			"100"
-			"bonus_night_vision"			"200"
-			"consumed_bonus"				"60"
-			"consumed_bonus_night_vision"	"200"
+			"bonus_attack_speed"			"100"	// 原版 140，本模组 100
+			"bonus_night_vision"			"200"	// 原版 400，本模组 200
+			"consumed_bonus"				"60"	// 原版 60
+			"consumed_bonus_night_vision"	"200"	// 原版 200
 		}
 	}
 
