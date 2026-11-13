@@ -2660,7 +2660,7 @@
 
 		// item_echo_sabre_2_copy
 		"DOTA_Tooltip_ability_item_echo_sabre_2_copy"						"<font color='#B87333'>珍藏·音速战刃</font>"
-		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Description"		"<h1>被动：音速连击</h1>近战攻击可以快速攻击两次。两次攻击都将减缓%movement_slow%%%移动速度，每次持续%slow_duration%秒。\n\n<h1>来源</h1>只能从藏宝箱开出。"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Description"		"<h1>被动：音速连击</h1>近战攻击可以快速攻击两次。两次攻击都将减缓%movement_slow%%%移动速度，每次持续%slow_duration%秒。\n\n<h1>来源</h1>只能从藏宝箱开出。\n\n因疏于打理，藏品属性发生了一些变化。"
 		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Lore"			"只要我出手够快，你就捕捉不到我的动作。"
 		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_strength"		"+$str"
