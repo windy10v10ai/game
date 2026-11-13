@@ -7941,4 +7941,45 @@
 		}
 	}
 
+	//=================================================================================================================
+	// 珍藏·怪蛇之息：属性同怪蛇之息，只能由宝箱开出，可合成怪蛇之息2
+	//=================================================================================================================
+	"item_hydras_breath_copy"
+	{
+		"ID"							"10482"
+		"BaseClass"						"item_hydras_breath"
+		"AbilityTextureName"			"hydras_breath_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCooldown"				"0"
+		"AbilityCastRange"				"0"
+		"AbilityManaCost"				"0"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"strength"						"10"	// 原版 15
+			"agility"						"20"	// 原版 30
+			"damage"						"15"	// 原版 25
+			"base_count"					"0"	// 原版 0
+			"count"							"4"	// 原版 3
+			"secondary_target_range_bonus"	"75"	// 原版 150
+			"secondary_target_angle"		"120"	// 原版 120
+			"proc_chance"					"90"	// 原版 30
+			"proc_dmg_pct"					"30"	// 原版 75
+			"proc_dmg_pct_primary_tooltip"	"100"	// 原版 100
+			"base_proc_dmg"					"20"	// 原版 20
+			"base_attack_range"				"75"	// 原版 150
+
+			"poison_duration"				"3"	// 原版 3
+			"poison_base_damage"			"0"	// 原版 0
+			"poison_damage_per_second"		"2.5"	// 原版 2.5
+		}
+		"ItemCost"						"1000"	// 原版造价 5900
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+	}
+
 }
