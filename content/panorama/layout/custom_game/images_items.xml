@@ -40,6 +40,7 @@
 			<Image id="consumable_gem" class="SeqImg" src="file://{images}/items/consumable_gem.png" />
 			<Image id="crellas_crozier_2" class="SeqImg" src="file://{images}/items/crellas_crozier_2.png" />
 			<Image id="dagon_ultra" class="SeqImg" src="file://{images}/items/dagon_ultra.png" />
+			<Image id="dagon_ultra_copy" class="SeqImg" src="file://{images}/items/dagon_ultra_copy.png" />
 			<Image id="dark_part" class="SeqImg" src="file://{images}/items/dark_part.png" />
 			<Image id="devastator_2" class="SeqImg" src="file://{images}/items/devastator_2.png" />
 			<Image id="disperser_chaos" class="SeqImg" src="file://{images}/items/disperser_chaos.png" />

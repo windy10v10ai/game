@@ -7941,4 +7941,40 @@
 		}
 	}
 
+	//=================================================================================================================
+	// 珍藏·一瞬千击：属性同神器·一瞬千击，只能由宝箱开出（达贡系列终阶，没有更高配方）
+	//=================================================================================================================
+	"item_dagon_ultra_copy"
+	{
+		"ID"							"10485"
+		"BaseClass"						"item_dagon_5"
+		"AbilityTextureName"			"dagon_ultra_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.1"
+		"AbilityManaCost"				"900"
+		"ItemCost"						"1000"	// 原版造价 13950
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityValues"
+		{
+			"bonus_all_stats"			"6"	// 原版 60
+			"bonus_health"				"176"	// 原版 480
+			"bonus_mana"				"176"	// 原版 900
+			"damage"					"600"	// 原版 1600
+			"damage_delay"				"0"	// 原版 0
+			"mana_cost_tooltip"			"900"	// 原版 1600
+			"cast_range_bonus"			"100"	// 原版 360
+		}
+	}
+
 }

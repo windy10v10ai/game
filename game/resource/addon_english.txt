@@ -3400,6 +3400,17 @@
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"%+$spell_resist"
 
+		// item_dagon_ultra_copy
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy"						"<font color='#B87333'>Treasured Thousand Strikes</font>"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Description"		"<h1>Active: Watch My Speed</h1> Unleashes a burst of magical damage at an enemy target unit.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%\n\n<h1>Source</h1>Only dropped from treasure chests.\n\nOwing to prolonged neglect, the attributes of this collectible have been somewhat altered."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Lore"			"The faster your hands, the higher the damage, as long as you have mana."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Note0"			"Instantly destroys illusions."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Note1"			"Cast Range bonuses from Aether Lens and Dagon do not stack."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_health"		"+$health"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_mana"		"+$mana"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_cast_range_bonus"		"+$cast_range"
+
 		// 神器 一瞬千击
 		"DOTA_Tooltip_Ability_item_dagon_ultra"										"<font color='#e03e2e'>Artifact: Thousand Strikes</font>"
 		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Active: Watch My Speed</h1> Unleashes a burst of magical damage at an enemy target unit.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%"

@@ -3402,6 +3402,17 @@
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"%+$spell_resist"
 
+		// item_dagon_ultra_copy
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy"						"<font color='#B87333'>Драгоценный Тысяча ударов</font>"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Description"		"<h1>Активное: Смотри на мою скорость рук</h1> Выпускает всплеск энергии, наносящий магический урон выбранному вражескому существу.<br><br>Урон: %damage%<br>Расход маны: %mana_cost_tooltip%\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nВследствие длительного отсутствия ухода характеристики предмета претерпели некоторые изменения."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Lore"			"Чем быстрее руки, тем выше урон, лишь бы хватило маны."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Note0"			"Мгновенно убивает иллюзии."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Note1"			"Бонусы к дальности применения заклинаний от Aether Lens и Dagon не складываются."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_health"		"+$health"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_mana"		"+$mana"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_cast_range_bonus"		"+$cast_range"
+
 		// 神器 一瞬千击
 		"DOTA_Tooltip_Ability_item_dagon_ultra"										"<font color='#e03e2e'>Артефакт: Тысяча ударов</font>"
 		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Активное: Смотри на мою скорость рук</h1> Выпускает всплеск энергии, наносящий магический урон выбранному вражескому существу.<br><br>Урон: %damage%<br>Расход маны: %mana_cost_tooltip%"
