@@ -2739,7 +2739,7 @@
 
 		// item_hydras_breath_copy
 		"DOTA_Tooltip_ability_item_hydras_breath_copy"						"<font color='#B87333'>珍藏·怪蛇之息</font>"
-		"DOTA_Tooltip_ability_item_hydras_breath_copy_Description"		"<h1>被动：瘴毒</h1>攻击会使目标中毒，每秒造成目标%poison_damage_per_second%%%最大生命值的魔法伤害，持续%poison_duration%秒。\n\n<h1>被动：多头一体</h1>远程攻击有%proc_chance%%%的概率向非原攻击目标的前方%secondary_target_angle%度角内、攻击距离+%secondary_target_range_bonus%距离内的最多%count%个附近敌人发射额外弹道。额外弹道造成%base_proc_dmg% + %proc_dmg_pct%%%普通攻击伤害，并且不会触发瘴毒除外的击中效果。主攻击造成%base_proc_dmg% + %proc_dmg_pct_primary_tooltip%%%普通攻击伤害。\n\n<h1>来源</h1>只能从藏宝箱开出。"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_Description"		"<h1>被动：瘴毒</h1>攻击会使目标中毒，每秒造成目标%poison_damage_per_second%%%最大生命值的魔法伤害，持续%poison_duration%秒。\n\n<h1>被动：多头一体</h1>远程攻击有%proc_chance%%%的概率向非原攻击目标的前方%secondary_target_angle%度角内、攻击距离+%secondary_target_range_bonus%距离内的最多%count%个附近敌人发射额外弹道。额外弹道造成%base_proc_dmg% + %proc_dmg_pct%%%普通攻击伤害，并且不会触发瘴毒除外的击中效果。主攻击造成%base_proc_dmg% + %proc_dmg_pct_primary_tooltip%%%普通攻击伤害。\n\n<h1>来源</h1>只能从藏宝箱开出。\n\n因疏于打理，藏品属性发生了一些变化。"
 		"DOTA_Tooltip_ability_item_hydras_breath_copy_Note0"			"来自金箍棒、魔龙枪和升级物品的攻击距离加成不会叠加。"
 		"DOTA_Tooltip_ability_item_hydras_breath_copy_strength"		"+$str"
 		"DOTA_Tooltip_ability_item_hydras_breath_copy_agility"		"+$agi"
