@@ -3402,17 +3402,16 @@
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"%+$spell_resist"
 
-		// item_dagon_ultra_copy 珍藏·一瞬千击
+		// item_dagon_ultra_copy
 		"DOTA_Tooltip_ability_item_dagon_ultra_copy"						"<font color='#B87333'>珍藏·一瞬千击</font>"
 		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Description"		"<h1>主动：看我手速</h1> 释放爆发性的魔法伤害冲击敌方目标单位。<br><br>伤害：%damage%<br>魔法消耗：%mana_cost_tooltip%"
 		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Lore"			"手速越快，伤害越高，只要你有蓝"
 		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Note0"			"立刻消灭幻象。"
 		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Note1"			"以太透镜和达贡之神力提供的施法距离加成不会叠加。"
-		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_all_stats"						"+$all"
-		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_health"						"+$health"
-		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_mana"						"+$mana"
-		"DOTA_Tooltip_ability_item_dagon_ultra_copy_damage"						"伤害"
-		"DOTA_Tooltip_ability_item_dagon_ultra_copy_cast_range_bonus"						"+$cast_range"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_health"		"+$health"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_mana"		"+$mana"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_cast_range_bonus"		"+$cast_range"
 
 		// 神器 一瞬千击
 		"DOTA_Tooltip_Ability_item_dagon_ultra"										"<font color='#e03e2e'>神器·一瞬千击</font>"
