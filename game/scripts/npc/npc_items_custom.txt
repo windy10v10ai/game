@@ -7957,18 +7957,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"strength"						"15"	// 原版 15
-			"agility"						"30"	// 原版 30
-			"damage"						"25"	// 原版 25
+			"strength"						"10"	// 原版 15
+			"agility"						"20"	// 原版 30
+			"damage"						"15"	// 原版 25
 			"base_count"					"0"	// 原版 0
-			"count"							"3"	// 原版 3
-			"secondary_target_range_bonus"	"150"	// 原版 150
+			"count"							"4"	// 原版 3
+			"secondary_target_range_bonus"	"75"	// 原版 150
 			"secondary_target_angle"		"120"	// 原版 120
-			"proc_chance"					"30"	// 原版 30
-			"proc_dmg_pct"					"75"	// 原版 75
+			"proc_chance"					"90"	// 原版 30
+			"proc_dmg_pct"					"30"	// 原版 75
 			"proc_dmg_pct_primary_tooltip"	"100"	// 原版 100
 			"base_proc_dmg"					"20"	// 原版 20
-			"base_attack_range"				"150"	// 原版 150
+			"base_attack_range"				"75"	// 原版 150
 
 			"poison_duration"				"3"	// 原版 3
 			"poison_base_damage"			"0"	// 原版 0
