@@ -650,6 +650,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_hydras_breath;item_hurricane_pike_2"
+			"02"						"item_hydras_breath_copy;item_hurricane_pike_2"
 		}
 	}
 

@@ -2737,6 +2737,17 @@
 		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_mana"			"+$mana"
 
+		// item_hydras_breath_copy Драгоценный Hydra's Breath
+		"DOTA_Tooltip_ability_item_hydras_breath_copy"						"<font color='#B87333'>Драгоценный Hydra's Breath</font>"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_Description"		"<h1>Пассивное: Miasma</h1>Атаки отравляют врагов, каждую секунду нанося им магический урон в размере %poison_damage_per_second%%% от их максимального здоровья на протяжении %poison_duration% сек.
+
+<h1>Пассивное: Polycephaly</h1>С вероятностью в %proc_chance%%% каждая атака дальнего боя может поразить ещё до %count% целей в радиусе атаки + %secondary_target_range_bonus%. Дополнительные цели должны находиться в %secondary_target_angle%-градусном конусе перед владельцем, получают %base_proc_dmg% базового урона + %proc_dmg_pct%%% урона от атак, и на них не срабатывают эффекты атаки, кроме Miasma. Основная цель получает %base_proc_dmg% базового урона + %proc_dmg_pct_primary_tooltip%%% урона от атак."
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_Note0"			"Бонусы к дальности атаки от нескольких Monkey King Bar или предметов на основе Dragon Lance не складываются."
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_agility"						"+$agi"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_base_attack_range"						"+$attack_range"
+
 		// hydras_breath_2 九头蛇神之息
 		"DOTA_Tooltip_Ability_item_hydras_breath_2"				"<font color='#e03e2e'>Артефакт: Дыхание тысячелетней гидры</font>"
 		"DOTA_Tooltip_Ability_item_hydras_breath_2_strength"				"+$str"

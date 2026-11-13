@@ -2735,6 +2735,17 @@
 		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_mana"			"+$mana"
 
+		// item_hydras_breath_copy Treasured Hydra's Breath
+		"DOTA_Tooltip_ability_item_hydras_breath_copy"						"<font color='#B87333'>Treasured Hydra's Breath</font>"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_Description"		"<h1>Passive: Miasma</h1>Attacks poison enemies, dealing %poison_damage_per_second%%% of the target's Max HP as Magical Damage per second for %poison_duration% seconds.
+
+<h1>Passive: Polycephaly</h1>Ranged attacks have a %proc_chance%%% chance to fire additional projectiles at up to %count% nearby enemies with %secondary_target_range_bonus% extra range and within a %secondary_target_angle% degree angle in front of the attacker. The additional projectiles deal %base_proc_dmg% + %proc_dmg_pct%%% damage of a normal attack and do not trigger on hit effects except for Miasma. The primary attack deals %base_proc_dmg% + %proc_dmg_pct_primary_tooltip%%% damage of a normal attack."
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_Note0"			"Attack Range bonuses from Monkey King Bar and Dragon Lance and its upgrades do not stack."
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_agility"						"+$agi"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_base_attack_range"						"+$attack_range"
+
 		// hydras_breath_2 九头蛇神之息
 		"DOTA_Tooltip_Ability_item_hydras_breath_2"				"<font color='#e03e2e'>Artifact: Millennial Hydra's Breath</font>"
 		"DOTA_Tooltip_Ability_item_hydras_breath_2_strength"				"+$str"
