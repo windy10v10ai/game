@@ -8185,11 +8185,30 @@
 				"ScriptFile"		"items/item_wings_of_haste"
 				"Function"			"WingsOfHasteOnSpell"
 
-				"modifier"			"modifier_item_wings_of_haste_consumed"	// 原版 modifier_item_wings_of_haste_consumed
+					"modifier"			"modifier_item_wings_of_haste_consumed_copy"
 			}
 		}
 		"Modifiers"
 		{
+			"modifier_item_wings_of_haste_consumed_copy"
+			{
+				"IsBuff"			"1"
+				"IsPurgable"		"0"
+				// 可以被幻象继承
+				"AllowIllusionDuplicate"		"1"
+
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"TextureName"		"item_wings_of_haste"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"100"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"25"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"				"8"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"5"
+				}
+			}
 			"modifier_item_wings_of_haste_copy"
 			{
 				"Passive"				"1"
