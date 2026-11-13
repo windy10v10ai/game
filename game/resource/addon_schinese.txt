@@ -3127,7 +3127,7 @@
 
 		// item_bfury_copy
 		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#B87333'>珍藏·狂战斧</font>"
-		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"<h1>主动：砍伐</h1>砍伐一根指定树木。\n\n<h1>被动：压制</h1>对非英雄单位进行物理攻击会造成额外伤害，近战英雄为%quelling_bonus%点，远程英雄为%quelling_bonus_ranged%点。\n\n<h1>被动：分裂</h1>普通攻击时对目标周围最远%cleave_distance%距离的锥形区域内敌人造成%cleave_damage_percent%%%物理伤害。对非英雄单位造成%cleave_damage_percent_creep%%%物理伤害。（仅近战有效）"
+		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"<h1>主动：砍伐</h1>砍伐一根指定树木。\n\n<h1>被动：压制</h1>对非英雄单位进行物理攻击会造成额外伤害，近战英雄为%quelling_bonus%点，远程英雄为%quelling_bonus_ranged%点。\n\n<h1>被动：分裂</h1>普通攻击时对目标周围最远%cleave_distance%距离的锥形区域内敌人造成%cleave_damage_percent%%%物理伤害。对非英雄单位造成%cleave_damage_percent_creep%%%物理伤害。（仅近战有效）\n\n<h1>来源</h1>只能从藏宝箱开出。"
 		"DOTA_Tooltip_ability_item_bfury_copy_Lore"			"握着这把强大的斧头可以一次砍倒一片敌人。"
 		"DOTA_Tooltip_ability_item_bfury_copy_Note0"			"分裂伤害无视减益免疫。"
 		"DOTA_Tooltip_ability_item_bfury_copy_Note1"			"如果存在多个分裂效果，每个分裂的伤害都会单独计算。"
@@ -3142,7 +3142,7 @@
 
 		// item_ultimate_scepter_copy
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy"						"<font color='#B87333'>珍藏·阿哈利姆神杖</font>"
-		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>被动：技能升级</h1>提升所有英雄的终极技能或基础技能效果。"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>被动：技能升级</h1>提升所有英雄的终极技能或基础技能效果。\n\n<h1>来源</h1>只能从藏宝箱开出。"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Lore"			"这把权杖属于拥有半神之力的法师。"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_health"		"+$health"
@@ -3150,7 +3150,7 @@
 
 		// item_wings_of_haste_copy
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"<font color='#B87333'>珍藏·急速之翼</font>"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>使用：永久升级</h1>消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。"
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>使用：永久升级</h1>消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。\n\n<h1>来源</h1>只能从藏宝箱开出。"
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Lore"			"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_movement_speed"		"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_attack_speed"		"+$attack"
@@ -3160,7 +3160,7 @@
 
 		// item_moon_shard_copy
 		"DOTA_Tooltip_ability_item_moon_shard_copy"						"<font color='#B87333'>珍藏·银月之晶</font>"
-		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>使用：吞噬</h1> 吞噬银月之晶，永久获得%consumed_bonus%攻击速度和%consumed_bonus_night_vision%夜间视野加成。最多使用1次。\n\n<h1>被动：月夜之视</h1>提供额外夜间视野。"
+		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>使用：吞噬</h1> 吞噬银月之晶，永久获得%consumed_bonus%攻击速度和%consumed_bonus_night_vision%夜间视野加成。最多使用1次。\n\n<h1>被动：月夜之视</h1>提供额外夜间视野。\n\n<h1>来源</h1>只能从藏宝箱开出。"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_Lore"			"相传这是月之女神赛莉蒙妮流下的一滴眼泪。"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_night_vision"		"+额外夜间视野"
@@ -3172,14 +3172,14 @@
 
 		// item_radiance_copy
 		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#B87333'>珍藏·辉耀</font>"
-		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害。幻象每秒造成%aura_damage_illusions%点魔法伤害。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害。幻象每秒造成%aura_damage_illusions%点魔法伤害。<br><br>作用范围：%aura_radius%\n\n<h1>来源</h1>只能从藏宝箱开出。"
 		"DOTA_Tooltip_ability_item_radiance_copy_Lore"			"一把神圣的武器，剑身的耀眼光芒能将敌人化为灰烬。"
 		"DOTA_Tooltip_ability_item_radiance_copy_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_radiance_copy_evasion"		"%+$evasion"
 
 		// item_blade_mail_copy
 		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#B87333'>珍藏·刃甲</font>"
-		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"<h1>主动：伤害反弹</h1>%duration%秒内会反弹所有来源的伤害，百分比提升%active_reflection_pct%%%。\n\n<h1>被动：伤害反弹</h1>每次受到攻击时，反弹%passive_reflection_constant% + 所受攻击伤害的%passive_reflection_pct%%%。"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"<h1>主动：伤害反弹</h1>%duration%秒内会反弹所有来源的伤害，百分比提升%active_reflection_pct%%%。\n\n<h1>被动：伤害反弹</h1>每次受到攻击时，反弹%passive_reflection_constant% + 所受攻击伤害的%passive_reflection_pct%%%。\n\n<h1>来源</h1>只能从藏宝箱开出。"
 		"DOTA_Tooltip_ability_item_blade_mail_copy_Lore"			"覆盖着尖锐剃刀的盔甲，战斗中可以用来做出不顾自身安危的烈士行为。"
 		"DOTA_Tooltip_ability_item_blade_mail_copy_Note0"			"反弹的均为减免前的伤害。"
 		"DOTA_Tooltip_ability_item_blade_mail_copy_Note1"			"反弹伤害的类型与受到时相同。"
@@ -3189,7 +3189,7 @@
 
 		// item_heart_copy
 		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#B87333'>珍藏·龙心</font>"
-		"DOTA_Tooltip_ability_item_heart_copy_Description"		"<h1>被动：巨兽之血</h1>生命恢复提升缺失生命值的%missing_health_regen%%%。"
+		"DOTA_Tooltip_ability_item_heart_copy_Description"		"<h1>被动：巨兽之血</h1>生命恢复提升缺失生命值的%missing_health_regen%%%。\n\n<h1>来源</h1>只能从藏宝箱开出。"
 		"DOTA_Tooltip_ability_item_heart_copy_Lore"			"保存完好的心脏，来自早已绝种的怪兽，能提升携带者的耐久力。"
 		"DOTA_Tooltip_ability_item_heart_copy_Note0"			"多个巨兽之血的效果不会叠加。"
 		"DOTA_Tooltip_ability_item_heart_copy_bonus_strength"		"+$str"
