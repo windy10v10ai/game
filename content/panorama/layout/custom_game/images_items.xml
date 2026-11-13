@@ -17,6 +17,7 @@
 			<Image id="armlet_dark" class="SeqImg" src="file://{images}/items/armlet_dark.png" />
 			<Image id="armlet_light" class="SeqImg" src="file://{images}/items/armlet_light.png" />
 			<Image id="armlet_plus" class="SeqImg" src="file://{images}/items/armlet_plus.png" />
+			<Image id="armlet_plus_copy" class="SeqImg" src="file://{images}/items/armlet_plus_copy.png" />
 			<Image id="armlet_pro_max" class="SeqImg" src="file://{images}/items/armlet_pro_max.png" />
 			<Image id="awaken_stone" class="SeqImg" src="file://{images}/items/awaken_stone.png" />
 			<Image id="beast_shield" class="SeqImg" src="file://{images}/items/beast_shield.png" />
