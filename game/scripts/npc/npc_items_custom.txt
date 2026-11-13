@@ -407,6 +407,7 @@
 
 				"TextureName"		"item_wings_of_haste"
 
+		// 设定：吃掉后只保留这 4 项加成，全属性只在持有时生效
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"100"
@@ -8201,6 +8202,7 @@
 
 				"TextureName"		"item_wings_of_haste"
 
+		// 设定：吃掉后只保留这 4 项加成，全属性只在持有时生效
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"100"
