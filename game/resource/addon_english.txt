@@ -3058,6 +3058,15 @@
 		"DOTA_Tooltip_ability_item_candy_candy_Description"             "Eat this candy, you are a fan of Diana.<br/>Grants the effects of all Power Runes for %duration% seconds (except Shield)."
 		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "Diana, I love you so much! For you, I'm going to listen to Cat Addiction!"
 
+		// item_hand_of_midas_copy Treasured Hand of Midas
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy"						"<font color='#B87333'>Treasured Hand of Midas</font>"
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Description"		"<h1>Active: Transmute</h1> Kills a non-hero target for %bonus_gold% gold. Killing a neutral creep additionally grants a madstone bundle. <br><br> Cannot be used on Ancient creeps."
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Lore"			"Preserved through unknown magical means, the Hand of Midas is a weapon of greed, sacrificing animals to line the owner's pockets."
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Note0"			"The gold given is unreliable gold (you do not get the normal creep bounty)."
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Note1"			"Experience gained by using Transmute is not shared."
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_bonus_attack_speed"						"+$attack"
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_bonus_gold"						"+$gold"
+
 		// 团队之手
 	    "DOTA_Tooltip_ability_item_hand_of_group"										"Hand of Team"
 	    "DOTA_Tooltip_ability_item_hand_of_group_description"						    "<h1>Active: Transmute</h1> Kills a non-hero target for %self_gold% gold and %self_xp%x experience. <br>Allies within %group_range% gain %group_gold% gold and %group_xp%x experience.<br><br> Cannot be used on Ancient Creeps.<br><br>Range: %abilitycastrange%"
