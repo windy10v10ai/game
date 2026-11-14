@@ -1357,6 +1357,14 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 英雄 半人马战行者觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>双刃剑 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade_Description"		"半人马战行者最近%damage_window%秒内受到的敌方伤害会积蓄为反击之力，最多为双刃剑伤害的%stored_damage_cap_pct%%%。<br>双刃剑命中敌人时消耗全部反击之力，提高这次双刃剑的伤害，并将消耗量的%shield_pct%%%转化为全伤害护盾，持续%shield_duration%秒。<br>双刃剑对自身的伤害也会随之提高。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>双刃剑 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_Description"		"半人马战行者最近<font color='#FFFFFF'><b>6</b></font>秒内受到的敌方伤害会积蓄为反击之力，最多为双刃剑伤害的<font color='#FFFFFF'><b>300</b></font>%%。<br>双刃剑命中敌人时消耗全部反击之力，提高这次双刃剑的伤害，并将消耗量的<font color='#FFFFFF'><b>100</b></font>%%转化为全伤害护盾，持续<font color='#FFFFFF'><b>4</b></font>秒。<br>双刃剑对自身的伤害也会随之提高。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_shield"		"反击护盾"
+		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_shield_Description"		"剩余全伤害护盾：<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>"
+
 		// 蓝猫 球状涡流觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade"		"<font color='#d000ff'>球状涡流 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade_Description"		"球状闪电伤害敌方英雄后，将其拉向蓝猫并使其无法行动，持续时间为电子涡流的<font color='#FFFFFF'><b>50%%</b></font>。<br>需已学习电子涡流。同一英雄在%vortex_trigger_cooldown%秒内最多触发一次，小兵、幻象和<font color='#FFCC66'>魔法免疫</font>的单位不会触发。"
