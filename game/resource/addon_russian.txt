@@ -1359,9 +1359,9 @@
 
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Двойной клинок: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade_Description"		"Урон от врагов, полученный Centaur Warrunner за последние %damage_window% сек., накапливается как Сила отпора, не более %stored_damage_cap_pct%%% обычного урона Двойного клинка.<br>Когда Двойной клинок попадает по врагу, вся Сила отпора расходуется и увеличивает урон этого применения, а %shield_pct%%% израсходованного значения превращается в щит от любого урона на %shield_duration% сек.<br>Урон Двойного клинка по самому кентавру тоже растёт.<br>Иллюзии и состояние «Разрыв» не накапливают Силу отпора."
+		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade_Description"		"Урон от врагов, полученный Centaur Warrunner за последние %damage_window% сек., накапливается как Сила отпора, не более %stored_damage_cap_pct%%% обычного урона Двойного клинка.<br>Когда Двойной клинок попадает по врагу, вся Сила отпора расходуется и увеличивает урон этого применения, а %shield_pct%%% израсходованного значения превращается в щит от любого урона на %shield_duration% сек.<br>Урон Двойного клинка по самому кентавру тоже растёт."
 		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Двойной клинок: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_Description"		"Текущая Сила отпора: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_Description"		"Урон от врагов, полученный Centaur Warrunner за последние %damage_window% сек., накапливается как Сила отпора, не более %stored_damage_cap_pct%%% обычного урона Двойного клинка.<br>Когда Двойной клинок попадает по врагу, вся Сила отпора расходуется и увеличивает урон этого применения, а %shield_pct%%% израсходованного значения превращается в щит от любого урона на %shield_duration% сек.<br>Урон Двойного клинка по самому кентавру тоже растёт."
 		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_shield"		"Щит отпора"
 		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_shield_Description"		"Оставшийся щит от любого урона: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>"
 

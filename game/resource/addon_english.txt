@@ -1359,9 +1359,9 @@
 
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Double Edge Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade_Description"		"Enemy damage Centaur Warrunner takes within the last %damage_window% seconds is stored as Counter Force, up to %stored_damage_cap_pct%%% of normal Double Edge damage.<br>When Double Edge hits an enemy, all Counter Force is consumed to increase that cast's damage, and %shield_pct%%% of the amount consumed becomes an all-damage shield lasting %shield_duration% seconds.<br>The damage Double Edge deals to Centaur himself rises accordingly.<br>Illusions and Break cannot store Counter Force."
+		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade_Description"		"Enemy damage Centaur Warrunner takes within the last %damage_window% seconds is stored as Counter Force, up to %stored_damage_cap_pct%%% of normal Double Edge damage.<br>When Double Edge hits an enemy, all Counter Force is consumed to increase that cast's damage, and %shield_pct%%% of the amount consumed becomes an all-damage shield lasting %shield_duration% seconds.<br>The damage Double Edge deals to Centaur himself rises accordingly."
 		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Double Edge Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_Description"		"Current Counter Force: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_Description"		"Enemy damage Centaur Warrunner takes within the last %damage_window% seconds is stored as Counter Force, up to %stored_damage_cap_pct%%% of normal Double Edge damage.<br>When Double Edge hits an enemy, all Counter Force is consumed to increase that cast's damage, and %shield_pct%%% of the amount consumed becomes an all-damage shield lasting %shield_duration% seconds.<br>The damage Double Edge deals to Centaur himself rises accordingly."
 		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_shield"		"Counter Shield"
 		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_shield_Description"		"Remaining all-damage shield: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>"
 

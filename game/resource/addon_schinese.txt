@@ -1359,9 +1359,9 @@
 
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>双刃剑 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade_Description"		"半人马战行者最近%damage_window%秒内受到的敌方伤害会积蓄为反击之力，最多为双刃剑伤害的%stored_damage_cap_pct%%%。<br>双刃剑命中敌人时消耗全部反击之力，提高这次双刃剑的伤害，并将消耗量的%shield_pct%%%转化为全伤害护盾，持续%shield_duration%秒。<br>双刃剑对自身的伤害也会随之提高。<br>幻象和破坏状态下无法积蓄。"
+		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade_Description"		"半人马战行者最近%damage_window%秒内受到的敌方伤害会积蓄为反击之力，最多为双刃剑伤害的%stored_damage_cap_pct%%%。<br>双刃剑命中敌人时消耗全部反击之力，提高这次双刃剑的伤害，并将消耗量的%shield_pct%%%转化为全伤害护盾，持续%shield_duration%秒。<br>双刃剑对自身的伤害也会随之提高。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>双刃剑 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_Description"		"当前反击之力：<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_Description"		"半人马战行者最近%damage_window%秒内受到的敌方伤害会积蓄为反击之力，最多为双刃剑伤害的%stored_damage_cap_pct%%%。<br>双刃剑命中敌人时消耗全部反击之力，提高这次双刃剑的伤害，并将消耗量的%shield_pct%%%转化为全伤害护盾，持续%shield_duration%秒。<br>双刃剑对自身的伤害也会随之提高。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_shield"		"反击护盾"
 		"DOTA_Tooltip_modifier_special_bonus_unique_centaur_upgrade_shield_Description"		"剩余全伤害护盾：<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>"
 

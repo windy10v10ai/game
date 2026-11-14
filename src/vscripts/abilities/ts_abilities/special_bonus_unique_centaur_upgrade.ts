@@ -246,6 +246,8 @@ export class modifier_special_bonus_unique_centaur_upgrade_shield extends BaseMo
   GetModifierIncomingDamageConstant(event: ModifierAttackEvent): number {
     if (!IsServer()) return this.GetStackCount();
     if (event.damage <= 0 || (event.damage_flags & DamageFlag.HPLOSS) !== 0) return 0;
+    // 双刃剑对自己的伤害不吃护盾，否则连放时护盾被自伤耗光
+    if (event.inflictor?.GetAbilityName() === DOUBLE_EDGE_ABILITY) return 0;
 
     const blockedDamage = Math.min(event.damage, this.remainingShield);
     this.remainingShield -= blockedDamage;
