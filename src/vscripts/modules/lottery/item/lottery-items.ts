@@ -100,6 +100,13 @@ export const itemTiers: Tier[] = [
       'item_arcane_boots', // 秘法鞋
       'item_phase_boots', // 相位鞋
       'item_power_treads', // 动力鞋
+      // 珍藏版：属性同原版，只作上位装备的合成材料
+      'item_bfury_copy', // 珍藏·狂战斧
+      'item_radiance_copy', // 珍藏·辉耀
+      'item_blade_mail_copy', // 珍藏·刃甲
+      'item_heart_copy', // 珍藏·龙心
+      'item_aghanim_bundle', // 珍藏·阿哈利姆的馈赠
+      'item_haste_moon_bundle', // 珍藏·快男的馈赠
     ],
   },
 ];

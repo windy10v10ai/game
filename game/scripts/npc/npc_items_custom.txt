@@ -138,6 +138,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_ultimate_scepter"
+			"02"						"item_ultimate_scepter_copy"
 		}
 	}
 	"item_ultimate_scepter_2"
@@ -406,6 +407,7 @@
 
 				"TextureName"		"item_wings_of_haste"
 
+		// 设定：吃掉后只保留这 4 项加成，全属性只在持有时生效
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"100"
@@ -503,6 +505,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_blade_mail;item_platemail"
+			"02"						"item_blade_mail_copy;item_platemail"
 		}
 	}
 
@@ -571,6 +574,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_radiance;item_talisman_of_evasion"
+			"02"						"item_radiance_copy;item_talisman_of_evasion"
 		}
 	}
 	"item_radiance_2"
@@ -1011,6 +1015,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_heart;item_reaver;item_talisman_of_evasion"
+			"02"						"item_heart_copy;item_reaver;item_talisman_of_evasion"
 		}
 	}
 
@@ -5196,6 +5201,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_bfury;item_relic;item_quelling_blade_2_datadriven"
+			"02"						"item_bfury_copy;item_relic;item_quelling_blade_2_datadriven"
 		}
 	}
 
@@ -7938,6 +7944,314 @@
 				"ScriptFile"	"items/item_aeon_amulet"
 				"Function"		"AeonAmuletOnSpellStart"
 			}
+		}
+	}
+
+
+	//=================================================================================================================
+	// 珍藏版：属性同原版，只能由藏宝箱开出，只作上位装备的合成材料
+	//=================================================================================================================
+	"item_bfury_copy"
+	{
+		"ID"							"10471"
+		"BaseClass"						"item_bfury"
+		"AbilityTextureName"			"bfury_copy"
+		"ItemCost"						"1000"	// 原版造价 3900
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"3.0"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"			"5"	// 原版 50
+			"bonus_health_regen"	"15"	// 原版 7.5
+			"bonus_mana_regen"		"5.5"	// 原版 2.75
+			"cleave_damage_percent"	"50"	// 原版 60
+			"cleave_damage_percent_creep"	"50"	// 原版 40
+			"quelling_bonus"			"40"	// 原版 10
+			"quelling_bonus_ranged"	"20"	// 原版 5
+			"cleave_starting_width"
+			{
+			"value"	"150"	// 原版 360
+			"affected_by_aoe_increase"	"1"	// 原版 1
+			}
+			"cleave_ending_width"
+			{
+			"value"	"360"	// 原版 360
+			"affected_by_aoe_increase"	"1"	// 原版 1
+			}
+			"cleave_distance"			"650"	// 原版 650
+			"upgraded_cleave_bonus"			"25"	// 原版 25
+			"upgraded_damage_bonus"			"15"	// 原版 15
+		}
+	}
+
+	"item_radiance_copy"
+	{
+		"ID"							"10472"
+		"BaseClass"						"item_radiance"
+		"AbilityTextureName"			"radiance_copy"
+		"ItemCost"						"1000"	// 原版造价 4700
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_DONT_PROC_OTHER_ABILITIES | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"			"15"	// 原版 55
+			"aura_damage"			"60"	// 原版 60
+			"aura_damage_illusions"	"35"	// 原版 35
+			"upgrade_day_vision"	"500"	// 原版 250
+			"evasion"				"50"	// 原版 25
+			"blind_pct"				"0"	// 原版 0
+			"aura_radius"
+			{
+			"value"		"650"	// 原版 650
+			"affected_by_aoe_increase"	"1"	// 原版 1
+			}
+			"illusion_multiplier_pct"	"100"	// 原版 100
+		}
+	}
+
+	"item_blade_mail_copy"
+	{
+		"ID"							"10473"
+		"BaseClass"						"item_blade_mail"
+		"AbilityTextureName"			"blade_mail_copy"
+		"AbilitySharedCooldown"			"blade_mail"
+		"ItemCost"						"1000"	// 原版造价 2400
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"25.0"
+		"AbilityManaCost"				"25"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"			"25"	// 原版 15
+			"bonus_armor"			"10"	// 原版 7
+			"bonus_intellect"		"0"	// 原版 0
+			"duration"				"4"	// 原版 5.5，本模组 4
+			"passive_reflection_constant"			"100"	// 原版 10
+			"passive_reflection_pct"			"15"	// 原版 15
+			"active_reflection_pct"			"85"	// 原版 85
+		}
+	}
+
+	"item_heart_copy"
+	{
+		"ID"							"10474"
+		"BaseClass"						"item_heart"
+		"AbilityTextureName"			"heart_copy"
+		"ItemCost"						"1000"	// 原版造价 5300
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_strength"		"30"	// 原版 40
+			"hp_regen"				"3.5"	// 原版 1
+			"missing_health_regen"	"0"	// 原版 1.5
+		}
+	}
+
+
+	//=================================================================================================================
+	// 珍藏·阿哈利姆的馈赠：使用后得到阿哈利姆神杖与魔晶
+	//=================================================================================================================
+	"item_aghanim_bundle"
+	{
+		"ID"							"10475"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"aghanim_bundle"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_loot_bundle"
+				"Function"			"LootBundleOnSpell"
+			}
+		}
+	}
+
+
+	//=================================================================================================================
+	// 珍藏·快男的馈赠：使用后得到急速之翼与银月之晶
+	//=================================================================================================================
+	"item_haste_moon_bundle"
+	{
+		"ID"							"10476"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"haste_moon_bundle"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_loot_bundle"
+				"Function"			"LootBundleOnSpell"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// 阿哈利姆神杖复制品：效果与原版一致，只能由宝箱开出，卖价更低
+	//=================================================================================================================
+	"item_ultimate_scepter_copy"
+	{
+		"ID"							"10477"
+		"BaseClass"						"item_ultimate_scepter"
+		"AbilityTextureName"			"ultimate_scepter_copy"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_all_stats"					"5"	// 原版 10
+			"bonus_health"					"50"	// 原版 175
+			"bonus_mana"					"500"	// 原版 175
+		}
+
+		"ItemCost"						"1000"	// 原版造价 4200
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+	}
+
+	//=================================================================================================================
+	// 急速之翼复制品：吃掉后的永久加成与原版一致，只能由宝箱开出，卖价更低
+	//=================================================================================================================
+	"item_wings_of_haste_copy"
+	{
+		"ID"							"10478"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"wings_of_haste_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityCastRange"				"0"
+		"ItemCost"						"500"	// 原版造价 3625
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"100"	// 原版 100
+			"bonus_attack_speed"		"25"	// 原版 25
+			"bonus_all_stats"			"10"	// 原版 15
+			"bonus_health_regen"		"2.5"	// 原版 8
+			"bonus_mana_regen"			"1.5"	// 原版 5
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_wings_of_haste"
+				"Function"			"WingsOfHasteOnSpell"
+
+					"modifier"			"modifier_item_wings_of_haste_consumed_copy"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_item_wings_of_haste_consumed_copy"
+			{
+				"IsBuff"			"1"
+				"IsPurgable"		"0"
+				// 可以被幻象继承
+				"AllowIllusionDuplicate"		"1"
+
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"TextureName"		"item_wings_of_haste"
+
+		// 设定：吃掉后只保留这 4 项加成，全属性只在持有时生效
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"100"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"25"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"				"8"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"5"
+				}
+			}
+			"modifier_item_wings_of_haste_copy"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"%bonus_movement_speed"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%bonus_mana_regen"
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// 银月之晶复制品：吞噬效果与原版一致，只能由宝箱开出，卖价更低
+	//=================================================================================================================
+	"item_moon_shard_copy"
+	{
+		"ID"							"10479"
+		"BaseClass"						"item_moon_shard"
+		"AbilityTextureName"			"moon_shard_copy"
+		"ItemCost"						"500"	// 原版造价 4000
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityValues"
+		{
+			"bonus_attack_speed"			"70"	// 原版 140，本模组 100
+			"bonus_night_vision"			"400"	// 原版 400，本模组 200
+			"consumed_bonus"				"60"	// 原版 60
+			"consumed_bonus_night_vision"	"400"	// 原版 200
 		}
 	}
 
