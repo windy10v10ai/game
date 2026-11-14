@@ -1,6 +1,6 @@
 # game/resource/ 本地化与图标资源
 
-`addon_schinese.txt`（简中）、`addon_english.txt`（英）、`addon_russian.txt`（俄）。改完不用重启 Dota Tools，运行中的游戏直接显示新文案。
+`addon_schinese.txt`（简中）、`addon_english.txt`（英）、`addon_russian.txt`（俄）。改完不用重启 Dota Tools，也不用 `script_reload`，运行中的游戏自动热加载新文案。
 
 写自定义文案前 grep 原版说明文本对齐官方术语（路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」），英雄名、物品名、效果名以本项目本地化文件为准。
 
