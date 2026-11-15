@@ -118,6 +118,10 @@ export class BotLaneRecovery {
     ) {
       return undefined;
     }
+    // 1 级时电脑还在开局对线，不强制 TP
+    if (hero.GetLevel() <= 1) {
+      return undefined;
+    }
     if (this.jungleRecoveryTasks.has(hero.GetEntityIndex())) {
       return undefined;
     }
