@@ -23,6 +23,11 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     freeTrial: true,
   },
   {
+    heroName: 'npc_dota_hero_centaur',
+    abilityName: 'special_bonus_unique_centaur_upgrade',
+    freeTrial: true,
+  },
+  {
     heroName: 'npc_dota_hero_storm_spirit',
     abilityName: 'special_bonus_unique_storm_spirit_upgrade',
     freeTrial: true,
@@ -45,7 +50,6 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_nyx_assassin',
     abilityName: 'special_bonus_unique_nyx_assassin_mobile_burrow_awaken',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_beastmaster',

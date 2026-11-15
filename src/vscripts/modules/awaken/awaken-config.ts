@@ -28,6 +28,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newLevel: 0,
     inheritLevelFrom: 'morphling_replicate',
   },
+  // 半人马战行者 觉醒
+  {
+    heroName: 'npc_dota_hero_centaur',
+    newAbility: 'special_bonus_unique_centaur_upgrade',
+    newLevel: 1,
+  },
   // 敌法师 觉醒
   {
     heroName: 'npc_dota_hero_antimage',
@@ -315,10 +321,10 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  */
 export const FREE_TRIAL_HEROES: string[] = [
   'npc_dota_hero_morphling', // Morphling
+  'npc_dota_hero_centaur', // 半人马战行者
   'npc_dota_hero_antimage', // 敌法师
   'npc_dota_hero_terrorblade', // 恐怖利刃
   'npc_dota_hero_bounty_hunter', // 赏金猎人
-  'npc_dota_hero_nyx_assassin', // 司夜刺客
   'npc_dota_hero_phantom_assassin', // 幻影刺客
   'npc_dota_hero_drow_ranger', // 卓尔游侠
   'npc_dota_hero_kunkka', // 昆卡

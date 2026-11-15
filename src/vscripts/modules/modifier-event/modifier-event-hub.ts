@@ -15,39 +15,67 @@ const MIN_DISPATCH_DAMAGE = 20;
 
 type Handler<TEvent> = (this: void, event: TEvent) => void;
 
-/** 一种全局事件：一张按单位的登记表加一个按需创建的隐藏监听 */
+/** 一个隐藏监听 modifier，可被多条通道共用，所有通道都空了才移除 */
+class SharedListener {
+  private listener: CDOTA_BaseNPC | undefined;
+  private users = 0;
+
+  constructor(private readonly listenerModifier: string) {}
+
+  Acquire(): void {
+    this.users += 1;
+    this.Ensure();
+  }
+
+  Release(): void {
+    this.users -= 1;
+    if (this.users > 0 || this.listener === undefined) return;
+    if (!this.listener.IsNull()) {
+      UTIL_Remove(this.listener);
+    }
+    this.listener = undefined;
+  }
+
+  Ensure(): void {
+    if (this.listener !== undefined && !this.listener.IsNull()) return;
+    this.listener = CreateModifierThinker(
+      undefined,
+      undefined,
+      this.listenerModifier,
+      undefined,
+      Vector(0, 0, 0),
+      DotaTeam.NOTEAM,
+      false,
+    );
+  }
+}
+
+/** 一种全局事件：一张按单位的登记表，监听由 SharedListener 按需创建 */
 class EventChannel<TEvent> {
   private readonly registry = new UnitHandlerRegistry<TEvent>();
-  private listener: CDOTA_BaseNPC | undefined;
 
   constructor(
-    private readonly listenerModifier: string,
+    private readonly listener: SharedListener,
     private readonly unitOf: (this: void, event: TEvent) => CDOTA_BaseNPC | undefined,
     private readonly accept?: (this: void, event: TEvent) => boolean,
   ) {}
 
   Register(unit: CDOTA_BaseNPC, owner: object, handler: Handler<TEvent>): void {
+    const wasEmpty = this.registry.IsEmpty();
     this.registry.Add(unit.entindex(), owner, handler);
-    if (this.listener === undefined || this.listener.IsNull()) {
-      this.listener = CreateModifierThinker(
-        undefined,
-        undefined,
-        this.listenerModifier,
-        undefined,
-        Vector(0, 0, 0),
-        DotaTeam.NOTEAM,
-        false,
-      );
+    if (wasEmpty) {
+      this.listener.Acquire();
+    } else {
+      this.listener.Ensure();
     }
   }
 
   Unregister(unit: CDOTA_BaseNPC, owner: object): void {
+    const wasEmpty = this.registry.IsEmpty();
     this.registry.Remove(unit.entindex(), owner);
-    if (!this.registry.IsEmpty() || this.listener === undefined) return;
-    if (!this.listener.IsNull()) {
-      UTIL_Remove(this.listener);
+    if (!wasEmpty && this.registry.IsEmpty()) {
+      this.listener.Release();
     }
-    this.listener = undefined;
   }
 
   Dispatch(event: TEvent): void {
@@ -58,21 +86,34 @@ class EventChannel<TEvent> {
   }
 }
 
+// 受伤的两条通道共用一个监听。放在类外：静态字段互相引用时类还没赋值完，编译后会取到 nil
+const damageListener = new SharedListener(DAMAGE_LISTENER_MODIFIER);
+
+// 高频低伤的持续伤害每跳都会进来，小伤害对各处理都没有意义，查表前先挡掉
+function acceptDamage(this: void, event: ModifierInstanceEvent): boolean {
+  return event.damage >= MIN_DISPATCH_DAMAGE;
+}
+
 export class ModifierEventHub {
   private static readonly damageByAttacker = new EventChannel<ModifierInstanceEvent>(
-    DAMAGE_LISTENER_MODIFIER,
+    damageListener,
     (event) => event.attacker,
-    // 高频低伤的持续伤害每跳都会进来，小伤害对各处理都没有意义，查表前先挡掉
-    (event) => event.damage >= MIN_DISPATCH_DAMAGE,
+    acceptDamage,
+  );
+
+  private static readonly damageByVictim = new EventChannel<ModifierInstanceEvent>(
+    damageListener,
+    (event) => event.unit,
+    acceptDamage,
   );
 
   private static readonly attackLandedByAttacker = new EventChannel<ModifierAttackEvent>(
-    ATTACK_LANDED_LISTENER_MODIFIER,
+    new SharedListener(ATTACK_LANDED_LISTENER_MODIFIER),
     (event) => event.attacker,
   );
 
   private static readonly modifierAddedByUnit = new EventChannel<ModifierAddedEvent>(
-    MODIFIER_ADDED_LISTENER_MODIFIER,
+    new SharedListener(MODIFIER_ADDED_LISTENER_MODIFIER),
     (event) => event.unit,
   );
 
@@ -89,8 +130,22 @@ export class ModifierEventHub {
     this.damageByAttacker.Unregister(attacker, owner);
   }
 
+  /** 登记单位受到伤害时的处理，event.damage 是减免后实际掉的血 */
+  static RegisterDamageByVictim(
+    victim: CDOTA_BaseNPC,
+    owner: object,
+    handler: Handler<ModifierInstanceEvent>,
+  ): void {
+    this.damageByVictim.Register(victim, owner, handler);
+  }
+
+  static UnregisterDamageByVictim(victim: CDOTA_BaseNPC, owner: object): void {
+    this.damageByVictim.Unregister(victim, owner);
+  }
+
   static DispatchDamage(event: ModifierInstanceEvent): void {
     this.damageByAttacker.Dispatch(event);
+    this.damageByVictim.Dispatch(event);
   }
 
   /** 登记攻击者普攻命中时的处理 */
