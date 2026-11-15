@@ -1,8 +1,70 @@
-import { AddKeyBind, FindDotaHudElement } from '@utils/utils';
+import { AddKeyBind, FindDotaHudElement, reserveKeyBind } from '@utils/utils';
 
 const notTargetAbilityNames = ['earthshaker_enchant_totem'];
 // 拥有unit target，但是只能对友军释放的技能（特殊情况）
 const unitTargetOnlyFriendlyAbilityNames = ['abyssal_underlord_firestorm'];
+const MORPHLING_AWAKEN_KEY = 'E';
+let morphlingProgressOffset = 0;
+/** Align the native meter with the shift icons when the ability row grows. */
+function alignMorphlingProgress(panels?: Panel[]): void {
+  const progress = FindDotaHudElement('MorphProgress');
+  if (!progress) return;
+  const shifts = panels
+    ?.map((panel) => panel.FindChildTraverse('AbilityImage') as AbilityImage | null)
+    .filter(
+      (panel) =>
+        panel && ['morphling_morph_agi', 'morphling_morph_str'].includes(panel.abilityname),
+    );
+  const parent = progress.GetParent();
+  if (!shifts || shifts.length !== 2 || !parent) {
+    if (morphlingProgressOffset !== 0) {
+      progress.style.transform = 'translateX(0px)';
+      morphlingProgressOffset = 0;
+    }
+    return;
+  }
+  const first = shifts[0]!;
+  const second = shifts[1]!;
+  const center =
+    (first.GetPositionWithinWindow().x +
+      second.GetPositionWithinWindow().x +
+      second.actuallayoutwidth) /
+    2;
+  const delta =
+    (center - progress.GetPositionWithinWindow().x - progress.actuallayoutwidth / 2) /
+    progress.actualuiscale_x;
+  if (!Number.isFinite(delta) || Math.abs(delta) < 0.5) return;
+  morphlingProgressOffset += delta;
+  progress.style.transform = `translateX(${morphlingProgressOffset}px)`;
+}
+
+/** Keep the awakening binding independent of Morphling's paired native shift controls. */
+export function refreshMorphlingAwakenHotkey(): boolean {
+  const hero = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+  const ability = Entities.GetAbilityByName(hero, 'morphling_replicat_steal_all');
+  if (ability === -1) {
+    alignMorphlingProgress();
+    return false;
+  }
+  if (Players.GetLocalPlayerPortraitUnit() === hero) {
+    const panels = FindDotaHudElement('abilities')?.Children();
+    if (panels) setCurrentHotkey('morphling_replicat_steal_all', MORPHLING_AWAKEN_KEY, panels);
+    alignMorphlingProgress(panels);
+  } else {
+    alignMorphlingProgress();
+  }
+  return true;
+}
+
+export function bindMorphlingAwakenHotkey(): () => void {
+  return reserveKeyBind(MORPHLING_AWAKEN_KEY, () => {
+    const hero = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+    const ability = Entities.GetAbilityByName(hero, 'morphling_replicat_steal_all');
+    if (ability !== -1 && !Abilities.IsHidden(ability)) {
+      Abilities.ExecuteAbility(ability, hero, false);
+    }
+  });
+}
 
 export function bindAbilityKey(abilityname: string, key: string, isQuickCast: boolean) {
   const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
@@ -493,7 +555,8 @@ export function saveInputKeyborard(
     if (
       activeAbilityname === currentAbilityName ||
       passiveAbilityname === currentAbilityName ||
-      passiveAbilityname2 === currentAbilityName
+      passiveAbilityname2 === currentAbilityName ||
+      currentAbilityName === 'morphling_replicat_steal_all'
     ) {
       continue;
     }

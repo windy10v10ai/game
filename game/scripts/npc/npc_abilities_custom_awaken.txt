@@ -5,6 +5,39 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 水人 变形觉醒
+	"morphling_replicat_steal_all"
+	{
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/ts_abilities/morphling_replicat_steal_all"
+		"AbilityTextureName"		"morphling_replicate"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"AbilityCastRange"		"700 850 1000 1150"
+		"AbilityCastPoint"		"0.25"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCooldown"		"120 100 80 60"
+		"AbilityManaCost"		"0"
+		"MaxLevel"		"4"
+		"LinkedAbility"		"morphling_replicate"
+		"HasScepterUpgrade"		"1"
+		"AbilityValues"
+		{
+			"inherit_pct"		"10 20 30 40"
+			"cap_pct"		"20 25 30 40"
+			"agility_spell_amp"		"0.10 0.15 0.20 0.25"
+			"mana_cost_pct"		"100"
+			"duration"
+			{
+				"value"		"45"
+				"special_bonus_unique_morphling_8"		"+15"
+			}
+		}
+	}
+
 	// 敌法师 觉醒
 	"special_bonus_unique_antimage_mana_suppression_awaken"
 	{

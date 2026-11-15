@@ -1357,6 +1357,21 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 英雄 水人觉醒
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all"		"<font color='#d000ff'>变形 觉醒</font>"
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_SummaryDescription"		"临时获取其他英雄的三维属性，敏捷提升技能增强，波浪形态附带攻击。"
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_Description"		"<h1>主动：变形</h1>临时获得目标英雄的力量，敏捷和智力，不扣减目标属性。每项加成受自身对应属性上限限制。<br>与原版变形共享冷却，等级跟随原大招。<br>属性以施法时的总属性为准，排除本技能旧加成。再次施放刷新并替换加成，死亡时移除。\n<h1>被动：激流</h1>当前敏捷提升技能增强。<br>波浪形态对路径上的敌方非建筑单位追加攻击，每次穿梭对每个目标至多攻击一次。伤害基数为当前总攻击力乘以<font color='#FFFFFF'><b>（1 + 总技能增强百分数 / 100）</b></font>，可触发暴击，吸血和攻击特效。"
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_inherit_pct"		"%目标属性继承："
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_cap_pct"		"%自身属性上限："
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_agility_spell_amp"		"%每点敏捷提供技能增强："
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_duration"		"持续时间："
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_scepter_description"		"施法时拥有阿哈利姆神杖，完全取消自身属性上限，继承比例不变。获得或失去神杖不改变已经生效的加成。"
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_Note0"		"仅可选择其他友方或敌方英雄，不能对自身施放。"
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_Note1"		"消耗最大法力值的<font color='#FFFFFF'><b>100%%</b></font>。"
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_Note2"		"未学习原大招时，本技能的主动和被动均不生效。"
+		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"变形属性加成"
+		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"临时获得目标英雄的力量，敏捷和智力。属性在施法时固定，再次施放刷新并替换加成，死亡时移除。"
+
 		// 蓝猫 球状涡流觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade"		"<font color='#d000ff'>球状涡流 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade_Description"		"球状闪电伤害敌方英雄后，将其拉向蓝猫并使其无法行动，持续时间为电子涡流的<font color='#FFFFFF'><b>50%%</b></font>。<br>需已学习电子涡流。同一英雄在%vortex_trigger_cooldown%秒内最多触发一次，小兵、幻象和<font color='#FFCC66'>魔法免疫</font>的单位不会触发。"

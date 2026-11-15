@@ -9,6 +9,8 @@ export interface AbilityReplacement {
   targetAbility?: string;
   /** 要插入的槽位（与 targetAbility 二选一）；命中非空槽位时执行插入，原技能保留等级重新加回 */
   targetSlot?: number;
+  /** Display a newly added ability in an empty or hidden placeholder slot without rebuilding native abilities. */
+  displaySlot?: number;
   newAbility: string;
   newLevel: number;
   /** 加新技能时改为继承此关联技能的当前等级（用于 LinkedAbility 同步升级的技能初始等级对齐），优先级高于 newLevel */
@@ -18,6 +20,14 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // Morphling awakening
+  {
+    heroName: 'npc_dota_hero_morphling',
+    displaySlot: 2,
+    newAbility: 'morphling_replicat_steal_all',
+    newLevel: 0,
+    inheritLevelFrom: 'morphling_replicate',
+  },
   // 敌法师 觉醒
   {
     heroName: 'npc_dota_hero_antimage',
@@ -304,6 +314,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_morphling', // Morphling
   'npc_dota_hero_antimage', // 敌法师
   'npc_dota_hero_terrorblade', // 恐怖利刃
   'npc_dota_hero_bounty_hunter', // 赏金猎人

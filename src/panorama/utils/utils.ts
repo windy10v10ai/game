@@ -89,6 +89,9 @@ export function GetPaymentPlatformOrder(): PaymentPlatform[] {
  * @param keydownCallback 按下键位时的回调函数
  * @param keyupCallback 松开键位时的回调函数
  */
+const savedKeyCommands = new Map<string, string>();
+const reservedKeyCommands = new Map<string, string>();
+
 export function AddKeyBind(
   keyName: string,
   keydownCallback?: () => void,
@@ -96,13 +99,30 @@ export function AddKeyBind(
 ) {
   const command = `${keyName}${Date.now()}`;
 
-  Game.CreateCustomKeyBind(keyName, `+${command}`);
+  const key = keyName.toUpperCase();
+  savedKeyCommands.set(key, `+${command}`);
+  Game.CreateCustomKeyBind(keyName, reservedKeyCommands.get(key) ?? `+${command}`);
   if (keydownCallback) {
     Game.AddCommand(`+${command}`, keydownCallback, '', 1 << 32);
   }
   if (keyupCallback) {
     Game.AddCommand(`-${command}`, keyupCallback, '', 1 << 32);
   }
+}
+
+/** Reserve a hero-specific key while retaining the player's latest custom binding. */
+export function reserveKeyBind(keyName: string, callback: () => void): () => void {
+  const key = keyName.toUpperCase();
+  const command = `+hero_${key}_${Date.now()}`;
+  Game.AddCommand(command, callback, '', 1 << 32);
+  Game.AddCommand(command.replace('+', '-'), () => {}, '', 1 << 32);
+  reservedKeyCommands.set(key, command);
+  Game.CreateCustomKeyBind(key, command);
+  return () => {
+    if (reservedKeyCommands.get(key) !== command) return;
+    reservedKeyCommands.delete(key);
+    Game.CreateCustomKeyBind(key, savedKeyCommands.get(key) ?? '');
+  };
 }
 
 export function GetDotaHud() {

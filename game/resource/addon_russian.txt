@@ -1357,6 +1357,21 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 英雄 水人觉醒
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all"		"<font color='#d000ff'>Morph Пробуждение</font>"
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_SummaryDescription"		"Временно получает атрибуты другого героя, превращает ловкость в усиление заклинаний и атакует врагов на пути Waveform."
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_Description"		"<h1>Активная: Morph</h1>Временно получает силу, ловкость и интеллект выбранного героя, не уменьшая его атрибуты. Каждая прибавка ограничена соответствующим атрибутом владельца.<br>Имеет общую перезарядку с Morph и повышается вместе с ним.<br>Учитываются общие атрибуты в момент применения, без прежней прибавки этой способности. Повторное применение заменяет прибавку и обновляет её длительность. Эффект исчезает после смерти.\n<h1>Пассивная: Бурный поток</h1>Текущая ловкость усиливает заклинания.<br>Waveform дополнительно атакует вражеских существ на своём пути, кроме построек, не более одного раза за применение по каждой цели. Основой урона атаки служит общий урон атаки, умноженный на <font color='#FFFFFF'><b>(1 + общий процент усиления заклинаний / 100)</b></font>. Срабатывают критические удары, вампиризм и эффекты атак."
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_inherit_pct"		"%АТРИБУТЫ ЦЕЛИ:"
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_cap_pct"		"%ПРЕДЕЛ ОТ СВОИХ АТРИБУТОВ:"
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_agility_spell_amp"		"%УСИЛЕНИЕ ЗАКЛИНАНИЙ ЗА ЛОВКОСТЬ:"
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_duration"		"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_scepter_description"		"Наличие Aghanim's Scepter в момент применения полностью снимает предел от собственных атрибутов, не меняя процент получаемых атрибутов. Получение или потеря Scepter не влияет на действующую прибавку."
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_Note0"		"Можно выбрать другого союзного или вражеского героя, но не себя."
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_Note1"		"Тратит <font color='#FFFFFF'><b>100%%</b></font> максимального запаса маны."
+		"DOTA_Tooltip_ability_morphling_replicat_steal_all_Note2"		"Активные и пассивные эффекты не действуют, пока Morph не изучена."
+		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"Прибавка атрибутов Morph"
+		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Временно получает силу, ловкость и интеллект выбранного героя. Атрибуты фиксируются при применении. Повторное применение заменяет прибавку и обновляет длительность. Эффект исчезает после смерти."
+
 		// 蓝猫 球状涡流觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade"		"<font color='#d000ff'>Вихрь шаровой молнии: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade_Description"		"После того как Шаровая молния наносит урон вражескому герою, он притягивается к Storm Spirit и не может действовать в течение <font color='#FFFFFF'><b>50%%</b></font> длительности Электрического вихря.<br>Требуется изученный Электрический вихрь. Каждый герой может быть затронут не чаще одного раза за %vortex_trigger_cooldown% сек. Крипы, иллюзии и цели с <font color='#FFCC66'>невосприимчивостью к магии</font> не затрагиваются."
