@@ -134,7 +134,8 @@ export class modifier_special_bonus_unique_centaur_upgrade extends BaseModifier 
     this.samples.push({ time: now, damage: event.damage });
   }
 
-  // 一次施法的第一个命中事件结算，下一帧再清空，让同一次双刃剑的所有目标都吃到同样的加成
+  // 一次施法的第一个命中事件当场发盾，避免空窗期内被秒杀而护盾落空。
+  // 反击之力下一帧才清空，让同一次双刃剑的所有目标和自伤都吃到同样的加成
   private OnParentDealDamage(event: ModifierInstanceEvent): void {
     const parent = this.GetParent();
     const inflictor = event.inflictor;
@@ -153,13 +154,12 @@ export class modifier_special_bonus_unique_centaur_upgrade extends BaseModifier 
     }
 
     this.settling = true;
-    const consumed = this.getStoredDamage();
+    this.grantShield(this.getStoredDamage());
     Timers.CreateTimer(0, () => {
       this.settling = false;
       if (this.IsNull()) return;
       this.samples = [];
       this.SetStackCount(0);
-      this.grantShield(consumed);
     });
   }
 
