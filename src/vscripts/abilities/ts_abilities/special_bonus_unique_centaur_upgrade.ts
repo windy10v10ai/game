@@ -210,6 +210,8 @@ export class modifier_special_bonus_unique_centaur_upgrade extends BaseModifier 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class modifier_special_bonus_unique_centaur_upgrade_shield extends BaseModifier {
   private remainingShield = 0;
+  // 血条护盾槽的总量，只在新护盾量超过剩余时重置，受伤不减少
+  private maxShield = 0;
 
   IsHidden(): boolean {
     return false;
@@ -228,7 +230,16 @@ export class modifier_special_bonus_unique_centaur_upgrade_shield extends BaseMo
   }
 
   OnCreated(params: CentaurShieldParams): void {
+    if (IsServer()) this.SetHasCustomTransmitterData(true);
     this.refreshShield(params);
+  }
+
+  AddCustomTransmitterData(): { maxShield: number } {
+    return { maxShield: this.maxShield };
+  }
+
+  HandleCustomTransmitterData(data: { maxShield: number }): void {
+    this.maxShield = data.maxShield;
   }
 
   OnRefresh(params: CentaurShieldParams): void {
@@ -244,7 +255,7 @@ export class modifier_special_bonus_unique_centaur_upgrade_shield extends BaseMo
   }
 
   GetModifierIncomingDamageConstant(event: ModifierAttackEvent): number {
-    if (!IsServer()) return this.GetStackCount();
+    if (!IsServer()) return event.report_max ? this.maxShield : this.GetStackCount();
     if (event.damage <= 0 || (event.damage_flags & DamageFlag.HPLOSS) !== 0) return 0;
     // 双刃剑对自己的伤害不吃护盾，否则连放时护盾被自伤耗光
     if (event.inflictor?.GetAbilityName() === DOUBLE_EDGE_ABILITY) return 0;
@@ -263,7 +274,10 @@ export class modifier_special_bonus_unique_centaur_upgrade_shield extends BaseMo
 
   private refreshShield(params: CentaurShieldParams): void {
     if (!IsServer()) return;
-    this.remainingShield = mergeShieldAmount(this.remainingShield, params.shield ?? 0);
+    const merged = mergeShieldAmount(this.remainingShield, params.shield ?? 0);
+    if (merged > this.remainingShield) this.maxShield = merged;
+    this.remainingShield = merged;
     this.SetStackCount(Math.ceil(this.remainingShield));
+    this.SendBuffRefreshToClients();
   }
 }
