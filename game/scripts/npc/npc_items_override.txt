@@ -194,7 +194,7 @@
 
 		"ItemStackableMax"				"3"				// 2
 		"ItemStockInitial"				"3"				// 2
-		"ItemStockTime"					"120"			// 180
+		"ItemStockTime"					"120"			// 150
 		"AbilityValues"
 		{
 			"speed"					"2200"				// 1100
@@ -237,11 +237,10 @@
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"600"
-		"ItemCanBeUsedWithoutInventory"	"1"
 		"AbilityValues"
 		{
 			"duration"				"90"
-			"health"				"40 80 120"
+			"health"				"40 80 120"		// 6 8 10
 			"health_tooltip"		"10 20 30"
 			"buff_linger_duration"		"5"
 		}
@@ -298,14 +297,14 @@
 	}
 	"item_phylactery"
 	{
-		"AbilityCooldown"				"3.0"	// 12
+		"AbilityCooldown"				"3.0"	// 8.0
 		"ItemCost"						"6000"
 		"AbilityValues"
 		{
 			"bonus_health"		"400"			// 200
 			"bonus_mana"		"400"			// 200
 			"bonus_all_stats"	"16"			// 7
-			"bonus_spell_damage"		"300"	// 150
+			"bonus_spell_damage"		"300"	// 130
 		}
 	}
 
@@ -339,7 +338,6 @@
 		{
 				"bonus_intellect"			"20"
 				"bonus_mana_regen"			"5"
-				"bonus_damage"				"20"
 		}
 	}
 	//=================================================================================================================
@@ -351,7 +349,7 @@
 		"AbilityCooldown"				"10.0"			// 13
 		"AbilityValues"
 		{
-				"bonus_movement_speed"	"60"			// 30
+				"bonus_movement_speed"	"60"			// 25
 				"bonus_mana_regen"		"6.0"			// 3
 				"bonus_intellect"		"60"			// 35
 				"tooltip_drop_damage"	"150"			// 50
@@ -373,11 +371,15 @@
 		"AbilityCooldown"				"6"			// 7
 		"AbilityValues"
 		{
-				"int_damage_multiplier"	"1.00"		// 0.75
-				"slow"	"30"						// 25
-				"slow_duration"	"4"					// 4
-				"active_mres_reduction"		"25"	// 20
-				"passive_cooldown"		"4"			// 4
+				"int_damage_multiplier"	"1.00"		// 0.85
+				"slow"
+				{
+					"value"		"30"					// 25
+				}
+				"active_mres_reduction"
+				{
+					"value"		"25"					// 15
+				}
 		}
 	}
 	//=================================================================================================================
@@ -419,14 +421,10 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"50"
-			"bonus_strength"		"40"
-			"bonus_agility"			"20"
-			"bonus_intellect"		"20"
-			"bonus_mana_regen"		"2.0"
+			"bonus_strength"		"40"			// 30
+			"bonus_agility"			"20"			// 15
 
 			"passive_cooldown"		"1.5"
-			"movement_slow"			"100"
-			"slow_duration"			"1.0"
 		}
 	}
 	//绿杖
@@ -572,10 +570,8 @@
 
 	"item_smoke_of_deceit"
 	{
-		"ItemInitialCharges"			"1"
-		"ItemStockInitial"				"2"	// 2
-		"ItemStockMax"					"5"	// 3
-		"ItemStockTime"					"300.0" // 420
+		"ItemStockMax"					"5"	// 4
+		"ItemStockTime"					"300.0" // 330
 		"AbilityValues"
 		{
 			"visibility_radius"		"1200"	// 1025
@@ -725,7 +721,7 @@
 			"bonus_agility"			"10"		// 5
 			"bonus_strength"		"4"			// 2
 			"bonus_intellect"		"4"			// 2
-			"bonus_attack_speed"	"12"		// 6
+			"bonus_attack_speed"	"12"		// 10
 			"bonus_armor"			"3.5"		// 1.75
 		}
 	}
@@ -744,7 +740,6 @@
 			"bonus_intellect"		"10"		// 5
 			"bonus_strength"		"4"			// 2
 			"bonus_agility"			"4"			// 2
-			"bonus_max_mana_percentage"	"6"		// 3
 			"bonus_mana_regen"		"2"			// 1
 		}
 	}
@@ -756,7 +751,7 @@
 		"AbilityValues"
 		{
 			"bonus_intellect"			"20"
-			"spell_amp"			"12"
+			"spell_amp"			"12"	// 6
 		}
 	}
 
