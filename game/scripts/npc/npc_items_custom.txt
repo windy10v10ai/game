@@ -493,7 +493,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2000"
+		"ItemCost"						"2050"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -624,7 +624,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						""
+		"ItemCost"						"250"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1783,7 +1783,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3100"
+		"ItemCost"						"3200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2063,7 +2063,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"550"
+		"ItemCost"						"650"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2152,7 +2152,7 @@
 				"bonus_agility"			"100"	//26
 				"bonus_intellect"		"60"	//10
 				"bonus_attack_speed"	"60"	//15
-				"bonus_movement_speed"	"30"	//10
+				"bonus_movement_speed"	"30"	// 6
 				"images_count"			"1"		//2
 				"illusion_duration"			"30"	// 18
 				"images_do_damage_percent_melee"	"+50"
@@ -2228,7 +2228,10 @@
 			"windwalk_movement_speed"	"30"
 			"windwalk_fade_time"	"0.3"
 			"windwalk_bonus_damage"	"600"
-			"backstab_duration"		"6"
+			"backstab_duration"
+			{
+				"value"		"6"		// 5
+			}
 			"max_movement_speed"	"200"
 			"visibility_radius"		"1025"
 		}
@@ -2428,7 +2431,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2100"
+		"ItemCost"						"2400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2596,7 +2599,7 @@
 		"FightRecapLevel"						"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4550"
+		"ItemCost"						"4650"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2684,7 +2687,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"3300"
+		"ItemCost"								"4200"
 		"ItemShopTags"							""
 
 
@@ -3262,7 +3265,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2550"
+		"ItemCost"						"3000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3880,7 +3883,7 @@
 	"item_recipe_meteor_hammer_2"
 	{
 		"BaseClass"						"item_recipe_meteor_hammer"
-		"ItemCost"						"350"
+		"ItemCost"						"450"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_meteor_hammer_2"
@@ -4199,7 +4202,7 @@
 		{
 			"bonus_aoe"					"150"			// If changing this, change radius_tooltip
 			"bonus_hp"					"900"			// 450
-			"bonus_intellect"			"30"			// 15
+			"bonus_intellect"			"30"			// 20
 			"bonus_mana"				"400"			// 200
 			"radius"
 			{
@@ -5246,7 +5249,7 @@
 		"BaseClass"						"item_recipe_bloodthorn"
 		"ID"							"10415"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"0"
+		"ItemCost"						"150"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bloodthorn_ultra"
 		"AbilityTextureName"			"item_recipe_bloodthorn_ultra"
@@ -5279,16 +5282,19 @@
 				"bonus_intellect"			"30"
 				"bonus_attack_speed"		"160"
 				"bonus_mana_regen"			"10"
-				"bonus_health_regen"		"15"
 				"silence_duration"			"5"
 				"silence_damage_percent"	"120"
 				"bonus_damage"				"30"
 				"duration"					"6"
 				"spell_amp_debuff"			"70"
-				"proc_damage_heroes"		"100"
-				"proc_damage_creeps"		"50"
-				"passive_proc_damage"		"120"
-				"proc_chance"				"80"
+				"proc_damage_heroes"
+				{
+					"value"					"100"	// 50
+				}
+				"proc_damage_creeps"
+				{
+					"value"					"50"	// 20
+				}
 		}
 	}
 
@@ -5350,11 +5356,15 @@
 				"bonus_armor"			"14"
 				"bonus_mana_regen"		"3"
 				"projectile_speed"		"300"
-				"int_damage_multiplier"	"1.2"
-				"slow"	"50"
-				"slow_duration"	"4"
-				"active_mres_reduction"		"35"
-				"passive_cooldown"		"4"
+				"int_damage_multiplier"	"1.2"	// 0.85
+				"slow"
+				{
+					"value"		"50"					// 25
+				}
+				"active_mres_reduction"
+				{
+					"value"		"35"					// 15
+				}
 		}
 	}
 
@@ -5504,7 +5514,7 @@
 	"item_recipe_kaya_and_sange_1"
 	{
 		"BaseClass"						"item_recipe_kaya_and_sange"
-		"ItemCost"						"0"
+		"ItemCost"						"400"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_kaya_and_sange_1"
 		"AbilityTextureName"			"item_recipe_kaya_and_sange_1"
@@ -5540,7 +5550,7 @@
 	"item_recipe_sange_and_yasha_1"
 	{
 		"BaseClass"						"item_recipe_sange_and_yasha"
-		"ItemCost"						"0"
+		"ItemCost"						"400"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sange_and_yasha_1"
 		"AbilityTextureName"			"item_recipe_sange_and_yasha_1"
@@ -5576,7 +5586,7 @@
 	"item_recipe_yasha_and_kaya_1"
 	{
 		"BaseClass"						"item_recipe_yasha_and_kaya"
-		"ItemCost"						"0"
+		"ItemCost"						"400"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_yasha_and_kaya_1"
 		"AbilityTextureName"			"item_recipe_yasha_and_kaya_1"
