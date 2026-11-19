@@ -515,18 +515,18 @@
 	//红账册 7.42 新增
 	"item_red_ledger"
 	{
-		"AbilityCooldown"				"100"	// 120
+		"AbilityCooldown"				"30"	// 120
 		"AbilityValues"
 		{
 			"base_gold"
 			{
-				"value"				"75"	// 50
+				"value"				"100"	// 50
 			}
 			"gold_per_level_difference"
 			{
-				"value"				"18"	// 12
+				"value"				"60"	// 12
 			}
-			"assist_gold_pct"			"100"	// 75
+			"assist_gold_pct"			"200"	// 75
 		}
 	}
 	//=================================================================================================================
@@ -773,15 +773,17 @@
 	//砖头 7.42 新增
 	"item_brick"
 	{
+		"AbilityCooldown"				"10"	// 30
+		"AbilityCastRange"				"600"	// 600
 		"AbilityValues"
 		{
 			"barrier_damage"
 			{
-				"value"				"300"	// 200
+				"value"				"2000"	// 200
 			}
 			"damage"
 			{
-				"value"				"225"	// 150
+				"value"				"450"	// 150
 			}
 		}
 	}
@@ -983,25 +985,26 @@
 		{
 			"bonus_health_regen"
 			{
-				"value"				"18"	// 12
+				"value"				"240"	// 12
 			}
-			"buff_duration"				"16"	// 12
+			"buff_duration"				"60"	// 12
 		}
 	}
 	//毒剂瓶 7.42 新增
 	"item_vile_phial"
 	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 			"damage_per_second"
 			{
-				"value"				"60"	// 40
+				"value"				"120"	// 40
 			}
 			"heal_reduce"
 			{
-				"value"				"50"	// 35
+				"value"				"70"	// 35
 			}
-			"poison_duration"			"6"		// 5
+			"poison_duration"			"5"		// 5
 		}
 	}
 	//=================================================================================================================
@@ -1292,13 +1295,13 @@
 		{
 			"bonus_cast_range"
 			{
-				"value"				"110"	// 80
+				"value"				"120"	// 80
 			}
 			"cast_range"
 			{
-				"value"				"160"	// 120
+				"value"				"180"	// 120
 			}
-			"hp_loss_pct"				"6"		// 8
+			"hp_loss_pct"				"0"		// 8
 		}
 	}
 

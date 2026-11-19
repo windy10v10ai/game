@@ -207,7 +207,7 @@
 
 		"item"		"item_force_staff_3"		// 原力法杖
 		"item"		"item_crellas_crozier_2"		// 神器克莱拉牧杖
-		"item"		"item_meteor_hammer_2"		// 星落
+		"item"		"item_starforge"	// 锻星炉 界星落
 		"item"		"item_angels_demise"		// 绝刃
 
 		"item"		"item_bloodstone"			// 血精神石

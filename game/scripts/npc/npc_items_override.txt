@@ -209,6 +209,91 @@
 			"impact_damage"			"100"				// 50
 		}
 	}
+	"item_recipe_bloodslinger" //血腥投带
+	{
+		"ItemCost"						"1500"
+		"ItemRequirements"
+		{
+			"01"						"item_sobi_mask;item_mantle;item_mantle;item_blood_grenade"
+		}
+	}
+
+	"item_bloodslinger"
+	{
+		"AbilityCastRange"				"1400"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"15"	//30
+		"AbilityHealthCost"				"150"	//75
+		"ItemCost"						"2005"
+		"AbilityValues"
+		{
+			"speed"					"1400"
+			"radius"
+			{
+				"value"						"400"	//300
+				"affected_by_aoe_increase"	"1"
+			}
+			"movespeed_slow_min"	"-25"
+			"movespeed_slow_max"	"-50"
+			"bonus_health"			"300"	//100
+			"bonus_mana_regen"		"3.75"	//1.25
+			"bonus_intellect"		"24"
+			"damage_over_time"		"30"
+			"impact_damage"			"150"
+			"tick_rate"				"1"
+			"debuff_duration"		"5"
+		}
+	}
+	//=================================================================================================================
+	// Starforge 锻星炉 界星落
+	//=================================================================================================================
+	"item_recipe_starforge"
+	{
+		"ItemCost"						"450"
+		"ItemRequirements"
+		{
+			"01"						"item_meteor_hammer;item_ultimate_orb"
+		}
+	}
+
+	"item_starforge"
+	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityChannelTime"			"1.5"
+		"AbilityCastRange"				"900"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"200"
+		"AbilityValues"
+		{
+				"bonus_strength"			"30"
+				"bonus_agility"				"30"
+				"bonus_intellect"			"50"
+				"spell_amp"					"24"
+				"mana_regen_multiplier"		"50"
+
+				"burn_dps_units"			"100"
+				"burn_slow"					"40"
+				"burn_duration"				"6"
+				"stun_duration"				"1.0"
+				"burn_interval"				"1.0"
+				"land_time"					".5"
+				"impact_radius"
+				{
+					"value"		"400"
+					"affected_by_aoe_increase"	"1"
+				}
+				"max_duration"				"1.5"
+				"impact_damage_units"		"300"
+				"impact_damage_units_pct_health"		"20.0"
+				"building_damage_pct"		"40"
+				"enemy_particles_visible"	"0"
+
+				"passive_debuff_duration"	"5.0"
+				"slow_pct"					"30"
+				"burn_per_second"			"200"
+				"passive_burn_interval"		"1.0"
+		}
+	}
 	"item_bottle" //魔瓶
 	{
 		"ItemCost"						"900"			// 675
@@ -315,6 +400,43 @@
 			"bonus_mana"		"400"			// 200
 			"bonus_all_stats"	"16"			// 7
 			"bonus_spell_damage"		"300"	// 130
+		}
+	}
+	//=================================================================================================================
+	// Caduceus 双蛇杖
+	//=================================================================================================================
+	"item_recipe_caduceus"
+	{
+		"ItemCost"						"600"
+		"ItemRequirements"
+		{
+			"01"						"item_force_staff_3;item_phylactery"
+		}
+	}
+
+	"item_caduceus"
+	{
+		"AbilityCastRange"				"1200"	//继承自黄金推推
+		"AbilityCooldown"				"11.0"	//黄金推推17
+		"AbilityValues"
+		{
+			"bonus_strength"			"20"
+			"bonus_agility"				"20"
+			"bonus_intellect"			"60"
+			"bonus_health"				"500"
+			"bonus_health_regen"		"18"
+			"bonus_mana_regen"			"9"
+			"bonus_spell_damage"		"500"
+			"slow"						"40"
+			"slow_duration"				"2" // even if there is no slow, this needs to be above 0.0 so the delayed_damage happens OnIntervalThink
+			"bonus_heal"				"1000"
+			"haste"						"30"
+			"haste_duration"			"10"
+			"enemy_proc_cooldown"		"3"
+			"ally_proc_cooldown"		"3"
+			"push_length"				"1500" // read by modifier_item_forcestaff_active
+			"push_time"					"0.4" // read by modifier_item_forcestaff_active
+			"enemy_cast_range"			"1200"
 		}
 	}
 
@@ -443,14 +565,62 @@
 		}
 	}
 	//=================================================================================================================
+	// Skypiercer 破天之矛 界天堂
+	//=================================================================================================================
+	"item_recipe_skypiercer"
+	{
+		"ItemCost"						"300"
+		"ItemRequirements"
+		{
+			"01"						"item_heavens_halberd;item_sange;item_talisman_of_evasion"
+		}
+	}
+
+	"item_skypiercer"
+	{
+		"AbilityCooldown"				"10"
+		"AbilityCastRange"				"1500"
+		"AbilityValues"
+		{
+				"bonus_strength"			"70"
+				"bonus_armor"				"20"
+				"bonus_health_regen"		"20"
+
+				"slow_resistance"			"50"
+				"hp_regen_amp"				"50"
+				"bonus_evasion"				"50"
+
+				"disarm_duration"			"5.0"
+
+				"close_radius"						"1000"
+				"buff_cooldown_acceleration_pct"	"150"
+		}
+	}
+	// 魔龙枪
+	"item_dragon_lance"
+	{
+		"AbilityValues"
+		{
+				"base_attack_range_melee"	"50"
+		}
+	}
+	// 大晕
+	"item_abyssal_blade"
+	{
+		"AbilityValues"
+		{
+				"base_attack_range_melee"	"50"
+		}
+	}
+	//=================================================================================================================
 	// 鱼叉（加强） harpoon
 	//=================================================================================================================
 	"item_recipe_harpoon"
 	{
-		"ItemCost"						"1000"
+		"ItemCost"						"0"
 		"ItemRequirements"
 		{
-			"01"						"item_echo_sabre_2;item_diadem"
+			"01"						"item_echo_sabre_2;item_dragon_lance"
 		}
 	}
 	"item_harpoon"
@@ -463,6 +633,8 @@
 			"bonus_damage"			"50"
 			"bonus_strength"		"40"			// 30
 			"bonus_agility"			"20"			// 15
+			"base_attack_range_melee"	"100"		// 25
+			"bonus_mana_regen"		"5"			// 2.5
 
 			"passive_cooldown"		"1.5"
 		}
