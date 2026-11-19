@@ -70,7 +70,7 @@
 		"item"		"item_claymore"				// 大剑
 		"item"		"item_orb_of_venom"			// 淬毒之珠
 
-		"item"		"item_javelin"				// 标枪
+		//"item"		"item_javelin"				// 标枪
 		"item"		"item_helm_of_iron_will"	// 铁意头盔
 		"item"		"item_mithril_hammer"		// 秘银锤
 		// 额外
