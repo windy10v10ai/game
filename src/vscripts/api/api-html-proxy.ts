@@ -54,6 +54,9 @@ export class ApiHtmlProxy {
   private static failedPlayerIds = new Set<PlayerID>();
   private static pending = new Map<string, PendingRequest>();
   private static queue: PendingRequest[] = [];
+  // 引擎限制了网页控件联网时，所有真人客户端都会超时；一旦如此，本局不再白等超时，直接走离线分支
+  private static relaySucceeded = false;
+  private static relayUnavailable = false;
 
   public static GetBodyBudget(target: ApiTarget, path: string): number {
     const url = ApiHtmlProxy.buildUrl(target, path, { body: '' }, 'p_9999999999_999999999');
@@ -84,6 +87,11 @@ export class ApiHtmlProxy {
     onFailure: (reason: string) => void,
     timeoutSeconds = TIMEOUT_SECONDS,
   ): void {
+    if (ApiHtmlProxy.relayUnavailable) {
+      print(`[ApiHtmlProxy] relay unavailable, fail fast path=${path}`);
+      Timers.CreateTimer(0, () => onFailure('relay_unavailable'));
+      return;
+    }
     const requestId = ApiHtmlProxy.nextRequestId();
     const url = ApiHtmlProxy.buildUrl(target, path, querys, requestId);
     const request: PendingRequest = {
@@ -220,6 +228,7 @@ export class ApiHtmlProxy {
     Timers.RemoveTimer(request.timerName);
 
     if (data !== undefined) {
+      ApiHtmlProxy.relaySucceeded = true;
       request.onSuccess(data);
     } else {
       print(`[ApiHtmlProxy] request ${requestId} path=${request.path} failed: ${reason}`);
@@ -234,6 +243,20 @@ export class ApiHtmlProxy {
     if (ApiHtmlProxy.failedPlayerIds.has(relayPlayerId)) return;
     ApiHtmlProxy.failedPlayerIds.add(relayPlayerId);
     print(`[ApiHtmlProxy] player ${relayPlayerId} failed to relay`);
+
+    if (ApiHtmlProxy.relaySucceeded || ApiHtmlProxy.findRelayPlayer() !== undefined) return;
+    ApiHtmlProxy.relayUnavailable = true;
+    print('[ApiHtmlProxy] every ready player failed to relay, relay unavailable for this match');
+    ApiHtmlProxy.failAllPending();
+  }
+
+  private static failAllPending(): void {
+    const requests: PendingRequest[] = [];
+    ApiHtmlProxy.pending.forEach((request) => requests.push(request));
+    for (const request of requests) {
+      ApiHtmlProxy.cancelOnClient(request);
+      ApiHtmlProxy.finish(request.requestId, undefined, 'relay_unavailable');
+    }
   }
 
   private static selectRelayPlayer(): PlayerID | undefined {
