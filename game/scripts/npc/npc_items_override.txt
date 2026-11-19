@@ -309,14 +309,17 @@
 	}
 
 	//=================================================================================================================
-	// Khanda 绝刃
+	// Khanda 绝刃（7.42 官方下架，本图暗影法杖仍需它作材料）
 	//=================================================================================================================
 	"item_recipe_angels_demise"
 	{
 		"ItemCost"						"2000"
+		"ItemPurchasable"				"1"
+		"IsObsolete"					"0"
 	}
 	"item_angels_demise"
 	{
+		"IsObsolete"					"0"
 		"AbilityCooldown"				"3.0"	// 12
 		"AbilityValues"
 		{
@@ -326,6 +329,32 @@
 			"slow"						"50"	// 30
 			"slow_duration"				"2"		// 4
 			"bonus_spell_damage"		"600"	// 250
+		}
+	}
+	//=================================================================================================================
+	// Revenant's Brooch 亡魂胸针（7.42 官方改为中立，本图恢复为商店装备）
+	//=================================================================================================================
+	"item_revenants_brooch"
+	{
+		"ItemCost"						"3300"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+		"ItemIsNeutralActiveDrop"		"0"
+		"ItemQuality"					"rare"
+		"ItemShopTags"					"int;hard_to_tag;crit;dps"
+		"AbilityTextureName"			"item_revenants_brooch"
+		"AbilityValues"
+		{
+			"bonus_damage"				"35"	// 原版不存在，手动修改
+			"spell_lifesteal"			"15"	// 原版不存在，手动修改
+			"crit_chance"
+			{
+				"value"					"30"	// 15
+			}
+			"crit_multiplier"
+			{
+				"value"					"80"	// 50
+			}
 		}
 	}
 	//=================================================================================================================

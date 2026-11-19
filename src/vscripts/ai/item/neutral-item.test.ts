@@ -13,7 +13,7 @@ describe('NeutralItemManager.GetNeutralItemTier', () => {
   });
 
   it('returns correct tier for a tier-5 active item', () => {
-    expect(NeutralItemManager.GetNeutralItemTier('item_desolator_2', 1)).toBe(5);
+    expect(NeutralItemManager.GetNeutralItemTier('item_stygian_desolator', 1)).toBe(5);
   });
 
   it('returns correct tier for enhancement with level matching tier', () => {

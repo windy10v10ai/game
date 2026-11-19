@@ -245,7 +245,7 @@ export class NeutralItemManager {
       },
       5: {
         items: [
-          { name: 'item_desolator_2', level: 1 }, // 寂灭
+          { name: 'item_stygian_desolator', level: 1 }, // 寂灭
           { name: 'item_fallen_sky', level: 1 }, // 天崩
           { name: 'item_demonicon', level: 1 }, // 死灵书
           { name: 'item_minotaur_horn', level: 1 }, // 恶牛角

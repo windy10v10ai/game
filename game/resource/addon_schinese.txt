@@ -3221,6 +3221,15 @@
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active"				"坚韧"
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active_Description"	"移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。\n攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
 
+		// 亡魂胸针（7.42 官方改为中立物品，本图恢复为商店装备）
+		"DOTA_Tooltip_Ability_item_revenants_brooch"							"英灵胸针"
+		"DOTA_Tooltip_ability_item_revenants_brooch_Description"				"<h1>被动：幻影暴击</h1>每次攻击都有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_Note0"						"对于其他来源的致命一击也被视为致命一击效果。"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_Note1"						"攻击建筑物时不会触发幻影暴击。"
+		"DOTA_Tooltip_ability_item_revenants_brooch_Lore"						"这枚受到诅咒的胸针属于一位堕落的卫士，她永远都在生死之界徘徊。"
+		"DOTA_Tooltip_ability_item_revenants_brooch_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_revenants_brooch_spell_lifesteal"			"%+$spell_lifesteal"
+
 		// 神器魔武双修
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"			"神器·魔武双修"
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Description"				"<h1>被动：</h1>每次攻击都有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。"
