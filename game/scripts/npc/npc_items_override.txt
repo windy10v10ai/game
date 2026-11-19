@@ -245,8 +245,8 @@
 			"buff_linger_duration"		"5"
 		}
 	}
-	// 战角（7.42 折磨者掉落，本图上架：12:00 开卖，每 2 分钟补 1 件）
-	"item_horn_of_battle"
+	// 大战角（7.42 折磨者掉落，本图上架：12:00 开卖，每 2 分钟补 1 件）
+	"item_horn_of_battle_greater"
 	{
 		"ItemPurchasable"				"1"
 		"ItemCost"						"5000"
