@@ -72,6 +72,7 @@ export class NeutralItemManager {
           { name: 'item_safety_bubble', level: 1 }, // 安全泡泡
           { name: 'item_royal_jelly', level: 1 }, // 蜂王浆
           { name: 'item_arcane_ring', level: 1 }, // 奥术指环
+          { name: 'item_red_ledger', level: 1 }, // 红账册
         ],
         enhancements: {
           global: [
@@ -111,6 +112,7 @@ export class NeutralItemManager {
           { name: 'item_seeds_of_serenity', level: 1 }, // 宁静种籽
           { name: 'item_orb_of_destruction', level: 1 }, // 毁灭灵球
           { name: 'item_misericorde', level: 1 }, // 飞贼之刃
+          { name: 'item_brick', level: 1 }, // 砖头
         ],
         enhancements: {
           global: [
@@ -158,6 +160,8 @@ export class NeutralItemManager {
           { name: 'item_penta_edged_sword', level: 1 }, // 五锋长剑
           { name: 'item_gale_guard', level: 1 }, // 烈风护体
           { name: 'item_princes_knife', level: 1 }, // 亲王短刀
+          { name: 'item_balmhook', level: 1 }, // 提钩
+          { name: 'item_vile_phial', level: 1 }, // 毒剂瓶
         ],
         enhancements: {
           global: [
@@ -207,6 +211,7 @@ export class NeutralItemManager {
           { name: 'item_repair_kit', level: 1 }, // 维修器具
           { name: 'item_mirror_shield', level: 1 }, // 神镜盾
           { name: 'item_magnifying_monocle', level: 1 }, // 放大单片镜
+          { name: 'item_helm_of_the_hivemind', level: 1 }, // 蜂巢头盔
         ],
         enhancements: {
           global: [

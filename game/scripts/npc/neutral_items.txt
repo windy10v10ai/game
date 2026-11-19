@@ -35,6 +35,7 @@
 				"item_safety_bubble"				"1"		// 安全泡泡
 				"item_royal_jelly"					"1"		// 蜂王浆
 				"item_arcane_ring"					"1"		// 奥术指环
+				"item_red_ledger"					"1"		// 红账册 7.42 新增
 
 			}
 
@@ -99,6 +100,7 @@
 				// 额外添加
 				"item_orb_of_destruction"			"1"		// 毁灭灵球
 				"item_misericorde"					"1"		// 飞贼之刃
+				"item_brick"						"1"		// 砖头 7.42 新增
 			}
 
 			"enhancements"
@@ -174,6 +176,8 @@
 				"item_penta_edged_sword"			"1"		// 五锋长剑
 				"item_gale_guard"					"1"		// 烈风护体
 				"item_princes_knife"				"1"		// 亲王短刀
+				"item_balmhook"						"1"		// 提钩 7.42 新增
+				"item_vile_phial"					"1"		// 毒剂瓶 7.42 新增
 			}
 
 			"enhancements"
@@ -252,6 +256,7 @@
 				"item_repair_kit"					"1"		// 维修器具
 				"item_mirror_shield"				"1"		// 神镜盾
 				"item_magnifying_monocle"			"1"		// 放大单片镜
+				"item_helm_of_the_hivemind"			"1"		// 蜂巢头盔 7.42 新增
 
 			}
 
