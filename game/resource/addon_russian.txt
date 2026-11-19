@@ -170,7 +170,7 @@
 		"conduct_point_light_penalty_tooltip"	"Штраф за поведение <font color='#FFA726'>{0}</font>, очки ×0.8"
 		"conduct_point_heavy_penalty_tooltip"	"Штраф за поведение <font color='#E87D7D'>{0}</font>, очки ×0.5"
 
-		"end_screen_offline_hint"		"Офлайн-режим. Очки и статистика этой игры не сохранены. Это ограничение новой версии Dota 2, а не сбой сервера."
+		"end_screen_offline_hint"		"Офлайн-режим. Очки и статистика не сохранены. Это ограничение Dota 2, а не сбой сервера."
 		"ending_status_1"			"Подведение итогов…"
 		"ending_status_2"			"Итоги сохранены"
 		"ending_status_3"			"Итоги отправлены"

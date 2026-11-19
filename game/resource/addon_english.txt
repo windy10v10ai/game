@@ -170,7 +170,7 @@
 		"conduct_point_light_penalty_tooltip"	"Conduct <font color='#FFA726'>{0}</font> penalty, points ×0.8"
 		"conduct_point_heavy_penalty_tooltip"	"Conduct <font color='#E87D7D'>{0}</font> penalty, points ×0.5"
 
-		"end_screen_offline_hint"		"Offline mode. Points and stats from this game were not recorded. This is a limit of the new Dota 2 version, not a server fault."
+		"end_screen_offline_hint"		"Offline mode. Points and stats were not recorded. A Dota 2 update restricts networking, not a server fault."
 		"ending_status_1"			"Settling…"
 		"ending_status_2"			"Settlement complete"
 		"ending_status_3"			"Settlement submitted"
