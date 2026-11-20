@@ -17,7 +17,7 @@ description: 更新电脑英雄（update bot hero）的技能加点与天赋档�
 
 | 数据 | 优先级：高 → 低 |
 |------|----------------|
-| Ability 槽位 | `npc_heroes_custom.txt` 同名键 → `docs/reference/{version}/npc_heroes.txt` |
+| Ability 槽位 | `npc_heroes_custom.txt` 同名键 → `docs/reference/{version}/heroes/npc_dota_hero_<hero>.txt`（7.41f 之前为 `npc_heroes.txt`） |
 | Ability10–17 天赋 | 同上 |
 | MaxLevel | `npc_abilities_override.txt` → `heroes/npc_dota_hero_<hero>.txt` → 推断（大招 3、其余 4） |
 
