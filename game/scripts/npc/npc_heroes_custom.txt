@@ -493,7 +493,6 @@
 
 	"npc_dota_hero_naga_siren"
 	{
-		"Ability17"		"special_bonus_unique_naga_siren"
 		"Ability15"		"special_bonus_unique_naga_siren_net_breaks"
 	}
 
@@ -2115,7 +2114,7 @@
 				"7"		"skywrath_mage_arcane_bolt"
 				"8"		"skywrath_mage_ancient_seal"
 				"9"		"skywrath_mage_ancient_seal"
-				"10"		"special_bonus_mp_regen_150"
+				"10"		"special_bonus_unique_skywrath_scion_shield_barrier"
 				"11"		"skywrath_mage_ancient_seal"
 				"12"		"skywrath_mage_mystic_flare"
 				"13"		"skywrath_mage_concussive_shot"
@@ -2340,8 +2339,8 @@
 				"24"		"viper_viper_strike"
 				"25"		"special_bonus_unique_viper_nethertoxin_radius"
 				"26"		"viper_corrosive_skin"
-				"27"		"special_bonus_unique_viper_7"
-				"28"		"special_bonus_unique_viper_1"
+				"27"		"special_bonus_unique_viper_1"
+				"28"		"special_bonus_unique_viper_7"
 				"29"		"special_bonus_unique_viper_predator_damage"
 				"30"		"special_bonus_unique_viper_8"
 				"31"		"viper_corrosive_skin"
