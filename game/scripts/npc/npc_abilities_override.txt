@@ -1741,7 +1741,7 @@
 			}
 			"damage_per_second"
 			{
-				"value"									"155 230 305 380"	// 40 80 120 加成115起差值+35
+				"value"									"155 230 305 380"	// 40 80 120 +115 差值75
 				"special_bonus_unique_earth_spirit_8"			"+70"		// +35 x2
 			}
 		}
