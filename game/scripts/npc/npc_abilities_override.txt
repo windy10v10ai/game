@@ -2758,7 +2758,7 @@
 			"dps"
 			{
 				"value"			"50 60 70 80 90" // 25 30 35 40 45 x2
-				"special_bonus_unique_night_stalker_crippling_fear_damage" 	"22.5" // +15 x1.5
+				"special_bonus_unique_night_stalker_crippling_fear_damage" 	"+22.5" // +15 x1.5
 			}
 		}
 	}
@@ -6596,6 +6596,10 @@
 			{
 				"value"					"500 525 550 575 600"
 				"special_bonus_scepter"		"+100%"		// +50% 增加施法距离与捕捞一致
+			}
+			"does_break"
+			{
+				"special_bonus_unique_naga_siren_net_breaks"		"+1"	// 天赋单独启用破坏，无神杖也生效
 			}
 		}
 	}
@@ -11258,10 +11262,10 @@
 		"AbilityDraftPreAbility"		"rubick_null_field"	// 关联失效立场
 		"AbilityValues"
 		{
-			"cast_range"				"50 100 150 200 250"	// 50 100 150 200 延伸
+			"cast_range"				"60 120 180 240 300"
 			"spell_amp"
 			{
-				"value"					"9 13 17 21 25"	// 9 13 17 21 延伸
+				"value"					"11 16 21 26 31"
 			}
 		}
 	}

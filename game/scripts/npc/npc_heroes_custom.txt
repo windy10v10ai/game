@@ -937,7 +937,7 @@
 				"26"		"dazzle_shallow_grave"
 				"27"		"special_bonus_unique_dazzle_shadow_wave_cast_range"
 				"28"		"special_bonus_unique_dazzle_2"
-				"29"		"special_bonus_unique_dazzle_nothl_projection_cooldown"
+				// 29 留空：20 级档的另一天赋是虚无投影减冷却，本图没有该技能，待设计换天赋
 				"30"		"special_bonus_unique_dazzle_shallow_grave_duration"
 				"31"		"dazzle_shallow_grave"
 			}
@@ -1286,7 +1286,7 @@
 				"27"		"special_bonus_unique_kunkka_rum_duration"
 				"28"		"special_bonus_unique_kunkka_2"
 				"29"		"special_bonus_unique_kunkka_4"
-				"30"		"" // **special_bonus_unique_kunkka_tidebringer_armor_pierce**
+				"30"		"special_bonus_unique_kunkka_tidebringer_armor_pierce"
 				"31"		"kunkka_x_marks_the_spot"
 			}
 		}
