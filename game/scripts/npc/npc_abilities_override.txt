@@ -12961,14 +12961,15 @@
 		{
 			"katana_echo_damage"
 			{
-				"value" 												"30 45 60 75 90"	// 30 45 60 75 延伸
+				"value"												"70 90 110 130 150"
 			}
-			"echo_base_damage"
+			"echo_hero_damage"
 			{
-				"value"													"40 70 100 130 160"	// 40 70 100 130 延伸
+				"value"													"70 90 110 130 150"
 			}
 			"katana_strikes"
 			{
+				"value"												"2"
 				"special_bonus_unique_kez_echo_slash_strike_count"		"+2"//+1
 			}
 			"strike_interval"
