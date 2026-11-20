@@ -50,6 +50,7 @@ export class EventGameStateChange {
   private OnHeroSelection(): void {
     GameRules.Option.SetDefaultDifficulty();
     if (GameRules.Option.forceRandomHero) {
+      Game.EnsurePlayerData();
       HeroPick.PickRandomHeroes();
     }
   }
@@ -59,6 +60,7 @@ export class EventGameStateChange {
    */
   private OnStrategyTime(): void {
     GameConfig.SetMaxLevelXPRequire();
+    Game.EnsurePlayerData();
     HeroPick.PickHumanHeroes();
     // 延迟创建，避免在当前事件处理里耗时过长导致玩家被断开
     Timers.CreateTimer({
