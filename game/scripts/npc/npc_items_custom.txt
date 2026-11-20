@@ -493,7 +493,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2000"
+		"ItemCost"						"2050"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -624,7 +624,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						""
+		"ItemCost"						"250"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1735,7 +1735,7 @@
 		"ItemResult"					"item_monkey_king_bar_2"
 		"ItemRequirements"
 		{
-			"01"						"item_monkey_king_bar;item_javelin;item_javelin"
+			"01"						"item_monkey_king_bar;item_quarterstaff;item_quarterstaff"
 		}
 	}
 
@@ -1761,10 +1761,22 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"60"
-				"bonus_attack_speed"	"50"
-				"bonus_chance"			"85"
-				"bonus_chance_damage"	"260"
+				"bonus_damage"					"60"
+				"bonus_attack_speed"			"50"
+				"bonus_chance"
+				{
+					"value"				"85"
+					"apply_effectiveness"	"1"
+				}
+				"bonus_chance_damage"
+				{
+					"value"				"260"
+				}
+
+				"bonus_chance_damage_illu"
+				{
+					"value"				"260"
+				}
 		}
 	}
 
@@ -1783,7 +1795,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3100"
+		"ItemCost"						"3200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2063,7 +2075,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"550"
+		"ItemCost"						"650"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2152,7 +2164,7 @@
 				"bonus_agility"			"100"	//26
 				"bonus_intellect"		"60"	//10
 				"bonus_attack_speed"	"60"	//15
-				"bonus_movement_speed"	"30"	//10
+				"bonus_movement_speed"	"30"	// 6
 				"images_count"			"1"		//2
 				"illusion_duration"			"30"	// 18
 				"images_do_damage_percent_melee"	"+50"
@@ -2228,7 +2240,10 @@
 			"windwalk_movement_speed"	"30"
 			"windwalk_fade_time"	"0.3"
 			"windwalk_bonus_damage"	"600"
-			"backstab_duration"		"6"
+			"backstab_duration"
+			{
+				"value"		"6"		// 5
+			}
 			"max_movement_speed"	"200"
 			"visibility_radius"		"1025"
 		}
@@ -2428,7 +2443,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2100"
+		"ItemCost"						"2400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2596,7 +2611,7 @@
 		"FightRecapLevel"						"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4550"
+		"ItemCost"						"4650"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2684,7 +2699,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"3300"
+		"ItemCost"								"4200"
 		"ItemShopTags"							""
 
 
@@ -3262,7 +3277,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2550"
+		"ItemCost"						"3000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3753,7 +3768,7 @@
 		"ItemResult"					"item_shotgun"
 		"ItemRequirements"
 		{
-			"01"						"item_mithril_hammer;item_blitz_knuckles;item_javelin"
+			"01"						"item_mithril_hammer;item_blitz_knuckles;item_quarterstaff"
 		}
 	}
 	//=================================================================================================================
@@ -3877,59 +3892,59 @@
 	//=================================================================================================================
 	// 星落
 	//=================================================================================================================
-	"item_recipe_meteor_hammer_2"
-	{
-		"BaseClass"						"item_recipe_meteor_hammer"
-		"ItemCost"						"350"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_meteor_hammer_2"
-		"ItemRequirements"
-		{
-			"01"						"item_meteor_hammer;item_ultimate_orb"
-		}
-	}
-	"item_meteor_hammer_2"
-	{
-		"BaseClass"						"item_meteor_hammer"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
-		"AbilityChannelTime"			"1.5"	//2
-		"AbilityCastRange"				"900"	//600
-		"AbilityCooldown"				"20"
-		"AbilityManaCost"				"300"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-		"AbilityTextureName"			"meteor_hammer_2"
-		"AbilityValues"
-		{
-				"bonus_strength"		"30"	//6
-				"bonus_agility"			"30"	//6
-				"bonus_intellect"		"50"	//24
-				"spell_amp"				"24"	//10
-				"mana_regen_multiplier"	"50"	//25
-
-				"burn_dps_buildings"	"60"	//50
-				"burn_dps_units"		"100"	//50
-				"burn_slow"			"40"		//20
-				"burn_duration"		"6"			//6
-				"stun_duration"		"1.0"		//0.75
-				"burn_interval"			"1.0"	//1.0
-				"land_time"				".5"	//0.5
-				"impact_radius"
-				{
-					"value"		"400"			// 400
-					"affected_by_aoe_increase"	"1"
-				}
-				"max_duration"		"1.5"			//2
-				"impact_damage_buildings"	"120"	//90
-				"impact_damage_units"		"300"	//130
-				"enemy_particles_visible"		"0"
-		}
-	}
+	//{
+	//	"BaseClass"						"item_recipe_meteor_hammer"
+	//	"ItemCost"						"450"
+	//	"ItemShopTags"					""
+	//	"ItemRecipe"					"1"
+	//	"ItemResult"					"item_meteor_hammer_2"
+	//	"ItemRequirements"
+	//	{
+	//		"01"						"item_meteor_hammer;item_ultimate_orb"
+	//	}
+	//}
+	//"item_meteor_hammer_2"
+	//{
+	//	"BaseClass"						"item_meteor_hammer"
+	//	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+	//	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	//	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	//	"FightRecapLevel"				"1"
+	//	"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+	//	"AbilityChannelTime"			"1.5"	//2
+	//	"AbilityCastRange"				"900"	//600
+	//	"AbilityCooldown"				"20"
+	//	"AbilityManaCost"				"300"
+	//	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+	//"item_recipe_meteor_hammer_2"
+	//	"ShouldBeSuggested"				"1"
+	//	"AbilityTextureName"			"meteor_hammer_2"
+	//	"AbilityValues"
+	//	{
+	//			"bonus_strength"		"30"	//6
+	//			"bonus_agility"			"30"	//6
+	//			"bonus_intellect"		"50"	//24
+	//			"spell_amp"				"24"	//10
+	//			"mana_regen_multiplier"	"50"	//25
+//
+	//			"burn_dps_buildings"	"60"	//50
+	//			"burn_dps_units"		"100"	//50
+	//			"burn_slow"			"40"		//20
+	//			"burn_duration"		"6"			//6
+	//			"stun_duration"		"1.0"		//0.75
+	//			"burn_interval"			"1.0"	//1.0
+	//			"land_time"				".5"	//0.5
+	//			"impact_radius"
+	//			{
+	//				"value"		"400"			// 400
+	//				"affected_by_aoe_increase"	"1"
+	//			}
+	//			"max_duration"		"1.5"			//2
+	//			"impact_damage_buildings"	"120"	//90
+	//			"impact_damage_units"		"300"	//130
+	//			"enemy_particles_visible"		"0"
+	//	}
+	//}
 	//=================================================================================================================
 	// Jump!Jump!Jump! 跳！跳！跳！刀合成图
 	//=================================================================================================================
@@ -3953,9 +3968,9 @@
 		"ItemResult"					"item_jump_jump_jump"
 		"ItemRequirements"
 		{
-			"01"						"item_overwhelming_blink_2;item_meteor_hammer_2"
-			"02"						"item_swift_blink_2;item_meteor_hammer_2"
-			"03"						"item_arcane_blink;item_meteor_hammer_2"
+			"01"						"item_overwhelming_blink_2;item_starforge"
+			"02"						"item_swift_blink_2;item_starforge"
+			"03"						"item_arcane_blink;item_starforge"
 		}
 	}
 	"item_jump_jump_jump"
@@ -4199,7 +4214,7 @@
 		{
 			"bonus_aoe"					"150"			// If changing this, change radius_tooltip
 			"bonus_hp"					"900"			// 450
-			"bonus_intellect"			"30"			// 15
+			"bonus_intellect"			"30"			// 20
 			"bonus_mana"				"400"			// 200
 			"radius"
 			{
@@ -4573,9 +4588,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"10396"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"						"item_armlet"
+		"BaseClass"						"item_berserkers_sabatons"
 		"AbilityTextureName"			"item_armlet_plus"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4598,10 +4613,14 @@
 			"bonus_attack_speed"	"35"
 			"bonus_armor"			"12"
 			"bonus_health_regen"	"10"
+			"bonus_movement_speed_ranged"	"0"	// 本体不是鞋子，不提供常驻移速
+			"bonus_movement_speed_melee"	"0"
+			"phase_movement_speed"	"20"		// 开启时相位移速
+			"phase_movement_speed_range"	"10"
 			"unholy_bonus_damage"	"45"
 			"unholy_bonus_strength"	"50"
 			"unholy_bonus_armor"	"8"
-			"unholy_bonus_slow_resistance"	"35"
+			"unholy_bonus_slow_resistance"	"40"
 			"unholy_health_drain_per_second"	"25"
 			"toggle_cooldown"		"0.036f"
 		}
@@ -4637,9 +4656,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"10398"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"						"item_armlet"
+		"BaseClass"						"item_berserkers_sabatons"
 		"AbilityTextureName"			"item_armlet_pro_max"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4662,6 +4681,10 @@
 			"bonus_attack_speed"	"45"
 			"bonus_armor"			"18"
 			"bonus_health_regen"	"15"
+			"bonus_movement_speed_ranged"	"0"	// 本体不是鞋子，不提供常驻移速
+			"bonus_movement_speed_melee"	"0"
+			"phase_movement_speed"	"25"		// 开启时相位移速
+			"phase_movement_speed_range"	"12"
 			"unholy_bonus_damage"	"55"
 			"unholy_bonus_strength"	"75"
 			"unholy_bonus_armor"	"12"
@@ -5246,7 +5269,7 @@
 		"BaseClass"						"item_recipe_bloodthorn"
 		"ID"							"10415"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"0"
+		"ItemCost"						"150"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bloodthorn_ultra"
 		"AbilityTextureName"			"item_recipe_bloodthorn_ultra"
@@ -5279,16 +5302,19 @@
 				"bonus_intellect"			"30"
 				"bonus_attack_speed"		"160"
 				"bonus_mana_regen"			"10"
-				"bonus_health_regen"		"15"
 				"silence_duration"			"5"
 				"silence_damage_percent"	"120"
 				"bonus_damage"				"30"
 				"duration"					"6"
 				"spell_amp_debuff"			"70"
-				"proc_damage_heroes"		"100"
-				"proc_damage_creeps"		"50"
-				"passive_proc_damage"		"120"
-				"proc_chance"				"80"
+				"proc_damage_heroes"
+				{
+					"value"					"100"	// 50
+				}
+				"proc_damage_creeps"
+				{
+					"value"					"50"	// 20
+				}
 		}
 	}
 
@@ -5350,11 +5376,15 @@
 				"bonus_armor"			"14"
 				"bonus_mana_regen"		"3"
 				"projectile_speed"		"300"
-				"int_damage_multiplier"	"1.2"
-				"slow"	"50"
-				"slow_duration"	"4"
-				"active_mres_reduction"		"35"
-				"passive_cooldown"		"4"
+				"int_damage_multiplier"	"1.2"	// 0.85
+				"slow"
+				{
+					"value"		"50"					// 25
+				}
+				"active_mres_reduction"
+				{
+					"value"		"35"					// 15
+				}
 		}
 	}
 
@@ -5504,7 +5534,7 @@
 	"item_recipe_kaya_and_sange_1"
 	{
 		"BaseClass"						"item_recipe_kaya_and_sange"
-		"ItemCost"						"0"
+		"ItemCost"						"400"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_kaya_and_sange_1"
 		"AbilityTextureName"			"item_recipe_kaya_and_sange_1"
@@ -5540,7 +5570,7 @@
 	"item_recipe_sange_and_yasha_1"
 	{
 		"BaseClass"						"item_recipe_sange_and_yasha"
-		"ItemCost"						"0"
+		"ItemCost"						"400"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sange_and_yasha_1"
 		"AbilityTextureName"			"item_recipe_sange_and_yasha_1"
@@ -5576,7 +5606,7 @@
 	"item_recipe_yasha_and_kaya_1"
 	{
 		"BaseClass"						"item_recipe_yasha_and_kaya"
-		"ItemCost"						"0"
+		"ItemCost"						"400"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_yasha_and_kaya_1"
 		"AbilityTextureName"			"item_recipe_yasha_and_kaya_1"

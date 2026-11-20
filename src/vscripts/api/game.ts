@@ -26,6 +26,19 @@ export class Game {
   private static loadedSteamIds = new Set<number>();
   private static routeSelected = false;
   private static offline = false;
+  private static firstLoadDone = false;
+  private static playerDataLoadedListeners: (() => void)[] = [];
+
+  /** 玩家数据（线上或离线快照）写入后的回调，英雄可能早于数据出生，需要补应用 */
+  public static OnPlayerDataLoaded(listener: () => void) {
+    Game.playerDataLoadedListeners.push(listener);
+  }
+
+  private static NotifyPlayerDataLoaded() {
+    for (const listener of Game.playerDataLoadedListeners) {
+      listener();
+    }
+  }
 
   public static StartGame() {
     if (Game.customMatchId === '') {
@@ -66,6 +79,10 @@ export class Game {
     // 定义成功回调
     const onSuccess = (data: string) => {
       const gameStart = json.decode(data)[0] as GameStart;
+      if (isFirst) {
+        Game.firstLoadDone = true;
+        Game.offline = false;
+      }
 
       // Initialize GA4 if config is provided (only for official servers)
       if (isFirst) {
@@ -81,6 +98,8 @@ export class Game {
       for (const player of gameStart.players) {
         Player.MergePlayerInfo(player);
       }
+      // 英雄可能早于数据到达而出生，补上会员、觉醒、属性等效果
+      Game.NotifyPlayerDataLoaded();
 
       Game.PublishGamePresets();
 
@@ -120,14 +139,10 @@ export class Game {
         print(`[Game] load failed for late players: ${steamIds.join(',')}`);
         return;
       }
-      Game.offline = true;
-      const snapshotDate = PlayerSnapshot.Load();
-      Game.PublishGamePresets();
-      if (!isFirst) return;
-      CustomNetTables.SetTableValue('loading_status', 'loading_status', {
-        status: 3,
-        snapshotDate,
-      });
+      // 选英雄阶段已改用快照的，不再重复读取
+      if (isFirst && Game.offline) return;
+      Game.firstLoadDone = true;
+      Game.UseOfflineSnapshot(isFirst);
     };
 
     ApiClient.sendWithRetry({
@@ -137,6 +152,26 @@ export class Game {
       successFunc: onSuccess,
       failureFunc: onFailure,
       timeoutSeconds: 15,
+    });
+  }
+
+  /** 技能抽选在英雄出生时按会员等级定数量，进入 PRE_GAME 仍没有玩家数据时直接用离线快照，不等请求超时 */
+  public static EnsurePlayerData() {
+    if (Game.firstLoadDone) return;
+    Game.firstLoadDone = true;
+    print('[Game] player data not ready at pre game, using offline snapshot');
+    Game.UseOfflineSnapshot(true);
+  }
+
+  private static UseOfflineSnapshot(isFirst: boolean) {
+    Game.offline = true;
+    const snapshotDate = PlayerSnapshot.Load();
+    Game.NotifyPlayerDataLoaded();
+    Game.PublishGamePresets();
+    if (!isFirst) return;
+    CustomNetTables.SetTableValue('loading_status', 'loading_status', {
+      status: 3,
+      snapshotDate,
     });
   }
 

@@ -194,7 +194,7 @@
 
 		"ItemStackableMax"				"3"				// 2
 		"ItemStockInitial"				"3"				// 2
-		"ItemStockTime"					"120"			// 180
+		"ItemStockTime"					"120"			// 150
 		"AbilityValues"
 		{
 			"speed"					"2200"				// 1100
@@ -207,6 +207,91 @@
 
 			"damage_over_time"		"20"				// 15
 			"impact_damage"			"100"				// 50
+		}
+	}
+	"item_recipe_bloodslinger" //血腥投带
+	{
+		"ItemCost"						"1500"
+		"ItemRequirements"
+		{
+			"01"						"item_sobi_mask;item_mantle;item_mantle;item_blood_grenade"
+		}
+	}
+
+	"item_bloodslinger"
+	{
+		"AbilityCastRange"				"1400"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"15"	//30
+		"AbilityHealthCost"				"150"	//75
+		"ItemCost"						"2005"
+		"AbilityValues"
+		{
+			"speed"					"1400"
+			"radius"
+			{
+				"value"						"400"	//300
+				"affected_by_aoe_increase"	"1"
+			}
+			"movespeed_slow_min"	"-25"
+			"movespeed_slow_max"	"-50"
+			"bonus_health"			"300"	//100
+			"bonus_mana_regen"		"3.75"	//1.25
+			"bonus_intellect"		"24"
+			"damage_over_time"		"30"
+			"impact_damage"			"150"
+			"tick_rate"				"1"
+			"debuff_duration"		"5"
+		}
+	}
+	//=================================================================================================================
+	// Starforge 锻星炉 界星落
+	//=================================================================================================================
+	"item_recipe_starforge"
+	{
+		"ItemCost"						"450"
+		"ItemRequirements"
+		{
+			"01"						"item_meteor_hammer;item_ultimate_orb"
+		}
+	}
+
+	"item_starforge"
+	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityChannelTime"			"1.5"
+		"AbilityCastRange"				"900"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"200"
+		"AbilityValues"
+		{
+				"bonus_strength"			"30"
+				"bonus_agility"				"30"
+				"bonus_intellect"			"50"
+				"spell_amp"					"24"
+				"mana_regen_multiplier"		"50"
+
+				"burn_dps_units"			"100"
+				"burn_slow"					"40"
+				"burn_duration"				"6"
+				"stun_duration"				"1.0"
+				"burn_interval"				"1.0"
+				"land_time"					".5"
+				"impact_radius"
+				{
+					"value"		"400"
+					"affected_by_aoe_increase"	"1"
+				}
+				"max_duration"				"1.5"
+				"impact_damage_units"		"300"
+				"impact_damage_units_pct_health"		"20.0"
+				"building_damage_pct"		"40"
+				"enemy_particles_visible"	"0"
+
+				"passive_debuff_duration"	"5.0"
+				"slow_pct"					"30"
+				"burn_per_second"			"200"
+				"passive_burn_interval"		"1.0"
 		}
 	}
 	"item_bottle" //魔瓶
@@ -237,14 +322,22 @@
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"600"
-		"ItemCanBeUsedWithoutInventory"	"1"
 		"AbilityValues"
 		{
 			"duration"				"90"
-			"health"				"40 80 120"
+			"health"				"40 80 120"		// 6 8 10
 			"health_tooltip"		"10 20 30"
 			"buff_linger_duration"		"5"
 		}
+	}
+	// 大战角 本图在商店出售，库存规则与肉山的战旗一致
+	"item_horn_of_battle_greater"
+	{
+		"ItemPurchasable"				"1"
+		"ItemCost"						"5000"
+		"ItemStockInitial"				"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"600"
 	}
 
 	//=================================================================================================================
@@ -298,26 +391,66 @@
 	}
 	"item_phylactery"
 	{
-		"AbilityCooldown"				"3.0"	// 12
+		"AbilityCooldown"				"3.0"	// 8.0
 		"ItemCost"						"6000"
 		"AbilityValues"
 		{
 			"bonus_health"		"400"			// 200
 			"bonus_mana"		"400"			// 200
 			"bonus_all_stats"	"16"			// 7
-			"bonus_spell_damage"		"300"	// 150
+			"bonus_spell_damage"		"300"	// 130
+		}
+	}
+	//=================================================================================================================
+	// Caduceus 双蛇杖
+	//=================================================================================================================
+	"item_recipe_caduceus"
+	{
+		"ItemCost"						"600"
+		"ItemRequirements"
+		{
+			"01"						"item_force_staff_3;item_phylactery"
+		}
+	}
+
+	"item_caduceus"
+	{
+		"AbilityCastRange"				"1200"	//继承自黄金推推
+		"AbilityCooldown"				"11.0"	//黄金推推17
+		"AbilityValues"
+		{
+			"bonus_strength"			"20"
+			"bonus_agility"				"20"
+			"bonus_intellect"			"60"
+			"bonus_health"				"500"
+			"bonus_health_regen"		"18"
+			"bonus_mana_regen"			"9"
+			"bonus_spell_damage"		"500"
+			"slow"						"40"
+			"slow_duration"				"2" // even if there is no slow, this needs to be above 0.0 so the delayed_damage happens OnIntervalThink
+			"bonus_heal"				"1000"
+			"haste"						"30"
+			"haste_duration"			"10"
+			"enemy_proc_cooldown"		"3"
+			"ally_proc_cooldown"		"3"
+			"push_length"				"1500" // read by modifier_item_forcestaff_active
+			"push_time"					"0.4" // read by modifier_item_forcestaff_active
+			"enemy_cast_range"			"1200"
 		}
 	}
 
 	//=================================================================================================================
-	// Khanda 绝刃
+	// Khanda 绝刃（7.42 官方下架，本图暗影法杖仍需它作材料）
 	//=================================================================================================================
 	"item_recipe_angels_demise"
 	{
 		"ItemCost"						"2000"
+		"ItemPurchasable"				"1"
+		"IsObsolete"					"0"
 	}
 	"item_angels_demise"
 	{
+		"IsObsolete"					"0"
 		"AbilityCooldown"				"3.0"	// 12
 		"AbilityValues"
 		{
@@ -330,6 +463,32 @@
 		}
 	}
 	//=================================================================================================================
+	// Revenant's Brooch 亡魂胸针（7.42 官方改为中立，本图恢复为商店装备）
+	//=================================================================================================================
+	"item_revenants_brooch"
+	{
+		"ItemCost"						"3300"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+		"ItemIsNeutralActiveDrop"		"0"
+		"ItemQuality"					"rare"
+		"ItemShopTags"					"int;hard_to_tag;crit;dps"
+		"AbilityTextureName"			"item_revenants_brooch"
+		"AbilityValues"
+		{
+			"bonus_damage"				"35"	// 原版不存在，手动修改
+			"spell_lifesteal"			"15"	// 原版不存在，手动修改
+			"crit_chance"
+			{
+				"value"					"30"	// 15
+			}
+			"crit_multiplier"
+			{
+				"value"					"80"	// 50
+			}
+		}
+	}
+	//=================================================================================================================
 	//血辣/血棘（加强） Bloodthorn
 	//=================================================================================================================
 	"item_bloodthorn"
@@ -339,7 +498,6 @@
 		{
 				"bonus_intellect"			"20"
 				"bonus_mana_regen"			"5"
-				"bonus_damage"				"20"
 		}
 	}
 	//=================================================================================================================
@@ -351,7 +509,7 @@
 		"AbilityCooldown"				"10.0"			// 13
 		"AbilityValues"
 		{
-				"bonus_movement_speed"	"60"			// 30
+				"bonus_movement_speed"	"60"			// 25
 				"bonus_mana_regen"		"6.0"			// 3
 				"bonus_intellect"		"60"			// 35
 				"tooltip_drop_damage"	"150"			// 50
@@ -373,11 +531,15 @@
 		"AbilityCooldown"				"6"			// 7
 		"AbilityValues"
 		{
-				"int_damage_multiplier"	"1.00"		// 0.75
-				"slow"	"30"						// 25
-				"slow_duration"	"4"					// 4
-				"active_mres_reduction"		"25"	// 20
-				"passive_cooldown"		"4"			// 4
+				"int_damage_multiplier"	"1.00"		// 0.85
+				"slow"
+				{
+					"value"		"30"					// 25
+				}
+				"active_mres_reduction"
+				{
+					"value"		"25"					// 15
+				}
 		}
 	}
 	//=================================================================================================================
@@ -402,13 +564,62 @@
 		}
 	}
 	//=================================================================================================================
+	// Skypiercer 破天之矛 界天堂
+	//=================================================================================================================
+	"item_recipe_skypiercer"
+	{
+		"ItemCost"						"300"
+		"ItemRequirements"
+		{
+			"01"						"item_heavens_halberd;item_sange;item_talisman_of_evasion"
+		}
+	}
+
+	"item_skypiercer"
+	{
+		"AbilityCooldown"				"10"
+		"AbilityCastRange"				"1500"
+		"AbilityValues"
+		{
+				"bonus_strength"			"70"
+				"bonus_armor"				"20"
+				"bonus_health_regen"		"20"
+
+				"slow_resistance"			"50"
+				"hp_regen_amp"				"50"
+				"bonus_evasion"				"50"
+
+				"disarm_duration"			"5.0"
+
+				"close_radius"						"1000"
+				"buff_cooldown_acceleration_pct"	"150"
+		}
+	}
+	// 魔龙枪
+	"item_dragon_lance"
+	{
+		"AbilityValues"
+		{
+				"base_attack_range_melee"	"50"
+		}
+	}
+	// 大晕
+	"item_abyssal_blade"
+	{
+		"AbilityValues"
+		{
+				"base_attack_range_melee"	"50"
+		}
+	}
+	//=================================================================================================================
 	// 鱼叉（加强） harpoon
 	//=================================================================================================================
 	"item_recipe_harpoon"
 	{
+		"ItemCost"						"0"
 		"ItemRequirements"
 		{
-			"01"						"item_echo_sabre_2;item_diadem"
+			"01"						"item_echo_sabre_2;item_dragon_lance"
 		}
 	}
 	"item_harpoon"
@@ -419,14 +630,12 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"50"
-			"bonus_strength"		"40"
-			"bonus_agility"			"20"
-			"bonus_intellect"		"20"
-			"bonus_mana_regen"		"2.0"
+			"bonus_strength"		"40"			// 30
+			"bonus_agility"			"20"			// 15
+			"base_attack_range_melee"	"100"		// 25
+			"bonus_mana_regen"		"5"			// 2.5
 
 			"passive_cooldown"		"1.5"
-			"movement_slow"			"100"
-			"slow_duration"			"1.0"
 		}
 	}
 	//绿杖
@@ -572,10 +781,8 @@
 
 	"item_smoke_of_deceit"
 	{
-		"ItemInitialCharges"			"1"
-		"ItemStockInitial"				"2"	// 2
-		"ItemStockMax"					"5"	// 3
-		"ItemStockTime"					"300.0" // 420
+		"ItemStockMax"					"5"	// 4
+		"ItemStockTime"					"300.0" // 330
 		"AbilityValues"
 		{
 			"visibility_radius"		"1200"	// 1025
@@ -725,7 +932,7 @@
 			"bonus_agility"			"10"		// 5
 			"bonus_strength"		"4"			// 2
 			"bonus_intellect"		"4"			// 2
-			"bonus_attack_speed"	"12"		// 6
+			"bonus_attack_speed"	"12"		// 10
 			"bonus_armor"			"3.5"		// 1.75
 		}
 	}
@@ -744,7 +951,6 @@
 			"bonus_intellect"		"10"		// 5
 			"bonus_strength"		"4"			// 2
 			"bonus_agility"			"4"			// 2
-			"bonus_max_mana_percentage"	"6"		// 3
 			"bonus_mana_regen"		"2"			// 1
 		}
 	}
@@ -756,7 +962,7 @@
 		"AbilityValues"
 		{
 			"bonus_intellect"			"20"
-			"spell_amp"			"12"
+			"spell_amp"			"12"	// 6
 		}
 	}
 
