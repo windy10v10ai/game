@@ -510,9 +510,9 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"			"90 80 70"	// 110 105 100
+					"value"			"90 80 70"	// 115 105 95
 				}
-				"warp_channel_duration"			"2.0"	// 3.5
+				"warp_channel_duration"			"2.0"	// 3.5 3.25 3
 				"dps"
 				{
 					"special_bonus_unique_underlord_9"	"+400"	// 160
@@ -3206,7 +3206,7 @@
 			}
 			"strength_damage"
 			{
-				"value"				"0.3 0.6 0.9 1.2"
+				"value"				"0.3 0.5 0.7 0.9"	// 0.3 0.5 0.7 延伸
 			}
 			"AbilityCooldown"
 			{
@@ -4098,7 +4098,7 @@
 	{
 		"AbilityValues"
 		{
-			"movespeed_bonus"			"50"	// 25 x2
+			"movespeed_bonus"			"60"	// 30 x2
 			"armor_bonus"
 			{
 				"value"					"21"	// 7 x3
@@ -7094,7 +7094,7 @@
 		{
 			"evasion"
 			{
-				"value"				"25 35 45 55 65"
+				"value"				"20 30 40 50 60"	// 20 30 40 50 延伸
 			}
 		}
 	}
@@ -10235,8 +10235,7 @@
 	"lich_frost_nova"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"575 600 625 650 675"
-		"AbilityManaCost"				"110 120 130 140 150"
+		"AbilityManaCost"				"105 120 135 150 165"	// 105 120 135 150 延伸
 		"AbilityValues"
 		{
 			"slow_attack_speed_primary"		"-30 -40 -50 -60 -70"	// -30 -40 -50 -60
@@ -10284,7 +10283,7 @@
 			{
 				"value"	"30 40 50 60 70"	// 45 50 55 60
 			}
-			"movement_slow"			"20 25 30 35 40"	// 20 25 30 35
+			"movement_slow"			"20 25 30 35 40"	// 21 24 27 30
 			"damage"
 			{
 				"value"			"18 32 46 60 74"	// 18 32 46 60
@@ -10309,11 +10308,11 @@
 		{
 			"damage"
 			{
-				"value"		"250 400 550 700"	// 250 400 550
+				"value"		"250 400 550 700"	// 250 375 500
 			}
 			"bonus_jump_damage"
 			{
-				"value"			"30 50 75 100"	// 15 20 25
+				"value"			"30 50 75 100"	// 20
 			}
 			"jumps"
 			{
@@ -10997,7 +10996,7 @@
 				}
 				"AbilityCooldown"
 				{
-					"value"									"16 15 14 13 12"
+					"value"									"15 14 13 12 11"	// 15 14 13 12 延伸
 				}
 		}
 	}
@@ -11024,7 +11023,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"				"60"	// 75
+					"value"				"60"	// 80 75 70
 				}
 				"coil_duration"				"5 5.5 6 6.5"
 				"coil_initial_damage"
@@ -11809,14 +11808,14 @@
 	"techies_land_mines"
 	{
 		"MaxLevel"						"4"
-		"AbilityManaCost"				"110 140 170 200"
+		"AbilityManaCost"				"125 175 225 275"	// 125 175 225 延伸
 		"AbilityValues"
 		{
 				"damage"
 				{
 					"value"			"800 1100 1400 1700"	// 400 550 700 850 x2
 				}
-				"mres_reduction"			"30 40 50 60"	// 15 20 25 30
+				"mres_reduction"			"30 40 50 60"	// 12 16 20
 		}
 	}
 	// 爆破起飞！
@@ -12429,7 +12428,7 @@
 			"damage"
 			{
 				"value"		"80 160 240 320 400"
-				"special_bonus_unique_winter_wyvern_7" "+200"	// 100
+				"special_bonus_unique_winter_wyvern_7" "+200"	// 90
 			}
 			"stun_duration"
 			{
@@ -12599,7 +12598,7 @@
 				"damage"
 				{
 					"value"		"180 270 360 450"					// 60 90 120 150 x3
-					"special_bonus_unique_witch_doctor_5"	"+120"	// 40 x3
+					"special_bonus_unique_witch_doctor_5"	"+105"	// 35 x3
 				}
 				"attack_range_tooltip"
 				{
@@ -12703,7 +12702,7 @@
 			"damage"
 			{
 				"value"							"275 425 575 725"
-				"special_bonus_unique_zeus_4"		"+175"	// 75
+				"special_bonus_unique_zeus_4"		"+175"	// 65
 			}
 		}
 	}
