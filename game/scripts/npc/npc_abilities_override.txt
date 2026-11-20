@@ -11654,7 +11654,7 @@
 	"skywrath_mage_mystic_flare"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"50.0 40.0 30.0 20.0"	// 55 35 15
+		"AbilityCooldown"				"45.0 35.0 25.0 15.0"	// 55 35 15
 		"AbilityManaCost"				"300 550 800 1050"
 		"AbilityValues"
 		{
