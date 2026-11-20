@@ -97,7 +97,6 @@ export const abilityTiersActive: Tier[] = [
       'kunkka_ghostship', // 幽灵船
       'pangolier_gyroshell', // 地雷滚滚
       'tinker_rearm_lua', // 再装填
-      'ringmaster_wheel', // 奇观轮
       'batrider_flaming_lasso', // 燃烧枷锁
       'dazzle_bad_juju', // 邪能
       'omniknight_guardian_angel', // 守护天使
@@ -115,7 +114,6 @@ export const abilityTiersActive: Tier[] = [
       'primal_beast_trample', // 踏
       'mars_gods_rebuke', // 神之遣戒
       'antimage_blink', // 闪烁
-      'ringmaster_tame_the_beasts', // 驯兽术
       'abyssal_underlord_firestorm', // 火焰风暴
       'obsidian_destroyer_objurgation', // 责难
       'magnataur_reverse_polarity', // 两级反转
