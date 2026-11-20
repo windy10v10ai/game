@@ -2093,7 +2093,7 @@
 				"26"		"skeleton_king_spectral_blade"
 				"27"		"special_bonus_unique_wraith_king_2"
 				"28"		"special_bonus_hp_300"
-				"29"		"special_bonus_attack_speed_50"
+				"29"		"special_bonus_attack_speed_40"
 				"30"		"special_bonus_unique_wraith_king_10"
 				"31"		"skeleton_king_spectral_blade"
 			}
