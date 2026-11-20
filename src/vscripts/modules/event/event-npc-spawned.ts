@@ -1,11 +1,9 @@
 import { ActionMove } from '../../ai/action/action-move';
 import { Player } from '../../api/player';
-import { PlayerPropertyApi } from '../../api/player-property';
 import { modifier_debug_manual_control } from '../../modifiers/debug/modifier_debug_manual_control';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
-import { AwakenHelper } from '../helper/awaken-helper';
 import { BotAbility } from '../helper/bot-ability';
-import { MemberHelper } from '../helper/member-helper';
+import { HeroPlayerData } from '../helper/hero-player-data';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 
@@ -209,20 +207,7 @@ export class EventNpcSpawned {
           hero.HeroLevelUp(false);
         }
       }
-      // 设置会员
-      MemberHelper.ApplyMemberModifier(hero);
-      const steamAccountId = PlayerResource.GetSteamAccountID(hero.GetPlayerID());
-      // 积分解锁与限时免费的觉醒
-      AwakenHelper.ApplyUnlockedAwaken(hero, steamAccountId);
-      // 设置新手BUFF
-      const playerSeasonLevel = Player.GetSeasonLevel(steamAccountId);
-      if (playerSeasonLevel <= 5) {
-        ModifierHelper.applyGlobalModifier(hero, 'modifier_global_newbie');
-      } else if (playerSeasonLevel <= 10) {
-        ModifierHelper.applyGlobalModifier(hero, 'modifier_global_newbie_2');
-      }
-      // 设置玩家属性
-      PlayerPropertyApi.SetPlayerProperty(hero);
+      HeroPlayerData.ApplyToHero(hero);
     }
     if (PlayerHelper.IsBotPlayer(hero)) {
       // 机器人

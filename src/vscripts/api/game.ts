@@ -1,5 +1,6 @@
 import { DailyTaskStartDto } from '../../common/dto/daily-task';
 import { GameConfig } from '../modules/GameConfig';
+import { HeroPlayerData } from '../modules/helper/hero-player-data';
 import { PlayerHelper } from '../modules/helper/player-helper';
 import { GameEndDto } from './analytics/dto/game-end-dto';
 import { GA4ConfigDto } from './analytics/ga4/dto/ga4-dto';
@@ -81,6 +82,8 @@ export class Game {
       for (const player of gameStart.players) {
         Player.MergePlayerInfo(player);
       }
+      // 英雄可能早于数据到达而出生，补上会员、觉醒、属性等效果
+      HeroPlayerData.ApplyToExistingHeroes();
 
       Game.PublishGamePresets();
 
@@ -122,6 +125,7 @@ export class Game {
       }
       Game.offline = true;
       const snapshotDate = PlayerSnapshot.Load();
+      HeroPlayerData.ApplyToExistingHeroes();
       Game.PublishGamePresets();
       if (!isFirst) return;
       CustomNetTables.SetTableValue('loading_status', 'loading_status', {
