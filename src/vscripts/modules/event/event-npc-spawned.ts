@@ -1,4 +1,5 @@
 import { ActionMove } from '../../ai/action/action-move';
+import { Game } from '../../api/game';
 import { Player } from '../../api/player';
 import { modifier_debug_manual_control } from '../../modifiers/debug/modifier_debug_manual_control';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
@@ -61,6 +62,7 @@ export class EventNpcSpawned {
 
   constructor() {
     ListenToGameEvent('npc_spawned', (keys) => this.OnNpcSpawned(keys), this);
+    Game.OnPlayerDataLoaded(() => HeroPlayerData.ApplyToExistingHeroes());
     this.rootTime = RandomInt(20, 30);
 
     // 预加载休眠期长度不可预测，无法在出生时算准 duration；改为检测小兵真正开始移动后再补无敌

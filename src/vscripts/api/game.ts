@@ -1,6 +1,5 @@
 import { DailyTaskStartDto } from '../../common/dto/daily-task';
 import { GameConfig } from '../modules/GameConfig';
-import { HeroPlayerData } from '../modules/helper/hero-player-data';
 import { PlayerHelper } from '../modules/helper/player-helper';
 import { GameEndDto } from './analytics/dto/game-end-dto';
 import { GA4ConfigDto } from './analytics/ga4/dto/ga4-dto';
@@ -27,6 +26,18 @@ export class Game {
   private static loadedSteamIds = new Set<number>();
   private static routeSelected = false;
   private static offline = false;
+  private static playerDataLoadedListeners: (() => void)[] = [];
+
+  /** 玩家数据（线上或离线快照）写入后的回调，英雄可能早于数据出生，需要补应用 */
+  public static OnPlayerDataLoaded(listener: () => void) {
+    Game.playerDataLoadedListeners.push(listener);
+  }
+
+  private static NotifyPlayerDataLoaded() {
+    for (const listener of Game.playerDataLoadedListeners) {
+      listener();
+    }
+  }
 
   public static StartGame() {
     if (Game.customMatchId === '') {
@@ -83,7 +94,7 @@ export class Game {
         Player.MergePlayerInfo(player);
       }
       // 英雄可能早于数据到达而出生，补上会员、觉醒、属性等效果
-      HeroPlayerData.ApplyToExistingHeroes();
+      Game.NotifyPlayerDataLoaded();
 
       Game.PublishGamePresets();
 
@@ -125,7 +136,7 @@ export class Game {
       }
       Game.offline = true;
       const snapshotDate = PlayerSnapshot.Load();
-      HeroPlayerData.ApplyToExistingHeroes();
+      Game.NotifyPlayerDataLoaded();
       Game.PublishGamePresets();
       if (!isFirst) return;
       CustomNetTables.SetTableValue('loading_status', 'loading_status', {
