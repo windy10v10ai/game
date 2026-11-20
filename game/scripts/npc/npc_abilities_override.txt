@@ -1783,7 +1783,7 @@
 			"wake_damage_limit"
 			{
 				"value"				"400 600 800 1000 1200"	// 100 150 200 250 x4
-				"special_bonus_unique_elder_titan_4"			"+600"	// 150 x4
+				"special_bonus_unique_elder_titan_4"			"+840"	// 210 x4
 			}
 			"AbilityCooldown"
 			{
@@ -1805,7 +1805,7 @@
 			"wake_damage_limit"
 			{
 				"value"				"400 600 800 1000 1200"	// 100 150 200 250 x4
-				"special_bonus_unique_elder_titan_4"			"+600"	// 150 x4
+				"special_bonus_unique_elder_titan_4"			"+840"	// 210 x4
 			}
 			"AbilityCooldown"
 			{
@@ -3446,7 +3446,7 @@
 				"whirling_damage"			"60 120 180 240 300"
 				"tree_damage_scale"
 				{
-					"value"								"9 16 23 30 37"
+					"value"								"7 14 21 28 35"	// 7 14 21 28 延伸
 				}
 				"stat_loss_pct"
 				{
@@ -3543,11 +3543,11 @@
 		{
 				"pass_damage"
 				{
-					"value"						"150 300 450"	// 75 150 225 x2
+					"value"						"140 280 420"	// 70 140 210 x2
 				}
 				"damage_per_second"
 				{
-					"value"						"100 150 200"	// 50 75 100 x2
+					"value"						"100 140 180"	// 50 70 90 x2
 				}
 		}
 	}
@@ -3586,7 +3586,7 @@
 		{
 			"blast_stun_duration"
 			{
-				"value"					"1.0 1.2 1.4 1.6 1.8"
+				"value"					"1.2 1.4 1.6 1.8 2.0"	// 1.2 1.4 1.6 1.8 延伸
 			}
 			"damage"
 			{
@@ -4523,7 +4523,7 @@
 			{
 				"value"		"1800"						// 1300
 			}
-			"tombstone_heal"			"4 8 12 16 20"
+			"tombstone_heal"			"1 2 3 4 5"	// 1 2 3 4 延伸
 		}
 	}
 	// 墓碑
@@ -4565,7 +4565,7 @@
 			"slow"						"30 40 50 60"	// 30 35 40 差值10
 			"damage_amp"
 			{
-				"value"					"25 30 35 40"
+				"value"					"20 25 30 35"	// 20 25 30 延伸
 			}
 			"str_percentage"
 			{
@@ -4897,7 +4897,6 @@
 			{
 				"value"			"60 50 40 30"	// 60 55 50
 			}
-			"bounty"				"180 240 300 360"	// 180 240 300
 			"duration"				"18 21 24 27"	// 18 21 24
 			"rune_duration"
 			{
@@ -5242,7 +5241,7 @@
 				"knockback_duration"		"0.6 0.7 0.8 0.9 1.0"	// 0.6 0.7 0.8 0.9
 				"AbilityCooldown"
 				{
-					"value"											"19 17 15 13 11"	// 19 17 15 13
+					"value"											"18 16 14 12 10"	// 18 16 14 12 延伸
 				}
 		}
 	}
@@ -5276,7 +5275,7 @@
 				"value"										"30 35 40 45"	// 30 35 40
 				"special_bonus_unique_drow_ranger_3"		"+13"			// 8
 			}
-			"bonus_damage"									"50 70 90 110"	// 50 70 90
+			"bonus_damage"									"60 75 90 105"	// 60 75 90 延伸
 			"disable_range"									"200"	// 300
 		}
 	}
@@ -12962,7 +12961,7 @@
 		{
 			"katana_echo_damage"
 			{
-				"value" 												"70 90 110 130 150"
+				"value"												"70 90 110 130 150"
 			}
 			"echo_hero_damage"
 			{
@@ -12970,7 +12969,7 @@
 			}
 			"katana_strikes"
 			{
-				"value"  												"2"
+				"value"												"2"
 				"special_bonus_unique_kez_echo_slash_strike_count"		"+2"//+1
 			}
 			"strike_interval"
@@ -13094,7 +13093,7 @@
 		"AbilityCooldown"				"17 14 11 8 5"
 		"AbilityValues"
 		{
-			"sai_proc_vuln_chance"									"25"// 20
+			"sai_proc_vuln_chance"									"25"// 24
 			"base_crit_pct"
 			{
 				"value"												"125 150 175 200 225"
