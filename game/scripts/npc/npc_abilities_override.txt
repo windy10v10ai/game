@@ -512,7 +512,7 @@
 				{
 					"value"			"90 80 70"	// 115 105 95
 				}
-				"warp_channel_duration"			"2.0"	// 3.5 3.25 3
+				"warp_channel_duration"			"2.0"	// 3.5 3.25 3.0
 				"dps"
 				{
 					"special_bonus_unique_underlord_9"	"+400"	// 160
@@ -3206,7 +3206,7 @@
 			}
 			"strength_damage"
 			{
-				"value"				"0.3 0.5 0.7 0.9"	// 0.3 0.5 0.7 延伸
+				"value"				"0.3 0.6 0.9 1.2"
 			}
 			"AbilityCooldown"
 			{
@@ -10308,11 +10308,11 @@
 		{
 			"damage"
 			{
-				"value"		"250 400 550 700"	// 250 375 500
+				"value"		"250 400 550 700"	// 250 400 550
 			}
 			"bonus_jump_damage"
 			{
-				"value"			"30 50 75 100"	// 20
+				"value"			"30 50 75 100"	// 15 20 25
 			}
 			"jumps"
 			{
@@ -11813,9 +11813,16 @@
 		{
 				"damage"
 				{
-					"value"			"800 1100 1400 1700"	// 400 550 700 850 x2
+					"value"			"800 1100 1400 1700"	// 400 550 700 x2
 				}
-				"mres_reduction"			"30 40 50 60"	// 12 16 20
+				"AbilityChargeRestoreTime"
+				{
+					"value"			"14 13 12 11"	// 14 13 12 延伸
+				}
+				"mres_reduction"
+				{
+					"value"			"30 40 50 60"	// 12 16 20 x2.5
+				}
 		}
 	}
 	// 爆破起飞！
@@ -12399,6 +12406,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"20"	// 29 26 23 20 减少前期CD
+		"AbilityManaCost"				"100 105 110 115 120"	// 100 105 110 115 延伸
 		"AbilityValues"
 		{
 				"duration"				"7 8 9 10 11"
@@ -12593,6 +12601,7 @@
 		"MaxLevel" "4"
 		"AbilityCastRange"				"900"						// 500
 		"AbilityCooldown"				"60"	// 100 90 80 固定最小冷却
+		"AbilityManaCost"				"200 250 300 350"	// 200 250 300 延伸
 		"AbilityValues"
 		{
 				"damage"
