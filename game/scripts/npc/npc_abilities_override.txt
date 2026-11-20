@@ -1359,7 +1359,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"			"44 42 40 38 36"	// 45 42 39 36
+					"value"			"41 39 37 35 33"
 				}
 				"damage_per_second"
 				{
@@ -8804,7 +8804,7 @@
 			"damage"
 			{
 				"value"										"195 285 375 465"	// 130 190 250 x1.5
-				"special_bonus_unique_crystal_maiden_3"		"+90"				// 45 x2
+				"special_bonus_unique_crystal_maiden_3"		"+90"				// +45 x2
 			}
 			"shard_bonus_explosion"
 			{
@@ -11466,7 +11466,7 @@
 	// 群蛇守卫
 	"shadow_shaman_mass_serpent_ward"
 	{
-		"AbilityCooldown"				"100"		// 110
+		"AbilityCooldown"				"100"		// 110 105 100
 		"AbilityValues"
 		{
 			"ward_count"
@@ -11483,8 +11483,8 @@
 			}
 			"ward_health"
 			{
-				"value"						"8"						// 2
-				"special_bonus_unique_shadow_shaman_1"		"+4"	// +1
+				"value"						"8"						// 4
+				"special_bonus_unique_shadow_shaman_1"		"+4"	// +2
 			}
 			"ward_damage_tooltip"
 			{
@@ -13279,7 +13279,7 @@
 			"song_cost_reduction_per_stack"	"1 1.5 2 2.5"
 			"burst_damage"
 			{
-				"value"						"36 55.5 75 94.5"	// 24 37 50 x1.5
+				"value"						"30 45 60 75"	// 20 30 40 x1.5
 				"special_bonus_scepter"		"+9 +15 +21 +27"	// +6 +10 +14 x1.5
 			}
 			"radius"
@@ -13298,7 +13298,7 @@
 			}
 			"spell_amp_bonus"
 			{
-				"value"			"15 20 25 30"	// 6 8 10 x2.5
+				"value"			"20 30 40 50"	// 8 12 16 x2.5
 				"special_bonus_unique_largo_7" "+50%"	// +30%
 			}
 			"AbilityManaCost"
