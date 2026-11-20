@@ -491,6 +491,11 @@
 		"DisableWearables"			"1"
 	}
 
+	"npc_dota_hero_naga_siren"
+	{
+		"Ability17"		"special_bonus_unique_naga_siren_net_breaks"	// 替代原版较弱天赋，官方弱天赋换槽位时跟着移到对应槽位
+	}
+
 	"npc_dota_hero_night_stalker"
 	{
 		"VisionDaytimeRange"		"1200"// 800
@@ -895,11 +900,11 @@
 	// 戴泽
 	"npc_dota_hero_dazzle"
 	{
+		"Ability4"		"dazzle_innate_weave"	// 编织钉在 4 槽，5/6 槽留给善咒/邪能
 		"Ability5"		"dazzle_good_juju"
 		"Ability6"		"dazzle_bad_juju"
 		"Ability7"		"generic_hidden"
 
-		"Ability13"		"special_bonus_unique_dazzle_shallow_grave_heal_amplify"
 		"Bot"
 		{
 			"Build"
@@ -913,27 +918,27 @@
 				"7"		"dazzle_poison_touch"
 				"8"		"dazzle_shadow_wave"
 				"9"		"dazzle_poison_touch"
-				"10"		"special_bonus_unique_dazzle_poison_touch_attack_range_bonus"
+				"10"		"special_bonus_unique_dazzle_1"
 				"11"		"dazzle_shadow_wave"
 				"12"		"dazzle_good_juju"
 				"13"		"dazzle_shadow_wave"
 				"14"		"dazzle_shadow_wave"
-				"15"		"special_bonus_unique_dazzle_shallow_grave_heal_amplify"
+				"15"		"special_bonus_unique_dazzle_3"
 				"16"		"dazzle_shallow_grave"
 				"17"		""
 				"18"		"dazzle_good_juju"
 				"19"		""
-				"20"		"special_bonus_unique_dazzle_3"
+				"20"		"special_bonus_unique_dazzle_shallow_grave_cooldown"
 				"21"		""
 				"22"		""
 				"23"		"dazzle_shallow_grave"
 				"24"		"dazzle_good_juju"
-				"25"		"special_bonus_unique_dazzle_1"
+				"25"		"special_bonus_unique_dazzle_poison_touch_undispellable"
 				"26"		"dazzle_shallow_grave"
-				"27"		"special_bonus_mp_regen_175"
+				"27"		"special_bonus_unique_dazzle_shadow_wave_cast_range"
 				"28"		"special_bonus_unique_dazzle_2"
-				"29"		"special_bonus_unique_dazzle_shallow_grave_cooldown"
-				"30"		"special_bonus_unique_dazzle_4"
+				// 29 留空：20 级档的另一天赋是虚无投影减冷却，本图没有该技能，待设计换天赋
+				"30"		"special_bonus_unique_dazzle_shallow_grave_duration"
 				"31"		"dazzle_shallow_grave"
 			}
 		}
@@ -1276,12 +1281,12 @@
 				"22"		""
 				"23"		"kunkka_x_marks_the_spot"
 				"24"		"kunkka_ghostship"
-				"25"		"special_bonus_spell_aoe_100"
+				"25"		"special_bonus_spell_aoe_75"
 				"26"		"kunkka_x_marks_the_spot"
 				"27"		"special_bonus_unique_kunkka_rum_duration"
 				"28"		"special_bonus_unique_kunkka_2"
 				"29"		"special_bonus_unique_kunkka_4"
-				"30"		"" // **special_bonus_unique_kunkka_tidebringer_armor_pierce**
+				"30"		"special_bonus_unique_kunkka_tidebringer_armor_pierce"
 				"31"		"kunkka_x_marks_the_spot"
 			}
 		}

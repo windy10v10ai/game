@@ -583,7 +583,7 @@
 				}
 				"slow"
 				{
-					"value"			"18 22 26 30 34"	// 18 22 26 30
+					"value"			"18 22 26 30 34"	// 16 19 22 25
 				}
 				"damage_per_second"
 				{
@@ -628,7 +628,7 @@
 			}
 			"speed_bonus"
 			{
-				"value"			"20 25 30 35"	// 20 25 30
+				"value"			"20 25 30 35"	// 25
 				"display_type"	"kBuffPercentage"
 			}
 			"armor_bonus"				"20 30 40 50"	// 10 15 20 x2
@@ -2059,7 +2059,7 @@
 			"damage_bonus"
 			{
 				"value"			"75 100 125 150 200"	// 35 70 105 140
-				"special_bonus_unique_kunkka_2"		"+100"	// +75
+				"special_bonus_unique_kunkka_2"		"+100"	// +80
 			}
 			"AbilityCooldown"
 			{
@@ -2075,7 +2075,7 @@
 	"kunkka_x_marks_the_spot"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"800 950 1100 1250 1400"	// 550 700 850 1000 +250
+		"AbilityCastRange"				"925 1000 1125 1250 1375"	// 675 750 875 1000 +250
 		"AbilityCooldown"				"20 18 16 14 12"	// 24 20 16 12 5级12秒, 前期适当减少CD
 	}
 	// 统帅朗姆酒 先天
@@ -2134,7 +2134,7 @@
 	{
 		// "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// 原版 SPELL_IMMUNITY_ENEMIES_NO 限时加强
 		"MaxLevel" "4"
-		"AbilityDamage"					"350 475 600 725"
+		"AbilityDamage"					"350 450 550 650"	// 350 450 550 延伸
 		"AbilityManaCost"				"125 175 225 275"
 		"AbilityValues"
 		{
@@ -2758,7 +2758,7 @@
 			"dps"
 			{
 				"value"			"50 60 70 80 90" // 25 30 35 40 45 x2
-				"special_bonus_unique_night_stalker_crippling_fear_damage" 	"+15" // +10 x1.5
+				"special_bonus_unique_night_stalker_crippling_fear_damage" 	"+22.5" // +15 x1.5
 			}
 		}
 	}
@@ -2773,7 +2773,7 @@
 			{
 				"value"				"30 45 60 75 90"	// 12 16 20 24 x2.5
 			}
-			"hp_restore"			"10 15 20 25 30"
+			"hp_restore"			"12 16 20 24 28"	// 12 16 20 24 延伸
 			"mp_restore"			"10 12 14 16 18"
 		}
 	}
@@ -3741,7 +3741,7 @@
 			"bonus_damage"
 			{
 				"value"		"35 90 145 200 255"		// 35 90 145 200
-				"special_bonus_unique_slardar_2"	"+50"		// +30
+				"special_bonus_unique_slardar_2"	"+50"		// +200
 			}
 		}
 	}
@@ -3993,7 +3993,6 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"36 32 28 24 20"		// 36 32 28 24
-		"AbilityManaCost"				"30 35 40 45 50"
 		"AbilityValues"
 		{
 			"movespeed"
@@ -4012,7 +4011,7 @@
 			}
 			"base_barrier_amount"
 			{
-				"special_bonus_shard"		"1800"		// 300 6
+				"special_bonus_shard"		"2100"		// 350 x6
 			}
 		}
 	}
@@ -4802,7 +4801,6 @@
 			"mana_void_damage_per_mana"
 			{
 				"value"				"0.8 0.95 1.1 1.25"	// 1.0
-				"special_bonus_unique_antimage_6"	"+1.25"	// +0.2 +1.05差值
 			}
 			"mana_void_aoe_radius"
 			{
@@ -6598,6 +6596,10 @@
 			{
 				"value"					"500 525 550 575 600"
 				"special_bonus_scepter"		"+100%"		// +50% 增加施法距离与捕捞一致
+			}
+			"does_break"
+			{
+				"special_bonus_unique_naga_siren_net_breaks"		"+1"	// 天赋单独启用破坏，无神杖也生效
 			}
 		}
 	}
@@ -8967,7 +8969,7 @@
 			"slow"
 			{
 				"value"							"-14 -18 -22 -26 -30"	// -13 -16 -19 -22 差值-4
-				"special_bonus_unique_dazzle_1"	"-30"					// -40
+				"special_bonus_unique_dazzle_1"	"-30"					// -15
 			}
 			"duration"		"4 4.5 5 5.5 6"	// 3.5 5 6.5 8 差值0.5
 			"bonus_slow"			"-2 -2.5 -3 -3.5 -4"
@@ -9040,17 +9042,6 @@
 	}
 	// nothl_projection 为 7.41 新大招，本图仍使用 good_juju/bad_juju，暂不启用
 	// "dazzle_nothl_projection" {}
-	// 编织（先天）
-	"dazzle_innate_weave"
-	{
-		"AbilityValues"
-		{
-			"ally_heal"
-			{
-				"special_bonus_shard"				"200"	// 60
-			}
-		}
-	}
 	//=================================================================================================================
 	// Ability: Death Prophet 死亡先知
 	//=================================================================================================================
@@ -10197,11 +10188,9 @@
 		"AbilityValues"
 		{
 			"duration"		"3"		// 4
-			"magic_amp"		"60"	// 30
-			"slow"		"60"		// 30
 			"radius"
 			{
-				"value"		"400"	// 500
+				"value"		"400"	// 550
 				"affected_by_aoe_increase"		"0"	// 1 防止干扰队友
 			}
 		}
@@ -10216,7 +10205,7 @@
 				"mana_cost_per_second"	"25 45 65 85"	// 25 45 65
 				"damage"
 				{
-					"value"			"80 135 180 225"
+					"value"			"80 130 180 230"	// 80 130 180 延伸
 				}
 		}
 	}
@@ -10225,7 +10214,7 @@
 	{
 		"AbilityValues"
 		{
-			"aoe_per_int"				"0.4"			// 0.7
+			"aoe_per_int"				"0.4"			// 0.6
 		}
 	}
 	//=================================================================================================================
@@ -11669,7 +11658,7 @@
 	"skywrath_mage_mystic_flare"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"50.0 40.0 30.0 20.0"	// 55 35 15
+		"AbilityCooldown"				"45.0 35.0 25.0 15.0"	// 55 35 15
 		"AbilityManaCost"				"300 550 800 1050"
 		"AbilityValues"
 		{
