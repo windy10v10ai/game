@@ -75,7 +75,7 @@
 		///////////////////////////////////////////////////
 		"loading_status_1"				"Загрузка данных игроков. Дождитесь её завершения, прежде чем начинать игру."
 		"loading_status_2"				"Онлайн-режим. Данные игроков успешно загружены."
-		"loading_status_3"				"Офлайн-режим. Очки и статистика этой игры не будут сохранены.\nАтрибуты, пробуждения и подписка используют данные на {date}."
+		"loading_status_3"				"Офлайн-режим: новая версия Dota 2 ограничила сетевой доступ карт, очки не сохраняются.\nАтрибуты, пробуждения и подписка используют данные на {date}."
 		"room_status_entering"			"Подключаются: {players}"
 		"room_status_separator"			", "
 		"room_status_waiting"			"Ожидание остальных игроков"
@@ -124,7 +124,7 @@
 		"loading_faq_illusions_summons_question"		"Некоторые способности с иллюзиями и призывом ослаблены или удалены"
 		"loading_faq_illusions_summons_answer"			"Иллюзии и большое количество призванных существ заметно усиливают задержки, поэтому связанные с ними способности были ослаблены или удалены."
 		"loading_faq_launch_mode_question"			"Записываются ли очки в играх, запущенных из аркады?"
-		"loading_faq_launch_mode_answer"				"Да. Игры из аркады подключаются к серверу, загружают актуальные данные, а очки за матч и ежедневные задания записываются как обычно. Если подключиться иногда не удаётся, игра идёт в офлайн-режиме с данными из последнего обновления карты, и очки не записываются. В этом случае можно начать игру через лаунчер — в нём можно и создать комнату для друзей."
+		"loading_faq_launch_mode_answer"				"Пока нет. Новая версия Dota 2 ограничила сетевой доступ карт, поэтому игра идёт в офлайн-режиме с данными из последнего обновления карты, и очки не записываются. Это не сбой сервера. В этом случае можно начать игру через лаунчер — в нём можно и создать комнату для друзей."
 		"loading_faq_pause_question"				"Можно ли продлить паузу?"
 		"loading_faq_pause_answer"				"Да, если игра запущена из аркады. При запуске через лаунчер игра идёт на выделенном сервере, где паузу продлить нельзя. Для долгой паузы запускайте игру из аркады."
 		"loading_faq_attributes_question"			"Когда начинают действовать очки атрибутов?"
@@ -170,7 +170,7 @@
 		"conduct_point_light_penalty_tooltip"	"Штраф за поведение <font color='#FFA726'>{0}</font>, очки ×0.8"
 		"conduct_point_heavy_penalty_tooltip"	"Штраф за поведение <font color='#E87D7D'>{0}</font>, очки ×0.5"
 
-		"end_screen_offline_hint"		"Офлайн-режим. Очки и статистика этой игры не сохранены."
+		"end_screen_offline_hint"		"Офлайн-режим. Очки и статистика не сохранены. Это ограничение Dota 2, а не сбой сервера."
 		"ending_status_1"			"Подведение итогов…"
 		"ending_status_2"			"Итоги сохранены"
 		"ending_status_3"			"Итоги отправлены"
@@ -3220,6 +3220,15 @@
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_aura_Description"	"Скорость передвижения увеличена на %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%."
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active"				"Стойкость"
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active_Description"	"Скорость передвижения увеличена на %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%.\nСкорость атаки увеличена на %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+
+		// 亡魂胸针（7.42 官方改为中立物品，本图恢复为商店装备）
+		"DOTA_Tooltip_Ability_item_revenants_brooch"							"Кулон призрака"
+		"DOTA_Tooltip_ability_item_revenants_brooch_Description"				"<h1>Пассивное: Фантомный критический удар</h1>Каждая атака с вероятностью %crit_chance%%% наносит дополнительный магический урон в размере %crit_multiplier%%% от урона атаки."
+		"DOTA_Tooltip_Ability_item_revenants_brooch_Note0"						"Считается критическим ударом при сочетании с другими источниками критических ударов."
+		"DOTA_Tooltip_Ability_item_revenants_brooch_Note1"						"Фантомный критический удар не действует на постройки."
+		"DOTA_Tooltip_ability_item_revenants_brooch_Lore"						"Проклятый кулон падшего стража, который вечно скитается между жизнью и смертью."
+		"DOTA_Tooltip_ability_item_revenants_brooch_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_revenants_brooch_spell_lifesteal"			"%+$spell_lifesteal"
 
 		// 神器魔武双修
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"			"Артефакт: Двойное мастерство"

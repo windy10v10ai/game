@@ -70,7 +70,7 @@
 		"item"		"item_claymore"				// 大剑
 		"item"		"item_orb_of_venom"			// 淬毒之珠
 
-		"item"		"item_javelin"				// 标枪
+		//"item"		"item_javelin"				// 标枪
 		"item"		"item_helm_of_iron_will"	// 铁意头盔
 		"item"		"item_mithril_hammer"		// 秘银锤
 		// 额外
@@ -166,11 +166,11 @@
 		// "item"		"item_travel_boots"			// 飞鞋 远行鞋
  		"item"		"item_mask_of_madness"
 		"item"		"item_hand_of_group"		// 团队之手
-		"item"		"item_roshans_banner"		// 肉山的战旗
+		"item"		"item_horn_of_battle_greater"	// 大战角
 		"item"		"item_wings_of_haste"		// 急速之翼
 		"item"		"item_moon_shard_datadriven" // 真 银月之晶
 		"item"		"item_consumable_gem"		// 幻影宝石
-		"item"		"item_tome_of_ability_reset"	// 技能重选书
+		"item"		"item_roshans_banner"		// 肉山的战旗
 	}
 
 	// Level 2 - Blue Recipes 辅助
@@ -207,7 +207,7 @@
 
 		"item"		"item_force_staff_3"		// 原力法杖
 		"item"		"item_crellas_crozier_2"		// 神器克莱拉牧杖
-		"item"		"item_meteor_hammer_2"		// 星落
+		"item"		"item_starforge"	// 锻星炉 界星落
 		"item"		"item_angels_demise"		// 绝刃
 
 		"item"		"item_bloodstone"			// 血精神石

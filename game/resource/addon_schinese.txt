@@ -75,7 +75,7 @@
 		///////////////////////////////////////////////////
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
 		"loading_status_2"				"在线模式，玩家数据加载成功。"
-		"loading_status_3"				"离线模式，本局积分与战绩不会记录。\n属性，觉醒与会员沿用 {date} 的数据。"
+		"loading_status_3"				"离线模式：Dota 2 新版本限制了地图联网，本局积分暂不记录。\n属性，觉醒与会员沿用 {date} 的数据。"
 		"room_status_entering"			"玩家正在连接：{players}"
 		"room_status_separator"			"，"
 		"room_status_waiting"			"等待其他玩家加入"
@@ -124,7 +124,7 @@
 		"loading_faq_illusions_summons_question"		"部分幻象和召唤技能已削弱或移除"
 		"loading_faq_illusions_summons_answer"			"幻象和大量召唤单位会明显增加卡顿，因此相关技能已削弱或移除。"
 		"loading_faq_launch_mode_question"			"游廊开局能记录积分吗？"
-		"loading_faq_launch_mode_answer"				"能。游廊开局会连接服务器读取最新数据，结算积分和每日任务正常记录。偶尔连不上时进入离线模式，沿用地图更新时的数据，本局积分不记录，这时可以用启动器开局，也能开房和朋友一起玩。"
+		"loading_faq_launch_mode_answer"				"暂时不能。Dota 2 新版本限制了地图联网，开局会进入离线模式，沿用地图更新时的数据，本局积分不记录，不是服务器故障。这时可以用启动器开局，也能开房和朋友一起玩。"
 		"loading_faq_pause_question"				"暂停时间可以延长吗？"
 		"loading_faq_pause_answer"				"从游廊开局可以。用启动器开局时游戏跑在服务器主机上，暂停时间无法延长，需要长时间暂停请从游廊开局。"
 		"loading_faq_attributes_question"			"加的属性点什么时候生效？"
@@ -170,7 +170,7 @@
 		"conduct_point_light_penalty_tooltip"	"行为分 <font color='#FFA726'>{0}</font> 惩罚，积分 ×0.8"
 		"conduct_point_heavy_penalty_tooltip"	"行为分 <font color='#E87D7D'>{0}</font> 惩罚，积分 ×0.5"
 
-		"end_screen_offline_hint"		"离线模式，本局积分与战绩未记录。"
+		"end_screen_offline_hint"		"离线模式，本局积分与战绩未记录。这是 Dota 2 新版本的限制，不是服务器故障。"
 		"ending_status_1"			"正在结算…"
 		"ending_status_2"			"结算完成"
 		"ending_status_3"			"结算已提交"
@@ -3220,6 +3220,15 @@
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_aura_Description"	"移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%。"
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active"				"坚韧"
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active_Description"	"移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。\n攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
+
+		// 亡魂胸针（7.42 官方改为中立物品，本图恢复为商店装备）
+		"DOTA_Tooltip_Ability_item_revenants_brooch"							"英灵胸针"
+		"DOTA_Tooltip_ability_item_revenants_brooch_Description"				"<h1>被动：幻影暴击</h1>每次攻击都有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_Note0"						"对于其他来源的致命一击也被视为致命一击效果。"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_Note1"						"攻击建筑物时不会触发幻影暴击。"
+		"DOTA_Tooltip_ability_item_revenants_brooch_Lore"						"这枚受到诅咒的胸针属于一位堕落的卫士，她永远都在生死之界徘徊。"
+		"DOTA_Tooltip_ability_item_revenants_brooch_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_revenants_brooch_spell_lifesteal"			"%+$spell_lifesteal"
 
 		// 神器魔武双修
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"			"神器·魔武双修"

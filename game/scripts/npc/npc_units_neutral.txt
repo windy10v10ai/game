@@ -4,7 +4,7 @@
 {
 	// 远古
 	// Armor x2 Attack x4 Status x3
-	// 赏金：营地总量为原版 2.7 倍，大怪偏经验、小怪偏金币
+	// 赏金：营地总量约为原版 2.8 倍，经验约为原版 2.7 倍；大怪偏经验、小怪偏金币
 	//=================================================================================
 	// Neutral: Ancient - Black Drake 远古小黑龙
 	//=================================================================================
@@ -80,8 +80,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"190"		// 95
-		"BountyGoldMin"				"133"		// 37
-		"BountyGoldMax"				"151"		// 43
+		"BountyGoldMin"				"133"		// 33
+		"BountyGoldMax"				"151"		// 39
 
 		// Movement
 		//----------------------------------------------------------------
@@ -113,8 +113,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"468"		// 124
-		"BountyGoldMin"				"156"		// 76
-		"BountyGoldMax"				"164"		// 80
+		"BountyGoldMin"				"156"		// 68
+		"BountyGoldMax"				"164"		// 72
 
 		// Movement
 		//----------------------------------------------------------------
@@ -142,13 +142,12 @@
 		"AttackDamageMin"			"240"		// 60
 		"AttackDamageMax"			"260"		// 65
 		"AttackRate"				"1.6"		// 2
-		"BaseAttackSpeed"			"120"		// 100
 
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"468"		// 124
-		"BountyGoldMin"				"156"		// 76
-		"BountyGoldMax"				"164"		// 80
+		"BountyGoldMin"				"156"		// 68
+		"BountyGoldMax"				"164"		// 72
 
 		// Movement
 		//----------------------------------------------------------------
@@ -182,8 +181,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"190"		// 95
-		"BountyGoldMin"				"147"		// 42
-		"BountyGoldMax"				"167"		// 49
+		"BountyGoldMin"				"147"		// 38
+		"BountyGoldMax"				"167"		// 44
 
 		// Movement
 		//----------------------------------------------------------------
@@ -394,24 +393,85 @@
 		"StatusManaRegen"			"3"			// 1
 	}
 
+	// 赏金：营地总量为原版 1.2 倍，其余数值按远古档加强
+	//=================================================================================
+	// Neutral: Ancient - Ogre Seal 远古食人魔海豹
+	//=================================================================================
+	"npc_dota_neutral_ogre_seal"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"6"		// 3
+		"MagicalResistance"			"60"		// 30
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"240"		// 60
+		"AttackDamageMax"			"260"		// 65
+		"AttackRate"				"1.6"		// 2
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"468"		// 124
+		"BountyGoldMin"				"139"		// 68
+		"BountyGoldMax"				"148"		// 72
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"5100"		// 1700
+		"StatusHealthRegen"			"1.25"		// 0.5
+		"StatusMana"				"1200"		// 400
+		"StatusManaRegen"			"2.5"		// 1.0
+	}
+	//=================================================================================
+	// Neutral: Ancient - Ogre Seal Pup 远古食人魔海豹幼崽
+	//=================================================================================
+	"npc_dota_neutral_ogre_seal_pup"
+	{
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"6"		// 3
+		"MagicalResistance"			"80"		// 50
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackDamageMin"			"128"		// 32
+		"AttackDamageMax"			"136"		// 34
+		"AttackRate"				"1.6"		// 1.8
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"190"		// 95
+		"BountyGoldMin"				"133"		// 38
+		"BountyGoldMax"				"154"		// 44
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2400"		// 800
+		"StatusHealthRegen"			"1.25"		// 0.5
+		"StatusMana"				"1200"		// 400
+		"StatusManaRegen"			"2.5"		// 1.0
+	}
+
 	//=================================================================================
 	// Neutral Creeps: 普通中立生物
-	// 赏金：小野怪为原版 1.2 倍，大野怪与沼蛙见各段
+	// 赏金：小野怪、中野怪、大野怪、远古各档的营地总量倍率见对应段落，沼蛙见末段
 	//=================================================================================
 	// 小野怪
+	// 赏金：营地总量约为原版 1.2～1.5 倍
 	//=================================================================================
 	"npc_dota_neutral_kobold" // 狗头人
 	{
-		"BountyXP"						"17"		//14
-		"BountyGoldMin"					"4"			//3
-		"BountyGoldMax"					"6"			//5
+		"BountyXP"						"22"		//18
+		"BountyGoldMin"					"7"			//6
+		"BountyGoldMax"					"10"			//8
 	}
 
 	"npc_dota_neutral_kobold_tunneler" // 狗头人士兵
 	{
 		"BountyXP"						"20"		//17
-		"BountyGoldMin"					"14"		//12
-		"BountyGoldMax"					"17"		//14
+		"BountyGoldMin"					"14"		//11
+		"BountyGoldMax"					"17"		//13
 	}
 
 	"npc_dota_neutral_kobold_taskmaster" // 狗头人长官
@@ -424,8 +484,8 @@
 	"npc_dota_neutral_forest_troll_berserker" // 丘陵巨魔狂战士
 	{
 		"BountyXP"						"34"		//28
-		"BountyGoldMin"					"22"		//18
-		"BountyGoldMax"					"24"		//20
+		"BountyGoldMin"					"22"		//16
+		"BountyGoldMax"					"24"		//18
 	}
 
 	"npc_dota_neutral_ghost" // 鬼魂
@@ -465,6 +525,7 @@
 
 	//=================================================================================
 	// 中野怪
+	// 赏金：营地总量约为原版 1.2～1.6 倍（萨特中营与大型营共用单位，约 1.6 倍）
 	//=================================================================================
 	"npc_dota_neutral_giant_wolf" // 巨狼
 	{
@@ -515,9 +576,31 @@
 		"BountyGoldMax"					"38"		//32
 	}
 
+	// 营地总量为原版 1.2 倍
+	"npc_dota_neutral_radigull" // 狂海鸥
+	{
+		"BountyXP"						"74"		//62
+		"BountyGoldMin"					"41"			//34
+		"BountyGoldMax"					"43"			//36
+	}
+
+	"npc_dota_neutral_odobenus_footman" // 海象步兵
+	{
+		"BountyXP"						"48"		//40
+		"BountyGoldMin"					"22"			//18
+		"BountyGoldMax"					"26"			//22
+	}
+
+	"npc_dota_neutral_odobenus_frostmage" // 海象冰霜法师
+	{
+		"BountyXP"						"72"		//60
+		"BountyGoldMin"					"38"			//32
+		"BountyGoldMax"					"41"			//34
+	}
+
 	//=================================================================================
 	// 大野怪
-	// 赏金：营地总量为原版约 1.6 倍，大怪偏经验、小怪偏金币；萨特的大、中营地共用单位，按两营地合计
+	// 赏金：营地总量约为原版 1.6 倍（1.4～2.0 倍），大怪偏经验、小怪偏金币；萨特的大、中营地共用单位，按两营地合计
 	//=================================================================================
 	"npc_dota_neutral_centaur_outrunner" // 半人马猎手
 	{
@@ -529,15 +612,15 @@
 	"npc_dota_neutral_centaur_khan" // 半人马征服者
 	{
 		"BountyXP"						"160"		//90
-		"BountyGoldMin"					"65"		//54
-		"BountyGoldMax"					"72"		//60
+		"BountyGoldMin"					"65"		//49
+		"BountyGoldMax"					"72"		//54
 	}
 
 	"npc_dota_neutral_warpine_raider" // 斗松掠夺者
 	{
 		"BountyXP"						"123"		//76
-		"BountyGoldMin"					"79"		//48
-		"BountyGoldMax"					"81"		//50
+		"BountyGoldMin"					"79"		//43
+		"BountyGoldMax"					"81"		//45
 	}
 
 	"npc_dota_neutral_polar_furbolg_champion" // 地狱熊怪
@@ -564,15 +647,15 @@
 	"npc_dota_neutral_enraged_wildkin" // 枭兽撕裂者
 	{
 		"BountyXP"						"168"		//90
-		"BountyGoldMin"					"70"		//58
-		"BountyGoldMax"					"77"		//64
+		"BountyGoldMin"					"70"		//52
+		"BountyGoldMax"					"77"		//58
 	}
 
 	"npc_dota_neutral_satyr_soulstealer" // 萨特窃神者
 	{
-		"BountyXP"						"84"		//46
-		"BountyGoldMin"					"29"		//18
-		"BountyGoldMax"					"33"		//22
+		"BountyXP"						"84"		//40
+		"BountyGoldMin"					"29"		//16
+		"BountyGoldMax"					"33"		//18
 	}
 
 	"npc_dota_neutral_satyr_hellcaller" // 萨特苦难使者
@@ -584,9 +667,9 @@
 
 	"npc_dota_neutral_satyr_trickster" // 萨特放逐者
 	{
-		"BountyXP"						"29"		//24
-		"BountyGoldMin"					"21"		//12
-		"BountyGoldMax"					"24"		//14
+		"BountyXP"						"36"		//30
+		"BountyGoldMin"					"21"		//15
+		"BountyGoldMax"					"24"		//17
 	}
 
 	"npc_dota_neutral_dark_troll" // 丘陵巨魔
@@ -606,8 +689,23 @@
 	"npc_dota_neutral_forest_troll_high_priest" // 丘陵巨魔牧师
 	{
 		"BountyXP"						"46"		//28
-		"BountyGoldMin"					"30"		//18
-		"BountyGoldMax"					"33"		//20
+		"BountyGoldMin"					"30"		//16
+		"BountyGoldMax"					"33"		//18
+	}
+
+	// 营地总量约为原版 1.6 倍
+	"npc_dota_neutral_eimermole_foreman" // 矿工鼠工头
+	{
+		"BountyXP"						"171"		//90
+		"BountyGoldMin"					"74"			//62
+		"BountyGoldMax"					"79"			//66
+	}
+
+	"npc_dota_neutral_eimermole" // 矿工鼠
+	{
+		"BountyXP"						"79"		//66
+		"BountyGoldMin"					"72"			//30
+		"BountyGoldMax"					"91"			//38
 	}
 
 	//=================================================================================

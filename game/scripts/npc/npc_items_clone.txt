@@ -91,7 +91,7 @@
 		{
 				"bonus_hp_regen"		"0"
 				"bonus_armor"			"34"	// 17
-				"bonus_aoe"				"120"	// 75
+				"bonus_aoe"				"120"	// 60
 				"aura_radius"
 				{
 					"value"	"1200"
@@ -99,11 +99,11 @@
 				}
 				"aura_attack_speed"		"-80"	// -40
 				"blast_damage"			"450"	// 225 x2
-				"blast_movement_speed"	"-60"	// -40
+				"blast_movement_speed"	"-60"	// -30
 				"blast_debuff_duration"	"4.0"
 				"blast_radius"
 				{
-					"value"		"900"	// 825
+					"value"		"900"	// 840
 					"affected_by_aoe_increase"	"1"
 				}
 				"blast_speed"			"400"
@@ -161,7 +161,7 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_guardian_greaves_artifact"
-		"ItemCost"						"2350"
+		"ItemCost"						"2450"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_guardian_greaves_artifact"
 		"ItemRequirements"
@@ -267,9 +267,9 @@
 	}
 	"item_armlet_light"
 	{
-		"BaseClass" 					"item_armlet"
+		"BaseClass" 					"item_berserkers_sabatons"
 		"AbilityCooldown"				"0.0"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
@@ -281,6 +281,10 @@
 			"bonus_attack_speed"	"90"
 			"bonus_armor"			"36"
 			"bonus_health_regen"	"30"
+			"bonus_movement_speed_ranged"	"0"	// 本体不是鞋子，不提供常驻移速
+			"bonus_movement_speed_melee"	"0"
+			"phase_movement_speed"	"30"		// 开启时相位移速
+			"phase_movement_speed_range"	"15"
 			// x1
 			"unholy_bonus_damage"	"55"
 			"unholy_bonus_strength"	"75"
@@ -305,9 +309,9 @@
 	}
 	"item_armlet_dark"
 	{
-		"BaseClass" 					"item_armlet"
+		"BaseClass" 					"item_berserkers_sabatons"
 		"AbilityCooldown"				"0.0"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
@@ -319,6 +323,10 @@
 			"bonus_attack_speed"	"45"
 			"bonus_armor"			"18"
 			"bonus_health_regen"	"15"
+			"bonus_movement_speed_ranged"	"0"	// 本体不是鞋子，不提供常驻移速
+			"bonus_movement_speed_melee"	"0"
+			"phase_movement_speed"	"35"		// 开启时相位移速
+			"phase_movement_speed_range"	"18"
 			// x4
 			"unholy_bonus_damage"	"220"
 			"unholy_bonus_strength"	"300"
@@ -345,9 +353,9 @@
 	}
 	"item_armlet_artifact"
 	{
-		"BaseClass" 					"item_armlet"
+		"BaseClass" 					"item_berserkers_sabatons"
 		"AbilityCooldown"				"0.0"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
@@ -359,6 +367,10 @@
 			"bonus_attack_speed"				"135"
 			"bonus_armor"						"54"
 			"bonus_health_regen"				"45"
+			"bonus_movement_speed_ranged"		"0"	// 本体不是鞋子，不提供常驻移速
+			"bonus_movement_speed_melee"		"0"
+			"phase_movement_speed"				"40"	// 开启时相位移速
+			"phase_movement_speed_range"		"20"
 			// x4
 			"unholy_bonus_damage"				"220"
 			"unholy_bonus_strength"				"300"

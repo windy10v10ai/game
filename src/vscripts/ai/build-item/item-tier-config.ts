@@ -743,9 +743,9 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T3,
     cost: 6000,
   },
-  item_meteor_hammer_2: {
-    name: 'item_meteor_hammer_2',
-    nameCN: '星落',
+  item_starforge: {
+    name: 'item_starforge',
+    nameCN: '锻星炉',
     tier: ItemTier.T3,
     cost: 6000,
     baseItems: ['item_meteor_hammer'],
@@ -1136,7 +1136,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
       'item_overwhelming_blink_2',
       'item_swift_blink_2',
       'item_arcane_blink',
-      'item_meteor_hammer_2',
+      'item_starforge',
     ],
   },
   item_necronomicon_staff: {

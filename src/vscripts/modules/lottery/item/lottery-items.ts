@@ -68,6 +68,7 @@ export const itemTiers: Tier[] = [
       'item_crellas_crozier', // 克莱拉牧杖
       'item_specialists_array', // 行家阵列
       'item_hand_of_group', // 团队之手
+      'item_horn_of_battle_greater', // 大战角
     ],
   },
   // 2k

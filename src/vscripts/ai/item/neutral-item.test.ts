@@ -12,8 +12,8 @@ describe('NeutralItemManager.GetNeutralItemTier', () => {
     expect(NeutralItemManager.GetNeutralItemTier('item_arcane_ring', 1)).toBe(1);
   });
 
-  it('returns correct tier for a tier-5 active item', () => {
-    expect(NeutralItemManager.GetNeutralItemTier('item_desolator_2', 1)).toBe(5);
+  it('returns correct tier for a tier-4 active item', () => {
+    expect(NeutralItemManager.GetNeutralItemTier('item_stygian_desolator', 1)).toBe(4);
   });
 
   it('returns correct tier for enhancement with level matching tier', () => {
@@ -22,6 +22,10 @@ describe('NeutralItemManager.GetNeutralItemTier', () => {
     expect(NeutralItemManager.GetNeutralItemTier('item_enhancement_brawny', 2)).toBe(2);
     expect(NeutralItemManager.GetNeutralItemTier('item_enhancement_brawny', 3)).toBe(3);
     expect(NeutralItemManager.GetNeutralItemTier('item_enhancement_brawny', 4)).toBe(4);
+  });
+
+  it('keeps all tiers within 1-4', () => {
+    expect(Object.keys(NeutralItemManager.GetDefaultConfig())).toEqual(['1', '2', '3', '4']);
   });
 
   it('returns undefined for unknown item name', () => {
