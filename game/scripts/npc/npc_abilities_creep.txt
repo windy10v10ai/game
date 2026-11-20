@@ -14,7 +14,7 @@
 			"increase_health"		"60"	// 30
 			"increase_armor"		"1"		// 0.5
 			"increase_gold"			"2"		// 1
-			"increase_xp"			"10"	// 5
+			"increase_xp"			"10"	// 4
 		}
 	}
 
