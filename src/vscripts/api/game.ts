@@ -155,11 +155,11 @@ export class Game {
     });
   }
 
-  /** 技能抽选在英雄出生时按会员等级定数量，进入选英雄阶段仍没有玩家数据时直接用离线快照，不等请求超时 */
+  /** 技能抽选在英雄出生时按会员等级定数量，进入 PRE_GAME 仍没有玩家数据时直接用离线快照，不等请求超时 */
   public static EnsurePlayerData() {
     if (Game.firstLoadDone) return;
     Game.firstLoadDone = true;
-    print('[Game] player data not ready at hero selection, using offline snapshot');
+    print('[Game] player data not ready at pre game, using offline snapshot');
     Game.UseOfflineSnapshot(true);
   }
 

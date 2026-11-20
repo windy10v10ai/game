@@ -50,7 +50,6 @@ export class EventGameStateChange {
   private OnHeroSelection(): void {
     GameRules.Option.SetDefaultDifficulty();
     if (GameRules.Option.forceRandomHero) {
-      Game.EnsurePlayerData();
       HeroPick.PickRandomHeroes();
     }
   }
@@ -60,7 +59,6 @@ export class EventGameStateChange {
    */
   private OnStrategyTime(): void {
     GameConfig.SetMaxLevelXPRequire();
-    Game.EnsurePlayerData();
     HeroPick.PickHumanHeroes();
     // 延迟创建，避免在当前事件处理里耗时过长导致玩家被断开
     Timers.CreateTimer({
@@ -76,6 +74,9 @@ export class EventGameStateChange {
   private OnPreGame(): void {
     // 初始化游戏
     print(`[EventGameStateChange] OnPreGame`);
+
+    // 英雄出生与技能抽选都在此之后，仍没有玩家数据就直接用离线快照
+    Game.EnsurePlayerData();
 
     // 中路模式：移除上下路建筑
     if (GameRules.Option.midOnlyMode) {
