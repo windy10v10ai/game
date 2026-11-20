@@ -16,7 +16,7 @@ disable-model-invocation: true
 
 判断某技能当前实际生效的数值（如蓝耗）时，**不能只看 docs/reference 原版，也不能只看顶层字段**——override 常把数值写成 `AbilityValues` 内的嵌套子块（如 `AbilityManaCost { "value" "9 10 11 12 13" }`）而非顶层字段。例：`drow_ranger_frost_arrows` 原版 0 蓝，本图 override 里实际是 `AbilityValues` 嵌套的 9-13 蓝/箭，只 grep 顶层 `AbilityManaCost` 会误判为 0 蓝。先精确读该技能整段（到下一个顶层技能名前），同时检查顶层字段和 `AbilityValues` 嵌套块；override 未覆盖时才回落原版。
 
-两种用法：给出**补丁日志**（用户贴的逐条"旧值→新值"，或 `docs/reference/<新版>/patchnotes*.md` 里某批英雄的段落）时走「补丁日志同步」；只给英雄或版本时走「执行顺序（逐英雄）」全量重整。
+两种用法：给出**补丁日志**（用户贴的逐条"旧值→新值"，或 `docs/reference/<新版>/patchnotes*.md` 里某批英雄的段落）时走「补丁日志同步」，只给英雄或版本时走「执行顺序（逐英雄）」全量重整。
 
 `<版本>` 目录按 `docs/reference/` 实际存在的取（含 `7.41f` 这类字母后缀），上一版指排在新版之前的那个目录。
 
