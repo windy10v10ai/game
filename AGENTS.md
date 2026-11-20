@@ -57,7 +57,7 @@ Claude Code 直接读 `.claude/skills`；Codex 与 DSH 读仓库下的 `.agents/
 | bot 技能施法规则 | `bot-ability-usage` |
 | bot 战斗物品使用规则 | `bot-item-usage` |
 | 电脑 AI 决策与移动异常 | `bot-ai-tuning` |
-| 电脑英雄技能加点（Bot.Build） | `bot-skill-build` |
+| 电脑英雄技能加点（Bot.Build） | `update-bot-hero-build` |
 
 下面这些在 Claude Code 里只由用户手动调用（`/<name>`）。用户明确要求做对应的事时再读：
 
