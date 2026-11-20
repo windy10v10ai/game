@@ -491,11 +491,6 @@
 		"DisableWearables"			"1"
 	}
 
-	"npc_dota_hero_naga_siren"
-	{
-		"Ability15"		"special_bonus_unique_naga_siren_net_breaks"
-	}
-
 	"npc_dota_hero_night_stalker"
 	{
 		"VisionDaytimeRange"		"1200"// 800
