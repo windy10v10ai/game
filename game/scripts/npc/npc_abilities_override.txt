@@ -1342,7 +1342,6 @@
 	"doom_bringer_devour"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"40 50 60 70 80"
 		"AbilityValues"
 		{
 			"bonus_gold"
@@ -1360,7 +1359,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"			"41 39 37 35 33"
+					"value"			"44 42 40 38 36"	// 45 42 39 36
 				}
 				"damage_per_second"
 				{
@@ -4202,7 +4201,7 @@
 	{
 		"MaxLevel" "4"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO 无视魔免
-		"AbilityDamage"					"275 425 575 725"	// 275 375 475 差值150
+		"AbilityDamage"					"275 425 575 725"	// 275 365 455 差值150
 		"AbilityManaCost"				"125 225 325 425"
 		"AbilityValues"
 		{
@@ -5319,7 +5318,7 @@
 	"ember_spirit_sleight_of_fist"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"60 65 70 75 80"	// 75
+		"AbilityManaCost"				"60 65 70 75 80"	// 60
 		"AbilityValues"
 		{
 			"radius"
@@ -5347,7 +5346,7 @@
 		"AbilityManaCost"				"65 80 95 110 125"
 		"AbilityValues"
 		{
-				"duration"						"12 14 16 18 20"
+				"duration"						"9 12 15 18 21"	// 9 12 15 18 延伸
 				"damage_per_second"
 				{
 					"value"			"100 150 200 250 300"	// 20 30 40 50 x5
@@ -5367,7 +5366,7 @@
 		{
 				"damage"
 				{
-					"value"			"300 600 900 1200"	// 100 200 300 x3
+					"value"			"300 555 810 1065"	// 100 185 270 x3
 				}
 		}
 	}
@@ -5378,7 +5377,7 @@
 		"AbilityManaCost"				"100 125 150 175"
 		"AbilityValues"
 		{
-				"damage"				"300 600 900 1200"	// 100 200 300 x3
+				"damage"				"300 555 810 1065"	// 100 185 270 x3
 		}
 	}
 	// 献祭心
@@ -5665,10 +5664,10 @@
 		{
 			"trap_radius"
 			{
-				"value"		"280"	// 265
+				"value"		"280"	// 275
 			}
-			"debuff_duration"		"1.5 1.7 1.9 2.1 2.3"
-			"projectile_speed"	"1800"	// 1300
+			"debuff_duration"		"1.4 1.6 1.8 2.0 2.2"	// 1.4 1.6 1.8 2.0 延伸
+			"projectile_speed"	"1800"	// 1200
 			"total_damage"
 			{
 				"value"							"90 180 270 360 450"
@@ -5708,7 +5707,7 @@
 			}
 			"max_damage"
 			{
-				"value"				"1200 1950 2700 3450"	// 600 975 1350 x2
+				"value"				"1100 1750 2400 3050"	// 550 875 1200 x2
 			}
 			"slow_move_pct"
 			{
@@ -8788,7 +8787,7 @@
 			"clone_duration"			"3"	// 5
 			"frostbite_radius"
 			{
-				"value"						"900"	// [750]	// 450 x2
+				"value"						"850"	// 425 x2
 			}
 		}
 	}
@@ -8799,13 +8798,13 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-			"AbilityCooldown"				"60"	// 90
-			"AbilityManaCost"				"200 400 600 800"
+			"AbilityCooldown"				"60"	// 110 100 90
+			"AbilityManaCost"				"250 425 600 775"	// 250 425 600 延伸
 			"attack_slow"					"-80 -120 -160 -200"
 			"damage"
 			{
-				"value"										"165 270 375 480"	// 110 180 250 320 x1.5
-				"special_bonus_unique_crystal_maiden_3"		"+100"				// 50 x2
+				"value"										"195 285 375 465"	// 130 190 250 x1.5
+				"special_bonus_unique_crystal_maiden_3"		"+90"				// 45 x2
 			}
 			"shard_bonus_explosion"
 			{
@@ -9954,7 +9953,7 @@
 		{
 			"damage"
 			{
-				"value"								"100 180 260 340"	// 100 150 200 250 差值80
+				"value"								"100 180 260 340"	// 100 140 180 差值80
 				"special_bonus_unique_jakiro_7"		"+50"	// +25
 			}
 			"duration"
@@ -10645,7 +10644,7 @@
 		{
 			"mana_pool_damage_pct"
 			{
-				"value"										"10 11 12 13 14"
+				"value"										"9 10 11 12 13"	// 9 10 11 12 延伸
 			}
 			"mana_cost_percentage"							"30"	// 20
 		}
@@ -10692,8 +10691,8 @@
 			"barrier_flat"			"300 400 500 600 700"	// 150 200 250 300 x2
 			"mana_to_barrier"
 			{
-				"value"					"20"	// 12
-				"special_bonus_scepter"	"+10"	// +4
+				"value"					"20"	// 9 10 11 12
+				"special_bonus_scepter"	"+10"	// +3
 			}
 			"bonus_mana"			"160 320 480 640 800"	// 80 160 240 320 x2
 			"barrier_duration"			"12"	// 10
@@ -10726,7 +10725,7 @@
 		"AbilityManaCost"				"200 300 400 500"
 		"AbilityValues"
 		{
-			"base_damage"				"200 300 400 500"
+			"base_damage"				"180 270 360 450"	// 180 270 360 延伸
 			"radius"
 			{
 				"value"			"450 500 550 600"
@@ -11356,8 +11355,7 @@
 		{
 			"purge_damage"
 			{
-				"value" "600 900 1200 1500"		// 300 450 600 x2
-				"special_bonus_unique_shadow_demon_1" "+300"		// +150 x2
+				"value" "600 850 1100 1350"		// 300 425 550 x2
 			}
 			"AbilityCooldown"
 			{
@@ -11376,7 +11374,7 @@
 		{
 				"purge_damage"
 				{
-					"value" "900"	// [750]		// 450 x2
+					"value" "850"	// 425 x2
 				}
 		}
 	}
@@ -11421,7 +11419,7 @@
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"750"		// 550
 		"AbilityCooldown"				"20 18 16 14 12"	// 24 20 16 12
-		"AbilityManaCost"				"130 150 170 190 210"	// 130 150 170 190
+		"AbilityManaCost"				"120 140 160 180 200"	// 120 140 160 180 延伸
 		"AbilityValues"
 		{
 				"duration"					"2 2.3 2.6 2.9 3.2"	// 2.0 2.3 2.6 2.9
@@ -11468,7 +11466,7 @@
 	// 群蛇守卫
 	"shadow_shaman_mass_serpent_ward"
 	{
-		"AbilityCooldown"				"100"		// 110 105 100
+		"AbilityCooldown"				"100"		// 110
 		"AbilityValues"
 		{
 			"ward_count"
@@ -11485,8 +11483,8 @@
 			}
 			"ward_health"
 			{
-				"value"						"8"						// 4
-				"special_bonus_unique_shadow_shaman_1"		"+4"	// +2
+				"value"						"8"						// 2
+				"special_bonus_unique_shadow_shaman_1"		"+4"	// +1
 			}
 			"ward_damage_tooltip"
 			{
@@ -11509,17 +11507,15 @@
 	// 禽戏 先天技能
 	"shadow_shaman_fowl_play"
 	{
-		"AbilityCooldown"				"60"	// 120
-
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"		"60"	// 120
+			}
 			"damage_reduction_duration"
 			{
 				"special_bonus_shard"		"+1"	// 原版不存在，手动修改
-			}
-			"total_chickens"
-			{
-				"levelup_interval"			"10"	// 5
 			}
 		}
 	}
@@ -13157,7 +13153,7 @@
 	{
 		// "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// 原版 SPELL_IMMUNITY_ENEMIES_NO 限时加强
 		"MaxLevel"	"5"
-		"AbilityCooldown"			"13 11 9 7 5"
+		"AbilityCooldown"			"14 12 10 8 6"	// 15 12 9 6
 		"AbilityManaCost"				"80 85 90 95 100"
 		"AbilityValues"
 		{
@@ -13181,7 +13177,7 @@
 			}
 			"dispel_hp_regen"
 			{
-				"value"			"8 14 20 26 32"			// 4 7 10 13 x2
+				"value"			"5 10 15 20 25"			// 2.5 5 7.5 10 x2
 			}
 		}
 	}
@@ -13236,7 +13232,7 @@
 		{
 			"damage_portion_pct"
 			{
-				"value"					"30 35 40 45 50"
+				"value"					"25 30 35 40 45"	// 25 30 35 40 延伸
 			}
 			"duration_reduction"		"0.25"	// 0.5
 			"damage_hp_pct"
@@ -13283,7 +13279,7 @@
 			"song_cost_reduction_per_stack"	"1 1.5 2 2.5"
 			"burst_damage"
 			{
-				"value"						"30 45 60 75"	// 20 30 40 x1.5
+				"value"						"36 55.5 75 94.5"	// 24 37 50 x1.5
 				"special_bonus_scepter"		"+9 +15 +21 +27"	// +6 +10 +14 x1.5
 			}
 			"radius"
@@ -13302,7 +13298,7 @@
 			}
 			"spell_amp_bonus"
 			{
-				"value"			"20 30 40 50"	// 8 12 16 x2.5
+				"value"			"15 20 25 30"	// 6 8 10 x2.5
 				"special_bonus_unique_largo_7" "+50%"	// +30%
 			}
 			"AbilityManaCost"
