@@ -2,8 +2,8 @@ const RESET_PROPERTY_SEASON_POINT_COST = 2000;
 const WEBSITE_URL = 'https://windy10v10ai.com';
 // 请求失败时 net table 不会更新，超时后也要恢复刷新按钮
 const PLAYER_INFO_REFRESH_TIMEOUT_S = 5;
-// 与 game.ts 中 loading_status 的离线取值一致
-const LOADING_STATUS_OFFLINE = 3;
+// 与 game.ts 中 loading_status 的离线取值一致：3 为游廊离线，4 为启动器局（数据同为离线快照）
+const LOADING_STATUS_OFFLINE = [3, 4];
 // 没有玩家数据时用它兜底，让页面照常显示而不是整页报错
 const EMPTY_PLAYER = {
   seasonLevel: 0,
@@ -104,7 +104,7 @@ function SetLevelProgress(numberId, barId, current, next) {
 
 function UpdateOfflineHint() {
   const loading = CustomNetTables.GetTableValue('loading_status', 'loading_status');
-  const offline = loading != null && loading.status === LOADING_STATUS_OFFLINE;
+  const offline = loading != null && LOADING_STATUS_OFFLINE.indexOf(loading.status) >= 0;
   $('#OfflineHint').visible = offline;
   $('#OfflineHintLabel').text = $.Localize('#offline_data_hint').replace(
     '{date}',
