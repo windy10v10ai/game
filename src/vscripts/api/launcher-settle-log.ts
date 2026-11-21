@@ -7,6 +7,7 @@ import { splitGameEndByPlayer } from './game-end-proxy';
 import { base64UrlEncode } from '../utils/base64url';
 
 const LOG_PREFIX = '[WSettle] v1';
+const LOG_DONE_PREFIX = '[WSettle] done v1';
 // 低于日志单行的已知上限，留出余量
 export const SETTLE_LOG_CHUNK_SIZE = 3000;
 
@@ -34,7 +35,7 @@ export function buildSettleLogLines(
   return lines;
 }
 
-/** 逐个真人玩家写日志，返回写出的人数 */
+/** 逐个真人玩家写日志，末尾写一条汇总行，返回写出的人数 */
 export function printSettleLog(gameEnd: GameEndDto): number {
   const matchKey = gameEnd.customMatchId || gameEnd.matchId;
   const requests = splitGameEndByPlayer(gameEnd);
@@ -42,5 +43,7 @@ export function printSettleLog(gameEnd: GameEndDto): number {
     const lines = buildSettleLogLines(matchKey, request.players[0].steamId, json.encode(request));
     for (const line of lines) print(line);
   }
+  // 无人时也要写 0，启动器靠这行区分全员与部分
+  print(`${LOG_DONE_PREFIX} ${matchKey} ${requests.length}`);
   return requests.length;
 }

@@ -80,7 +80,8 @@ Dota 2 不再给自定义游戏提供专用服务器，每一局都是玩家自�
 
 - **判定**：`IsDedicatedServer()` 为真就走日志，其余启动方式不变。写日志的代码在 `launcher-settle-log.ts`
 - **行格式**：`[WSettle] v1 <局号> <steamId> <第几段>/<总段数> <base64url 正文>`。局号取 `customMatchId`，正文是该玩家的结算请求（与代发路由收到的相同），每段不超过 3000 字符。同一玩家的各段连续输出，机器人不输出
-- **结束标记**：所有玩家写完后输出 `[Game] end game callback data OK`，启动器靠它判断结算已结束
+- **汇总行**：逐人写完后输出 `[WSettle] done v1 <局号> <份数>`，局号与逐人行同一份，份数是游戏实际生成的真人结算份数（无人时写 0）。启动器靠它区分全员与部分，缺人时照常发剩下的玩家
+- **结束标记**：汇总行之后输出 `[Game] end game callback data OK`，启动器靠它判断结算已结束
 - **启动器那边**：读 `dedicated.log` 解析这些行，用启动器专用 key（服务器类型 `LAUNCHER`）调 `POST /game/end/local`，本地记已发的「局号+steamId」。三端约定见 [issue 2795](https://github.com/windy10v10ai/game/issues/2795)
 - **不做签名**：主机本来就不可信，防线是后端的冷却与限额，日志玩家看得到也伪造得了
 - **界面**：加载状态 4 与结算状态 4 专门给这类局，积分由启动器上传，不显示「积分未记录」
