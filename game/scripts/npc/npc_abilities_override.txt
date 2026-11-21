@@ -6603,7 +6603,7 @@
 			}
 			"does_break"
 			{
-				"special_bonus_unique_naga_siren_net_breaks"		"+1"	// 天赋单独启用破坏，无神杖也生效
+				"special_bonus_unique_naga_siren_net_breaks"		"+1"	// 有此天赋即使没有阿哈利姆神杖，诱捕也施加破坏
 			}
 		}
 	}
@@ -10276,7 +10276,7 @@
 			{
 				"value"	"30 40 50 60 70"	// 45 50 55 60
 			}
-			"movement_slow"			"20 25 30 35 40"	// 21 24 27 30
+			"movement_slow"			"21 24 27 30 33"	// 21 24 27 30 延伸
 			"damage"
 			{
 				"value"			"18 32 46 60 74"	// 18 32 46 60
@@ -11817,7 +11817,7 @@
 				}
 				"mres_reduction"
 				{
-					"value"			"30 40 50 60"	// 12 16 20
+					"value"			"24 32 40 48"	// 12 16 20 24 x2
 				}
 		}
 	}
