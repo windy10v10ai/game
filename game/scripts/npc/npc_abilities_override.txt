@@ -2757,7 +2757,7 @@
 			"dps"
 			{
 				"value"			"50 60 70 80 90" // 25 30 35 40 45 x2
-				"special_bonus_unique_night_stalker_crippling_fear_damage" 	"+22.5" // +15 x1.5
+				"special_bonus_unique_night_stalker_crippling_fear_damage" 	"+30" // +15 x2
 			}
 		}
 	}
