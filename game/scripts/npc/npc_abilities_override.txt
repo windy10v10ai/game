@@ -1716,7 +1716,7 @@
 				"value"							"12"	// 2/3
 			}
 			// 残岩攻击力加成百分比
-			"attack_damage_per_stone"			"5"		// 2.5 x2
+			"attack_damage_per_stone"			"6"		// 3.0 x2
 			"attack_damage_per_stone_used"		"30"	// 7.5 x4
 		}
 	}
@@ -1724,14 +1724,12 @@
 	"earth_spirit_magnetize"
 	{
 		"MaxLevel" "4"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCooldown"				"100 90 80 70"
 		"AbilityValues"
 		{
 			"cast_radius"
 			{
 				"value"	"600"		// 350
-				"affected_by_aoe_increase"	"1"
 			}
 			"damage_per_second"
 			{
@@ -3238,7 +3236,7 @@
 			"duration"			"5.0 6.0 7.0 8.0 9.0"
 			"damage"
 			{
-				"value"			"100 250 400 550 700"	// 50 125 200 275 x2
+				"value"			"110 220 330 440 550"	// 55 110 165 220 x2
 			}
 			"mana_burn"
 			{
@@ -3489,7 +3487,7 @@
 			"bonus_armor"						"0.8 1.0 1.2 1.4 1.6"	// 0.4 0.5 0.6 0.7 x2
 			"bonus_hp_regen"
 			{
-				"value"																	"0.8 1.0 1.2 1.4 1.6"	// 0.4 0.5 0.6 0.7 x2
+				"value"																	"1.0 1.2 1.4 1.6 1.8"	// 0.5 0.6 0.7 0.8 x2
 				"special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"			"+0.5"	// 0.25 x2
 			}
 			"stack_limit"
@@ -3530,7 +3528,7 @@
 		{
 				"damage_per_second"		"140"	// 70 x2
 				"duration"				"6"		// 8
-				"move_slow_pct"			"60"	// 30 x2
+				"move_slow_pct"			"80"	// 40 x2
 		}
 	}
 	// 锯齿飞轮
@@ -4744,14 +4742,14 @@
 	{
 		"AbilityValues"
 		{
-			"mana_threshold"		"75"		// 50
+			"mana_threshold"		"75"		// 60
 		}
 	}
 	// 闪烁
 	"antimage_blink"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"65 60 55 50 45"				// 65 60 55 50
+		"AbilityManaCost"				"60 55 50 45 40"				// 60 55 50 45 延伸
 		"AbilityValues"
 		{
 				"AbilityCooldown"
@@ -4822,11 +4820,11 @@
 				}
 				"move_speed_slow_pct"
 				{
-					"value" 							"28 42 56 70 84"	// 14 21 28 35 x2
+					"value" 							"40 50 60 70 80"	// 20 25 30 35 x2
 				}
 				"AbilityCastRange"
 				{
-					"value"				"500 600 700 800 900"	// 500 600 700 800
+					"value"				"625 700 775 850 925"	// 625 700 775 850 延伸
 				}
 		}
 	}
@@ -5217,7 +5215,7 @@
 			"frost_arrows_movement_speed"	"-15 -25 -35 -45 -55"	// -15 -25 -35 -45
 			"damage"
 			{
-				"value"						"20 30 40 50 60"	// 10 15 20 25 30 x2
+				"value"						"24 36 48 60 72"	// 12 18 24 30 x2
 			}
 			"AbilityManaCost"
 			{
@@ -5659,10 +5657,6 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"trap_radius"
-			{
-				"value"		"280"	// 275
-			}
 			"debuff_duration"		"1.4 1.6 1.8 2.0 2.2"	// 1.4 1.6 1.8 2.0 延伸
 			"projectile_speed"	"1800"	// 1200
 			"total_damage"
@@ -6948,10 +6942,6 @@
 				{
 					"special_bonus_unique_pangolier_3"	"+75"	// +20
 				}
-				"strikes"
-				{
-					"value"			"5"			// 4
-				}
 		}
 	}
 	// 甲盾冲击
@@ -7242,7 +7232,6 @@
 			"miss_rate"					"55 60 65 70 75"	// 55 60 65 70 延伸
 			"armor_reduction"
 			{
-				"value"					"0"
 				"special_bonus_shard"	"10"		// 5 x2
 			}
 			"AbilityCooldown"
@@ -8940,6 +8929,17 @@
 	//=================================================================================================================
 	// Ability: Dazzle 戴泽/暗牧
 	//=================================================================================================================
+	// 编织 先天 魔晶治疗
+	"dazzle_innate_weave"
+	{
+		"AbilityValues"
+		{
+			"ally_heal"
+			{
+				"special_bonus_shard"	"200"	// 原版不存在，手动修改
+			}
+		}
+	}
 	// 剧毒之触
 	"dazzle_poison_touch"
 	{
@@ -8984,6 +8984,7 @@
 			"heal_amplify"
 			{
 				"value" "3 5 7 9 11"
+				"special_bonus_unique_dazzle_shallow_grave_heal_amplify"	"+10"	// 原版不存在，手动修改
 			}
 			"AbilityCooldown"
 			{
@@ -10193,7 +10194,7 @@
 		"AbilityManaCost"				"50 60 70 80"
 		"AbilityValues"
 		{
-				"mana_cost_per_second"	"25 45 65 85"	// 25 45 65
+				"mana_cost_per_second"	"20 40 60 80"	// 20 40 60 延伸
 				"damage"
 				{
 					"value"			"80 130 180 230"	// 80 130 180 延伸
@@ -11018,7 +11019,6 @@
 				"coil_break_damage"
 				{
 					"value"					"200 400 600 800"				// 200 300 400 500
-					"special_bonus_unique_puck_coil_damage"			"+200"	// +200
 				}
 		}
 	}
@@ -12869,7 +12869,7 @@
 			"AbilityCastRange"
 			{
 				"value"		"2000"		// 1400
-				"special_bonus_unique_ringmaster_wheel_radius" "+200"	// +100 x2
+				"special_bonus_unique_ringmaster_wheel_radius" "+300"	// +150 x2
 			}
 			"trap_duration"				"6"	// 4 x1.5
 			"wheel_stun"			"2.5 2.75 3.0 3.25"
@@ -13088,7 +13088,6 @@
 		"AbilityCooldown"				"17 14 11 8 5"
 		"AbilityValues"
 		{
-			"sai_proc_vuln_chance"									"25"// 24
 			"base_crit_pct"
 			{
 				"value"												"125 150 175 200 225"
@@ -13235,7 +13234,6 @@
 			"duration_reduction"		"0.25"	// 0.5
 			"damage_hp_pct"
 			{
-				"value"					"0"
 				"special_bonus_unique_largo_3"	"=1.5"	// =1
 			}
 			"duration"					"12 18 24 30 36"

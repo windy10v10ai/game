@@ -889,6 +889,7 @@
 		"Ability5"		"dazzle_good_juju"
 		"Ability6"		"dazzle_bad_juju"
 		"Ability7"		"generic_hidden"
+		"Ability15"		"special_bonus_unique_dazzle_shallow_grave_heal_amplify"	// 替代本图没有的虚无投影减冷却
 
 		"Bot"
 		{
