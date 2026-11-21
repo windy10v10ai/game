@@ -2672,7 +2672,6 @@
 			"radius"
 			{
 				"value"					"500 525 550 575 600"	// 500 525 550 575 延伸
-				"affected_by_aoe_increase"	"1"
 			}
 			"bonus_damage_vs_heroes"	"10 20 30 40 50"	// 5 10 15 20 x2
 			"AbilityCooldown"
@@ -5317,7 +5316,6 @@
 	"ember_spirit_sleight_of_fist"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"60 65 70 75 80"	// 60
 		"AbilityValues"
 		{
 			"radius"
@@ -5365,7 +5363,7 @@
 		{
 				"damage"
 				{
-					"value"			"300 555 810 1065"	// 100 185 270 x3
+					"value"			"200 370 540 710"	// 100 185 270 355 x2
 				}
 		}
 	}
@@ -5376,7 +5374,7 @@
 		"AbilityManaCost"				"100 125 150 175"
 		"AbilityValues"
 		{
-				"damage"				"300 555 810 1065"	// 100 185 270 x3
+				"damage"				"200 370 540 710"	// 100 185 270 355 x2
 		}
 	}
 	// 献祭心
