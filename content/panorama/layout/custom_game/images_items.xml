@@ -89,6 +89,7 @@
 			<Image id="manta_1" class="SeqImg" src="file://{images}/items/manta_1.png" />
 			<Image id="manta_2" class="SeqImg" src="file://{images}/items/manta_2.png" />
 			<Image id="meteor_hammer_2" class="SeqImg" src="file://{images}/items/meteor_hammer_2.png" />
+			<Image id="meteor_hammer_copy" class="SeqImg" src="file://{images}/items/meteor_hammer_copy.png" />
 			<Image id="mjollnir_2" class="SeqImg" src="file://{images}/items/mjollnir_2.png" />
 			<Image id="molongkuangwu" class="SeqImg" src="file://{images}/items/molongkuangwu.png" />
 			<Image id="monkey_king_bar_2" class="SeqImg" src="file://{images}/items/monkey_king_bar_2.png" />

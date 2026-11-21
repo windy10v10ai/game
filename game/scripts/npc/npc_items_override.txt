@@ -253,6 +253,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_meteor_hammer;item_ultimate_orb"
+			"02"			"item_meteor_hammer_copy;item_ultimate_orb"
 		}
 	}
 
