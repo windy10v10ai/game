@@ -1,4 +1,4 @@
-import { base64UrlEncode } from './base64url';
+import { base64UrlDecode, base64UrlEncode } from './base64url';
 
 // Lua 字符串是字节序列，非 ASCII 用 UTF-8 字节的转义写法表示
 describe('base64UrlEncode', () => {
@@ -18,5 +18,29 @@ describe('base64UrlEncode', () => {
     // 标准 base64 分别是 "+//+" 与 "/w=="
     expect(base64UrlEncode('\xfb\xff\xfe')).toBe('-__-');
     expect(base64UrlEncode('\xff')).toBe('_w');
+  });
+});
+
+describe('base64UrlDecode', () => {
+  it.each([
+    '',
+    'a',
+    'ab',
+    'abc',
+    'hello world!',
+    '\xe4\xb8\xad\xe2\x9c\x93 a',
+    '\xfb\xff\xfe',
+    '\xff',
+  ])('round trips %j', (input) => {
+    expect(base64UrlDecode(base64UrlEncode(input))).toBe(input);
+  });
+
+  it('accepts padding', () => {
+    expect(base64UrlDecode('YQ==')).toBe('a');
+  });
+
+  it('rejects illegal input', () => {
+    expect(base64UrlDecode('a b')).toBeUndefined();
+    expect(base64UrlDecode('Y')).toBeUndefined();
   });
 });

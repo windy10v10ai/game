@@ -1,5 +1,6 @@
 import { GetApiTarget, GetForceProxy, GetLocalHostAPIKEY } from './api-client.local';
 import { ApiRoute, type ApiTarget } from './api-route';
+import { LauncherRelay, UsesLauncherRelay } from './launcher-relay';
 
 // enum http methods
 export enum HttpMethod {
@@ -83,6 +84,11 @@ export class ApiClient {
   }
 
   public static SelectRoute(onSelected: () => void): void {
+    // 线路由启动器自己选，游戏侧没有网络可探
+    if (UsesLauncherRelay()) {
+      this.setRoute('direct', onSelected);
+      return;
+    }
     if (IsInToolsMode()) {
       const target = GetApiTarget();
       if (target !== 'auto') {
@@ -272,6 +278,10 @@ export class ApiClient {
     const forceProxy = IsInToolsMode() && GetForceProxy();
     const request = forceProxy ? undefined : CreateHTTPRequestScriptVM(method, baseUrl + fullPath);
     if (!request) {
+      if (method === HttpMethod.GET && UsesLauncherRelay()) {
+        LauncherRelay.Get(fullPath, timeoutSeconds, callbackFunc);
+        return;
+      }
       ApiClient.sendThroughProxy(target, apiParameter, callbackFunc);
       return;
     }

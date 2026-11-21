@@ -22,3 +22,30 @@ export function base64UrlEncode(input: string): string {
   }
   return parts.join('');
 }
+
+/** 解码 base64url（可带可不带 `=` 填充），非法字符返回 undefined */
+export function base64UrlDecode(input: string): string | undefined {
+  const values: number[] = [];
+  for (let i = 0; i < input.length; i++) {
+    const char = input.charAt(i);
+    if (char === '=') break;
+    const index = ALPHABET.indexOf(char);
+    if (index < 0) return undefined;
+    values.push(index);
+  }
+  if (values.length % 4 === 1) return undefined;
+
+  const parts: string[] = [];
+  for (let i = 0; i < values.length; i += 4) {
+    const count = Math.min(4, values.length - i);
+    const n =
+      values[i] * 262144 +
+      (count > 1 ? values[i + 1] : 0) * 4096 +
+      (count > 2 ? values[i + 2] : 0) * 64 +
+      (count > 3 ? values[i + 3] : 0);
+    parts.push(String.fromCharCode(Math.floor(n / 65536)));
+    if (count > 2) parts.push(String.fromCharCode(Math.floor(n / 256) % 256));
+    if (count > 3) parts.push(String.fromCharCode(n % 256));
+  }
+  return parts.join('');
+}
