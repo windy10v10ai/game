@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { GetLocalPlayerSteamAccountID, GetWebsiteProfileUrl } from '@utils/utils';
 import { PrimaryButton } from '../../../../shared/components';
+import { useDataOffline } from '../../../../shared/hooks/useDataOffline';
 import { useNetTable } from '../../../../shared/hooks/useNetTable';
 import { usePlayerInfoRefresh } from '../../../../shared/hooks/usePlayerInfoRefresh';
 import { AwakenHeroCard } from './AwakenHeroCard';
@@ -206,6 +207,7 @@ export function AwakenTab() {
   const player = useNetTable('player_table', steamId);
   const serverEnv = useNetTable('server_env', 'server_env');
   const isLocalHost = serverEnv?.is_local_host === 1;
+  const offline = useDataOffline();
   const localHostDisabledTooltip = isLocalHost
     ? $.Localize('#local_host_feature_unsupported_hint')
     : undefined;
@@ -307,7 +309,9 @@ export function AwakenTab() {
           <Panel className="awaken-website-notice">
             <Label
               className="awaken-website-notice-text"
-              text={$.Localize('#website_local_host_notice')}
+              text={$.Localize(
+                offline ? '#website_local_host_notice_offline' : '#website_local_host_notice',
+              )}
             />
             <Button className="awaken-website-btn" onactivate={openAwakenWebsite}>
               <Label

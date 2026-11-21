@@ -5,6 +5,7 @@ import { GameEndDto } from './analytics/dto/game-end-dto';
 import { GA4ConfigDto } from './analytics/ga4/dto/ga4-dto';
 import { GA4 } from './analytics/ga4/ga4';
 import { ApiClient, HttpMethod } from './api-client';
+import { UsesLauncherSettleLog, printSettleLog } from './launcher-settle-log';
 import { Player, PlayerInfoDto, PointInfoDto } from './player';
 import { PlayerSnapshot } from './player-snapshot';
 
@@ -170,7 +171,7 @@ export class Game {
     Game.PublishGamePresets();
     if (!isFirst) return;
     CustomNetTables.SetTableValue('loading_status', 'loading_status', {
-      status: 3,
+      status: UsesLauncherSettleLog() ? 4 : 3,
       snapshotDate,
     });
   }
@@ -195,6 +196,14 @@ export class Game {
     CustomNetTables.SetTableValue('ending_status', 'ending_status', {
       status: 1,
     });
+
+    if (UsesLauncherSettleLog()) {
+      printSettleLog(gameEndDto);
+      // 启动器靠这行判断结算已结束，改写法要同步启动器
+      print('[Game] end game callback data OK');
+      onDone?.(true);
+      return;
+    }
 
     const isLocalhost = ApiClient.IsLocalhost();
     const apiParameter = {

@@ -111,7 +111,7 @@ export class FeedbackApi {
       difficulty: CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty,
       gameOptions: GameEnd.BuildGameOptions(),
       localHost: ApiClient.IsLocalhost(),
-      offline: loadingStatus?.status === 3,
+      offline: loadingStatus?.status === 3 || loadingStatus?.status === 4,
     };
 
     const hero = PlayerResource.GetPlayer(playerId)?.GetAssignedHero();
