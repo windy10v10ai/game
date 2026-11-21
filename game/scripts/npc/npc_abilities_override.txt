@@ -1423,7 +1423,7 @@
 			"damage"
 			{
 				"value"			"80 160 240 320 400"
-				"special_bonus_unique_dragon_knight_9"				"+120%"	// +180
+				"special_bonus_unique_dragon_knight_9"				"+120%"	// +200
 			}
 			"reduction"
 			{
@@ -12185,7 +12185,7 @@
 			"max_damage"
 			{
 				"value"		"70 120 170 220 270"	// 35 60 85 110 x2
-				"special_bonus_unique_warlock_3" "+100"	// 50 x2
+				"special_bonus_unique_warlock_3" "+80"	// 40 x2
 			}
 
 			"AbilityCooldown"			"60 50 40 30 20"
