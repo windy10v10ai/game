@@ -1237,7 +1237,7 @@
 			}
 			"swipe_damage"
 			{
-				"value"											"40 70 100 130 160"	// 20 35 50 65 80 x2
+				"value"											"40 70 100 130 160"	// 20 35 50 65 x2
 			}
 			"smash_radius"
 			{
@@ -1245,7 +1245,7 @@
 			}
 			"smash_damage"
 			{
-				"value"				"40 70 100 130 160"	// 20 35 50 65 80 x2
+				"value"				"40 70 100 130 160"	// 20 35 50 65 x2
 			}
 			"movement_speed"				"600"	// 215
 			"smash_stun_duration"
@@ -2588,6 +2588,7 @@
 	"marci_bodyguard"
 	{
 		"MaxLevel"						"5"
+		"AbilityCooldown"				"22 21 20 19 18"
 		"AbilityManaCost"				"60 65 70 75 80"
 		"AbilityValues"
 		{
@@ -2672,6 +2673,11 @@
 			"crit_mult"
 			{
 				"value"								"160 200 240 280 320"	// 160 200 240 280 延伸
+			}
+			"radius"
+			{
+				"value"					"500 525 550 575 600"	// 500 525 550 575 延伸
+				"affected_by_aoe_increase"	"1"
 			}
 			"bonus_damage_vs_heroes"	"10 20 30 40 50"	// 5 10 15 20 x2
 			"AbilityCooldown"
@@ -11174,11 +11180,11 @@
 				}
 				"damage"
 				{
-					"value"											"325 455 585 715"	// 325 455 585 延伸
+					"value"											"325 475 625 775"
 				}
 				"AbilityCooldown"
 				{
-					"value"											"85 70 55 40"		// 105 90 75 60 -20
+					"value"											"90 80 70 60"		// 110 100 90 -20
 				}
 		}
 	}
@@ -11187,8 +11193,14 @@
 	{
 		"AbilityValues"
 		{
-			"spell_lifesteal"			"15.0"		// 3.0 x5
-			"spell_lifesteal_close"		"85.0"		// 17.0 x5
+			"spell_lifesteal"
+			{
+				"value"			"15.0"		// 3.0 x5
+			}
+			"spell_lifesteal_close"
+			{
+				"value"		"85.0"		// 17.0 x5
+			}
 		}
 	}
 	//=================================================================================================================
@@ -12874,7 +12886,7 @@
 			}
 			"trap_duration"				"6"	// 4 x1.5
 			"wheel_stun"			"2.5 2.75 3.0 3.25"
-			"aura_damage"			"100 140 180 220"	// 50 70 90 110 x2
+			"aura_damage"			"100 140 180 220"	// 50 70 90 x2
 			"explosion_damage"		"275 425 575 725"	// 275 425 575 延伸
 		}
 	}
