@@ -4960,10 +4960,10 @@
 		"AbilityManaCost"				"125 175 225 275"
 		"AbilityValues"
 		{
-			"duration"					"7 9 11 13"	// 7 9 11 延伸
+			"duration"					"9 10 11 12"
 			"movement_damage_pct"
 			{
-				"value"	"45 50 55 60"	// 45 50 55 延伸
+				"value"	"35 45 55 65"
 			}
 			"AbilityCooldown"
 			{
@@ -8400,6 +8400,7 @@
 				"value"		"725 750 775 800 825"						// 725 750 775 800
 			}
 			"stun_duration"			"1.8 2.2 2.6 3.0 3.4"				// 1.8 2.2 2.6 3.0
+			"movement_slow"			"4 6 8 10 12"						// 4 6 8 10 延伸
 		}
 	}
 	// 冰霜漩涡
