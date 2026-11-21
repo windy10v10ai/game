@@ -418,16 +418,6 @@
 		"Ability10"		"special_bonus_unique_marci_guardian_lifesteal"
 		"Ability11"		"special_bonus_unique_marci_lunge_range"	// 覆盖原有天赋范围
 		"Ability15"		"special_bonus_status_resistance_25"
-
-		"AttackRate"				"1.5"	// 1.7
-		"MovementSpeed"				"325"	// 315
-		"ArmorPhysical"				"3"		// 0
-		"AttributeBaseStrength"		"32"	// 23
-		"AttributeStrengthGain"		"3.3"	// 3
-		"AttributeBaseAgility"		"24"	// 22
-		"AttributeAgilityGain"		"2.5"	// 2.2
-		"AttributeBaseIntelligence"	"22"	// 19
-		"AttributeIntelligenceGain" "2.1"	// 1.9
 	}
 
 	"npc_dota_hero_obsidian_destroyer"
@@ -489,11 +479,6 @@
 	"npc_dota_hero_pangolier"
 	{
 		"DisableWearables"			"1"
-	}
-
-	"npc_dota_hero_naga_siren"
-	{
-		"Ability17"		"special_bonus_unique_naga_siren_net_breaks"	// 替代原版较弱天赋，官方弱天赋换槽位时跟着移到对应槽位
 	}
 
 	"npc_dota_hero_night_stalker"
@@ -904,6 +889,7 @@
 		"Ability5"		"dazzle_good_juju"
 		"Ability6"		"dazzle_bad_juju"
 		"Ability7"		"generic_hidden"
+		"Ability15"		"special_bonus_unique_dazzle_shallow_grave_heal_amplify"	// 替代本图没有的虚无投影减冷却
 
 		"Bot"
 		{
