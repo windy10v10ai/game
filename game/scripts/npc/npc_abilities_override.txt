@@ -4737,14 +4737,6 @@
 			}
 		}
 	}
-	// 绝人之路 先天
-	"antimage_persectur"
-	{
-		"AbilityValues"
-		{
-			"mana_threshold"		"75"		// 60
-		}
-	}
 	// 闪烁
 	"antimage_blink"
 	{
