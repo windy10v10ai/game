@@ -3740,7 +3740,6 @@
 			"bonus_damage"
 			{
 				"value"		"35 90 145 200 255"		// 35 90 145 200
-				"special_bonus_unique_slardar_2"	"+50"		// +200
 			}
 		}
 	}
