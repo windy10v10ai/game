@@ -5417,26 +5417,26 @@
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"24 21 18 15 12"	// 24 21 18 15 延伸
+		"AbilityCooldown"				"28 24 20 16 12"
 		"AbilityValues"
 		{
 			"radius"
 			{
 				"value"		"1200"	// 775
 			}
-			"duration"				"6 7 8 9 10"	// 6 7 8 9 延伸
+			"duration"				"7 8 9 10 11"
 			"slow"
 			{
 				"value"					"4 5 6 7 8"
 			}
-			"attack_slow"
+			"attack_slow_tooltip_only"
 			{
-				"value"								"4 5 6 7 8"	// 4 5 6 7 延伸
+				"value"								"4 5 6 7 8"
 			}
 			"cooldown_percentage"	"30 40 50 60 70"
 			"damage_per_stack"
 			{
-				"value"				"12 16 20 24 28"	// 6 8 10 12 14 x2
+				"value"				"8 12 16 20 24"	// 4 6 8 10 x2
 				"special_bonus_unique_faceless_void_6" "+20"	// +6
 			}
 		}
@@ -5464,7 +5464,7 @@
 				"duration"				"3.75 4.25 4.75 5.25"
 				"radius"
 				{
-					"special_bonus_unique_faceless_void_2" "+200"	// +125
+					"special_bonus_unique_faceless_void_2"	"+200"	// +125
 				}
 				"vision_radius"
 				{
@@ -10431,7 +10431,7 @@
 		"AbilityValues"
 		{
 			"magic_resistance"					"50"	// 35
-			"spell_amp"							"60"	// 30 x2
+			"spell_amp"							"70"	// 35
 		}
 	}
 	// 神灭斩
@@ -10547,7 +10547,7 @@
 			"duration"					"150"	// 90
 			"spell_amp"
 			{
-				"value"					"100"	// 15
+				"value"					"75"	// 15 x5
 			}
 			"debuff_amp"
 			{
