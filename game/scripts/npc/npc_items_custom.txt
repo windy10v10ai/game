@@ -8000,7 +8000,10 @@
 			"base_proc_dmg"					"20"	// 原版 20
 			"base_attack_range"				"75"	// 原版 150
 
-			"poison_duration"				"3"	// 原版 3
+			"poison_duration"
+			{
+				"value"				"3"	// 原版 3
+			}
 			"poison_base_damage"			"0"	// 原版 0
 			"poison_damage_per_second"		"2.5"	// 原版 2.5
 		}
