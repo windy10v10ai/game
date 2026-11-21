@@ -8,6 +8,7 @@ import { HeroItemUsage } from '../../../api/analytics/hero-item-usage';
 import { GA4DailyTaskTracker } from '../../../api/analytics/ga4/ga4-daily-task-tracker';
 import { GA4PickAbilityTracker } from '../../../api/analytics/ga4/ga4-pick-ability-tracker';
 import { Game } from '../../../api/game';
+import { UsesLauncherSettleLog } from '../../../api/launcher-settle-log';
 import { reloadable } from '../../../utils/tstl-utils';
 import { isAwakened } from '../../awaken/awaken-replacer';
 import { GameConfig } from '../../GameConfig';
@@ -78,7 +79,11 @@ export class GameEnd {
   private static MarkSettled(recorded: boolean): void {
     if (this.settled) return;
     this.settled = true;
-    CustomNetTables.SetTableValue('ending_status', 'ending_status', { status: recorded ? 2 : 3 });
+    // 启动器局写完日志就算结算完成，积分由启动器上传，界面单独提示
+    const settledStatus = UsesLauncherSettleLog() ? 4 : 2;
+    CustomNetTables.SetTableValue('ending_status', 'ending_status', {
+      status: recorded ? settledStatus : 3,
+    });
     // 引擎同时只跑几个 HTTP 请求，统计先发会把结算的重发挤到队尾
     const sendStats = this.pendingStats;
     this.pendingStats = undefined;

@@ -41,7 +41,7 @@ npm run perf -- --server tools --mode soak --soakMinutes 30 --soakTimescale 2 --
 
 只有说明文字排版、真实键鼠手感这类必须看画面的，才截图。只要画面、不需要点击时，用引擎的 `screenshot` 命令截图，不用 computer-use，也不要用 PowerShell 截屏：切前台、截图、转 PNG、收起技能抽选面板、同一局反复截结算面板 → `references/screenshots.md`。要点击、按键、悬停时用 computer-use 操作，图仍用引擎命令截，窗口先最大化。
 
-加载或选队画面需要截图时，先在 `GameConfig` 的工具/调试分支临时延长 `SetCustomGameSetupAutoLaunchDelay`，编译并重新载入后取图。截图结束后恢复源码与本地编译产物，临时等待时间不提交。
+加载或选队画面需要截图时，要同时临时改 `GameConfig` 的三处才留得住选队界面：`SetCustomGameSetupRemainingTime(3)` 改 600（它才是实际时限，只改 `SetCustomGameSetupAutoLaunchDelay` 留不住），`EnableCustomGameSetupAutoLaunch(...)` 改 `false`，`IS_DEBUG_RUN` 分支里的 `SetCustomGameSetupAutoLaunchDelay(3)` 改 600，编译并重新载入后取图。没起后端时「离线」状态条要等 `/game/start` 超时重试用完才出现，一到四分钟不等，日志出现 `[PlayerSnapshot] matched` 后再截，更早截到的是「加载中」。截图结束后恢复源码与本地编译产物，临时改动不提交。
 
 ## 脚本判定：一条命令跑完一次检查
 
@@ -91,11 +91,13 @@ end)
 - **验客户端代发链路用强制代发开关**：`src/vscripts/api/api-client.local.ts` 的 `GetForceProxy()` 改成返回 `true`（只在 Tools 生效），`npm run build:vscripts` 后重开一局，服务端的请求全部改由客户端网页控件代发；测完改回 `false`。该文件带 skip-worktree，改动不出现在 `git status`，收尾时按文件内容确认已还原
 - **客户端代发链路在 Tools 里连不上本地 API**：网页控件请求 `http://localhost`、`http://127.0.0.1` 与本机局域网 IP 一律超时，后端预热过、curl 能秒回也一样，开局请求也会因此转成离线模式。验代发链路用真实域名：`api-client.local.ts` 的 `GetApiTarget()` 改返回 `'direct'`，同时 `GetForceProxy()` 返回 `true`，网页控件就能请求到 `api.windy10v10ai.com`。用户已授权往开发者自己的账户写数据，结算类写入也可以验，账户冷却内回包是 `{"recorded":false}`，仍算代发成功。测完两处都还原（文件带 skip-worktree，按内容确认）。结算流程用 `npm run dota:check -- <空检查脚本> --keep-open` 开局后，`npm run dota:cmd -- "say -end"` 触发。验界面就关掉强制代发，让服务端直连
 - **computer-use 授权填 `dota2.exe`**：`request_access` 写开始菜单里的「Dota 2」只授权到 Steam 启动链接，实际窗口仍被遮成色块。授权弹窗要用户本人点，交接里写明被拒就停下回报
-- **窗口焦点**：系统常驻的「Windows 输入体验」（`TextInputHost.exe`，承载表情面板、剪贴板历史、输入法候选框）偶尔挂着不可见窗口抢走前台，computer-use 因前台不是已授权应用而拒绝操作。不是用户开了什么，也关不掉（系统常驻，结束后自动重启）。被挡时 computer-use 在点击前就拒绝，点 Dota 窗口、`WScript.Shell.AppActivate` 都抢不回来。做法：在动手前要权限那一步连同 `dota2.exe` 一起 `request_access` 授权 `textinputhost.exe`，点击会穿过它落到 Dota 上；用户不授权时停下回报，请用户本人点一下 Dota 窗口
+- **窗口焦点**：系统常驻的「Windows 输入体验」（`TextInputHost.exe`，承载表情面板、剪贴板历史、输入法候选框）偶尔挂着不可见窗口抢走前台，computer-use 因前台不是已授权应用而拒绝操作。不是用户开了什么，也关不掉（系统常驻，结束后自动重启）。被挡时 computer-use 在点击前就拒绝，点 Dota 窗口、`WScript.Shell.AppActivate` 都抢不回来。做法：在动手前要权限那一步连同 `dota2.exe` 一起 `request_access` 授权 `textinputhost.exe`，点击会穿过它落到 Dota 上；用户不授权时停下回报，请用户本人点一下 Dota 窗口。`textinputhost.exe` 的授权可能被策略永久拒绝，此时点击走不通，改走 `references/screenshots.md`「不点击出界面」
 - **同一时间只能有一个 Dota**：Dota 运行中再触发任何启动（`Start-Process`、`open_application "Dota 2"`、Steam 链接）都会弹 `Source2 - Warning: Only one instance of the game can be running at one time`，弹框抢走前台、后续操作全被拒。切语言或重启时先 `Stop-Process -Name dota2 -Force`，`Get-Process dota2` 查不到了再启动；拉回窗口只用点击，不调用 `open_application`。交接里照抄这一条
 - **只回报观察**：哪几行出现了、时间戳是多少、断在哪一步。诊断和改代码留给主会话
 - **开工先查端口**，没起的自己起——上一轮的后台进程不一定还活着
 - **不收尾**：关不关由主会话决定，见第 6 步
+- **PR 截图派主力档**：要审排版，最便宜档判断不了，规则见 `create-pr` 的 `references/screenshots.md`
+- **串行派多个子代理时写明授权**：上一个子代理留着的 Dota，下一个子代理的交接里写「用户已授权关闭遗留的 dota2」，否则它按「已开着就拒绝」停下回报，白费一轮
 
 拿到这份 skill 的子代理从第 1 步开始，不再往下派。
 
@@ -169,11 +171,13 @@ grep -n "ApiHtmlProxy\|GameStartProxy" "C:/Program Files (x86)/Steam/steamapps/c
 
 留着的时候要把留了哪些进程告诉用户，别让它们在后台无声占着端口。
 
+**回顾文档缺口**：本次验证里踩到、本 skill 与 `references/` 没写的做法或限制，以及与文档矛盾的地方，按 `doc-update` 写回本 skill。派子代理时在回报要求里加一节「文档没写到的坑」，收到后同样写回。
+
 要关的时候，`TaskStop` 只杀后台任务的外层 shell，模拟器的 java 和 API 的 node 会活下来，要按 PID 补杀，再确认三个端口都已释放。Dota 退出后按需删 `console.log`。
 
 派出去的子代理与子会话本身也要收尾：它回报完成后就停掉并归档，没提交过东西的 worktree 与分支一并删干净。这是一次派活的最后一步，不要等用户问「怎么又没关」。
 
-完成判据：关掉时三个端口全部释放；留着时已经把留了什么告诉用户；派出去的会话没有一个还挂着。
+完成判据：关掉时三个端口全部释放；留着时已经把留了什么告诉用户；派出去的会话没有一个还挂着，验证中发现的文档缺口已写回。
 
 ## 临时调试日志
 
