@@ -24,6 +24,8 @@ description: 把原版物品克隆成升级版（数值约 2 倍 + 配方）。
 
 更新模式按 `references/update-mode.md` 同步 KV 与本地化，然后跳到第 5 步。
 
+`BaseClass` 只继承原版物品的引擎侧行为（如 A杖效果），**不继承 `AbilityValues`**，数值要写进自己的块，见 `game/scripts/npc/CLAUDE.md`「BaseClass 继承范围」。
+
 ## 2. 配方材料与价格（新建）
 
 配方 = 原版物品本身 + 用户给的额外材料。用 `AskUserQuestion` 问额外材料（系统名用 `;` 分隔，没有就「无」）；用户给的是克隆版材料（如 `item_veil_of_discord_2`）就保留克隆名。
