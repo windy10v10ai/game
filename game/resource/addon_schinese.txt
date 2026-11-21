@@ -104,6 +104,7 @@
 		// 网站
 		"local_host_feature_unsupported_hint"		"为保护账号数据安全，游戏内无法进行该操作，点击前往网站操作。"
 		"website_local_host_notice"		"属性加点和觉醒请在网站完成，点击刷新后生效。"
+		"website_local_host_notice_offline"		"属性加点和觉醒请在网站完成，地图下次更新后生效。"
 		"website_open_button"				"前往网站"
 		"website_open_property_button"		"前往网站"
 		"website_open_awaken_button"		"网站觉醒"

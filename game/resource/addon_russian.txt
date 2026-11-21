@@ -104,6 +104,7 @@
 		// 网站
 		"local_host_feature_unsupported_hint"		"Для защиты данных аккаунта это действие недоступно в игре. Нажмите, чтобы перейти на сайт."
 		"website_local_host_notice"		"Характеристики и пробуждение — на сайте. Нажмите «Обновить», чтобы применить."
+		"website_local_host_notice_offline"		"Характеристики и пробуждение — на сайте. Изменения вступят в силу после следующего обновления карты."
 		"website_open_button"				"Открыть сайт"
 		"website_open_property_button"		"На сайт"
 		"website_open_awaken_button"		"Пробудить на сайте"

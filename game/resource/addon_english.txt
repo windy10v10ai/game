@@ -104,6 +104,7 @@
 		// 网站
 		"local_host_feature_unsupported_hint"		"To keep account data safe, this cannot be done in game. Click to do it on the website."
 		"website_local_host_notice"		"Manage attributes and awakening on the website, then click Refresh to apply."
+		"website_local_host_notice_offline"		"Manage attributes and awakening on the website. Changes apply after the next map update."
 		"website_open_button"				"Open Website"
 		"website_open_property_button"		"Open Website"
 		"website_open_awaken_button"		"Awaken on Website"

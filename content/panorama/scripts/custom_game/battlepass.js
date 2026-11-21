@@ -112,6 +112,10 @@ function UpdateOfflineHint() {
   );
   // 刷新要经服务端拉取，离线或还没有玩家数据时点了不会有结果
   $('#PropertyRefreshButton').visible = !offline && GetPlayer() != null;
+  // 离线时点刷新拿不到网站上的改动，要等地图更新
+  $('#PropertyWebsiteNotice').text = $.Localize(
+    offline ? '#website_local_host_notice_offline' : '#website_local_host_notice',
+  );
 }
 
 // --------------------------------------------------------------------------------
