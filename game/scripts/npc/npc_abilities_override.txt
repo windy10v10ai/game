@@ -1237,7 +1237,7 @@
 			}
 			"swipe_damage"
 			{
-				"value"											"50 80 110 140 170"	// 25 40 55 70 85 x2
+				"value"											"40 70 100 130 160"	// 20 35 50 65 80 x2
 			}
 			"smash_radius"
 			{
@@ -1245,7 +1245,7 @@
 			}
 			"smash_damage"
 			{
-				"value"				"50 80 110 140 170"	// 25 40 55 70 85 x2
+				"value"				"40 70 100 130 160"	// 20 35 50 65 80 x2
 			}
 			"movement_speed"				"600"	// 215
 			"smash_stun_duration"
@@ -1306,7 +1306,7 @@
 			{
 				"value"						"40"	// 8 x5
 			}
-			"max_vision_pct"				"40"	// 20 x2
+			"max_vision_pct"				"30"	// 15 x2
 		}
 	}
 	// 天光现世
@@ -2602,7 +2602,7 @@
 			}
 			"shared_barrier"
 			{
-				"value"											"90 160 230 300 370"
+				"value"											"120 180 240 300 360"	// 120 180 240 300 延伸
 			}
 		}
 	}
@@ -2671,7 +2671,7 @@
 		{
 			"crit_mult"
 			{
-				"value"								"150 200 250 300 350"
+				"value"								"160 200 240 280 320"	// 160 200 240 280 延伸
 			}
 			"bonus_damage_vs_heroes"	"10 20 30 40 50"	// 5 10 15 20 x2
 			"AbilityCooldown"
@@ -2706,7 +2706,6 @@
 			"AbilityCooldown"
 			{
 				"value"			"100 95 90 85"
-				"special_bonus_unique_mars_arena_cooldown"			"-25"
 			}
 			"spear_damage"		"80 160 240 320"
 		}
@@ -3830,7 +3829,7 @@
 			"projectile_speed"		"1950"	// 1300 x1.5
 			"damage_per_impact"
 			{
-				"value"		"170 250 330 410"
+				"value"		"180 250 320 390"	// 180 250 320 延伸
 			}
 			"burn_damage"
 			{
@@ -5905,7 +5904,7 @@
 		{
 				"bonus_movement_speed_druid"
 				{
-					"value"			"10 20 30 40 50"
+					"value"			"15 30 45 60 75"	// 15 30 45 60 延伸
 				}
 				"bonus_movement_speed_bear"
 				{
@@ -5924,7 +5923,7 @@
 		{
 				"bonus_movement_speed_druid"
 				{
-					"value"			"10 20 30 40 50"
+					"value"			"15 30 45 60 75"	// 15 30 45 60 延伸
 				}
 				"bonus_movement_speed_bear"
 				{
@@ -6949,7 +6948,7 @@
 				"dash_range"			"575 650 725 800 875"
 				"damage"
 				{
-					"value"		"35 65 95 125 155"
+					"value"		"25 50 75 100 125"	// 25 50 75 100 延伸
 				}
 				"attack_damage"
 				{
@@ -6957,7 +6956,7 @@
 				}
 				"strikes"
 				{
-					"value"			"5"			// 3
+					"value"			"5"			// 4
 				}
 		}
 	}
@@ -7921,10 +7920,10 @@
 	"ursa_earthshock"
 	{
 		"MaxLevel"						"5"
-		"AbilityDamage"					"75 125 175 225 275"
+		"AbilityDamage"					"80 140 200 260 320"	// 80 140 200 260 延伸
 		"AbilityValues"
 		{
-			"movement_slow"				"-22 -28 -34 -40 -46"
+			"movement_slow"				"-16 -24 -32 -40 -48"	// -16 -24 -32 -40 延伸
 			"fury_swipe_stacks_on_hit"
 			{
 				"special_bonus_shard"			"+4"	// +3
@@ -11123,7 +11122,7 @@
 			{
 				"value"								"50 80 110 140 170"
 			}
-			"duration_damage"		"20 40 60 80 100"
+			"duration_damage"		"25 50 75 100 125"	// 25 50 75 100 延伸
 			"movement_slow"			"-25 -35 -45 -55 -65"
 		}
 	}
@@ -11175,11 +11174,11 @@
 				}
 				"damage"
 				{
-					"value"											"325 475 625 775"
+					"value"											"325 455 585 715"	// 325 455 585 延伸
 				}
 				"AbilityCooldown"
 				{
-					"value"											"90 80 70 60"		// 110 100 90 -20
+					"value"											"85 70 55 40"		// 105 90 75 60 -20
 				}
 		}
 	}
@@ -11188,8 +11187,8 @@
 	{
 		"AbilityValues"
 		{
-			"spell_lifesteal"			"10.0"		// 2.0 x5
-			"spell_lifesteal_close"		"70.0"		// 14.0 x5
+			"spell_lifesteal"			"15.0"		// 3.0 x5
+			"spell_lifesteal_close"		"85.0"		// 17.0 x5
 		}
 	}
 	//=================================================================================================================
@@ -12743,7 +12742,7 @@
 		{
 			"double_shot_chance"
 			{
-				"value"					"18 27 36 45 54"
+				"value"					"20 30 40 50 60"	// 20 30 40 50 延伸
 			}
 		}
 	}
@@ -12841,7 +12840,7 @@
 		{
 			"damage_impact"
 			{
-				"value"		"20 35 50 65 80"
+				"value"		"20 40 60 80 100"	// 20 40 60 80 延伸
 			}
 			"bleed_health_pct"			"3 4 5 6 7"
 			"bleed_creep_dps"			"60 75 90 105 120"
@@ -12875,8 +12874,8 @@
 			}
 			"trap_duration"				"6"	// 4 x1.5
 			"wheel_stun"			"2.5 2.75 3.0 3.25"
-			"aura_damage"			"100 150 200 250"	// 50 75 100 x2
-			"explosion_damage"		"300 450 600 750"
+			"aura_damage"			"100 140 180 220"	// 50 70 90 110 x2
+			"explosion_damage"		"275 425 575 725"	// 275 425 575 延伸
 		}
 	}
 	// 聚光灯 魔晶技能
@@ -12891,7 +12890,7 @@
 			{
 				"value"		"500"	// 275
 			}
-			"miss_chance"					"80"	// 30
+			"miss_chance"					"80"	// 45
 		}
 	}
 	// 整蛊垫 命石1
@@ -12901,8 +12900,8 @@
 		{
 			"leap_distance"			"600"	// 400
 			"fart_cloud_duration"	"4.5"	// 3.0
-			"fart_cloud_slow"		"-50.0"	// -30.0
-			"fart_cloud_radius"		"400"	// 250
+			"fart_cloud_slow"		"-50.0"	// -35.0
+			"fart_cloud_radius"		"400"	// 300
 		}
 	}
 	// 强力水 命石1

@@ -424,7 +424,7 @@
 		"ArmorPhysical"				"3"		// 0
 		"AttributeBaseStrength"		"32"	// 23
 		"AttributeStrengthGain"		"3.3"	// 3
-		"AttributeBaseAgility"		"24"	// 20
+		"AttributeBaseAgility"		"24"	// 22
 		"AttributeAgilityGain"		"2.5"	// 2.2
 		"AttributeBaseIntelligence"	"22"	// 19
 		"AttributeIntelligenceGain" "2.1"	// 1.9
