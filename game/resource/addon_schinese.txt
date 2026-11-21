@@ -3029,7 +3029,7 @@
 
 		// 小鸡臂章
 		"DOTA_Tooltip_Ability_item_armlet_plus"				"小鸡臂章Plus"
-		"DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量，+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
+		"DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>开关：莫尔迪基安之誓</h1>开启后将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，并且可以穿过单位，转身速度更快，近战英雄提升%phase_movement_speed%%%移动速度，远程英雄提升%phase_movement_speed_range%%%移动速度。另外提供最多%unholy_bonus_slow_resistance%%%减速抗性，随当前生命值的百分比减少而下降。每秒失去%unholy_health_drain_per_second%点生命值。\n\n生命流失并不会导致死亡，关闭后力量降低也不会导致死亡。多个鞋类物品提供的移动速度加成不叠加。"
 		"DOTA_Tooltip_ability_item_armlet_plus_Lore"									"你知道什么是小鸡臂章吗？"
 		"DOTA_Tooltip_ability_item_armlet_plus_Note0"								"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
 		"DOTA_Tooltip_ability_item_armlet_plus_Note1"								"力量的增加将在0.6秒内完成。"
@@ -3039,9 +3039,11 @@
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_movement_speed_melee"			"+移动速度（近战英雄）"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_movement_speed_ranged"			"+移动速度（远程英雄）"
 
 		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"小鸡臂章Pro Max"
-		"DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量，+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>开关：莫尔迪基安之誓</h1>开启后将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，并且可以穿过单位，转身速度更快，近战英雄提升%phase_movement_speed%%%移动速度，远程英雄提升%phase_movement_speed_range%%%移动速度。另外提供最多%unholy_bonus_slow_resistance%%%减速抗性，随当前生命值的百分比减少而下降。每秒失去%unholy_health_drain_per_second%点生命值。\n\n生命流失并不会导致死亡，关闭后力量降低也不会导致死亡。多个鞋类物品提供的移动速度加成不叠加。"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Lore"									"小鸡臂章本应该不会让你每秒损失血量，但是咱们少扣点意思意思。"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note0"								"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note1"								"力量的增加将在0.6秒内完成。"
@@ -3051,6 +3053,8 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_movement_speed_melee"			"+移动速度（近战英雄）"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_movement_speed_ranged"			"+移动速度（远程英雄）"
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
@@ -3379,7 +3383,7 @@
 
 		// item_armlet_light 圣光·臂章
 		"DOTA_Tooltip_ability_item_armlet_light"				"<font color='#FFFF00'>圣光·臂章</font>"
-		"DOTA_Tooltip_ability_item_armlet_light_Description"							"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量，+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
+		"DOTA_Tooltip_ability_item_armlet_light_Description"							"<h1>开关：莫尔迪基安之誓</h1>开启后将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，并且可以穿过单位，转身速度更快，近战英雄提升%phase_movement_speed%%%移动速度，远程英雄提升%phase_movement_speed_range%%%移动速度。另外提供最多%unholy_bonus_slow_resistance%%%减速抗性，随当前生命值的百分比减少而下降。每秒失去%unholy_health_drain_per_second%点生命值。\n\n生命流失并不会导致死亡，关闭后力量降低也不会导致死亡。多个鞋类物品提供的移动速度加成不叠加。"
 		"DOTA_Tooltip_ability_item_armlet_light_Lore"									"暴徒们首选的武器，持有者牺牲自己的生命能量来获得巨大力量。"
 		"DOTA_Tooltip_ability_item_armlet_light_Note0"								"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
 		"DOTA_Tooltip_ability_item_armlet_light_Note1"								"力量的增加将在0.6秒内完成。"
@@ -3388,10 +3392,12 @@
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_light_bonus_movement_speed_melee"			"+移动速度（近战英雄）"
+		"DOTA_Tooltip_ability_item_armlet_light_bonus_movement_speed_ranged"			"+移动速度（远程英雄）"
 
 		// item_armlet_dark 暗影·臂章
 		"DOTA_Tooltip_ability_item_armlet_dark"				"<font color='#8A2BE2'>暗影·臂章</font>"
-		"DOTA_Tooltip_ability_item_armlet_dark_Description"							"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量，+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
+		"DOTA_Tooltip_ability_item_armlet_dark_Description"							"<h1>开关：莫尔迪基安之誓</h1>开启后将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，并且可以穿过单位，转身速度更快，近战英雄提升%phase_movement_speed%%%移动速度，远程英雄提升%phase_movement_speed_range%%%移动速度。另外提供最多%unholy_bonus_slow_resistance%%%减速抗性，随当前生命值的百分比减少而下降。每秒失去%unholy_health_drain_per_second%点生命值。\n\n生命流失并不会导致死亡，关闭后力量降低也不会导致死亡。多个鞋类物品提供的移动速度加成不叠加。"
 		"DOTA_Tooltip_ability_item_armlet_dark_Lore"									"暴徒们首选的武器，持有者牺牲自己的生命能量来获得巨大力量。"
 		"DOTA_Tooltip_ability_item_armlet_dark_Note0"								"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
 		"DOTA_Tooltip_ability_item_armlet_dark_Note1"								"力量的增加将在0.6秒内完成。"
@@ -3400,10 +3406,12 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_dark_bonus_movement_speed_melee"			"+移动速度（近战英雄）"
+		"DOTA_Tooltip_ability_item_armlet_dark_bonus_movement_speed_ranged"			"+移动速度（远程英雄）"
 
 		// item_armlet_artifact 神器·光暗臂章
 		"DOTA_Tooltip_ability_item_armlet_artifact"									"<font color='#e03e2e'>神器·光暗臂章</font>"
-		"DOTA_Tooltip_ability_item_armlet_artifact_Description"						"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量，+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
+		"DOTA_Tooltip_ability_item_armlet_artifact_Description"						"<h1>开关：莫尔迪基安之誓</h1>开启后将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，并且可以穿过单位，转身速度更快，近战英雄提升%phase_movement_speed%%%移动速度，远程英雄提升%phase_movement_speed_range%%%移动速度。另外提供最多%unholy_bonus_slow_resistance%%%减速抗性，随当前生命值的百分比减少而下降。每秒失去%unholy_health_drain_per_second%点生命值。\n\n生命流失并不会导致死亡，关闭后力量降低也不会导致死亡。多个鞋类物品提供的移动速度加成不叠加。"
 		"DOTA_Tooltip_ability_item_armlet_artifact_Lore"								"光明与黑暗，完美融合——持有者同时掌握两者之巅。"
 		"DOTA_Tooltip_ability_item_armlet_artifact_Note0"							"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
 		"DOTA_Tooltip_ability_item_armlet_artifact_Note1"							"力量的增加将在0.6秒内完成。"
@@ -3412,6 +3420,8 @@
 		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_armor"						"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_health_regen"				"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_movement_speed_melee"			"+移动速度（近战英雄）"
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_movement_speed_ranged"			"+移动速度（远程英雄）"
 
 		// Updated Armlet tooltip (now shows slow resist on active)
 		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"攻击力提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点。\n力量增加%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点。\n护甲提升%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。\n减速抗性提升%dMODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING%%%。\n每秒损失%dMODIFIER_PROPERTY_TOOLTIP%点生命值"

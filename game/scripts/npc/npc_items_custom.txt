@@ -4580,7 +4580,7 @@
 		"ItemResult"					"item_armlet_plus"
 		"ItemRequirements"
 		{
-			"01"						"item_helm_of_iron_will;item_armlet"
+			"01"						"item_helm_of_iron_will;item_berserkers_sabatons"
 			"02"						"item_helm_of_iron_will;item_armlet_copy"
 		}
 	}
@@ -4614,10 +4614,6 @@
 			"bonus_attack_speed"	"35"
 			"bonus_armor"			"12"
 			"bonus_health_regen"	"10"
-			"bonus_movement_speed_ranged"	"0"	// 本体不是鞋子，不提供常驻移速
-			"bonus_movement_speed_melee"	"0"
-			"phase_movement_speed"	"20"		// 开启时相位移速
-			"phase_movement_speed_range"	"10"
 			"unholy_bonus_damage"	"45"
 			"unholy_bonus_strength"	"50"
 			"unholy_bonus_armor"	"8"
@@ -4682,10 +4678,6 @@
 			"bonus_attack_speed"	"45"
 			"bonus_armor"			"18"
 			"bonus_health_regen"	"15"
-			"bonus_movement_speed_ranged"	"0"	// 本体不是鞋子，不提供常驻移速
-			"bonus_movement_speed_melee"	"0"
-			"phase_movement_speed"	"25"		// 开启时相位移速
-			"phase_movement_speed_range"	"12"
 			"unholy_bonus_damage"	"55"
 			"unholy_bonus_strength"	"75"
 			"unholy_bonus_armor"	"12"
