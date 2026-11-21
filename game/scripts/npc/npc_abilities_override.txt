@@ -6596,10 +6596,6 @@
 				"value"					"500 525 550 575 600"
 				"special_bonus_scepter"		"+100%"		// +50% 增加施法距离与捕捞一致
 			}
-			"does_break"
-			{
-				"special_bonus_unique_naga_siren_net_breaks"		"+1"	// 有此天赋即使没有阿哈利姆神杖，诱捕也施加破坏
-			}
 		}
 	}
 	// 激流
@@ -8968,7 +8964,6 @@
 			"slow"
 			{
 				"value"							"-14 -18 -22 -26 -30"	// -13 -16 -19 -22 差值-4
-				"special_bonus_unique_dazzle_1"	"-30"					// -15
 			}
 			"duration"		"4 4.5 5 5.5 6"	// 3.5 5 6.5 8 差值0.5
 			"bonus_slow"			"-2 -2.5 -3 -3.5 -4"

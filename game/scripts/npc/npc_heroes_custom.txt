@@ -491,11 +491,6 @@
 		"DisableWearables"			"1"
 	}
 
-	"npc_dota_hero_naga_siren"
-	{
-		"Ability17"		"special_bonus_unique_naga_siren_net_breaks"	// 替代原版较弱天赋，官方弱天赋换槽位时跟着移到对应槽位
-	}
-
 	"npc_dota_hero_night_stalker"
 	{
 		"VisionDaytimeRange"		"1200"// 800
