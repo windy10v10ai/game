@@ -8060,7 +8060,7 @@
 		"BaseClass"						"item_blade_mail"
 		"AbilityTextureName"			"blade_mail_copy"
 		"AbilitySharedCooldown"			"blade_mail"
-		"ItemCost"						"1000"	// 原版造价 2400
+		"ItemCost"						"1000"	// 原版造价 2350
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"1"
