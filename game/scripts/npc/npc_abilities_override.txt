@@ -1460,7 +1460,7 @@
 			}
 			"bonus_aoe"
 			{
-				"value"				"30 60 90 120 150"
+				"value"				"40 60 80 100 120"	// 40 60 80 100 延伸
 			}
 		}
 	}
@@ -9276,7 +9276,7 @@
 		{
 			"enchant_health"
 			{
-				"value" 					"600 1000 1400 1800"	// 150 250 350 450 x4
+				"value" 					"700 1000 1300 1600"	// 175 250 325 400 x4
 			}
 			"xp_gain_pct"					"100"//**75** 40
 			"bonus_armor"
@@ -10736,16 +10736,16 @@
 	"ogre_magi_fireblast"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"70 85 100 115 130"
+		"AbilityManaCost"				"85 95 105 115 125"	// 85 95 105 115 延伸
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"								"12 11 10 9 8"
+				"value"								"16 14 12 10 8"
 			}
 			"fireblast_damage"
 			{
-				"value"		"70 130 190 250 310"
+				"value"		"100 150 200 250 300"	// 100 150 200 250 延伸
 			}
 		}
 	}
@@ -10766,10 +10766,9 @@
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
-			"duration"			"5 6 7 8 9"
 			"burn_damage"
 			{
-				"value"				"20 30 40 50 60"
+				"value"				"10 25 40 55 70"	// 10 25 40 55 延伸
 				"special_bonus_unique_ogre_magi_4" "+20"	// +10
 			}
 		}
@@ -12157,7 +12156,7 @@
 			}
 			"spell_aoe"
 			{
-				"value"					"300"	// 225
+				"value"					"300"	// 250
 			}
 			"AbilityCooldown"
 			{
