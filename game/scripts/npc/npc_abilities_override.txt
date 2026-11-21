@@ -4685,8 +4685,7 @@
 				}
 				"duration"
 				{
-					"value"			"9"	// 8
-					"special_bonus_unique_wisp_overcharge_duration"		"+1.0"	// +1.5
+					"value"			"9"	// 7
 				}
 		}
 	}
@@ -5465,7 +5464,7 @@
 				"duration"				"3.75 4.25 4.75 5.25"
 				"radius"
 				{
-					"special_bonus_unique_faceless_void_2" "+200"	// +140
+					"special_bonus_unique_faceless_void_2"	"+200"	// +125
 				}
 				"vision_radius"
 				{
@@ -6135,7 +6134,7 @@
 			{
 				"value"				"16 15 14 13 12"	// 15 14 13 12
 			}
-			"AbilityManaCost"					"80 100 120 140 160"	// 80 100 120 140
+			"AbilityManaCost"					"80 95 110 125 140"	// 80 95 110 125 延伸
 			"snake_jumps"
 			{
 				"value"							"4 5 6 7 8"	// 3 4 5 6
@@ -6152,11 +6151,15 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityManaCost"				"65 85 105 125 145"	// 65 85 105 125
-		"AbilityCooldown"				"30 26 22 18 14"	// 30 26 22 18
 		"AbilityValues"
 		{
-			"duration"					"0.8 1.2 1.6 2.0 2.4"	// 0.8 1.2 1.6 2.0
-			"damage"					"30 70 110 150 190"	// 30 70 110 150
+			"AbilityCooldown"			"30 25 20 15 10"	// 30 25 20 15 延伸
+			"duration"
+			{
+				"value"					"0.8 1.2 1.6 2.0 2.4"	// 0.8 1.2 1.6 2.0 延伸
+			}
+			"damage"					"60 120 180 240 300"	// 60 120 180 240 延伸
+			"damage_pers"				"12 24 36 48 60"	// 12 24 36 48 延伸
 		}
 	}
 
@@ -8504,7 +8507,10 @@
 
 		"AbilityValues"
 		{
-			"damage_reduction"	"55 60 65 70 75"
+			"damage_reduction"
+			{
+				"value"			"55 60 65 70 75"	// 55 60 65 70 延伸
+			}
 			"enfeeble_tick_damage"
 			{
 				"value"			"18 27 36 45 54"	// 12 18 24 30 x1.5
@@ -9753,7 +9759,7 @@
 			}
 			"burn_dps"
 			{
-				"value"					"20 30 40 50 60 70 80 90 100 110 120"	// 10 15 20 25 30 35 40 45 50 55 60 x2
+				"value"					"24 32 40 48 56 64 72 80 88 96 104"	// 12 16 20 24 28 32 36 40 44 48 52 x2
 			}
 		}
 	}
@@ -10523,7 +10529,7 @@
 		{
 			"damage"
 			{
-				"value"					"800 1000 1200 1400"	// 600 725 850 975
+				"value"					"800 1000 1200 1400"	// 570 685 800 915
 				"special_bonus_scepter"	"+400"	// +100
 			}
 			"punch_bonus_movespeed"			"60"	// 30 x2
@@ -10541,7 +10547,7 @@
 			"duration"					"150"	// 90
 			"spell_amp"
 			{
-				"value"					"100"	// 20
+				"value"					"75"	// 15 x5
 			}
 			"debuff_amp"
 			{
@@ -10835,7 +10841,7 @@
 	"oracle_fates_edict"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"16 14 12 10 8"	// 17 14 11 8 差值-2
+		"AbilityCooldown"				"16 14 12 10 8"	// 14 12 10 8 差值-2
 		"AbilityValues"
 		{
 			"duration"
@@ -10848,6 +10854,7 @@
 	"oracle_purifying_flames"
 	{
 		"MaxLevel"						"5"
+		"AbilityManaCost"				"60 65 70 75 80"	// 60 65 70 75 延伸
 		"AbilityValues"
 		{
 				"damage"				"90 180 270 360 450"
@@ -10860,7 +10867,7 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCastRange"				"800 850 900 950"
-		"AbilityManaCost"				"100 150 200 250"
+		"AbilityManaCost"				"125 175 225 275"	// 125 175 225 延伸
 		"AbilityValues"
 		{
 			"duration"
