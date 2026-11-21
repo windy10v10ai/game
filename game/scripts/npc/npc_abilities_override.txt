@@ -626,11 +626,6 @@
 				"value"			"250 500 750 1000"	// 275 375 475 差值 250
 				"special_bonus_unique_axe_5"	"+425"	// 150
 			}
-			"speed_bonus"
-			{
-				"value"			"20 25 30 35"	// 25
-				"display_type"	"kBuffPercentage"
-			}
 			"armor_bonus"				"20 30 40 50"	// 10 15 20 x2
 			"armor_per_stack"
 			{
