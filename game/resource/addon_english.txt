@@ -172,7 +172,7 @@
 		"conduct_point_light_penalty_tooltip"	"Conduct <font color='#FFA726'>{0}</font> penalty, points ×0.8"
 		"conduct_point_heavy_penalty_tooltip"	"Conduct <font color='#E87D7D'>{0}</font> penalty, points ×0.5"
 
-		"end_screen_offline_hint"		"Offline mode: Dota 2 restricts map networking, so points were not recorded.\nStart with the latest launcher to record points."
+		"end_screen_offline_hint"		"Offline mode: Dota 2 restricts map networking, so points weren't recorded. Use the latest launcher to record points."
 		"ending_status_1"			"Settling…"
 		"ending_status_2"			"Settlement complete"
 		"ending_status_3"			"Settlement submitted"

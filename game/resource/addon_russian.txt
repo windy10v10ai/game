@@ -172,7 +172,7 @@
 		"conduct_point_light_penalty_tooltip"	"Штраф за поведение <font color='#FFA726'>{0}</font>, очки ×0.8"
 		"conduct_point_heavy_penalty_tooltip"	"Штраф за поведение <font color='#E87D7D'>{0}</font>, очки ×0.5"
 
-		"end_screen_offline_hint"		"Офлайн-режим: Dota 2 ограничила сетевой доступ карт, очки не сохранены.\nЗапустите игру через последнюю версию лаунчера, чтобы очки сохранялись."
+		"end_screen_offline_hint"		"Офлайн-режим: очки не сохранены (ограничение сети Dota 2). Запустите через последний лаунчер, чтобы сохранять очки."
 		"ending_status_1"			"Подведение итогов…"
 		"ending_status_2"			"Итоги сохранены"
 		"ending_status_3"			"Итоги отправлены"
