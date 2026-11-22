@@ -4683,10 +4683,6 @@
 				{
 					"value"			"0.6 0.7 0.8 0.9 1.0"	// 0.5 0.6 0.7 0.8
 				}
-				"duration"
-				{
-					"value"			"9"	// 7
-				}
 		}
 	}
 	// 降临 飞
@@ -5464,7 +5460,7 @@
 				"duration"				"3.75 4.25 4.75 5.25"
 				"radius"
 				{
-					"special_bonus_unique_faceless_void_2"	"+200"	// +125
+					"special_bonus_unique_faceless_void_2"	"+250"	// +125 x2
 				}
 				"vision_radius"
 				{
@@ -5490,7 +5486,7 @@
 			"radius"
 			{
 				"value"		"1200"	// 350
-				"special_bonus_unique_faceless_void_2" "+200"	// +140
+				"special_bonus_unique_faceless_void_2" "+250"	// +125 x2
 			}
 			"duration"
 			{
