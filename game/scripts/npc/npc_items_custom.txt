@@ -7672,7 +7672,7 @@
 		"BaseClass"                     "item_datadriven"
 		"AbilityTextureName"            "item_recipe_six_paths_reincarnation_gun"
 		"Model"                         "models/props_gameplay/recipe.vmdl"
-		"ItemCost"                      "6900"
+		"ItemCost"                      "8200"
 		"ItemRecipe"                    "1"
 		"ItemResult"                    "item_six_paths_reincarnation_gun"
 		"ItemRequirements"
