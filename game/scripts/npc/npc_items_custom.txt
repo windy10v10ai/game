@@ -5447,8 +5447,8 @@
 					"value"	"1200"				// 800
 					"affected_by_aoe_increase"	"1"
 				}
-				"movement_slow"		"80"	// 35
-				"attack_slow"		"100"	// 70
+				"movement_slow"		"70"	// 35 x2
+				"attack_slow"		"140"	// 70 x2
 				"duration"		"4.5"					// 4.5
 				"damage_base"			"200"		//100
 				"damage_pct_instant"		"100"	//50
