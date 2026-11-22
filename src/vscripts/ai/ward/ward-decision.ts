@@ -34,7 +34,7 @@ export function isZoneFree(
 }
 
 /**
- * 路过时能直接插的点：空闲区域里 reach 内的全部备选点，随机取一个。
+ * 路过时能直接插的点：空闲且没被认领的区域里 reach 内的全部备选点，随机取一个。
  * 先汇总再随机，避免眼位表靠前的点总被优先选中。
  */
 export function pickPassingSpot(
@@ -43,20 +43,23 @@ export function pickPassingSpot(
   reach: number,
   existingWards: readonly Vector[],
   sameWardRadius: number,
+  isClaimed: (zoneId: string) => boolean,
   random: RandomIndex,
-): Vector | undefined {
-  const reachable: Vector[] = [];
+): DetourPick | undefined {
+  const reachable: DetourPick[] = [];
   for (const zone of zones) {
-    if (!isZoneFree(zone, existingWards, sameWardRadius)) {
+    if (!isZoneFree(zone, existingWards, sameWardRadius) || isClaimed(zone.id)) {
       continue;
     }
-    for (const spot of zone.spots) {
-      if (spot.__sub(heroPos).Length2D() <= reach) {
-        reachable.push(spot);
-      }
+    for (const spot of spotsWithin(heroPos, zone, reach)) {
+      reachable.push({ zoneId: zone.id, spot });
     }
   }
   return reachable.length > 0 ? reachable[random(reachable.length)] : undefined;
+}
+
+function spotsWithin(heroPos: Vector, zone: WardZone, range: number): Vector[] {
+  return zone.spots.filter((spot) => spot.__sub(heroPos).Length2D() <= range);
 }
 
 export interface DetourPick {
@@ -64,7 +67,7 @@ export interface DetourPick {
   spot: Vector;
 }
 
-/** 绕路去插：range 内最近的空闲、没被别人认领的区域，区域里随机一个备选点。 */
+/** 绕路去插：range 内最近的空闲、没被认领的区域，只在该区域 range 内的备选点里随机一个。 */
 export function pickDetourSpot(
   heroPos: Vector,
   zones: readonly WardZone[],
@@ -74,24 +77,23 @@ export function pickDetourSpot(
   isClaimed: (zoneId: string) => boolean,
   random: RandomIndex,
 ): DetourPick | undefined {
-  let best: WardZone | undefined;
+  let best: { zone: WardZone; spots: Vector[] } | undefined;
   let bestGap = Infinity;
   for (const zone of zones) {
     if (!isZoneFree(zone, existingWards, sameWardRadius) || isClaimed(zone.id)) {
       continue;
     }
-    for (const spot of zone.spots) {
-      const gap = spot.__sub(heroPos).Length2D();
-      if (gap <= range && gap < bestGap) {
-        best = zone;
-        bestGap = gap;
-      }
+    const spots = spotsWithin(heroPos, zone, range);
+    if (spots.length === 0) {
+      continue;
+    }
+    const gap = Math.min(...spots.map((spot) => spot.__sub(heroPos).Length2D()));
+    if (gap < bestGap) {
+      best = { zone, spots };
+      bestGap = gap;
     }
   }
-  if (!best) {
-    return undefined;
-  }
-  return { zoneId: best.id, spot: best.spots[random(best.spots.length)] };
+  return best ? { zoneId: best.zone.id, spot: best.spots[random(best.spots.length)] } : undefined;
 }
 
 export interface SentryTriggerInput {
@@ -114,6 +116,41 @@ export function shouldDropSentry(input: SentryTriggerInput): boolean {
     input.nearestFriendSentry > SENTRY_TRIGGER_RADIUS &&
     input.now - input.lastTriggerAt >= SENTRY_TRIGGER_COOLDOWN
   );
+}
+
+export type WardKind = 'observer' | 'sentry';
+
+export interface HeldItem {
+  name: string;
+  charges: number;
+  /** 组合守卫的真眼充能 */
+  secondaryCharges: number;
+}
+
+const WARD_ITEM_NAMES = ['item_ward_observer', 'item_ward_sentry', 'item_ward_dispenser'];
+
+/** 物品栏里某一种眼的数量。组合守卫的假眼记在当前充能、真眼记在第二充能，要按眼种分开读 */
+export function countHeldWards(
+  kind: WardKind,
+  items: readonly HeldItem[],
+): { total: number; canStack: boolean } {
+  let total = 0;
+  let canStack = false;
+  for (const item of items) {
+    if (!WARD_ITEM_NAMES.includes(item.name)) {
+      continue;
+    }
+    // 身上有任一种眼，新买的眼都能并进去
+    canStack = true;
+    let count = 0;
+    if (item.name === 'item_ward_dispenser') {
+      count = Math.max(0, kind === 'observer' ? item.charges : item.secondaryCharges);
+    } else if (item.name === (kind === 'observer' ? 'item_ward_observer' : 'item_ward_sentry')) {
+      count = Math.max(1, item.charges);
+    }
+    total += count;
+  }
+  return { total, canStack };
 }
 
 export interface WardBuyer {

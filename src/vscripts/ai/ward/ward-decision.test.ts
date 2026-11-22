@@ -1,4 +1,6 @@
 import {
+  countHeldWards,
+  HeldItem,
   isZoneFree,
   pickDetourSpot,
   pickPassingSpot,
@@ -91,6 +93,8 @@ describe('配置数据自检', () => {
   });
 });
 
+const never = () => false;
+
 describe('区域取点', () => {
   it('区域里已有己方眼时整个区域不再选', () => {
     expect(isZoneFree(zoneA, [vec(650, 100)], 800)).toBe(false);
@@ -100,27 +104,34 @@ describe('区域取点', () => {
   it('多次取点能选到每一个够得着的备选点', () => {
     const picked = new Set<number>();
     for (let i = 0; i < 3; i++) {
-      const spot = pickPassingSpot(vec(300, 300), [zoneA], 1000, [], 800, sequence(i));
-      picked.add(spot!.x * 10000 + spot!.y);
+      const pick = pickPassingSpot(vec(300, 300), [zoneA], 1000, [], 800, never, sequence(i));
+      picked.add(pick!.spot.x * 10000 + pick!.spot.y);
     }
     expect(picked.size).toBe(3);
   });
 
   it('够不着的备选点不选', () => {
-    const spot = pickPassingSpot(vec(0, 0), [zoneA], 300, [], 800, sequence(0, 1, 2));
-    expect(spot).toBe(zoneA.spots[0]);
+    for (const i of [0, 1, 2]) {
+      expect(pickPassingSpot(vec(0, 0), [zoneA], 300, [], 800, never, sequence(i))?.spot).toBe(
+        zoneA.spots[0],
+      );
+    }
   });
 
   it('区域已被占用时路过也不插', () => {
-    expect(pickPassingSpot(vec(0, 0), [zoneA], 1000, [vec(0, 600)], 800, sequence(0))).toBe(
-      undefined,
-    );
+    expect(
+      pickPassingSpot(vec(0, 0), [zoneA], 1000, [vec(0, 600)], 800, never, sequence(0)),
+    ).toBeUndefined();
+  });
+
+  it('已被认领的区域路过也不插', () => {
+    expect(
+      pickPassingSpot(vec(0, 0), [zoneA], 1000, [], 800, (id) => id === 'a', sequence(0)),
+    ).toBeUndefined();
   });
 });
 
 describe('顺路选点', () => {
-  const never = () => false;
-
   it('范围内有两个空区域时选近的', () => {
     const pick = pickDetourSpot(vec(2500, 0), [zoneA, zoneB], 3000, [], 800, never, sequence(0));
     expect(pick?.zoneId).toBe('b');
@@ -137,6 +148,14 @@ describe('顺路选点', () => {
       sequence(0),
     );
     expect(pick?.zoneId).toBe('a');
+  });
+
+  it('只在区域里够得着的备选点里随机，范围外的备选点不会被抽到', () => {
+    // 英雄在 (0,0)，范围 650：区域 A 只有 (0,0) 与 (600,0) 够得着，(0,700) 够不着
+    for (const i of [0, 1, 2, 3]) {
+      const pick = pickDetourSpot(vec(0, 0), [zoneA], 650, [], 800, never, sequence(i));
+      expect(zoneA.spots.slice(0, 2)).toContain(pick!.spot);
+    }
   });
 
   it('范围外不选', () => {
@@ -207,5 +226,39 @@ describe('pickWardBuyer', () => {
   it('leaves the reserved stock in the shop for players', () => {
     expect(pickWardBuyer([buyer(1, 100)], { ...supply, stock: 1, reserve: 1 })).toBeUndefined();
     expect(pickWardBuyer([buyer(1, 100)], { ...supply, stock: 2, reserve: 1 })).toBe(1);
+  });
+});
+
+describe('countHeldWards 按眼种读组合守卫的充能', () => {
+  const item = (name: string, charges: number, secondaryCharges = 0): HeldItem => ({
+    name,
+    charges,
+    secondaryCharges,
+  });
+
+  it('组合守卫的假眼记在当前充能，真眼记在第二充能', () => {
+    const dispenser = [item('item_ward_dispenser', 2, 1)];
+    expect(countHeldWards('observer', dispenser).total).toBe(2);
+    expect(countHeldWards('sentry', dispenser).total).toBe(1);
+  });
+
+  it('单独的眼至少算 1 个，叠放的按充能算', () => {
+    expect(countHeldWards('observer', [item('item_ward_observer', 0)]).total).toBe(1);
+    expect(countHeldWards('observer', [item('item_ward_observer', 3)]).total).toBe(3);
+    expect(countHeldWards('sentry', [item('item_ward_observer', 3)]).total).toBe(0);
+  });
+
+  it('身上有眼时新买的能并进去', () => {
+    expect(countHeldWards('observer', [item('item_ward_sentry', 1)])).toEqual({
+      total: 0,
+      canStack: true,
+    });
+  });
+
+  it('没有眼时全为 0', () => {
+    expect(countHeldWards('sentry', [item('item_tango', 1)])).toEqual({
+      total: 0,
+      canStack: false,
+    });
   });
 });

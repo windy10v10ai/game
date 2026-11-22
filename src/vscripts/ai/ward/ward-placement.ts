@@ -17,12 +17,15 @@ import {
   PLACE_INTERVAL,
   POSITION_JITTER,
   SENTRY_WARD_CONFIG,
+  WARD_RETRY_SECONDS,
   WardSide,
   WardTypeConfig,
 } from './ward-position-config';
 
 const randomIndex = (n: number): number => RandomInt(0, n - 1);
 // 每个 bot 上次被隐身敌人打到后插真眼的时间
+// 区域被认领到的时间，key 为 team:zoneId
+const claimedUntil = new Map<string, number>();
 const sentryDroppedAt = new Map<EntityIndex, number>();
 
 export class WardPlacement {
@@ -85,6 +88,15 @@ export class WardPlacement {
     this.CastWard(hero, sentry!, origin, 'invisible-attacker');
   }
 
+  /** 已发出插眼命令的区域：命令发出后一段时间内不再派第二个人，眼真正落地由「区域里已有己方眼」判定，两者分开记 */
+  static IsClaimed(team: DotaTeam, zoneId: string): boolean {
+    return GameRules.GetGameTime() < (claimedUntil.get(`${team}:${zoneId}`) ?? -Infinity);
+  }
+
+  static Claim(team: DotaTeam, zoneId: string): void {
+    claimedUntil.set(`${team}:${zoneId}`, GameRules.GetGameTime() + WARD_RETRY_SECONDS);
+  }
+
   static SideOf(team: DotaTeam): WardSide {
     return team === DotaTeam.GOODGUYS ? 'radiant' : 'dire';
   }
@@ -104,20 +116,26 @@ export class WardPlacement {
       config.castRange + 2 * config.sameWardRadius,
     );
     // 落点带抖动，判定距离要留出抖动余量，否则会超出 KV 的 cast range 导致施法失败
-    const spot = pickPassingSpot(
+    const team = hero.GetTeamNumber();
+    const pick = pickPassingSpot(
       hero.GetAbsOrigin(),
       this.ZonesOf(hero, config),
       config.castRange - POSITION_JITTER,
       existingWards,
       config.sameWardRadius,
+      (zoneId) => this.IsClaimed(team, zoneId),
       randomIndex,
     );
-    return spot !== undefined && this.CastWard(hero, item, spot, 'passing');
+    if (pick === undefined) {
+      return false;
+    }
+    this.Claim(team, pick.zoneId);
+    return this.CastWard(hero, item, pick.spot, 'passing');
   }
 
-  /** 从主物品栏查找可用眼，bot会自动把眼挪到主物品栏不用做 SwapItems 挪位 */
+  /** 查找可用眼：备用栏里的也算，施放前由 CastWard 换进主物品栏 */
   static FindUsableWard(hero: CDOTA_BaseNPC_Hero, config: WardTypeConfig): CDOTA_Item | undefined {
-    for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
+    for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_9; slot++) {
       const item = hero.GetItemInSlot(slot);
       if (!item || !item.IsFullyCastable()) {
         continue;
@@ -169,6 +187,10 @@ export class WardPlacement {
     position: Vector,
     via: string,
   ): boolean {
+    // 备用栏的物品不能施放，和 ConsumeItem 一样挤开主栏末位换入，用完后物品整理会把被挤开的挪回来
+    if (item.GetItemSlot() > InventorySlot.SLOT_6) {
+      hero.SwapItems(item.GetItemSlot(), InventorySlot.SLOT_6);
+    }
     const angle = RandomFloat(0, 2 * Math.PI);
     const radius = RandomFloat(0, POSITION_JITTER);
     const target = position.__add(Vector(Math.cos(angle) * radius, Math.sin(angle) * radius, 0));

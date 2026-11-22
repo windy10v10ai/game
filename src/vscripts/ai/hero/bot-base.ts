@@ -43,6 +43,9 @@ export class BotBaseAIModifier extends BaseModifier {
   protected continueActionEndTime: number = -60;
   private roadsideUntil = 0;
   private roadsideCheckAt = 0;
+  // 受伤监听按实体编号注销：关服时英雄实体可能先失效，取不到句柄也要能注销
+  private damageHookIndex: EntityIndex | undefined;
+  private initTimer: string | undefined;
 
   // 中立槽修复节奏：间隔与下次校验时间（gameTime）
   protected readonly neutralItemRepairInterval: number = 5;
@@ -117,8 +120,6 @@ export class BotBaseAIModifier extends BaseModifier {
   // 离肉山这么近才指定它打，远处照常赶路，不在半路被引到别处
   protected readonly RoshanAttackRange: number = 1500;
   protected readonly RoadsideCheckInterval: number = 1;
-  // 走去捡东西期间不再下别的移动命令，但最多这么久，路上的情况会变
-  protected readonly RoadsideMaxSeconds: number = 8;
   // 赶去打架或回防时离目的地还有这么远，顺手捡符、点观察者不耽误到场
   protected readonly RoadsideRushDistance: number = 3000;
 
@@ -213,6 +214,7 @@ export class BotBaseAIModifier extends BaseModifier {
       this.buildState = InitializeHeroBuild(this.hero, config);
     }
 
+    this.damageHookIndex = this.hero.entindex();
     ModifierEventHub.RegisterDamageByVictim(this.hero, this, (event) =>
       WardPlacement.OnDamaged(this.hero, event.attacker),
     );
@@ -316,7 +318,7 @@ export class BotBaseAIModifier extends BaseModifier {
     this.traceTarget = '';
     // 行动栏几乎每轮都被占满，路过眼位时的瞬发插眼要排在前面，周围没有敌方英雄才插
     if (this.aroundEnemyHeroes.length === 0) {
-      WardPlacement.Run(this);
+      this.TryWard();
     }
     const acted = this.ActionStance(task);
     if (IS_DEBUG_RUN) {
@@ -325,7 +327,20 @@ export class BotBaseAIModifier extends BaseModifier {
     if (acted) {
       return;
     }
-    WardPlacement.Run(this);
+    this.TryWard();
+  }
+
+  /** 同一时刻只发一条插眼命令：绕路插眼的途中不再发路过插眼，路过插眼发了命令这一秒内不再发绕路 */
+  private TryWard(): void {
+    if (this.gameTime < this.roadsideUntil) {
+      return;
+    }
+    if (WardPlacement.Run(this)) {
+      this.roadsideCheckAt = Math.max(
+        this.roadsideCheckAt,
+        this.gameTime + this.RoadsideCheckInterval,
+      );
+    }
   }
 
   private ActionStance(task: Task | undefined): boolean {
@@ -979,11 +994,11 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     this.roadsideCheckAt = this.gameTime + this.RoadsideCheckInterval;
-    const seconds = TryRoadside(this.hero, this.RoadsideScopeOf(task), UnitPower);
+    const { seconds, maxSeconds } = TryRoadside(this.hero, this.RoadsideScopeOf(task), UnitPower);
     if (seconds <= 0) {
       return false;
     }
-    this.roadsideUntil = this.gameTime + Math.min(seconds, this.RoadsideMaxSeconds);
+    this.roadsideUntil = this.gameTime + Math.min(seconds, maxSeconds);
     this.traceTarget = 'roadside';
     return true;
   }
@@ -1740,15 +1755,23 @@ export class BotBaseAIModifier extends BaseModifier {
 
     const delay = RandomFloat(1, 2);
     // print(`[AI] HeroBase OnCreated delay ${delay}`);
-    Timers.CreateTimer(delay, () => {
+    this.initTimer = Timers.CreateTimer(delay, () => {
+      this.initTimer = undefined;
       this.Init();
     });
   }
 
   OnDestroy() {
-    // 关服时英雄实体先于 modifier 销毁，取不到实体编号
-    if (IsServer() && this.hero && !this.hero.IsNull()) {
-      ModifierEventHub.UnregisterDamageByVictim(this.hero, this);
+    if (!IsServer()) {
+      return;
+    }
+    if (this.initTimer !== undefined) {
+      Timers.RemoveTimer(this.initTimer);
+      this.initTimer = undefined;
+    }
+    if (this.damageHookIndex !== undefined) {
+      ModifierEventHub.UnregisterDamageByVictimIndex(this.damageHookIndex, this);
+      this.damageHookIndex = undefined;
     }
   }
 

@@ -17,8 +17,6 @@ const OUTPOST_RECAPTURE_SECONDS = 120;
 const WATCHER_RETRY_SECONDS = 420 + 120;
 // 捡东西的命令常被打架打断，隔一会儿就能再捡
 const PICKUP_RETRY_SECONDS = 5;
-// 同一个眼位区域失败后隔这么久才再派人
-const WARD_RETRY_SECONDS = 60;
 
 // 金币袋走过去就自动拿，不用专门捡
 const ROSHAN_DROPS = ['item_aegis', 'item_cheese', 'item_refresher_shard', 'item_roshans_banner'];
@@ -42,8 +40,34 @@ const ownedAt = new Map<string, number>();
  */
 export type RoadsideScope = 'all' | 'quick' | 'drops';
 
-/** 下了命令时返回走过去要的秒数，这段时间内英雄不再下别的移动命令；没事可做返回 0。 */
+// 走去捡东西期间不再下别的移动命令，但最多这么久，路上的情况会变
+const ROADSIDE_MAX_SECONDS = 3;
+// 插眼绕路更远，单独放宽，其余几类不变
+const WARD_ROADSIDE_MAX_SECONDS = 8;
+
+export interface RoadsideResult {
+  /** 下了命令时走过去要的秒数，这段时间内英雄不再下别的移动命令；没事可做为 0 */
+  seconds: number;
+  /** 这件事最多占住英雄多久 */
+  maxSeconds: number;
+}
+
 export function TryRoadside(
+  hero: CDOTA_BaseNPC_Hero,
+  scope: RoadsideScope,
+  powerOf: (hero: CDOTA_BaseNPC_Hero) => number,
+): RoadsideResult {
+  const pickup = TryPickups(hero, scope, powerOf);
+  if (pickup > 0) {
+    return { seconds: pickup, maxSeconds: ROADSIDE_MAX_SECONDS };
+  }
+  return {
+    seconds: WardDetour(hero, hero.GetTeamNumber()),
+    maxSeconds: WARD_ROADSIDE_MAX_SECONDS,
+  };
+}
+
+function TryPickups(
   hero: CDOTA_BaseNPC_Hero,
   scope: RoadsideScope,
   powerOf: (hero: CDOTA_BaseNPC_Hero) => number,
@@ -115,11 +139,11 @@ export function TryRoadside(
     }
   }
 
-  return WardDetour(hero, team, now);
+  return 0;
 }
 
 /** 手里有假眼就去最近的本方空眼位插：认领期内同一区域不派第二个人，成功后区域有眼自然不再选。 */
-function WardDetour(hero: CDOTA_BaseNPC_Hero, team: DotaTeam, now: number): number {
+function WardDetour(hero: CDOTA_BaseNPC_Hero, team: DotaTeam): number {
   const config = OBSERVER_WARD_CONFIG;
   const item = WardPlacement.FindUsableWard(hero, config);
   if (!item) {
@@ -137,13 +161,13 @@ function WardDetour(hero: CDOTA_BaseNPC_Hero, team: DotaTeam, now: number): numb
     WARD_DETOUR_RANGE,
     existing,
     config.sameWardRadius,
-    (zoneId) => now < (triedAt.get(`${team}:ward:${zoneId}`) ?? -Infinity),
+    (zoneId) => WardPlacement.IsClaimed(team, zoneId),
     (n) => RandomInt(0, n - 1),
   );
   if (!pick) {
     return 0;
   }
-  triedAt.set(`${team}:ward:${pick.zoneId}`, now + WARD_RETRY_SECONDS);
+  WardPlacement.Claim(team, pick.zoneId);
   WardPlacement.CastWard(hero, item, pick.spot, `detour:${pick.zoneId}`);
   if (IS_DEBUG_RUN) {
     print(

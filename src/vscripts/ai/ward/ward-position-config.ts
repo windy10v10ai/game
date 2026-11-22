@@ -15,6 +15,9 @@ export const PLACE_INTERVAL = 2;
 /** 带假眼的电脑为空区域绕路的最大距离，补眼时也只给这个范围内有空区域的电脑买 */
 export const WARD_DETOUR_RANGE = 2500;
 
+/** 同一个眼位区域发出插眼命令后，隔这么久才再派人 */
+export const WARD_RETRY_SECONDS = 60;
+
 /** 落点随机偏移，避免多个 bot 的眼叠在同一点 */
 export const POSITION_JITTER = 50;
 
