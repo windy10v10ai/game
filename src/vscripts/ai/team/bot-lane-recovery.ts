@@ -35,7 +35,7 @@ const RECOVERY_TARGETS: Record<
   { position: Vector; tier1Duration: number; tier2Duration: number }
 > = {
   top: { position: Vector(-6434, 3555, 128), tier1Duration: 15, tier2Duration: 25 },
-  mid: { position: Vector(-867, -719, 128), tier1Duration: 10, tier2Duration: 20 },
+  mid: { position: Vector(-557, -543, 128), tier1Duration: 10, tier2Duration: 20 },
   bot: { position: Vector(5614, -5562, 128), tier1Duration: 15, tier2Duration: 25 },
 };
 
