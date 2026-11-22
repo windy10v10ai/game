@@ -28,7 +28,7 @@
 - `game/scripts/npc/npc_abilities_override.txt`
 - `game/scripts/npc/npc_heroes_custom.txt`
 - `game/scripts/npc/npc_abilities_custom_awaken.txt`
-- `game/scripts/npc/npc_abilities_custom_lottery.txt`、`npc_abilities_custom.txt` 里 `BaseClass` 指向该英雄技能的克隆（处理见 `SKILL.md`「克隆技能与物品」）
+- 克隆了该英雄技能的抽奖技能、塔技能（做法见 `SKILL.md`「克隆技能与物品」）
 - `game/scripts/npc/npc_abilities_custom.txt`
 - `game/scripts/npc/npc_abilities_custom_lottery.txt`
 - `src/vscripts/ai/ability/specs/`
