@@ -123,7 +123,7 @@ export class NeutralItemManager {
         enhancements: {
           global: [
             { name: 'item_enhancement_quickened', level: 2 }, // 迅速 移速
-            { name: 'item_enhancement_greedy', level: 2 }, // 贪婪 工资蓝量 -攻击
+            { name: 'item_enhancement_greedy', level: 1 }, // 贪婪 工资蓝量 -攻击
             { name: 'item_enhancement_vital', level: 2 }, // 活力 生命恢复
             { name: 'item_enhancement_wise', level: 2 }, // 睿智 每分钟经验
             { name: 'item_enhancement_vast', level: 1 }, // 高远 攻击距离
@@ -175,7 +175,7 @@ export class NeutralItemManager {
         enhancements: {
           global: [
             { name: 'item_enhancement_quickened', level: 3 }, // 迅速 移速
-            { name: 'item_enhancement_greedy', level: 3 }, // 贪婪 工资蓝量 -攻击
+            { name: 'item_enhancement_greedy', level: 1 }, // 贪婪 工资蓝量 -攻击
             { name: 'item_enhancement_vast', level: 2 }, // 高远 攻击距离
             { name: 'item_enhancement_vampiric', level: 2 }, // 吸血鬼 双吸血
             { name: 'item_enhancement_evolved', level: 1 }, // 进化 主属性
@@ -232,7 +232,7 @@ export class NeutralItemManager {
         ],
         enhancements: {
           global: [
-            { name: 'item_enhancement_quickened', level: 4 }, // 迅速 移速
+            { name: 'item_enhancement_quickened', level: 3 }, // 迅速 移速
             { name: 'item_enhancement_timeless', level: 2 }, // 永恒 负面时间技能增强
             { name: 'item_enhancement_vampiric', level: 4 }, // 吸血鬼 双吸血
             { name: 'item_enhancement_boundless', level: 2 }, // 无边 攻击距离施法距离
@@ -243,33 +243,33 @@ export class NeutralItemManager {
             { name: 'item_enhancement_thick', level: 2 }, // 厚重
             { name: 'item_mysterious_hat', level: 2 }, // 仙灵饰品
             { name: 'item_enhancement_fleetfooted', level: 1 }, // 捷足 移速
-            { name: 'item_enhancement_titanic', level: 4 }, // 巨神 基础攻击状态抗性 -攻击速度
-            { name: 'item_enhancement_crude', level: 4 }, // 粗暴 减速抗性攻击间隔 -智力
+            { name: 'item_enhancement_titanic', level: 2 }, // 巨神 基础攻击状态抗性 -攻击速度
+            { name: 'item_enhancement_crude', level: 2 }, // 粗暴 减速抗性攻击间隔 -智力
             { name: 'item_spell_prism', level: 1 }, // 法术棱镜
             { name: 'item_paladin_sword', level: 1 }, // 骑士剑
           ],
           strength: [
-            { name: 'item_enhancement_brawny', level: 4 }, // 壮实 血量
-            { name: 'item_enhancement_tough', level: 4 }, // 坚强 攻击护甲
-            { name: 'item_enhancement_crude', level: 3 }, // 粗暴 减速抗性攻击间隔 -智力
+            { name: 'item_enhancement_brawny', level: 3 }, // 壮实 血量
+            { name: 'item_enhancement_tough', level: 3 }, // 坚强 攻击护甲
+            { name: 'item_enhancement_crude', level: 2 }, // 粗暴 减速抗性攻击间隔 -智力
             { name: 'item_enhancement_hulking', level: 1 }, // 笨重 百分比 生命值 生命值回复 -攻击速度
           ],
           agility: [
-            { name: 'item_enhancement_alert', level: 4 }, // 警觉 攻速夜视
-            { name: 'item_enhancement_brawny', level: 4 }, // 壮实 血量
-            { name: 'item_enhancement_nimble', level: 3 }, // 轻快 移速攻击力 -生命回复
+            { name: 'item_enhancement_alert', level: 3 }, // 警觉 攻速夜视
+            { name: 'item_enhancement_brawny', level: 3 }, // 壮实 血量
+            { name: 'item_enhancement_nimble', level: 2 }, // 轻快 移速攻击力 -生命回复
             { name: 'item_enhancement_audacious', level: 1 }, // 冒险 攻速魔法攻击伤害增加承伤
           ],
           intelligence: [
-            { name: 'item_enhancement_mystical', level: 4 }, // 神秘 回蓝魔抗
-            { name: 'item_enhancement_tough', level: 4 }, // 坚强 攻击护甲
-            { name: 'item_enhancement_keen_eyed', level: 3 }, // 犀利 施法距离回蓝 -最大魔法值
+            { name: 'item_enhancement_mystical', level: 3 }, // 神秘 回蓝魔抗
+            { name: 'item_enhancement_tough', level: 3 }, // 坚强 攻击护甲
+            { name: 'item_enhancement_keen_eyed', level: 2 }, // 犀利 施法距离回蓝 -最大魔法值
             { name: 'item_enhancement_feverish', level: 1 }, // 狂热 冷却减少 蓝耗增加
           ],
           universal: [
-            { name: 'item_enhancement_alert', level: 4 }, // 警觉 攻速夜视
-            { name: 'item_enhancement_mystical', level: 4 }, // 神秘 回蓝魔抗
-            { name: 'item_enhancement_titanic', level: 3 }, // 巨神 基础攻击状态抗性 -攻击速度
+            { name: 'item_enhancement_alert', level: 3 }, // 警觉 攻速夜视
+            { name: 'item_enhancement_mystical', level: 3 }, // 神秘 回蓝魔抗
+            { name: 'item_enhancement_titanic', level: 2 }, // 巨神 基础攻击状态抗性 -攻击速度
             { name: 'item_enhancement_manic', level: 1 }, // 癫狂 攻击间隔 施法速度 -视野
           ],
         },

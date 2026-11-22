@@ -199,7 +199,6 @@
 		"AbilityValues"
 		{
 			"cooldown_reduction"		"10 20"			// 15
-			"cost_increase"				"5 10"			// 7
 		}
 	}
 	// 癫狂 攻击间隔 施法速度 -视野
