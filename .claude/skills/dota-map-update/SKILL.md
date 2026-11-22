@@ -66,6 +66,12 @@ description: Dota 2 官方更新了地形（地图改动）后，把本图地图
 - 小地图是新版，不朽庭院特效只在 dota 图出现
 - 三张图都能开局到 `GAME_IN_PROGRESS`
 
+## 电脑眼位不在地形 PR 里重做
+
+地形更新后电脑的插眼点（`src/vscripts/ai/ward/ward-position-config.ts`）要按新地图重新规划，这件事单独开 Dota 更新子 issue（7.42 是 #2835），地形 PR 不做。地形 PR 只修新地图上走不到、落进不可走区域的眼位。
+
+写死坐标的核对做法：把脚本里的点放进新旧两张图，用 `GridNav:IsTraversable`、`IsBlocked` 和从基地 `CanFindPath` 实机检测，只修新图比旧图多出来的失败点，旧图上就不可走的点留给眼位子 issue。新旧防御塔、双生之门、兵线出生点坐标取自 `game/maps/dota.vpk` 里的 `maps/dota/entities/default_ents.vents`（用 Source2Viewer-CLI 解包，旧版从 `git show develop:game/maps/dota.vpk` 取出）。
+
 ## 坑
 
 - 运行中的 Dota 会占着 `game/maps/*.vpk`，写文件前先关掉自己起的那个实例（按进程号）
