@@ -11,7 +11,8 @@ const CHECK_DIR = path.join(ROOT, 'game', 'scripts', 'vscripts', 'checks');
 // 开局前英雄还没生成，聊天命令找不到玩家英雄
 const GAME_STARTED = "S:Gamerules: entering state 'DOTA_GAMERULES_STATE_GAME_IN_PROGRESS'";
 const POLL_MS = 1000;
-let launched = false;
+// 只关自己起的进程：别的会话可能同时开着专用服或客户端
+let ownPids = [];
 
 function parseArgs(argv) {
   const options = { name: undefined, hero: undefined, timeout: 300, keepOpen: false };
@@ -25,7 +26,14 @@ function parseArgs(argv) {
 }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-const isDotaRunning = () => execSync('tasklist').toString().toLowerCase().includes('dota2.exe');
+const dotaPids = () =>
+  execSync('tasklist /FI "IMAGENAME eq dota2.exe" /FO CSV /NH')
+    .toString()
+    .split(/\r?\n/)
+    .map((line) => line.split('","')[1])
+    .filter(Boolean)
+    .map(Number);
+const isDotaRunning = () => dotaPids().length > 0;
 
 function logTail(file) {
   let offset = 0;
@@ -54,8 +62,9 @@ async function assertLinkedCheckout(dotaPath) {
 }
 
 async function stopDota() {
-  if (isDotaRunning()) execSync('taskkill /IM dota2.exe /F');
-  while (isDotaRunning()) await sleep(1000);
+  const alive = () => dotaPids().filter((pid) => ownPids.includes(pid));
+  for (const pid of alive()) execSync(`taskkill /PID ${pid} /T /F`);
+  while (alive().length > 0) await sleep(1000);
 }
 
 async function run(options) {
@@ -73,7 +82,11 @@ async function run(options) {
   execFileSync(process.execPath, [path.join(__dirname, 'launch.js'), ...launchArgs], {
     stdio: 'inherit',
   });
-  launched = true;
+  const launchDeadline = Date.now() + 30000;
+  while (ownPids.length === 0 && Date.now() < launchDeadline) {
+    ownPids = dotaPids();
+    if (ownPids.length === 0) await sleep(POLL_MS);
+  }
 
   const read = logTail(logFile);
   const module = `checks.${options.name.replace(/[\\/]/g, '.')}`;
@@ -113,7 +126,7 @@ async function run(options) {
     result = await run(options);
   } catch (error) {
     console.error(`[check] ERROR ${error.message}`);
-    if (launched && !options.keepOpen) await stopDota();
+    if (!options.keepOpen) await stopDota();
     process.exit(2);
   }
   if (!options.keepOpen) await stopDota();
