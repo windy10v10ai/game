@@ -33,6 +33,27 @@ export class AbilityLotteryHelper {
     return { name, level: tier.level };
   }
 
+  /**
+   * 候选生成后英雄才拿到互斥技能时（被动书与主抽奖的候选互不知情），选中的技能会凑齐互斥组。
+   * 在同档里换一个不冲突的，玩家仍然得到一个技能，书和选择机会都不浪费
+   */
+  static resolveConflictingPick(
+    hero: CDOTA_BaseNPC_Hero,
+    picked: LotteryDto,
+    tiers: Tier[],
+    excludedNames: string[] = [],
+  ): LotteryDto {
+    const group = MUTUALLY_EXCLUSIVE_ABILITY_GROUPS.find((g) => g.includes(picked.name));
+    if (group === undefined || !group.some((n) => n !== picked.name && hero.HasAbility(n))) {
+      return picked;
+    }
+    const sameTier = tiers.filter((t) => t.level === picked.level);
+    return this.getRandomAbilities(sameTier.length > 0 ? sameTier : tiers, 1, hero, [
+      ...excludedNames,
+      picked.name,
+    ])[0];
+  }
+
   static getRandomAbilities(
     tiers: Tier[],
     count: number,
