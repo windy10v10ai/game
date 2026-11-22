@@ -1354,7 +1354,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"			"45 42 39 36 33"	// 45 42 39 36 延伸
+					"value"			"45 42 39 36 33"
 				}
 				"damage_per_second"
 				{
@@ -5436,7 +5436,7 @@
 			"cooldown_percentage"	"30 40 50 60 70"
 			"damage_per_stack"
 			{
-				"value"				"12 16 20 24 28"	// 6 8 10 12 x2 延伸
+				"value"				"12 16 20 24 28"	// 6 8 10 12 x2
 				"special_bonus_unique_faceless_void_6" "+20"	// +6
 			}
 		}
@@ -6596,7 +6596,7 @@
 			}
 			"armor_reduction"
 			{
-				"value"					"-7 -10 -13 -16 -19"	// -3.5 -5 -6.5 -8 x2 延伸
+				"value"					"-7 -10 -13 -16 -19"	// -3.5 -5 -6.5 -8 x2
 			}
 			"damage"
 			{
@@ -9327,7 +9327,7 @@
 			}
 			"eidolon_spawns_per_tick"
 			{
-				"special_bonus_shard"						"+0"	// =+1 不产生小谜团 防止卡顿
+				"special_bonus_shard"						"+0"	// +1 不产生小谜团 防止卡顿
 			}
 		}
 	}
@@ -10511,7 +10511,7 @@
 			"mana_per_second"
 			{
 				"value"					"50 100 150 300 450"	// 20 40 60 120 x2.5
-				"special_bonus_unique_lion_11"	"+110"	// +45 约x2.5
+				"special_bonus_unique_lion_11"	"+110"	// +45 手定取整
 			}
 			"movespeed"
 			{
@@ -11254,8 +11254,8 @@
 	"rubick_arcane_supremacy"
 	{
 		"MaxLevel"						"5"
-		"LinkedAbility"					"rubick_null_field"	// 原版不存在，手动修改
-		"AbilityDraftPreAbility"		"rubick_null_field"	// 原版不存在，手动修改
+		"LinkedAbility"					"rubick_null_field"	// 原版不存在，手动修改 关联失效立场
+		"AbilityDraftPreAbility"		"rubick_null_field"	// 原版不存在，手动修改 关联失效立场
 		"AbilityValues"
 		{
 			"cast_range"				"50 100 150 200 250"	// 50 100 150 200 延伸
@@ -12041,7 +12041,7 @@
 				}
 				"base_absorb_amount"
 				{
-					"value"			"160 240 320 400 480"	// 40 60 80 100 x4 延伸
+					"value"			"160 240 320 400 480"	// 40 60 80 100 x4
 					"special_bonus_unique_void_spirit_resonant_pulse_barrier"			"+40%"	//+20%
 				}
 				"absorb_per_hero_hit"
@@ -12177,7 +12177,7 @@
 			"max_damage"
 			{
 				"value"		"70 120 170 220 270"	// 35 60 85 110 x2
-				"special_bonus_unique_warlock_3" "+100"	// +50 x2
+				"special_bonus_unique_warlock_3"	"+100"	// +50 x2
 			}
 
 			"AbilityCooldown"			"60 50 40 30 20"
