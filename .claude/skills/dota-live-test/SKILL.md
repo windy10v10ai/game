@@ -90,7 +90,7 @@ end)
 
 - **验客户端代发链路用强制代发开关**：`src/vscripts/api/api-client.local.ts` 的 `GetForceProxy()` 改成返回 `true`（只在 Tools 生效），`npm run build:vscripts` 后重开一局，服务端的请求全部改由客户端网页控件代发；测完改回 `false`。该文件带 skip-worktree，改动不出现在 `git status`，收尾时按文件内容确认已还原
 - **客户端代发链路在 Tools 里连不上本地 API**：网页控件请求 `http://localhost`、`http://127.0.0.1` 与本机局域网 IP 一律超时，后端预热过、curl 能秒回也一样，开局请求也会因此转成离线模式。验代发链路用真实域名：`api-client.local.ts` 的 `GetApiTarget()` 改返回 `'direct'`，同时 `GetForceProxy()` 返回 `true`，网页控件就能请求到 `api.windy10v10ai.com`。用户已授权往开发者自己的账户写数据，结算类写入也可以验，账户冷却内回包是 `{"recorded":false}`，仍算代发成功。测完两处都还原（文件带 skip-worktree，按内容确认）。结算流程用 `npm run dota:check -- <空检查脚本> --keep-open` 开局后，`npm run dota:cmd -- "say -end"` 触发。验界面就关掉强制代发，让服务端直连
-- **computer-use 授权填 `dota2.exe`**：`request_access` 写开始菜单里的「Dota 2」只授权到 Steam 启动链接，实际窗口仍被遮成色块。授权弹窗要用户本人点，交接里写明被拒就停下回报
+- **computer-use 授权填 `dota2.exe`**：`request_access` 写开始菜单里的「Dota 2」只授权到 Steam 启动链接，实际窗口仍被遮成色块。授权弹窗要用户本人点，交接里写明被拒就停下回报。被拒或没得到答复时，主会话按用户的派活约定改交能无人值守操作界面的执行者，不等用户
 - **窗口焦点**：系统常驻的「Windows 输入体验」（`TextInputHost.exe`，承载表情面板、剪贴板历史、输入法候选框）偶尔挂着不可见窗口抢走前台，computer-use 因前台不是已授权应用而拒绝操作。不是用户开了什么，也关不掉（系统常驻，结束后自动重启）。被挡时 computer-use 在点击前就拒绝，点 Dota 窗口、`WScript.Shell.AppActivate` 都抢不回来。做法：在动手前要权限那一步连同 `dota2.exe` 一起 `request_access` 授权 `textinputhost.exe`，点击会穿过它落到 Dota 上；用户不授权时停下回报，请用户本人点一下 Dota 窗口。`textinputhost.exe` 的授权可能被策略永久拒绝，此时点击走不通，改走 `references/screenshots.md`「不点击出界面」
 - **同一时间只能有一个 Dota**：Dota 运行中再触发任何启动（`Start-Process`、`open_application "Dota 2"`、Steam 链接）都会弹 `Source2 - Warning: Only one instance of the game can be running at one time`，弹框抢走前台、后续操作全被拒。切语言或重启时先 `Stop-Process -Name dota2 -Force`，`Get-Process dota2` 查不到了再启动；拉回窗口只用点击，不调用 `open_application`。交接里照抄这一条
 - **只回报观察**：哪几行出现了、时间戳是多少、断在哪一步。诊断和改代码留给主会话
