@@ -15,6 +15,7 @@
 		"MaxLevel"						"5"
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
@@ -57,12 +58,13 @@
 		"IsOnCastBar"					"1"
 		"AbilityTextureName"			"twin_gate_portal_warp"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"aoe_per_int"				"0.4"
+			"aoe_per_int"				"0.4"			// 0.6
 		}
 	}
 
@@ -361,6 +363,7 @@
 		"Innate"						"0"
 		"AbilityTextureName"			"silencer/bts_silencer_ability/silencer_global_silence"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
@@ -383,6 +386,7 @@
 		"Innate"						"0"
 		"AbilityTextureName"			"morphling_ebb_and_flow"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
@@ -512,7 +516,7 @@
 		"AbilityCooldown"				"17"
 		"AbilityCastPoint"				"0.2"
 		"AbilityChannelTime"			"2.0"
-		"AbilityManaCost"				"80"
+		"AbilityManaCost"				"150"	// 75 x2
 
 		"AbilityValues"
 		{
@@ -606,7 +610,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"IsGrantedByShard"				"0"
 		"HasShardUpgrade"				"0"
 		"AbilityTextureName"			"alchemist_berserk_potion"
@@ -614,7 +618,7 @@
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"35"
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"75"
 
 		"MaxLevel"						"1"
 
