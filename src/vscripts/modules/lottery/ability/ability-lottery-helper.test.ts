@@ -32,6 +32,18 @@ describe('AbilityLotteryHelper mutually exclusive abilities', () => {
     }
   });
 
+  it('never offers the partner of an ability the hero already has', () => {
+    const hero = {
+      GetAbilityCount: () => 1,
+      GetAbilityByIndex: () => ({ GetAbilityName: () => 'jakiro_double_trouble' }),
+    } as unknown as CDOTA_BaseNPC_Hero;
+    for (let n = 0; n < 50; n++) {
+      const results = AbilityLotteryHelper.getRandomAbilities(tiers, 3, hero, []);
+      expect(results.map((r) => r.name)).not.toContain('luna_moon_glaive');
+      expect(results.map((r) => r.name)).not.toContain('jakiro_double_trouble2');
+    }
+  });
+
   it('never offers both members within one draw', () => {
     for (let n = 0; n < 50; n++) {
       const names = AbilityLotteryHelper.getRandomAbilities(tiers, 3, undefined, []).map(
