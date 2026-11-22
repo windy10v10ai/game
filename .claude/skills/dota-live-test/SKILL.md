@@ -80,6 +80,8 @@ end)
 - **只在主目录跑**：Dota 只加载主目录的 `game/`，命令发现自己不在那份 checkout 里就拒绝运行。worktree 里的改动先合到主目录当前分支，或把主目录切过去，跑前 `npm run build:vscripts`
 - **Dota 已开着就拒绝运行**，不会关掉用户正在用的 Dota；收尾时只按进程号关自己起的那个，别人开着的专用服不受影响
 - 检查脚本运行时报错（定时器回调里出错）不会立即结束，命令会打印 `Script Runtime Error` 行并等到超时判失败
+- 命令输出只有 `check.expect` 与 `DONE` 行，脚本自己 `print` 的诊断行要读 `console.log`，下一次启动会清空，连跑多个英雄时每跑完拷一份
+- 施法用 `ExecuteOrderFromTable`（如 `DOTA_UNIT_ORDER_CAST_POSITION`）即可。验护盾、减伤时 `ApplyDamage` 的来源用敌方单位，英雄打自己不代表外部伤害；原版 modifier 的 `GetModifierIncomingDamageConstant` 等在 Lua 里是 nil，护盾剩余值只能靠打伤害看血量
 - 跑完 Dota Tools 可能重新编译 `game/` 下的资源（如 `.vsndevts_c`），`git status` 出现无关改动时用 `git checkout -- <文件>` 还原
 
 ## 派子代理跑
