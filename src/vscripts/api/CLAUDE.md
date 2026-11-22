@@ -4,7 +4,7 @@
 
 改代发（客户端 HTTP relay）相关代码前先读同目录 `README.md`：游廊对局服务端发不出 HTTP，线上每一局都靠玩家客户端代发，那条链路的限制（只能 GET、标题长度上限、认响应头、线路可用性）决定了这一层能怎么写。
 
-改本目录 `README.md` 前先读 `.claude/references/doc-writing.md`「模块 README」：只记用户拍板的决定和理由，超时、间隔、次数这类实现细节留在代码注释里。
+改本目录 `README.md` 前先读 `.claude/references/doc-writing.md`「模块 README」：按背景、目的、设计、要求写，不写超时、间隔、次数这类实现细节。
 
 ## 重试次数
 
