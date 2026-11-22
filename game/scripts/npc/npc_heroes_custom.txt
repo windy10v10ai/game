@@ -2462,7 +2462,7 @@
 	// 宙斯
 	"npc_dota_hero_zuus"
 	{
-		"AttackRange"			"750"
+		"AttackRange"			"750"	// 365
 		"Bot"
 		{
 			"Build"
