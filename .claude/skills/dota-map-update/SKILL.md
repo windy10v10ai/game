@@ -18,19 +18,28 @@ description: Dota 2 官方更新了地形（地图改动）后，把本图地图
 
 `.vmap` 是二进制 DMX。文本化用 `game\bin\win64\dmxconvert.exe -i <in> -o <out> -oe keyvalues2`，改完用 `-oe binary` 转回，Hammer 与 `resourcecompiler` 都能读。文本文件放 scratchpad，不放进仓库。
 
-## 手改的两处（都在 `dota_pvp_prefab.vmap`）
+## 手改的三处（都在 `dota_pvp_prefab.vmap`）
 
 | 手改 | 做什么 | 为什么 |
 |---|---|---|
 | 6 个营地改远古 | `neutralcamp_evil_12`、`evil_13`、`evil_20`、`good_12`、`good_16`、`good_20` 的 `NeutralType=3`、`MinSpawnType=1`、`MaxSpawnType=5`（与官方原生远古 `evil_8` / `good_8` 一致） | 提升地图外围营地等级。营地名字每版都要确认还在，位置变了不影响 |
-| 天辉泉水 `trigger_shop` 放大 | 实体 origin 约 `-7584 -6688`，两个子 mesh 的世界坐标与半长写在脚本里，覆盖全图 xy，z 覆盖高地与河道落差 | 全图任意位置买卖。只拉 xy 不拉 z，英雄上高地后会脱离触发器（PR #2252） |
+| 天辉泉水 `trigger_shop` 放大 | 实体 origin 约 `-7584 -6688`，两个子 mesh 覆盖全图 xy，z 覆盖高地与河道落差，右上角是斜角（不是矩形） | 全图任意位置买卖。只拉 xy 不拉 z，英雄上高地后会脱离触发器（PR #2252） |
+| 夜魇泉水 `trigger_shop` 放大 | 官方 7.42 里实体 origin 是 `7328 6400`（更新前 `7584 6656`），两个子 mesh 覆盖夜魇高地，世界坐标约 x 4096..7808、y 4352..7872 | 填满天辉那块让出的右上角 |
 
-`shop_keeper_dire.vmap` / `shop_keeper_radiant.vmap` 各删了 1 个秘密商店 `trigger_shop`，不随官方更新，保持不动。
+**两个泉水触发器的约束**：
+
+- 不能重叠，重叠会有 bug。这是硬约束，优先于覆盖。天辉那块右上角是斜角，正是为夜魇这块让位的，夜魇高地由放大的夜魇商店负责
+- 拼起来尽量覆盖全图，交界处（夜魇高地两侧）有少量买不了的空白可以接受，不要为了消除空白去扩大任何一块
+- 不能用包围盒重建或判断：天辉块的包围盒看起来覆盖全图，实际右上角是斜角。脚本把旧版文件里两个子 mesh 的整套几何（顶点、面、子 mesh 的世界坐标）原样搬到新文件对应实体上，核对逐顶点比世界坐标。子 mesh 的 origin 是世界坐标，官方移动实体 origin 不影响它
+
+**找手改的坑**：不能只对比「我方旧文件 vs 官方新文件」，差异里混着官方自己的改动，容易把手改误判成官方改动（这次夜魇泉水的放大就是这样漏掉的，夜魇高地出现一大块买不了的区域）。要拿官方旧版（上一版 `content/dota/maps/` 源文件或其快照）作基线，对比「我方旧文件 vs 官方旧版」才是手改的完整清单。没有官方旧版时，把每一处差异都列给用户确认，不自行归类。
+
+`shop_keeper_dire.vmap` / `shop_keeper_radiant.vmap` 各删了 1 个秘密商店 `trigger_shop`，不随官方更新，保持不动。官方 prefab 里第三个 `trigger_shop`（薄片，约 y 7072..7104）不改。
 
 ## 步骤
 
 1. 从最新 `develop` 切分支。备份现有 `dota.vmap` 与 `dota_pvp_prefab.vmap` 到 scratchpad
-2. 跑 `python .claude/skills/dota-map-update/scripts/apply_map_edits.py --work <scratchpad>/work`：把官方 `dota.vmap` 复制过来，官方 prefab 文本化、重做两处手改、转回二进制写入 `content/maps/prefabs/`，再转回文本核对。输出必须满足：28 个营地中只有上面 6 个带 `*`，3 个商店触发器只有天辉泉水那个带 `*`，脚本内置断言。官方改了营地名字或泉水位置时脚本会报错，先读报错再改常量
+2. 把上一步备份的旧 prefab（带手改的版本，通常是 `git show develop:content/maps/prefabs/dota_pvp_prefab.vmap`）存成文件，跑 `python .claude/skills/dota-map-update/scripts/apply_map_edits.py --baseline <旧 prefab> --work <scratchpad>/work`：把官方 `dota.vmap` 复制过来，官方 prefab 文本化、改 6 个营地、从旧 prefab 搬两个泉水触发器的几何、转回二进制写入 `content/maps/prefabs/`，再转回文本核对。输出必须满足：28 个营地中只有上面 6 个带 `*`，两个泉水触发器逐顶点与旧版一致，其余触发器不变，脚本内置断言。官方改了触发器子 mesh 数量或营地名字时脚本会报错，先读报错再处理
 3. 编译三张图，三张图用同一份 `dota.vmap`：
 
    ```bash
@@ -60,7 +69,7 @@ description: Dota 2 官方更新了地形（地图改动）后，把本图地图
 用 `dota-live-test`，不要用 `dota:check`（它不能指定地图名，hard / custom 要手动启动：`dota2.exe -novid -tools -condebug -conclearlog -netconport 29000 -addon windy10v10ai +dota_launch_custom_game windy10v10ai <地图名>`）：
 
 - `GetMapName()` 返回 `dota` / `hard` / `custom`（模式逻辑依赖它）
-- 全图商店：传送英雄到高地、河道、四角，`IsInRangeOfShop(DOTA_SHOP_HOME, true)` 都为真。传送后要等约 1 秒再读，读太早会误报 0
+- 全图商店：天辉方和夜魇方英雄各测一遍，点位含夜魇高地泉水以外的多个位置、斜角交界线两侧、河道、四角，`IsInRangeOfShop(DOTA_SHOP_HOME, true)` 为真。交界处少量买不了的点是预期，写明位置即可，不算失败。传送后要等约 1 秒再读，读太早会误报 0
 - 6 个远古营地刷出远古野怪（黑龙、岩石 / 花岗岩傀儡、冰甲傀儡、豹猫萨满等），其余 22 个跟随官方
 - 防御塔、双生之门、回城石、肉山坑与官方 7.42 一致。运行时导出实体坐标，回城石不是运行时实体，取自 prefab 的 `npc_dota_stone_of_recall`
 - 小地图是新版，不朽庭院特效只在 dota 图出现
