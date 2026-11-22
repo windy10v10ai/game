@@ -326,10 +326,16 @@ function IsOffline() {
   return loading != null && loading.status === LOADING_STATUS_OFFLINE;
 }
 
+// 启动器局离线时结算失败会写日志由启动器上传，不能提示「积分未记录」，只显示结算状态
+function IsLauncherGame() {
+  const loading = CustomNetTables.GetTableValue('loading_status', 'loading_status');
+  return loading != null && loading.dedicated === 1;
+}
+
 function ShowOfflineState() {
-  const offline = IsOffline();
+  const offline = IsOffline() && !IsLauncherGame();
   $('#OfflineHint').visible = offline;
-  // 离线局本来就不记账，离线提示已经说明，再显示结算状态是重复
+  // 游廊离线局本来就不记账，离线提示已经说明，再显示结算状态是重复
   $('#SettleStatus').visible = !offline;
   return offline;
 }

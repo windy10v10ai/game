@@ -75,7 +75,7 @@
 		///////////////////////////////////////////////////
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
 		"loading_status_2"				"Online mode. Player data loaded successfully."
-		"loading_status_3"				"Offline mode: Dota 2 restricts map networking, so points can't be recorded.\nAttributes and membership use data as of {date}."
+		"loading_status_3"				"Offline mode: Dota 2 restricts map networking.\nAttributes and membership use data as of {date}."
 		"room_status_entering"			"Players connecting: {players}"
 		"room_status_separator"			", "
 		"room_status_waiting"			"Waiting for other players to join"

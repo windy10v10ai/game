@@ -4,6 +4,7 @@ import { PlayerHelper } from '../modules/helper/player-helper';
 import { GameEndDto } from './analytics/dto/game-end-dto';
 import { GA4ConfigDto } from './analytics/ga4/dto/ga4-dto';
 import { GA4 } from './analytics/ga4/ga4';
+import { UsesLauncherSettleLog } from './launcher-settle-log';
 import { ApiClient, HttpMethod } from './api-client';
 import { Player, PlayerInfoDto, PointInfoDto } from './player';
 import { PlayerSnapshot } from './player-snapshot';
@@ -172,6 +173,7 @@ export class Game {
     CustomNetTables.SetTableValue('loading_status', 'loading_status', {
       status: 3,
       snapshotDate,
+      dedicated: UsesLauncherSettleLog() ? 1 : 0,
     });
   }
 

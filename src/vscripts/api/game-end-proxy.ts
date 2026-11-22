@@ -2,6 +2,7 @@ import { GameEndDto, GameEndPlayerDto } from './analytics/dto/game-end-dto';
 import { ApiClient, ApiParameter, ProxyPathParams } from './api-client';
 import { ApiHtmlProxy } from './api-html-proxy';
 import { type ApiTarget } from './api-route';
+import { UsesLauncherSettleLog, printSettleLog } from './launcher-settle-log';
 import { base64UrlEncode } from '../utils/base64url';
 
 const GAME_END_LOCAL_PATH = '/game/end/local';
@@ -68,16 +69,30 @@ export class GameEndProxy {
     let pending = requests.length;
     let succeeded = 0;
 
-    const onOneDone = (ok: boolean) => {
-      if (ok) succeeded++;
+    const failed: GameEndPlayerRequest[] = [];
+
+    const onOneDone = (request: GameEndPlayerRequest, ok: boolean) => {
+      if (ok) {
+        succeeded++;
+      } else {
+        failed.push(request);
+      }
       pending--;
       if (pending > 0) return;
       print(`[GameEndProxy] settled total=${requests.length} succeeded=${succeeded}`);
+      // 重试用完仍失败的玩家只在启动器专用服兜底：写日志交给同机的启动器上传。
+      // 网页控件那条其实到了、只是回包丢了时，启动器再交一次会撞上后端的账户冷却，不会重复加分
+      if (failed.length > 0 && UsesLauncherSettleLog()) {
+        print(`[GameEndProxy] ${failed.length} player(s) fall back to the settle log`);
+        printSettleLog(failed);
+      }
       callbackFunc(buildSettledResponse(requests.length, succeeded) as CScriptHTTPResponse);
     };
 
     for (const request of requests) {
-      GameEndProxy.sendOne(target, request, 1, apiParameter.timeoutSeconds, onOneDone);
+      GameEndProxy.sendOne(target, request, 1, apiParameter.timeoutSeconds, (ok) =>
+        onOneDone(request, ok),
+      );
     }
   }
 
