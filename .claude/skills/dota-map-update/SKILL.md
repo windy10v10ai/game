@@ -48,7 +48,12 @@ description: Dota 2 官方更新了地形（地图改动）后，把本图地图
 
 ## hard / custom 没有不朽庭院特效
 
-试过让 hard / custom 复用带特效的 dota 包，结论是做不到：引擎按地图名去 `maps/<地图名>/world.vwrld` 找世界，而 `world.vrman_c` 等资源头里写死原路径 `maps/dota/`（还有压缩过看不见的引用），只重命名入口文件会 `CREATE_SERVER_FAILED`。hard 因为名字也是 4 个字符，可以把所有文件里的 `maps/dota` 原地替换成 `maps/hard`，再把原目录整份留着兜底（包体翻倍到 65MB），能进游戏，但 custom 是 6 个字符，改长度会破坏资源偏移，无法同样处理。所以三张图只有 dota 带特效，hard / custom 保持 `resourcecompiler` 的原始产物。
+试过让 hard / custom 复用带特效的 dota 包，没有成功：引擎按地图名去 `maps/<地图名>/world.vwrld` 找世界，而资源里写死原路径 `maps/dota/`，只重命名入口文件会 `CREATE_SERVER_FAILED`。
+
+- hard（名字也是 4 个字符）：把所有文件里的 `maps/dota` 原地替换成 `maps/hard`，并把顶层文件改名，仍有一批路径压缩在 KV3 数据块里改不到（`default_ents`、`world_layer_*`、几百个 `worldnodes/*.vmdl_c`），报 `Failed loading resource "maps/dota/..."`，整个原 `maps/dota/` 目录留作兜底后才能进游戏，包体翻倍到 65MB。不留兜底进不了游戏
+- custom（6 个字符）：改长度会破坏资源偏移，没法同样处理
+
+所以三张图只有 dota 带特效，hard / custom 保持 `resourcecompiler` 的原始产物。要想做到，需要能改写 KV3 压缩数据的工具，现有的 Source2Viewer 只能读、不能写。
 
 ## 验证清单
 
