@@ -1535,8 +1535,8 @@ export class BotBaseAIModifier extends BaseModifier {
     if (passive !== undefined) {
       UTIL_RemoveImmediate(passive);
     }
-    this.hero.AddItemByName(desiredActive.name).SetLevel(desiredActive.level);
-    this.hero.AddItemByName(desiredPassive.name).SetLevel(desiredPassive.level);
+    NeutralItemManager.GiveToHero(this.hero, desiredActive);
+    NeutralItemManager.GiveToHero(this.hero, desiredPassive);
     return true;
   }
 
@@ -1577,8 +1577,8 @@ export class BotBaseAIModifier extends BaseModifier {
       UTIL_RemoveImmediate(oldEnhancement);
     }
 
-    this.hero.AddItemByName(selectedItem.name).SetLevel(selectedItem.level);
-    this.hero.AddItemByName(selectedEnhancement.name).SetLevel(selectedEnhancement.level);
+    NeutralItemManager.GiveToHero(this.hero, selectedItem);
+    NeutralItemManager.GiveToHero(this.hero, selectedEnhancement);
     this.desiredNeutralActive = { name: selectedItem.name, level: selectedItem.level };
     this.desiredNeutralPassive = {
       name: selectedEnhancement.name,

@@ -377,4 +377,14 @@ export class NeutralItemManager {
 
     return items[0];
   }
+
+  // 等级必须在 AddItem 之前设好：先加后设，modifier 已按 1 级创建，效果不会随等级更新
+  public static GiveToHero(hero: CDOTA_BaseNPC_Hero, config: NeutralItemConfig): void {
+    const item = CreateItem(config.name, undefined, undefined);
+    if (item === undefined) {
+      return;
+    }
+    item.SetLevel(config.level);
+    hero.AddItem(item);
+  }
 }
