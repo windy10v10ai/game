@@ -168,13 +168,13 @@
 		"Innate"						"0"
 		"AbilityTextureName"			"clinkz_tar_bomb"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"MaxLevel"						"5"
+		"MaxLevel"						"1"
 
 		"AbilityValues"
 		{
 			"total_ticks"			"2"
 			"tick_rate"				"1"
-			"tick_attack_damage_pct"		"16 20 24 28 32"	// 20
+			"tick_attack_damage_pct"		"25"	// 20
 		}
 	}
 	//奇心 拉比克 先天
@@ -271,13 +271,13 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
 		"AbilityTextureName"			"jakiro_dual_breath"
-		"MaxLevel"						"5"
+		"MaxLevel"						"1"
 
 		"AbilityValues"
 		{
 			"attack_damage_reduction"
 			{
-				"value"							"50 40 30 20 10"	// 50 + hero_levelup -1.0/lv
+				"value"							"25"	// 50 + hero_levelup -1.0/lv
 			}
 		}
 	}

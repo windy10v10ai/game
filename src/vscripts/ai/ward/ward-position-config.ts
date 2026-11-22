@@ -64,7 +64,7 @@ const OBSERVER_WARD_POSITIONS: readonly Vector[] = [
   // 中路河道
   Vector(-1625, -200, 0),
   Vector(74, -1320, 0),
-  Vector(-519, 605, 0),
+  Vector(-519, 555, 0),
   Vector(-820, -1921, 0),
   // roshan
   Vector(-2142, 1776, 0),
@@ -120,7 +120,7 @@ const SENTRY_WARD_POSITIONS: readonly Vector[] = [
   // 中路河道
   Vector(-1625, -200, 0),
   Vector(74, -1320, 0),
-  Vector(-519, 605, 0),
+  Vector(-519, 555, 0),
   // roshan
   Vector(-2142, 1776, 0),
   Vector(-2273, 2628, 0),
