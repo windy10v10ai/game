@@ -268,7 +268,6 @@ export const abilityTiersPassive: Tier[] = [
     names: [
       // 被动技能
       'shredder_reactive_armor', // 活性活甲
-      'chaos_knight_fundamental_forging', // 混沌骑士 基本法则锻造
       'nevermore_dark_lord', // 魔王降临
       'nevermore_necromastery', // 影魔 支配死灵
       'tusk_bitter_chill', // 巨牙 严寒
