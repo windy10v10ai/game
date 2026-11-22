@@ -69,7 +69,7 @@ description: Dota 2 官方更新了地形（地图改动）后，把本图地图
 用 `dota-live-test`，不要用 `dota:check`（它不能指定地图名，hard / custom 要手动启动：`dota2.exe -novid -tools -condebug -conclearlog -netconport 29000 -addon windy10v10ai +dota_launch_custom_game windy10v10ai <地图名>`）：
 
 - `GetMapName()` 返回 `dota` / `hard` / `custom`（模式逻辑依赖它）
-- 全图商店：天辉方和夜魇方英雄各测一遍，点位含夜魇高地泉水以外的多个位置、斜角交界线两侧、河道、四角，`IsInRangeOfShop(DOTA_SHOP_HOME, true)` 为真。交界处少量买不了的点是预期，写明位置即可，不算失败。传送后要等约 1 秒再读，读太早会误报 0
+- 全图商店：用天辉方英雄测即可（商店触发器双方共享，玩家只在天辉），点位含夜魇高地泉水以外的多个位置、斜角交界线两侧、河道、四角，`IsInRangeOfShop(DOTA_SHOP_HOME, true)` 为真。交界处少量买不了的点是预期，写明位置即可，不算失败。传送后要等约 1 秒再读，读太早会误报 0
 - 6 个远古营地刷出远古野怪（黑龙、岩石 / 花岗岩傀儡、冰甲傀儡、豹猫萨满等），其余 22 个跟随官方
 - 防御塔、双生之门、回城石、肉山坑与官方 7.42 一致。运行时导出实体坐标，回城石不是运行时实体，取自 prefab 的 `npc_dota_stone_of_recall`
 - 小地图是新版，不朽庭院特效只在 dota 图出现
