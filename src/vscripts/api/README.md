@@ -92,8 +92,14 @@ Dota 2 7.42 起服务端拿不到 HTTP 请求对象，只能靠玩家客户端�
 
 - game：`feature/2818-launcher-relay-184d75`，firebase：`feature/2818-launcher-relay`
 - **机制**：专用服发不出 HTTP，只读请求改由同机的启动器代发。游戏写一行 `[WReq] v1 <请求号> <超时秒数> <路径与查询>` 到日志，启动器读 `dedicated.log`，只放行白名单里的 GET 路径，用启动器 key 调后端，把响应写进 addon 目录的 `scripts/kv/launcher_relay.kv`（每个请求号一个子块，正文 base64url），游戏每 0.5 秒读一次。不开端口，也不动 `server.dll`
-- **结算**：另有日志结算（逐人写 `[WSettle]` 行，启动器读后用 `LAUNCHER` 服务器类型调 `POST /game/end/local`），已随这次统一联网删除，格式见 [issue 2795](https://github.com/windy10v10ai/game/issues/2795)。启动器里读日志的代码与后端接收接口还在，新地图不写日志，启动器读不到就什么都不做
 - **覆盖不到**：游廊开局的玩家，他们的退路只有离线快照
+
+## 备用方案：启动器日志结算
+
+同样只覆盖启动器专用服。游戏逐人写 `[WSettle]` 日志行，启动器读 `dedicated.log` 后用 `LAUNCHER` 服务器类型调 `POST /game/end/local` 上传，格式见 [issue 2795](https://github.com/windy10v10ai/game/issues/2795)。
+
+- **现状**：游戏侧写日志的代码已随统一联网删除，启动器与后端两侧都还在。新地图不写日志，启动器读不到就什么都不做，不会出错
+- **加回来的方法**：恢复 game PR #2812、#2813 的游戏侧代码即可
 
 ## 中国大陆线路目前不可用
 
