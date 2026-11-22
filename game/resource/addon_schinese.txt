@@ -75,8 +75,7 @@
 		///////////////////////////////////////////////////
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
 		"loading_status_2"				"在线模式，玩家数据加载成功。"
-		"loading_status_3"				"离线模式：Dota 2 限制了地图联网。\n积分无法记录，用最新版启动器可以记录。\n属性，会员等沿用 {date} 的数据。"
-		"loading_status_4"				"属性，觉醒与会员沿用 {date} 的数据。\n本局积分会在结算后由启动器自动上传。"
+		"loading_status_3"				"离线模式：Dota 2 限制了地图联网。\n本局积分无法记录。\n属性，会员等沿用 {date} 的数据。"
 		"room_status_entering"			"玩家正在连接：{players}"
 		"room_status_separator"			"，"
 		"room_status_waiting"			"等待其他玩家加入"
@@ -96,7 +95,7 @@
 		///////////////////////////////////////////////////
 		// 启动器
 		"launcher_promo_title"			"后期卡顿？试试启动器"
-		"launcher_promo_desc"			"在本机单独运行服务器，游戏更流畅，可结算积分"
+		"launcher_promo_desc"			"在本机单独运行服务器，游戏更流畅"
 		"launcher_promo_platforms"		"支持 Windows、macOS"
 		"launcher_promo_multiplayer"		"支持联机"
 		"launcher_download_button"			"下载启动器"
@@ -126,7 +125,7 @@
 		"loading_faq_illusions_summons_question"		"部分幻象和召唤技能已削弱或移除"
 		"loading_faq_illusions_summons_answer"			"幻象和大量召唤单位会明显增加卡顿，因此相关技能已削弱或移除。"
 		"loading_faq_launch_mode_question"			"游廊开局能记录积分吗？"
-		"loading_faq_launch_mode_answer"				"暂时不能。Dota 2 新版本限制了地图联网，开局会进入离线模式，沿用地图更新时的数据。用最新版启动器开局，结算积分可以正常记录，也能开房和朋友一起玩。"
+		"loading_faq_launch_mode_answer"				"可以。游廊和启动器开局都能正常记录积分。偶尔连不上服务器时会进入离线模式，沿用之前的数据。"
 		"loading_faq_pause_question"				"暂停时间可以延长吗？"
 		"loading_faq_pause_answer"				"从游廊开局可以。用启动器开局时游戏跑在服务器主机上，暂停时间无法延长，需要长时间暂停请从游廊开局。"
 		"loading_faq_attributes_question"			"加的属性点什么时候生效？"
@@ -172,11 +171,10 @@
 		"conduct_point_light_penalty_tooltip"	"行为分 <font color='#FFA726'>{0}</font> 惩罚，积分 ×0.8"
 		"conduct_point_heavy_penalty_tooltip"	"行为分 <font color='#E87D7D'>{0}</font> 惩罚，积分 ×0.5"
 
-		"end_screen_offline_hint"		"离线模式，由于 Dota 2 限制了地图联网，本局积分未能记录。\n用最新版启动器开局可以记录积分。"
+		"end_screen_offline_hint"		"离线模式，由于 Dota 2 限制了地图联网，本局积分未能记录。"
 		"ending_status_1"			"正在结算…"
 		"ending_status_2"			"结算完成"
 		"ending_status_3"			"结算已提交"
-		"ending_status_4"			"结算完成，积分会由启动器自动上传。"
 
 		///////////////////////////////////////////////////
 		//

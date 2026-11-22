@@ -75,8 +75,7 @@
 		///////////////////////////////////////////////////
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
 		"loading_status_2"				"Online mode. Player data loaded successfully."
-		"loading_status_3"				"Offline mode: Dota 2 restricts map networking, so points can't be recorded.\nAttributes and membership use data as of {date}.\nUse the latest launcher to record points."
-		"loading_status_4"				"Attributes, awakening and membership use data as of {date}.\nPoints will be uploaded by the launcher after the game."
+		"loading_status_3"				"Offline mode: Dota 2 restricts map networking, so points can't be recorded.\nAttributes and membership use data as of {date}."
 		"room_status_entering"			"Players connecting: {players}"
 		"room_status_separator"			", "
 		"room_status_waiting"			"Waiting for other players to join"
@@ -96,7 +95,7 @@
 		///////////////////////////////////////////////////
 		// 启动器
 		"launcher_promo_title"			"Late Game Lag? Try the Launcher"
-		"launcher_promo_desc"			"Runs a server on your PC: smoother games, points recorded"
+		"launcher_promo_desc"			"Runs a server on your PC for smoother games"
 		"launcher_promo_platforms"		"Supports Windows and macOS"
 		"launcher_promo_multiplayer"		"Multiplayer"
 		"launcher_download_button"			"Download Launcher"
@@ -126,7 +125,7 @@
 		"loading_faq_illusions_summons_question"		"Some illusion and summon abilities have been weakened or removed."
 		"loading_faq_illusions_summons_answer"			"Illusions and large numbers of summons can cause noticeable lag."
 		"loading_faq_launch_mode_question"			"Are points recorded in games started from the arcade?"
-		"loading_faq_launch_mode_answer"				"Not for now. The new Dota 2 version restricts map networking, so games start in offline mode with data from the latest map update. Start with the latest launcher to record points, and you can also host a room for friends."
+		"loading_faq_launch_mode_answer"				"Yes. Points are recorded whether you start from the Arcade or the launcher. If the server can't be reached, the game starts in offline mode with earlier data."
 		"loading_faq_pause_question"				"Can pause time be extended?"
 		"loading_faq_pause_answer"				"Yes, when the game is launched from the Arcade. Games started with the launcher run on a dedicated server, where pauses cannot be extended. For long pauses, launch from the Arcade."
 		"loading_faq_attributes_question"			"When do attribute points take effect?"
@@ -172,11 +171,10 @@
 		"conduct_point_light_penalty_tooltip"	"Conduct <font color='#FFA726'>{0}</font> penalty, points ×0.8"
 		"conduct_point_heavy_penalty_tooltip"	"Conduct <font color='#E87D7D'>{0}</font> penalty, points ×0.5"
 
-		"end_screen_offline_hint"		"Offline mode: Dota 2 restricts map networking, so points weren't recorded. Use the latest launcher to record points."
+		"end_screen_offline_hint"		"Offline mode: Dota 2 restricts map networking, so points weren't recorded."
 		"ending_status_1"			"Settling…"
 		"ending_status_2"			"Settlement complete"
 		"ending_status_3"			"Settlement submitted"
-		"ending_status_4"			"Game settled. The launcher will upload your points automatically."
 
 		///////////////////////////////////////////////////
 		//

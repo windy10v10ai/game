@@ -54,8 +54,8 @@ interface CustomGameEventDeclarations {
   dailytask_refresh_candidates: Record<string, never>;
   dailytask_load_history: Record<string, never>;
 
-  api_html_proxy_ready: Record<string, never>;
-  api_html_proxy_ack: Record<string, never>;
+  api_html_proxy_ready: ApiHtmlProxyReadyEventData;
+  api_html_proxy_ack: ApiHtmlProxyReadyEventData;
   api_html_proxy_request: ApiHtmlProxyRequestEventData;
   api_html_proxy_response: ApiHtmlProxyResponseEventData;
   api_html_proxy_failure: ApiHtmlProxyFailureEventData;
@@ -202,6 +202,12 @@ interface DailyTaskSelectCandidateEventData {
 
 // 客户端代发 HTTP 请求：服务端拿不到 CreateHTTPRequestScriptVM 请求对象时（游廊对局），
 // 交由一名已连接玩家的客户端用 DOTAHTMLPanel 代发，响应经由 title 带回
+// 客户端按线路报告已加载好中转页的控件数（direct 海外、cnProxy 国内），服务端据此限流，回执原样带回
+interface ApiHtmlProxyReadyEventData {
+  direct: number;
+  cnProxy: number;
+}
+
 interface ApiHtmlProxyRequestEventData {
   requestId: string;
   url: string;
