@@ -2,19 +2,35 @@
 declare let global: any;
 
 global.print = jest.fn();
-global.RandomInt = jest.fn(
-  (min: number, max: number) => min + Math.floor(Math.random() * (max - min + 1)),
-);
+
+// 固定种子的伪随机，Math.random 与 RandomInt 共用，每个用例的结果可复现
+let seed = 0;
+function nextRandom(): number {
+  seed = (seed * 1664525 + 1013904223) % 4294967296;
+  return seed / 4294967296;
+}
+const seededRandomInt = (min: number, max: number) =>
+  min + Math.floor(nextRandom() * (max - min + 1));
+global.RandomInt = seededRandomInt;
 
 import { AbilityLotteryHelper } from './ability-lottery-helper';
 
 describe('AbilityLotteryHelper mutually exclusive abilities', () => {
+  beforeEach(() => {
+    seed = 12345;
+    global.RandomInt = seededRandomInt;
+    jest.spyOn(Math, 'random').mockImplementation(nextRandom);
+  });
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   const tiers = Array.from({ length: 5 }, (_, i) => ({
     level: 5 - i,
     names: [
       'luna_moon_glaive',
       'jakiro_double_trouble2',
-      // 抽取最多重试 10 次，池子太小会偶发落回已排除的名字
+      // 抽取最多重试 10 次，池子要远大于排除名单
       ...Array.from({ length: 60 }, (_, n) => `filler_${n}`),
     ],
   }));
@@ -38,6 +54,17 @@ describe('AbilityLotteryHelper mutually exclusive abilities', () => {
       ]);
       expect(results.map((r) => r.name)).not.toContain('jakiro_double_trouble2');
     }
+  });
+
+  it('retries when the random pick lands on an excluded name', () => {
+    // 62 个名字：下标 0 是月刃，1 是天生一对，0.5 落在 filler_29
+    global.RandomInt = () => 1;
+    const sequence = [0, 1.5 / 62, 0.5];
+    jest.spyOn(Math, 'random').mockImplementation(() => sequence.shift() ?? 0.5);
+    const results = AbilityLotteryHelper.getRandomAbilities(tiers, 1, undefined, [
+      'luna_moon_glaive',
+    ]);
+    expect(results).toEqual([{ name: 'filler_29', level: 5 }]);
   });
 
   it('never offers the partner of an ability the hero already has', () => {
@@ -69,13 +96,12 @@ describe('AbilityLotteryHelper mutually exclusive abilities', () => {
     it('swaps in a same-tier ability for any random value', () => {
       const conflictHero = makeHero(['jakiro_double_trouble2']);
       for (const r of [0, 0.5, 0.999999]) {
-        const spy = jest.spyOn(Math, 'random').mockReturnValue(r);
+        jest.spyOn(Math, 'random').mockReturnValue(r);
         const result = AbilityLotteryHelper.resolveConflictingPick(
           conflictHero,
           { name: 'luna_moon_glaive', level: 4 },
           tiers,
         );
-        spy.mockRestore();
         expect(['luna_moon_glaive', 'jakiro_double_trouble2']).not.toContain(result.name);
         expect(result.level).toBe(4);
         expect(tiers.find((t) => t.level === 4)?.names).toContain(result.name);
