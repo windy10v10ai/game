@@ -1,8 +1,11 @@
-/** 顺路的小事：身边有神符、肉山掉落、敌方前哨或没亮的观察者时顺手处理，不为它们专门跑一趟。 */
+/** 顺路的小事：身边有神符、肉山掉落、敌方前哨、没亮的观察者或本方空着的眼位时顺手处理，不为它们专门跑一趟。 */
 
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { CachedOutposts } from '../team/building-cache';
+import { pickDetourSpot } from '../ward/ward-decision';
+import { WardPlacement } from '../ward/ward-placement';
+import { OBSERVER_WARD_CONFIG, WARD_DETOUR_RANGE } from '../ward/ward-position-config';
 
 const RUNE_RANGE = 800;
 const DROP_RANGE = 800;
@@ -37,8 +40,34 @@ const ownedAt = new Map<string, number>();
  */
 export type RoadsideScope = 'all' | 'quick' | 'drops';
 
-/** 下了命令时返回走过去要的秒数，这段时间内英雄不再下别的移动命令；没事可做返回 0。 */
+// 走去捡东西期间不再下别的移动命令，但最多这么久，路上的情况会变
+const ROADSIDE_MAX_SECONDS = 3;
+// 插眼绕路更远，单独放宽，其余几类不变
+const WARD_ROADSIDE_MAX_SECONDS = 8;
+
+export interface RoadsideResult {
+  /** 下了命令时走过去要的秒数，这段时间内英雄不再下别的移动命令；没事可做为 0 */
+  seconds: number;
+  /** 这件事最多占住英雄多久 */
+  maxSeconds: number;
+}
+
 export function TryRoadside(
+  hero: CDOTA_BaseNPC_Hero,
+  scope: RoadsideScope,
+  powerOf: (hero: CDOTA_BaseNPC_Hero) => number,
+): RoadsideResult {
+  const pickup = TryPickups(hero, scope, powerOf);
+  if (pickup > 0) {
+    return { seconds: pickup, maxSeconds: ROADSIDE_MAX_SECONDS };
+  }
+  return {
+    seconds: WardDetour(hero, hero.GetTeamNumber()),
+    maxSeconds: WARD_ROADSIDE_MAX_SECONDS,
+  };
+}
+
+function TryPickups(
   hero: CDOTA_BaseNPC_Hero,
   scope: RoadsideScope,
   powerOf: (hero: CDOTA_BaseNPC_Hero) => number,
@@ -109,7 +138,44 @@ export function TryRoadside(
       }
     }
   }
+
   return 0;
+}
+
+/** 手里有假眼就去最近的本方空眼位插：认领期内同一区域不派第二个人，成功后区域有眼自然不再选。 */
+function WardDetour(hero: CDOTA_BaseNPC_Hero, team: DotaTeam): number {
+  const config = OBSERVER_WARD_CONFIG;
+  const item = WardPlacement.FindUsableWard(hero, config);
+  if (!item) {
+    return 0;
+  }
+  const existing = WardPlacement.FindFriendlyWards(
+    hero,
+    config,
+    WARD_DETOUR_RANGE + 2 * config.sameWardRadius,
+  );
+  const origin = hero.GetAbsOrigin();
+  const pick = pickDetourSpot(
+    origin,
+    WardPlacement.ZonesOf(hero, config),
+    WARD_DETOUR_RANGE,
+    existing,
+    config.sameWardRadius,
+    (zoneId) => WardPlacement.IsClaimed(team, zoneId),
+    (n) => RandomInt(0, n - 1),
+  );
+  if (!pick) {
+    return 0;
+  }
+  WardPlacement.Claim(team, pick.zoneId);
+  WardPlacement.CastWard(hero, item, pick.spot, `detour:${pick.zoneId}`);
+  if (IS_DEBUG_RUN) {
+    print(
+      `[bot-ai] ${hero.GetUnitName().replace('npc_dota_hero_', '')} roadside=ward ${pick.zoneId}`,
+    );
+  }
+  const gap = Math.max(pick.spot.__sub(origin).Length2D() - config.castRange, 0);
+  return gap / Math.max(hero.GetIdealSpeed(), 1) + 1;
 }
 
 /**
