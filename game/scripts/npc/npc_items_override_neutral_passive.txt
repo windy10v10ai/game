@@ -10,6 +10,7 @@
 		{
 			"mana_regen"				"3 6 9"			// 0.8 2 3.2
 			"magic_res"					"0 10 25"		// 0 12 15
+			"manacost_reduction"		"5 10 15"		// 0 0 15
 		}
 	}
 	// 壮实 血量回血
@@ -189,6 +190,14 @@
 			"max_health"				"10"			// 5
 			"max_health_regen"			"2"				// 1.5
 			"attack_speed"				"-30"			// -30
+		}
+	}
+	// 狂热 冷却减少 -最大魔法值
+	"item_enhancement_feverish"
+	{
+		"AbilityValues"
+		{
+			"max_mana"					"10"			// 20
 		}
 	}
 	// 癫狂 攻击间隔 施法速度 -视野
