@@ -319,7 +319,8 @@
 	{
 		"ItemPurchasable"				"1"
 		"ItemCost"						"8000"
-		"ItemStockInitial"				"1"
+		"ItemInitialStockTime"			"660"	// 10分钟买（开局准备1分钟）
+		"ItemStockInitial"				"0"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"600"
 		"AbilityValues"
@@ -335,7 +336,8 @@
 	{
 		"ItemPurchasable"				"1"
 		"ItemCost"						"5000"
-		"ItemStockInitial"				"1"
+		"ItemInitialStockTime"			"660"	// 10分钟买（开局准备1分钟）
+		"ItemStockInitial"				"0"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"600"
 	}
