@@ -19,7 +19,7 @@ var imagefile = {
 
 var _ = GameUI.CustomUIConfig()._;
 
-// 与 game.ts 中 loading_status 的离线取值一致
+// 与 game.ts 中 loading_status 的离线取值一致：3 为游廊离线，积分不记录。启动器局为 4，积分由启动器上传，不算离线局
 var LOADING_STATUS_OFFLINE = 3;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -342,7 +342,7 @@ function OnEndingStatus(value) {
   const offline = ShowOfflineState();
   const statusPanel = $('#SettleStatus');
   statusPanel.SetHasClass('Settling', value.status === 1);
-  statusPanel.SetHasClass('Settled', value.status === 2);
+  statusPanel.SetHasClass('Settled', value.status === 2 || value.status === 4);
   $('#GameEndingStatusText').text = $.Localize('#ending_status_' + value.status);
   $('#CloseButton').enabled = offline || value.status !== 1;
 }

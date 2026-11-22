@@ -84,7 +84,7 @@
 <text x="564.5" y="587"><tspan class="code">bot-ability-usage</tspan><tspan class="d" x="702.5">bot 何时施法</tspan></text>
 <text x="564.5" y="605"><tspan class="code">bot-item-usage</tspan><tspan class="d" x="702.5">bot 何时用物品</tspan></text>
 <text x="564.5" y="623"><tspan class="code">bot-ai-tuning</tspan><tspan class="d" x="702.5">bot 决策与移动</tspan></text>
-<text x="564.5" y="641"><tspan class="code">bot-skill-build</tspan><tspan class="d" x="702.5">bot 技能加点与天赋</tspan></text>
+<text x="564.5" y="641"><tspan class="code">update-bot-hero-build</tspan><tspan class="d" x="742.5">bot 技能加点</tspan></text>
 <rect class="na" x="552.5" y="682" width="320" height="76" rx="8"/>
 <text class="t" x="564.5" y="707">测试与实机</text>
 <text class="d" x="564.5" y="727">jest、lint、构建；</text>

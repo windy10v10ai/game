@@ -305,7 +305,7 @@ function OnGameLoadingStatusChange(table, key, value) {
     const statusPanel = $('#GameLoadingStatus');
     statusPanel.SetHasClass('Loading', status === 1);
     statusPanel.SetHasClass('Online', status === 2);
-    statusPanel.SetHasClass('Offline', status === 3);
+    statusPanel.SetHasClass('Offline', status === 3 || status === 4);
   }
 }
 
