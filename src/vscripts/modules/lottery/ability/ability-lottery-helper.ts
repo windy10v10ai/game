@@ -44,7 +44,11 @@ export class AbilityLotteryHelper {
     excludedNames: string[] = [],
   ): LotteryDto {
     const group = MUTUALLY_EXCLUSIVE_ABILITY_GROUPS.find((g) => g.includes(picked.name));
-    if (group === undefined || !group.some((n) => n !== picked.name && hero.HasAbility(n))) {
+    if (group === undefined) {
+      return picked;
+    }
+    const owned = this.getHeroAbilityNames(hero);
+    if (!group.some((n) => n !== picked.name && owned.includes(n))) {
       return picked;
     }
     const sameTier = tiers.filter((t) => t.level === picked.level);
@@ -52,6 +56,17 @@ export class AbilityLotteryHelper {
       ...excludedNames,
       picked.name,
     ])[0];
+  }
+
+  private static getHeroAbilityNames(hero: CDOTA_BaseNPC_Hero): string[] {
+    const names: string[] = [];
+    for (let i = 0; i < hero.GetAbilityCount(); i++) {
+      const ability = hero.GetAbilityByIndex(i);
+      if (ability) {
+        names.push(ability.GetAbilityName());
+      }
+    }
+    return names;
   }
 
   static getRandomAbilities(
@@ -63,12 +78,7 @@ export class AbilityLotteryHelper {
   ): LotteryDto[] {
     // 排除英雄的重复技能
     if (currentHero) {
-      for (let i = 0; i < currentHero.GetAbilityCount(); i++) {
-        const ability = currentHero.GetAbilityByIndex(i);
-        if (ability) {
-          executedNames.push(ability.GetAbilityName());
-        }
-      }
+      executedNames.push(...this.getHeroAbilityNames(currentHero));
     }
 
     this.addMutuallyExclusiveNames(executedNames);

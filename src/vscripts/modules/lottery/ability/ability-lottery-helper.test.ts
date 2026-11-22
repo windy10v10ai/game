@@ -49,7 +49,6 @@ describe('AbilityLotteryHelper mutually exclusive abilities', () => {
       ({
         GetAbilityCount: () => owned.length,
         GetAbilityByIndex: (i: number) => ({ GetAbilityName: () => owned[i] }),
-        HasAbility: (name: string) => owned.includes(name),
       }) as unknown as CDOTA_BaseNPC_Hero;
 
     it('keeps the pick when the hero has no partner', () => {
