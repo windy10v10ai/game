@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16">
+  <rect width="960" height="470" fill="#ffffff"/>
+  <text x="240" y="34" text-anchor="middle" font-size="22" font-weight="bold" fill="#C86A0C">改动前</text>
+  <text x="720" y="34" text-anchor="middle" font-size="22" font-weight="bold" fill="#1F63C2">改动后</text>
+  <line x1="480" y1="50" x2="480" y2="440" stroke="#bbbbbb" stroke-dasharray="6 6"/>
+
+  <g fill="#FDEBD3" stroke="#E8821E" stroke-width="2">
+    <rect x="30" y="56" width="420" height="74" rx="10"/>
+    <rect x="30" y="148" width="420" height="74" rx="10"/>
+    <rect x="30" y="240" width="420" height="74" rx="10"/>
+    <rect x="30" y="332" width="420" height="74" rx="10"/>
+  </g>
+  <g fill="#5a3300" text-anchor="middle">
+    <text x="240" y="88">天辉、夜魇共用一份眼位</text>
+    <text x="240" y="112" font-size="14">假眼 53 点、真眼 31 点，11 对点位完全重合</text>
+    <text x="240" y="180">路过任何点位 600 内就插</text>
+    <text x="240" y="204" font-size="14">会插在自家基地里、防御塔边，树林挡视野的点也在用</text>
+    <text x="240" y="272">没有点位可插时，20% 概率在脚下随机插</text>
+    <text x="240" y="296" font-size="14">每局眼位都不一样，但多半没价值</text>
+    <text x="240" y="364">被隐身敌人打到时没有任何反应</text>
+    <text x="240" y="388" font-size="14">真眼只会在固定点位上被路过时插</text>
+  </g>
+
+  <g fill="#DCE9FB" stroke="#2F7DE1" stroke-width="2">
+    <rect x="510" y="56" width="420" height="74" rx="10"/>
+    <rect x="510" y="148" width="420" height="74" rx="10"/>
+    <rect x="510" y="240" width="420" height="74" rx="10"/>
+    <rect x="510" y="332" width="420" height="74" rx="10"/>
+  </g>
+  <g fill="#0b2a5c" text-anchor="middle">
+    <text x="720" y="88">天辉、夜魇各一份，按区域排</text>
+    <text x="720" y="112" font-size="14">每方 21 到 23 个区域，每区 1 到 3 个备选点，每局随机取</text>
+    <text x="720" y="180">带假眼的电脑空闲时，去最近的空区域插</text>
+    <text x="720" y="204" font-size="14">绕路不超过 1500，同一区域同一时间只派一个电脑</text>
+    <text x="720" y="272">不再脚下随机插，眼不会囤在身上</text>
+    <text x="720" y="296" font-size="14">团队补眼：假眼全队 4 个、真眼全队 3 个、每人最多 1 个真眼</text>
+    <text x="720" y="364">被隐身敌人打到，身上有真眼就在脚下插</text>
+    <text x="720" y="388" font-size="14">900 内已有己方真眼则不插，每个电脑 30 秒最多一次</text>
+  </g>
+  <g fill="#555" font-size="13" text-anchor="middle">
+    <text x="480" y="458">代码名对照：眼位表 ward-position-config.ts，顺路插眼 roadside.ts，反隐 ward-placement.ts 的 OnDamaged，补眼 ward-supply.ts</text>
+  </g>
+</svg>
