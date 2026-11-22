@@ -1,4 +1,5 @@
 import { registerAbilitySpecs } from '../../ai/ability/specs';
+import { ApiClient, HttpMethod } from '../../api/api-client';
 import { reloadable } from '../../utils/tstl-utils';
 import { EventPlayerDisconnect } from '../event/event-player-disconnect';
 import { GameEnd } from '../event/game-end/game-end';
@@ -255,6 +256,35 @@ export class Debug {
       GameEnd.gameEndTriggered = false;
       GameEnd.settled = false;
       GameEnd.OnGameEnd(args[0] === '3' ? DotaTeam.BADGUYS : DotaTeam.GOODGUYS);
+    }
+
+    if (cmd === CMD.RELAY_SETTLE) {
+      GameEnd.debugSettleCopies(Number(args[0] ?? 10));
+    }
+
+    if (cmd === CMD.UI_STATE) {
+      CustomNetTables.SetTableValue('loading_status', 'loading_status', {
+        status: Number(args[0] ?? 2),
+        snapshotDate: '2026-11-20',
+        dedicated: Number(args[1] ?? 0),
+      });
+      CustomNetTables.SetTableValue('ending_status', 'ending_status', {
+        status: Number(args[2] ?? 2),
+      });
+    }
+
+    if (cmd === CMD.RELAY_READ) {
+      const count = Number(args[0] ?? 10);
+      let done = 0;
+      for (let i = 0; i < count; i++) {
+        ApiClient.send(
+          { method: HttpMethod.GET, path: ApiClient.PROBE_PATH, successFunc: () => undefined },
+          (result) => {
+            done++;
+            print(`[RelayRead] ${done}/${count} status=${result.StatusCode}`);
+          },
+        );
+      }
     }
 
     if (cmd === CMD.DISCONNECT) {

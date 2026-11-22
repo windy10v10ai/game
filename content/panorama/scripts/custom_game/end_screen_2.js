@@ -19,7 +19,7 @@ var imagefile = {
 
 var _ = GameUI.CustomUIConfig()._;
 
-// 与 game.ts 中 loading_status 的离线取值一致：3 为游廊离线，积分不记录。启动器局为 4，积分由启动器上传，不算离线局
+// 与 game.ts 中 loading_status 的离线取值一致：3 为离线，积分不记录
 var LOADING_STATUS_OFFLINE = 3;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -326,10 +326,16 @@ function IsOffline() {
   return loading != null && loading.status === LOADING_STATUS_OFFLINE;
 }
 
+// 启动器局离线时结算失败会写日志由启动器上传，不能提示「积分未记录」，只显示结算状态
+function IsLauncherGame() {
+  const loading = CustomNetTables.GetTableValue('loading_status', 'loading_status');
+  return loading != null && loading.dedicated === 1;
+}
+
 function ShowOfflineState() {
-  const offline = IsOffline();
+  const offline = IsOffline() && !IsLauncherGame();
   $('#OfflineHint').visible = offline;
-  // 离线局本来就不记账，离线提示已经说明，再显示结算状态是重复
+  // 游廊离线局本来就不记账，离线提示已经说明，再显示结算状态是重复
   $('#SettleStatus').visible = !offline;
   return offline;
 }
@@ -342,7 +348,7 @@ function OnEndingStatus(value) {
   const offline = ShowOfflineState();
   const statusPanel = $('#SettleStatus');
   statusPanel.SetHasClass('Settling', value.status === 1);
-  statusPanel.SetHasClass('Settled', value.status === 2 || value.status === 4);
+  statusPanel.SetHasClass('Settled', value.status === 2);
   $('#GameEndingStatusText').text = $.Localize('#ending_status_' + value.status);
   $('#CloseButton').enabled = offline || value.status !== 1;
 }
