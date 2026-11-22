@@ -33,9 +33,7 @@ const OBSERVER_WARD_POSITIONS: readonly Vector[] = [
   Vector(-4363, -1040, 512), // 高台眼位
   Vector(-4759, 686, 256),
   Vector(-5187, -1619, 0),
-  Vector(-4640, -1056, 0),
   Vector(-3815, 1577, 256),
-  Vector(-4620, -1060, 384),
   Vector(0, 2598, 256),
   // 中路
   Vector(-1445, -2504, 0),
@@ -48,10 +46,10 @@ const OBSERVER_WARD_POSITIONS: readonly Vector[] = [
   Vector(-2567, -1743, 0),
   // 下野区
   Vector(-1264, -4364, 384), // 高台眼位
-  Vector(2800, -3087, 0),
+  Vector(2671, -3418, 0),
   Vector(303, -2584, 0),
   Vector(-510, -3334, 0),
-  Vector(1556, -3169, 0),
+  Vector(1556, -3069, 0),
   Vector(187, -4970, 0),
   Vector(3941, -4017, 0),
   Vector(594, -4149, 0),
@@ -104,14 +102,14 @@ const SENTRY_WARD_POSITIONS: readonly Vector[] = [
   // 上野区
   // 中路
   Vector(-7036, -5603, 0),
-  Vector(-2073, -2417, 0),
+  Vector(-2073, -2517, 0),
   Vector(1290, 842, 0),
   Vector(-2567, -1743, 0),
   // 下野区
   Vector(303, -2584, 0),
   Vector(-510, -3334, 0),
   Vector(1279, -5118, 0),
-  Vector(3239, -4273, 0),
+  Vector(3239, -4573, 0),
   Vector(4540, -4320, 0),
   Vector(2671, -3418, 0),
   // 下路
