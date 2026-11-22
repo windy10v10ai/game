@@ -182,7 +182,7 @@
 		"AbilityTextureName"			"item_guardian_greaves_artifact"
 		"AbilityValues"
 		{
-			"bonus_movement"			"150"		// 50
+			"bonus_movement"			"165"		// 55 x3
 			"bonus_armor"				"20"		// 5
 			"bonus_mana"				"1200"		// 150
 			"mana_regen"				"10"		// 1.0
@@ -193,8 +193,6 @@
 				"value"						"1200"	// 1200
 				"affected_by_aoe_increase"	"1"
 			}
-			"aura_health_regen_bonus"	"100"		// 14.5
-			"aura_bonus_threshold"		"75"		// 25
 			"replenish_health"			"1500"		// 325
 			"replenish_mana"			"1000"		// 200
 			"replenish_radius"
@@ -431,7 +429,11 @@
 			"static_seconary_radius"	"1200"	// 900
 			"static_radius"			"1200"	// 900
 			"static_cooldown"			"1.0"
-			"chain_chance"				"30"	// 25
+			"chain_chance"
+			{
+				"value"		"30"	// 25
+				"apply_effectiveness"	"1"
+			}
 			"chain_damage"				"450"	// 180
 			"chain_strikes"			"12"
 			"chain_radius"				"900"	// 650
@@ -756,9 +758,11 @@
 		{
 			"bonus_agility"			"80"	// 40
 			"bonus_intellect"		"25"	// 10
-			"feedback_mana_burn"	"150"	// 40
-			"feedback_mana_burn_illusion_melee"	"50"	// 0
-			"feedback_mana_burn_illusion_ranged"	"50"	// 0
+			"feedback_mana_burn"
+			{
+				"value"		"150"	// 40
+				"apply_effectiveness"	"1"
+			}
 			"purge_rate"			"5"
 			"purge_root_duration"	"6.0"	// 3.0
 			"damage_per_burn"		"1.0"
