@@ -1,19 +1,29 @@
 /**
- * bot 插眼入口，由 bot-base 在 ActionMode 之后调用。
+ * bot 插眼入口，由 bot-base 在 ActionMode 之后调用，顺路绕行见 hero/roadside.ts，被隐身敌人打到时的真眼见 OnDamaged。
  * 负责采集引擎侧数据并施法，判定逻辑全在 ward-decision。
  */
 
-import { isInWardNoCastZone } from '../../abilities/ts_abilities/ward_slot/ward-no-cast-zone';
-import { ActionFind } from '../action/action-find';
+import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import type { BotBaseAIModifier } from '../hero/bot-base';
-import { canPlaceAtHeroPosition, findAvailableCandidates } from './ward-decision';
 import {
+  pickPassingSpot,
+  SENTRY_TRIGGER_RADIUS,
+  shouldDropSentry,
+  WardZone,
+} from './ward-decision';
+import {
+  getWardZones,
   OBSERVER_WARD_CONFIG,
   PLACE_INTERVAL,
   POSITION_JITTER,
   SENTRY_WARD_CONFIG,
+  WardSide,
   WardTypeConfig,
 } from './ward-position-config';
+
+const randomIndex = (n: number): number => RandomInt(0, n - 1);
+// 每个 bot 上次被隐身敌人打到后插真眼的时间
+const sentryDroppedAt = new Map<EntityIndex, number>();
 
 export class WardPlacement {
   static Run(ai: BotBaseAIModifier): boolean {
@@ -42,86 +52,71 @@ export class WardPlacement {
     return false;
   }
 
+  /** 被隐身的敌方英雄打到：没有己方真眼罩着就在脚下插一个，30 秒内每人只触发一次 */
+  static OnDamaged(hero: CDOTA_BaseNPC_Hero, attacker: CDOTA_BaseNPC | undefined): void {
+    if (!attacker || attacker.IsNull() || !attacker.IsHero()) {
+      return;
+    }
+    if (attacker.GetTeamNumber() === hero.GetTeamNumber() || !attacker.IsInvisible()) {
+      return;
+    }
+    if (!hero.IsAlive() || hero.IsMuted()) {
+      return;
+    }
+    const sentry = this.FindUsableWard(hero, SENTRY_WARD_CONFIG);
+    const now = GameRules.GetGameTime();
+    const origin = hero.GetAbsOrigin();
+    if (
+      !shouldDropSentry({
+        hasSentry: sentry !== undefined,
+        attackerInvisible: true,
+        nearestFriendSentry: this.NearestFriendlyWard(
+          hero,
+          SENTRY_WARD_CONFIG,
+          SENTRY_TRIGGER_RADIUS,
+        ),
+        now,
+        lastTriggerAt: sentryDroppedAt.get(hero.GetEntityIndex()) ?? -Infinity,
+      })
+    ) {
+      return;
+    }
+    sentryDroppedAt.set(hero.GetEntityIndex(), now);
+    this.CastWard(hero, sentry!, origin, 'invisible-attacker');
+  }
+
+  static SideOf(team: DotaTeam): WardSide {
+    return team === DotaTeam.GOODGUYS ? 'radiant' : 'dire';
+  }
+
+  static ZonesOf(hero: CDOTA_BaseNPC_Hero, config: WardTypeConfig): readonly WardZone[] {
+    return getWardZones(config, this.SideOf(hero.GetTeamNumber()));
+  }
+
   private static TryPlaceWard(
     hero: CDOTA_BaseNPC_Hero,
     item: CDOTA_Item,
     config: WardTypeConfig,
   ): boolean {
-    const origin = hero.GetAbsOrigin();
-    const existingWards = this.FindFriendlyWards(hero, config);
-
+    const existingWards = this.FindFriendlyWards(
+      hero,
+      config,
+      config.castRange + 2 * config.sameWardRadius,
+    );
     // 落点带抖动，判定距离要留出抖动余量，否则会超出 KV 的 cast range 导致施法失败
-    const candidates = findAvailableCandidates(
-      origin,
-      config.positions,
+    const spot = pickPassingSpot(
+      hero.GetAbsOrigin(),
+      this.ZonesOf(hero, config),
       config.castRange - POSITION_JITTER,
       existingWards,
       config.sameWardRadius,
+      randomIndex,
     );
-    if (candidates.length > 0) {
-      return this.CastWard(hero, item, candidates[RandomInt(0, candidates.length - 1)]);
-    }
-
-    // 概率只作用于脚下插眼，预设眼位必然插；先掷概率能省掉下面的塔与基地查询
-    if (RandomFloat(0, 1) > config.placeChance) {
-      return false;
-    }
-    if (!this.CanPlaceAtHero(hero, existingWards, config)) {
-      return false;
-    }
-    return this.CastWard(hero, item, origin);
-  }
-
-  private static CanPlaceAtHero(
-    hero: CDOTA_BaseNPC_Hero,
-    existingWards: readonly Vector[],
-    config: WardTypeConfig,
-  ): boolean {
-    const origin = hero.GetAbsOrigin();
-    const friendTowers: Vector[] = [];
-    const enemyTowers: Vector[] = [];
-    // 塔不走 ActionFind：Entities 查询不经过 unit filter，无敌塔与迷雾中的敌方塔都能拿到
-    // API 声明的返回类型是 object，运行时是数组
-    const towers = Entities.FindAllByClassnameWithin(
-      'npc_dota_tower',
-      origin,
-      Math.max(config.friendTowerRadius, config.enemyTowerRadius),
-    ) as CBaseEntity[];
-    for (const tower of towers) {
-      if (tower.GetTeamNumber() === hero.GetTeamNumber()) {
-        friendTowers.push(tower.GetAbsOrigin());
-      } else {
-        enemyTowers.push(tower.GetAbsOrigin());
-      }
-    }
-
-    const friendForts: Vector[] = [];
-    // 必须用含无敌的查询：兵营未破时基地是无敌的，普通建筑查询会把它过滤掉
-    for (const building of ActionFind.FindTeamBuildingsInvulnerable(
-      hero,
-      config.friendFortRadius,
-    )) {
-      if (building.GetUnitName().includes('fort')) {
-        friendForts.push(building.GetAbsOrigin());
-      }
-    }
-
-    return canPlaceAtHeroPosition({
-      heroPos: origin,
-      config,
-      existingWards,
-      friendTowers,
-      friendForts,
-      enemyTowers,
-      inNoCastZone: isInWardNoCastZone(origin),
-    });
+    return spot !== undefined && this.CastWard(hero, item, spot, 'passing');
   }
 
   /** 从主物品栏查找可用眼，bot会自动把眼挪到主物品栏不用做 SwapItems 挪位 */
-  private static FindUsableWard(
-    hero: CDOTA_BaseNPC_Hero,
-    config: WardTypeConfig,
-  ): CDOTA_Item | undefined {
+  static FindUsableWard(hero: CDOTA_BaseNPC_Hero, config: WardTypeConfig): CDOTA_Item | undefined {
     for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
       const item = hero.GetItemInSlot(slot);
       if (!item || !item.IsFullyCastable()) {
@@ -134,15 +129,16 @@ export class WardPlacement {
     return undefined;
   }
 
-  /** 一次查询覆盖所有候选点的去重：最远候选在 castRange 处，其去重半径再向外延伸 */
-  private static FindFriendlyWards(
+  /** 英雄周围 radius 内己方同类眼的位置 */
+  static FindFriendlyWards(
     hero: CDOTA_BaseNPC_Hero,
     config: WardTypeConfig,
+    radius: number,
   ): readonly Vector[] {
     const wards = Entities.FindAllByClassnameWithin(
       config.wardClassName,
       hero.GetAbsOrigin(),
-      config.castRange + config.sameWardRadius,
+      radius,
     ) as CBaseEntity[];
     const result: Vector[] = [];
     for (const ward of wards) {
@@ -153,15 +149,35 @@ export class WardPlacement {
     return result;
   }
 
-  private static CastWard(hero: CDOTA_BaseNPC_Hero, item: CDOTA_Item, position: Vector): boolean {
-    const target = position.__add(
-      Vector(
-        RandomInt(-POSITION_JITTER, POSITION_JITTER),
-        RandomInt(-POSITION_JITTER, POSITION_JITTER),
-        0,
-      ),
-    );
+  private static NearestFriendlyWard(
+    hero: CDOTA_BaseNPC_Hero,
+    config: WardTypeConfig,
+    radius: number,
+  ): number {
+    const origin = hero.GetAbsOrigin();
+    let nearest = Infinity;
+    for (const position of this.FindFriendlyWards(hero, config, radius)) {
+      nearest = Math.min(nearest, position.__sub(origin).Length2D());
+    }
+    return nearest;
+  }
+
+  /** 落点在 POSITION_JITTER 半径的圆内随机偏移，绕路和路过两种插法共用 */
+  static CastWard(
+    hero: CDOTA_BaseNPC_Hero,
+    item: CDOTA_Item,
+    position: Vector,
+    via: string,
+  ): boolean {
+    const angle = RandomFloat(0, 2 * Math.PI);
+    const radius = RandomFloat(0, POSITION_JITTER);
+    const target = position.__add(Vector(Math.cos(angle) * radius, Math.sin(angle) * radius, 0));
     hero.CastAbilityOnPosition(target, item, hero.GetPlayerOwnerID());
+    if (IS_DEBUG_RUN) {
+      print(
+        `[bot-ward] t=${Math.floor(GameRules.GetGameTime())} team=${hero.GetTeamNumber()} hero=${hero.GetUnitName().replace('npc_dota_hero_', '')} item=${item.GetAbilityName()} via=${via} pos=${Math.floor(target.x)},${Math.floor(target.y)}`,
+      );
+    }
     return true;
   }
 }

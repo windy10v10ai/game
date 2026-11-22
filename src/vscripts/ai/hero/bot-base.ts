@@ -14,6 +14,7 @@ import { ItemRegistry } from '../item/item-registry';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { IS_DEBUG_RUN, PERF_CONFIG } from '../../modules/debug/perf-config';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
+import { ModifierEventHub } from '../../modules/modifier-event/modifier-event-hub';
 import { CachedTowers, TowerAttackRange } from '../team/building-cache';
 import { FORMATION_SPACING } from '../team/formation';
 import { Point } from '../team/lane-geometry';
@@ -211,6 +212,10 @@ export class BotBaseAIModifier extends BaseModifier {
     if (config) {
       this.buildState = InitializeHeroBuild(this.hero, config);
     }
+
+    ModifierEventHub.RegisterDamageByVictim(this.hero, this, (event) =>
+      WardPlacement.OnDamaged(this.hero, event.attacker),
+    );
 
     // 初始化Think
     if (IsInToolsMode()) {
@@ -1734,6 +1739,13 @@ export class BotBaseAIModifier extends BaseModifier {
     Timers.CreateTimer(delay, () => {
       this.Init();
     });
+  }
+
+  OnDestroy() {
+    // 关服时英雄实体先于 modifier 销毁，取不到实体编号
+    if (IsServer() && this.hero && !this.hero.IsNull()) {
+      ModifierEventHub.UnregisterDamageByVictim(this.hero, this);
+    }
   }
 
   IsPurgable(): boolean {
