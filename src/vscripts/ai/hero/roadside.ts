@@ -5,7 +5,7 @@ import { PlayerHelper } from '../../modules/helper/player-helper';
 import { CachedOutposts } from '../team/building-cache';
 import { pickDetourSpot } from '../ward/ward-decision';
 import { WardPlacement } from '../ward/ward-placement';
-import { OBSERVER_WARD_CONFIG } from '../ward/ward-position-config';
+import { OBSERVER_WARD_CONFIG, WARD_DETOUR_RANGE } from '../ward/ward-position-config';
 
 const RUNE_RANGE = 800;
 const DROP_RANGE = 800;
@@ -17,8 +17,7 @@ const OUTPOST_RECAPTURE_SECONDS = 120;
 const WATCHER_RETRY_SECONDS = 420 + 120;
 // 捡东西的命令常被打架打断，隔一会儿就能再捡
 const PICKUP_RETRY_SECONDS = 5;
-// 带着假眼的 bot 愿意为空眼位绕的路，同一个眼位区域失败后隔这么久才再派人
-const WARD_DETOUR_RANGE = 1500;
+// 同一个眼位区域失败后隔这么久才再派人
 const WARD_RETRY_SECONDS = 60;
 
 // 金币袋走过去就自动拿，不用专门捡

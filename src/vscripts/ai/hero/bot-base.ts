@@ -118,7 +118,7 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly RoshanAttackRange: number = 1500;
   protected readonly RoadsideCheckInterval: number = 1;
   // 走去捡东西期间不再下别的移动命令，但最多这么久，路上的情况会变
-  protected readonly RoadsideMaxSeconds: number = 3;
+  protected readonly RoadsideMaxSeconds: number = 8;
   // 赶去打架或回防时离目的地还有这么远，顺手捡符、点观察者不耽误到场
   protected readonly RoadsideRushDistance: number = 3000;
 
@@ -314,6 +314,10 @@ export class BotBaseAIModifier extends BaseModifier {
       return;
     }
     this.traceTarget = '';
+    // 行动栏几乎每轮都被占满，路过眼位时的瞬发插眼要排在前面，周围没有敌方英雄才插
+    if (this.aroundEnemyHeroes.length === 0) {
+      WardPlacement.Run(this);
+    }
     const acted = this.ActionStance(task);
     if (IS_DEBUG_RUN) {
       this.TraceDecision(task);

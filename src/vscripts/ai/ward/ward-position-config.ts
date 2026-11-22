@@ -12,6 +12,9 @@ import type { WardZone } from './ward-decision';
 /** 每 N 秒最多尝试一次路过插眼 */
 export const PLACE_INTERVAL = 2;
 
+/** 带假眼的电脑为空区域绕路的最大距离，补眼时也只给这个范围内有空区域的电脑买 */
+export const WARD_DETOUR_RANGE = 2500;
+
 /** 落点随机偏移，避免多个 bot 的眼叠在同一点 */
 export const POSITION_JITTER = 50;
 
