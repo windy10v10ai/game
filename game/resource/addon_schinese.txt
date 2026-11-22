@@ -75,7 +75,7 @@
 		///////////////////////////////////////////////////
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
 		"loading_status_2"				"在线模式，玩家数据加载成功。"
-		"loading_status_3"				"离线模式：Dota 2 限制了地图联网。\n属性，会员等沿用 {date} 的数据。"
+		"loading_status_3"				"离线模式：Dota 2 限制了地图联网。\n沿用 {date} 的玩家数据。"
 		"room_status_entering"			"玩家正在连接：{players}"
 		"room_status_separator"			"，"
 		"room_status_waiting"			"等待其他玩家加入"
