@@ -52,7 +52,7 @@
 2. 执行者（主力档）按 `update-abilities-override`「补丁日志同步」自动模式同步数值，再按 `update-bot-hero-build` 校验 `Bot.Build`。本批只改 `npc_abilities_override.txt`、`npc_heroes_custom.txt`，需要时含本地化。觉醒、自制、抽奖技能和 `src/vscripts/` 不碰，发现要改的写进 PR「需要机制处理（未改）」
 3. `npm test`、`npm run lint` 通过
 4. 开正式 PR，正文首行 `- #<issue>`，不写 Release Note
-5. 只读审查（主力档）：改动与日志、参考是否一一对应，有没有冲掉本图有意改的值，待确认 5 条有没有漏报，顶层与 `AbilityValues` 子块位置是否正确
+5. 只读审查（主力档）：改动与日志、参考是否一一对应，有没有冲掉本图有意改的值，待确认有没有漏报、自动判定有没有把真正的设计取舍当成规则题，顶层与 `AbilityValues` 子块位置是否正确
 6. 审查通过直接 squash 合并。有问题不合并，写进 PR 等维护者确认
 7. 合并后更新主 issue：勾掉改完的英雄，待确认技能追加到「待确认技能」一节
 
@@ -60,7 +60,7 @@
 
 ## 5. 待确认
 
-5 条触发条件、以技能为最小单位、记录模板见 `update-abilities-override` SKILL.md「待确认」，这里不重复。命中的技能整块不改，记进 PR「待确认」与主 issue「待确认技能」。
+自动判定与待确认的界线、以技能为最小单位、记录模板见 `update-abilities-override` SKILL.md「自动判定与待确认」，这里不重复。规则能唯一定下的由执行者直接改，记进 PR「自动判定」。命中待确认的技能整块不改，记进 PR「待确认」（带建议）与主 issue「待确认技能」。
 
 ## 6. C 类子 issue
 
