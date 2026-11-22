@@ -1,14 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare let global: any;
 
-global.RandomInt = jest.fn((min: number, _max: number) => min);
+global.print = jest.fn();
+global.RandomInt = jest.fn(
+  (min: number, max: number) => min + Math.floor(Math.random() * (max - min + 1)),
+);
 
 import { AbilityLotteryHelper } from './ability-lottery-helper';
 
 describe('AbilityLotteryHelper mutually exclusive abilities', () => {
   const tiers = Array.from({ length: 5 }, (_, i) => ({
     level: 5 - i,
-    names: ['luna_moon_glaive', 'jakiro_double_trouble2', 'a', 'b', 'c', 'd', 'e', 'f'],
+    names: [
+      'luna_moon_glaive',
+      'jakiro_double_trouble2',
+      // 抽取最多重试 10 次，池子太小会偶发落回已排除的名字
+      ...Array.from({ length: 60 }, (_, n) => `filler_${n}`),
+    ],
   }));
 
   it('adds the whole group once one member is present', () => {
@@ -58,16 +66,43 @@ describe('AbilityLotteryHelper mutually exclusive abilities', () => {
       );
     });
 
-    it('swaps in a same-tier ability when the hero already has the partner', () => {
-      for (let n = 0; n < 50; n++) {
+    it('swaps in a same-tier ability for any random value', () => {
+      const conflictHero = makeHero(['jakiro_double_trouble2']);
+      for (const r of [0, 0.5, 0.999999]) {
+        const spy = jest.spyOn(Math, 'random').mockReturnValue(r);
         const result = AbilityLotteryHelper.resolveConflictingPick(
-          makeHero(['jakiro_double_trouble2']),
+          conflictHero,
           { name: 'luna_moon_glaive', level: 4 },
           tiers,
         );
+        spy.mockRestore();
         expect(['luna_moon_glaive', 'jakiro_double_trouble2']).not.toContain(result.name);
         expect(result.level).toBe(4);
+        expect(tiers.find((t) => t.level === 4)?.names).toContain(result.name);
       }
+    });
+
+    it('falls back to other tiers when the tier has nothing left', () => {
+      const smallTiers = [
+        { level: 4, names: ['luna_moon_glaive', 'jakiro_double_trouble2'] },
+        { level: 3, names: ['other'] },
+      ];
+      const result = AbilityLotteryHelper.resolveConflictingPick(
+        makeHero(['jakiro_double_trouble2']),
+        { name: 'luna_moon_glaive', level: 4 },
+        smallTiers,
+      );
+      expect(result).toEqual({ name: 'other', level: 3 });
+    });
+
+    it('keeps the pick when no replacement exists at all', () => {
+      const picked = { name: 'luna_moon_glaive', level: 4 };
+      const result = AbilityLotteryHelper.resolveConflictingPick(
+        makeHero(['jakiro_double_trouble2']),
+        picked,
+        [{ level: 4, names: ['luna_moon_glaive', 'jakiro_double_trouble2'] }],
+      );
+      expect(result).toBe(picked);
     });
   });
 

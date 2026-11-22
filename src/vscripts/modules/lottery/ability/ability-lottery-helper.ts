@@ -51,11 +51,31 @@ export class AbilityLotteryHelper {
     if (!group.some((n) => n !== picked.name && owned.includes(n))) {
       return picked;
     }
-    const sameTier = tiers.filter((t) => t.level === picked.level);
-    return this.getRandomAbilities(sameTier.length > 0 ? sameTier : tiers, 1, hero, [
-      ...excludedNames,
-      picked.name,
-    ])[0];
+    const excluded = [...excludedNames, ...owned, picked.name];
+    this.addMutuallyExclusiveNames(excluded);
+
+    // 不走按档位概率表的 getRandomAbilities：单档数组会让概率表下标越界
+    const pickedTier = tiers.find((t) => t.level === picked.level);
+    const candidates: LotteryDto[] = [];
+    const collect = (tier: Tier) => {
+      for (const name of tier.names) {
+        if (!excluded.includes(name)) {
+          candidates.push({ name, level: tier.level });
+        }
+      }
+    };
+    if (pickedTier) {
+      collect(pickedTier);
+    }
+    // 同档挑不出时退到全部档位，保证玩家一定拿到技能
+    if (candidates.length === 0) {
+      tiers.forEach(collect);
+    }
+    if (candidates.length === 0) {
+      print('[Lottery] no replacement for conflicting pick ' + picked.name);
+      return picked;
+    }
+    return candidates[Math.floor(Math.random() * candidates.length)];
   }
 
   private static getHeroAbilityNames(hero: CDOTA_BaseNPC_Hero): string[] {
