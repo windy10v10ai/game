@@ -7,7 +7,8 @@
 
   var REQUEST_TIMEOUT_SECONDS = 10;
   var READY_RETRY_SECONDS = 1;
-  var READY_MAX_ATTEMPTS = 60;
+  var READY_FAST_ATTEMPTS = 60;
+  var READY_SLOW_RETRY_SECONDS = 5;
 
   // 只有这一条线路：国内网关给每个响应强加 Content-Disposition: attachment，控件加载不了中转页
   var API_ORIGIN = 'https://api.windy10v10ai.com';
@@ -54,12 +55,13 @@
       return;
     }
     readyAttempts++;
-    if (readyAttempts > READY_MAX_ATTEMPTS) {
-      readyLoopRunning = false;
-      return;
-    }
     GameEvents.SendCustomGameEventToServer('api_html_proxy_ready', { channels: count });
-    $.Schedule(READY_RETRY_SECONDS, readyTick);
+    // 机械硬盘首次启动，地图加载可能比分配玩家槽位早几分钟，期间服务端认不出这名玩家，
+    // 所以不能放弃，只在前期密集、之后放慢，直到回执为止
+    $.Schedule(
+      readyAttempts > READY_FAST_ATTEMPTS ? READY_SLOW_RETRY_SECONDS : READY_RETRY_SECONDS,
+      readyTick,
+    );
   }
 
   function onProxyAck(event) {

@@ -8,7 +8,7 @@ const ERROR_PREFIX = 'ERR:';
 const API_KEY_PARAM = 'apiKey=';
 const TIMEOUT_SECONDS = 10;
 // 开局时客户端多半还没加载完，排队等通道的时间不该占用请求预算。
-// 取 60 秒对齐客户端脚本自己的就绪重试窗口：它等不到就不会再举手，再等也没用
+// 客户端会一直举手到服务端回执为止，慢机器晚到也接得上；这里的上限只是不让请求无限挂着
 const QUEUE_TIMEOUT_SECONDS = 60;
 // 代发只走 api.windy10v10ai.com 一条线路：国内网关给每个响应强加 Content-Disposition: attachment，
 // 网页控件加载不了中转页，国内玩家连不上就进离线模式。ApiClient 对 cn-proxy 目标已直接失败，到不了这里
@@ -88,6 +88,7 @@ export class ApiHtmlProxy {
     onSuccess: (data: string) => void,
     onFailure: (reason: string) => void,
     timeoutSeconds = TIMEOUT_SECONDS,
+    queueTimeoutSeconds = QUEUE_TIMEOUT_SECONDS,
   ): void {
     if (ApiHtmlProxy.relayUnavailable) {
       print(`[ApiHtmlProxy] relay unavailable, fail fast path=${path}`);
@@ -106,7 +107,7 @@ export class ApiHtmlProxy {
       timerName: '',
       timeoutSeconds,
     };
-    ApiHtmlProxy.startTimeout(request, QUEUE_TIMEOUT_SECONDS);
+    ApiHtmlProxy.startTimeout(request, queueTimeoutSeconds);
     ApiHtmlProxy.pending.set(requestId, request);
     ApiHtmlProxy.scheduler.Enqueue(request);
     ApiHtmlProxy.pump();
