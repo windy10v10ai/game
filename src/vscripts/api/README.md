@@ -88,9 +88,10 @@ Dota 2 7.42 起服务端拿不到 HTTP 请求对象，只能靠玩家客户端�
 
 ## 备用方案：启动器双向中转
 
-网页控件被 Valve 封住时的退路，只覆盖启动器专用服。代码已实测通过，但没合并（game#2820、firebase#1714 已关闭），要用时从下面两个分支捡回来：
+网页控件被 Valve 封住时的退路，只覆盖启动器专用服。代码已实测通过，但没合并，分支已删，代码留在两个已关闭的 PR 里：
 
-- game：`feature/2818-launcher-relay-184d75`，firebase：`feature/2818-launcher-relay`
+- game：[#2820](https://github.com/windy10v10ai/game/pull/2820)，firebase：[#1714](https://github.com/windy10v10ai/firebase/pull/1714)
+- 取回：`git fetch origin pull/2820/head:<分支名>`（firebase 仓库用 `pull/1714/head`），或直接看 PR 的 Files changed
 - **机制**：专用服发不出 HTTP，只读请求改由同机的启动器代发。游戏写一行 `[WReq] v1 <请求号> <超时秒数> <路径与查询>` 到日志，启动器读 `dedicated.log`，只放行白名单里的 GET 路径，用启动器 key 调后端，把响应写进 addon 目录的 `scripts/kv/launcher_relay.kv`（每个请求号一个子块，正文 base64url），游戏每 0.5 秒读一次。不开端口，也不动 `server.dll`
 - **覆盖不到**：游廊开局的玩家，他们的退路只有离线快照
 
