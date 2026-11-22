@@ -10,6 +10,9 @@ const TIMEOUT_SECONDS = 10;
 // 开局时客户端多半还没加载完，排队等通道的时间不该占用请求预算。
 // 取 60 秒对齐客户端脚本自己的就绪重试窗口：它等不到就不会再举手，再等也没用
 const QUEUE_TIMEOUT_SECONDS = 60;
+// 代发只走 api.windy10v10ai.com 一条线路：国内网关给每个响应强加 Content-Disposition: attachment，
+// 网页控件加载不了中转页，国内玩家连不上就进离线模式。ApiClient 对 cn-proxy 目标已直接失败，到不了这里
+const RELAY_LINE = 'direct';
 
 interface PendingRequest extends RelayJob {
   path: string;
@@ -95,7 +98,7 @@ export class ApiHtmlProxy {
     const url = ApiHtmlProxy.buildUrl(target, path, querys, requestId);
     const request: PendingRequest = {
       requestId,
-      line: target,
+      line: RELAY_LINE,
       path,
       url,
       onSuccess,
@@ -116,26 +119,16 @@ export class ApiHtmlProxy {
     // 自定义 UI 脚本加载得比玩家槽位分配还早，最初几条 ready 带的是 -1，登记了也选不出人
     if (playerId < 0) return;
 
-    const direct = Number(event.direct) || 0;
-    const cnProxy = Number(event.cnProxy) || 0;
+    const channels = Number(event.channels) || 0;
     // 客户端会重发 ready 直到回执与自己的通道数一致，重复的 ready 也要回，否则回执丢失就会一直重发
     const player = PlayerResource.GetPlayer(playerId);
     if (player) {
-      CustomGameEventManager.Send_ServerToPlayer(player, 'api_html_proxy_ack', {
-        direct,
-        cnProxy,
-      });
+      CustomGameEventManager.Send_ServerToPlayer(player, 'api_html_proxy_ack', { channels });
     }
 
-    if (
-      ApiHtmlProxy.scheduler.GetCapacity(playerId, 'direct') === direct &&
-      ApiHtmlProxy.scheduler.GetCapacity(playerId, 'cn-proxy') === cnProxy
-    ) {
-      return;
-    }
-    ApiHtmlProxy.scheduler.SetCapacity(playerId, 'direct', direct);
-    ApiHtmlProxy.scheduler.SetCapacity(playerId, 'cn-proxy', cnProxy);
-    print(`[ApiHtmlProxy] player ${playerId} ready direct=${direct} cn=${cnProxy}`);
+    if (ApiHtmlProxy.scheduler.GetCapacity(playerId, RELAY_LINE) === channels) return;
+    ApiHtmlProxy.scheduler.SetCapacity(playerId, RELAY_LINE, channels);
+    print(`[ApiHtmlProxy] player ${playerId} ready channels=${channels}`);
     ApiHtmlProxy.pump();
   }
 
