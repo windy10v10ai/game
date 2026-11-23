@@ -12,8 +12,16 @@ export function hasPointWithin(center: Vector, points: readonly Vector[], radius
 
 export interface WardZone {
   id: string;
+  /** 进攻眼位依赖的敌方防御塔，该塔还活着时区域不可选 */
+  requiresDeadTower?: string;
   /** 同一区域的备选点：互相都够近，区域里已有己方眼时整个区域视为占用 */
   spots: readonly Vector[];
+}
+
+/** 区域是否启用：没有依赖的塔，或依赖的塔已不在存活名单里。aliveTowerNames 是存活防御塔的单位名 */
+export function isZoneEnabled(zone: WardZone, aliveTowerNames: readonly string[]): boolean {
+  const tower = zone.requiresDeadTower;
+  return tower === undefined || !aliveTowerNames.some((name) => name.includes(tower));
 }
 
 /** 取 [0, n) 的整数，测试时换成固定序列 */

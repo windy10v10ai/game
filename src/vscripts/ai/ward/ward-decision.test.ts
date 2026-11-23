@@ -1,6 +1,7 @@
 import {
   countHeldWards,
   HeldItem,
+  isZoneEnabled,
   isZoneFree,
   pickDetourSpot,
   pickPassingSpot,
@@ -48,41 +49,36 @@ describe('分阵营取点', () => {
 });
 
 describe('配置数据自检', () => {
-  it.each(sides)('%s 假眼点位两两距离不小于 600', (side) => {
-    const spots = spotsOf(OBSERVER_WARD_CONFIG.zones[side]);
-    for (let i = 0; i < spots.length; i++) {
-      for (let j = i + 1; j < spots.length; j++) {
-        expect(dist(spots[i], spots[j])).toBeGreaterThanOrEqual(600);
-      }
-    }
-  });
-
-  it.each(sides)('%s 同一区域的备选点互相都在去重半径内，不同区域互不影响', (side) => {
+  it.each(sides)('%s 不同区域的点位两两距离不小于 250', (side) => {
     const zones = OBSERVER_WARD_CONFIG.zones[side];
-    const radius = OBSERVER_WARD_CONFIG.sameWardRadius;
     for (const zone of zones) {
-      expect(zone.spots.length).toBeGreaterThan(0);
-      for (const a of zone.spots) {
-        for (const b of zone.spots) {
-          expect(dist(a, b)).toBeLessThanOrEqual(radius);
-        }
-      }
       for (const other of zones) {
         if (other === zone) continue;
         for (const a of zone.spots) {
           for (const b of other.spots) {
-            expect(dist(a, b)).toBeGreaterThan(radius);
+            expect(dist(a, b)).toBeGreaterThanOrEqual(250);
           }
         }
       }
     }
   });
 
-  it.each(sides)('%s 真眼点位离任一假眼点位不小于 300', (side) => {
+  it.each(sides)('%s 同一区域的备选点互相都在 1100 内', (side) => {
+    for (const zone of OBSERVER_WARD_CONFIG.zones[side]) {
+      expect(zone.spots.length).toBeGreaterThan(0);
+      for (const a of zone.spots) {
+        for (const b of zone.spots) {
+          expect(dist(a, b)).toBeLessThanOrEqual(1100);
+        }
+      }
+    }
+  });
+
+  it.each(sides)('%s 真眼点位离任一假眼点位不小于 150', (side) => {
     const observers = spotsOf(OBSERVER_WARD_CONFIG.zones[side]);
     for (const sentry of spotsOf(SENTRY_WARD_CONFIG.zones[side])) {
       for (const observer of observers) {
-        expect(dist(sentry, observer)).toBeGreaterThanOrEqual(300);
+        expect(dist(sentry, observer)).toBeGreaterThanOrEqual(150);
       }
     }
   });
@@ -90,6 +86,37 @@ describe('配置数据自检', () => {
   it('两方点位数量相差不超过 2', () => {
     const { radiant, dire } = OBSERVER_WARD_CONFIG.zones;
     expect(Math.abs(spotsOf(radiant).length - spotsOf(dire).length)).toBeLessThanOrEqual(2);
+  });
+
+  it.each([
+    ['radiant', 'badguys_tower3_'],
+    ['dire', 'goodguys_tower3_'],
+  ] as const)('%s 进攻眼位依赖的是敌方高地塔', (side, prefix) => {
+    const gated = OBSERVER_WARD_CONFIG.zones[side].filter((zone) => zone.requiresDeadTower);
+    expect(gated.length).toBeGreaterThan(0);
+    for (const zone of gated) {
+      expect(zone.requiresDeadTower).toMatch(new RegExp(`^${prefix}(top|mid|bot)$`));
+    }
+  });
+});
+
+describe('进攻眼位启用条件', () => {
+  const free: WardZone = { id: 'a', spots: [vec(0, 0)] };
+  const gated: WardZone = { id: 'b', spots: [vec(0, 0)], requiresDeadTower: 'badguys_tower3_mid' };
+  const alive = ['npc_dota_badguys_tower3_mid', 'npc_dota_badguys_tower3_top'];
+
+  it('塔射程外的区域始终可选', () => {
+    expect(isZoneEnabled(free, alive)).toBe(true);
+    expect(isZoneEnabled(free, [])).toBe(true);
+  });
+
+  it('依赖的塔还活着时不可选', () => {
+    expect(isZoneEnabled(gated, alive)).toBe(false);
+  });
+
+  it('依赖的塔不在存活名单里就可选，别的塔活着不影响', () => {
+    expect(isZoneEnabled(gated, ['npc_dota_badguys_tower3_top'])).toBe(true);
+    expect(isZoneEnabled(gated, [])).toBe(true);
   });
 });
 

@@ -5,7 +5,9 @@
 
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import type { BotBaseAIModifier } from '../hero/bot-base';
+import { CachedTowers } from '../team/building-cache';
 import {
+  isZoneEnabled,
   pickPassingSpot,
   SENTRY_TRIGGER_RADIUS,
   shouldDropSentry,
@@ -102,7 +104,10 @@ export class WardPlacement {
   }
 
   static ZonesOf(hero: CDOTA_BaseNPC_Hero, config: WardTypeConfig): readonly WardZone[] {
-    return getWardZones(config, this.SideOf(hero.GetTeamNumber()));
+    const aliveTowerNames = CachedTowers().map((tower) => tower.GetUnitName());
+    return getWardZones(config, this.SideOf(hero.GetTeamNumber())).filter((zone) =>
+      isZoneEnabled(zone, aliveTowerNames),
+    );
   }
 
   private static TryPlaceWard(
