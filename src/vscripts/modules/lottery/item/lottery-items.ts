@@ -110,6 +110,7 @@ export const itemTiers: Tier[] = [
       'item_haste_moon_bundle', // 珍藏·快男的馈赠
       'item_berserkers_sabatons_copy', // Treasured Sabatons
       'item_echo_sabre_2_copy', // 珍藏·音速战刃
+      'item_hydras_breath_copy', // 珍藏·怪蛇之息
     ],
   },
 ];
