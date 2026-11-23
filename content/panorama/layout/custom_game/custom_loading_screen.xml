@@ -5,6 +5,7 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/game_mode.js"/>
+		<include src="file://{resources}/scripts/custom_game/api_html_proxy.js"/>
 	</scripts>
 	<Panel class="AddonLoadingRoot">
 		<Panel id="CustomBg" >

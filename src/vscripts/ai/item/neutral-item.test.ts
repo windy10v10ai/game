@@ -17,11 +17,11 @@ describe('NeutralItemManager.GetNeutralItemTier', () => {
   });
 
   it('returns correct tier for enhancement with level matching tier', () => {
-    // item_enhancement_brawny appears in tier 1-4 with matching level
+    // item_enhancement_brawny tops out at level 3 (7.42 cap), so tier 3 and 4 share it and the later tier wins
     expect(NeutralItemManager.GetNeutralItemTier('item_enhancement_brawny', 1)).toBe(1);
     expect(NeutralItemManager.GetNeutralItemTier('item_enhancement_brawny', 2)).toBe(2);
-    expect(NeutralItemManager.GetNeutralItemTier('item_enhancement_brawny', 3)).toBe(3);
-    expect(NeutralItemManager.GetNeutralItemTier('item_enhancement_brawny', 4)).toBe(4);
+    expect(NeutralItemManager.GetNeutralItemTier('item_enhancement_brawny', 3)).toBe(4);
+    expect(NeutralItemManager.GetNeutralItemTier('item_enhancement_brawny', 4)).toBeUndefined();
   });
 
   it('keeps all tiers within 1-4', () => {
