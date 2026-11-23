@@ -1,64 +1,55 @@
-/**
- * bot 插眼的眼位与可调参数。眼位按天辉、夜魇各一份，电脑只用本方的，真眼假眼各一份。
- * 眼位分三层：组（group）→ 区（zone）→ 备选点（spot）。
- * 一个组是同一条路线上互相替代的几个区，同时最多 groupLimits[组] 只本方同种眼。
- * 一个区是一个路口、一段河道、一个野区入口，2 个备选点经过实机插眼验证，同一区同时最多一只眼。
- * 组有空槽时，从已启用且未占用的区里等概率抽一个当前目标区，再在区内等概率抽备选点。
- *
- * 档位 tier 决定区何时启用，tower 是绑定的防御塔：
- * always 与 attack 随时启用。defend 绑定己方塔，push 绑定敌方塔，塔被摧毁后才启用。
- * 眼位表来自逐点实机插眼的结果，坐标照搬，附近位置有游戏禁插区，不要手改。
- */
+/** Ward spots per side and kind: group, zone, spots. Structure and tiers are described in README.md. */
 
 import type { WardTier, WardZone } from './ward-decision';
 
-/** 每 N 秒最多尝试一次路过插眼 */
+/** Seconds between passing-ward attempts. */
 export const PLACE_INTERVAL = 2;
 
-/** 带假眼的电脑为空区域绕路的最大距离，补眼时也只给这个范围内有目标区的电脑买 */
+/** Max detour distance for a bot carrying an observer. */
 export const WARD_DETOUR_RANGE = 2500;
 
-/** 同一个眼位区域发出插眼命令后，隔这么久才再派人 */
-export const WARD_RETRY_SECONDS = 60;
+/** Detour cap plus cast margin: a claim whose order was lost frees itself soon after. */
+export const WARD_RETRY_SECONDS = 12;
 
-/** 组的当前目标区抽出后，这么久还没插下就重抽，避免目标偏远、没人路过时卡死 */
+/** A drawn target is redrawn after this long, so a remote one nobody passes cannot stall its group. */
 export const WARD_TARGET_SECONDS = 90;
 
-/** 落点随机偏移，避免多个 bot 的眼叠在同一点 */
+/** Random landing offset so wards from several bots do not stack. */
 export const POSITION_JITTER = 50;
 
 export type WardSide = 'radiant' | 'dire';
 
-/** 区的原始数据：备选点存 [x, y]，地面高度运行时再取 */
+/** Raw zone data: ground height is looked up at runtime. */
 export interface WardZoneData {
   id: string;
   group: string;
   tier: WardTier;
-  /** defend 绑定己方塔，push 绑定敌方塔，写塔单位名里的片段，如 'badguys_tower3_mid' */
+  /** Fragment of the tower unit name, e.g. 'badguys_tower3_mid'. */
   tower?: string;
   spots: ReadonlyArray<readonly [number, number]>;
 }
 
 export interface WardSideData {
-  /** 组 id → 同时最多几只眼 */
+  /** Group id to the most wards it holds at once. */
   groupLimits: Readonly<Record<string, number>>;
   zones: readonly WardZoneData[];
 }
 
 export interface WardTypeConfig {
-  /** dispenser 只算假眼：它的假眼充能耗尽后会自动改名成 item_ward_sentry */
+  /** A dispenser counts as an observer: it renames itself to a sentry once its observer charges run out. */
   itemNames: readonly string[];
   wardClassName: string;
   sides: Record<WardSide, WardSideData>;
-  /** 须与 npc_items_override.txt 的 AbilityCastRange 保持一致 */
+  /** Must match AbilityCastRange in npc_items_override.txt. */
   castRange: number;
-  /** 该半径内已有己方同类眼则该区算占用 */
   sameWardRadius: number;
+  /** Most wards of this kind team-wide that regular spots may use, leaving the rest for emergencies. */
+  regularCap?: number;
 }
 
 const converted = new Map<WardTypeConfig, Record<WardSide, readonly WardZone[]>>();
 
-/** 首次调用时才建 Vector：引擎全局在模块加载时可能还没就绪，单测里也没有 */
+/** Built lazily because Vector is not available at module load or in unit tests. */
 export function getWardZones(config: WardTypeConfig, side: WardSide): readonly WardZone[] {
   let sides = converted.get(config);
   if (!sides) {
@@ -1088,4 +1079,5 @@ export const SENTRY_WARD_CONFIG: WardTypeConfig = {
   sides: { radiant: SENTRY_RADIANT, dire: SENTRY_DIRE },
   castRange: 600,
   sameWardRadius: 900,
+  regularCap: 2,
 };

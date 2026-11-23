@@ -14,50 +14,85 @@ export type WardTier = 'always' | 'defend' | 'attack' | 'push';
 
 export interface WardZone {
   id: string;
-  /** 组：同一路线上互相替代的区，同时占用的眼数受组上限约束 */
   group: string;
-  /** always 与 attack 随时启用，defend 绑定己方塔、push 绑定敌方塔，塔倒后才启用 */
   tier: WardTier;
-  /** defend 与 push 绑定的防御塔单位名片段 */
+  /** Unit-name fragment of the tower a defend (own) or push (enemy) zone waits on. */
   tower?: string;
-  /** 区内的备选点：互相都够近，区里已有己方眼时整个区视为占用 */
   spots: readonly Vector[];
 }
 
-/** 区是否启用：defend 与 push 要等绑定的塔不在存活名单里，其余随时。aliveTowerNames 是存活防御塔的单位名 */
+/**
+ * defend and push zones open only once their tower is confirmed gone. An empty tower list means
+ * the tower cache is not ready, which must not read as "all towers dead".
+ */
 export function isZoneEnabled(zone: WardZone, aliveTowerNames: readonly string[]): boolean {
   if (zone.tier !== 'defend' && zone.tier !== 'push') {
     return true;
   }
   const tower = zone.tower;
-  return tower === undefined || !aliveTowerNames.some((name) => name.includes(tower));
+  if (tower === undefined || aliveTowerNames.length === 0) {
+    return false;
+  }
+  return !aliveTowerNames.some((name) => name.includes(tower));
 }
 
-/** 取 [0, n) 的整数，测试时换成固定序列 */
 export type RandomIndex = (n: number) => number;
 
-/** 区域内没有任何己方同类眼：判定半径内有眼就算占用，哪怕是玩家插的 */
-export function isZoneFree(
-  zone: WardZone,
-  existingWards: readonly Vector[],
-  sameWardRadius: number,
-): boolean {
+/** A ward anywhere near any spot counts, including ones placed by players. */
+export function isZoneFree(zone: WardZone, units: readonly Vector[], radius: number): boolean {
   for (const spot of zone.spots) {
-    if (hasPointWithin(spot, existingWards, sameWardRadius)) {
+    if (hasPointWithin(spot, units, radius)) {
       return false;
     }
   }
   return true;
 }
 
-/** 组的当前目标：电脑顺路插眼只去这些点 */
+/**
+ * Placed wards plus claims that have not landed yet. A claim next to a placed ward is that ward
+ * landing, so it is not counted twice.
+ */
+export function wardUnits(
+  wards: readonly Vector[],
+  claims: readonly Vector[],
+  radius: number,
+): Vector[] {
+  const units = [...wards];
+  for (const claim of claims) {
+    if (!hasPointWithin(claim, wards, radius)) {
+      units.push(claim);
+    }
+  }
+  return units;
+}
+
+/** Regular spots may use at most `cap` wards team-wide, the rest stay free for emergencies. */
+export function regularCapReached(
+  cap: number | undefined,
+  wards: readonly Vector[],
+  claims: readonly Vector[],
+  radius: number,
+): boolean {
+  return cap !== undefined && wardUnits(wards, claims, radius).length >= cap;
+}
+
+/** Each ward counts once however many zones of the group it covers. */
+export function groupUsed(zones: readonly WardZone[], units: readonly Vector[], radius: number) {
+  let used = 0;
+  for (const unit of units) {
+    if (zones.some((zone) => hasPointWithin(unit, zone.spots, radius))) {
+      used++;
+    }
+  }
+  return used;
+}
+
 export interface WardTarget {
   zoneId: string;
   group: string;
   spot: Vector;
 }
 
-/** 组里已抽定的目标区与备选点，记到插下、失效或超时为止 */
 export interface TargetPick {
   zoneId: string;
   spotIndex: number;
@@ -66,45 +101,57 @@ export interface TargetPick {
 
 export interface ResolveTargetsInput {
   zones: readonly WardZone[];
-  /** 组 id → 同时最多几只眼，缺省按 1 */
+  /** Missing groups default to 1. */
   groupLimits: Readonly<Record<string, number>>;
   aliveTowerNames: readonly string[];
-  /** 本方同种眼的位置，要把已认领未落地的点位也算进去 */
-  existingWards: readonly Vector[];
+  wards: readonly Vector[];
+  claims: readonly Vector[];
   sameWardRadius: number;
   now: number;
-  /** 目标抽出后多久还没插下就重抽 */
   ttl: number;
-  /** 抽定的目标，键为 stateKeyPrefix + 组 id，函数会直接更新它 */
+  /** Keyed by stateKeyPrefix + group, updated in place. */
   picks: Map<string, TargetPick>;
   stateKeyPrefix: string;
   random: RandomIndex;
 }
 
+const groupIndex = new WeakMap<readonly WardZone[], Map<string, WardZone[]>>();
+
+function groupsOf(zones: readonly WardZone[]): Map<string, WardZone[]> {
+  let groups = groupIndex.get(zones);
+  if (!groups) {
+    groups = new Map<string, WardZone[]>();
+    for (const zone of zones) {
+      const list = groups.get(zone.group);
+      if (list) {
+        list.push(zone);
+      } else {
+        groups.set(zone.group, [zone]);
+      }
+    }
+    groupIndex.set(zones, groups);
+  }
+  return groups;
+}
+
 /**
- * 每个还有空槽的组给出一个当前目标：沿用没过期、仍启用且仍空闲的旧目标，否则从组里已启用且未占用的区中等概率抽一个区，
- * 再在区内等概率抽备选点。不按离英雄远近挑，偏僻的区也有同样的机会被抽到。
- * 空槽数是组上限减去组内已占用的区数，组满则没有目标。
+ * One target per group with a free slot, drawn uniformly over its enabled free zones and then
+ * over the zone's spots. Distance to heroes must not enter the draw, or near zones always win.
  */
 export function resolveTargets(input: ResolveTargetsInput): WardTarget[] {
-  const groups = new Map<string, WardZone[]>();
-  for (const zone of input.zones) {
-    const list = groups.get(zone.group);
-    if (list) {
-      list.push(zone);
-    } else {
-      groups.set(zone.group, [zone]);
-    }
-  }
+  const units = wardUnits(input.wards, input.claims, input.sameWardRadius);
   const targets: WardTarget[] = [];
-  for (const [group, zones] of groups) {
+  for (const [group, zones] of groupsOf(input.zones)) {
     const key = input.stateKeyPrefix + group;
-    const free = zones.filter((zone) =>
-      isZoneFree(zone, input.existingWards, input.sameWardRadius),
-    );
-    const occupied = zones.length - free.length;
-    const candidates = free.filter((zone) => isZoneEnabled(zone, input.aliveTowerNames));
-    if (occupied >= (input.groupLimits[group] ?? 1) || candidates.length === 0) {
+    const full = groupUsed(zones, units, input.sameWardRadius) >= (input.groupLimits[group] ?? 1);
+    const candidates = full
+      ? []
+      : zones.filter(
+          (zone) =>
+            isZoneFree(zone, units, input.sameWardRadius) &&
+            isZoneEnabled(zone, input.aliveTowerNames),
+        );
+    if (candidates.length === 0) {
       input.picks.delete(key);
       continue;
     }
@@ -122,7 +169,25 @@ export function resolveTargets(input: ResolveTargetsInput): WardTarget[] {
   return targets;
 }
 
-/** range 内离英雄最近的目标，路过与绕路共用 */
+/** Fresh check before casting: the cached draw is not a permission to cast. */
+export function canPlaceInZone(
+  zones: readonly WardZone[],
+  zoneId: string,
+  input: Omit<ResolveTargetsInput, 'zones' | 'picks' | 'stateKeyPrefix' | 'random' | 'now' | 'ttl'>,
+): boolean {
+  const zone = zones.find((item) => item.id === zoneId);
+  if (!zone) {
+    return false;
+  }
+  const units = wardUnits(input.wards, input.claims, input.sameWardRadius);
+  const groupZones = groupsOf(zones).get(zone.group) ?? [zone];
+  return (
+    isZoneEnabled(zone, input.aliveTowerNames) &&
+    isZoneFree(zone, units, input.sameWardRadius) &&
+    groupUsed(groupZones, units, input.sameWardRadius) < (input.groupLimits[zone.group] ?? 1)
+  );
+}
+
 export function pickNearestTarget(
   heroPos: Vector,
   targets: readonly WardTarget[],

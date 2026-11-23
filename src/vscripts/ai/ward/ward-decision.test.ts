@@ -2,7 +2,11 @@ import {
   countHeldWards,
   HeldItem,
   isZoneEnabled,
+  canPlaceInZone,
   isZoneFree,
+  regularCapReached,
+  wardUnits,
+  groupUsed,
   pickNearestTarget,
   pickWardBuyer,
   resolveTargets,
@@ -146,7 +150,8 @@ describe('档位启用条件', () => {
     const defend = zone('a', 'g', 0, 'defend', 'goodguys_tower1_top');
     expect(isZoneEnabled(defend, alive)).toBe(false);
     expect(isZoneEnabled(defend, ['npc_dota_badguys_tower3_mid'])).toBe(true);
-    expect(isZoneEnabled(defend, [])).toBe(true);
+    // An empty list means the tower cache is not ready, not that every tower is dead.
+    expect(isZoneEnabled(defend, [])).toBe(false);
   });
 
   it('push 绑的敌方塔活着不启用，塔倒后启用', () => {
@@ -182,7 +187,8 @@ describe('分组抽区', () => {
     zones: [],
     groupLimits: {},
     aliveTowerNames: [],
-    existingWards: [],
+    wards: [],
+    claims: [],
     sameWardRadius: 900,
     now: 0,
     ttl: 90,
@@ -227,20 +233,18 @@ describe('分组抽区', () => {
   it('组已满不再抽，哪怕还有启用的空区', () => {
     const picks = new Map<string, TargetPick>();
     const targets = resolveTargets(
-      base({ zones: group, groupLimits: one, existingWards: [vec(0, 0)], picks }),
+      base({ zones: group, groupLimits: one, wards: [vec(0, 0)], picks }),
     );
     expect(targets).toEqual([]);
     expect(picks.size).toBe(0);
   });
 
   it('上限为 2 时占 1 个还有空槽，抽的是别的区，占满 2 个才停', () => {
-    const half = resolveTargets(
-      base({ zones: group, groupLimits: { g: 2 }, existingWards: [vec(0, 0)] }),
-    );
+    const half = resolveTargets(base({ zones: group, groupLimits: { g: 2 }, wards: [vec(0, 0)] }));
     expect(half).toHaveLength(1);
     expect(half[0].zoneId).not.toBe('a');
     const full = resolveTargets(
-      base({ zones: group, groupLimits: { g: 2 }, existingWards: [vec(0, 0), vec(2000, 0)] }),
+      base({ zones: group, groupLimits: { g: 2 }, wards: [vec(0, 0), vec(2000, 0)] }),
     );
     expect(full).toEqual([]);
   });
@@ -271,7 +275,11 @@ describe('分组抽区', () => {
     const zones = [zone('p', 'g', 0, 'push', 'badguys_tower3_mid')];
     const alive = ['npc_dota_badguys_tower3_mid'];
     expect(resolveTargets(base({ zones, groupLimits: one, aliveTowerNames: alive }))).toEqual([]);
-    expect(resolveTargets(base({ zones, groupLimits: one }))[0].zoneId).toBe('p');
+    const other = ['npc_dota_goodguys_tower1_top'];
+    expect(
+      resolveTargets(base({ zones, groupLimits: one, aliveTowerNames: other }))[0].zoneId,
+    ).toBe('p');
+    expect(resolveTargets(base({ zones, groupLimits: one }))).toEqual([]);
   });
 
   it('目标抽定后保留，期间别的随机数不改变它，超时才重抽', () => {
@@ -298,7 +306,7 @@ describe('分组抽区', () => {
         zones: group,
         groupLimits: limit,
         picks,
-        existingWards: [vec(0, 0)],
+        wards: [vec(0, 0)],
         random: sequence(0, 0),
       }),
     );
@@ -318,6 +326,95 @@ describe('分组抽区', () => {
       }),
     );
     expect([...picks.keys()].sort()).toEqual(['d|g', 'r|g']);
+  });
+});
+
+describe('tower state', () => {
+  it('push and defend stay closed while the tower list is empty', () => {
+    expect(isZoneEnabled(zone('a', 'g', 0, 'push', 'badguys_tower3_mid'), [])).toBe(false);
+    expect(isZoneEnabled(zone('a', 'g', 0, 'defend', 'goodguys_tower1_top'), [])).toBe(false);
+  });
+
+  it('they open only once the tower is gone from a non-empty list', () => {
+    const alive = ['npc_dota_badguys_tower3_top'];
+    expect(isZoneEnabled(zone('a', 'g', 0, 'push', 'badguys_tower3_mid'), alive)).toBe(true);
+  });
+
+  it('a defend or push zone without a tower field never opens', () => {
+    expect(isZoneEnabled(zone('a', 'g', 0, 'push'), ['npc_dota_x'])).toBe(false);
+  });
+});
+
+describe('group quota counts ward entities', () => {
+  const near = zone('near', 'g', 0);
+  const next = zone('next', 'g', 1000);
+  const zones = [near, next];
+
+  it('one ward covering two zones takes one slot', () => {
+    expect(groupUsed(zones, [vec(550, 0)], 900)).toBe(1);
+  });
+
+  it('two wards in one zone take two slots', () => {
+    expect(groupUsed(zones, [vec(0, 0), vec(50, 0)], 900)).toBe(2);
+  });
+
+  it('a ward that blocks both zones still leaves a limit-2 group open for a third zone', () => {
+    const far = zone('far', 'g', 5000);
+    const targets = resolveTargets({
+      zones: [near, next, far],
+      groupLimits: { g: 2 },
+      aliveTowerNames: [],
+      wards: [vec(550, 0)],
+      claims: [],
+      sameWardRadius: 900,
+      now: 0,
+      ttl: 90,
+      picks: new Map<string, TargetPick>(),
+      stateKeyPrefix: 't|',
+      random: sequence(0),
+    });
+    expect(targets.map((item) => item.zoneId)).toEqual(['far']);
+  });
+
+  it('a claim next to a landed ward is not counted twice', () => {
+    expect(wardUnits([vec(0, 0)], [vec(30, 0)], 900)).toHaveLength(1);
+    expect(wardUnits([vec(0, 0)], [vec(3000, 0)], 900)).toHaveLength(2);
+  });
+});
+
+describe('re-check before casting', () => {
+  const zones = [zone('a', 'g', 0), zone('b', 'g', 3000)];
+  const input = (wards: Vector[], claims: Vector[] = []) => ({
+    groupLimits: { g: 1 },
+    aliveTowerNames: [],
+    wards,
+    claims,
+    sameWardRadius: 900,
+  });
+
+  it('allows an open zone', () => {
+    expect(canPlaceInZone(zones, 'a', input([]))).toBe(true);
+  });
+
+  it('gives up when the zone was taken after it was drawn', () => {
+    expect(canPlaceInZone(zones, 'a', input([vec(100, 0)]))).toBe(false);
+  });
+
+  it('gives up when the group filled up through another zone', () => {
+    expect(canPlaceInZone(zones, 'a', input([vec(3000, 0)]))).toBe(false);
+  });
+
+  it('gives up when the tower is not confirmed gone', () => {
+    const gated = [zone('a', 'g', 0, 'push', 'badguys_tower3_mid')];
+    expect(canPlaceInZone(gated, 'a', input([]))).toBe(false);
+  });
+});
+
+describe('regular sentry cap', () => {
+  it('stops regular spots one short of the team quota', () => {
+    expect(regularCapReached(2, [vec(0, 0)], [], 900)).toBe(false);
+    expect(regularCapReached(2, [vec(0, 0)], [vec(5000, 0)], 900)).toBe(true);
+    expect(regularCapReached(undefined, [vec(0, 0), vec(5000, 0)], [], 900)).toBe(false);
   });
 });
 

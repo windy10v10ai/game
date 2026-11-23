@@ -7,7 +7,9 @@ import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import type { BotBaseAIModifier } from '../hero/bot-base';
 import { CachedTowers } from '../team/building-cache';
 import {
+  canPlaceInZone,
   pickNearestTarget,
+  regularCapReached,
   resolveTargets,
   SENTRY_TRIGGER_RADIUS,
   shouldDropSentry,
@@ -29,16 +31,16 @@ import {
 const randomIndex = (n: number): number => RandomInt(0, n - 1);
 // 每个 bot 上次被隐身敌人打到后插真眼的时间
 // 已发出插眼命令、眼还没落地的点位，按队伍与眼种记，到期自动失效
-interface Claim {
+export interface WardClaim {
   team: DotaTeam;
   wardClassName: string;
   spot: Vector;
   until: number;
 }
-let claims: Claim[] = [];
+let claims: WardClaim[] = [];
 // 各队各眼种每个组当前抽定的目标区，键为 队伍|眼种|组
 const targetPicks = new Map<string, TargetPick>();
-// 目标列表隔 1 秒才重算一次，路过、绕路、补眼一秒内多次查询共用
+// Draws are recomputed at most once per second per team and kind.
 const TARGET_CACHE_SECONDS = 1;
 const targetCache = new Map<string, { at: number; targets: readonly WardTarget[] }>();
 const sentryDroppedAt = new Map<EntityIndex, number>();
@@ -88,10 +90,11 @@ export class WardPlacement {
       !shouldDropSentry({
         hasSentry: sentry !== undefined,
         attackerInvisible: true,
-        nearestFriendSentry: this.NearestFriendlyWard(
-          hero,
-          SENTRY_WARD_CONFIG,
-          SENTRY_TRIGGER_RADIUS,
+        nearestFriendSentry: Math.min(
+          this.NearestFriendlyWard(hero, SENTRY_WARD_CONFIG, SENTRY_TRIGGER_RADIUS),
+          ...this.ClaimedSpots(hero.GetTeamNumber(), SENTRY_WARD_CONFIG).map((spot) =>
+            spot.__sub(origin).Length2D(),
+          ),
         ),
         now,
         lastTriggerAt: sentryDroppedAt.get(hero.GetEntityIndex()) ?? -Infinity,
@@ -100,61 +103,106 @@ export class WardPlacement {
       return;
     }
     sentryDroppedAt.set(hero.GetEntityIndex(), now);
+    // Deliberately exempt from group limits and the regular cap. The claim keeps teammates from repeating it.
+    this.Claim(hero.GetTeamNumber(), SENTRY_WARD_CONFIG, origin);
     this.CastWard(hero, sentry!, origin, 'invisible-attacker');
   }
 
-  /**
-   * 已发出插眼命令但眼未落地的点位：当作已有眼参与区域去重，口径与落地后一致，相邻区域的点也不会再派人。
-   * 同一区域不再派第二个人靠这个，眼真正落地由区域里有没有己方眼判定。
-   */
-  static ClaimedSpots(team: DotaTeam, config: WardTypeConfig): readonly Vector[] {
+  /** Claims whose ward has not landed yet. `except` leaves out the caller's own claim when re-checking. */
+  static ClaimedSpots(
+    team: DotaTeam,
+    config: WardTypeConfig,
+    except?: WardClaim,
+  ): readonly Vector[] {
     const now = GameRules.GetGameTime();
     claims = claims.filter((claim) => claim.until > now);
     return claims
-      .filter((claim) => claim.team === team && claim.wardClassName === config.wardClassName)
+      .filter(
+        (claim) =>
+          claim !== except && claim.team === team && claim.wardClassName === config.wardClassName,
+      )
       .map((claim) => claim.spot);
   }
 
-  static Claim(team: DotaTeam, config: WardTypeConfig, spot: Vector): void {
-    claims.push({
+  static Claim(team: DotaTeam, config: WardTypeConfig, spot: Vector): WardClaim {
+    const claim: WardClaim = {
       team,
       wardClassName: config.wardClassName,
       spot,
       until: GameRules.GetGameTime() + WARD_RETRY_SECONDS,
-    });
-    targetCache.clear();
+    };
+    claims.push(claim);
+    targetCache.delete(this.CacheKey(team, config));
+    return claim;
+  }
+
+  static ReleaseClaim(claim: WardClaim): void {
+    claims = claims.filter((item) => item !== claim);
+    targetCache.delete(this.CacheKey(claim.team, { wardClassName: claim.wardClassName }));
+  }
+
+  private static CacheKey(team: DotaTeam, config: { wardClassName: string }): string {
+    return `${team}|${config.wardClassName}`;
   }
 
   static SideOf(team: DotaTeam): WardSide {
     return team === DotaTeam.GOODGUYS ? 'radiant' : 'dire';
   }
 
-  /**
-   * 本队某种眼各组的当前目标点：只含启用且未占用、组里还有空槽的区。
-   * 目标抽定后一直保留到插下或超时，抽区不看英雄位置，偏僻的区也会被抽到。
-   */
+  private static Occupancy(team: DotaTeam, config: WardTypeConfig, except?: WardClaim) {
+    const side = this.SideOf(team);
+    return {
+      groupLimits: config.sides[side].groupLimits,
+      aliveTowerNames: CachedTowers().map((tower) => tower.GetUnitName()),
+      wards: this.FindTeamWards(team, config),
+      claims: this.ClaimedSpots(team, config, except),
+      sameWardRadius: config.sameWardRadius,
+    };
+  }
+
+  private static RegularCapReached(
+    config: WardTypeConfig,
+    input: { wards: readonly Vector[]; claims: readonly Vector[] },
+  ): boolean {
+    return regularCapReached(config.regularCap, input.wards, input.claims, config.sameWardRadius);
+  }
+
+  /** Current target per group. The cache holds the draw only, never a permission to cast. */
   static TargetsOf(team: DotaTeam, config: WardTypeConfig): readonly WardTarget[] {
     const now = GameRules.GetGameTime();
-    const cacheKey = `${team}|${config.wardClassName}`;
+    const cacheKey = this.CacheKey(team, config);
     const cached = targetCache.get(cacheKey);
     if (cached && now - cached.at < TARGET_CACHE_SECONDS) {
       return cached.targets;
     }
-    const side = this.SideOf(team);
-    const targets = resolveTargets({
-      zones: getWardZones(config, side),
-      groupLimits: config.sides[side].groupLimits,
-      aliveTowerNames: CachedTowers().map((tower) => tower.GetUnitName()),
-      existingWards: [...this.FindTeamWards(team, config), ...this.ClaimedSpots(team, config)],
-      sameWardRadius: config.sameWardRadius,
-      now,
-      ttl: WARD_TARGET_SECONDS,
-      picks: targetPicks,
-      stateKeyPrefix: `${cacheKey}|`,
-      random: randomIndex,
-    });
+    const input = this.Occupancy(team, config);
+    const targets = this.RegularCapReached(config, input)
+      ? []
+      : resolveTargets({
+          ...input,
+          zones: getWardZones(config, this.SideOf(team)),
+          now,
+          ttl: WARD_TARGET_SECONDS,
+          picks: targetPicks,
+          stateKeyPrefix: `${cacheKey}|`,
+          random: randomIndex,
+        });
     targetCache.set(cacheKey, { at: now, targets });
     return targets;
+  }
+
+  /** Fresh occupancy check right before casting. */
+  static CanPlace(
+    team: DotaTeam,
+    config: WardTypeConfig,
+    zoneId: string,
+    except?: WardClaim,
+  ): boolean {
+    const input = this.Occupancy(team, config, except);
+    return (
+      !this.RegularCapReached(config, input) &&
+      canPlaceInZone(getWardZones(config, this.SideOf(team)), zoneId, input)
+    );
   }
 
   private static TryPlaceWard(
@@ -163,13 +211,13 @@ export class WardPlacement {
     config: WardTypeConfig,
   ): boolean {
     const team = hero.GetTeamNumber();
-    // 落点带抖动，判定距离要留出抖动余量，否则会超出 KV 的 cast range 导致施法失败
+    // The landing jitter must fit inside the KV cast range or the cast fails.
     const pick = pickNearestTarget(
       hero.GetAbsOrigin(),
       this.TargetsOf(team, config),
       config.castRange - POSITION_JITTER,
     );
-    if (pick === undefined) {
+    if (pick === undefined || !this.CanPlace(team, config, pick.zoneId)) {
       return false;
     }
     this.Claim(team, config, pick.spot);
