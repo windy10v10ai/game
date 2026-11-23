@@ -109,6 +109,7 @@ export const itemTiers: Tier[] = [
       'item_aghanim_bundle', // 珍藏·阿哈利姆的馈赠
       'item_haste_moon_bundle', // 珍藏·快男的馈赠
       'item_berserkers_sabatons_copy', // Treasured Sabatons
+      'item_echo_sabre_2_copy', // 珍藏·音速战刃
     ],
   },
 ];
