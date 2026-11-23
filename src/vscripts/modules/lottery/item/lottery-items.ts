@@ -113,6 +113,7 @@ export const itemTiers: Tier[] = [
       'item_hydras_breath_copy', // 珍藏·怪蛇之息
       'item_hand_of_midas_copy', // 珍藏·迈达斯之手
       'item_starforge_copy', // Treasured Starforge
+      'item_dagon_ultra_copy', // 珍藏·一瞬千击
     ],
   },
 ];
