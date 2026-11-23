@@ -166,7 +166,7 @@ const OBSERVER_DIRE: readonly WardZoneData[] = [
   { id: 'd13', spots: [[-1800, 0, 128]] },
   { id: 'd14', spots: [[2800, -400, 256]] },
   { id: 'd15', spots: [[-4800, 1800, 128]] },
-  { id: 'd16', spots: [[-2200, 1800, 0]] },
+  { id: 'd16', spots: [[-2600, 1200, 0]] },
   { id: 'd17', spots: [[-6000, 3200, 128]] },
   {
     id: 'd18',

@@ -49,6 +49,7 @@ describe('分阵营取点', () => {
 });
 
 describe('配置数据自检', () => {
+  // 进攻眼位与相邻区域故意挨得近（塔倒后 b 类是同一带更深的替代点），所以只要求不重叠
   it.each(sides)('%s 不同区域的点位两两距离不小于 250', (side) => {
     const zones = OBSERVER_WARD_CONFIG.zones[side];
     for (const zone of zones) {
@@ -63,6 +64,7 @@ describe('配置数据自检', () => {
     }
   });
 
+  // 区域占用按「任一备选点附近有眼」整区判，备选点相距略超去重半径也不会重复插
   it.each(sides)('%s 同一区域的备选点互相都在 1100 内', (side) => {
     for (const zone of OBSERVER_WARD_CONFIG.zones[side]) {
       expect(zone.spots.length).toBeGreaterThan(0);
@@ -74,11 +76,11 @@ describe('配置数据自检', () => {
     }
   });
 
-  it.each(sides)('%s 真眼点位离任一假眼点位不小于 150', (side) => {
+  it.each(sides)('%s 真眼点位离任一假眼点位不小于 300', (side) => {
     const observers = spotsOf(OBSERVER_WARD_CONFIG.zones[side]);
     for (const sentry of spotsOf(SENTRY_WARD_CONFIG.zones[side])) {
       for (const observer of observers) {
-        expect(dist(sentry, observer)).toBeGreaterThanOrEqual(150);
+        expect(dist(sentry, observer)).toBeGreaterThanOrEqual(300);
       }
     }
   });
@@ -126,6 +128,13 @@ describe('区域取点', () => {
   it('区域里已有己方眼时整个区域不再选', () => {
     expect(isZoneFree(zoneA, [vec(650, 100)], 800)).toBe(false);
     expect(isZoneFree(zoneA, [vec(5000, 0)], 800)).toBe(true);
+  });
+
+  it('备选点相距超过去重半径时，任一点旁有眼整个区域也算占用', () => {
+    const wide: WardZone = { id: 'w', spots: [vec(0, 0), vec(1050, 0)] };
+    expect(isZoneFree(wide, [vec(0, 40)], 900)).toBe(false);
+    expect(isZoneFree(wide, [vec(1050, 40)], 900)).toBe(false);
+    expect(isZoneFree(wide, [vec(5000, 0)], 900)).toBe(true);
   });
 
   it('多次取点能选到每一个够得着的备选点', () => {
