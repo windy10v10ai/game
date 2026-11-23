@@ -7,12 +7,12 @@ import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import type { BotBaseAIModifier } from '../hero/bot-base';
 import { CachedTowers } from '../team/building-cache';
 import {
-  isZoneEnabled,
-  pickPassingSpot,
+  pickNearestTarget,
+  resolveTargets,
   SENTRY_TRIGGER_RADIUS,
   shouldDropSentry,
-  WardZone,
-  wardQueryRadius,
+  TargetPick,
+  WardTarget,
 } from './ward-decision';
 import {
   getWardZones,
@@ -21,6 +21,7 @@ import {
   POSITION_JITTER,
   SENTRY_WARD_CONFIG,
   WARD_RETRY_SECONDS,
+  WARD_TARGET_SECONDS,
   WardSide,
   WardTypeConfig,
 } from './ward-position-config';
@@ -35,6 +36,11 @@ interface Claim {
   until: number;
 }
 let claims: Claim[] = [];
+// 各队各眼种每个组当前抽定的目标区，键为 队伍|眼种|组
+const targetPicks = new Map<string, TargetPick>();
+// 目标列表隔 1 秒才重算一次，路过、绕路、补眼一秒内多次查询共用
+const TARGET_CACHE_SECONDS = 1;
+const targetCache = new Map<string, { at: number; targets: readonly WardTarget[] }>();
 const sentryDroppedAt = new Map<EntityIndex, number>();
 
 export class WardPlacement {
@@ -116,17 +122,39 @@ export class WardPlacement {
       spot,
       until: GameRules.GetGameTime() + WARD_RETRY_SECONDS,
     });
+    targetCache.clear();
   }
 
   static SideOf(team: DotaTeam): WardSide {
     return team === DotaTeam.GOODGUYS ? 'radiant' : 'dire';
   }
 
-  static ZonesOf(hero: CDOTA_BaseNPC_Hero, config: WardTypeConfig): readonly WardZone[] {
-    const aliveTowerNames = CachedTowers().map((tower) => tower.GetUnitName());
-    return getWardZones(config, this.SideOf(hero.GetTeamNumber())).filter((zone) =>
-      isZoneEnabled(zone, aliveTowerNames),
-    );
+  /**
+   * 本队某种眼各组的当前目标点：只含启用且未占用、组里还有空槽的区。
+   * 目标抽定后一直保留到插下或超时，抽区不看英雄位置，偏僻的区也会被抽到。
+   */
+  static TargetsOf(team: DotaTeam, config: WardTypeConfig): readonly WardTarget[] {
+    const now = GameRules.GetGameTime();
+    const cacheKey = `${team}|${config.wardClassName}`;
+    const cached = targetCache.get(cacheKey);
+    if (cached && now - cached.at < TARGET_CACHE_SECONDS) {
+      return cached.targets;
+    }
+    const side = this.SideOf(team);
+    const targets = resolveTargets({
+      zones: getWardZones(config, side),
+      groupLimits: config.sides[side].groupLimits,
+      aliveTowerNames: CachedTowers().map((tower) => tower.GetUnitName()),
+      existingWards: [...this.FindTeamWards(team, config), ...this.ClaimedSpots(team, config)],
+      sameWardRadius: config.sameWardRadius,
+      now,
+      ttl: WARD_TARGET_SECONDS,
+      picks: targetPicks,
+      stateKeyPrefix: `${cacheKey}|`,
+      random: randomIndex,
+    });
+    targetCache.set(cacheKey, { at: now, targets });
+    return targets;
   }
 
   private static TryPlaceWard(
@@ -135,29 +163,17 @@ export class WardPlacement {
     config: WardTypeConfig,
   ): boolean {
     const team = hero.GetTeamNumber();
-    const zones = this.ZonesOf(hero, config);
-    const existingWards = [
-      ...this.FindFriendlyWards(
-        hero,
-        config,
-        wardQueryRadius(config.castRange, zones, config.sameWardRadius),
-      ),
-      ...this.ClaimedSpots(team, config),
-    ];
     // 落点带抖动，判定距离要留出抖动余量，否则会超出 KV 的 cast range 导致施法失败
-    const pick = pickPassingSpot(
+    const pick = pickNearestTarget(
       hero.GetAbsOrigin(),
-      zones,
+      this.TargetsOf(team, config),
       config.castRange - POSITION_JITTER,
-      existingWards,
-      config.sameWardRadius,
-      randomIndex,
     );
     if (pick === undefined) {
       return false;
     }
     this.Claim(team, config, pick.spot);
-    return this.CastWard(hero, item, pick.spot, 'passing');
+    return this.CastWard(hero, item, pick.spot, `passing:${pick.zoneId}`);
   }
 
   /** 查找可用眼：备用栏里的也算，施放前由 CastWard 换进主物品栏 */
@@ -172,6 +188,17 @@ export class WardPlacement {
       }
     }
     return undefined;
+  }
+
+  /** 本队全部同类眼的位置 */
+  static FindTeamWards(team: DotaTeam, config: WardTypeConfig): readonly Vector[] {
+    const result: Vector[] = [];
+    for (const ward of Entities.FindAllByClassname(config.wardClassName) as CBaseEntity[]) {
+      if (ward.GetTeamNumber() === team) {
+        result.push(ward.GetAbsOrigin());
+      }
+    }
+    return result;
   }
 
   /** 英雄周围 radius 内己方同类眼的位置 */

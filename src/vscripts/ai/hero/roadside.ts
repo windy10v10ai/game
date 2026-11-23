@@ -3,7 +3,7 @@
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { CachedOutposts } from '../team/building-cache';
-import { pickDetourSpot, wardQueryRadius } from '../ward/ward-decision';
+import { pickNearestTarget } from '../ward/ward-decision';
 import { WardPlacement } from '../ward/ward-placement';
 import { OBSERVER_WARD_CONFIG, WARD_DETOUR_RANGE } from '../ward/ward-position-config';
 
@@ -142,31 +142,15 @@ function TryPickups(
   return 0;
 }
 
-/** 手里有假眼就去最近的本方空眼位插：认领期内同一区域不派第二个人，成功后区域有眼自然不再选。 */
+/** 手里有假眼就去最近的当前目标点插：认领期内同一区域不派第二个人，成功后区域有眼自然不再是目标。 */
 function WardDetour(hero: CDOTA_BaseNPC_Hero, team: DotaTeam): number {
   const config = OBSERVER_WARD_CONFIG;
   const item = WardPlacement.FindUsableWard(hero, config);
   if (!item) {
     return 0;
   }
-  const zones = WardPlacement.ZonesOf(hero, config);
-  const existing = [
-    ...WardPlacement.FindFriendlyWards(
-      hero,
-      config,
-      wardQueryRadius(WARD_DETOUR_RANGE, zones, config.sameWardRadius),
-    ),
-    ...WardPlacement.ClaimedSpots(team, config),
-  ];
   const origin = hero.GetAbsOrigin();
-  const pick = pickDetourSpot(
-    origin,
-    zones,
-    WARD_DETOUR_RANGE,
-    existing,
-    config.sameWardRadius,
-    (n) => RandomInt(0, n - 1),
-  );
+  const pick = pickNearestTarget(origin, WardPlacement.TargetsOf(team, config), WARD_DETOUR_RANGE);
   if (!pick) {
     return 0;
   }

@@ -10,17 +10,26 @@ export function hasPointWithin(center: Vector, points: readonly Vector[], radius
   return false;
 }
 
+export type WardTier = 'always' | 'defend' | 'attack' | 'push';
+
 export interface WardZone {
   id: string;
-  /** 进攻眼位依赖的敌方防御塔，该塔还活着时区域不可选 */
-  requiresDeadTower?: string;
-  /** 同一区域的备选点：互相都够近，区域里已有己方眼时整个区域视为占用 */
+  /** 组：同一路线上互相替代的区，同时占用的眼数受组上限约束 */
+  group: string;
+  /** always 与 attack 随时启用，defend 绑定己方塔、push 绑定敌方塔，塔倒后才启用 */
+  tier: WardTier;
+  /** defend 与 push 绑定的防御塔单位名片段 */
+  tower?: string;
+  /** 区内的备选点：互相都够近，区里已有己方眼时整个区视为占用 */
   spots: readonly Vector[];
 }
 
-/** 区域是否启用：没有依赖的塔，或依赖的塔已不在存活名单里。aliveTowerNames 是存活防御塔的单位名 */
+/** 区是否启用：defend 与 push 要等绑定的塔不在存活名单里，其余随时。aliveTowerNames 是存活防御塔的单位名 */
 export function isZoneEnabled(zone: WardZone, aliveTowerNames: readonly string[]): boolean {
-  const tower = zone.requiresDeadTower;
+  if (zone.tier !== 'defend' && zone.tier !== 'push') {
+    return true;
+  }
+  const tower = zone.tower;
   return tower === undefined || !aliveTowerNames.some((name) => name.includes(tower));
 }
 
@@ -41,90 +50,94 @@ export function isZoneFree(
   return true;
 }
 
-/** 区域里两个备选点之间的最大距离，所有区域取最大 */
-export function maxZoneSpan(zones: readonly WardZone[]): number {
-  let span = 0;
-  for (const zone of zones) {
-    for (const a of zone.spots) {
-      for (const b of zone.spots) {
-        span = Math.max(span, a.__sub(b).Length2D());
-      }
-    }
-  }
-  return span;
-}
-
-/**
- * 查附近己方眼的半径：候选点离英雄最远 reach，区域内另一个备选点再远 span，眼离那个点 sameWardRadius 内都算占用。
- * 备选点相距超过去重半径的区域，半径不够会漏掉远端备选点旁的眼。
- */
-export function wardQueryRadius(
-  reach: number,
-  zones: readonly WardZone[],
-  sameWardRadius: number,
-): number {
-  return reach + maxZoneSpan(zones) + sameWardRadius;
-}
-
-/**
- * 路过时能直接插的点：空闲区域里 reach 内的全部备选点，随机取一个。
- * existingWards 里要把已认领未落地的点位也算进去。先汇总再随机，避免眼位表靠前的点总被优先选中。
- */
-export function pickPassingSpot(
-  heroPos: Vector,
-  zones: readonly WardZone[],
-  reach: number,
-  existingWards: readonly Vector[],
-  sameWardRadius: number,
-  random: RandomIndex,
-): DetourPick | undefined {
-  const reachable: DetourPick[] = [];
-  for (const zone of zones) {
-    if (!isZoneFree(zone, existingWards, sameWardRadius)) {
-      continue;
-    }
-    for (const spot of spotsWithin(heroPos, zone, reach)) {
-      reachable.push({ zoneId: zone.id, spot });
-    }
-  }
-  return reachable.length > 0 ? reachable[random(reachable.length)] : undefined;
-}
-
-function spotsWithin(heroPos: Vector, zone: WardZone, range: number): Vector[] {
-  return zone.spots.filter((spot) => spot.__sub(heroPos).Length2D() <= range);
-}
-
-export interface DetourPick {
+/** 组的当前目标：电脑顺路插眼只去这些点 */
+export interface WardTarget {
   zoneId: string;
+  group: string;
   spot: Vector;
 }
 
-/** 绕路去插：range 内最近的空闲区域（existingWards 含已认领点位），只在该区域 range 内的备选点里随机一个。 */
-export function pickDetourSpot(
+/** 组里已抽定的目标区与备选点，记到插下、失效或超时为止 */
+export interface TargetPick {
+  zoneId: string;
+  spotIndex: number;
+  until: number;
+}
+
+export interface ResolveTargetsInput {
+  zones: readonly WardZone[];
+  /** 组 id → 同时最多几只眼，缺省按 1 */
+  groupLimits: Readonly<Record<string, number>>;
+  aliveTowerNames: readonly string[];
+  /** 本方同种眼的位置，要把已认领未落地的点位也算进去 */
+  existingWards: readonly Vector[];
+  sameWardRadius: number;
+  now: number;
+  /** 目标抽出后多久还没插下就重抽 */
+  ttl: number;
+  /** 抽定的目标，键为 stateKeyPrefix + 组 id，函数会直接更新它 */
+  picks: Map<string, TargetPick>;
+  stateKeyPrefix: string;
+  random: RandomIndex;
+}
+
+/**
+ * 每个还有空槽的组给出一个当前目标：沿用没过期、仍启用且仍空闲的旧目标，否则从组里已启用且未占用的区中等概率抽一个区，
+ * 再在区内等概率抽备选点。不按离英雄远近挑，偏僻的区也有同样的机会被抽到。
+ * 空槽数是组上限减去组内已占用的区数，组满则没有目标。
+ */
+export function resolveTargets(input: ResolveTargetsInput): WardTarget[] {
+  const groups = new Map<string, WardZone[]>();
+  for (const zone of input.zones) {
+    const list = groups.get(zone.group);
+    if (list) {
+      list.push(zone);
+    } else {
+      groups.set(zone.group, [zone]);
+    }
+  }
+  const targets: WardTarget[] = [];
+  for (const [group, zones] of groups) {
+    const key = input.stateKeyPrefix + group;
+    const free = zones.filter((zone) =>
+      isZoneFree(zone, input.existingWards, input.sameWardRadius),
+    );
+    const occupied = zones.length - free.length;
+    const candidates = free.filter((zone) => isZoneEnabled(zone, input.aliveTowerNames));
+    if (occupied >= (input.groupLimits[group] ?? 1) || candidates.length === 0) {
+      input.picks.delete(key);
+      continue;
+    }
+    const old = input.picks.get(key);
+    let zone =
+      old && old.until > input.now ? candidates.find((item) => item.id === old.zoneId) : undefined;
+    let spotIndex = old?.spotIndex ?? 0;
+    if (!zone) {
+      zone = candidates[input.random(candidates.length)];
+      spotIndex = input.random(zone.spots.length);
+      input.picks.set(key, { zoneId: zone.id, spotIndex, until: input.now + input.ttl });
+    }
+    targets.push({ zoneId: zone.id, group, spot: zone.spots[spotIndex] });
+  }
+  return targets;
+}
+
+/** range 内离英雄最近的目标，路过与绕路共用 */
+export function pickNearestTarget(
   heroPos: Vector,
-  zones: readonly WardZone[],
+  targets: readonly WardTarget[],
   range: number,
-  existingWards: readonly Vector[],
-  sameWardRadius: number,
-  random: RandomIndex,
-): DetourPick | undefined {
-  let best: { zone: WardZone; spots: Vector[] } | undefined;
+): WardTarget | undefined {
+  let best: WardTarget | undefined;
   let bestGap = Infinity;
-  for (const zone of zones) {
-    if (!isZoneFree(zone, existingWards, sameWardRadius)) {
-      continue;
-    }
-    const spots = spotsWithin(heroPos, zone, range);
-    if (spots.length === 0) {
-      continue;
-    }
-    const gap = Math.min(...spots.map((spot) => spot.__sub(heroPos).Length2D()));
-    if (gap < bestGap) {
-      best = { zone, spots };
+  for (const target of targets) {
+    const gap = target.spot.__sub(heroPos).Length2D();
+    if (gap <= range && gap < bestGap) {
+      best = target;
       bestGap = gap;
     }
   }
-  return best ? { zoneId: best.zone.id, spot: best.spots[random(best.spots.length)] } : undefined;
+  return best;
 }
 
 export interface SentryTriggerInput {

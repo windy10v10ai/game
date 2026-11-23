@@ -5,7 +5,7 @@ import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import {
   countHeldWards,
   HeldItem,
-  pickDetourSpot,
+  pickNearestTarget,
   pickWardBuyer,
   WardBuyer,
   WardKind,
@@ -81,11 +81,9 @@ function SupplyOne(
   spec: SupplySpec,
 ): void {
   let owned = 0;
-  const placedAt: Vector[] = [];
   for (const ward of Entities.FindAllByClassname(spec.config.wardClassName) as CBaseEntity[]) {
     if (ward.GetTeamNumber() === team) {
       owned++;
-      placedAt.push(ward.GetAbsOrigin());
       if (IS_DEBUG_RUN && !loggedWards.has(ward.GetEntityIndex())) {
         loggedWards.add(ward.GetEntityIndex());
         const position = ward.GetAbsOrigin();
@@ -123,7 +121,7 @@ function SupplyOne(
     }
     const roomed = held.total < spec.perBotCap;
     const slotted = held.canStack || slotsUsed < FIELD_SLOTS;
-    const zoned = !spec.needsNearbyZone || HasFreeZoneNearby(hero, spec.config, placedAt);
+    const zoned = !spec.needsNearbyZone || HasTargetNearby(hero, spec.config);
     buyers.push({
       id: hero.GetEntityIndex(),
       power: powerOf(hero),
@@ -178,19 +176,12 @@ function SupplyOne(
   }
 }
 
-function HasFreeZoneNearby(
-  hero: CDOTA_BaseNPC_Hero,
-  config: WardTypeConfig,
-  placedAt: readonly Vector[],
-): boolean {
+function HasTargetNearby(hero: CDOTA_BaseNPC_Hero, config: WardTypeConfig): boolean {
   return (
-    pickDetourSpot(
+    pickNearestTarget(
       hero.GetAbsOrigin(),
-      WardPlacement.ZonesOf(hero, config),
+      WardPlacement.TargetsOf(hero.GetTeamNumber(), config),
       WARD_DETOUR_RANGE,
-      placedAt,
-      config.sameWardRadius,
-      () => 0,
     ) !== undefined
   );
 }
