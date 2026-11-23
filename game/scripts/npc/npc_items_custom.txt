@@ -5411,6 +5411,10 @@
 					"value"		"50"					// 25
 					"apply_effectiveness"	"1"
 				}
+				"slow_duration"		"4"
+				"reduction_duration"	"4"
+				"passive_cooldown"	"4"
+				"building_effectiveness_pct"	"40"
 				"active_mres_reduction"
 				{
 					"value"		"35"					// 15

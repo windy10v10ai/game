@@ -3136,7 +3136,7 @@
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#e03e2e'>Ультра Bloodthorn</font>"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>Активное: Разрыв души</h1>Заставляет цель замолчать на %silence_duration% сек. По окончании немоты наносит цели магический урон в размере %silence_damage_percent%%% от урона, полученного за время действия.<br><br>Атаки героев дополнительно наносят цели %proc_damage_heroes% урона, а атаки существ, не являющихся героями, — %proc_damage_creeps%. Кроме того, владелец и подконтрольные ему существа не могут промахнуться по цели.\n\n<h1>Пассивное: Пронзание</h1>Каждая атака с вероятностью %proc_chance%%% проходит сквозь уклонение и наносит дополнительно %passive_proc_damage% магического урона."
+		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>Активное: Разрыв души</h1>Заставляет цель замолчать на %silence_duration% сек. По окончании немоты наносит цели магический урон в размере %silence_damage_percent%%% от урона, полученного за время действия.<br><br>Атаки героев дополнительно наносят цели %proc_damage_heroes% урона, а атаки существ, не являющихся героями, — %proc_damage_creeps%. Кроме того, владелец и подконтрольные ему существа не могут промахнуться по цели."
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Lore"					"Остро-остро, до слёз!"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_intellect"		"+$int"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_attack_speed"		"+$attack"
@@ -3151,7 +3151,7 @@
 
 		// item_devastator_2 Sacred Parasma 神圣斧
 		"DOTA_Tooltip_Ability_item_devastator_2"				"Священная Parasma"
-		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>Пассивное: Ведьмин клинок</h1>Следующая атака не может промахнуться, отравляет жертву на %slow_duration% сек., замедляя её на %slow%%% и каждую секунду нанося урон, равный интеллекту владельца, помноженному на %int_damage_multiplier%.\n\n<h1>Пассивное: Порча магии</h1>Атаки снижают сопротивление магии врага на %active_mres_reduction%%% на %passive_cooldown% сек."
+		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>Пассивное: Ведьмин клинок</h1>Следующая атака не может промахнуться, отравляет жертву на %slow_duration% сек., замедляя её на %slow%%% и каждую секунду нанося урон, равный интеллекту владельца, помноженному на %int_damage_multiplier%. Эта атака может поражать постройки и наносит им только %building_effectiveness_pct%%% урона.\n\n<h1>Пассивное: Порча магии</h1>Атаки снижают сопротивление магии врага на %active_mres_reduction%%% на %reduction_duration% сек."
 		"DOTA_Tooltip_ability_item_devastator_2_Lore"						"Поистине разрушительно."
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_armor"					"+$armor"
