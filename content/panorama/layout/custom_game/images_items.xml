@@ -21,6 +21,9 @@
 			<Image id="armlet_pro_max" class="SeqImg" src="file://{images}/items/armlet_pro_max.png" />
 			<Image id="awaken_stone" class="SeqImg" src="file://{images}/items/awaken_stone.png" />
 			<Image id="beast_shield" class="SeqImg" src="file://{images}/items/beast_shield.png" />
+			<Image id="berserkers_sabatons_active" class="SeqImg" src="file://{images}/items/berserkers_sabatons_active.png" />
+			<Image id="berserkers_sabatons_copy" class="SeqImg" src="file://{images}/items/berserkers_sabatons_copy.png" />
+			<Image id="berserkers_sabatons_custom" class="SeqImg" src="file://{images}/items/berserkers_sabatons_custom.png" />
 			<Image id="bfury_2" class="SeqImg" src="file://{images}/items/bfury_2.png" />
 			<Image id="bfury_copy" class="SeqImg" src="file://{images}/items/bfury_copy.png" />
 			<Image id="bfury_ultra" class="SeqImg" src="file://{images}/items/bfury_ultra.png" />

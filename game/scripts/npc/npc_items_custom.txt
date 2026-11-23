@@ -4602,7 +4602,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1025"
+		"ItemCost"						"100"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4611,7 +4611,7 @@
 		"ItemResult"					"item_armlet_plus"
 		"ItemRequirements"
 		{
-			"01"						"item_helm_of_iron_will;item_armlet"
+			"01"						"item_helm_of_iron_will;item_berserkers_sabatons"
 		}
 	}
 	"item_armlet_plus"
@@ -4629,7 +4629,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5000"
+		"ItemCost"						"5125"
 		"ItemShopTags"					"damage;attack_speed;armor;regen_health;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"armlet of mordiggian"
@@ -4640,14 +4640,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"bonus_movement_speed_ranged"	"50"
+			"bonus_movement_speed_melee"	"50"
+			"phase_movement_speed"	"20"
+			"phase_movement_speed_range"	"20"
 			"bonus_damage"			"30"
 			"bonus_attack_speed"	"35"
 			"bonus_armor"			"12"
 			"bonus_health_regen"	"10"
-			"bonus_movement_speed_ranged"	"0"	// 本体不是鞋子，不提供常驻移速
-			"bonus_movement_speed_melee"	"0"
-			"phase_movement_speed"	"20"		// 开启时相位移速
-			"phase_movement_speed_range"	"10"
 			"unholy_bonus_damage"	"45"
 			"unholy_bonus_strength"	"50"
 			"unholy_bonus_armor"	"8"
@@ -4670,7 +4670,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1025"
+		"ItemCost"						"100"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4697,7 +4697,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6500"
+		"ItemCost"						"6200"
 		"ItemShopTags"					"damage;attack_speed;armor;regen_health;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"armlet of mordiggian"
@@ -4708,14 +4708,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"bonus_movement_speed_ranged"	"50"
+			"bonus_movement_speed_melee"	"50"
+			"phase_movement_speed"	"20"
+			"phase_movement_speed_range"	"20"
 			"bonus_damage"			"45"
 			"bonus_attack_speed"	"45"
 			"bonus_armor"			"18"
 			"bonus_health_regen"	"15"
-			"bonus_movement_speed_ranged"	"0"	// 本体不是鞋子，不提供常驻移速
-			"bonus_movement_speed_melee"	"0"
-			"phase_movement_speed"	"25"		// 开启时相位移速
-			"phase_movement_speed_range"	"12"
 			"unholy_bonus_damage"	"55"
 			"unholy_bonus_strength"	"75"
 			"unholy_bonus_armor"	"12"
@@ -8327,4 +8327,42 @@
 		}
 	}
 
+	//=================================================================================================================
+	// Treasured Sabatons
+	//=================================================================================================================
+	"item_berserkers_sabatons_copy"
+	{
+		"ID"							"10481"
+		"BaseClass"						"item_berserkers_sabatons"
+		"AbilityTextureName"			"berserkers_sabatons_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityValues"
+		{
+			"bonus_movement_speed_ranged"	"50"
+			"bonus_movement_speed_melee"		"50"
+			"bonus_damage"					"20"
+			"bonus_attack_speed"			"30"
+			"bonus_armor"					"8"
+			"bonus_health_regen"			"8"
+			"phase_movement_speed"			"20"
+			"phase_movement_speed_range"	"20"
+			"unholy_bonus_damage"			"30"
+			"unholy_bonus_strength"			"35"
+			"unholy_bonus_armor"			"6"
+			"unholy_bonus_slow_resistance"	"35"
+			"unholy_health_drain_per_second"	"40"
+			"unholy_health_drain_pct_per_second"	"0"
+			"toggle_cooldown"				"0.036"
+		}
+	}
 }
