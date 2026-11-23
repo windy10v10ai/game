@@ -2417,7 +2417,7 @@
 
 		// item_horn_of_battle_greater 大战斗号角
 		"DOTA_Tooltip_ability_item_horn_of_battle_greater"					"大战斗号角"
-		"DOTA_Tooltip_ability_item_horn_of_battle_greater_Description"		"<h1>使用：大举进攻</h1>为你的队伍在每条兵线召唤一波超级兵，包括一台投石车和一名旗手。可以在背包中使用。"
+		"DOTA_Tooltip_ability_item_horn_of_battle_greater_Description"		"<h1>使用：征召群兵</h1>己方每条兵线召唤一波超级士兵，包括一个攻城单位和一个士兵旗手。可以在背包中使用。"
 
 		"DOTA_Tooltip_modifier_luoshu_tome"								"洛书看好你！"
 		"DOTA_Tooltip_modifier_luoshu_tome_Description"					"哥哥你为我花了这么多钱，你女朋友不会生气吧？"
