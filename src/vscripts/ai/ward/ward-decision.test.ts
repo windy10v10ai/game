@@ -206,11 +206,18 @@ describe('被隐身敌人打到插真眼', () => {
 });
 
 describe('pickWardBuyer', () => {
-  const buyer = (id: number, power: number, gold = 1000, hasRoom = true) => ({
+  const buyer = (
+    id: number,
+    power: number,
+    gold = 1000,
+    hasRoom = true,
+    holdsOtherKind = false,
+  ) => ({
     id,
     power,
     gold,
     hasRoom,
+    holdsOtherKind,
   });
   const supply = { owned: 1, cap: 4, stock: 3, reserve: 0, cost: 50 };
 
@@ -229,6 +236,25 @@ describe('pickWardBuyer', () => {
   });
 });
 
+describe('pickWardBuyer 一个电脑只带一种眼', () => {
+  const supply = { owned: 0, cap: 4, stock: 5, reserve: 0, cost: 50 };
+  const buyer = (id: number, power: number, holdsOtherKind: boolean) => ({
+    id,
+    power,
+    gold: 1000,
+    hasRoom: true,
+    holdsOtherKind,
+  });
+
+  it('带着另一种眼的电脑不是买家，哪怕战力最低', () => {
+    expect(pickWardBuyer([buyer(1, 10, true), buyer(2, 50, false)], supply)).toBe(2);
+  });
+
+  it('只剩带另一种眼的电脑时不买', () => {
+    expect(pickWardBuyer([buyer(1, 10, true)], supply)).toBeUndefined();
+  });
+});
+
 describe('countHeldWards 按眼种读组合守卫的充能', () => {
   const item = (name: string, charges: number, secondaryCharges = 0): HeldItem => ({
     name,
@@ -236,10 +262,23 @@ describe('countHeldWards 按眼种读组合守卫的充能', () => {
     secondaryCharges,
   });
 
-  it('组合守卫的假眼记在当前充能，真眼记在第二充能', () => {
+  it('组合守卫整件按假眼算：假眼数读当前充能，里面的真眼不计入，持有者算带假眼', () => {
     const dispenser = [item('item_ward_dispenser', 2, 1)];
-    expect(countHeldWards('observer', dispenser).total).toBe(2);
-    expect(countHeldWards('sentry', dispenser).total).toBe(1);
+    expect(countHeldWards('observer', dispenser)).toEqual({
+      total: 2,
+      canStack: true,
+      holdsOtherKind: false,
+    });
+    expect(countHeldWards('sentry', dispenser)).toEqual({
+      total: 0,
+      canStack: true,
+      holdsOtherKind: true,
+    });
+  });
+
+  it('带真眼的算带另一种眼，只对假眼买家生效', () => {
+    expect(countHeldWards('observer', [item('item_ward_sentry', 1)]).holdsOtherKind).toBe(true);
+    expect(countHeldWards('sentry', [item('item_ward_sentry', 1)]).holdsOtherKind).toBe(false);
   });
 
   it('单独的眼至少算 1 个，叠放的按充能算', () => {
@@ -252,6 +291,7 @@ describe('countHeldWards 按眼种读组合守卫的充能', () => {
     expect(countHeldWards('observer', [item('item_ward_sentry', 1)])).toEqual({
       total: 0,
       canStack: true,
+      holdsOtherKind: true,
     });
   });
 
@@ -259,6 +299,7 @@ describe('countHeldWards 按眼种读组合守卫的充能', () => {
     expect(countHeldWards('sentry', [item('item_tango', 1)])).toEqual({
       total: 0,
       canStack: false,
+      holdsOtherKind: false,
     });
   });
 });

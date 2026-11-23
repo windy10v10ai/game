@@ -129,6 +129,7 @@ function SupplyOne(
       power: powerOf(hero),
       gold: hero.GetGold(),
       hasRoom: roomed && slotted && zoned,
+      holdsOtherKind: held.holdsOtherKind,
     });
   }
   if (buyers.length === 0) {

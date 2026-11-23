@@ -123,34 +123,42 @@ export type WardKind = 'observer' | 'sentry';
 export interface HeldItem {
   name: string;
   charges: number;
-  /** 组合守卫的真眼充能 */
+  /** 组合守卫里的真眼充能，脚本用不出去，目前只记录 */
   secondaryCharges: number;
 }
 
 const WARD_ITEM_NAMES = ['item_ward_observer', 'item_ward_sentry', 'item_ward_dispenser'];
 
-/** 物品栏里某一种眼的数量。组合守卫的假眼记在当前充能、真眼记在第二充能，要按眼种分开读 */
+/**
+ * 物品栏里某一种眼的数量，以及是否带着另一种眼。
+ * 组合守卫整件按假眼处理：假眼数读当前充能，里面的真眼放不出去，不计入真眼数，持有者算「带假眼」。
+ * 两种眼并进同一格组合守卫后，脚本施放插出的只会是假眼，所以补给时一个电脑只带一种眼。
+ */
 export function countHeldWards(
   kind: WardKind,
   items: readonly HeldItem[],
-): { total: number; canStack: boolean } {
+): { total: number; canStack: boolean; holdsOtherKind: boolean } {
   let total = 0;
   let canStack = false;
+  let holdsOtherKind = false;
   for (const item of items) {
     if (!WARD_ITEM_NAMES.includes(item.name)) {
       continue;
     }
     // 身上有任一种眼，新买的眼都能并进去
     canStack = true;
-    let count = 0;
-    if (item.name === 'item_ward_dispenser') {
-      count = Math.max(0, kind === 'observer' ? item.charges : item.secondaryCharges);
-    } else if (item.name === (kind === 'observer' ? 'item_ward_observer' : 'item_ward_sentry')) {
-      count = Math.max(1, item.charges);
+    const isSentry = item.name === 'item_ward_sentry';
+    if (isSentry !== (kind === 'sentry')) {
+      holdsOtherKind = true;
     }
-    total += count;
+    if (kind === 'observer' && !isSentry) {
+      total +=
+        item.name === 'item_ward_dispenser' ? Math.max(0, item.charges) : Math.max(1, item.charges);
+    } else if (kind === 'sentry' && isSentry) {
+      total += Math.max(1, item.charges);
+    }
   }
-  return { total, canStack };
+  return { total, canStack, holdsOtherKind };
 }
 
 export interface WardBuyer {
@@ -159,6 +167,8 @@ export interface WardBuyer {
   gold: number;
   /** 身上已有同种眼可以叠放，或随身格子没满 */
   hasRoom: boolean;
+  /** 身上带着另一种眼（含组合守卫）：两种眼会并成组合守卫，插出的只会是假眼，所以不再发这一种 */
+  holdsOtherKind: boolean;
 }
 
 export interface WardSupply {
@@ -181,7 +191,7 @@ export function pickWardBuyer(
   }
   let best: WardBuyer | undefined;
   for (const buyer of buyers) {
-    if (buyer.gold < supply.cost || !buyer.hasRoom) {
+    if (buyer.gold < supply.cost || !buyer.hasRoom || buyer.holdsOtherKind) {
       continue;
     }
     if (!best || buyer.power < best.power) {
