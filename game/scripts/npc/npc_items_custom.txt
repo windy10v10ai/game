@@ -8015,7 +8015,7 @@
 		"BaseClass"						"item_echo_sabre"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"3.0"
+		"AbilityCooldown"				"2.5"
 		"AbilitySharedCooldown"			"echo_sabre"
 		"AbilityTextureName"			"echo_sabre_2_copy"
 		"AbilityManaCost"				"0"
