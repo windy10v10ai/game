@@ -28,6 +28,8 @@ export class GameProbeProxy {
         callbackFunc({ StatusCode: 0, Body: '' } as CScriptHTTPResponse);
       },
       apiParameter.timeoutSeconds,
+      // 探测只决定走哪条线路，等不到代发玩家就不等，别拖住后面的玩家数据拉取
+      apiParameter.timeoutSeconds,
     );
   }
 }

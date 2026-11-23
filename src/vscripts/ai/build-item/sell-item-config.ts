@@ -85,6 +85,7 @@ export const SellItemCommonJunkList: string[] = [
   'item_yasha', // 夜叉
   'item_blitz_knuckles', // 闪电指套
   //'item_javelin', // 标枪
+  'item_quarterstaff', // 短棍
   'item_claymore', // 大剑
   'item_mithril_hammer', // 秘银锤
   'item_void_stone', // 虚无宝石

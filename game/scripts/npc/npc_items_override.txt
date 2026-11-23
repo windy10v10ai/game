@@ -319,7 +319,8 @@
 	{
 		"ItemPurchasable"				"1"
 		"ItemCost"						"8000"
-		"ItemStockInitial"				"1"
+		"ItemInitialStockTime"			"660"	// 10分钟买（开局准备1分钟）
+		"ItemStockInitial"				"0"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"600"
 		"AbilityValues"
@@ -335,7 +336,8 @@
 	{
 		"ItemPurchasable"				"1"
 		"ItemCost"						"5000"
-		"ItemStockInitial"				"1"
+		"ItemInitialStockTime"			"660"	// 10分钟买（开局准备1分钟）
+		"ItemStockInitial"				"0"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"600"
 	}
@@ -467,7 +469,7 @@
 	//=================================================================================================================
 	"item_revenants_brooch"
 	{
-		"ItemCost"						"3300"
+		"ItemCost"						"2000"	// 3300，7.42 起攻击力与法术吸血不生效
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 		"ItemIsNeutralActiveDrop"		"0"
@@ -476,8 +478,6 @@
 		"AbilityTextureName"			"item_revenants_brooch"
 		"AbilityValues"
 		{
-			"bonus_damage"				"35"	// 原版不存在，手动修改
-			"spell_lifesteal"			"15"	// 原版不存在，手动修改
 			"crit_chance"
 			{
 				"value"					"30"	// 15

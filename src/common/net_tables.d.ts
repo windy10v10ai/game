@@ -45,11 +45,16 @@ declare global {
     };
     loading_status: {
       // snapshotDate 为离线快照导出日期（YYYY-MM-DD），仅在读取快照时下发
-      loading_status: { status: number; snapshotDate?: string };
+      // dedicated 为 1 表示启动器开的专用服，结算失败时由启动器上传，结算画面不提示积分未记录
+      loading_status: { status: number; snapshotDate?: string; dedicated?: number };
     };
     launcher_room: {
       // entering 是启动器里还没进入游戏的玩家名，inGame 含主机
       launcher_room: { entering: string[]; inGame: number; maxPlayers: number };
+    };
+    // Per-player relay readiness and country, used to pick the website domain; key = playerId.
+    api_route: {
+      [playerId: string]: { channels: number; backupChannels: number; country: string };
     };
     server_env: {
       server_env: { is_local_host: number };
