@@ -63,6 +63,14 @@ comm -12 /tmp/ours.txt /tmp/valve.txt   # 有输出即冲突
 
 - **让 tooltip 计入技能增强**：某条 `AbilityValues` 数值想在游戏中按住 ALT 时显示「被技能增强放大后」的值，在该数值块内加 `"CalculateSpellDamageTooltip" "1"`（**不是** `affected_by_spell_amplify`，没有这个字段）。原版默认多为 `"0"`（不计入）。配套字段：`"DamageTypeTooltip"`（伤害类型）、`"display_type"`（如 `kMagicalDamagePercentage` 百分比显示）
 
+## BaseClass 继承范围
+
+`"BaseClass" "<原版物品名>"` 能继承原版物品的**引擎侧行为**：`item_ultimate_scepter_copy` 设 `BaseClass "item_ultimate_scepter"`，放进背包就有 A杖效果，不需要脚本再挂 `modifier_item_ultimate_scepter`（实测）。
+
+**不继承的是数值**：`AbilityValues` 要写进自己的物品块，否则 `GetSpecialValueFor` 一律返回 0，属性与 tooltip 都是空的（实测）。
+
+自制物品（`BaseClass` 是 `item_datadriven` / `item_lua`）的 `Modifiers` 块和 `OnSpellStart` 脚本属于它自己的块，做它的复制品时按自己的块重写，不靠 `BaseClass` 继承，参考 `item_wings_of_haste_copy`。
+
 ## 预载入资源
 
 通用预载入（`src/vscripts/utils/precache.ts`）在开局扫 `npc_items_custom.txt`、`npc_abilities_custom_lottery.txt`、`npc_abilities_custom_awaken.txt` 里的字符串**值**，Lua/TS 里临时给路径或按等级拼名字的粒子、模型扫不到，首次出现时引擎会断言并卡一帧。
