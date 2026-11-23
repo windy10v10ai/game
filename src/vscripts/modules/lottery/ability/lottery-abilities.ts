@@ -244,6 +244,7 @@ export const abilityTiersPassive: Tier[] = [
       'silencer_glaives_of_wisdom', // 智慧之刃
       'tiny_insurmountable', // 小小 不可逾越
       'drow_ranger_trueshot', // 精准光环
+      // 'death_prophet_witchcraft', // 死亡先知 巫术精研 因为卡顿删除
 
       // 法球/开关技能
       'omniknight_hammer_of_purity', // 纯洁之锤
