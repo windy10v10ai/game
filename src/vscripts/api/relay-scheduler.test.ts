@@ -84,6 +84,24 @@ describe('RelayScheduler', () => {
     expect(scheduler.Drain(always).map((x) => x.job.requestId)).toEqual(['a', 'c']);
   });
 
+  it('某条线路上被拉黑的玩家不影响他在另一条线路上接活', () => {
+    const scheduler = new RelayScheduler<RelayJob>();
+    scheduler.SetCapacity(0 as PlayerID, 'direct', 1);
+    scheduler.SetCapacity(0 as PlayerID, 'cn-proxy', 1);
+    scheduler.Enqueue(job('a', 'direct'));
+    scheduler.Enqueue(job('b', 'cn-proxy'));
+
+    const assigned = scheduler.Drain((_playerId, line) => line !== 'direct');
+
+    expect(assigned.map((x) => x.job.requestId)).toEqual(['b']);
+    expect(scheduler.HasCapacityPlayer((_playerId, line) => line !== 'direct', 'direct')).toBe(
+      false,
+    );
+    expect(scheduler.HasCapacityPlayer((_playerId, line) => line !== 'direct', 'cn-proxy')).toBe(
+      true,
+    );
+  });
+
   it('线路没有就绪通道时一直排队，通道就绪后立即可派', () => {
     const scheduler = new RelayScheduler<RelayJob>();
     scheduler.SetCapacity(0 as PlayerID, 'direct', 0);

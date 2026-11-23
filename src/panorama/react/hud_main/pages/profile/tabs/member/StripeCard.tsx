@@ -1,5 +1,5 @@
 import React from 'react';
-import { STRIPE_MEMBERSHIP_URL } from '@utils/utils';
+import { GetStripeMembershipUrl } from '@utils/utils';
 import { formatTierDuration, openUrl } from './constants';
 import {
   EXTERNAL_LINK_ICON,
@@ -38,7 +38,7 @@ function StripeCardShell({ children }: { children: React.ReactNode }) {
       </Panel>
       <Panel
         className="member-platform-activate-row stripe-site-link"
-        onactivate={openUrl(STRIPE_MEMBERSHIP_URL)}
+        onactivate={openUrl(GetStripeMembershipUrl)}
       >
         <Label
           className="member-platform-activate"
@@ -62,7 +62,7 @@ function StripeTierButton({
   return (
     <Button
       className="member-platform-btn member-platform-btn-subscribe stripe-tier-btn"
-      onactivate={openUrl(STRIPE_MEMBERSHIP_URL)}
+      onactivate={openUrl(GetStripeMembershipUrl)}
     >
       <Panel className="stripe-tier-btn-content">
         <Panel className="subscribe-price-row">

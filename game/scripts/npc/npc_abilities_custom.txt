@@ -2492,6 +2492,14 @@
 		}
 	}
 
+	// 7.42 removed this talent, kept because awakened Blade Fury also reads it
+	"special_bonus_unique_juggernaut"
+	{
+		"BaseClass"	"special_bonus_base"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"ABILITY_TYPE_ATTRIBUTES"
+	}
+
 	"special_bonus_unique_jack_1"
 	{
 		"BaseClass"	"special_bonus_base"
@@ -2975,10 +2983,6 @@
 	// "juggernaut_omni_slash"
 	// {
 	// 	"AbilityTextureName"			"jugg_omni_slash"
-	// }
-	// "juggernaut_swift_slash"
-	// {
-	// 	"AbilityTextureName"			"jugg_swift_slash"
 	// }
 	//=================================================================================================================
 	// Ability: Pangolier 石鳞剑士

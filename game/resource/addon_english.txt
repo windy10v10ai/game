@@ -1444,7 +1444,7 @@
 
 		// 兽王 野性之斧-觉醒
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>Wild Axes Awakened</font>"
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Beastmaster sends his axes flying and calls them home again, slicing through enemy units and trees along their path. Each axe can hit an enemy once, and amplifies subsequent damage from Beastmaster and his units. Debuff duration is affected by Status Resistance.<br><br><font color='#00CED1'>AUTOCAST:</font> When enabled, throws the axes toward the farthest enemy hero whenever an enemy unit is within cast range.<br><font color='#d000ff'>AWAKENED:</font> Damage amplification lasts longer, the axes travel out and back at extreme speed, and Drums of Slom gains increased damage, healing, and drum stacks from Primal Roar."
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Beastmaster sends his axes flying and calls them home again, slicing through enemy units and trees along their path. Each axe can hit an enemy once, and amplifies subsequent damage from Beastmaster and his units. Debuff duration is affected by Status Resistance.<br><br><font color='#00CED1'>AUTOCAST:</font> When enabled, throws the axes toward the farthest enemy hero whenever an enemy unit is within cast range.<br><font color='#d000ff'>AWAKENED:</font> Damage amplification lasts longer, the axes travel out and back at extreme speed."
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"DAMAGE PER AXE:"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%DAMAGE AMP PER STACK:"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"DEBUFF DURATION:"
@@ -3226,8 +3226,6 @@
 		"DOTA_Tooltip_Ability_item_revenants_brooch_Note0"						"Counts as a Critical Strike for purposes of stacking with other sources of Critical Strike."
 		"DOTA_Tooltip_Ability_item_revenants_brooch_Note1"						"Phantom Critical does not work against buildings."
 		"DOTA_Tooltip_ability_item_revenants_brooch_Lore"						"The cursed brooch of a fallen guardian who stalks forever between the veil of life and death."
-		"DOTA_Tooltip_ability_item_revenants_brooch_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_revenants_brooch_spell_lifesteal"			"%+$spell_lifesteal"
 
 		// 神器魔武双修
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"			"Artifact: Revenant's Brooch"
@@ -3235,8 +3233,6 @@
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note0"						"Counts as a Critical Strike for purposes of stacking with other sources of Critical Strike."
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note1"						"Phantom Critical does not work against buildings."
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_Lore"						"The cursed brooch of a fallen guardian who stalks forever between the veil of life and death."
-		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
 
 		// 力量法则碎片
 		"DOTA_Tooltip_Ability_item_imp_claw"				"Power Law Fragment"
@@ -3403,9 +3399,8 @@
 
 		// item_guardian_greaves_artifact 神器·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact"						"<font color='#FFFF00'>Artifact</font> Guardian Greaves"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health <font color='#00FF00'>+ %max_health_pct_heal_amount%%% of max health</font> and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration and %aura_mana_regen% mana regeneration to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, their health regeneration is increased to %aura_health_regen_bonus%. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"					"The aura boost only applies to heroes."
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note1"					"Mend does not affect units that have been affected by Mend or Mekansm Restore within Guardian Greaves' cooldown."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health <font color='#00FF00'>+ %max_health_pct_heal_amount%%% of max health</font> and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration and %aura_mana_regen% mana regeneration to allied units.<br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"					"Mend does not affect units that have been affected by Mend or Mekansm Restore within Guardian Greaves' cooldown."
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_movement"			"+$move_speed"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mana"				"+$mana"
@@ -3431,7 +3426,7 @@
 
 		// item_disperser_chaos 混沌·散魂剑
 		"DOTA_Tooltip_ability_item_disperser_chaos"									"<font color='#FF4500'>Chaotic Disperser</font>"
-		"DOTA_Tooltip_ability_item_disperser_chaos_Description"						"<h1>Active: Suppress</h1> Dispels both the wearer and the target. Enemy targets are slowed for %enemy_effect_duration% seconds. Allied targets gain bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0 over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana.<br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"						"<h1>Active: Suppress</h1> Dispels both the wearer and the target. Enemy targets are slowed for %enemy_effect_duration% seconds. Allied targets gain bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0 over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana."
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"					"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"					"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"					"+$damage"

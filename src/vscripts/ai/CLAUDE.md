@@ -9,6 +9,7 @@
 | `action/` | 可复用的行为（attack、move、cast） | |
 | `ability/` `item/` | 技能与战斗物品的施法 spec | `bot-ability-usage` / `bot-item-usage` skill |
 | `build-item/` | 出装 | 设计与决策见 `build-item/README.md`，扩充候选池用 `/bot-item-build` |
+| `ward/` | 插眼：眼位按阵营与区域分开，顺路插眼，被隐身敌人打到插真眼 | 结构与决定见 `ward/README.md` |
 | `team/` 与 `hero/bot-base.ts` 的交战、回防、推进、站位 | 接管后的团队 AI | `bot-ai-tuning` skill；设计与决策见 `team/README.md` |
 
 ## 常见陷阱
