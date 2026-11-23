@@ -3134,7 +3134,7 @@
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#F74042'>Ultra</font> Bloodthorn"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>Active: Soul Tear</h1> Silences a target for %silence_duration% seconds. At the end of the silence, an additional %silence_damage_percent%%% of all damage taken during the silence will be dealt to the target as magical damage.<br><br>All attacks on the silenced target will deal additional damage equal to %proc_damage_heroes% if the attacker is a hero, and %proc_damage_creeps%, if the attacker is a creep. Provides True Strike for your attacks and attacks from your controlled units against the silenced target.\n\n<h1>Passive: Pierce</h1>Grants each attack a %proc_chance%%% chance to pierce through evasion and deal %passive_proc_damage% bonus magical damage."
+		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>Active: Soul Tear</h1> Silences a target for %silence_duration% seconds. At the end of the silence, an additional %silence_damage_percent%%% of all damage taken during the silence will be dealt to the target as magical damage.<br><br>All attacks on the silenced target will deal additional damage equal to %proc_damage_heroes% if the attacker is a hero, and %proc_damage_creeps%, if the attacker is a creep. Provides True Strike for your attacks and attacks from your controlled units against the silenced target."
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Lore"					"So Spiiicey Ninja Kiwi!"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_intellect"		"+$int"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_attack_speed"		"+$attack"
@@ -3149,7 +3149,7 @@
 
 		// item_devastator_2 Sacred Parasma 神圣斧
 		"DOTA_Tooltip_Ability_item_devastator_2"				"<font color='#87013F'>Sacred Parasma</font>"
-		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>Passive: Witch Blade</h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.\n\n<h1>Passive: Magic Corruption</h1> Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds."
+		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>Passive: Witch Blade</h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second. This attack can affect buildings and deals %building_effectiveness_pct%%% damage to buildings.\n\n<h1>Passive: Magic Corruption</h1> Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %reduction_duration% seconds."
 		"DOTA_Tooltip_ability_item_devastator_2_Lore"						"Warning: There is no antidote if picked up by the wrong end."
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_armor"					"+$armor"

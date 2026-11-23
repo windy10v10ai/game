@@ -3136,7 +3136,7 @@
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#e03e2e'>变态辣</font>"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>主动：灵魂撕裂</h1>使目标沉默%silence_duration%秒，沉默结束后其间所受伤害的%silence_damage_percent%%%将以额外魔法伤害的形式结算。<br><br>英雄/非英雄对目标发动攻击会分别额外造成%proc_damage_heroes% / %proc_damage_creeps%点伤害。另外，自身和控制单位对目标发动的所有攻击都拥有克敌机先效果。\n\n<h1>被动：穿刺</h1>每次攻击有%proc_chance%%%几率无视闪避并造成额外%passive_proc_damage%点魔法伤害。"
+		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>主动：灵魂撕裂</h1>使目标沉默%silence_duration%秒，沉默结束后其间所受伤害的%silence_damage_percent%%%将以额外魔法伤害的形式结算。<br><br>英雄/非英雄对目标发动攻击会分别额外造成%proc_damage_heroes% / %proc_damage_creeps%点伤害。另外，自身和控制单位对目标发动的所有攻击都拥有克敌机先效果。"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Lore"					"辣死你辣死你"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_intellect"		"+$int"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_attack_speed"		"+$attack"
@@ -3151,7 +3151,7 @@
 
 		// item_devastator_2 Sacred Parasma 神圣斧
 		"DOTA_Tooltip_Ability_item_devastator_2"				"神圣斧"
-		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>被动：巫师之刃</h1>使下次攻击具有克敌机先效果，并且会施加毒素，持续%slow_duration%秒，减缓%slow%%%移动速度，并且每秒造成%int_damage_multiplier%倍智力值的伤害。\n\n<h1>被动：法力腐蚀</h1>攻击会降低敌人%active_mres_reduction%%%魔法抗性，持续%passive_cooldown%秒。"
+		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>被动：巫师之刃</h1>使下次攻击具有克敌机先效果，并且会施加毒素，持续%slow_duration%秒，减缓%slow%%%移动速度，并且每秒造成%int_damage_multiplier%倍智力值的伤害。该攻击可作用于建筑，对建筑造成%building_effectiveness_pct%%%伤害。\n\n<h1>被动：法力腐蚀</h1>攻击会降低敌人%active_mres_reduction%%%魔法抗性，持续%reduction_duration%秒。"
 		"DOTA_Tooltip_ability_item_devastator_2_Lore"						"极具毁灭性。"
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_armor"					"+$armor"
