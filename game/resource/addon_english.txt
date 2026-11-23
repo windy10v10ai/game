@@ -3307,6 +3307,16 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+Cast Speed Bonus"
 
+		// item_starforge_copy 珍藏·锻星炉
+		"DOTA_Tooltip_ability_item_starforge_copy"	"<font color='#B87333'>Treasured Starforge</font>"
+		"DOTA_Tooltip_ability_item_starforge_copy_Description"	"<h1>Active: Meteor Hammer</h1>After channeling for %max_duration%s, summons a meteor that lands after %land_time%s and strikes enemies within a %impact_radius% radius.<br><br>Non-building units take %impact_damage_units% impact damage plus %impact_damage_units_pct_health%%% of their max health, are stunned for %stun_duration%s, and are slowed by %burn_slow%%% for %burn_duration%s.<br><br>Buildings take %building_damage_pct%%% of the base impact damage.\n\n<h1>Passive: Celestial Flare</h1>After one of your disables ends on an enemy, they burn for %burn_per_second% damage per second and are slowed by %slow_pct%%% for %passive_debuff_duration%s.<br>Your abilities and items can both trigger Celestial Flare.<br>Celestial Flare stacks with Meteor Hammer’s burn.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways, and it can be used to skip upgrade tiers when combining."
+		"DOTA_Tooltip_ability_item_starforge_copy_Note0"	"Stuns, hexes, hypnosis, cyclones, taunts, fear, sleep, and banishment can trigger Celestial Flare."
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_strength"	"+$str"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_agility"	"+$agi"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_intellect"	"+$int"
+		"DOTA_Tooltip_ability_item_starforge_copy_spell_amp"	"%+Spell Amplification"
+		"DOTA_Tooltip_ability_item_starforge_copy_mana_regen_multiplier"	"%+Mana Regen Amplification"
+
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>Asteroid Hammer</font>"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_Description"                   "<h1>Active: Meteor</h1> CHANNELED - After a successful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds and dealing impact damage. <font color='#e03e77'>Stuns enemies regardless of debuff immunity.</font> Continues to deal damage over time to enemy units and buildings for %burn_duration% seconds. Non-building units are also slowed for %burn_slow%%% for the duration of the burn. <br><br>Building Impact Damage: %impact_damage_buildings% <br>Building Damage Over Time: %burn_dps_buildings% <br><br>Non-Building Impact Damage: %impact_damage_units% <br>Non-Building Damage Over Time: %burn_dps_units% <br><br>Channel Duration: %max_duration% seconds.<br>Landing Time: %land_time% seconds."

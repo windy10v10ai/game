@@ -3309,6 +3309,16 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+Скорость применения"
 
+		// item_starforge_copy 珍藏·锻星炉
+		"DOTA_Tooltip_ability_item_starforge_copy"	"<font color='#B87333'>Драгоценная Звёздная кузница</font>"
+		"DOTA_Tooltip_ability_item_starforge_copy_Description"	"<h1>Активное: Метеоритный молот</h1>После применения в течение %max_duration% сек. призывает метеорит, который падает через %land_time% сек. и поражает врагов в радиусе %impact_radius%.<br><br>Враги, кроме построек, получают %impact_damage_units% урона от удара плюс %impact_damage_units_pct_health%%% от их максимального здоровья, оглушаются на %stun_duration% сек. и замедляются на %burn_slow%%% на %burn_duration% сек.<br><br>Постройки получают %building_damage_pct%%% базового урона от удара.\n\n<h1>Пассивное: Звёздная вспышка</h1>Когда наложенный вами эффект контроля заканчивается, враг получает %burn_per_second% урона в секунду и замедляется на %slow_pct%%% в течение %passive_debuff_duration% сек.<br>Звёздную вспышку могут вызвать ваши способности и предметы.<br>Звёздная вспышка складывается с горением от метеоритного молота.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились, и при сборке оно позволяет пропускать ступени улучшения."
+		"DOTA_Tooltip_ability_item_starforge_copy_Note0"	"Звёздную вспышку могут вызвать оглушение, превращение, гипноз, циклон, провокация, страх, сон и изгнание."
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_strength"	"+$str"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_agility"	"+$agi"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_intellect"	"+$int"
+		"DOTA_Tooltip_ability_item_starforge_copy_spell_amp"	"%+к урону от заклинаний"
+		"DOTA_Tooltip_ability_item_starforge_copy_mana_regen_multiplier"	"%+к усилению восстановления маны"
+
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>Падение звезды</font>"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_Description"                   "<h1>Активное: Падение звезды</h1> ПРЕРЫВАЕМАЯ — после успешного применения призывает астероид, который бьёт по врагам в радиусе %impact_radius%, оглушая их на %stun_duration% сек. и нанося урон при ударе. Наносит периодический урон вражеским существам и постройкам в течение %burn_duration% сек. Существа, кроме построек, также замедляются на %burn_slow%%% на время горения.<BR><BR>Урон постройкам при ударе: %impact_damage_buildings%<BR>Периодический урон постройкам: %burn_dps_buildings%<BR><BR>Урон существам при ударе: %impact_damage_units%<BR>Периодический урон существам: %burn_dps_units%<BR><BR>Время применения: %max_duration% сек.<BR>Задержка приземления: %land_time% сек."

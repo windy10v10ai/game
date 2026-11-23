@@ -4002,6 +4002,9 @@
 			"01"						"item_overwhelming_blink_2;item_starforge"
 			"02"						"item_swift_blink_2;item_starforge"
 			"03"						"item_arcane_blink;item_starforge"
+			"04"						"item_overwhelming_blink_2;item_starforge_copy"
+			"05"						"item_swift_blink_2;item_starforge_copy"
+			"06"						"item_arcane_blink;item_starforge_copy"
 		}
 	}
 	"item_jump_jump_jump"
@@ -8482,5 +8485,62 @@
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+	}
+
+	//=================================================================================================================
+	// Treasured Starforge
+	//=================================================================================================================
+	"item_starforge_copy"
+	{
+		"ID"							"10484"
+		"BaseClass"						"item_starforge"
+		"AbilityTextureName"			"starforge_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityChannelTime"			"1.5"
+		"AbilityCastRange"				"900"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"200"
+		"AbilitySharedCooldown"			"meteor"
+		"ItemQuality"					"epic"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityValues"
+		{
+			"bonus_strength"				"18"
+			"bonus_agility"					"18"
+			"bonus_intellect"				"28"
+			"spell_amp"						"10"
+			"mana_regen_multiplier"			"40"
+			"burn_dps_units"				"0"
+			"burn_slow"						"20"
+			"burn_duration"					"6"
+			"stun_duration"					"0.5"
+			"burn_interval"					"1.0"
+			"land_time"						"0.5"
+			"impact_radius"
+			{
+				"value"							"400"
+				"affected_by_aoe_increase"		"1"
+			}
+			"max_duration"					"1.5"
+			"impact_damage_units"			"100"
+			"impact_damage_units_pct_health"	"10"
+			"building_damage_pct"			"200"
+			"enemy_particles_visible"		"0"
+			"passive_debuff_duration"		"5.0"
+			"slow_pct"						"15"
+			"burn_per_second"				"300"
+			"passive_burn_interval"			"1.0"
+		}
 	}
 }

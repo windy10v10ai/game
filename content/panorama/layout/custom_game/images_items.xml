@@ -139,6 +139,7 @@
 			<Image id="skadi_2" class="SeqImg" src="file://{images}/items/skadi_2.png" />
 			<Image id="skill_remover" class="SeqImg" src="file://{images}/items/skill_remover.png" />
 			<Image id="sphere_2" class="SeqImg" src="file://{images}/items/sphere_2.png" />
+			<Image id="starforge_copy" class="SeqImg" src="file://{images}/items/starforge_copy.png" />
 			<Image id="swift_blink_2" class="SeqImg" src="file://{images}/items/swift_blink_2.png" />
 			<Image id="swift_glove" class="SeqImg" src="file://{images}/items/swift_glove.png" />
 			<Image id="tome_of_agility" class="SeqImg" src="file://{images}/items/tome_of_agility.png" />

@@ -3309,6 +3309,16 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+施法速度加成"
 
+		// item_starforge_copy 珍藏·锻星炉
+		"DOTA_Tooltip_ability_item_starforge_copy"	"<font color='#B87333'>珍藏·锻星炉</font>"
+		"DOTA_Tooltip_ability_item_starforge_copy_Description"	"<h1>主动：陨星锤</h1>持续施法 %max_duration% 秒后召唤一颗陨石，经过 %land_time% 秒落下，击中 %impact_radius% 范围内的敌人。<br><br>非建筑单位受到 %impact_damage_units% 点加最大生命值 %impact_damage_units_pct_health%%% 的冲击伤害，眩晕 %stun_duration% 秒，移动速度降低 %burn_slow%%%，持续 %burn_duration% 秒。<br><br>对建筑的冲击伤害为基础冲击伤害的 %building_damage_pct%%%。\n\n<h1>被动：星焰</h1>你对敌人施加的控制效果结束后，敌人每秒受到 %burn_per_second% 点伤害，移动速度降低 %slow_pct%%%，持续 %passive_debuff_duration% 秒。<br>你的技能和物品均可触发星焰。<br>星焰与陨星锤的烧灼叠加。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化，并且可以做到跨级合成。"
+		"DOTA_Tooltip_ability_item_starforge_copy_Note0"	"眩晕、妖术、催眠、吹风、嘲讽、恐惧、睡眠和放逐可以触发星焰。"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_strength"	"+$str"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_agility"	"+$agi"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_intellect"	"+$int"
+		"DOTA_Tooltip_ability_item_starforge_copy_spell_amp"	"%+技能增强"
+		"DOTA_Tooltip_ability_item_starforge_copy_mana_regen_multiplier"	"%+魔法恢复增强"
+
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>星落</font>"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_Description"                   "<h1>主动：星落</h1> 持续施法 - 成功施法后召唤一颗小行星，打击%impact_radius%范围内敌人，造成%stun_duration%秒眩晕和冲击伤害。对敌方单位和建筑造成持续伤害，持续%burn_duration%秒。非建筑单位在烧灼期间还会被减速%burn_slow%%%。<BR><BR>对建筑冲击伤害：%impact_damage_buildings%<BR>对建筑持续伤害：%burn_dps_buildings%<BR><BR>对非建筑冲击伤害：%impact_damage_units%<BR>对非建筑持续伤害：%burn_dps_units%<BR><BR>持续施法时间：%max_duration%秒<BR>落地时间：%land_time%秒"
