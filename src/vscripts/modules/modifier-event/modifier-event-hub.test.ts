@@ -60,6 +60,17 @@ describe('ModifierEventHub damage by victim', () => {
     expect(received).toHaveLength(0);
   });
 
+  it('unregisters by entity index when the unit handle is gone', () => {
+    const owner = {};
+    const received: ModifierInstanceEvent[] = [];
+    hub.RegisterDamageByVictim(centaur, owner, (event) => received.push(event));
+    hub.UnregisterDamageByVictimIndex(centaur.entindex(), owner);
+
+    hub.DispatchDamage(damageEvent(enemy, centaur));
+
+    expect(received).toHaveLength(0);
+  });
+
   it('skips small damage like the attacker channel', () => {
     const owner = {};
     const received: ModifierInstanceEvent[] = [];
