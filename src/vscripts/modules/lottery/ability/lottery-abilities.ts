@@ -244,7 +244,7 @@ export const abilityTiersPassive: Tier[] = [
       'silencer_glaives_of_wisdom', // 智慧之刃
       'tiny_insurmountable', // 小小 不可逾越
       'drow_ranger_trueshot', // 精准光环
-      'death_prophet_witchcraft', // 死亡先知 巫术精研
+      // 'death_prophet_witchcraft', // 死亡先知 巫术精研 因为卡顿删除
 
       // 法球/开关技能
       'omniknight_hammer_of_purity', // 纯洁之锤
@@ -268,7 +268,6 @@ export const abilityTiersPassive: Tier[] = [
     names: [
       // 被动技能
       'shredder_reactive_armor', // 活性活甲
-      'chaos_knight_fundamental_forging', // 混沌骑士 基本法则锻造
       'nevermore_dark_lord', // 魔王降临
       'nevermore_necromastery', // 影魔 支配死灵
       'tusk_bitter_chill', // 巨牙 严寒

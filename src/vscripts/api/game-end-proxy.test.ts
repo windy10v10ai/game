@@ -1,6 +1,14 @@
 import { GameEndDto, GameEndPlayerDto, GamePerfDto } from './analytics/dto/game-end-dto';
 import { isRetryableStatus } from './api-client';
-import { buildSettledResponse, canRetryGameEnd, splitGameEndByPlayer } from './game-end-proxy';
+import { ApiHtmlProxy } from './api-html-proxy';
+import { ApiRoute, type ApiTarget } from './api-route';
+import {
+  GameEndPlayerRequest,
+  GameEndProxy,
+  buildSettledResponse,
+  canRetryGameEnd,
+  splitGameEndByPlayer,
+} from './game-end-proxy';
 import { MAX_SEGMENTS } from '../modules/lag-telemetry/lag-tracker';
 import { base64UrlEncode } from '../utils/base64url';
 
@@ -155,5 +163,75 @@ describe('buildSettledResponse', () => {
     const result = buildSettledResponse(3, 0);
     expect(result.StatusCode).toBe(408);
     expect(isRetryableStatus(result.StatusCode)).toBe(false);
+  });
+});
+
+describe('GameEndProxy retry route', () => {
+  const sendOne = (target: ApiTarget, onDone: (ok: boolean) => void) =>
+    (
+      GameEndProxy as unknown as {
+        sendOne: (
+          target: ApiTarget,
+          request: GameEndPlayerRequest,
+          attempt: number,
+          timeoutSeconds: number | undefined,
+          onDone: (ok: boolean) => void,
+        ) => void;
+      }
+    ).sendOne(target, { players: [{ steamId: 1 }] } as GameEndPlayerRequest, 1, undefined, onDone);
+
+  let targets: ApiTarget[] = [];
+
+  const mockSend = (outcomes: (string | undefined)[]) => {
+    targets = [];
+    jest
+      .spyOn(ApiHtmlProxy, 'Send')
+      .mockImplementation((target, _path, _querys, onSuccess, onFailure) => {
+        const failure = outcomes[Math.min(targets.length, outcomes.length - 1)];
+        targets.push(target);
+        if (failure === undefined) onSuccess('{"recorded":true}');
+        else onFailure(failure);
+      });
+  };
+
+  beforeEach(() => {
+    (globalThis as Record<string, unknown>).print = jest.fn();
+    (globalThis as Record<string, unknown>).json = {
+      encode: JSON.stringify,
+      decode: (s: string) => [JSON.parse(s)],
+    };
+    ApiRoute.SetTarget('direct');
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('retries on the other line and adopts it once it answers', () => {
+    mockSend(['timeout', undefined]);
+    const onDone = jest.fn();
+    sendOne('direct', onDone);
+
+    expect(targets).toEqual(['direct', 'cn-proxy']);
+    expect(onDone).toHaveBeenCalledWith(true);
+    expect(ApiRoute.GetTarget()).toBe('cn-proxy');
+  });
+
+  it('stops after the attempt limit alternating lines when both are down', () => {
+    mockSend(['relay_unavailable']);
+    const onDone = jest.fn();
+    sendOne('direct', onDone);
+
+    expect(targets).toEqual(['direct', 'cn-proxy', 'direct']);
+    expect(onDone).toHaveBeenCalledWith(false);
+  });
+
+  it('does not retry a request the backend rejected', () => {
+    mockSend(['bad_request']);
+    const onDone = jest.fn();
+    sendOne('direct', onDone);
+
+    expect(targets).toEqual(['direct']);
+    expect(onDone).toHaveBeenCalledWith(false);
   });
 });
