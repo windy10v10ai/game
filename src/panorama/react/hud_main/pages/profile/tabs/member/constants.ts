@@ -1,4 +1,4 @@
-import { GetAfdianSubscribeUrl, KOFI_SUBSCRIBE_URL, WEBSITE_URL } from '@utils/utils';
+import { GetAfdianSubscribeUrl, GetWebsiteUrl, KOFI_SUBSCRIBE_URL } from '@utils/utils';
 
 export const enum MemberLevel {
   NORMAL = 1,
@@ -27,10 +27,12 @@ export const MEMBER_SUB_TABS: { id: MemberSubTab; label: string }[] = [
   { id: 'points', label: $.Localize('#member_subtab_points') },
 ];
 
-export const AFDIAN_ACTIVATE_URL = `${WEBSITE_URL}/regist/afdian`;
-export const KOFI_ACTIVATE_URL = `${WEBSITE_URL}/regist/kofi`;
+export const GetAfdianActivateUrl = () => `${GetWebsiteUrl()}/regist/afdian`;
+export const GetKofiActivateUrl = () => `${GetWebsiteUrl()}/regist/kofi`;
 
-export const openUrl = (url: string) => () => $.DispatchEvent('ExternalBrowserGoToURL', url);
+/** 传函数时在点击时才求值，网址随玩家的网络情况变化 */
+export const openUrl = (url: string | (() => string)) => () =>
+  $.DispatchEvent('ExternalBrowserGoToURL', typeof url === 'function' ? url() : url);
 
 /** 订阅档位的时长文字（「3 个月」「1 年」），支付宝与 Stripe 卡共用；数量为 1 单独取文案，英文才有单复数 */
 export function formatTierDuration(months: number): string {

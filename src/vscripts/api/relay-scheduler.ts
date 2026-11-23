@@ -32,10 +32,12 @@ export class RelayScheduler<T extends RelayJob> {
     return this.capacity.get(this.key(playerId, line)) ?? 0;
   }
 
-  public HasCapacityPlayer(canRelay: (playerId: PlayerID) => boolean, line?: string): boolean {
+  public HasCapacityPlayer(
+    canRelay: (playerId: PlayerID, line: string) => boolean,
+    line: string,
+  ): boolean {
     return this.players.some(
-      (playerId) =>
-        canRelay(playerId) && (line === undefined || this.GetCapacity(playerId, line) > 0),
+      (playerId) => canRelay(playerId, line) && this.GetCapacity(playerId, line) > 0,
     );
   }
 
@@ -44,12 +46,12 @@ export class RelayScheduler<T extends RelayJob> {
   }
 
   /** 按队列顺序给每条请求找第一个还有空闲通道的玩家，返回这次派出去的 */
-  public Drain(canRelay: (playerId: PlayerID) => boolean): RelayAssignment<T>[] {
+  public Drain(canRelay: (playerId: PlayerID, line: string) => boolean): RelayAssignment<T>[] {
     const result: RelayAssignment<T>[] = [];
     const remaining: T[] = [];
     for (const job of this.queue) {
       const playerId = this.players.find(
-        (p) => canRelay(p) && this.Active(p, job.line) < this.GetCapacity(p, job.line),
+        (p) => canRelay(p, job.line) && this.Active(p, job.line) < this.GetCapacity(p, job.line),
       );
       if (playerId === undefined) {
         remaining.push(job);

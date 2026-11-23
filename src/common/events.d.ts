@@ -202,9 +202,12 @@ interface DailyTaskSelectCandidateEventData {
 
 // 客户端代发 HTTP 请求：服务端拿不到 CreateHTTPRequestScriptVM 请求对象时（游廊对局），
 // 交由一名已连接玩家的客户端用 DOTAHTMLPanel 代发，响应经由 title 带回
-// 客户端报告已加载好中转页的控件数，服务端据此限流，回执原样带回
+// The client reports ready widget counts per line and the server throttles on them; the ack echoes them back.
+// country is the code returned by the main entry's bridge page, empty when unknown.
 interface ApiHtmlProxyReadyEventData {
   channels: number;
+  backupChannels: number;
+  country: string;
 }
 
 interface ApiHtmlProxyRequestEventData {

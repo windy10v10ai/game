@@ -1,7 +1,7 @@
-// Dota 2 7.42 起服务端拿不到 HTTP 请求对象，由这个客户端代发白名单请求：
-// 控件只有创建时的第一次导航有效，所以脚本在加载界面阶段就建好几个隐藏的 DOTAHTMLPanel，
-// 各自加载后端返回的中转页，之后每次请求只改网址 # 片段，页面用同源 fetch 发请求，响应经 HTMLTitle 事件读回。
-// 脚本必须挂在加载界面布局，别处创建的控件加载不了中转页。
+// Since Dota 2 7.42 the server cannot make HTTP requests, so this client relays whitelisted ones.
+// A DOTAHTMLPanel only honours its first navigation, so one hidden group per line is created during
+// the loading screen and each request later only changes the URL fragment of a matching panel.
+// Must be attached to the loading-screen layout; panels created elsewhere cannot load the bridge page.
 (function () {
   'use strict';
 
@@ -10,17 +10,22 @@
   var READY_FAST_ATTEMPTS = 60;
   var READY_SLOW_RETRY_SECONDS = 5;
 
-  // 只有这一条线路：国内网关给每个响应强加 Content-Disposition: attachment，控件加载不了中转页
-  var API_ORIGIN = 'https://api.windy10v10ai.com';
+  // The first URL (query included) is the prefix of every later request because only the fragment can change.
+  // Only the main entry's bridge page reports a country code.
   var CHANNEL_COUNT = 3;
   var BRIDGE_PATH = '/api/proxy/bridge';
   var BRIDGE_READY_TITLE = 'bridge|ready';
+  var GROUPS = [
+    { name: 'main', origin: 'https://api.windy10v10ai.com', bridgeQuery: '?country=1' },
+    { name: 'backup', origin: 'https://43.135.77.42', bridgeQuery: '' },
+  ];
 
   var cancelers = {};
-  var channels = [];
+  var groups = [];
+  var country = '';
   var readyAttempts = 0;
   var readyLoopRunning = false;
-  var ackedChannels = -1;
+  var ackedSignature = '';
 
   function createPanel(id) {
     var panel = $.CreatePanel('DOTAHTMLPanel', $.GetContextPanel(), id);
@@ -31,12 +36,25 @@
     return panel;
   }
 
-  function readyCount() {
+  function readyCount(group) {
     var count = 0;
-    for (var i = 0; i < channels.length; i++) {
-      if (channels[i].ready && channels[i].panel.IsValid()) count++;
+    for (var i = 0; i < group.channels.length; i++) {
+      var channel = group.channels[i];
+      if (channel.ready && channel.panel.IsValid()) count++;
     }
     return count;
+  }
+
+  function readyReport() {
+    return {
+      channels: readyCount(groups[0]),
+      backupChannels: readyCount(groups[1]),
+      country: country,
+    };
+  }
+
+  function signatureOf(report) {
+    return report.channels + '|' + report.backupChannels + '|' + report.country;
   }
 
   // 脚本随自定义 UI 加载，比玩家槽位分配还早，最初几条 ready 到服务端时 PlayerID 是 -1
@@ -49,13 +67,13 @@
   }
 
   function readyTick() {
-    var count = readyCount();
-    if (ackedChannels === count) {
+    var report = readyReport();
+    if (ackedSignature === signatureOf(report)) {
       readyLoopRunning = false;
       return;
     }
     readyAttempts++;
-    GameEvents.SendCustomGameEventToServer('api_html_proxy_ready', { channels: count });
+    GameEvents.SendCustomGameEventToServer('api_html_proxy_ready', report);
     // 机械硬盘首次启动，地图加载可能比分配玩家槽位早几分钟，期间服务端认不出这名玩家，
     // 所以不能放弃，只在前期密集、之后放慢，直到回执为止
     $.Schedule(
@@ -65,26 +83,53 @@
   }
 
   function onProxyAck(event) {
-    ackedChannels = Number(event.channels);
+    ackedSignature = signatureOf({
+      channels: Number(event.channels),
+      backupChannels: Number(event.backupChannels),
+      country: String(event.country),
+    });
   }
 
   function initChannels() {
-    for (var i = 0; i < CHANNEL_COUNT; i++) {
-      var id = 'ApiHtmlProxyBridge_' + i;
-      var channel = { panel: createPanel(id), ready: false, current: null };
-      $.RegisterEventHandler('HTMLTitle', channel.panel, makeTitleHandler(channel, id));
-      channel.panel.SetURL(API_ORIGIN + BRIDGE_PATH);
-      channels.push(channel);
+    for (var g = 0; g < GROUPS.length; g++) {
+      var group = {
+        name: GROUPS[g].name,
+        origin: GROUPS[g].origin,
+        bridgeUrl: GROUPS[g].origin + BRIDGE_PATH + GROUPS[g].bridgeQuery,
+        channels: [],
+      };
+      for (var i = 0; i < CHANNEL_COUNT; i++) {
+        var id = 'ApiHtmlProxyBridge_' + group.name + '_' + i;
+        var channel = { panel: createPanel(id), ready: false, current: null };
+        $.RegisterEventHandler('HTMLTitle', channel.panel, makeTitleHandler(group, channel, id));
+        channel.panel.SetURL(group.bridgeUrl);
+        group.channels.push(channel);
+      }
+      groups.push(group);
     }
-    $.Msg('[ApiHtmlProxy] bridge channels created count=' + channels.length);
+    $.Msg(
+      '[ApiHtmlProxy] bridge channels created count=' + CHANNEL_COUNT + ' groups=' + groups.length,
+    );
   }
 
-  function makeTitleHandler(channel, id) {
+  // Returns undefined when the title is not a ready title.
+  function parseReadyTitle(title) {
+    if (title === BRIDGE_READY_TITLE) return '';
+    if (title.indexOf(BRIDGE_READY_TITLE + '|') !== 0) return undefined;
+    var code = title.substr(BRIDGE_READY_TITLE.length + 1);
+    return /^[A-Za-z]{2}$/.test(code) ? code.toUpperCase() : '';
+  }
+
+  function makeTitleHandler(group, channel, id) {
     return function (_sourcePanel, title) {
       if (typeof title !== 'string') return;
-      if (title === BRIDGE_READY_TITLE) {
+      var readyCountry = parseReadyTitle(title);
+      if (readyCountry !== undefined) {
         channel.ready = true;
-        $.Msg('[ApiHtmlProxy] bridge channel ' + id + ' ready');
+        if (group.name === 'main' && readyCountry !== '') country = readyCountry;
+        $.Msg(
+          '[ApiHtmlProxy] bridge channel ' + id + ' ready country=' + (readyCountry || 'unknown'),
+        );
         reportReady();
         return;
       }
@@ -107,9 +152,16 @@
     });
   }
 
-  function acquireChannel() {
-    for (var i = 0; i < channels.length; i++) {
-      var channel = channels[i];
+  function findGroup(url) {
+    for (var i = 0; i < groups.length; i++) {
+      if (url.indexOf(groups[i].origin + '/') === 0) return groups[i];
+    }
+    return null;
+  }
+
+  function acquireChannel(group) {
+    for (var i = 0; i < group.channels.length; i++) {
+      var channel = group.channels[i];
       if (channel.ready && !channel.current && channel.panel.IsValid()) return channel;
     }
     return null;
@@ -126,9 +178,17 @@
     var requestId = String(event.requestId);
     var url = String(event.url);
     // 服务端按通道数限流，正常不会没有空闲通道；真没有就报错让服务端重排
-    var channel = url.indexOf(API_ORIGIN + '/') === 0 ? acquireChannel() : null;
+    var group = findGroup(url);
+    var channel = group ? acquireChannel(group) : null;
     $.Msg(
-      '[ApiHtmlProxy] request ' + requestId + ' urlLength=' + url.length + ' channel=' + !!channel,
+      '[ApiHtmlProxy] request ' +
+        requestId +
+        ' group=' +
+        (group ? group.name : 'none') +
+        ' urlLength=' +
+        url.length +
+        ' channel=' +
+        !!channel,
     );
     if (!channel) {
       reportFailure(requestId, 'no_channel');
@@ -149,10 +209,8 @@
     };
 
     channel.current = job;
-    var path = url.substr(API_ORIGIN.length);
-    channel.panel.SetURL(
-      API_ORIGIN + BRIDGE_PATH + '#' + encodeURIComponent(requestId + '|' + path),
-    );
+    var path = url.substr(group.origin.length);
+    channel.panel.SetURL(group.bridgeUrl + '#' + encodeURIComponent(requestId + '|' + path));
 
     $.Schedule(REQUEST_TIMEOUT_SECONDS, function () {
       if (job.finished) return;

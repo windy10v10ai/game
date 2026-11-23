@@ -52,6 +52,10 @@ declare global {
       // entering 是启动器里还没进入游戏的玩家名，inGame 含主机
       launcher_room: { entering: string[]; inGame: number; maxPlayers: number };
     };
+    // Per-player relay readiness and country, used to pick the website domain; key = playerId.
+    api_route: {
+      [playerId: string]: { channels: number; backupChannels: number; country: string };
+    };
     server_env: {
       server_env: { is_local_host: number };
     };

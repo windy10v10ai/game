@@ -1,7 +1,7 @@
 import { GameEndDto, GameEndPlayerDto } from './analytics/dto/game-end-dto';
 import { ApiClient, ApiParameter, ProxyPathParams } from './api-client';
 import { ApiHtmlProxy } from './api-html-proxy';
-import { type ApiTarget } from './api-route';
+import { ApiRoute, type ApiTarget } from './api-route';
 import { UsesLauncherSettleLog, printSettleLog } from './launcher-settle-log';
 import { base64UrlEncode } from '../utils/base64url';
 
@@ -111,6 +111,7 @@ export class GameEndProxy {
       PROXY_GAME_END_LOCAL_PATH,
       { body: base64UrlEncode(json.encode(request)) },
       (data) => {
+        ApiRoute.AdoptTarget(target);
         // recorded 为 false 是被限额或冷却拒绝，不是错误
         if (!GameEndProxy.isRecorded(data)) {
           print(`[GameEndProxy] steamId=${steamId} settlement not recorded: ${data}`);
@@ -123,7 +124,13 @@ export class GameEndProxy {
           onDone(false);
           return;
         }
-        GameEndProxy.sendOne(target, request, attempt + 1, timeoutSeconds, onDone);
+        GameEndProxy.sendOne(
+          ApiRoute.GetRetryTarget(target),
+          request,
+          attempt + 1,
+          timeoutSeconds,
+          onDone,
+        );
       },
       timeoutSeconds,
     );

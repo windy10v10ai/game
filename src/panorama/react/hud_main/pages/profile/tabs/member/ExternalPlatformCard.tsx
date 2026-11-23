@@ -13,7 +13,7 @@ interface ExternalPlatformCardProps {
   subscribeUrl: string;
   subscribePrice: string;
   subscribeUnitText: string;
-  activateUrl: string;
+  activateUrl: () => string;
 }
 
 /**
@@ -58,7 +58,7 @@ export function ExternalPlatformCard({
   );
 }
 
-function ActivateRow({ activateUrl }: { activateUrl: string }) {
+function ActivateRow({ activateUrl }: { activateUrl: () => string }) {
   const tipRef = useRef<ImagePanel | null>(null);
   const tooltipText = $.Localize('#member_activate_tooltip');
   return (
