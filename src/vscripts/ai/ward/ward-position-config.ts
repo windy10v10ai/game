@@ -69,13 +69,7 @@ const OBSERVER_RADIANT: readonly WardZoneData[] = [
     ],
   },
   { id: 'r02', spots: [[-1289, -4351, 384]] },
-  {
-    id: 'r03',
-    spots: [
-      [1800, -4600, 256],
-      [1200, -4200, 256],
-    ],
-  },
+  { id: 'r03', spots: [[1800, -4600, 256]] },
   { id: 'r04', spots: [[4015, -3945, 128]] },
   {
     id: 'r05',
@@ -86,7 +80,6 @@ const OBSERVER_RADIANT: readonly WardZoneData[] = [
   },
   { id: 'r06', spots: [[6400, -3600, 128]] },
   { id: 'r07', spots: [[-4350, -1025, 512]] },
-  { id: 'r08', spots: [[2788, -1288, 256]] },
   { id: 'r09', spots: [[-4600, 600, 256]] },
   {
     id: 'r10',
@@ -111,10 +104,8 @@ const OBSERVER_RADIANT: readonly WardZoneData[] = [
     spots: [
       [-1600, 3800, 256],
       [-866, 3690, 256],
-      [-1800, 3200, 256],
     ],
   },
-  { id: 'r17', spots: [[2400, 5200, 128]] },
   { id: 'r18', spots: [[-2405, 5974, 128]] },
   { id: 'r19', spots: [[1400, 6000, 128]] },
   { id: 'ra1', spots: [[3200, 5000, 256]] },
@@ -136,14 +127,7 @@ const OBSERVER_DIRE: readonly WardZoneData[] = [
     ],
   },
   { id: 'd03', spots: [[-1289, -4351, 384]] },
-  { id: 'd04', spots: [[-600, -4200, 136]] },
-  {
-    id: 'd05',
-    spots: [
-      [1800, -4600, 256],
-      [1200, -4200, 256],
-    ],
-  },
+  { id: 'd05', spots: [[1800, -4600, 256]] },
   { id: 'd06', spots: [[4015, -3945, 128]] },
   {
     id: 'd07',
@@ -153,7 +137,6 @@ const OBSERVER_DIRE: readonly WardZoneData[] = [
     ],
   },
   { id: 'd08', spots: [[-4350, -1025, 512]] },
-  { id: 'd09', spots: [[2788, -1288, 256]] },
   { id: 'd10', spots: [[-6800, 600, 128]] },
   { id: 'd11', spots: [[-4600, 600, 256]] },
   {
@@ -181,7 +164,6 @@ const OBSERVER_DIRE: readonly WardZoneData[] = [
     spots: [
       [-1600, 3800, 256],
       [-866, 3690, 256],
-      [-1800, 3200, 256],
     ],
   },
   { id: 'd21', spots: [[-2405, 5974, 128]] },
