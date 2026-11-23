@@ -31,6 +31,7 @@
 	}
 	"item_berserkers_sabatons"
 	{
+		"AbilityTextureName"			"berserkers_sabatons_custom"
 		"ItemCost"						"4050"
 	}
 
