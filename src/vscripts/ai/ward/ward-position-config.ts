@@ -80,6 +80,7 @@ const OBSERVER_RADIANT: readonly WardZoneData[] = [
   },
   { id: 'r06', spots: [[6400, -3600, 128]] },
   { id: 'r07', spots: [[-4350, -1025, 512]] },
+  { id: 'r08', spots: [[2788, -1288, 256]] },
   { id: 'r09', spots: [[-4600, 600, 256]] },
   {
     id: 'r10',
@@ -88,7 +89,6 @@ const OBSERVER_RADIANT: readonly WardZoneData[] = [
       [-3600, -200, 256],
     ],
   },
-  { id: 'r11', spots: [[2800, -400, 256]] },
   { id: 'r12', spots: [[-2200, 1800, 0]] },
   { id: 'r13', spots: [[4600, 775, 512]] },
   {
@@ -137,6 +137,7 @@ const OBSERVER_DIRE: readonly WardZoneData[] = [
     ],
   },
   { id: 'd08', spots: [[-4350, -1025, 512]] },
+  { id: 'd09', spots: [[2788, -1288, 256]] },
   { id: 'd10', spots: [[-6800, 600, 128]] },
   { id: 'd11', spots: [[-4600, 600, 256]] },
   {
@@ -147,7 +148,6 @@ const OBSERVER_DIRE: readonly WardZoneData[] = [
     ],
   },
   { id: 'd13', spots: [[-1800, 0, 128]] },
-  { id: 'd14', spots: [[2800, -400, 256]] },
   { id: 'd15', spots: [[-4800, 1800, 128]] },
   { id: 'd16', spots: [[-2600, 1200, 0]] },
   { id: 'd17', spots: [[-6000, 3200, 128]] },
