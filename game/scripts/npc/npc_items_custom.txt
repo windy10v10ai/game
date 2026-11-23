@@ -4860,7 +4860,6 @@
 		"ItemRequirements"
 		{
 			"01"						"item_hand_of_midas;item_hyperstone"
-			"02"						"item_hand_of_midas_copy;item_hyperstone"
 		}
 	}
 
@@ -6861,6 +6860,7 @@
 		"ItemRequirements"
 		{
 			"01"					"item_hand_of_group;item_armlet_artifact;item_mjollnir_2;item_fusion_agile"
+			"02"					"item_hand_of_midas_copy;item_armlet_artifact;item_mjollnir_2;item_fusion_agile"
 		}
 	}
 
@@ -8023,7 +8023,7 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0"
 		"AbilityCharges"				"2"
-		"AbilityChargeRestoreTime"		"90"
+		"AbilityChargeRestoreTime"		"70"
 		"ItemInitialCharges"			"1"
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
