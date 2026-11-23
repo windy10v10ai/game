@@ -68,7 +68,7 @@ const OBSERVER_RADIANT: readonly WardZoneData[] = [
       [2000, -6400, 128],
     ],
   },
-  { id: 'r02', spots: [[-1289, -4364, 384]] },
+  { id: 'r02', spots: [[-1289, -4351, 384]] },
   {
     id: 'r03',
     spots: [
@@ -135,7 +135,7 @@ const OBSERVER_DIRE: readonly WardZoneData[] = [
       [2000, -6400, 128],
     ],
   },
-  { id: 'd03', spots: [[-1289, -4364, 384]] },
+  { id: 'd03', spots: [[-1289, -4351, 384]] },
   { id: 'd04', spots: [[-600, -4200, 136]] },
   {
     id: 'd05',
