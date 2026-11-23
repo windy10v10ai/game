@@ -68,7 +68,7 @@ const OBSERVER_RADIANT: readonly WardZoneData[] = [
       [2000, -6400, 128],
     ],
   },
-  { id: 'r02', spots: [[-1264, -4364, 384]] },
+  { id: 'r02', spots: [[-1289, -4364, 384]] },
   {
     id: 'r03',
     spots: [
@@ -85,8 +85,8 @@ const OBSERVER_RADIANT: readonly WardZoneData[] = [
     ],
   },
   { id: 'r06', spots: [[6400, -3600, 128]] },
-  { id: 'r07', spots: [[-4400, -1000, 512]] },
-  { id: 'r08', spots: [[3000, -1500, 256]] },
+  { id: 'r07', spots: [[-4350, -1025, 512]] },
+  { id: 'r08', spots: [[2788, -1288, 256]] },
   { id: 'r09', spots: [[-4600, 600, 256]] },
   {
     id: 'r10',
@@ -97,7 +97,7 @@ const OBSERVER_RADIANT: readonly WardZoneData[] = [
   },
   { id: 'r11', spots: [[2800, -400, 256]] },
   { id: 'r12', spots: [[-2200, 1800, 0]] },
-  { id: 'r13', spots: [[4600, 800, 512]] },
+  { id: 'r13', spots: [[4600, 775, 512]] },
   {
     id: 'r14',
     spots: [
@@ -105,7 +105,7 @@ const OBSERVER_RADIANT: readonly WardZoneData[] = [
       [-1200, 2800, 256],
     ],
   },
-  { id: 'r15', spots: [[1000, 3600, 384]] },
+  { id: 'r15', spots: [[1025, 3575, 384]] },
   {
     id: 'r16',
     spots: [
@@ -135,7 +135,7 @@ const OBSERVER_DIRE: readonly WardZoneData[] = [
       [2000, -6400, 128],
     ],
   },
-  { id: 'd03', spots: [[-1264, -4364, 384]] },
+  { id: 'd03', spots: [[-1289, -4364, 384]] },
   { id: 'd04', spots: [[-600, -4200, 136]] },
   {
     id: 'd05',
@@ -152,8 +152,8 @@ const OBSERVER_DIRE: readonly WardZoneData[] = [
       [286, -3993, 256],
     ],
   },
-  { id: 'd08', spots: [[-4400, -1000, 512]] },
-  { id: 'd09', spots: [[3000, -1500, 256]] },
+  { id: 'd08', spots: [[-4350, -1025, 512]] },
+  { id: 'd09', spots: [[2788, -1288, 256]] },
   { id: 'd10', spots: [[-6800, 600, 128]] },
   { id: 'd11', spots: [[-4600, 600, 256]] },
   {
@@ -175,7 +175,7 @@ const OBSERVER_DIRE: readonly WardZoneData[] = [
       [-1200, 2800, 256],
     ],
   },
-  { id: 'd19', spots: [[1000, 3600, 384]] },
+  { id: 'd19', spots: [[1025, 3575, 384]] },
   {
     id: 'd20',
     spots: [
@@ -188,7 +188,7 @@ const OBSERVER_DIRE: readonly WardZoneData[] = [
   { id: 'da1', spots: [[-5400, -3600, 256]] },
   { id: 'da2', spots: [[-4000, -5200, 256]] },
   { id: 'db1', spots: [[-4800, -3800, 256]], requiresDeadTower: 'goodguys_tower3_mid' },
-  { id: 'db2', spots: [[-3650, -5400, 256]], requiresDeadTower: 'goodguys_tower3_bot' },
+  { id: 'db2', spots: [[-3790, -5540, 256]], requiresDeadTower: 'goodguys_tower3_bot' },
   { id: 'db3', spots: [[-6000, -3400, 256]], requiresDeadTower: 'goodguys_tower3_top' },
   { id: 'db4', spots: [[-4200, -4600, 256]], requiresDeadTower: 'goodguys_tower3_mid' },
 ];
