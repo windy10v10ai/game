@@ -505,7 +505,6 @@
 		"ItemRequirements"
 		{
 			"01"						"item_blade_mail;item_platemail"
-			"02"						"item_blade_mail_copy;item_platemail"
 		}
 	}
 
@@ -574,7 +573,6 @@
 		"ItemRequirements"
 		{
 			"01"						"item_radiance;item_talisman_of_evasion"
-			"02"						"item_radiance_copy;item_talisman_of_evasion"
 		}
 	}
 	"item_radiance_2"
@@ -1015,7 +1013,6 @@
 		"ItemRequirements"
 		{
 			"01"						"item_heart;item_reaver;item_talisman_of_evasion"
-			"02"						"item_heart_copy;item_reaver;item_talisman_of_evasion"
 		}
 	}
 
@@ -5253,7 +5250,6 @@
 		"ItemRequirements"
 		{
 			"01"						"item_bfury;item_relic;item_quelling_blade_2_datadriven"
-			"02"						"item_bfury_copy;item_relic;item_quelling_blade_2_datadriven"
 		}
 	}
 
@@ -6487,6 +6483,7 @@
 		"ItemRequirements"
 		{
 			"01"					"item_aeon_pendant;item_undying_heart;item_guardian_greaves_artifact;item_fusion_life"
+			"02"					"item_aeon_pendant;item_heart_copy;item_guardian_greaves_artifact;item_fusion_life"
 		}
 	}
 
@@ -7238,6 +7235,9 @@
 		"ItemRequirements"
 		{
 			"01"					"item_blade_mail_2;item_saint_orb;item_radiance_2;item_shivas_guard_2;item_fusion_beast"
+			"02"					"item_blade_mail_copy;item_saint_orb;item_radiance_2;item_shivas_guard_2;item_fusion_beast"
+			"03"					"item_blade_mail_2;item_saint_orb;item_radiance_copy;item_shivas_guard_2;item_fusion_beast"
+			"04"					"item_blade_mail_copy;item_saint_orb;item_radiance_copy;item_shivas_guard_2;item_fusion_beast"
 		}
 	}
 
@@ -7460,6 +7460,7 @@
 		"ItemRequirements"
 		{
 			"01"					"item_skadi_2;item_bfury_ultra;item_infernal_desolator;item_fusion_magic"
+			"02"					"item_skadi_2;item_bfury_copy;item_infernal_desolator;item_fusion_magic"
 		}
 	}
 	"item_magic_sword"
@@ -8134,7 +8135,7 @@
 		{
 			"bonus_strength"		"30"	// 原版 40
 			"hp_regen"				"3.5"	// 原版 1
-			"missing_health_regen"	"0"	// 原版 1.5
+			"missing_health_regen"	"1.5"
 		}
 	}
 
@@ -8160,6 +8161,10 @@
 			{
 				"ScriptFile"		"items/item_loot_bundle"
 				"Function"			"LootBundleOnSpell"
+				"loot_1"			"item_ultimate_scepter_copy"
+				"skip_loot_1_if"	"modifier_item_ultimate_scepter modifier_item_ultimate_scepter_consumed"
+				"loot_2"			"item_aghanims_shard"
+				"skip_loot_2_if"	"modifier_item_aghanims_shard"
 			}
 		}
 	}
@@ -8186,6 +8191,8 @@
 			{
 				"ScriptFile"		"items/item_loot_bundle"
 				"Function"			"LootBundleOnSpell"
+				"loot_1"			"item_wings_of_haste_copy"
+				"loot_2"			"item_moon_shard_copy"
 			}
 		}
 	}

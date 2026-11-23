@@ -699,6 +699,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_blade_mail_2;item_light_part"
+			"02"						"item_blade_mail_copy;item_light_part"
 		}
 	}
 	"item_force_field_ultra"
