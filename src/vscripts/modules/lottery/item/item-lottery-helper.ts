@@ -1,16 +1,15 @@
 import { LotteryDto } from '../../../../common/dto/lottery';
-import { pickRandomTierByRate } from '../shared/random-tier';
-import { itemTiers } from './lottery-items';
+import { itemTiers, treasuredItems } from './lottery-items';
 
 export enum ItemLotteryPool {
-  INITIAL = 'initial', // 开局点位：屏蔽 T7~T3，避开引擎全价卖出窗口
-  DEFAULT = 'default', // 普通藏宝箱
-  PREMIUM = 'premium', // 后期：高 tier 加权
-  ULTRA = 'ultra', // 大后期 / 肉山：保底 T3，高 tier 明显加权
+  TREASURED = 'treasured',
+  INITIAL = 'initial',
+  DEFAULT = 'default',
+  PREMIUM = 'premium',
+  ULTRA = 'ultra',
 }
 
-const POOL_RATES: Record<ItemLotteryPool, number[]> = {
-  // 累计阈值 [T7, T6, T5, T4, T3, T2, T1]
+const POOL_RATES: Record<Exclude<ItemLotteryPool, ItemLotteryPool.TREASURED>, number[]> = {
   [ItemLotteryPool.INITIAL]: [0, 0, 0, 0, 0, 30, 100],
   [ItemLotteryPool.DEFAULT]: [1, 2, 4, 8, 30, 60, 100],
   [ItemLotteryPool.PREMIUM]: [2, 4, 8, 30, 60, 100, 100],
@@ -22,21 +21,31 @@ export class ItemLotteryHelper {
     count: number,
     pool: ItemLotteryPool = ItemLotteryPool.DEFAULT,
   ): LotteryDto[] {
-    const rates = POOL_RATES[pool];
+    const tiers =
+      pool === ItemLotteryPool.TREASURED
+        ? [{ level: 1, names: [...treasuredItems], weight: 1 }]
+        : itemTiers.map(({ level, names }, index) => {
+            const rates = POOL_RATES[pool];
+            return { level, names: [...names], weight: rates[index] - (rates[index - 1] ?? 0) };
+          });
     const results: LotteryDto[] = [];
-    const picked = new Set<string>();
-    const maxAttempts = 10;
-    for (let i = 0; i < count; i++) {
-      let candidate: LotteryDto = { name: 'item_branches', level: 1 };
-      let attempts = 0;
-      do {
-        const tierRow = pickRandomTierByRate(itemTiers, rates);
-        const name = tierRow.names[Math.floor(Math.random() * tierRow.names.length)];
-        candidate = { name, level: tierRow.level };
-        attempts++;
-      } while (picked.has(candidate.name) && attempts < maxAttempts);
-      picked.add(candidate.name);
-      results.push(candidate);
+    for (let index = 0; index < count; index++) {
+      const available = tiers.filter((tier) => tier.weight > 0 && tier.names.length > 0);
+      if (available.length === 0) break;
+
+      let roll = RandomInt(
+        1,
+        available.reduce((total, tier) => total + tier.weight, 0),
+      );
+      for (const tier of available) {
+        roll -= tier.weight;
+        if (roll > 0) continue;
+
+        const nameIndex = Math.floor(Math.random() * tier.names.length);
+        const [name] = tier.names.splice(nameIndex, 1);
+        results.push({ name, level: tier.level });
+        break;
+      }
     }
     return results;
   }

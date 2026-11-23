@@ -38,7 +38,12 @@ global.PlayerResource = {
 };
 
 // CreateItem 全局函数 mock：返回一个带 name 字段的伪 item 用于断言
-global.CreateItem = jest.fn((name: string) => ({ name, SetPurchaser: jest.fn() }));
+global.CreateItem = jest.fn((name: string) => ({
+  name,
+  SetPurchaser: jest.fn(),
+  IsNull: () => false,
+}));
+global.IsValidEntity = jest.fn(() => true);
 
 jest.mock('../../helper/player-helper', () => ({
   PlayerHelper: {
@@ -84,6 +89,10 @@ describe('ItemLottery', () => {
   let lottery: ItemLottery;
   const humanOpener = { _human: true, GetPlayerOwnerID: () => 3 } as any;
   const botOpener = { _human: false, GetPlayerOwnerID: () => 5 } as any;
+  const activeRound = () => netTable['lottery_item']?.['3'];
+  const activeRoundId = () => activeRound()?.roundId ?? 0;
+  const pick = (round = activeRound()) =>
+    lottery.pickItem(3 as PlayerID, { ...round.candidates[0], roundId: round.roundId });
 
   beforeEach(() => {
     for (const k of Object.keys(netTable)) delete netTable[k];
@@ -141,7 +150,7 @@ describe('ItemLottery', () => {
       lottery.pickItem(
         3 as PlayerID,
         {
-          PlayerID: 3 as PlayerID,
+          roundId: activeRoundId(),
           name: target.name,
           level: target.level,
         } as any,
@@ -155,7 +164,10 @@ describe('ItemLottery', () => {
     });
 
     it('无 pending 抽奖时 noop', () => {
-      lottery.pickItem(3 as PlayerID, { PlayerID: 3, name: 'item_anything', level: 1 } as any);
+      lottery.pickItem(
+        3 as PlayerID,
+        { roundId: activeRoundId(), name: 'item_anything', level: 1 } as any,
+      );
       expect(mockHero.AddItem).not.toHaveBeenCalled();
     });
 
@@ -164,7 +176,7 @@ describe('ItemLottery', () => {
       lottery.pickItem(
         3 as PlayerID,
         {
-          PlayerID: 3,
+          roundId: activeRoundId(),
           name: 'item_rapier_fake',
           level: 99,
         } as any,
@@ -183,7 +195,7 @@ describe('ItemLottery', () => {
       lottery.pickItem(
         3 as PlayerID,
         {
-          PlayerID: 3,
+          roundId: activeRoundId(),
           name: candidate.name,
           level: candidate.level + 99,
         } as any,
@@ -199,7 +211,7 @@ describe('ItemLottery', () => {
       const before = netTable['lottery_item']['3'];
       expect(before.isRefreshed).toBe(false);
 
-      lottery.refreshItem(3 as PlayerID);
+      lottery.refreshItem(3 as PlayerID, activeRoundId());
 
       const after = netTable['lottery_item']['3'];
       expect(after.isRefreshed).toBe(true);
@@ -210,7 +222,7 @@ describe('ItemLottery', () => {
     it('NORMAL 会员刷新被拒绝', () => {
       mockGetMemberLevel.mockReturnValue(1); // NORMAL
       lottery.onTriggered(humanOpener);
-      lottery.refreshItem(3 as PlayerID);
+      lottery.refreshItem(3 as PlayerID, activeRoundId());
       expect(netTable['lottery_item']['3'].isRefreshed).toBe(false);
     });
 
@@ -218,10 +230,10 @@ describe('ItemLottery', () => {
       mockGetMemberLevel.mockReturnValue(2);
       mockGetUseableMemberPoint.mockReturnValue(10);
       lottery.onTriggered(humanOpener);
-      lottery.refreshItem(3 as PlayerID);
+      lottery.refreshItem(3 as PlayerID, activeRoundId());
       const afterFirst = netTable['lottery_item']['3'].candidates;
 
-      lottery.refreshItem(3 as PlayerID);
+      lottery.refreshItem(3 as PlayerID, activeRoundId());
 
       expect(netTable['lottery_item']['3'].candidates).not.toBe(afterFirst);
       expect(netTable['lottery_item']['3'].paidRefreshCount).toBe(1);
@@ -233,10 +245,10 @@ describe('ItemLottery', () => {
       mockGetMemberLevel.mockReturnValue(2);
       mockGetUseableMemberPoint.mockReturnValue(9);
       lottery.onTriggered(humanOpener);
-      lottery.refreshItem(3 as PlayerID);
+      lottery.refreshItem(3 as PlayerID, activeRoundId());
       const afterFirst = netTable['lottery_item']['3'].candidates;
 
-      lottery.refreshItem(3 as PlayerID);
+      lottery.refreshItem(3 as PlayerID, activeRoundId());
 
       expect(netTable['lottery_item']['3'].candidates).toBe(afterFirst);
       expect(netTable['lottery_item']['3'].paidRefreshCount).toBe(0);
@@ -248,11 +260,11 @@ describe('ItemLottery', () => {
       mockGetMemberLevel.mockReturnValue(2);
       mockGetUseableMemberPoint.mockReturnValue(999);
       lottery.onTriggered(humanOpener);
-      lottery.refreshItem(3 as PlayerID);
+      lottery.refreshItem(3 as PlayerID, activeRoundId());
       netTable['lottery_item']['3'].paidRefreshCount = 5;
       const afterFirst = netTable['lottery_item']['3'].candidates;
 
-      lottery.refreshItem(3 as PlayerID);
+      lottery.refreshItem(3 as PlayerID, activeRoundId());
 
       expect(netTable['lottery_item']['3'].candidates).toBe(afterFirst);
       expect(netTable['lottery_item']['3'].paidRefreshCount).toBe(5);
@@ -264,8 +276,8 @@ describe('ItemLottery', () => {
       mockGetMemberLevel.mockReturnValue(2);
       mockGetUseableMemberPoint.mockReturnValue(10);
       lottery.onTriggered(humanOpener);
-      lottery.refreshItem(3 as PlayerID);
-      lottery.refreshItem(3 as PlayerID);
+      lottery.refreshItem(3 as PlayerID, activeRoundId());
+      lottery.refreshItem(3 as PlayerID, activeRoundId());
       expect(netTable['lottery_item']['3'].paidRefreshCount).toBe(1);
 
       lottery.onTriggered(humanOpener);
@@ -280,16 +292,65 @@ describe('ItemLottery', () => {
       const target = netTable['lottery_item']['3'].candidates[0];
       lottery.pickItem(
         3 as PlayerID,
-        { PlayerID: 3, name: target.name, level: target.level } as any,
+        { roundId: activeRoundId(), name: target.name, level: target.level } as any,
       );
-      lottery.refreshItem(3 as PlayerID);
+      lottery.refreshItem(3 as PlayerID, activeRoundId());
       expect(netTable['lottery_item']['3'].candidates).toEqual([]);
     });
 
     it('无 pending 抽奖时 noop', () => {
       mockGetMemberLevel.mockReturnValue(2);
-      lottery.refreshItem(3 as PlayerID);
+      lottery.refreshItem(3 as PlayerID, activeRoundId());
       expect(netTable['lottery_item']?.['3']).toBeUndefined();
+    });
+  });
+
+  describe('attribute tome choice', () => {
+    it('keeps the current chest round and offers the attribute tomes after the pick', () => {
+      lottery.onTriggered(humanOpener);
+      const chest = activeRound();
+      lottery.onAttributeTomeUsed(3 as PlayerID);
+
+      expect(activeRound()).toBe(chest);
+      pick();
+      expect(activeRound().candidates.map(({ name }: { name: string }) => name)).toEqual([
+        'item_tome_of_strength',
+        'item_tome_of_agility',
+        'item_tome_of_intelligence',
+      ]);
+      pick();
+      expect(activeRound().candidates).toEqual([]);
+    });
+
+    it('retains both chests triggered while the attribute tome choice is active', () => {
+      lottery.onAttributeTomeUsed(3 as PlayerID);
+      const tome = activeRound();
+      lottery.onTriggered(humanOpener);
+      lottery.onTriggered(humanOpener);
+
+      expect(activeRound()).toBe(tome);
+      pick();
+      expect(activeRound().isAttributeTome).toBe(0);
+      const firstChest = activeRound();
+      pick();
+      expect(activeRound()).not.toBe(firstChest);
+      expect(activeRound().candidates).toHaveLength(ItemLottery.CANDIDATE_COUNT);
+      pick();
+      expect(activeRound().candidates).toEqual([]);
+    });
+
+    it('denies refreshing the choice and rejects picks from a previous choice', () => {
+      mockGetMemberLevel.mockReturnValue(2);
+      lottery.onAttributeTomeUsed(3 as PlayerID);
+      const first = activeRound();
+      lottery.onAttributeTomeUsed(3 as PlayerID);
+
+      lottery.refreshItem(3 as PlayerID, first.roundId);
+      expect(activeRound()).toBe(first);
+      pick();
+      const second = activeRound();
+      pick(first);
+      expect(activeRound()).toBe(second);
     });
   });
 

@@ -309,6 +309,8 @@
 		"lottery_tooltip_ability_reset_not_picked"				"No ability picked for this row"
 
 		"lottery_item_header"									"Pick Your Treasure"
+		"lottery_item_attribute_header"				"Choose an Attribute Tome"
+		"dota_hud_error_treasure_attribute_tome_invalid_caster"				"Only your own hero can use this item"
 		"lottery_passive_tome_header"							"Choose a Passive Ability"
 		"lottery_forget_passive_tome_header"					"Choose a Passive Ability to Forget"
 		"lottery_forget_passive_tome_cancel"					"Cancel"
@@ -3080,6 +3082,65 @@
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"Passive Skill Tome"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Higher chance of strong abilities. Choose one passive ability to learn from 4 random options.\nEach player can use this up to 2 times per game, choices can be rerolled, shareable with teammates.\nCan be bought in the shop but cannot be sold. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"Open it, and the power distilled by those before you becomes yours."
+
+		// item_treasure_passive_skill_tome 被动技能书
+		"DOTA_Tooltip_ability_item_treasure_passive_skill_tome"				"Passive Skill Tome"
+		"DOTA_Tooltip_ability_item_treasure_passive_skill_tome_Description"				"<h1>Use: Learn a Passive Skill</h1>Choose one of 4 random passive skills, with a higher chance of finding stronger skills.<br><br>Each player can use up to 2 tomes per game, shared with Passive Skill Tomes from other sources. Choices can be refreshed. Can be shared with teammates."
+
+		// item_treasure_attribute_fragment 属性书碎片
+		"DOTA_Tooltip_ability_item_treasure_attribute_fragment"				"Attribute Tome Fragment"
+		"DOTA_Tooltip_ability_item_treasure_attribute_fragment_Description"				"Collect 4 fragments to automatically combine them into an Attribute Tome. Can be shared with teammates."
+
+		// item_treasure_inventory_fragment 扩容之书碎片
+		"DOTA_Tooltip_ability_item_treasure_inventory_fragment"				"Tome of Expansion Fragment"
+		"DOTA_Tooltip_ability_item_treasure_inventory_fragment_Description"				"Collect 3 fragments to automatically combine them into a Tome of Expansion. Can be shared with teammates."
+
+		// item_treasure_passive_fragment 被动技能书碎片
+		"DOTA_Tooltip_ability_item_treasure_passive_fragment"				"Passive Skill Tome Fragment"
+		"DOTA_Tooltip_ability_item_treasure_passive_fragment_Description"				"Collect 4 fragments to automatically combine them into a Passive Skill Tome. Can be shared with teammates."
+
+		// item_treasure_attribute_tome 属性之书
+		"DOTA_Tooltip_ability_item_treasure_attribute_tome"				"Attribute Tome"
+		"DOTA_Tooltip_ability_item_treasure_attribute_tome_Description"				"Use to choose a Tome of Strength, Agility, or Intelligence."
+
+		// item_treasure_slot_machine 老虎机
+		"DOTA_Tooltip_ability_item_treasure_slot_machine"				"Slot Machine"
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_Description"				"Consumed on use. Drops a gold bag any hero can pick up. All slot machines share a cooldown for each player.<br><br>Drop chance and gold<br>%chance_1%%%: %gold_1%<br>%chance_2%%%: %gold_2%<br>%chance_3%%%: %gold_3%<br>%chance_4%%%: %gold_4%<br>%chance_5%%%: %gold_5%"
+
+		// item_treasure_slot_machine_gold_bag 老虎机钱袋
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag"				"Slot Machine Gold Bag"
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag_Description"				"Collect the gold inside upon pickup."
+
+		// item_treasure_salve 强化治疗药膏
+		"DOTA_Tooltip_Ability_item_treasure_salve"						"Reinforced Healing Salve"
+		"DOTA_Tooltip_ability_item_treasure_salve_Description"			"<h1>Use: Salve</h1>The target restores %health_regen% health per second for %buff_duration% seconds.<br><br>The effect persists through damage and is immune to dispels."
+		"DOTA_Tooltip_modifier_item_treasure_salve"						"Reinforced Healing Salve"
+		"DOTA_Tooltip_modifier_item_treasure_salve_Description"			"Restoring %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health per second."
+
+		// item_treasure_clarity 强化净化药水
+		"DOTA_Tooltip_Ability_item_treasure_clarity"					"Reinforced Clarity"
+		"DOTA_Tooltip_ability_item_treasure_clarity_Description"		"<h1>Use: Replenish</h1>The target restores %mana_regen% mana per second for %buff_duration% seconds.<br><br>The effect persists through damage."
+		"DOTA_Tooltip_modifier_item_treasure_clarity"					"Reinforced Clarity"
+		"DOTA_Tooltip_modifier_item_treasure_clarity_Description"		"Restoring %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana per second."
+
+		// item_treasure_mango 强化魔法芒果
+		"DOTA_Tooltip_Ability_item_treasure_mango"						"Reinforced Enchanted Mango"
+		"DOTA_Tooltip_ability_item_treasure_mango_Description"			"<h1>Use: Eat Mango</h1>Instantly restores %replenish_amount% mana."
+		"DOTA_Tooltip_ability_item_treasure_mango_Note0"				"Hold Ctrl to use on a nearby allied hero."
+		"DOTA_Tooltip_ability_item_treasure_mango_hp_regen"				"+$hp_regen"
+
+		// item_treasure_raindrop 强化凝魂之露
+		"DOTA_Tooltip_Ability_item_treasure_raindrop"					"Reinforced Infused Raindrops"
+		"DOTA_Tooltip_ability_item_treasure_raindrop_Description"		"<h1>Passive: Magical Damage Block</h1>Consumes a charge to block up to %magic_damage_block% damage from a hit that deals more than %min_damage% <font color='#05CAFF'>magic damage</font>.<br><br>Starts with %initial_charges% charges. The item disappears when all charges are spent."
+		"DOTA_Tooltip_ability_item_treasure_raindrop_mana_regen"		"+$mana_regen"
+
+		// item_treasure_bottle 强化魔瓶
+		"DOTA_Tooltip_Ability_item_treasure_bottle"						"Reinforced Bottle"
+		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>Use: Regenerate</h1>Consumes a charge to restore %health_restore% health and %mana_restore% mana over %restore_time% seconds. Also restores %health_regen_pct_tooltip%%% of max health and %mana_regen_pct_tooltip%%% of max mana per second. Damage from enemy heroes or Roshan ends the effect early.<br><br>Refills to %max_charges% charges at the allied fountain.<br><br>Hold Ctrl to use on an allied hero.\n\n<h1>Passive: Store Rune</h1>Right-click a rune to store it. Stored runes activate automatically after %rune_expire_time% seconds."
+
+		// item_treasure_cheese 强化奶酪
+		"DOTA_Tooltip_Ability_item_treasure_cheese"						"Reinforced Cheese"
+		"DOTA_Tooltip_ability_item_treasure_cheese_Description"			"<h1>Use: Fondue</h1>Instantly restores %health_restore% health and %mana_restore% mana.<br><br>Reusable and can be given to teammates."
 
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"Saint White Lotus"

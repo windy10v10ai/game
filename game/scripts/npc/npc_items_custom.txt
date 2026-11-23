@@ -1,6 +1,7 @@
 #base "npc_items_modifier.txt"
 #base "npc_items_artifact.txt"
 #base "npc_items_clone.txt"
+#base "npc_items_treasure.txt"
 
 "DOTAAbilities"
 {

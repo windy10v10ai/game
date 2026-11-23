@@ -28,11 +28,13 @@ const UNMANAGED_BACKPACK_ITEMS: string[] = [
   'item_tome_of_intelligence',
   'item_tome_of_strength',
   'item_tome_of_luoshu',
+  'item_treasure_attribute_tome',
   'item_tome_of_ability_reset',
   'item_skill_reset',
   'item_collector',
   'item_awaken_stone',
   'item_passive_skill_tome',
+  'item_treasure_passive_skill_tome',
   'item_inventory_slot_unlock',
 
   // 代为重跑装备流程会重置物品自身的倒计时

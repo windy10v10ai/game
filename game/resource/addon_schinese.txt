@@ -309,6 +309,8 @@
 		"lottery_tooltip_ability_reset_not_picked"				"技能尚未选择"
 
 		"lottery_item_header"									"宝箱开启！选择你的奖励"
+		"lottery_item_attribute_header"				"选择一本属性书"
+		"dota_hud_error_treasure_attribute_tome_invalid_caster"				"只能由自己的英雄使用"
 		"lottery_passive_tome_header"							"选择一个被动技能"
 		"lottery_forget_passive_tome_header"					"选择要遗忘的被动技能"
 		"lottery_forget_passive_tome_cancel"					"取消"
@@ -3082,6 +3084,65 @@
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"被动技能书"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 有更高概率获得强力技能，从 4 个随机被动技能中任选其一学习。\n每名玩家整局最多使用 2 次，可刷新候选，可分享给队友\n可在商店购买，不可出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"翻开它，便能习得前人沉淀的力量。"
+
+		// item_treasure_passive_skill_tome 被动技能书
+		"DOTA_Tooltip_ability_item_treasure_passive_skill_tome"				"被动技能书"
+		"DOTA_Tooltip_ability_item_treasure_passive_skill_tome_Description"				"<h1>使用：学习被动技能</h1>从 4 个随机被动技能中选择一个学习，更容易获得强力技能。<br><br>每名玩家整局最多使用 2 本，与其他来源的被动技能书共用上限。可刷新候选，可分享给队友。"
+
+		// item_treasure_attribute_fragment 属性书碎片
+		"DOTA_Tooltip_ability_item_treasure_attribute_fragment"				"属性书碎片"
+		"DOTA_Tooltip_ability_item_treasure_attribute_fragment_Description"				"集齐 4 枚后自动合成一本属性之书。可以分享给队友。"
+
+		// item_treasure_inventory_fragment 扩容之书碎片
+		"DOTA_Tooltip_ability_item_treasure_inventory_fragment"				"扩容之书碎片"
+		"DOTA_Tooltip_ability_item_treasure_inventory_fragment_Description"				"集齐 3 枚后自动合成一本扩容之书。可以分享给队友。"
+
+		// item_treasure_passive_fragment 被动技能书碎片
+		"DOTA_Tooltip_ability_item_treasure_passive_fragment"				"被动技能书碎片"
+		"DOTA_Tooltip_ability_item_treasure_passive_fragment_Description"				"集齐 4 枚后自动合成一本被动技能书。可以分享给队友。"
+
+		// item_treasure_attribute_tome 属性之书
+		"DOTA_Tooltip_ability_item_treasure_attribute_tome"				"属性之书"
+		"DOTA_Tooltip_ability_item_treasure_attribute_tome_Description"				"使用后从力量之书、敏捷之书和智力之书中选择一本。"
+
+		// item_treasure_slot_machine 老虎机
+		"DOTA_Tooltip_ability_item_treasure_slot_machine"				"老虎机"
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_Description"				"使用后消耗，在脚下掉落一个任意英雄都能拾取的钱袋。每名玩家的老虎机共享冷却。<br><br>掉落概率和金币数<br>%chance_1%%%：%gold_1%<br>%chance_2%%%：%gold_2%<br>%chance_3%%%：%gold_3%<br>%chance_4%%%：%gold_4%<br>%chance_5%%%：%gold_5%"
+
+		// item_treasure_slot_machine_gold_bag 老虎机钱袋
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag"				"老虎机钱袋"
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag_Description"				"拾取后获得袋内金币。"
+
+		// item_treasure_salve 强化治疗药膏
+		"DOTA_Tooltip_Ability_item_treasure_salve"						"强化治疗药膏"
+		"DOTA_Tooltip_ability_item_treasure_salve_Description"			"<h1>使用：药膏</h1>目标每秒恢复%health_regen%点生命，持续%buff_duration%秒。<br><br>受到伤害后仍会持续，免疫驱散。"
+		"DOTA_Tooltip_modifier_item_treasure_salve"						"强化治疗药膏"
+		"DOTA_Tooltip_modifier_item_treasure_salve_Description"			"每秒恢复%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点生命。"
+
+		// item_treasure_clarity 强化净化药水
+		"DOTA_Tooltip_Ability_item_treasure_clarity"					"强化净化药水"
+		"DOTA_Tooltip_ability_item_treasure_clarity_Description"		"<h1>使用：回魔</h1>目标每秒恢复%mana_regen%点魔法，持续%buff_duration%秒。<br><br>受到伤害后仍会持续。"
+		"DOTA_Tooltip_modifier_item_treasure_clarity"					"强化净化药水"
+		"DOTA_Tooltip_modifier_item_treasure_clarity_Description"		"每秒恢复%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点魔法。"
+
+		// item_treasure_mango 强化魔法芒果
+		"DOTA_Tooltip_Ability_item_treasure_mango"						"强化魔法芒果"
+		"DOTA_Tooltip_ability_item_treasure_mango_Description"			"<h1>使用：吞食芒果</h1>立即恢复%replenish_amount%点魔法。"
+		"DOTA_Tooltip_ability_item_treasure_mango_Note0"				"按住Ctrl键点击附近友方英雄可以对其使用。"
+		"DOTA_Tooltip_ability_item_treasure_mango_hp_regen"				"+$hp_regen"
+
+		// item_treasure_raindrop 强化凝魂之露
+		"DOTA_Tooltip_Ability_item_treasure_raindrop"					"强化凝魂之露"
+		"DOTA_Tooltip_ability_item_treasure_raindrop_Description"		"<h1>被动：魔法伤害格挡</h1>受到超过%min_damage%点的<font color='#05CAFF'>魔法伤害</font>时消耗一层能量，最多格挡%magic_damage_block%点伤害。<br><br>初始有%initial_charges%层能量，耗尽后物品消失。"
+		"DOTA_Tooltip_ability_item_treasure_raindrop_mana_regen"		"+$mana_regen"
+
+		// item_treasure_bottle 强化魔瓶
+		"DOTA_Tooltip_Ability_item_treasure_bottle"						"强化魔瓶"
+		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>使用：恢复</h1>每次使用消耗一口，在%restore_time%秒内共恢复%health_restore%点生命和%mana_restore%点魔法，期间每秒额外恢复%health_regen_pct_tooltip%%%最大生命值和%mana_regen_pct_tooltip%%%最大魔法值。受到敌方英雄或肉山伤害时，恢复会提前结束。<br><br>靠近友方泉水时补满至%max_charges%口。<br><br>按住Ctrl键可以对友方英雄使用。\n\n<h1>被动：储存神符</h1>右键点击神符可将其存入魔瓶，超过%rune_expire_time%秒后自动激活。"
+
+		// item_treasure_cheese 强化奶酪
+		"DOTA_Tooltip_Ability_item_treasure_cheese"						"强化奶酪"
+		"DOTA_Tooltip_ability_item_treasure_cheese_Description"			"<h1>使用：干酪</h1>立即恢复%health_restore%点生命和%mana_restore%点魔法。<br><br>可以重复使用，也可交给队友。"
 
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"圣女白莲"

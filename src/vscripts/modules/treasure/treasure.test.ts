@@ -221,8 +221,8 @@ describe('Treasure', () => {
   });
 
   describe('物品抽奖池映射', () => {
-    it('第 1 个藏宝箱使用 INITIAL 池', () => {
-      expect(Treasure.mapToLotteryPool(1)).toBe(ItemLotteryPool.INITIAL);
+    it('uses the treasured pool for the opening chest', () => {
+      expect(Treasure.mapToLotteryPool(1)).toBe(ItemLotteryPool.TREASURED);
     });
 
     it('第 2~ 个藏宝箱使用 DEFAULT 池', () => {
@@ -239,6 +239,10 @@ describe('Treasure', () => {
   });
 
   describe('lowerPoolByOne 降级映射', () => {
+    it('keeps the opening chest treasured for teammates', () => {
+      expect(Treasure.lowerPoolByOne(ItemLotteryPool.TREASURED)).toBe(ItemLotteryPool.TREASURED);
+    });
+
     it('ULTRA 降为 PREMIUM', () => {
       expect(Treasure.lowerPoolByOne(ItemLotteryPool.ULTRA)).toBe(ItemLotteryPool.PREMIUM);
     });

@@ -309,6 +309,8 @@
 		"lottery_tooltip_ability_reset_not_picked"				"В этой строке ещё не выбрана способность"
 
 		"lottery_item_header"									"Сундук открыт! Выберите награду"
+		"lottery_item_attribute_header"				"Выберите том характеристик"
+		"dota_hud_error_treasure_attribute_tome_invalid_caster"				"Предмет может использовать только ваш герой"
 		"lottery_passive_tome_header"							"Выберите пассивную способность"
 		"lottery_forget_passive_tome_header"					"Выберите пассивный навык для забвения"
 		"lottery_forget_passive_tome_cancel"					"Отмена"
@@ -3082,6 +3084,65 @@
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"Том пассивного навыка"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Применение: Изучить пассивный навык</h1> Повышенный шанс получить сильную способность: выберите один из 4 случайных пассивных навыков.\nКаждый игрок может использовать предмет не более 2 раз за игру, варианты можно обновить, предмет можно передавать союзникам.\nМожно купить в магазине, нельзя продать. Может выпасть из сундуков с сокровищами."
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"Откройте его — и сила, накопленная предшественниками, станет вашей."
+
+		// item_treasure_passive_skill_tome 被动技能书
+		"DOTA_Tooltip_ability_item_treasure_passive_skill_tome"				"Том пассивного навыка"
+		"DOTA_Tooltip_ability_item_treasure_passive_skill_tome_Description"				"<h1>Использование: изучение пассивного навыка</h1>Позволяет изучить один из 4 случайных пассивных навыков с повышенным шансом получить сильный навык.<br><br>Каждый игрок может использовать до 2 томов за матч. Лимит общий с томами пассивного навыка из других источников. Варианты можно обновить, а том можно передать союзнику."
+
+		// item_treasure_attribute_fragment 属性书碎片
+		"DOTA_Tooltip_ability_item_treasure_attribute_fragment"				"Фрагмент тома характеристик"
+		"DOTA_Tooltip_ability_item_treasure_attribute_fragment_Description"				"4 фрагмента автоматически объединяются в том характеристик. Фрагменты можно передавать союзникам."
+
+		// item_treasure_inventory_fragment 扩容之书碎片
+		"DOTA_Tooltip_ability_item_treasure_inventory_fragment"				"Фрагмент тома расширения"
+		"DOTA_Tooltip_ability_item_treasure_inventory_fragment_Description"				"3 фрагмента автоматически объединяются в том расширения. Фрагменты можно передавать союзникам."
+
+		// item_treasure_passive_fragment 被动技能书碎片
+		"DOTA_Tooltip_ability_item_treasure_passive_fragment"				"Фрагмент тома пассивного навыка"
+		"DOTA_Tooltip_ability_item_treasure_passive_fragment_Description"				"4 фрагмента автоматически объединяются в том пассивного навыка. Фрагменты можно передавать союзникам."
+
+		// item_treasure_attribute_tome 属性之书
+		"DOTA_Tooltip_ability_item_treasure_attribute_tome"				"Том характеристик"
+		"DOTA_Tooltip_ability_item_treasure_attribute_tome_Description"				"Выберите том силы, ловкости или интеллекта."
+
+		// item_treasure_slot_machine 老虎机
+		"DOTA_Tooltip_ability_item_treasure_slot_machine"				"Игровой автомат"
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_Description"				"Расходуется при использовании. На землю падает мешок золота, который может подобрать любой герой. У всех автоматов одного игрока общая перезарядка.<br><br>Шанс выпадения и количество золота<br>%chance_1%%%: %gold_1%<br>%chance_2%%%: %gold_2%<br>%chance_3%%%: %gold_3%<br>%chance_4%%%: %gold_4%<br>%chance_5%%%: %gold_5%"
+
+		// item_treasure_slot_machine_gold_bag 老虎机钱袋
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag"				"Мешок золота из игрового автомата"
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag_Description"				"Подберите мешок, чтобы получить золото."
+
+		// item_treasure_salve 强化治疗药膏
+		"DOTA_Tooltip_Ability_item_treasure_salve"						"Усиленная лечебная мазь"
+		"DOTA_Tooltip_ability_item_treasure_salve_Description"			"<h1>Применение: Лечение</h1>Цель восстанавливает %health_regen% здоровья в секунду в течение %buff_duration% сек.<br><br>Эффект сохраняется при получении урона и защищён от развеивания."
+		"DOTA_Tooltip_modifier_item_treasure_salve"						"Усиленная лечебная мазь"
+		"DOTA_Tooltip_modifier_item_treasure_salve_Description"			"Восстанавливает %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% здоровья в секунду."
+
+		// item_treasure_clarity 强化净化药水
+		"DOTA_Tooltip_Ability_item_treasure_clarity"					"Усиленное зелье ясности"
+		"DOTA_Tooltip_ability_item_treasure_clarity_Description"		"<h1>Применение: Восстановление маны</h1>Цель восстанавливает %mana_regen% маны в секунду в течение %buff_duration% сек.<br><br>Эффект сохраняется при получении урона."
+		"DOTA_Tooltip_modifier_item_treasure_clarity"					"Усиленное зелье ясности"
+		"DOTA_Tooltip_modifier_item_treasure_clarity_Description"		"Восстанавливает %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% маны в секунду."
+
+		// item_treasure_mango 强化魔法芒果
+		"DOTA_Tooltip_Ability_item_treasure_mango"						"Усиленное зачарованное манго"
+		"DOTA_Tooltip_ability_item_treasure_mango_Description"			"<h1>Применение: Съесть манго</h1>Мгновенно восстанавливает %replenish_amount% маны."
+		"DOTA_Tooltip_ability_item_treasure_mango_Note0"				"Удерживайте Ctrl, чтобы применить на ближайшего союзного героя."
+		"DOTA_Tooltip_ability_item_treasure_mango_hp_regen"				"+$hp_regen"
+
+		// item_treasure_raindrop 强化凝魂之露
+		"DOTA_Tooltip_Ability_item_treasure_raindrop"					"Усиленные зачарованные капли"
+		"DOTA_Tooltip_ability_item_treasure_raindrop_Description"		"<h1>Пассивно: Блок магического урона</h1>Когда владелец получает больше %min_damage% единиц <font color='#05CAFF'>магического урона</font> за раз, расходуется заряд и блокируется до %magic_damage_block% урона.<br><br>Изначально имеет %initial_charges% зарядов. Предмет исчезает, когда все заряды израсходованы."
+		"DOTA_Tooltip_ability_item_treasure_raindrop_mana_regen"		"+$mana_regen"
+
+		// item_treasure_bottle 强化魔瓶
+		"DOTA_Tooltip_Ability_item_treasure_bottle"						"Усиленная бутылка"
+		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>Применение: Восстановление</h1>Расходует заряд и за %restore_time% сек. восстанавливает %health_restore% здоровья и %mana_restore% маны. Каждую секунду дополнительно восстанавливает %health_regen_pct_tooltip%%% от максимального здоровья и %mana_regen_pct_tooltip%%% от максимальной маны. Урон от вражеских героев или Рошана прерывает эффект.<br><br>У союзного фонтана пополняется до %max_charges% зарядов.<br><br>Удерживайте Ctrl, чтобы применить на союзного героя.\n\n<h1>Пассивно: Хранение руны</h1>Нажмите на руну правой кнопкой мыши, чтобы сохранить её. Хранящаяся руна активируется автоматически через %rune_expire_time% сек."
+
+		// item_treasure_cheese 强化奶酪
+		"DOTA_Tooltip_Ability_item_treasure_cheese"						"Усиленный сыр"
+		"DOTA_Tooltip_ability_item_treasure_cheese_Description"			"<h1>Применение: Фондю</h1>Мгновенно восстанавливает %health_restore% здоровья и %mana_restore% маны.<br><br>Можно использовать повторно и передавать союзникам."
 
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"Белый лотос святой"

@@ -1,4 +1,5 @@
-import { itemTiers } from './lottery-items';
+import { ItemLotteryHelper, ItemLotteryPool } from './item-lottery-helper';
+import { itemTiers, treasuredItems } from './lottery-items';
 
 const TREASURED_ITEMS = [
   'item_bfury_copy',
@@ -7,6 +8,15 @@ const TREASURED_ITEMS = [
   'item_heart_copy',
   'item_aghanim_bundle',
   'item_haste_moon_bundle',
+  'item_ultimate_scepter_copy',
+  'item_wings_of_haste_copy',
+  'item_moon_shard_copy',
+  'item_berserkers_sabatons_copy',
+  'item_echo_sabre_2_copy',
+  'item_hydras_breath_copy',
+  'item_hand_of_midas_copy',
+  'item_starforge_copy',
+  'item_dagon_ultra_copy',
 ];
 
 const ORIGINAL_ITEMS = ['item_bfury', 'item_radiance', 'item_blade_mail', 'item_heart'];
@@ -16,17 +26,34 @@ function namesOf(level: number): string[] {
 }
 
 describe('itemTiers', () => {
-  it('T1 包含 4 件珍藏版装备', () => {
+  it('includes the complete treasured series in T1', () => {
     const tier1 = namesOf(1);
     for (const name of TREASURED_ITEMS) {
       expect(tier1).toContain(name);
     }
   });
 
-  it('珍藏版与原版分在不同 tier', () => {
-    const tier1 = namesOf(1);
+  it('excludes the original versions from the whole reward pool', () => {
+    const names = itemTiers.flatMap((tier) => tier.names);
     for (const name of ORIGINAL_ITEMS) {
-      expect(tier1).not.toContain(name);
+      expect(names).not.toContain(name);
+    }
+  });
+
+  it('draws the full treasured catalogue without repeating or filling with other items', () => {
+    const originalRandomInt = globalThis.RandomInt;
+    globalThis.RandomInt = (min) => min;
+    const random = jest.spyOn(Math, 'random').mockReturnValue(0);
+    try {
+      expect(new Set(treasuredItems)).toEqual(new Set(TREASURED_ITEMS));
+      const candidates = ItemLotteryHelper.getRandomItems(20, ItemLotteryPool.TREASURED);
+      expect(candidates).toHaveLength(TREASURED_ITEMS.length);
+      expect(candidates.map(({ name, level }) => [name, level])).toEqual(
+        TREASURED_ITEMS.map((name) => [name, 1]),
+      );
+    } finally {
+      random.mockRestore();
+      globalThis.RandomInt = originalRandomInt;
     }
   });
 

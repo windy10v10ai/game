@@ -23,8 +23,8 @@ interface CustomGameEventDeclarations {
   save_bind_ability_key: SaveBindAbilityKeyEventData;
   save_game_preset: SaveGamePresetEventData;
   lottery_reset_ability: LotteryRefreshEventData;
-  lottery_pick_item: LotteryPickItemEventData;
-  lottery_refresh_item: Record<string, never>;
+  lottery_pick_item: LotteryItemPickEventData;
+  lottery_refresh_item: { roundId: number };
   lottery_pick_passive_tome: LotteryPickItemEventData;
   lottery_refresh_passive_tome: Record<string, never>;
   lottery_forget_passive_tome: LotteryForgetPassiveTomeEventData;
@@ -151,6 +151,10 @@ interface LotteryPickEventData {
 
 interface LotteryRefreshEventData {
   type: string;
+}
+
+interface LotteryItemPickEventData extends LotteryPickItemEventData {
+  roundId: number;
 }
 
 interface LotteryPickItemEventData {

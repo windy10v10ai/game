@@ -32,3 +32,6 @@ export class ItemPassiveSkillTome extends BaseItem {
     UTIL_Remove(this);
   }
 }
+
+@registerAbility('item_treasure_passive_skill_tome')
+export class ItemTreasurePassiveSkillTome extends ItemPassiveSkillTome {}

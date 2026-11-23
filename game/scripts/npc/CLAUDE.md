@@ -10,7 +10,7 @@
 |---|---|---|
 | `npc_abilities_custom.txt` | `npc_abilities_custom_lottery.txt`<br>`npc_abilities_custom_awaken.txt` | 全新自定义技能。入口本体放单位/英雄专属技能，lottery 放抽奖池技能，awaken 放觉醒技能 |
 | `npc_abilities_override.txt` | `npc_items_override.txt`<br>`npc_items_override_neutral.txt`<br>`npc_items_override_neutral_passive.txt`<br>`npc_abilities_creep.txt` | 对原版技能/物品写**差分**覆盖（缺失键由引擎合并原版值）。creep 放小兵野怪技能 |
-| `npc_items_custom.txt` | `npc_items_modifier.txt`<br>`npc_items_artifact.txt`<br>`npc_items_clone.txt` | 自制物品。modifier 放物品间共享的 DataDriven modifier（`item_apply_modifiers` 引用），artifact 放神器，clone 放原版物品的倍率克隆 |
+| `npc_items_custom.txt` | `npc_items_modifier.txt`<br>`npc_items_artifact.txt`<br>`npc_items_clone.txt`<br>`npc_items_treasure.txt` | 自制物品。modifier 放物品间共享的 DataDriven modifier（`item_apply_modifiers` 引用），artifact 放神器，clone 放原版物品的倍率克隆，treasure 放宝箱专属的强化消耗品、碎片与老虎机 |
 | `npc_units_custom.txt` | `npc_units_building.txt`<br>`npc_units_creep.txt`<br>`npc_units_neutral.txt` | 自定义单位 |
 
 其余独立文件：`npc_heroes_custom.txt`（英雄覆盖与 `Bot.Build` 加点，改加点前先调用 `update-bot-hero-build` skill，哪些等级没有技能点、每级最多几点都在那里）、`herolist.txt`（可选英雄开关）、`neutral_items.txt`（中立物品掉落表，改动需同步 `src/vscripts/ai/item/neutral-item.ts` 的 `GetDefaultConfig`）、`portraits_custom.txt`（自定义模型头像）。
@@ -31,13 +31,13 @@
 |---|---|---|
 | 10000–10099 | `npc_items_modifier.txt` | 10000–10003 |
 | 10100–10299 | `npc_items_artifact.txt` | 10100–10121 |
-| 10300–10999 | `npc_items_custom.txt` | 10300–10464 |
+| 10300–10999 | `npc_items_custom.txt`、`npc_items_treasure.txt` | 10300–10498 |
 
 新增条目取所属号段**已用区间的下一个数**，段内连续，不要跳号也不要复用被删条目的号。段尾留有空位，用尽再向后扩段。
 
 ### 何时可以不写 ID
 
-`"ID"` 字段是可选的，不写引擎自动分配（`npc_items_clone.txt` 全部如此）。自定义技能（lottery / awaken / custom）一律不写 ID。**只有本目录三个物品文件沿用手写 ID**，新增物品跟随所在文件的既有做法即可。
+`"ID"` 字段是可选的，不写引擎自动分配（`npc_items_clone.txt` 全部如此）。自定义技能（lottery / awaken / custom）一律不写 ID。自制物品沿用所在文件的手写 ID。宝箱原版物品克隆由引擎自动分配 ID。
 
 ### 冲突自检
 
