@@ -2415,6 +2415,10 @@
 		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>Применение: Благословение Лошу</h1> Навсегда даёт: <br>+%bonus_all_stats% ко всем атрибутам<br>+%status_resistance%%% к сопротивлению эффектам<br>+%spell_amp%%% к усилению заклинаний<br>+%bonus_base_damage_percent%%% к базовому урону от атак<br>+%bonus_cast_range% к дальности применения.\nМожно использовать только один раз\nМожно передавать союзникам"
 		"DOTA_Tooltip_ability_item_tome_of_luoshu_cast_error"			"Том Лошу можно использовать только один раз"
 
+		// item_horn_of_battle_greater 大战斗号角
+		"DOTA_Tooltip_ability_item_horn_of_battle_greater"					"Большой рог битвы"
+		"DOTA_Tooltip_ability_item_horn_of_battle_greater_Description"		"<h1>Использование: Великий призыв к оружию</h1>Призывает волну мегакрипов с катапультой и знаменосцем на каждую линию вашей команды. Можно применить из ранца."
+
 		"DOTA_Tooltip_modifier_luoshu_tome"								"Лошу на вашей стороне!"
 		"DOTA_Tooltip_modifier_luoshu_tome_Description"					"Братец, ты потратил на меня столько денег — твоя девушка не обидится?"
 

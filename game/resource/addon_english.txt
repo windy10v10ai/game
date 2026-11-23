@@ -2413,6 +2413,10 @@
 		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>Use: Luoshu</h1> Permanently grants: <br>+%bonus_all_stats% all attributes<br>+%bonus_base_damage_percent%%% Base Attack Damage<br>+%status_resistance%%% Status Resistance<br>+%spell_amp%%% Spell Amplification<br>+%bonus_cast_range% Cast Range<br>\nA hero can only use one.\nShareable with teammates."
 		"DOTA_Tooltip_ability_item_tome_of_luoshu_cast_error"			"Tome of Luoshu can only be used once."
 
+		// item_horn_of_battle_greater 大战斗号角
+		"DOTA_Tooltip_ability_item_horn_of_battle_greater"					"Greater Horn of Battle"
+		"DOTA_Tooltip_ability_item_horn_of_battle_greater_Description"		"<h1>Use: Grand Call to Arms</h1>Summons a wave of mega creeps, including a catapult and a flagbearer, in every lane for your team. Can be used from the backpack."
+
 		"DOTA_Tooltip_modifier_luoshu_tome"								"Tome of Luoshu"
 		"DOTA_Tooltip_modifier_luoshu_tome_Description"					"Gained a lot of bonuses from Luoshu's Tome."
 

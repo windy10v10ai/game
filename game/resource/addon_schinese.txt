@@ -2415,6 +2415,10 @@
 		"DOTA_Tooltip_Ability_item_tome_of_luoshu_Description"			"<h1>使用: 洛书祝福</h1> 永久获得 <br>+%bonus_all_stats% 点全属性<br>+%status_resistance%%% 状态抗性<br>+%spell_amp%%% 技能增强<br>+%bonus_base_damage_percent%%% 基础攻击力<br>+%bonus_cast_range% 施法距离。\n只可使用一次\n可以分享给队友"
 		"DOTA_Tooltip_ability_item_tome_of_luoshu_cast_error"			"洛书只能使用一次"
 
+		// item_horn_of_battle_greater 大战斗号角
+		"DOTA_Tooltip_ability_item_horn_of_battle_greater"					"大战斗号角"
+		"DOTA_Tooltip_ability_item_horn_of_battle_greater_Description"		"<h1>使用：大举进攻</h1>为你的队伍在每条兵线召唤一波超级兵，包括一台投石车和一名旗手。可以在背包中使用。"
+
 		"DOTA_Tooltip_modifier_luoshu_tome"								"洛书看好你！"
 		"DOTA_Tooltip_modifier_luoshu_tome_Description"					"哥哥你为我花了这么多钱，你女朋友不会生气吧？"
 
