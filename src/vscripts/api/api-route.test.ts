@@ -37,3 +37,30 @@ describe('ApiRoute', () => {
     expect(ApiRoute.GetBaseUrl()).toBe('https://43.135.77.42/api');
   });
 });
+
+describe('ApiRoute retry target', () => {
+  beforeEach(() => ApiRoute.SetTarget('direct'));
+
+  it('switches to the other remote line for a retry', () => {
+    expect(ApiRoute.GetRetryTarget('direct')).toBe('cn-proxy');
+    expect(ApiRoute.GetRetryTarget('cn-proxy')).toBe('direct');
+  });
+
+  it('never switches away from the local target', () => {
+    expect(ApiRoute.GetRetryTarget('local')).toBe('local');
+    ApiRoute.AdoptTarget('local');
+    expect(ApiRoute.GetTarget()).toBe('direct');
+  });
+
+  it('makes the answering line the current one', () => {
+    ApiRoute.AdoptTarget('cn-proxy');
+    expect(ApiRoute.GetTarget()).toBe('cn-proxy');
+  });
+
+  it('keeps a locked target fixed', () => {
+    ApiRoute.LockTarget('direct');
+    expect(ApiRoute.GetRetryTarget('direct')).toBe('direct');
+    ApiRoute.AdoptTarget('cn-proxy');
+    expect(ApiRoute.GetTarget()).toBe('direct');
+  });
+});

@@ -69,7 +69,7 @@ function ShowLoadingFAQ() {
 var WEBSITE_URL_MAIN = 'https://windy10v10ai.com';
 var WEBSITE_URL_CN = 'https://cn.windy10v10ai.com';
 
-// 与 src/panorama/utils/utils.ts 的 GetWebsiteUrl 同一套判断，改动要同步
+// Keep in sync with GetWebsiteUrl in src/panorama/utils/utils.ts.
 function GetWebsiteUrl() {
   var route = CustomNetTables.GetTableValue('api_route', String(Game.GetLocalPlayerID()));
   if (route) {

@@ -86,6 +86,7 @@ export class ApiClient {
     if (IsInToolsMode()) {
       const target = GetApiTarget();
       if (target !== 'auto') {
+        ApiRoute.LockTarget(target);
         this.setRoute(target, onSelected);
         return;
       }
@@ -137,43 +138,51 @@ export class ApiClient {
   public static send(
     apiParameter: ApiParameter,
     callbackFunc: (result: CScriptHTTPResponse) => void,
+    target: ApiTarget = ApiRoute.GetTarget(),
   ) {
-    this.sendTo(ApiRoute.GetTarget(), apiParameter, callbackFunc);
+    this.sendTo(target, apiParameter, callbackFunc);
   }
 
   public static sendWithRetry(apiParameter: ApiParameter) {
     let retryCount = 0;
     const maxRetryTimes = apiParameter.retryTimes || ApiClient.RETRY_TIMES;
+    let target = ApiRoute.GetTarget();
     const retry = () => {
-      this.send(apiParameter, (result: CScriptHTTPResponse) => {
-        print(`[ApiClient] return with status code: ${result.StatusCode}`);
-        const is2xx = result.StatusCode >= 200 && result.StatusCode < 300;
-        const validate = apiParameter.validateResponse;
-        if (is2xx && (!validate || validate(result.Body))) {
-          apiParameter.successFunc(result.Body);
-          return;
-        }
-        if (is2xx) {
-          print(`[ApiClient] invalid response body: ${result.Body}`);
-        } else {
-          print(`[ApiClient] failed response body: ${result.Body}`);
-          if (!isRetryableStatus(result.StatusCode)) {
+      this.send(
+        apiParameter,
+        (result: CScriptHTTPResponse) => {
+          print(`[ApiClient] return with status code: ${result.StatusCode}`);
+          const is2xx = result.StatusCode >= 200 && result.StatusCode < 300;
+          const validate = apiParameter.validateResponse;
+          if (is2xx && (!validate || validate(result.Body))) {
+            ApiRoute.AdoptTarget(target);
+            apiParameter.successFunc(result.Body);
+            return;
+          }
+          if (is2xx) {
+            print(`[ApiClient] invalid response body: ${result.Body}`);
+          } else {
+            print(`[ApiClient] failed response body: ${result.Body}`);
+            if (!isRetryableStatus(result.StatusCode)) {
+              if (apiParameter.failureFunc) {
+                apiParameter.failureFunc(result.Body);
+              }
+              return;
+            }
+          }
+          retryCount++;
+          if (retryCount < maxRetryTimes) {
+            target = ApiRoute.GetRetryTarget(target);
+            print(`[ApiClient] getWithRetry retry ${retryCount} target=${target}`);
+            retry();
+          } else {
             if (apiParameter.failureFunc) {
               apiParameter.failureFunc(result.Body);
             }
-            return;
           }
-        }
-        retryCount++;
-        if (retryCount < maxRetryTimes) {
-          print(`[ApiClient] getWithRetry retry ${retryCount}`);
-          retry();
-        } else {
-          if (apiParameter.failureFunc) {
-            apiParameter.failureFunc(result.Body);
-          }
-        }
-      });
+        },
+        target,
+      );
     };
     retry();
   }

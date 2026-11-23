@@ -1,8 +1,7 @@
-// Dota 2 7.42 起服务端拿不到 HTTP 请求对象，由这个客户端代发白名单请求：
-// 控件只有创建时的第一次导航有效，所以脚本在加载界面阶段就按线路各建一组隐藏的 DOTAHTMLPanel，
-// 各自加载后端返回的中转页，之后每次请求按网址来源选对应线路的控件，只改网址 # 片段，
-// 页面用同源 fetch 发请求，响应经 HTMLTitle 事件读回。
-// 脚本必须挂在加载界面布局，别处创建的控件加载不了中转页。
+// Since Dota 2 7.42 the server cannot make HTTP requests, so this client relays whitelisted ones.
+// A DOTAHTMLPanel only honours its first navigation, so one hidden group per line is created during
+// the loading screen and each request later only changes the URL fragment of a matching panel.
+// Must be attached to the loading-screen layout; panels created elsewhere cannot load the bridge page.
 (function () {
   'use strict';
 
@@ -11,8 +10,8 @@
   var READY_FAST_ATTEMPTS = 60;
   var READY_SLOW_RETRY_SECONDS = 5;
 
-  // 控件加载页面后只能改 # 片段，所以每条线路的首次网址（含查询串）就是之后所有请求的网址前缀，
-  // 来源校验与实际请求用同一个来源。主入口的中转页按查询参数回报国家码，备用入口没有
+  // The first URL (query included) is the prefix of every later request because only the fragment can change.
+  // Only the main entry's bridge page reports a country code.
   var CHANNEL_COUNT = 3;
   var BRIDGE_PATH = '/api/proxy/bridge';
   var BRIDGE_READY_TITLE = 'bridge|ready';
@@ -113,7 +112,7 @@
     );
   }
 
-  // 就绪标题为 bridge|ready，带国家码时为 bridge|ready|<国家码>（国家码可为空），返回 undefined 表示不是就绪标题
+  // Returns undefined when the title is not a ready title.
   function parseReadyTitle(title) {
     if (title === BRIDGE_READY_TITLE) return '';
     if (title.indexOf(BRIDGE_READY_TITLE + '|') !== 0) return undefined;

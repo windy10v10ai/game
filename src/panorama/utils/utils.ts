@@ -26,8 +26,8 @@ const WEBSITE_URL_MAIN = 'https://windy10v10ai.com';
 const WEBSITE_URL_CN = 'https://cn.windy10v10ai.com';
 
 /**
- * 网站域名按这名玩家自己的网络情况在点击时选：国家码为 CN，或本机只连得上备用入口，走国内域名。
- * 两项信号都拿不到时按界面语言兜底。game_mode.js 与 battlepass.js 各有一份同样的判断，改动要同步。
+ * Picks the website domain at click time from this player's own network signals.
+ * game_mode.js and battlepass.js carry a copy of this logic and must stay in sync.
  */
 export function GetWebsiteUrl(): string {
   const route = CustomNetTables.GetTableValue('api_route', Game.GetLocalPlayerID().toString());

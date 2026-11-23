@@ -10,7 +10,7 @@ const TIMEOUT_SECONDS = 10;
 // 开局时客户端多半还没加载完，排队等通道的时间不该占用请求预算。
 // 客户端会一直举手到服务端回执为止，慢机器晚到也接得上；这里的上限只是不让请求无限挂着
 const QUEUE_TIMEOUT_SECONDS = 60;
-// 每个玩家按线路各有一组网页控件，通道数、失败记录、可用状态都按线路分开，一条线路不通不拖累另一条
+// Each player has a separate widget set per line, so a broken line never drags down the other.
 const RELAY_LINES = ['direct', 'cn-proxy'];
 const COUNTRY_CODE_LENGTH = 2;
 
@@ -132,7 +132,7 @@ export class ApiHtmlProxy {
       typeof event.country === 'string'
         ? event.country.slice(0, COUNTRY_CODE_LENGTH).toUpperCase()
         : '';
-    // 客户端会重发 ready 直到回执与自己上报的一致，重复的 ready 也要回，否则回执丢失就会一直重发
+    // The client resends ready until the ack matches its report, so duplicates must be acked too.
     const player = PlayerResource.GetPlayer(playerId);
     if (player) {
       CustomGameEventManager.Send_ServerToPlayer(player, 'api_html_proxy_ack', {
@@ -150,7 +150,7 @@ export class ApiHtmlProxy {
     ApiHtmlProxy.countries.set(playerId, country);
     ApiHtmlProxy.scheduler.SetCapacity(playerId, 'direct', channels);
     ApiHtmlProxy.scheduler.SetCapacity(playerId, 'cn-proxy', backupChannels);
-    // 各玩家的网页跳转据此选域名，每名玩家只读自己那条
+    // Each client reads only its own entry to pick the website domain.
     CustomNetTables.SetTableValue('api_route', playerId.toString(), {
       channels,
       backupChannels,
@@ -162,7 +162,7 @@ export class ApiHtmlProxy {
     if (capacityChanged) ApiHtmlProxy.pump();
   }
 
-  // 把队列里能派的都派出去；某条线路上全员失败过就清空这条线路的黑名单重来，候选通常只有三四人
+  // A line whose candidates have all failed gets its blacklist cleared, since there are only a few candidates.
   private static pump(): void {
     if (ApiHtmlProxy.scheduler.QueuedCount() === 0) return;
     let assignments = ApiHtmlProxy.scheduler.Drain(ApiHtmlProxy.canRelay);
@@ -177,6 +177,7 @@ export class ApiHtmlProxy {
   private static resetExhaustedLines(): boolean {
     let reset = false;
     for (const line of RELAY_LINES) {
+      if (ApiHtmlProxy.unavailableLines.has(line)) continue;
       const failed = ApiHtmlProxy.failedPlayers.get(line);
       if (
         failed !== undefined &&
@@ -288,8 +289,8 @@ export class ApiHtmlProxy {
     ApiHtmlProxy.pump();
   }
 
-  // 拉黑代发失败过的玩家（按线路），让调用方已有的重试落到别人身上。
-  // 排队阶段超时时请求还没派发出去，不归咎于任何玩家
+  // Blacklists a player that failed to relay on a line so the caller's retry lands on someone else.
+  // A request that times out while still queued was never dispatched, so nobody is blamed.
   private static markRelayFailed(relayPlayerId: PlayerID | undefined, line: string): void {
     if (relayPlayerId === undefined) return;
     let failed = ApiHtmlProxy.failedPlayers.get(line);
@@ -325,8 +326,11 @@ export class ApiHtmlProxy {
     }
   }
 
+  // An unavailable line is never dispatched to, otherwise cancelling its in-flight requests would immediately re-dispatch queued ones.
   private static canRelay = (playerId: PlayerID, line: string): boolean =>
-    !ApiHtmlProxy.failedPlayers.get(line)?.has(playerId) && ApiHtmlProxy.isCandidate(playerId);
+    !ApiHtmlProxy.unavailableLines.has(line) &&
+    !ApiHtmlProxy.failedPlayers.get(line)?.has(playerId) &&
+    ApiHtmlProxy.isCandidate(playerId);
 
   // 已登记通道、在线、steamId > 0 的真人玩家；掉线的顺延到下一个
   private static isCandidate = (playerId: PlayerID): boolean =>

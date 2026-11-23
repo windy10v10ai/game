@@ -2,7 +2,7 @@ const RESET_PROPERTY_SEASON_POINT_COST = 2000;
 const WEBSITE_URL_MAIN = 'https://windy10v10ai.com';
 const WEBSITE_URL_CN = 'https://cn.windy10v10ai.com';
 
-// 与 src/panorama/utils/utils.ts 的 GetWebsiteUrl 同一套判断，改动要同步
+// Keep in sync with GetWebsiteUrl in src/panorama/utils/utils.ts.
 function GetWebsiteUrl() {
   const route = CustomNetTables.GetTableValue('api_route', String(Game.GetLocalPlayerID()));
   if (route) {
