@@ -10,7 +10,6 @@ import { SPECS as jakiroMacropyre } from './jakiro_macropyre';
 import { SPECS as juggernautBladeFury } from './juggernaut_blade_fury';
 import { SPECS as juggernautHealingWard } from './juggernaut_healing_ward';
 import { SPECS as juggernautOmniSlash } from './juggernaut_omni_slash';
-import { SPECS as juggernautSwiftSlash } from './juggernaut_swift_slash';
 import { SPECS as kunkkaGhostship } from './kunkka_ghostship';
 import { SPECS as kunkkaTidalWave } from './kunkka_tidal_wave';
 import { SPECS as kunkkaTidebringer } from './kunkka_tidebringer';
@@ -46,7 +45,6 @@ export function registerAbilitySpecsEToL(): void {
   AbilityRegistry.registerAll(juggernautBladeFury);
   AbilityRegistry.registerAll(juggernautHealingWard);
   AbilityRegistry.registerAll(juggernautOmniSlash);
-  AbilityRegistry.registerAll(juggernautSwiftSlash);
   AbilityRegistry.registerAll(kunkkaGhostship);
   AbilityRegistry.registerAll(kunkkaTidalWave);
   AbilityRegistry.registerAll(kunkkaTidebringer);
