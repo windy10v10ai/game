@@ -3197,15 +3197,15 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+Скорость применения"
 
-		// item_meteor_hammer_copy
-		"DOTA_Tooltip_ability_item_meteor_hammer_copy"						"<font color='#B87333'>Драгоценный Meteor Hammer</font>"
-		"DOTA_Tooltip_ability_item_meteor_hammer_copy_Description"		"<h1>Активное: Meteor Hammer</h1> ПРЕРЫВАЕМАЯ — после %max_duration% сек. применения призывает метеорит, который через %land_time% сек. бьёт по области радиусом %impact_radius%, оглушая врагов на %stun_duration% сек. и нанося %impact_damage_units% урона от удара. Затем наносит %burn_dps_units% урона в секунду в течение %burn_duration% сек.<br><br>Не-постройки также замедляются на %burn_slow%%% на %burn_duration% сек.<br><br>Наносит %building_damage_pct%%% урона по постройкам.\n\n<h1>来源</h1>只能从藏宝箱开出。\n\n因长期疏于保管，藏品的属性已发生一定变动。"
-		"DOTA_Tooltip_ability_item_meteor_hammer_copy_Lore"			"Этот зачарованный молот сковали из металла, который обнаружили в руинах деревни, уничтоженной великим звездопадом."
-		"DOTA_Tooltip_ability_item_meteor_hammer_copy_bonus_strength"		"+$str"
-		"DOTA_Tooltip_ability_item_meteor_hammer_copy_bonus_agility"		"+$agi"
-		"DOTA_Tooltip_ability_item_meteor_hammer_copy_bonus_intellect"		"+$int"
-		"DOTA_Tooltip_ability_item_meteor_hammer_copy_spell_amp"		"%+к урону от заклинаний"
-		"DOTA_Tooltip_ability_item_meteor_hammer_copy_mana_regen_multiplier"		"%+к усилению восстановления маны"
+		// item_starforge_copy 珍藏·锻星炉
+		"DOTA_Tooltip_ability_item_starforge_copy"	"<font color='#B87333'>Драгоценная Звёздная кузница</font>"
+		"DOTA_Tooltip_ability_item_starforge_copy_Description"	"<h1>Активное: Метеоритный молот</h1>После применения в течение %max_duration% сек. призывает метеорит, который падает через %land_time% сек. и поражает врагов в радиусе %impact_radius%.<br><br>Враги, кроме построек, получают %impact_damage_units% урона от удара плюс %impact_damage_units_pct_health%%% от их максимального здоровья, оглушаются на %stun_duration% сек. и замедляются на %burn_slow%%% на %burn_duration% сек.<br><br>Постройки получают %building_damage_pct%%% базового урона от удара.\n\n<h1>Пассивное: Звёздная вспышка</h1>Когда наложенный вами эффект контроля заканчивается, враг получает %burn_per_second% урона в секунду и замедляется на %slow_pct%%% в течение %passive_debuff_duration% сек.<br>Звёздную вспышку могут вызвать ваши способности и предметы.<br>Звёздная вспышка складывается с горением от метеоритного молота.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились, и при сборке оно позволяет пропускать ступени улучшения."
+		"DOTA_Tooltip_ability_item_starforge_copy_Note0"	"Звёздную вспышку могут вызвать оглушение, превращение, гипноз, циклон, провокация, страх, сон и изгнание."
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_strength"	"+$str"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_agility"	"+$agi"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_intellect"	"+$int"
+		"DOTA_Tooltip_ability_item_starforge_copy_spell_amp"	"%+к урону от заклинаний"
+		"DOTA_Tooltip_ability_item_starforge_copy_mana_regen_multiplier"	"%+к усилению восстановления маны"
 
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>Падение звезды</font>"
