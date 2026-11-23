@@ -4571,7 +4571,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1025"
+		"ItemCost"						"100"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4581,7 +4581,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_helm_of_iron_will;item_berserkers_sabatons"
-			"02"						"item_helm_of_iron_will;item_armlet_copy"
+			"02"						"item_helm_of_iron_will;item_berserkers_sabatons_copy"
 		}
 	}
 	"item_armlet_plus"
@@ -4599,7 +4599,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5000"
+		"ItemCost"						"5125"
 		"ItemShopTags"					"damage;attack_speed;armor;regen_health;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"armlet of mordiggian"
@@ -4640,7 +4640,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1025"
+		"ItemCost"						"100"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4667,7 +4667,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6500"
+		"ItemCost"						"6200"
 		"ItemShopTags"					"damage;attack_speed;armor;regen_health;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"armlet of mordiggian"
@@ -7973,16 +7973,18 @@
 	}
 
 	//=================================================================================================================
-	// 珍藏·臂章：属性同莫尔迪基安的臂章，只能由宝箱开出，可合成小鸡臂章Plus
+	// Treasured Sabatons
 	//=================================================================================================================
-	"item_armlet_copy"
+	"item_berserkers_sabatons_copy"
 	{
 		"ID"							"10481"
-		"BaseClass"						"item_armlet"
-		"AbilityTextureName"			"armlet_copy"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"BaseClass"						"item_berserkers_sabatons"
+		"AbilityTextureName"			"berserkers_sabatons_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityCooldown"				"0.0"
-		"ItemCost"						"1000"	// 原版造价 2500
+		"AbilityManaCost"				"0"
+		"ItemCost"						"1000"
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
 		"ItemSellable"					"1"
@@ -7991,16 +7993,21 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"		"20"	// 原版 15
-			"bonus_attack_speed"		"30"	// 原版 25
-			"bonus_armor"		"8"	// 原版 6
-			"bonus_health_regen"		"8"	// 原版 5
-			"unholy_bonus_damage"		"30"	// 原版 35
-			"unholy_bonus_strength"		"35"	// 原版 25
-			"unholy_bonus_armor"		"6"	// 原版 4
-			"unholy_bonus_slow_resistance"		"35"	// 原版 0
-			"unholy_health_drain_per_second"		"40"	// 原版 45
-			"toggle_cooldown"		"0.036f"	// 原版 0.036
+			"bonus_movement_speed_ranged"	"45"
+			"bonus_movement_speed_melee"		"55"
+			"bonus_damage"					"20"
+			"bonus_attack_speed"			"30"
+			"bonus_armor"					"8"
+			"bonus_health_regen"			"8"
+			"phase_movement_speed"			"20"
+			"phase_movement_speed_range"	"10"
+			"unholy_bonus_damage"			"30"
+			"unholy_bonus_strength"			"35"
+			"unholy_bonus_armor"			"6"
+			"unholy_bonus_slow_resistance"	"35"
+			"unholy_health_drain_per_second"	"40"
+			"unholy_health_drain_pct_per_second"	"0"
+			"toggle_cooldown"				"0.036"
 		}
 	}
 

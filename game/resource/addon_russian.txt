@@ -3016,21 +3016,23 @@
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"Удар Некрономикона"
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"Вы превращены в овцу. Нельзя атаковать, применять способности и использовать предметы. Сопротивление магии снижено (фиксированное значение)."
 
-		// item_armlet_copy Драгоценный Armlet
-		"DOTA_Tooltip_ability_item_armlet_copy"						"<font color='#B87333'>Драгоценный Armlet</font>"
-		"DOTA_Tooltip_ability_item_armlet_copy_Description"		"<h1>Переключаемое: Unholy Strength</h1>Если включено, увеличивает урон на %unholy_bonus_damage%, силу на %unholy_bonus_strength% и броню на %unholy_bonus_armor%, но отнимает %unholy_health_drain_per_second% здоровья в секунду.<br><br>Вы не можете умереть ни от потери здоровья из-за способности, ни от спада бонуса к силе после её выключения.\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nВследствие длительного отсутствия ухода характеристики предмета претерпели некоторые изменения."
-		"DOTA_Tooltip_ability_item_armlet_copy_Lore"			"Это оружие, горячо любимое дикарями, забирает жизненные силы владельца, взамен наделяя его безмерной силой и мощью."
-		"DOTA_Tooltip_ability_item_armlet_copy_Note0"			"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
-		"DOTA_Tooltip_ability_item_armlet_copy_Note1"			"Изменение силы происходит спустя 0,6 секунды."
-		"DOTA_Tooltip_ability_item_armlet_copy_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_item_armlet_copy_bonus_attack_speed"						"+$attack"
-		"DOTA_Tooltip_ability_item_armlet_copy_bonus_armor"						"+$armor"
-		"DOTA_Tooltip_ability_item_armlet_copy_bonus_health_regen"						"+$hp_regen"
+		// item_berserkers_sabatons_copy 珍藏·护足
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy"										"<font color='#B87333'>Драгоценные сабатоны</font>"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Description"							"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а героям ближнего боя даёт %phase_movement_speed%%% к скорости передвижения и героям дальнего боя %phase_movement_speed_range%%%. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются.\n\n<h1>Источник</h1>Встречается только в сундуках.\n\nВследствие длительного отсутствия ухода характеристики предмета претерпели некоторые изменения."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Lore"									"Эти сабатоны питаются жизненной силой владельца, позволяя ему пройти сквозь ряды врагов."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Note0"									"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Note1"									"Изменение силы происходит спустя 0,6 секунды."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_movement_speed_melee"				"+ к скорости передвижения (герои ближнего боя)"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_movement_speed_ranged"			"+ к скорости передвижения (герои дальнего боя)"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_attack_speed"						"+$attack"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_health_regen"						"+$hp_regen"
 
-		// 小鸡臂章
-		"DOTA_Tooltip_Ability_item_armlet_plus"				"Куриный Armlet Plus"
+		// 小鸡护足
+		"DOTA_Tooltip_Ability_item_armlet_plus"				"Куриные сабатоны Plus"
 		"DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а героям ближнего боя даёт %phase_movement_speed%%% к скорости передвижения и героям дальнего боя %phase_movement_speed_range%%%. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются."
-		"DOTA_Tooltip_ability_item_armlet_plus_Lore"									"А вы знаете, что такое Куриный Armlet?"
+		"DOTA_Tooltip_ability_item_armlet_plus_Lore"									"А вы знаете, что такое Куриные сабатоны?"
 		"DOTA_Tooltip_ability_item_armlet_plus_Note0"								"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
 		"DOTA_Tooltip_ability_item_armlet_plus_Note1"								"Изменение силы происходит спустя 0,6 секунды."
 		"DOTA_Tooltip_ability_item_armlet_plus_Note2"								"Включение и выключение Unholy Strength не останавливает прерываемые заклинания."
@@ -3042,7 +3044,7 @@
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_movement_speed_melee"			"+ к скорости передвижения (герои ближнего боя)"
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_movement_speed_ranged"			"+ к скорости передвижения (герои дальнего боя)"
 
-		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"Куриный Armlet Pro Max"
+		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"Куриные сабатоны Pro Max"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а героям ближнего боя даёт %phase_movement_speed%%% к скорости передвижения и героям дальнего боя %phase_movement_speed_range%%%. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Lore"									"Куриный Armlet вообще-то не должен отнимать здоровье каждую секунду, но мы снизили потери чисто символически."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note0"								"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
@@ -3381,8 +3383,8 @@
 		"DOTA_Tooltip_Ability_item_dark_part_Lore"				"С некоторым шансом выпадает при убийстве Рошана и нейтральных существ ночью."
 		"DOTA_Tooltip_Ability_item_dark_part_bonus_spell_amp"	"%+$spell_amp"
 
-		// item_armlet_light 圣光·臂章
-		"DOTA_Tooltip_ability_item_armlet_light"				"<font color='#FFFF00'>Светлый Armlet of Mordiggian</font>"
+		// item_armlet_light 圣光·护足
+		"DOTA_Tooltip_ability_item_armlet_light"				"<font color='#FFFF00'>Светлые сабатоны</font>"
 		"DOTA_Tooltip_ability_item_armlet_light_Description"							"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а героям ближнего боя даёт %phase_movement_speed%%% к скорости передвижения и героям дальнего боя %phase_movement_speed_range%%%. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются."
 		"DOTA_Tooltip_ability_item_armlet_light_Lore"									"Это оружие, горячо любимое дикарями, забирает жизненные силы владельца, взамен наделяя его безмерной силой и мощью."
 		"DOTA_Tooltip_ability_item_armlet_light_Note0"								"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
@@ -3395,8 +3397,8 @@
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_movement_speed_melee"			"+ к скорости передвижения (герои ближнего боя)"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_movement_speed_ranged"			"+ к скорости передвижения (герои дальнего боя)"
 
-		// item_armlet_dark 暗影·臂章
-		"DOTA_Tooltip_ability_item_armlet_dark"				"<font color='#8A2BE2'>Тёмный Armlet of Mordiggian</font>"
+		// item_armlet_dark 暗影·护足
+		"DOTA_Tooltip_ability_item_armlet_dark"				"<font color='#8A2BE2'>Тёмные сабатоны</font>"
 		"DOTA_Tooltip_ability_item_armlet_dark_Description"							"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а героям ближнего боя даёт %phase_movement_speed%%% к скорости передвижения и героям дальнего боя %phase_movement_speed_range%%%. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются."
 		"DOTA_Tooltip_ability_item_armlet_dark_Lore"									"Это оружие, горячо любимое дикарями, забирает жизненные силы владельца, взамен наделяя его безмерной силой и мощью."
 		"DOTA_Tooltip_ability_item_armlet_dark_Note0"								"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
@@ -3409,8 +3411,8 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_movement_speed_melee"			"+ к скорости передвижения (герои ближнего боя)"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_movement_speed_ranged"			"+ к скорости передвижения (герои дальнего боя)"
 
-		// item_armlet_artifact 神器·光暗臂章
-		"DOTA_Tooltip_ability_item_armlet_artifact"									"<font color='#e03e2e'>Артефакт: Armlet света и тьмы</font>"
+		// item_armlet_artifact 神器·光暗护足
+		"DOTA_Tooltip_ability_item_armlet_artifact"									"<font color='#e03e2e'>Артефакт: сабатоны света и тьмы</font>"
 		"DOTA_Tooltip_ability_item_armlet_artifact_Description"						"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а героям ближнего боя даёт %phase_movement_speed%%% к скорости передвижения и героям дальнего боя %phase_movement_speed_range%%%. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются."
 		"DOTA_Tooltip_ability_item_armlet_artifact_Lore"								"Свет и тьма, слитые в совершенстве, — владелец постигает вершины обоих."
 		"DOTA_Tooltip_ability_item_armlet_artifact_Note0"							"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
