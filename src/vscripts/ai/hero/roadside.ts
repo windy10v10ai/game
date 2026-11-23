@@ -3,7 +3,7 @@
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { CachedOutposts } from '../team/building-cache';
-import { pickDetourSpot } from '../ward/ward-decision';
+import { pickDetourSpot, wardQueryRadius } from '../ward/ward-decision';
 import { WardPlacement } from '../ward/ward-placement';
 import { OBSERVER_WARD_CONFIG, WARD_DETOUR_RANGE } from '../ward/ward-position-config';
 
@@ -149,25 +149,28 @@ function WardDetour(hero: CDOTA_BaseNPC_Hero, team: DotaTeam): number {
   if (!item) {
     return 0;
   }
-  const existing = WardPlacement.FindFriendlyWards(
-    hero,
-    config,
-    WARD_DETOUR_RANGE + 2 * config.sameWardRadius,
-  );
+  const zones = WardPlacement.ZonesOf(hero, config);
+  const existing = [
+    ...WardPlacement.FindFriendlyWards(
+      hero,
+      config,
+      wardQueryRadius(WARD_DETOUR_RANGE, zones, config.sameWardRadius),
+    ),
+    ...WardPlacement.ClaimedSpots(team, config),
+  ];
   const origin = hero.GetAbsOrigin();
   const pick = pickDetourSpot(
     origin,
-    WardPlacement.ZonesOf(hero, config),
+    zones,
     WARD_DETOUR_RANGE,
     existing,
     config.sameWardRadius,
-    (zoneId) => WardPlacement.IsClaimed(team, zoneId),
     (n) => RandomInt(0, n - 1),
   );
   if (!pick) {
     return 0;
   }
-  WardPlacement.Claim(team, pick.zoneId);
+  WardPlacement.Claim(team, config, pick.spot);
   WardPlacement.CastWard(hero, item, pick.spot, `detour:${pick.zoneId}`);
   if (IS_DEBUG_RUN) {
     print(

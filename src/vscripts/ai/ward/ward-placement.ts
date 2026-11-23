@@ -5,11 +5,14 @@
 
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import type { BotBaseAIModifier } from '../hero/bot-base';
+import { CachedTowers } from '../team/building-cache';
 import {
+  isZoneEnabled,
   pickPassingSpot,
   SENTRY_TRIGGER_RADIUS,
   shouldDropSentry,
   WardZone,
+  wardQueryRadius,
 } from './ward-decision';
 import {
   getWardZones,
@@ -24,8 +27,14 @@ import {
 
 const randomIndex = (n: number): number => RandomInt(0, n - 1);
 // 每个 bot 上次被隐身敌人打到后插真眼的时间
-// 区域被认领到的时间，key 为 team:zoneId
-const claimedUntil = new Map<string, number>();
+// 已发出插眼命令、眼还没落地的点位，按队伍与眼种记，到期自动失效
+interface Claim {
+  team: DotaTeam;
+  wardClassName: string;
+  spot: Vector;
+  until: number;
+}
+let claims: Claim[] = [];
 const sentryDroppedAt = new Map<EntityIndex, number>();
 
 export class WardPlacement {
@@ -88,13 +97,25 @@ export class WardPlacement {
     this.CastWard(hero, sentry!, origin, 'invisible-attacker');
   }
 
-  /** 已发出插眼命令的区域：命令发出后一段时间内不再派第二个人，眼真正落地由「区域里已有己方眼」判定，两者分开记 */
-  static IsClaimed(team: DotaTeam, zoneId: string): boolean {
-    return GameRules.GetGameTime() < (claimedUntil.get(`${team}:${zoneId}`) ?? -Infinity);
+  /**
+   * 已发出插眼命令但眼未落地的点位：当作已有眼参与区域去重，口径与落地后一致，相邻区域的点也不会再派人。
+   * 同一区域不再派第二个人靠这个，眼真正落地由区域里有没有己方眼判定。
+   */
+  static ClaimedSpots(team: DotaTeam, config: WardTypeConfig): readonly Vector[] {
+    const now = GameRules.GetGameTime();
+    claims = claims.filter((claim) => claim.until > now);
+    return claims
+      .filter((claim) => claim.team === team && claim.wardClassName === config.wardClassName)
+      .map((claim) => claim.spot);
   }
 
-  static Claim(team: DotaTeam, zoneId: string): void {
-    claimedUntil.set(`${team}:${zoneId}`, GameRules.GetGameTime() + WARD_RETRY_SECONDS);
+  static Claim(team: DotaTeam, config: WardTypeConfig, spot: Vector): void {
+    claims.push({
+      team,
+      wardClassName: config.wardClassName,
+      spot,
+      until: GameRules.GetGameTime() + WARD_RETRY_SECONDS,
+    });
   }
 
   static SideOf(team: DotaTeam): WardSide {
@@ -102,7 +123,10 @@ export class WardPlacement {
   }
 
   static ZonesOf(hero: CDOTA_BaseNPC_Hero, config: WardTypeConfig): readonly WardZone[] {
-    return getWardZones(config, this.SideOf(hero.GetTeamNumber()));
+    const aliveTowerNames = CachedTowers().map((tower) => tower.GetUnitName());
+    return getWardZones(config, this.SideOf(hero.GetTeamNumber())).filter((zone) =>
+      isZoneEnabled(zone, aliveTowerNames),
+    );
   }
 
   private static TryPlaceWard(
@@ -110,26 +134,29 @@ export class WardPlacement {
     item: CDOTA_Item,
     config: WardTypeConfig,
   ): boolean {
-    const existingWards = this.FindFriendlyWards(
-      hero,
-      config,
-      config.castRange + 2 * config.sameWardRadius,
-    );
-    // 落点带抖动，判定距离要留出抖动余量，否则会超出 KV 的 cast range 导致施法失败
     const team = hero.GetTeamNumber();
+    const zones = this.ZonesOf(hero, config);
+    const existingWards = [
+      ...this.FindFriendlyWards(
+        hero,
+        config,
+        wardQueryRadius(config.castRange, zones, config.sameWardRadius),
+      ),
+      ...this.ClaimedSpots(team, config),
+    ];
+    // 落点带抖动，判定距离要留出抖动余量，否则会超出 KV 的 cast range 导致施法失败
     const pick = pickPassingSpot(
       hero.GetAbsOrigin(),
-      this.ZonesOf(hero, config),
+      zones,
       config.castRange - POSITION_JITTER,
       existingWards,
       config.sameWardRadius,
-      (zoneId) => this.IsClaimed(team, zoneId),
       randomIndex,
     );
     if (pick === undefined) {
       return false;
     }
-    this.Claim(team, pick.zoneId);
+    this.Claim(team, config, pick.spot);
     return this.CastWard(hero, item, pick.spot, 'passing');
   }
 

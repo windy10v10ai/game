@@ -190,7 +190,6 @@ function HasFreeZoneNearby(
       WARD_DETOUR_RANGE,
       placedAt,
       config.sameWardRadius,
-      () => false,
       () => 0,
     ) !== undefined
   );

@@ -1,14 +1,22 @@
 import {
   countHeldWards,
   HeldItem,
+  isZoneEnabled,
   isZoneFree,
   pickDetourSpot,
+  maxZoneSpan,
   pickPassingSpot,
   pickWardBuyer,
   shouldDropSentry,
   WardZone,
+  wardQueryRadius,
 } from './ward-decision';
-import { OBSERVER_WARD_CONFIG, SENTRY_WARD_CONFIG, WardZoneData } from './ward-position-config';
+import {
+  OBSERVER_WARD_CONFIG,
+  POSITION_JITTER,
+  SENTRY_WARD_CONFIG,
+  WardZoneData,
+} from './ward-position-config';
 
 /** 判定只用到 __sub 与 Length2D，构造最小替身即可 */
 function vec(x: number, y: number, z = 0): Vector {
@@ -48,31 +56,49 @@ describe('分阵营取点', () => {
 });
 
 describe('配置数据自检', () => {
-  it.each(sides)('%s 假眼点位两两距离不小于 600', (side) => {
-    const spots = spotsOf(OBSERVER_WARD_CONFIG.zones[side]);
-    for (let i = 0; i < spots.length; i++) {
-      for (let j = i + 1; j < spots.length; j++) {
-        expect(dist(spots[i], spots[j])).toBeGreaterThanOrEqual(600);
+  // 眼落地后按备选点到眼的距离判占用，落点带偏移，不同区域的备选点要隔开去重半径加偏移才不会互相挤占
+  const MIN_ZONE_GAP = OBSERVER_WARD_CONFIG.sameWardRadius + POSITION_JITTER;
+  // 进攻眼位 a 类与 b 类、b 类之间是同一片的替代点（塔倒前后各用一个），允许挨得近，显式列出
+  const PAIRED_ZONES: Record<(typeof sides)[number], ReadonlyArray<readonly [string, string]>> = {
+    radiant: [
+      ['ra2', 'rb1'],
+      ['ra1', 'rb2'],
+    ],
+    dire: [
+      ['da1', 'db1'],
+      ['da1', 'db3'],
+      ['da2', 'db2'],
+      ['da2', 'db4'],
+    ],
+  };
+
+  it.each(sides)('%s 不同区域的点位两两距离不小于去重半径加偏移，成对进攻眼位除外', (side) => {
+    const zones = OBSERVER_WARD_CONFIG.zones[side];
+    const paired = (x: string, y: string) =>
+      PAIRED_ZONES[side].some(([p, q]) => (p === x && q === y) || (p === y && q === x));
+    const violations: string[] = [];
+    for (const zone of zones) {
+      for (const other of zones) {
+        if (other.id >= zone.id || paired(zone.id, other.id)) continue;
+        for (const a of zone.spots) {
+          for (const b of other.spots) {
+            if (dist(a, b) < MIN_ZONE_GAP) {
+              violations.push(`${zone.id}-${other.id}:${Math.round(dist(a, b))}`);
+            }
+          }
+        }
       }
     }
+    expect(violations).toEqual([]);
   });
 
-  it.each(sides)('%s 同一区域的备选点互相都在去重半径内，不同区域互不影响', (side) => {
-    const zones = OBSERVER_WARD_CONFIG.zones[side];
-    const radius = OBSERVER_WARD_CONFIG.sameWardRadius;
-    for (const zone of zones) {
+  // 区域占用按「任一备选点附近有眼」整区判，备选点相距略超去重半径也不会重复插
+  it.each(sides)('%s 同一区域的备选点互相都在 1100 内', (side) => {
+    for (const zone of OBSERVER_WARD_CONFIG.zones[side]) {
       expect(zone.spots.length).toBeGreaterThan(0);
       for (const a of zone.spots) {
         for (const b of zone.spots) {
-          expect(dist(a, b)).toBeLessThanOrEqual(radius);
-        }
-      }
-      for (const other of zones) {
-        if (other === zone) continue;
-        for (const a of zone.spots) {
-          for (const b of other.spots) {
-            expect(dist(a, b)).toBeGreaterThan(radius);
-          }
+          expect(dist(a, b)).toBeLessThanOrEqual(1100);
         }
       }
     }
@@ -91,9 +117,38 @@ describe('配置数据自检', () => {
     const { radiant, dire } = OBSERVER_WARD_CONFIG.zones;
     expect(Math.abs(spotsOf(radiant).length - spotsOf(dire).length)).toBeLessThanOrEqual(2);
   });
+
+  it.each([
+    ['radiant', 'badguys_tower3_'],
+    ['dire', 'goodguys_tower3_'],
+  ] as const)('%s 进攻眼位依赖的是敌方高地塔', (side, prefix) => {
+    const gated = OBSERVER_WARD_CONFIG.zones[side].filter((zone) => zone.requiresDeadTower);
+    expect(gated.length).toBeGreaterThan(0);
+    for (const zone of gated) {
+      expect(zone.requiresDeadTower).toMatch(new RegExp(`^${prefix}(top|mid|bot)$`));
+    }
+  });
 });
 
-const never = () => false;
+describe('进攻眼位启用条件', () => {
+  const free: WardZone = { id: 'a', spots: [vec(0, 0)] };
+  const gated: WardZone = { id: 'b', spots: [vec(0, 0)], requiresDeadTower: 'badguys_tower3_mid' };
+  const alive = ['npc_dota_badguys_tower3_mid', 'npc_dota_badguys_tower3_top'];
+
+  it('塔射程外的区域始终可选', () => {
+    expect(isZoneEnabled(free, alive)).toBe(true);
+    expect(isZoneEnabled(free, [])).toBe(true);
+  });
+
+  it('依赖的塔还活着时不可选', () => {
+    expect(isZoneEnabled(gated, alive)).toBe(false);
+  });
+
+  it('依赖的塔不在存活名单里就可选，别的塔活着不影响', () => {
+    expect(isZoneEnabled(gated, ['npc_dota_badguys_tower3_top'])).toBe(true);
+    expect(isZoneEnabled(gated, [])).toBe(true);
+  });
+});
 
 describe('区域取点', () => {
   it('区域里已有己方眼时整个区域不再选', () => {
@@ -101,10 +156,17 @@ describe('区域取点', () => {
     expect(isZoneFree(zoneA, [vec(5000, 0)], 800)).toBe(true);
   });
 
+  it('备选点相距超过去重半径时，任一点旁有眼整个区域也算占用', () => {
+    const wide: WardZone = { id: 'w', spots: [vec(0, 0), vec(1050, 0)] };
+    expect(isZoneFree(wide, [vec(0, 40)], 900)).toBe(false);
+    expect(isZoneFree(wide, [vec(1050, 40)], 900)).toBe(false);
+    expect(isZoneFree(wide, [vec(5000, 0)], 900)).toBe(true);
+  });
+
   it('多次取点能选到每一个够得着的备选点', () => {
     const picked = new Set<number>();
     for (let i = 0; i < 3; i++) {
-      const pick = pickPassingSpot(vec(300, 300), [zoneA], 1000, [], 800, never, sequence(i));
+      const pick = pickPassingSpot(vec(300, 300), [zoneA], 1000, [], 800, sequence(i));
       picked.add(pick!.spot.x * 10000 + pick!.spot.y);
     }
     expect(picked.size).toBe(3);
@@ -112,7 +174,7 @@ describe('区域取点', () => {
 
   it('够不着的备选点不选', () => {
     for (const i of [0, 1, 2]) {
-      expect(pickPassingSpot(vec(0, 0), [zoneA], 300, [], 800, never, sequence(i))?.spot).toBe(
+      expect(pickPassingSpot(vec(0, 0), [zoneA], 300, [], 800, sequence(i))?.spot).toBe(
         zoneA.spots[0],
       );
     }
@@ -120,20 +182,46 @@ describe('区域取点', () => {
 
   it('区域已被占用时路过也不插', () => {
     expect(
-      pickPassingSpot(vec(0, 0), [zoneA], 1000, [vec(0, 600)], 800, never, sequence(0)),
+      pickPassingSpot(vec(0, 0), [zoneA], 1000, [vec(0, 600)], 800, sequence(0)),
     ).toBeUndefined();
   });
 
-  it('已被认领的区域路过也不插', () => {
-    expect(
-      pickPassingSpot(vec(0, 0), [zoneA], 1000, [], 800, (id) => id === 'a', sequence(0)),
-    ).toBeUndefined();
+  it('只有认领、眼还没落地时，相邻区域的点也不可选', () => {
+    // 认领点当作已落地的眼传入：与已认领点相距 283 的另一个区域落在去重半径内
+    const near: WardZone = { id: 'near', spots: [vec(283, 0)] };
+    const far: WardZone = { id: 'far', spots: [vec(3000, 0)] };
+    const claimed = [vec(0, 0)];
+    expect(pickPassingSpot(vec(100, 0), [near], 600, claimed, 900, sequence(0))).toBeUndefined();
+    expect(pickPassingSpot(vec(100, 0), [near], 600, [], 900, sequence(0))?.zoneId).toBe('near');
+    expect(pickPassingSpot(vec(2900, 0), [far], 600, claimed, 900, sequence(0))?.zoneId).toBe(
+      'far',
+    );
+  });
+});
+
+describe('查眼半径', () => {
+  const wide: WardZone = { id: 'w', spots: [vec(0, 0), vec(1066, 0)] };
+
+  it('半径按候选距离加区域最大跨度加去重半径算', () => {
+    expect(maxZoneSpan([zoneA, wide])).toBeCloseTo(1066);
+    expect(wardQueryRadius(600, [zoneA, wide], 900)).toBeCloseTo(600 + 1066 + 900);
+  });
+
+  it('远端备选点旁的眼落在查询半径内，整区判为占用', () => {
+    // 英雄在近端备选点旁够得着它，远端备选点旁的眼离英雄 1066 + 850
+    const hero = vec(-500, 0);
+    const radius = wardQueryRadius(600, [wide], 900);
+    const farWard = vec(1066 + 850, 0);
+    expect(farWard.__sub(hero).Length2D()).toBeLessThanOrEqual(radius);
+    expect(isZoneFree(wide, [farWard], 900)).toBe(false);
+    // 旧口径「跨度不超过 900」算出的半径会漏掉它
+    expect(farWard.__sub(hero).Length2D()).toBeGreaterThan(600 + 2 * 900);
   });
 });
 
 describe('顺路选点', () => {
   it('范围内有两个空区域时选近的', () => {
-    const pick = pickDetourSpot(vec(2500, 0), [zoneA, zoneB], 3000, [], 800, never, sequence(0));
+    const pick = pickDetourSpot(vec(2500, 0), [zoneA, zoneB], 3000, [], 800, sequence(0));
     expect(pick?.zoneId).toBe('b');
   });
 
@@ -144,7 +232,6 @@ describe('顺路选点', () => {
       3000,
       [vec(3100, 0)],
       800,
-      never,
       sequence(0),
     );
     expect(pick?.zoneId).toBe('a');
@@ -153,25 +240,24 @@ describe('顺路选点', () => {
   it('只在区域里够得着的备选点里随机，范围外的备选点不会被抽到', () => {
     // 英雄在 (0,0)，范围 650：区域 A 只有 (0,0) 与 (600,0) 够得着，(0,700) 够不着
     for (const i of [0, 1, 2, 3]) {
-      const pick = pickDetourSpot(vec(0, 0), [zoneA], 650, [], 800, never, sequence(i));
+      const pick = pickDetourSpot(vec(0, 0), [zoneA], 650, [], 800, sequence(i));
       expect(zoneA.spots.slice(0, 2)).toContain(pick!.spot);
     }
   });
 
   it('范围外不选', () => {
-    expect(pickDetourSpot(vec(9000, 0), [zoneA, zoneB], 1500, [], 800, never, sequence(0))).toBe(
+    expect(pickDetourSpot(vec(9000, 0), [zoneA, zoneB], 1500, [], 800, sequence(0))).toBe(
       undefined,
     );
   });
 
-  it('被别的电脑认领的区域不选', () => {
+  it('被别的电脑认领的点附近的区域不选', () => {
     const pick = pickDetourSpot(
       vec(2500, 0),
       [zoneA, zoneB],
       3000,
-      [],
+      [vec(3000, 100)],
       800,
-      (id) => id === 'b',
       sequence(0),
     );
     expect(pick?.zoneId).toBe('a');

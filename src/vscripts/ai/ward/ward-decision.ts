@@ -12,8 +12,16 @@ export function hasPointWithin(center: Vector, points: readonly Vector[], radius
 
 export interface WardZone {
   id: string;
+  /** 进攻眼位依赖的敌方防御塔，该塔还活着时区域不可选 */
+  requiresDeadTower?: string;
   /** 同一区域的备选点：互相都够近，区域里已有己方眼时整个区域视为占用 */
   spots: readonly Vector[];
+}
+
+/** 区域是否启用：没有依赖的塔，或依赖的塔已不在存活名单里。aliveTowerNames 是存活防御塔的单位名 */
+export function isZoneEnabled(zone: WardZone, aliveTowerNames: readonly string[]): boolean {
+  const tower = zone.requiresDeadTower;
+  return tower === undefined || !aliveTowerNames.some((name) => name.includes(tower));
 }
 
 /** 取 [0, n) 的整数，测试时换成固定序列 */
@@ -33,9 +41,34 @@ export function isZoneFree(
   return true;
 }
 
+/** 区域里两个备选点之间的最大距离，所有区域取最大 */
+export function maxZoneSpan(zones: readonly WardZone[]): number {
+  let span = 0;
+  for (const zone of zones) {
+    for (const a of zone.spots) {
+      for (const b of zone.spots) {
+        span = Math.max(span, a.__sub(b).Length2D());
+      }
+    }
+  }
+  return span;
+}
+
 /**
- * 路过时能直接插的点：空闲且没被认领的区域里 reach 内的全部备选点，随机取一个。
- * 先汇总再随机，避免眼位表靠前的点总被优先选中。
+ * 查附近己方眼的半径：候选点离英雄最远 reach，区域内另一个备选点再远 span，眼离那个点 sameWardRadius 内都算占用。
+ * 备选点相距超过去重半径的区域，半径不够会漏掉远端备选点旁的眼。
+ */
+export function wardQueryRadius(
+  reach: number,
+  zones: readonly WardZone[],
+  sameWardRadius: number,
+): number {
+  return reach + maxZoneSpan(zones) + sameWardRadius;
+}
+
+/**
+ * 路过时能直接插的点：空闲区域里 reach 内的全部备选点，随机取一个。
+ * existingWards 里要把已认领未落地的点位也算进去。先汇总再随机，避免眼位表靠前的点总被优先选中。
  */
 export function pickPassingSpot(
   heroPos: Vector,
@@ -43,12 +76,11 @@ export function pickPassingSpot(
   reach: number,
   existingWards: readonly Vector[],
   sameWardRadius: number,
-  isClaimed: (zoneId: string) => boolean,
   random: RandomIndex,
 ): DetourPick | undefined {
   const reachable: DetourPick[] = [];
   for (const zone of zones) {
-    if (!isZoneFree(zone, existingWards, sameWardRadius) || isClaimed(zone.id)) {
+    if (!isZoneFree(zone, existingWards, sameWardRadius)) {
       continue;
     }
     for (const spot of spotsWithin(heroPos, zone, reach)) {
@@ -67,20 +99,19 @@ export interface DetourPick {
   spot: Vector;
 }
 
-/** 绕路去插：range 内最近的空闲、没被认领的区域，只在该区域 range 内的备选点里随机一个。 */
+/** 绕路去插：range 内最近的空闲区域（existingWards 含已认领点位），只在该区域 range 内的备选点里随机一个。 */
 export function pickDetourSpot(
   heroPos: Vector,
   zones: readonly WardZone[],
   range: number,
   existingWards: readonly Vector[],
   sameWardRadius: number,
-  isClaimed: (zoneId: string) => boolean,
   random: RandomIndex,
 ): DetourPick | undefined {
   let best: { zone: WardZone; spots: Vector[] } | undefined;
   let bestGap = Infinity;
   for (const zone of zones) {
-    if (!isZoneFree(zone, existingWards, sameWardRadius) || isClaimed(zone.id)) {
+    if (!isZoneFree(zone, existingWards, sameWardRadius)) {
       continue;
     }
     const spots = spotsWithin(heroPos, zone, range);
