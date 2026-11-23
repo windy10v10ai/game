@@ -2,17 +2,17 @@ import React from 'react';
 import {
   GetLocalPlayerSteamAccountID,
   GetPaymentPlatformOrder,
-  MEMBERSHIP_PAGE_URL,
+  GetMembershipPageUrl,
   PaymentPlatform,
 } from '@utils/utils';
 import { AlipayCardItem, AlipaySubscribeCard } from './alipay';
 import {
-  AFDIAN_ACTIVATE_URL,
+  GetAfdianActivateUrl,
   AFDIAN_ICON,
   CROWN_GOLD,
   formatTierDuration,
   GetAfdianSubscribeUrl,
-  KOFI_ACTIVATE_URL,
+  GetKofiActivateUrl,
   KOFI_LOGO,
   KOFI_SUBSCRIBE_URL,
   MembershipPlatform,
@@ -65,7 +65,7 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
         subscribeUrl={GetAfdianSubscribeUrl()}
         subscribePrice={`¥${defaultTier('afdian').price}`}
         subscribeUnitText={$.Localize('#member_platform_subscribe_month')}
-        activateUrl={AFDIAN_ACTIVATE_URL}
+        activateUrl={GetAfdianActivateUrl}
       />
     ),
     kofi: (
@@ -78,7 +78,7 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
         subscribeUrl={KOFI_SUBSCRIBE_URL}
         subscribePrice={`$${defaultTier('kofi').price}`}
         subscribeUnitText={$.Localize('#member_platform_subscribe_month')}
-        activateUrl={KOFI_ACTIVATE_URL}
+        activateUrl={GetKofiActivateUrl}
       />
     ),
     stripe: <StripeSubscribeCard />,
@@ -139,7 +139,7 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
 
       {/* 其他支付方式：跳网站会员页，由网站按自己的语言选默认标签 */}
       <Panel className="member-other-payment-row">
-        <Button className="member-other-payment-btn" onactivate={openUrl(MEMBERSHIP_PAGE_URL)}>
+        <Button className="member-other-payment-btn" onactivate={openUrl(GetMembershipPageUrl)}>
           <Label
             className="member-other-payment-label"
             text={$.Localize('#member_other_payment')}

@@ -3,7 +3,7 @@ import {
   GetLocalPlayerSteamAccountID,
   GetAfdianPointsUrl,
   GetPaymentPlatformOrder,
-  MEMBERSHIP_PAGE_URL,
+  GetMembershipPageUrl,
   PaymentPlatform,
   KOFI_POINTS_URLS,
 } from '@utils/utils';
@@ -11,10 +11,10 @@ import { AlipaySubscribeCard, AlipayCardItem } from './alipay';
 import { MEMBER_POINTS_ICONS } from './alipay/constants';
 import { ExternalPointsCard } from './ExternalPointsCard';
 import {
-  AFDIAN_ACTIVATE_URL,
+  GetAfdianActivateUrl,
   AFDIAN_ICON,
   ALIPAY_POINTS_TIERS,
-  KOFI_ACTIVATE_URL,
+  GetKofiActivateUrl,
   KOFI_LOGO,
   openUrl,
 } from './constants';
@@ -70,7 +70,7 @@ export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
           price: `¥${AFDIAN_POINTS_PRICES[i]}`,
           onClick: openUrl(GetAfdianPointsUrl(i)),
         }))}
-        activateUrl={AFDIAN_ACTIVATE_URL}
+        activateUrl={GetAfdianActivateUrl}
       />
     ),
     kofi: (
@@ -85,7 +85,7 @@ export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
           price: `$${KOFI_POINTS_PRICES[i]}`,
           onClick: openUrl(KOFI_POINTS_URLS[i]),
         }))}
-        activateUrl={KOFI_ACTIVATE_URL}
+        activateUrl={GetKofiActivateUrl}
       />
     ),
     stripe: <StripePointsCard />,
@@ -135,7 +135,7 @@ export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
       </Panel>
 
       <Panel className="member-other-payment-row">
-        <Button className="member-other-payment-btn" onactivate={openUrl(MEMBERSHIP_PAGE_URL)}>
+        <Button className="member-other-payment-btn" onactivate={openUrl(GetMembershipPageUrl)}>
           <Label
             className="member-other-payment-label"
             text={$.Localize('#member_other_payment')}

@@ -15,7 +15,7 @@ interface ExternalPointsCardProps {
   name: string;
   desc: string;
   buttons: PointsButton[];
-  activateUrl: string;
+  activateUrl: () => string;
 }
 
 /** 外链积分卡（爱发电 / Ko-fi）：三档位按钮各自跳浏览器，底部保留手动激活链接。 */
@@ -55,7 +55,7 @@ export function ExternalPointsCard({
   );
 }
 
-function ActivateRow({ activateUrl }: { activateUrl: string }) {
+function ActivateRow({ activateUrl }: { activateUrl: () => string }) {
   const tipRef = useRef<ImagePanel | null>(null);
   const tooltipText = $.Localize('#member_activate_tooltip');
   return (

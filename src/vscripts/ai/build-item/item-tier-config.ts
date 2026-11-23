@@ -306,7 +306,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_revenants_brooch',
     nameCN: '英灵胸针',
     tier: ItemTier.T2,
-    cost: 3300,
+    cost: 2000,
   },
   item_blink: {
     name: 'item_blink',
@@ -906,7 +906,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_revenants_brooch_ultra',
     nameCN: '神器·魔武双修',
     tier: ItemTier.T3,
-    cost: 10000,
+    cost: 8700,
     baseItems: ['item_revenants_brooch'],
   },
   item_consecrated_wraps_2: {
