@@ -10,9 +10,13 @@ const TIMEOUT_SECONDS = 10;
 // 开局时客户端多半还没加载完，排队等通道的时间不该占用请求预算。
 // 客户端会一直举手到服务端回执为止，慢机器晚到也接得上；这里的上限只是不让请求无限挂着
 const QUEUE_TIMEOUT_SECONDS = 60;
-// 代发只走 api.windy10v10ai.com 一条线路：国内网关给每个响应强加 Content-Disposition: attachment，
-// 网页控件加载不了中转页，国内玩家连不上就进离线模式。ApiClient 对 cn-proxy 目标已直接失败，到不了这里
-const RELAY_LINE = 'direct';
+// 每个玩家按线路各有一组网页控件，通道数、失败记录、可用状态都按线路分开，一条线路不通不拖累另一条
+const RELAY_LINES = ['direct', 'cn-proxy'];
+const COUNTRY_CODE_LENGTH = 2;
+
+function lineOf(target: ApiTarget): string {
+  return target === 'cn-proxy' ? 'cn-proxy' : 'direct';
+}
 
 interface PendingRequest extends RelayJob {
   path: string;
@@ -53,12 +57,13 @@ export function parseProxyError(data: string): string | undefined {
  */
 export class ApiHtmlProxy {
   private static seq = 0;
-  private static failedPlayerIds = new Set<PlayerID>();
+  private static failedPlayers = new Map<string, Set<PlayerID>>();
   private static pending = new Map<string, PendingRequest>();
   private static scheduler = new RelayScheduler<PendingRequest>();
+  private static countries = new Map<PlayerID, string>();
   // 引擎限制了网页控件联网时，所有真人客户端都会超时；一旦如此，本局不再白等超时，直接走离线分支
-  private static relaySucceeded = false;
-  private static relayUnavailable = false;
+  private static succeededLines = new Set<string>();
+  private static unavailableLines = new Set<string>();
 
   public static GetBodyBudget(target: ApiTarget, path: string): number {
     const url = ApiHtmlProxy.buildUrl(target, path, { body: '' }, 'p_9999999999_999999999');
@@ -90,8 +95,9 @@ export class ApiHtmlProxy {
     timeoutSeconds = TIMEOUT_SECONDS,
     queueTimeoutSeconds = QUEUE_TIMEOUT_SECONDS,
   ): void {
-    if (ApiHtmlProxy.relayUnavailable) {
-      print(`[ApiHtmlProxy] relay unavailable, fail fast path=${path}`);
+    const line = lineOf(target);
+    if (ApiHtmlProxy.unavailableLines.has(line)) {
+      print(`[ApiHtmlProxy] relay unavailable, fail fast line=${line} path=${path}`);
       Timers.CreateTimer(0, () => onFailure('relay_unavailable'));
       return;
     }
@@ -99,7 +105,7 @@ export class ApiHtmlProxy {
     const url = ApiHtmlProxy.buildUrl(target, path, querys, requestId);
     const request: PendingRequest = {
       requestId,
-      line: RELAY_LINE,
+      line,
       path,
       url,
       onSuccess,
@@ -121,34 +127,68 @@ export class ApiHtmlProxy {
     if (playerId < 0) return;
 
     const channels = Number(event.channels) || 0;
-    // 客户端会重发 ready 直到回执与自己的通道数一致，重复的 ready 也要回，否则回执丢失就会一直重发
+    const backupChannels = Number(event.backupChannels) || 0;
+    const country =
+      typeof event.country === 'string'
+        ? event.country.slice(0, COUNTRY_CODE_LENGTH).toUpperCase()
+        : '';
+    // 客户端会重发 ready 直到回执与自己上报的一致，重复的 ready 也要回，否则回执丢失就会一直重发
     const player = PlayerResource.GetPlayer(playerId);
     if (player) {
-      CustomGameEventManager.Send_ServerToPlayer(player, 'api_html_proxy_ack', { channels });
+      CustomGameEventManager.Send_ServerToPlayer(player, 'api_html_proxy_ack', {
+        channels,
+        backupChannels,
+        country,
+      });
     }
 
-    if (ApiHtmlProxy.scheduler.GetCapacity(playerId, RELAY_LINE) === channels) return;
-    ApiHtmlProxy.scheduler.SetCapacity(playerId, RELAY_LINE, channels);
-    print(`[ApiHtmlProxy] player ${playerId} ready channels=${channels}`);
-    ApiHtmlProxy.pump();
+    const capacityChanged =
+      ApiHtmlProxy.scheduler.GetCapacity(playerId, 'direct') !== channels ||
+      ApiHtmlProxy.scheduler.GetCapacity(playerId, 'cn-proxy') !== backupChannels;
+    if (!capacityChanged && ApiHtmlProxy.countries.get(playerId) === country) return;
+
+    ApiHtmlProxy.countries.set(playerId, country);
+    ApiHtmlProxy.scheduler.SetCapacity(playerId, 'direct', channels);
+    ApiHtmlProxy.scheduler.SetCapacity(playerId, 'cn-proxy', backupChannels);
+    // 各玩家的网页跳转据此选域名，每名玩家只读自己那条
+    CustomNetTables.SetTableValue('api_route', playerId.toString(), {
+      channels,
+      backupChannels,
+      country,
+    });
+    print(
+      `[ApiHtmlProxy] player ${playerId} ready channels=${channels} backupChannels=${backupChannels} country=${country}`,
+    );
+    if (capacityChanged) ApiHtmlProxy.pump();
   }
 
-  // 把队列里能派的都派出去；全员失败过就清空黑名单重来，候选通常只有三四人
+  // 把队列里能派的都派出去；某条线路上全员失败过就清空这条线路的黑名单重来，候选通常只有三四人
   private static pump(): void {
     if (ApiHtmlProxy.scheduler.QueuedCount() === 0) return;
     let assignments = ApiHtmlProxy.scheduler.Drain(ApiHtmlProxy.canRelay);
-    if (
-      assignments.length === 0 &&
-      ApiHtmlProxy.failedPlayerIds.size > 0 &&
-      !ApiHtmlProxy.scheduler.HasCapacityPlayer(ApiHtmlProxy.canRelay) &&
-      ApiHtmlProxy.scheduler.HasCapacityPlayer(ApiHtmlProxy.isCandidate)
-    ) {
-      ApiHtmlProxy.failedPlayerIds.clear();
+    if (assignments.length === 0 && ApiHtmlProxy.resetExhaustedLines()) {
       assignments = ApiHtmlProxy.scheduler.Drain(ApiHtmlProxy.canRelay);
     }
     for (const { job, playerId } of assignments) {
       ApiHtmlProxy.dispatch(job, playerId);
     }
+  }
+
+  private static resetExhaustedLines(): boolean {
+    let reset = false;
+    for (const line of RELAY_LINES) {
+      const failed = ApiHtmlProxy.failedPlayers.get(line);
+      if (
+        failed !== undefined &&
+        failed.size > 0 &&
+        !ApiHtmlProxy.scheduler.HasCapacityPlayer(ApiHtmlProxy.canRelay, line) &&
+        ApiHtmlProxy.scheduler.HasCapacityPlayer(ApiHtmlProxy.isCandidate, line)
+      ) {
+        failed.clear();
+        reset = true;
+      }
+    }
+    return reset;
   }
 
   private static dispatch(request: PendingRequest, relayPlayerId: PlayerID): void {
@@ -174,7 +214,10 @@ export class ApiHtmlProxy {
     }
     request.timerName = Timers.CreateTimer(seconds, () => {
       ApiHtmlProxy.cancelOnClient(request);
-      ApiHtmlProxy.markRelayFailed(ApiHtmlProxy.scheduler.GetAssignedPlayer(request.requestId));
+      ApiHtmlProxy.markRelayFailed(
+        ApiHtmlProxy.scheduler.GetAssignedPlayer(request.requestId),
+        request.line,
+      );
       ApiHtmlProxy.finish(request.requestId, undefined, 'timeout');
     });
   }
@@ -205,7 +248,8 @@ export class ApiHtmlProxy {
     if (!ApiHtmlProxy.isFromRelayPlayer(playerId, event.requestId)) return;
 
     print(`[ApiHtmlProxy] client failure ${event.requestId} reason=${event.reason}`);
-    ApiHtmlProxy.markRelayFailed(playerId);
+    const line = ApiHtmlProxy.pending.get(event.requestId)?.line;
+    if (line !== undefined) ApiHtmlProxy.markRelayFailed(playerId, line);
     ApiHtmlProxy.finish(event.requestId, undefined, event.reason);
   }
 
@@ -234,7 +278,7 @@ export class ApiHtmlProxy {
     Timers.RemoveTimer(request.timerName);
 
     if (data !== undefined) {
-      ApiHtmlProxy.relaySucceeded = true;
+      ApiHtmlProxy.succeededLines.add(request.line);
       request.onSuccess(data);
     } else {
       print(`[ApiHtmlProxy] request ${requestId} path=${request.path} failed: ${reason}`);
@@ -244,36 +288,45 @@ export class ApiHtmlProxy {
     ApiHtmlProxy.pump();
   }
 
-  // 拉黑代发失败过的玩家，让调用方已有的重试落到别人身上。
+  // 拉黑代发失败过的玩家（按线路），让调用方已有的重试落到别人身上。
   // 排队阶段超时时请求还没派发出去，不归咎于任何玩家
-  private static markRelayFailed(relayPlayerId: PlayerID | undefined): void {
+  private static markRelayFailed(relayPlayerId: PlayerID | undefined, line: string): void {
     if (relayPlayerId === undefined) return;
-    if (ApiHtmlProxy.failedPlayerIds.has(relayPlayerId)) return;
-    ApiHtmlProxy.failedPlayerIds.add(relayPlayerId);
-    print(`[ApiHtmlProxy] player ${relayPlayerId} failed to relay`);
+    let failed = ApiHtmlProxy.failedPlayers.get(line);
+    if (failed === undefined) {
+      failed = new Set<PlayerID>();
+      ApiHtmlProxy.failedPlayers.set(line, failed);
+    }
+    if (failed.has(relayPlayerId)) return;
+    failed.add(relayPlayerId);
+    print(`[ApiHtmlProxy] player ${relayPlayerId} failed to relay line=${line}`);
 
     if (
-      ApiHtmlProxy.relaySucceeded ||
-      ApiHtmlProxy.scheduler.HasCapacityPlayer(ApiHtmlProxy.canRelay)
+      ApiHtmlProxy.succeededLines.has(line) ||
+      ApiHtmlProxy.scheduler.HasCapacityPlayer(ApiHtmlProxy.canRelay, line)
     ) {
       return;
     }
-    ApiHtmlProxy.relayUnavailable = true;
-    print('[ApiHtmlProxy] every ready player failed to relay, relay unavailable for this match');
-    ApiHtmlProxy.failAllPending();
+    ApiHtmlProxy.unavailableLines.add(line);
+    print(
+      `[ApiHtmlProxy] every ready player failed to relay, line=${line} unavailable for this match`,
+    );
+    ApiHtmlProxy.failAllPending(line);
   }
 
-  private static failAllPending(): void {
+  private static failAllPending(line: string): void {
     const requests: PendingRequest[] = [];
-    ApiHtmlProxy.pending.forEach((request) => requests.push(request));
+    ApiHtmlProxy.pending.forEach((request) => {
+      if (request.line === line) requests.push(request);
+    });
     for (const request of requests) {
       ApiHtmlProxy.cancelOnClient(request);
       ApiHtmlProxy.finish(request.requestId, undefined, 'relay_unavailable');
     }
   }
 
-  private static canRelay = (playerId: PlayerID): boolean =>
-    !ApiHtmlProxy.failedPlayerIds.has(playerId) && ApiHtmlProxy.isCandidate(playerId);
+  private static canRelay = (playerId: PlayerID, line: string): boolean =>
+    !ApiHtmlProxy.failedPlayers.get(line)?.has(playerId) && ApiHtmlProxy.isCandidate(playerId);
 
   // 已登记通道、在线、steamId > 0 的真人玩家；掉线的顺延到下一个
   private static isCandidate = (playerId: PlayerID): boolean =>

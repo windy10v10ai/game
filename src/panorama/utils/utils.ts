@@ -22,14 +22,29 @@ export function ConvertSteamIdTo32Bit(steamId64: string): string {
   return steamId32;
 }
 
-export const WEBSITE_URL = 'https://windy10v10ai.com';
+const WEBSITE_URL_MAIN = 'https://windy10v10ai.com';
+const WEBSITE_URL_CN = 'https://cn.windy10v10ai.com';
+
+/**
+ * 网站域名按这名玩家自己的网络情况在点击时选：国家码为 CN，或本机只连得上备用入口，走国内域名。
+ * 两项信号都拿不到时按界面语言兜底。game_mode.js 与 battlepass.js 各有一份同样的判断，改动要同步。
+ */
+export function GetWebsiteUrl(): string {
+  const route = CustomNetTables.GetTableValue('api_route', Game.GetLocalPlayerID().toString());
+  if (route) {
+    if (route.country === 'CN') return WEBSITE_URL_CN;
+    if (route.channels === 0 && route.backupChannels > 0) return WEBSITE_URL_CN;
+    if (route.country) return WEBSITE_URL_MAIN;
+  }
+  return $.Language() === 'schinese' ? WEBSITE_URL_CN : WEBSITE_URL_MAIN;
+}
 
 /**
  * 网站上当前玩家的资料页，未登录时网站先显示登录面板。
  * 不传 page 时指向资料主页（生涯数据、近期战绩都在那），游戏内没有对应的子页面。
  */
 export function GetWebsiteProfileUrl(page?: 'property' | 'awaken'): string {
-  const base = `${WEBSITE_URL}/profile/${GetLocalPlayerSteamAccountID()}`;
+  const base = `${GetWebsiteUrl()}/profile/${GetLocalPlayerSteamAccountID()}`;
   return page ? `${base}/${page}` : base;
 }
 
@@ -67,9 +82,13 @@ export const KOFI_SUBSCRIBE_URL = 'https://ko-fi.com/post/Membership-Z8Z01CDJLU'
 export type PaymentPlatform = 'alipay' | 'afdian' | 'kofi' | 'stripe';
 
 /** 网站会员页；「其他支付方式」跳这里，不带参数，由网站按自己的语言选默认标签 */
-export const MEMBERSHIP_PAGE_URL = `${WEBSITE_URL}/membership`;
+export function GetMembershipPageUrl(): string {
+  return `${GetWebsiteUrl()}/membership`;
+}
 /** Stripe 档位按钮与卡片底部链接统一跳这里，网站按参数直接选中 Stripe 标签 */
-export const STRIPE_MEMBERSHIP_URL = `${MEMBERSHIP_PAGE_URL}?platform=stripe`;
+export function GetStripeMembershipUrl(): string {
+  return `${GetMembershipPageUrl()}?platform=stripe`;
+}
 
 /**
  * 支付方式展示顺序：游戏内只展示两张卡，其余平台统一交给网站。

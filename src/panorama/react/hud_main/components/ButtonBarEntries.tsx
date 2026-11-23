@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetLocalPlayerSteamAccountID, IsInHeroSelectionLayer, WEBSITE_URL } from '@utils/utils';
+import { GetLocalPlayerSteamAccountID, GetWebsiteUrl, IsInHeroSelectionLayer } from '@utils/utils';
 import { useNavigation } from '../store/NavigationContext';
 import { useNetTable } from '../../shared/hooks/useNetTable';
 import { ButtonBarEntry } from './ButtonBarEntry';
@@ -48,7 +48,7 @@ export function ButtonBarEntries() {
         icon={WEBSITE_ICON}
         tooltip={$.Localize('#website_open_button')}
         iconScale={84}
-        onActivate={() => $.DispatchEvent('ExternalBrowserGoToURL', WEBSITE_URL)}
+        onActivate={() => $.DispatchEvent('ExternalBrowserGoToURL', GetWebsiteUrl())}
       />
       <ButtonBarEntry
         id="feedbackButton"

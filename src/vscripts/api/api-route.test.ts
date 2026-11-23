@@ -34,8 +34,6 @@ describe('ApiRoute', () => {
   it('uses the selected target base URL', () => {
     ApiRoute.SetTarget('cn-proxy');
 
-    expect(ApiRoute.GetBaseUrl()).toBe(
-      'https://1491237865-7au6o0ylxt.ap-guangzhou.tencentscf.com/api',
-    );
+    expect(ApiRoute.GetBaseUrl()).toBe('https://43.135.77.42/api');
   });
 });

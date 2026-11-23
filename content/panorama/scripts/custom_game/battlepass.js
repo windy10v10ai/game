@@ -1,5 +1,17 @@
 const RESET_PROPERTY_SEASON_POINT_COST = 2000;
-const WEBSITE_URL = 'https://windy10v10ai.com';
+const WEBSITE_URL_MAIN = 'https://windy10v10ai.com';
+const WEBSITE_URL_CN = 'https://cn.windy10v10ai.com';
+
+// 与 src/panorama/utils/utils.ts 的 GetWebsiteUrl 同一套判断，改动要同步
+function GetWebsiteUrl() {
+  const route = CustomNetTables.GetTableValue('api_route', String(Game.GetLocalPlayerID()));
+  if (route) {
+    if (route.country === 'CN') return WEBSITE_URL_CN;
+    if (route.channels === 0 && route.backupChannels > 0) return WEBSITE_URL_CN;
+    if (route.country) return WEBSITE_URL_MAIN;
+  }
+  return $.Language() === 'schinese' ? WEBSITE_URL_CN : WEBSITE_URL_MAIN;
+}
 // 请求失败时 net table 不会更新，超时后也要恢复刷新按钮
 const PLAYER_INFO_REFRESH_TIMEOUT_S = 5;
 // 与 game.ts 中 loading_status 的离线取值一致：3 为离线
@@ -240,7 +252,7 @@ function RedirectLocalHostButton(panel) {
 function OpenPropertyWebsite() {
   $.DispatchEvent(
     'ExternalBrowserGoToURL',
-    `${WEBSITE_URL}/profile/${GetSteamAccountID()}/property`,
+    `${GetWebsiteUrl()}/profile/${GetSteamAccountID()}/property`,
   );
 }
 
