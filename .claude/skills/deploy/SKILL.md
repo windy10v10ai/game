@@ -21,7 +21,8 @@ disable-model-invocation: true
    完成：目标编号和中英文日志都已确定。
 
 2. **拿权限**：一次 `request_access` 申请 `["Dota 2", "dota2.exe"]` 两项，Workshop Tools 的窗口属于后者，只申请前者会再弹一次。
-   完成：两项都在已授权列表里。
+   被拒或没得到答复时，第 4 步按用户的派活约定改交能无人值守操作界面的执行者，交接里照抄第 4 步与「computer use 的坑」。
+   完成：两项都在已授权列表里，或第 4 步已交给别的执行者。
 
 3. **编译**：在 `develop` 最新提交上跑 `npm run build`（`git checkout develop && git pull`）。release PR（`develop → main`）不先合并，等第 6 步做完、发布成功后，提醒用户合并 release PR。换机器 clone 后先用 Dota tools 完整编译一次，否则包里缺 Panorama 图片（见 `add-image` skill）。
    完成：编译无报错。
