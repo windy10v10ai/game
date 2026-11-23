@@ -8,8 +8,12 @@ export const PLACE_INTERVAL = 2;
 /** Max detour distance for a bot carrying an observer. */
 export const WARD_DETOUR_RANGE = 2500;
 
-/** Detour cap plus cast margin: a claim whose order was lost frees itself soon after. */
-export const WARD_RETRY_SECONDS = 12;
+/** A bot holding an observer this long without placing it may detour farther, so remote groups still get visited. */
+export const WARD_LONG_DETOUR_AFTER = 45;
+export const WARD_LONG_DETOUR_RANGE = 3500;
+
+/** Detour walk cap plus cast margin: a claim whose order was lost frees itself soon after. */
+export const WARD_RETRY_SECONDS = 16;
 
 /** A drawn target is redrawn after this long, so a remote one nobody passes cannot stall its group. */
 export const WARD_TARGET_SECONDS = 90;

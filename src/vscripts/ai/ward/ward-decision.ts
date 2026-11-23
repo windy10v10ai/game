@@ -188,6 +188,17 @@ export function canPlaceInZone(
   );
 }
 
+/** Detour range: widens once the bot has carried a ward for `after` seconds without placing it. */
+export function detourRange(
+  heldSince: number,
+  now: number,
+  base: number,
+  extended: number,
+  after: number,
+): number {
+  return now - heldSince >= after ? extended : base;
+}
+
 export function pickNearestTarget(
   heroPos: Vector,
   targets: readonly WardTarget[],

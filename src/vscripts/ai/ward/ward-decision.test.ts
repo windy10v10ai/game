@@ -3,6 +3,7 @@ import {
   HeldItem,
   isZoneEnabled,
   canPlaceInZone,
+  detourRange,
   isZoneFree,
   regularCapReached,
   wardUnits,
@@ -407,6 +408,23 @@ describe('re-check before casting', () => {
   it('gives up when the tower is not confirmed gone', () => {
     const gated = [zone('a', 'g', 0, 'push', 'badguys_tower3_mid')];
     expect(canPlaceInZone(gated, 'a', input([]))).toBe(false);
+  });
+});
+
+describe('detour range', () => {
+  it('stays short until the ward has been carried long enough, then widens', () => {
+    expect(detourRange(100, 120, 2500, 3500, 45)).toBe(2500);
+    expect(detourRange(100, 145, 2500, 3500, 45)).toBe(3500);
+  });
+
+  it('a widened range reaches a remote target the short range misses', () => {
+    const targets = [{ zoneId: 'far', group: 'g', spot: vec(3000, 0) }];
+    expect(
+      pickNearestTarget(vec(0, 0), targets, detourRange(0, 10, 2500, 3500, 45)),
+    ).toBeUndefined();
+    expect(pickNearestTarget(vec(0, 0), targets, detourRange(0, 50, 2500, 3500, 45))?.zoneId).toBe(
+      'far',
+    );
   });
 });
 

@@ -3,9 +3,14 @@
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { CachedOutposts } from '../team/building-cache';
-import { pickNearestTarget } from '../ward/ward-decision';
+import { detourRange, pickNearestTarget } from '../ward/ward-decision';
 import { WardClaim, WardPlacement } from '../ward/ward-placement';
-import { OBSERVER_WARD_CONFIG, WARD_DETOUR_RANGE } from '../ward/ward-position-config';
+import {
+  OBSERVER_WARD_CONFIG,
+  WARD_DETOUR_RANGE,
+  WARD_LONG_DETOUR_AFTER,
+  WARD_LONG_DETOUR_RANGE,
+} from '../ward/ward-position-config';
 
 const RUNE_RANGE = 800;
 const DROP_RANGE = 800;
@@ -43,7 +48,10 @@ export type RoadsideScope = 'all' | 'quick' | 'drops';
 // 走去捡东西期间不再下别的移动命令，但最多这么久，路上的情况会变
 const ROADSIDE_MAX_SECONDS = 3;
 // 插眼绕路更远，单独放宽，其余几类不变
-const WARD_ROADSIDE_MAX_SECONDS = 8;
+const WARD_ROADSIDE_MAX_SECONDS = 12;
+// Paths are longer than the straight line, and a shorter window lets other orders override the cast walk.
+const WARD_PATH_FACTOR = 1.5;
+const wardHeldSince = new Map<EntityIndex, number>();
 
 export interface RoadsideResult {
   /** 下了命令时走过去要的秒数，这段时间内英雄不再下别的移动命令；没事可做为 0 */
@@ -186,11 +194,23 @@ function TryPickups(
 function WardDetour(hero: CDOTA_BaseNPC_Hero, team: DotaTeam): number {
   const config = OBSERVER_WARD_CONFIG;
   const item = WardPlacement.FindUsableWard(hero, config);
+  const index = hero.GetEntityIndex();
   if (!item) {
+    wardHeldSince.delete(index);
     return 0;
   }
+  const now = GameRules.GetGameTime();
+  const heldSince = wardHeldSince.get(index) ?? now;
+  wardHeldSince.set(index, heldSince);
   const origin = hero.GetAbsOrigin();
-  const pick = pickNearestTarget(origin, WardPlacement.TargetsOf(team, config), WARD_DETOUR_RANGE);
+  const range = detourRange(
+    heldSince,
+    now,
+    WARD_DETOUR_RANGE,
+    WARD_LONG_DETOUR_RANGE,
+    WARD_LONG_DETOUR_AFTER,
+  );
+  const pick = pickNearestTarget(origin, WardPlacement.TargetsOf(team, config), range);
   if (!pick) {
     return 0;
   }
@@ -211,7 +231,7 @@ function WardDetour(hero: CDOTA_BaseNPC_Hero, team: DotaTeam): number {
     );
   }
   const gap = Math.max(pick.spot.__sub(origin).Length2D() - config.castRange, 0);
-  return gap / Math.max(hero.GetIdealSpeed(), 1) + 1;
+  return (gap * WARD_PATH_FACTOR) / Math.max(hero.GetIdealSpeed(), 1) + 1;
 }
 
 /**
