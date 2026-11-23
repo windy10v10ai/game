@@ -78,6 +78,15 @@ class EventChannel<TEvent> {
     }
   }
 
+  /** 实体可能已失效拿不到句柄，只凭登记时的实体编号注销 */
+  UnregisterByIndex(unit: EntityIndex, owner: object): void {
+    const wasEmpty = this.registry.IsEmpty();
+    this.registry.Remove(unit, owner);
+    if (!wasEmpty && this.registry.IsEmpty()) {
+      this.listener.Release();
+    }
+  }
+
   Dispatch(event: TEvent): void {
     if (this.accept !== undefined && !this.accept(event)) return;
     const unit = this.unitOf(event);
@@ -141,6 +150,11 @@ export class ModifierEventHub {
 
   static UnregisterDamageByVictim(victim: CDOTA_BaseNPC, owner: object): void {
     this.damageByVictim.Unregister(victim, owner);
+  }
+
+  /** 单位实体已失效、拿不到句柄时，用登记时记下的实体编号注销 */
+  static UnregisterDamageByVictimIndex(victim: EntityIndex, owner: object): void {
+    this.damageByVictim.UnregisterByIndex(victim, owner);
   }
 
   static DispatchDamage(event: ModifierInstanceEvent): void {

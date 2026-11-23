@@ -75,8 +75,7 @@
 		///////////////////////////////////////////////////
 		"loading_status_1"				"Загрузка данных игроков. Дождитесь её завершения, прежде чем начинать игру."
 		"loading_status_2"				"Онлайн-режим. Данные игроков успешно загружены."
-		"loading_status_3"				"Офлайн-режим: Dota 2 ограничила сетевой доступ карт, очки не сохраняются.\nАтрибуты и подписка используют данные на {date}.\nОчки сохраняет последняя версия лаунчера."
-		"loading_status_4"				"Атрибуты, пробуждения и подписка используют данные на {date}.\nОчки отправит лаунчер после игры."
+		"loading_status_3"				"Офлайн-режим: Dota 2 ограничила сетевой доступ карт.\nИспользуются данные игроков на {date}."
 		"room_status_entering"			"Подключаются: {players}"
 		"room_status_separator"			", "
 		"room_status_waiting"			"Ожидание остальных игроков"
@@ -96,7 +95,7 @@
 		///////////////////////////////////////////////////
 		// 启动器
 		"launcher_promo_title"			"Лаги в конце игры? Попробуйте лаунчер"
-		"launcher_promo_desc"			"Запускает сервер на вашем ПК: игра плавнее, очки сохраняются"
+		"launcher_promo_desc"			"Запускает сервер на вашем ПК: игра плавнее"
 		"launcher_promo_platforms"		"Поддерживает Windows и macOS"
 		"launcher_promo_multiplayer"		"Мультиплеер"
 		"launcher_download_button"			"Скачать лаунчер"
@@ -126,7 +125,7 @@
 		"loading_faq_illusions_summons_question"		"Некоторые способности с иллюзиями и призывом ослаблены или удалены"
 		"loading_faq_illusions_summons_answer"			"Иллюзии и большое количество призванных существ заметно усиливают задержки, поэтому связанные с ними способности были ослаблены или удалены."
 		"loading_faq_launch_mode_question"			"Записываются ли очки в играх, запущенных из аркады?"
-		"loading_faq_launch_mode_answer"				"Пока нет. Новая версия Dota 2 ограничила сетевой доступ карт, поэтому игра идёт в офлайн-режиме с данными из последнего обновления карты. Запускайте игру через последнюю версию лаунчера, и очки будут записываться. Там же можно создать комнату для друзей."
+		"loading_faq_launch_mode_answer"				"Да. Очки записываются, запускаете ли вы игру из аркады или через лаунчер. Если сервер недоступен, игра идёт в офлайн-режиме с прежними данными."
 		"loading_faq_pause_question"				"Можно ли продлить паузу?"
 		"loading_faq_pause_answer"				"Да, если игра запущена из аркады. При запуске через лаунчер игра идёт на выделенном сервере, где паузу продлить нельзя. Для долгой паузы запускайте игру из аркады."
 		"loading_faq_attributes_question"			"Когда начинают действовать очки атрибутов?"
@@ -172,11 +171,10 @@
 		"conduct_point_light_penalty_tooltip"	"Штраф за поведение <font color='#FFA726'>{0}</font>, очки ×0.8"
 		"conduct_point_heavy_penalty_tooltip"	"Штраф за поведение <font color='#E87D7D'>{0}</font>, очки ×0.5"
 
-		"end_screen_offline_hint"		"Офлайн-режим: очки не сохранены (ограничение сети Dota 2). Запустите через последний лаунчер, чтобы сохранять очки."
+		"end_screen_offline_hint"		"Офлайн-режим: очки не сохранены (ограничение сети Dota 2)."
 		"ending_status_1"			"Подведение итогов…"
 		"ending_status_2"			"Итоги сохранены"
 		"ending_status_3"			"Итоги отправлены"
-		"ending_status_4"			"Игра засчитана. Лаунчер автоматически отправит ваши очки."
 
 		///////////////////////////////////////////////////
 		//
@@ -1446,7 +1444,7 @@
 
 		// 兽王 野性之斧-觉醒
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>Дикие топоры: пробуждение</font>"
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Герой швыряет топоры, которые прорубают деревья и противников на своём пути и возвращаются обратно. Каждый топор задевает одного врага лишь единожды и увеличивает урон, получаемый от героя и его существ. Длительность эффекта зависит от сопротивления эффектам.<br><br><font color='#00CED1'>АВТОПРИМЕНЕНИЕ:</font> При включении топоры автоматически летят в самого дальнего вражеского героя, если в радиусе применения есть вражеские единицы.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> Длительность усиления получаемого урона повышена, топоры почти мгновенно вылетают и возвращаются, а Барабаны Слома получают увеличенные урон, лечение и число ударов барабана от Первобытного рёва."
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Герой швыряет топоры, которые прорубают деревья и противников на своём пути и возвращаются обратно. Каждый топор задевает одного врага лишь единожды и увеличивает урон, получаемый от героя и его существ. Длительность эффекта зависит от сопротивления эффектам.<br><br><font color='#00CED1'>АВТОПРИМЕНЕНИЕ:</font> При включении топоры автоматически летят в самого дальнего вражеского героя, если в радиусе применения есть вражеские единицы.<br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> Длительность усиления получаемого урона повышена, топоры почти мгновенно вылетают и возвращаются."
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"УРОН ТОПОРА:"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%ДОП. УРОН ЗА ЭФФЕКТ:"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
@@ -3208,7 +3206,7 @@
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#e03e2e'>Ультра Bloodthorn</font>"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>Активное: Разрыв души</h1>Заставляет цель замолчать на %silence_duration% сек. По окончании немоты наносит цели магический урон в размере %silence_damage_percent%%% от урона, полученного за время действия.<br><br>Атаки героев дополнительно наносят цели %proc_damage_heroes% урона, а атаки существ, не являющихся героями, — %proc_damage_creeps%. Кроме того, владелец и подконтрольные ему существа не могут промахнуться по цели.\n\n<h1>Пассивное: Пронзание</h1>Каждая атака с вероятностью %proc_chance%%% проходит сквозь уклонение и наносит дополнительно %passive_proc_damage% магического урона."
+		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>Активное: Разрыв души</h1>Заставляет цель замолчать на %silence_duration% сек. По окончании немоты наносит цели магический урон в размере %silence_damage_percent%%% от урона, полученного за время действия.<br><br>Атаки героев дополнительно наносят цели %proc_damage_heroes% урона, а атаки существ, не являющихся героями, — %proc_damage_creeps%. Кроме того, владелец и подконтрольные ему существа не могут промахнуться по цели."
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Lore"					"Остро-остро, до слёз!"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_intellect"		"+$int"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_attack_speed"		"+$attack"
@@ -3223,7 +3221,7 @@
 
 		// item_devastator_2 Sacred Parasma 神圣斧
 		"DOTA_Tooltip_Ability_item_devastator_2"				"Священная Parasma"
-		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>Пассивное: Ведьмин клинок</h1>Следующая атака не может промахнуться, отравляет жертву на %slow_duration% сек., замедляя её на %slow%%% и каждую секунду нанося урон, равный интеллекту владельца, помноженному на %int_damage_multiplier%.\n\n<h1>Пассивное: Порча магии</h1>Атаки снижают сопротивление магии врага на %active_mres_reduction%%% на %passive_cooldown% сек."
+		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>Пассивное: Ведьмин клинок</h1>Следующая атака не может промахнуться, отравляет жертву на %slow_duration% сек., замедляя её на %slow%%% и каждую секунду нанося урон, равный интеллекту владельца, помноженному на %int_damage_multiplier%. Эта атака может поражать постройки и наносит им только %building_effectiveness_pct%%% урона.\n\n<h1>Пассивное: Порча магии</h1>Атаки снижают сопротивление магии врага на %active_mres_reduction%%% на %reduction_duration% сек."
 		"DOTA_Tooltip_ability_item_devastator_2_Lore"						"Поистине разрушительно."
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_armor"					"+$armor"
@@ -3300,8 +3298,6 @@
 		"DOTA_Tooltip_Ability_item_revenants_brooch_Note0"						"Считается критическим ударом при сочетании с другими источниками критических ударов."
 		"DOTA_Tooltip_Ability_item_revenants_brooch_Note1"						"Фантомный критический удар не действует на постройки."
 		"DOTA_Tooltip_ability_item_revenants_brooch_Lore"						"Проклятый кулон падшего стража, который вечно скитается между жизнью и смертью."
-		"DOTA_Tooltip_ability_item_revenants_brooch_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_revenants_brooch_spell_lifesteal"			"%+$spell_lifesteal"
 
 		// 神器魔武双修
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"			"Артефакт: Двойное мастерство"
@@ -3309,8 +3305,6 @@
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note0"						"Считается критическим ударом при сочетании с другими источниками критических ударов."
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note1"						"Фантомный критический удар не действует на постройки."
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_Lore"						"Вы правы, но такова сила монстра чисел."
-		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
 
 		// 力量法则碎片
 		"DOTA_Tooltip_Ability_item_imp_claw"				"Осколок закона силы"
@@ -3477,9 +3471,8 @@
 
 		// item_guardian_greaves_artifact 神器·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact"						"<font color='#FFFF00'>Артефакт: Guardian Greaves</font>"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>Активное: Mend</h1>Восстанавливает союзникам вокруг %replenish_health% здоровья <font color='#00FF00'>+ %max_health_pct_heal_amount%%% от максимального здоровья</font> и %replenish_mana% маны, а также снимает с владельца большинство отрицательных эффектов.<br><br>Радиус: %replenish_radius%<br>Тип развеивания: <span class=\"GameplayValues GameplayVariable\">обычное</span>\n\n<h1>Пассивное: Guardian Aura</h1> Даёт союзникам вокруг %aura_health_regen% восстановления здоровья и %aura_mana_regen% восстановления маны в секунду. Если здоровье союзного героя падает ниже %aura_bonus_threshold%%%, восстановление его здоровья повышается до %aura_health_regen_bonus% в секунду.<br><br>Радиус: %aura_radius%\nБонусы к скорости передвижения от нескольких пар ботинок не складываются."
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"					"Усиление ауры действует только на героев."
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note1"					"Mend не действует на существ, на которых уже сработали Mend или Restore от Mekansm, пока длится перезарядка Guardian Greaves."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>Активное: Mend</h1>Восстанавливает союзникам вокруг %replenish_health% здоровья <font color='#00FF00'>+ %max_health_pct_heal_amount%%% от максимального здоровья</font> и %replenish_mana% маны, а также снимает с владельца большинство отрицательных эффектов.<br><br>Радиус: %replenish_radius%<br>Тип развеивания: <span class=\"GameplayValues GameplayVariable\">обычное</span>\n\n<h1>Пассивное: Guardian Aura</h1> Даёт союзникам вокруг %aura_health_regen% восстановления здоровья и %aura_mana_regen% восстановления маны в секунду.<br><br>Радиус: %aura_radius%\nБонусы к скорости передвижения от нескольких пар ботинок не складываются."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"					"Mend не действует на существ, на которых уже сработали Mend или Restore от Mekansm, пока длится перезарядка Guardian Greaves."
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_movement"			"+$move_speed"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mana"				"+$mana"
@@ -3505,7 +3498,7 @@
 
 		// item_disperser_chaos 混沌·散魂剑
 		"DOTA_Tooltip_ability_item_disperser_chaos"									"<font color='#FF4500'>Хаотический Disperser</font>"
-		"DOTA_Tooltip_ability_item_disperser_chaos_Description"						"<h1>Активное: Подавление</h1> Развеивает и владельца, и цель. Если целью был враг, также замедляет его передвижение на %enemy_effect_duration% сек., а если союзник — ускоряет на %ally_effect_duration% сек. и даёт +%slow_resist%%% к сопротивлению замедлениям. Бонусы для союзника накладываются и на самого владельца.<br><br>И замедление, и ускорение составляют %phase_movement_speed%%% в момент применения, а по мере действия постепенно снижаются до нуля.<br>Тип развеивания: <span class=\"GameplayValues GameplayVariable\">нормальное</span>\n\n<h1>Пассивное: Сжигание маны</h1> Каждая атака сжигает %feedback_mana_burn% маны врага и наносит ему %damage_per_burn% физического урона за единицу сожжённой маны.<br><br>Иллюзии ближнего боя сжигают %feedback_mana_burn_illusion_melee% маны за атаку, иллюзии дальнего боя — %feedback_mana_burn_illusion_ranged%."
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"						"<h1>Активное: Подавление</h1> Развеивает и владельца, и цель. Если целью был враг, также замедляет его передвижение на %enemy_effect_duration% сек., а если союзник — ускоряет на %ally_effect_duration% сек. и даёт +%slow_resist%%% к сопротивлению замедлениям. Бонусы для союзника накладываются и на самого владельца.<br><br>И замедление, и ускорение составляют %phase_movement_speed%%% в момент применения, а по мере действия постепенно снижаются до нуля.<br>Тип развеивания: <span class=\"GameplayValues GameplayVariable\">нормальное</span>\n\n<h1>Пассивное: Сжигание маны</h1> Каждая атака сжигает %feedback_mana_burn% маны врага и наносит ему %damage_per_burn% физического урона за единицу сожжённой маны."
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"					"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"					"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"					"+$damage"

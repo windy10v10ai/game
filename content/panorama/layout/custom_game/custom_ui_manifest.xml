@@ -4,7 +4,6 @@
 		<include src="file://{resources}/scripts/custom_game/replaceHeroImage.js"/>
 		<include src="file://{resources}/scripts/custom_game/replaceGold.js"/>
 		<include src="file://{resources}/scripts/custom_game/shop_fix.js"/>
-		<include src="file://{resources}/scripts/custom_game/api_html_proxy.js"/>
 		<include src="file://{resources}/scripts/custom_game/perf_client.js"/>
 		<include src="file://{resources}/scripts/custom_game/aghs_tooltip_fix.js"/>
 	</scripts>

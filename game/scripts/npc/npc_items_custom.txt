@@ -663,7 +663,7 @@
 
 				"bonus_mana"			"400"
 				"bonus_mana_regen"		"3"
-				"cast_range_bonus"			"250"
+				"cast_range_bonus"			"250"	// 200
 			}
 	}
 	//=================================================================================================================
@@ -888,7 +888,7 @@
 
 		"AbilityValues"
 		{
-				"bonus_all_stats"		"20"
+				"bonus_all_stats"		"20"	// 17
 				"bonus_health_regen"	"12"
 				"bonus_mana_regen"		"9"
 				"block_cooldown"		"7.0"
@@ -1766,7 +1766,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"					"60"
+				"bonus_damage"					"60"	// 55
 				"bonus_attack_speed"			"50"
 				"bonus_chance"
 				{
@@ -1967,12 +1967,32 @@
 				"bonus_all_stats"		"80"
 				// "bonus_health"			"600"
 				// "bonus_mana"			"600"
-				"cold_slow_melee"		"-60"
-				"cold_attack_slow_melee"	"-60"
-				"cold_slow_ranged"	"-75"
-				"cold_attack_slow_ranged"	"-60"
+				"cold_slow_melee"
+				{
+					"value"		"-60"	// -20
+					"apply_effectiveness"	"1"
+				}
+				"cold_attack_slow_melee"
+				{
+					"value"		"-60"
+					"apply_effectiveness"	"1"
+				}
+				"cold_slow_ranged"
+				{
+					"value"		"-75"	// -40
+					"apply_effectiveness"	"1"
+				}
+				"cold_attack_slow_ranged"
+				{
+					"value"		"-60"
+					"apply_effectiveness"	"1"
+				}
 				"cold_duration"	"4.0"
-				"restoration_reduction" "60"	// 40
+				"restoration_reduction"
+				{
+					"value"		"60"	// 40
+					"apply_effectiveness"	"1"
+				}
 				"heal_reduction"	"60"		// 40
 		}
 	}
@@ -2117,7 +2137,7 @@
 				"bonus_agility"			"50"
 				"bonus_intellect"		"20"
 				"bonus_attack_speed"	"30"
-				"bonus_movement_speed"	"20"
+				"bonus_movement_speed"	"20"	// 6
 				"images_count"			"1"	// 2
 				"illusion_duration"			"24"	// 18
 				"images_do_damage_percent_melee"	"-0"
@@ -2242,12 +2262,13 @@
 			"bonus_intellect"			"0"
 			"bonus_mana_regen"		"0"
 			"windwalk_duration"		"17.0"
-			"windwalk_movement_speed"	"30"
+			"windwalk_movement_speed"	"30"	// 18
 			"windwalk_fade_time"	"0.3"
 			"windwalk_bonus_damage"	"600"
 			"backstab_duration"
 			{
 				"value"		"6"		// 5
+				"apply_effectiveness"	"1"
 			}
 			"max_movement_speed"	"200"
 			"visibility_radius"		"1025"
@@ -2368,7 +2389,11 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"120"
-				"corruption_armor"		"-12"
+				"corruption_armor"
+				{
+					"value"		"-12"
+					"apply_effectiveness"	"1"
+				}
 				"corruption_duration"	"7.0"
 				"bonus_damage_per_kill"	"3"
 				"bonus_damage_per_assist"	"2"
@@ -2426,7 +2451,11 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"260"
-			"corruption_armor"		"-25"
+			"corruption_armor"
+			{
+				"value"		"-25"
+				"apply_effectiveness"	"1"
+			}
 			"corruption_duration"	"7.0"
 			"bonus_damage_per_kill"	"5"
 			"bonus_damage_per_assist"	"2"
@@ -5386,10 +5415,16 @@
 				"slow"
 				{
 					"value"		"50"					// 25
+					"apply_effectiveness"	"1"
 				}
+				"slow_duration"		"4"
+				"reduction_duration"	"4"
+				"passive_cooldown"	"4"
+				"building_effectiveness_pct"	"40"
 				"active_mres_reduction"
 				{
 					"value"		"35"					// 15
+					"apply_effectiveness"	"1"
 				}
 		}
 	}
@@ -5422,9 +5457,9 @@
 					"value"	"1200"				// 800
 					"affected_by_aoe_increase"	"1"
 				}
-				"movement_slow"		"80"			//50
-				"attack_slow"		"100"			//50
-				"duration"		"6"					//6
+				"movement_slow"		"70"	// 35 x2
+				"attack_slow"		"140"	// 70 x2
+				"duration"		"4.5"					// 4.5
 				"damage_base"			"200"		//100
 				"damage_pct_instant"		"100"	//50
 				"damage_pct_over_time"		"200"	//100
@@ -5563,9 +5598,9 @@
 				"bonus_strength"		"60"
 				"bonus_intellect"			"60"
 				"slow_resistance"			"50"	// 25
-				"mana_regen_multiplier"		"50"	// 30
-				"spell_amp"				"25"		// 12
-				"hp_regen_amp"			"40"		// 20
+				"mana_regen_multiplier"		"50"	// 25
+				"spell_amp"				"25"	// 10
+				"hp_regen_amp"			"40"	// 20
 				"manacost_reduction"	"40"		// 25
 		}
 	}
@@ -5600,8 +5635,8 @@
 				"bonus_agility"			"60"	// 16
 				"status_resistance"		"30"	// 15
 				"bonus_attack_speed"	"40"	// 20
-				"movement_speed_percent_bonus"	"25" // 12
-				"hp_regen_amp"			"40"	// 25
+				"movement_speed_percent_bonus"	"25"	// 10
+				"hp_regen_amp"			"40"	// 20
 				"slow_resistance"		"50"	// 25
 		}
 	}
@@ -5635,9 +5670,9 @@
 				"bonus_agility"			"60"
 				"bonus_intellect"		"60"
 				"bonus_attack_speed"	"40" // 20
-				"mana_regen_multiplier"	"50" // 30
-				"movement_speed_percent_bonus"	"25" // 12
-				"spell_amp"				"25" // 12
+				"mana_regen_multiplier"	"50"	// 25
+				"movement_speed_percent_bonus"	"25"	// 10
+				"spell_amp"				"25"	// 10
 				"cast_speed_pct"		"50" // 25
 		}
 	}
@@ -7647,7 +7682,7 @@
 		"BaseClass"                     "item_datadriven"
 		"AbilityTextureName"            "item_recipe_six_paths_reincarnation_gun"
 		"Model"                         "models/props_gameplay/recipe.vmdl"
-		"ItemCost"                      "6900"
+		"ItemCost"                      "8200"
 		"ItemRecipe"                    "1"
 		"ItemResult"                    "item_six_paths_reincarnation_gun"
 		"ItemRequirements"

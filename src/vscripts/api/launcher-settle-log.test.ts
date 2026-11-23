@@ -1,4 +1,4 @@
-import { GameEndDto, GameEndPlayerDto } from './analytics/dto/game-end-dto';
+import type { GameEndPlayerRequest } from './game-end-proxy';
 import { SETTLE_LOG_CHUNK_SIZE, buildSettleLogLines, printSettleLog } from './launcher-settle-log';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,6 +27,14 @@ function parseLine(line: string): ParsedLine {
     total: Number(seqParts[1]),
     chunk: parts[5],
   };
+}
+
+// 汇总行固定五段，与逐人行的六段不冲突
+function parseDone(line: string): { matchKey: string; expected: number } {
+  const parts = line.split(' ');
+  expect(parts.length).toBe(5);
+  expect(parts.slice(0, 3).join(' ')).toBe('[WSettle] done v1');
+  return { matchKey: parts[3], expected: Number(parts[4]) };
 }
 
 // 测试数据都是 ASCII，一个字节就是一个字符
@@ -88,26 +96,30 @@ describe('printSettleLog', () => {
     global.json = { encode: (value: unknown) => JSON.stringify(value) };
   });
 
-  function player(steamId: number): GameEndPlayerDto {
-    return { steamId, playerId: 1, heroName: 'npc_dota_hero_axe' } as GameEndPlayerDto;
+  function request(steamId: number, customMatchId?: string): GameEndPlayerRequest {
+    return {
+      matchId: 'm1',
+      customMatchId,
+      players: [{ steamId, heroName: 'npc_dota_hero_axe' }],
+    } as unknown as GameEndPlayerRequest;
   }
 
-  it('prints each human player once and skips bots', () => {
-    const gameEnd = {
-      matchId: 'm1',
-      customMatchId: '123-456',
-      players: [player(111), player(0), player(222)],
-    } as unknown as GameEndDto;
-
-    expect(printSettleLog(gameEnd)).toBe(2);
-    expect(printed.map((line) => parseLine(line).steamId)).toEqual(['111', '222']);
-    expect(printed.every((line) => parseLine(line).matchKey === '123-456')).toBe(true);
-    expect(JSON.parse(decode([printed[0]])).players[0].steamId).toBe(111);
+  it('prints each failed player once and ends with the summary', () => {
+    expect(printSettleLog([request(111, '123-456'), request(222, '123-456')])).toBe(2);
+    const playerLines = printed.slice(0, -1);
+    expect(playerLines.map((line) => parseLine(line).steamId)).toEqual(['111', '222']);
+    expect(playerLines.every((line) => parseLine(line).matchKey === '123-456')).toBe(true);
+    expect(JSON.parse(decode([playerLines[0]])).players[0].steamId).toBe(111);
+    expect(parseDone(printed[printed.length - 1])).toEqual({ matchKey: '123-456', expected: 2 });
   });
 
-  it('prints nothing when only bots played', () => {
-    const gameEnd = { matchId: 'm1', players: [player(0)] } as unknown as GameEndDto;
-    expect(printSettleLog(gameEnd)).toBe(0);
+  it('falls back to the engine match id', () => {
+    expect(printSettleLog([request(111)])).toBe(1);
+    expect(parseDone(printed[1])).toEqual({ matchKey: 'm1', expected: 1 });
+  });
+
+  it('prints nothing when no player failed', () => {
+    expect(printSettleLog([])).toBe(0);
     expect(printed).toEqual([]);
   });
 });
