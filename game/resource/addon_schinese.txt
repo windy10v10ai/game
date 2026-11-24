@@ -3254,7 +3254,7 @@
 
 		// item_ultimate_scepter_copy
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy"						"<font color='#B87333'>珍藏·阿哈利姆神杖</font>"
-		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>被动：技能升级</h1>提升所有英雄的终极技能或基础技能效果。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化。"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>被动：技能升级</h1>提升所有英雄的终极技能或基础技能效果。\n\n<h1>被动：古董</h1>使用珍藏·阿哈利姆的馈赠获得。因为年代久远，属性和效果发生了一些奇特的变化。"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Lore"			"这把权杖属于拥有半神之力的法师。"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_health"		"+$health"
@@ -3262,7 +3262,7 @@
 
 		// item_wings_of_haste_copy
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"<font color='#B87333'>珍藏·急速之翼</font>"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>使用：永久升级</h1>消耗急速之翼后，永久获得 %bonus_movement_speed% 移动速度，%bonus_attack_speed% 攻击速度，8 生命恢复，5 魔法恢复。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化。"
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>使用：永久升级</h1>消耗急速之翼后，永久获得 %bonus_movement_speed% 移动速度，%bonus_attack_speed% 攻击速度，8 生命恢复，5 魔法恢复。\n\n<h1>被动：古董</h1>使用珍藏·快男的馈赠获得。因为年代久远，属性和效果发生了一些奇特的变化。"
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Lore"			"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_movement_speed"		"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_attack_speed"		"+$attack"
@@ -3272,7 +3272,7 @@
 
 		// item_moon_shard_copy
 		"DOTA_Tooltip_ability_item_moon_shard_copy"						"<font color='#B87333'>珍藏·银月之晶</font>"
-		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>使用：吞噬</h1> 吞噬银月之晶，永久获得%consumed_bonus%攻击速度和%consumed_bonus_night_vision%夜间视野加成。最多使用1次。\n\n<h1>被动：月夜之视</h1>提供额外夜间视野。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化。"
+		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>使用：吞噬</h1> 吞噬银月之晶，永久获得%consumed_bonus%攻击速度和%consumed_bonus_night_vision%夜间视野加成。最多使用1次。\n\n<h1>被动：月夜之视</h1>提供额外夜间视野。\n\n<h1>被动：古董</h1>使用珍藏·快男的馈赠获得。因为年代久远，属性和效果发生了一些奇特的变化。"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_Lore"			"相传这是月之女神赛莉蒙妮流下的一滴眼泪。"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_night_vision"		"+额外夜间视野"

@@ -8,9 +8,6 @@ const TREASURED_ITEMS = [
   'item_heart_copy',
   'item_aghanim_bundle',
   'item_haste_moon_bundle',
-  'item_ultimate_scepter_copy',
-  'item_wings_of_haste_copy',
-  'item_moon_shard_copy',
   'item_berserkers_sabatons_copy',
   'item_echo_sabre_2_copy',
   'item_hydras_breath_copy',
@@ -20,6 +17,13 @@ const TREASURED_ITEMS = [
 ];
 
 const ORIGINAL_ITEMS = ['item_bfury', 'item_radiance', 'item_blade_mail', 'item_heart'];
+const BUNDLE_CONTENTS = [
+  'item_ultimate_scepter',
+  'item_ultimate_scepter_copy',
+  'item_aghanims_shard',
+  'item_wings_of_haste_copy',
+  'item_moon_shard_copy',
+];
 
 function namesOf(level: number): string[] {
   return itemTiers.find((tier) => tier.level === level)?.names ?? [];
@@ -36,6 +40,13 @@ describe('itemTiers', () => {
   it('excludes the original versions from the whole reward pool', () => {
     const names = itemTiers.flatMap((tier) => tier.names);
     for (const name of ORIGINAL_ITEMS) {
+      expect(names).not.toContain(name);
+    }
+  });
+
+  it('only offers bundle contents through their bundles', () => {
+    const names = [...treasuredItems, ...itemTiers.flatMap((tier) => tier.names)];
+    for (const name of BUNDLE_CONTENTS) {
       expect(names).not.toContain(name);
     }
   });

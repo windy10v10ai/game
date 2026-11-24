@@ -3252,7 +3252,7 @@
 
 		// item_ultimate_scepter_copy
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy"						"<font color='#B87333'>Treasured Aghanim's Scepter</font>"
-		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>Passive: Ability Upgrade</h1>Upgrades the ultimate, and some abilities, of all heroes.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways."
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>Passive: Ability Upgrade</h1>Upgrades the ultimate, and some abilities, of all heroes.\n\n<h1>Passive: Antique</h1>Obtained by opening Treasured Aghanim's Gift. Over time, its stats and effects have changed in unusual ways."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Lore"			"The scepter of a wizard with demigod-like powers."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_health"		"+$health"
@@ -3260,7 +3260,7 @@
 
 		// item_wings_of_haste_copy
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"<font color='#B87333'>Treasured Wings of Haste</font>"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>Use: Hasten</h1> Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, 8 health regeneration, and 5 mana regeneration.\nThis item may be used on allied heroes who have not consumed this item yet.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways."
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>Use: Hasten</h1> Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, 8 health regeneration, and 5 mana regeneration.\nThis item may be used on allied heroes who have not consumed this item yet.\n\n<h1>Passive: Antique</h1>Obtained by opening Treasured Speedster's Gift. Over time, its stats and effects have changed in unusual ways."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Lore"			"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_movement_speed"		"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_attack_speed"		"+$attack"
@@ -3270,7 +3270,7 @@
 
 		// item_moon_shard_copy
 		"DOTA_Tooltip_ability_item_moon_shard_copy"						"<font color='#B87333'>Treasured Moon Shard</font>"
-		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>Use: Consume</h1> Consume the Moon Shard to permanently gain %consumed_bonus% attack speed and %consumed_bonus_night_vision% bonus night vision. Max 1 use.\n\n<h1>Passive: Shade Sight</h1>Grants bonus night vision.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways."
+		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>Use: Consume</h1> Consume the Moon Shard to permanently gain %consumed_bonus% attack speed and %consumed_bonus_night_vision% bonus night vision. Max 1 use.\n\n<h1>Passive: Shade Sight</h1>Grants bonus night vision.\n\n<h1>Passive: Antique</h1>Obtained by opening Treasured Speedster's Gift. Over time, its stats and effects have changed in unusual ways."
 		"DOTA_Tooltip_ability_item_moon_shard_copy_Lore"			"Said to be a tear from the lunar goddess Selemene."
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_night_vision"		"+Bonus Night Vision"

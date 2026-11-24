@@ -8029,7 +8029,7 @@
 		"AbilityTextureName"			"bfury_copy"
 		"ItemCost"						"1000"	// 原版造价 3900
 		"ItemShopTags"					""
-		"ItemPurchasable"				"0"
+		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -8072,7 +8072,7 @@
 		"AbilityTextureName"			"radiance_copy"
 		"ItemCost"						"1000"	// 原版造价 4700
 		"ItemShopTags"					""
-		"ItemPurchasable"				"0"
+		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_DONT_PROC_OTHER_ABILITIES | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
@@ -8103,7 +8103,7 @@
 		"AbilitySharedCooldown"			"blade_mail"
 		"ItemCost"						"1000"	// 原版造价 2350
 		"ItemShopTags"					""
-		"ItemPurchasable"				"0"
+		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -8130,7 +8130,7 @@
 		"AbilityTextureName"			"heart_copy"
 		"ItemCost"						"1000"	// 原版造价 5300
 		"ItemShopTags"					""
-		"ItemPurchasable"				"0"
+		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -8210,6 +8210,9 @@
 		"ID"							"10477"
 		"BaseClass"						"item_ultimate_scepter"
 		"AbilityTextureName"			"ultimate_scepter_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -8222,7 +8225,7 @@
 
 		"ItemCost"						"1000"	// 原版造价 4200
 		"ItemShopTags"					""
-		"ItemPurchasable"				"0"
+		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -8316,6 +8319,10 @@
 		"ID"							"10479"
 		"BaseClass"						"item_moon_shard"
 		"AbilityTextureName"			"moon_shard_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD"
 		"ItemCost"						"500"	// 原版造价 4000
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
@@ -8346,7 +8353,7 @@
 		"AbilityManaCost"				"0"
 		"ItemCost"						"1000"
 		"ItemShopTags"					""
-		"ItemPurchasable"				"0"
+		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -8386,7 +8393,7 @@
 		"AbilityManaCost"				"0"
 		"ItemCost"						"1000"	// 原版造价 4325
 		"ItemShopTags"					""
-		"ItemPurchasable"				"0"
+		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -8441,7 +8448,7 @@
 		}
 		"ItemCost"						"1000"	// 原版造价 5900
 		"ItemShopTags"					""
-		"ItemPurchasable"				"0"
+		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -8482,7 +8489,7 @@
 
 		"ItemCost"						"1000"	// 原版造价 2200
 		"ItemShopTags"					""
-		"ItemPurchasable"				"0"
+		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -8510,7 +8517,7 @@
 		"SuggestLategame"				"1"
 		"ItemCost"						"1000"
 		"ItemShopTags"					""
-		"ItemPurchasable"				"0"
+		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"

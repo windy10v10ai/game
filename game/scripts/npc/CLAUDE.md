@@ -63,11 +63,21 @@ comm -12 /tmp/ours.txt /tmp/valve.txt   # 有输出即冲突
 
 - **让 tooltip 计入技能增强**：某条 `AbilityValues` 数值想在游戏中按住 ALT 时显示「被技能增强放大后」的值，在该数值块内加 `"CalculateSpellDamageTooltip" "1"`（**不是** `affected_by_spell_amplify`，没有这个字段）。原版默认多为 `"0"`（不计入）。配套字段：`"DamageTypeTooltip"`（伤害类型）、`"display_type"`（如 `kMagicalDamagePercentage` 百分比显示）
 
+## 珍藏装备和馈赠
+
+做珍藏装备时优先将 `BaseClass` 指向对应的原版物品。宝箱直接抽取馈赠，馈赠里的物品通过馈赠发放。调整馈赠的 `loot_*` 时同步检查首箱和常规宝箱的物品池。
+
+有上位配方的珍藏材料用 `ItemPurchasable "1"` 启用原生右键「在商店中显示」，通过 `DragonWishFilter` 拒绝购买指令。验收时分别检查右键入口、上位配方和购买拦截。
+
 ## BaseClass 继承范围
 
 `"BaseClass" "<原版物品名>"` 能继承原版物品的**引擎侧行为**：`item_ultimate_scepter_copy` 设 `BaseClass "item_ultimate_scepter"`，放进背包就有 A杖效果，不需要脚本再挂 `modifier_item_ultimate_scepter`（实测）。
 
 **不继承的是数值**：`AbilityValues` 要写进自己的物品块，否则 `GetSpecialValueFor` 一律返回 0，属性与 tooltip 都是空的（实测）。
+
+原版主动效果还需要在珍藏物品块中声明 `AbilityBehavior` 和适用的目标字段。珍藏银月之晶补齐这些字段后可走原生吞噬效果。
+
+祈求者的原生神杖选择框按物品名识别神杖。馈赠给祈求者发放 `item_ultimate_scepter`，并关闭这件赠品的出售。
 
 自制物品（`BaseClass` 是 `item_datadriven` / `item_lua`）的 `Modifiers` 块和 `OnSpellStart` 脚本属于它自己的块，做它的复制品时按自己的块重写，不靠 `BaseClass` 继承，参考 `item_wings_of_haste_copy`。
 

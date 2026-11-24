@@ -7,9 +7,6 @@ export const treasuredItems = [
   'item_heart_copy',
   'item_aghanim_bundle',
   'item_haste_moon_bundle',
-  'item_ultimate_scepter_copy',
-  'item_wings_of_haste_copy',
-  'item_moon_shard_copy',
   'item_berserkers_sabatons_copy',
   'item_echo_sabre_2_copy',
   'item_hydras_breath_copy',
@@ -66,7 +63,6 @@ export const itemTiers: Tier[] = [
     level: 2,
     names: [
       'item_tome_of_knowledge',
-      'item_aghanims_shard',
       'item_great_famango',
       'item_treasure_attribute_fragment',
       'item_treasure_slot_machine',
