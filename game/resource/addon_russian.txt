@@ -3138,7 +3138,7 @@
 
 		// item_treasure_bottle 强化魔瓶
 		"DOTA_Tooltip_Ability_item_treasure_bottle"						"Усиленная бутылка"
-		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>Применение: Восстановление</h1>Расходует заряд и за %restore_time% сек. восстанавливает %health_restore% здоровья и %mana_restore% маны. Каждую секунду дополнительно восстанавливает %health_regen_pct_tooltip%%% от максимального здоровья и %mana_regen_pct_tooltip%%% от максимальной маны. Урон от вражеских героев или Рошана прерывает эффект.<br><br>У союзного фонтана пополняется до %max_charges% зарядов.<br><br>Удерживайте Ctrl, чтобы применить на союзного героя.\n\n<h1>Пассивно: Хранение руны</h1>Нажмите на руну правой кнопкой мыши, чтобы сохранить её. Хранящаяся руна активируется автоматически через %rune_expire_time% сек."
+		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>Применение: Восстановление</h1>Расходует заряд и за %restore_time% сек. восстанавливает %health_restore% здоровья и %mana_restore% маны. Каждую секунду дополнительно восстанавливает %health_regen_pct_tooltip%%% от максимального здоровья и %mana_regen_pct_tooltip%%% от максимальной маны. Получение урона не прерывает восстановление.<br><br>У союзного фонтана пополняется до %max_charges% зарядов.<br><br>Удерживайте Ctrl, чтобы применить на союзного героя.\n\n<h1>Пассивно: Хранение руны</h1>Нажмите на руну правой кнопкой мыши, чтобы сохранить её. Хранящаяся руна активируется автоматически через %rune_expire_time% сек."
 
 		// item_treasure_cheese 强化奶酪
 		"DOTA_Tooltip_Ability_item_treasure_cheese"						"Усиленный сыр"

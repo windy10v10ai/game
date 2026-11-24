@@ -3138,7 +3138,7 @@
 
 		// item_treasure_bottle 强化魔瓶
 		"DOTA_Tooltip_Ability_item_treasure_bottle"						"强化魔瓶"
-		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>使用：恢复</h1>每次使用消耗一口，在%restore_time%秒内共恢复%health_restore%点生命和%mana_restore%点魔法，期间每秒额外恢复%health_regen_pct_tooltip%%%最大生命值和%mana_regen_pct_tooltip%%%最大魔法值。受到敌方英雄或肉山伤害时，恢复会提前结束。<br><br>靠近友方泉水时补满至%max_charges%口。<br><br>按住Ctrl键可以对友方英雄使用。\n\n<h1>被动：储存神符</h1>右键点击神符可将其存入魔瓶，超过%rune_expire_time%秒后自动激活。"
+		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>使用：恢复</h1>每次使用消耗一口，在%restore_time%秒内共恢复%health_restore%点生命和%mana_restore%点魔法，期间每秒额外恢复%health_regen_pct_tooltip%%%最大生命值和%mana_regen_pct_tooltip%%%最大魔法值。受到伤害不会打断恢复。<br><br>靠近友方泉水时补满至%max_charges%口。<br><br>按住Ctrl键可以对友方英雄使用。\n\n<h1>被动：储存神符</h1>右键点击神符可将其存入魔瓶，超过%rune_expire_time%秒后自动激活。"
 
 		// item_treasure_cheese 强化奶酪
 		"DOTA_Tooltip_Ability_item_treasure_cheese"						"强化奶酪"

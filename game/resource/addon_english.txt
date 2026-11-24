@@ -3136,7 +3136,7 @@
 
 		// item_treasure_bottle 强化魔瓶
 		"DOTA_Tooltip_Ability_item_treasure_bottle"						"Reinforced Bottle"
-		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>Use: Regenerate</h1>Consumes a charge to restore %health_restore% health and %mana_restore% mana over %restore_time% seconds. Also restores %health_regen_pct_tooltip%%% of max health and %mana_regen_pct_tooltip%%% of max mana per second. Damage from enemy heroes or Roshan ends the effect early.<br><br>Refills to %max_charges% charges at the allied fountain.<br><br>Hold Ctrl to use on an allied hero.\n\n<h1>Passive: Store Rune</h1>Right-click a rune to store it. Stored runes activate automatically after %rune_expire_time% seconds."
+		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>Use: Regenerate</h1>Consumes a charge to restore %health_restore% health and %mana_restore% mana over %restore_time% seconds. Also restores %health_regen_pct_tooltip%%% of max health and %mana_regen_pct_tooltip%%% of max mana per second. Taking damage does not interrupt regeneration.<br><br>Refills to %max_charges% charges at the allied fountain.<br><br>Hold Ctrl to use on an allied hero.\n\n<h1>Passive: Store Rune</h1>Right-click a rune to store it. Stored runes activate automatically after %rune_expire_time% seconds."
 
 		// item_treasure_cheese 强化奶酪
 		"DOTA_Tooltip_Ability_item_treasure_cheese"						"Reinforced Cheese"

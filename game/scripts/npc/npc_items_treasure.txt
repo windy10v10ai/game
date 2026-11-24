@@ -217,7 +217,7 @@
 			"mana_regen_pct_tooltip"		"6"
 			"restore_time"				"3.5"
 			"max_charges"				"5"
-			"break_on_hero_damage"		"1"
+			"break_on_hero_damage"		"0"
 			"rune_expire_time"			"120"
 		}
 	}
