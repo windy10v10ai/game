@@ -3151,7 +3151,7 @@
 
 		// item_ultimate_scepter_copy
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy"						"<font color='#B87333'>Драгоценный Aghanim's Scepter</font>"
-		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>Пассивное: Ability Upgrade</h1>Улучшает ульт и некоторые способности.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились."
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>Пассивное: Ability Upgrade</h1>Улучшает ульт и некоторые способности.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить из набора «Драгоценный Aghanim's Gift». От времени его характеристики и эффекты необычно изменились."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Lore"			"Скипетр колдуна, мощью сходного с полубогами."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_health"		"+$health"
@@ -3159,7 +3159,7 @@
 
 		// item_wings_of_haste_copy
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"<font color='#B87333'>Драгоценные Крылья спешки</font>"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>Применение: Постоянное улучшение</h1>Поглощает Крылья спешки, навсегда давая %bonus_movement_speed% к скорости передвижения, %bonus_attack_speed% к скорости атаки, 8 к восстановлению здоровья и 5 к восстановлению маны.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились."
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>Применение: Постоянное улучшение</h1>Поглощает Крылья спешки, навсегда давая %bonus_movement_speed% к скорости передвижения, %bonus_attack_speed% к скорости атаки, 8 к восстановлению здоровья и 5 к восстановлению маны.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить из набора «Драгоценный Speedster's Gift». От времени его характеристики и эффекты необычно изменились."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Lore"			"Крылья, дарующие скорое возмездие в бою."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_movement_speed"		"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_attack_speed"		"+$attack"
@@ -3169,7 +3169,7 @@
 
 		// item_moon_shard_copy
 		"DOTA_Tooltip_ability_item_moon_shard_copy"						"<font color='#B87333'>Драгоценный Moon Shard</font>"
-		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>Использование: Consume</h1> Поглощает предмет и навсегда увеличивает скорость атаки на %consumed_bonus%, а радиус обзора ночью — на %consumed_bonus_night_vision%. Можно поглотить лишь один Moon Shard.\n\n<h1>Пассивное: Shade Sight</h1>Увеличивает радиус обзора ночью.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились."
+		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>Использование: Consume</h1> Поглощает предмет и навсегда увеличивает скорость атаки на %consumed_bonus%, а радиус обзора ночью — на %consumed_bonus_night_vision%. Можно поглотить лишь один Moon Shard.\n\n<h1>Пассивное: Shade Sight</h1>Увеличивает радиус обзора ночью.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить из набора «Драгоценный Speedster's Gift». От времени его характеристики и эффекты необычно изменились."
 		"DOTA_Tooltip_ability_item_moon_shard_copy_Lore"			"Говорят, что это слеза Селемине — богини Луны."
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_night_vision"		"+к радиусу обзора ночью"

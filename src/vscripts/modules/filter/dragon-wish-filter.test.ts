@@ -37,6 +37,21 @@ describe('DragonWishFilter', () => {
     };
   }
 
+  it.each([
+    ['item_berserkers_sabatons_copy', false],
+    ['item_ultimate_scepter_copy', false],
+    ['item_ultimate_scepter', true],
+    ['item_recipe_ultimate_scepter_2', true],
+  ])('handles the purchase of %s', (itemName, allowed) => {
+    const order = {
+      ...createOrder(),
+      order_type: UnitOrder.PURCHASE_ITEM,
+      shop_item_name: itemName,
+    };
+
+    expect(orderFilter(order)).toBe(allowed);
+  });
+
   it('blocks Culling Blade against the Dragon immortality spirit state', () => {
     entities[1] = { GetAbilityName: () => 'axe_culling_blade' };
     entities[2] = {

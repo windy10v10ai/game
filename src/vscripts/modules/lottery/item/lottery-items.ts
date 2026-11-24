@@ -76,7 +76,6 @@ export const itemTiers: Tier[] = [
     level: 2,
     names: [
       'item_tome_of_knowledge', // 知识之书
-      'item_aghanims_shard', // 阿哈利姆魔晶
       'item_great_famango', // 大疗伤莲花
       'item_hand_of_midas', // 点金手
       'item_force_staff', // 原力法杖

@@ -34,8 +34,14 @@ function LootBundleOnSpell(keys)
 
 	UTIL_Remove(ability)
 	for _, itemName in ipairs(pending) do
-		local item = CreateItem(itemName, owner, hero)
+		-- Invoker's upgrade picker checks for the engine's original item name.
+		local needsNativeScepter = itemName == "item_ultimate_scepter_copy" and hero:GetUnitName() == "npc_dota_hero_invoker"
+		local item = CreateItem(needsNativeScepter and "item_ultimate_scepter" or itemName, owner, hero)
 		if item ~= nil then
+			if needsNativeScepter then
+				item:SetSellable(false)
+				item:SetPurchaseTime(-100)
+			end
 			hero:AddItem(item)
 		end
 	end
