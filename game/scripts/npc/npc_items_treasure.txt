@@ -4,7 +4,7 @@
 	{
 		"ID"							"10486"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_flask"
+		"AbilityTextureName"			"treasure_salve"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -66,7 +66,7 @@
 	{
 		"ID"							"10487"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_clarity"
+		"AbilityTextureName"			"treasure_clarity"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -127,7 +127,7 @@
 	"item_treasure_mango"
 	{
 		"BaseClass"						"item_enchanted_mango"
-		"AbilityTextureName"			"item_enchanted_mango"
+		"AbilityTextureName"			"treasure_mango"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -156,7 +156,7 @@
 	"item_treasure_raindrop"
 	{
 		"BaseClass"						"item_infused_raindrop"
-		"AbilityTextureName"			"item_infused_raindrop"
+		"AbilityTextureName"			"treasure_raindrop"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityCooldown"				"0.5"
 		"AbilityCastPoint"				"0"
@@ -184,7 +184,7 @@
 	"item_treasure_bottle"
 	{
 		"BaseClass"						"item_bottle"
-		"AbilityTextureName"			"item_bottle"
+		"AbilityTextureName"			"treasure_bottle"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -226,7 +226,7 @@
 	{
 		"ID"							"10488"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_cheese"
+		"AbilityTextureName"			"treasure_cheese"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"20"
 		"Model"							"models/props_gameplay/cheese.vmdl"

@@ -3113,35 +3113,35 @@
 		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag"				"老虎机钱袋"
 		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag_Description"				"拾取后获得袋内金币。"
 
-		// item_treasure_salve 强化治疗药膏
-		"DOTA_Tooltip_Ability_item_treasure_salve"						"强化治疗药膏"
+		// item_treasure_salve 神·治疗药膏
+		"DOTA_Tooltip_Ability_item_treasure_salve"						"<font color='#818CFF'>神·治疗药膏</font>"
 		"DOTA_Tooltip_ability_item_treasure_salve_Description"			"<h1>使用：药膏</h1>目标每秒恢复%health_regen%点生命，持续%buff_duration%秒。<br><br>受到伤害后仍会持续，免疫驱散。"
-		"DOTA_Tooltip_modifier_item_treasure_salve"						"强化治疗药膏"
+		"DOTA_Tooltip_modifier_item_treasure_salve"						"<font color='#818CFF'>神·治疗药膏</font>"
 		"DOTA_Tooltip_modifier_item_treasure_salve_Description"			"每秒恢复%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点生命。"
 
-		// item_treasure_clarity 强化净化药水
-		"DOTA_Tooltip_Ability_item_treasure_clarity"					"强化净化药水"
+		// item_treasure_clarity 神·净化药水
+		"DOTA_Tooltip_Ability_item_treasure_clarity"					"<font color='#818CFF'>神·净化药水</font>"
 		"DOTA_Tooltip_ability_item_treasure_clarity_Description"		"<h1>使用：回魔</h1>目标每秒恢复%mana_regen%点魔法，持续%buff_duration%秒。<br><br>受到伤害后仍会持续。"
-		"DOTA_Tooltip_modifier_item_treasure_clarity"					"强化净化药水"
+		"DOTA_Tooltip_modifier_item_treasure_clarity"					"<font color='#818CFF'>神·净化药水</font>"
 		"DOTA_Tooltip_modifier_item_treasure_clarity_Description"		"每秒恢复%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点魔法。"
 
-		// item_treasure_mango 强化魔法芒果
-		"DOTA_Tooltip_Ability_item_treasure_mango"						"强化魔法芒果"
+		// item_treasure_mango 神·魔法芒果
+		"DOTA_Tooltip_Ability_item_treasure_mango"						"<font color='#818CFF'>神·魔法芒果</font>"
 		"DOTA_Tooltip_ability_item_treasure_mango_Description"			"<h1>使用：吞食芒果</h1>立即恢复%replenish_amount%点魔法。"
 		"DOTA_Tooltip_ability_item_treasure_mango_Note0"				"按住Ctrl键点击附近友方英雄可以对其使用。"
 		"DOTA_Tooltip_ability_item_treasure_mango_hp_regen"				"+$hp_regen"
 
-		// item_treasure_raindrop 强化凝魂之露
-		"DOTA_Tooltip_Ability_item_treasure_raindrop"					"强化凝魂之露"
+		// item_treasure_raindrop 神·凝魂之露
+		"DOTA_Tooltip_Ability_item_treasure_raindrop"					"<font color='#818CFF'>神·凝魂之露</font>"
 		"DOTA_Tooltip_ability_item_treasure_raindrop_Description"		"<h1>被动：魔法伤害格挡</h1>受到超过%min_damage%点的<font color='#05CAFF'>魔法伤害</font>时消耗一层能量，最多格挡%magic_damage_block%点伤害。<br><br>初始有%initial_charges%层能量，耗尽后物品消失。"
 		"DOTA_Tooltip_ability_item_treasure_raindrop_mana_regen"		"+$mana_regen"
 
-		// item_treasure_bottle 强化魔瓶
-		"DOTA_Tooltip_Ability_item_treasure_bottle"						"强化魔瓶"
+		// item_treasure_bottle 神·魔瓶
+		"DOTA_Tooltip_Ability_item_treasure_bottle"						"<font color='#818CFF'>神·魔瓶</font>"
 		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>使用：恢复</h1>每次使用消耗一口，在%restore_time%秒内共恢复%health_restore%点生命和%mana_restore%点魔法，期间每秒额外恢复%health_regen_pct_tooltip%%%最大生命值和%mana_regen_pct_tooltip%%%最大魔法值。受到伤害不会打断恢复。<br><br>靠近友方泉水时补满至%max_charges%口。<br><br>按住Ctrl键可以对友方英雄使用。\n\n<h1>被动：储存神符</h1>右键点击神符可将其存入魔瓶，超过%rune_expire_time%秒后自动激活。"
 
-		// item_treasure_cheese 强化奶酪
-		"DOTA_Tooltip_Ability_item_treasure_cheese"						"强化奶酪"
+		// item_treasure_cheese 神·奶酪
+		"DOTA_Tooltip_Ability_item_treasure_cheese"						"<font color='#818CFF'>神·奶酪</font>"
 		"DOTA_Tooltip_ability_item_treasure_cheese_Description"			"<h1>使用：干酪</h1>立即恢复%health_restore%点生命和%mana_restore%点魔法。<br><br>可以重复使用，也可交给队友。"
 
 		// 圣女白莲

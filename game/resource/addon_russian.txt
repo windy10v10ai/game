@@ -3113,35 +3113,35 @@
 		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag"				"Мешок золота из игрового автомата"
 		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag_Description"				"Подберите мешок, чтобы получить золото."
 
-		// item_treasure_salve 强化治疗药膏
-		"DOTA_Tooltip_Ability_item_treasure_salve"						"Усиленная лечебная мазь"
+		// item_treasure_salve 神·治疗药膏
+		"DOTA_Tooltip_Ability_item_treasure_salve"						"<font color='#818CFF'>Божественная лечебная мазь</font>"
 		"DOTA_Tooltip_ability_item_treasure_salve_Description"			"<h1>Применение: Лечение</h1>Цель восстанавливает %health_regen% здоровья в секунду в течение %buff_duration% сек.<br><br>Эффект сохраняется при получении урона и защищён от развеивания."
-		"DOTA_Tooltip_modifier_item_treasure_salve"						"Усиленная лечебная мазь"
+		"DOTA_Tooltip_modifier_item_treasure_salve"						"<font color='#818CFF'>Божественная лечебная мазь</font>"
 		"DOTA_Tooltip_modifier_item_treasure_salve_Description"			"Восстанавливает %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% здоровья в секунду."
 
-		// item_treasure_clarity 强化净化药水
-		"DOTA_Tooltip_Ability_item_treasure_clarity"					"Усиленное зелье ясности"
+		// item_treasure_clarity 神·净化药水
+		"DOTA_Tooltip_Ability_item_treasure_clarity"					"<font color='#818CFF'>Божественное зелье ясности</font>"
 		"DOTA_Tooltip_ability_item_treasure_clarity_Description"		"<h1>Применение: Восстановление маны</h1>Цель восстанавливает %mana_regen% маны в секунду в течение %buff_duration% сек.<br><br>Эффект сохраняется при получении урона."
-		"DOTA_Tooltip_modifier_item_treasure_clarity"					"Усиленное зелье ясности"
+		"DOTA_Tooltip_modifier_item_treasure_clarity"					"<font color='#818CFF'>Божественное зелье ясности</font>"
 		"DOTA_Tooltip_modifier_item_treasure_clarity_Description"		"Восстанавливает %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% маны в секунду."
 
-		// item_treasure_mango 强化魔法芒果
-		"DOTA_Tooltip_Ability_item_treasure_mango"						"Усиленное зачарованное манго"
+		// item_treasure_mango 神·魔法芒果
+		"DOTA_Tooltip_Ability_item_treasure_mango"						"<font color='#818CFF'>Божественное зачарованное манго</font>"
 		"DOTA_Tooltip_ability_item_treasure_mango_Description"			"<h1>Применение: Съесть манго</h1>Мгновенно восстанавливает %replenish_amount% маны."
 		"DOTA_Tooltip_ability_item_treasure_mango_Note0"				"Удерживайте Ctrl, чтобы применить на ближайшего союзного героя."
 		"DOTA_Tooltip_ability_item_treasure_mango_hp_regen"				"+$hp_regen"
 
-		// item_treasure_raindrop 强化凝魂之露
-		"DOTA_Tooltip_Ability_item_treasure_raindrop"					"Усиленные зачарованные капли"
+		// item_treasure_raindrop 神·凝魂之露
+		"DOTA_Tooltip_Ability_item_treasure_raindrop"					"<font color='#818CFF'>Божественные зачарованные капли</font>"
 		"DOTA_Tooltip_ability_item_treasure_raindrop_Description"		"<h1>Пассивно: Блок магического урона</h1>Когда владелец получает больше %min_damage% единиц <font color='#05CAFF'>магического урона</font> за раз, расходуется заряд и блокируется до %magic_damage_block% урона.<br><br>Изначально имеет %initial_charges% зарядов. Предмет исчезает, когда все заряды израсходованы."
 		"DOTA_Tooltip_ability_item_treasure_raindrop_mana_regen"		"+$mana_regen"
 
-		// item_treasure_bottle 强化魔瓶
-		"DOTA_Tooltip_Ability_item_treasure_bottle"						"Усиленная бутылка"
+		// item_treasure_bottle 神·魔瓶
+		"DOTA_Tooltip_Ability_item_treasure_bottle"						"<font color='#818CFF'>Божественная бутылка</font>"
 		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>Применение: Восстановление</h1>Расходует заряд и за %restore_time% сек. восстанавливает %health_restore% здоровья и %mana_restore% маны. Каждую секунду дополнительно восстанавливает %health_regen_pct_tooltip%%% от максимального здоровья и %mana_regen_pct_tooltip%%% от максимальной маны. Получение урона не прерывает восстановление.<br><br>У союзного фонтана пополняется до %max_charges% зарядов.<br><br>Удерживайте Ctrl, чтобы применить на союзного героя.\n\n<h1>Пассивно: Хранение руны</h1>Нажмите на руну правой кнопкой мыши, чтобы сохранить её. Хранящаяся руна активируется автоматически через %rune_expire_time% сек."
 
-		// item_treasure_cheese 强化奶酪
-		"DOTA_Tooltip_Ability_item_treasure_cheese"						"Усиленный сыр"
+		// item_treasure_cheese 神·奶酪
+		"DOTA_Tooltip_Ability_item_treasure_cheese"						"<font color='#818CFF'>Божественный сыр</font>"
 		"DOTA_Tooltip_ability_item_treasure_cheese_Description"			"<h1>Применение: Фондю</h1>Мгновенно восстанавливает %health_restore% здоровья и %mana_restore% маны.<br><br>Можно использовать повторно и передавать союзникам."
 
 		// 圣女白莲

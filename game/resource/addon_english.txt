@@ -3111,35 +3111,35 @@
 		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag"				"Slot Machine Gold Bag"
 		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag_Description"				"Collect the gold inside upon pickup."
 
-		// item_treasure_salve 强化治疗药膏
-		"DOTA_Tooltip_Ability_item_treasure_salve"						"Reinforced Healing Salve"
+		// item_treasure_salve 神·治疗药膏
+		"DOTA_Tooltip_Ability_item_treasure_salve"						"<font color='#818CFF'>Divine Healing Salve</font>"
 		"DOTA_Tooltip_ability_item_treasure_salve_Description"			"<h1>Use: Salve</h1>The target restores %health_regen% health per second for %buff_duration% seconds.<br><br>The effect persists through damage and is immune to dispels."
-		"DOTA_Tooltip_modifier_item_treasure_salve"						"Reinforced Healing Salve"
+		"DOTA_Tooltip_modifier_item_treasure_salve"						"<font color='#818CFF'>Divine Healing Salve</font>"
 		"DOTA_Tooltip_modifier_item_treasure_salve_Description"			"Restoring %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health per second."
 
-		// item_treasure_clarity 强化净化药水
-		"DOTA_Tooltip_Ability_item_treasure_clarity"					"Reinforced Clarity"
+		// item_treasure_clarity 神·净化药水
+		"DOTA_Tooltip_Ability_item_treasure_clarity"					"<font color='#818CFF'>Divine Clarity</font>"
 		"DOTA_Tooltip_ability_item_treasure_clarity_Description"		"<h1>Use: Replenish</h1>The target restores %mana_regen% mana per second for %buff_duration% seconds.<br><br>The effect persists through damage."
-		"DOTA_Tooltip_modifier_item_treasure_clarity"					"Reinforced Clarity"
+		"DOTA_Tooltip_modifier_item_treasure_clarity"					"<font color='#818CFF'>Divine Clarity</font>"
 		"DOTA_Tooltip_modifier_item_treasure_clarity_Description"		"Restoring %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana per second."
 
-		// item_treasure_mango 强化魔法芒果
-		"DOTA_Tooltip_Ability_item_treasure_mango"						"Reinforced Enchanted Mango"
+		// item_treasure_mango 神·魔法芒果
+		"DOTA_Tooltip_Ability_item_treasure_mango"						"<font color='#818CFF'>Divine Enchanted Mango</font>"
 		"DOTA_Tooltip_ability_item_treasure_mango_Description"			"<h1>Use: Eat Mango</h1>Instantly restores %replenish_amount% mana."
 		"DOTA_Tooltip_ability_item_treasure_mango_Note0"				"Hold Ctrl to use on a nearby allied hero."
 		"DOTA_Tooltip_ability_item_treasure_mango_hp_regen"				"+$hp_regen"
 
-		// item_treasure_raindrop 强化凝魂之露
-		"DOTA_Tooltip_Ability_item_treasure_raindrop"					"Reinforced Infused Raindrops"
+		// item_treasure_raindrop 神·凝魂之露
+		"DOTA_Tooltip_Ability_item_treasure_raindrop"					"<font color='#818CFF'>Divine Infused Raindrops</font>"
 		"DOTA_Tooltip_ability_item_treasure_raindrop_Description"		"<h1>Passive: Magical Damage Block</h1>Consumes a charge to block up to %magic_damage_block% damage from a hit that deals more than %min_damage% <font color='#05CAFF'>magic damage</font>.<br><br>Starts with %initial_charges% charges. The item disappears when all charges are spent."
 		"DOTA_Tooltip_ability_item_treasure_raindrop_mana_regen"		"+$mana_regen"
 
-		// item_treasure_bottle 强化魔瓶
-		"DOTA_Tooltip_Ability_item_treasure_bottle"						"Reinforced Bottle"
+		// item_treasure_bottle 神·魔瓶
+		"DOTA_Tooltip_Ability_item_treasure_bottle"						"<font color='#818CFF'>Divine Bottle</font>"
 		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>Use: Regenerate</h1>Consumes a charge to restore %health_restore% health and %mana_restore% mana over %restore_time% seconds. Also restores %health_regen_pct_tooltip%%% of max health and %mana_regen_pct_tooltip%%% of max mana per second. Taking damage does not interrupt regeneration.<br><br>Refills to %max_charges% charges at the allied fountain.<br><br>Hold Ctrl to use on an allied hero.\n\n<h1>Passive: Store Rune</h1>Right-click a rune to store it. Stored runes activate automatically after %rune_expire_time% seconds."
 
-		// item_treasure_cheese 强化奶酪
-		"DOTA_Tooltip_Ability_item_treasure_cheese"						"Reinforced Cheese"
+		// item_treasure_cheese 神·奶酪
+		"DOTA_Tooltip_Ability_item_treasure_cheese"						"<font color='#818CFF'>Divine Cheese</font>"
 		"DOTA_Tooltip_ability_item_treasure_cheese_Description"			"<h1>Use: Fondue</h1>Instantly restores %health_restore% health and %mana_restore% mana.<br><br>Reusable and can be given to teammates."
 
 		// 圣女白莲
