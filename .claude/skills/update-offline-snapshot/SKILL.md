@@ -53,6 +53,8 @@ cd <firebase>/api && npm run export:snapshot -- <本仓库绝对路径>/game/scr
 
 把四行统计原样报给用户，这是判断窗口开得合不合适的唯一反馈。
 
+二次元版（同级目录 `../anime`，与原版共用玩家数据）存在时，把五个文件复制一份到它的 `game/scripts/kv/`（目录不存在先建），让它下次发版也带上新数据。
+
 ### 4. 询问是否发布
 
 校验通过后用 `AskUserQuestion` 问用户是否现在发布到创意工坊。选否就到此结束。选是则不自己点 Workshop Manager（授权弹窗只有用户本人能点），按下面做：
