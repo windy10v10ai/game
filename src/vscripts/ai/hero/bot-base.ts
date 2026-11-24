@@ -25,7 +25,13 @@ import { WardPlacement } from '../ward/ward-placement';
 import { canEngage, canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
 import { EngageToward, FindBlinkItem, MoveContext, MoveToward } from './mobility';
-import { ROADSIDE_CHANNELS, RoadsideScope, TryRoadside } from './roadside';
+import {
+  CancelRoadside,
+  ROADSIDE_CHANNELS,
+  RoadsideScope,
+  RoadsideTick,
+  TryRoadside,
+} from './roadside';
 import { canOutlastTower, passesTower, retreatPointFromTowers } from './tower-retreat';
 import { calculateAttackDPS } from '../../utils/damage-calculation';
 
@@ -984,9 +990,14 @@ export class BotBaseAIModifier extends BaseModifier {
   private Roadside(task: Task): boolean {
     if (this.aroundEnemyHeroes.length > 0) {
       this.roadsideUntil = 0;
+      CancelRoadside(this.hero);
       return false;
     }
     if (this.gameTime < this.roadsideUntil) {
+      if (!RoadsideTick(this.hero)) {
+        this.roadsideUntil = 0;
+        return false;
+      }
       this.traceTarget = 'roadside';
       return true;
     }
