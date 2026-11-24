@@ -215,14 +215,6 @@ export class AbilityLottery {
     if (!hero) {
       return;
     }
-    const picked = AbilityLotteryHelper.resolveConflictingPick(
-      hero,
-      { name: event.name, level: event.level },
-      abilityType === AbilityItemTypes.Active ? abilityTiersActive : abilityTiersPassive,
-      this.getExcludedAbilityNames(abilityType as AbilityItemType, steamAccountID),
-    );
-    event.name = picked.name;
-    event.level = picked.level;
     hero.AddAbility(event.name);
 
     // 记录选择的技能
