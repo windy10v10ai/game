@@ -8021,7 +8021,7 @@
 		"AbilityManaCost"				"0"
 		"ItemCost"						"1000"	// 原版造价 4325
 		"ItemShopTags"					""
-		"ItemPurchasable"				"0"
+		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
