@@ -169,7 +169,6 @@ export class NeutralItemManager {
           { name: 'item_dandelion_amulet', level: 1 }, // 蒲公英护符
           { name: 'item_prophets_pendulum', level: 1 }, // 先知灵摆
           { name: 'item_harmonizer', level: 1 }, // 协和
-          { name: 'item_enchanters_bauble', level: 1 }, // 附魔师之椟
           { name: 'item_ceremonial_robe', level: 1 }, // 祭礼长袍
         ],
         enhancements: {
@@ -229,6 +228,7 @@ export class NeutralItemManager {
           { name: 'item_ex_machina', level: 1 }, // 机械之心
           { name: 'item_flicker', level: 1 }, // 闪灵
           { name: 'item_mind_breaker', level: 1 }, // 智灭
+          { name: 'item_enchanters_bauble', level: 1 }, // 附魔师之椟
         ],
         enhancements: {
           global: [
