@@ -414,6 +414,8 @@ const OBSERVER_DIRE: WardSideData = {
     'r-push-top/obs': 1,
     'r-push-mid/obs': 1,
     'r-push-bot/obs': 1,
+    'r-edge-north/obs': 1,
+    'r-edge-south/obs': 1,
     '天辉上野入侵线/obs': 1,
     '天辉下野入侵线/obs': 1,
     '天辉下路绕行线/obs': 1,
@@ -457,6 +459,26 @@ const OBSERVER_DIRE: WardSideData = {
       spots: [
         [-4530, -5890],
         [-3950, -6300],
+      ],
+    },
+    {
+      id: 'r-edge-north',
+      group: 'r-edge-north/obs',
+      tier: 'push',
+      tower: 'goodguys_tower2_top',
+      spots: [
+        [-5500, -3375],
+        [-5575, -3525],
+      ],
+    },
+    {
+      id: 'r-edge-south',
+      group: 'r-edge-south/obs',
+      tier: 'push',
+      tower: 'goodguys_tower2_bot',
+      spots: [
+        [-3975, -5100],
+        [-3900, -5100],
       ],
     },
     {
