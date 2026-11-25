@@ -8125,22 +8125,87 @@
 
 	"item_heart_copy"
 	{
+		"BaseClass"						"item_datadriven"
 		"ID"							"10474"
-		"BaseClass"						"item_heart"
 		"AbilityTextureName"			"heart_copy"
-		"ItemCost"						"1000"	// 原版造价 5300
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"250"
+		"AbilitySharedCooldown"			"undying"
+
+		"ItemCost"						"1000"
 		"ItemShopTags"					""
 		"ItemPurchasable"				"1"
 		"ItemSellable"					"1"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_strength"		"30"	// 原版 40
-			"hp_regen"				"3.5"	// 原版 1
-			"missing_health_regen"	"1.5"
+			"bonus_strength"			"75"
+			"hp_regen"					"3.5"
+			"missing_health_regen"		"2"
+
+			"bonus_health_passive"		"900"
+			"bonus_evasion"				"15"
+
+			"dur"						"5"
+			"active_hp_regen"			"750"
+			"active_hp_regen_pct"		"3"
+			"buff_hp_regen"				"150"
+			"buff_hp_regen_pct"			"1.5"
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_heart_copy"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health_passive"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"%bonus_evasion"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_undying_heart"
+						"Function"		"UndyingHeartOnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_undying_heart"
+						"Function"		"UndyingHeartOnDestroy"
+					}
+				}
+			}
+			"modifier_item_heart_copy_buff"
+			{
+				"IsBuff"					"1"
+				"IsPurgable"				"1"
+				"TextureName"				"item_heart_copy"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%buff_hp_regen"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%buff_hp_regen_pct"
+				}
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_undying_heart"
+				"Function"		"UndyingHeartOnSpellStart"
+				"modifier"			"modifier_item_heart_copy_buff"
+			}
 		}
 	}
 

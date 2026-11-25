@@ -3300,12 +3300,16 @@
 		"DOTA_Tooltip_ability_item_blade_mail_copy_bonus_armor"		"+$armor"
 
 		// item_heart_copy
-		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#B87333'>珍藏·龙心</font>"
-		"DOTA_Tooltip_ability_item_heart_copy_Description"		"<h1>被动：巨兽之血</h1>生命恢复提升缺失生命值的%missing_health_regen%%%。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化，并且可以做到跨级合成。"
+		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#B87333'>珍藏·不朽之心</font>"
+		"DOTA_Tooltip_ability_item_heart_copy_Description"							"<h1><font color='#FFFF00'>主动：巨龙复苏</font></h1>立刻回复 %active_hp_regen%+%active_hp_regen_pct%%%最大生命值 的血量，对自身施加弱驱散效果。<br>获得持续 %dur% 秒的额外回血buff，每秒恢复 %buff_hp_regen%+%buff_hp_regen_pct%%%最大生命值 的血量。\n\n<h1>被动：巨兽之血</h1>生命恢复提升缺失生命值的%missing_health_regen%%%。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化，并且可以做到跨级合成。"
 		"DOTA_Tooltip_ability_item_heart_copy_Lore"			"保存完好的心脏，来自早已绝种的怪兽，能提升携带者的耐久力。"
 		"DOTA_Tooltip_ability_item_heart_copy_Note0"			"多个巨兽之血的效果不会叠加。"
 		"DOTA_Tooltip_ability_item_heart_copy_bonus_strength"		"+$str"
 		"DOTA_Tooltip_ability_item_heart_copy_hp_regen"		"%+最大生命值恢复"
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_health_passive"							"+$health"
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_evasion"							"%+$evasion"
+		"DOTA_Tooltip_modifier_item_heart_copy_buff"									"巨龙复苏"
+		"DOTA_Tooltip_modifier_item_heart_copy_buff_Description"						"以极快的速度恢复生命值。"
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#e03e2e'>变态辣</font>"
