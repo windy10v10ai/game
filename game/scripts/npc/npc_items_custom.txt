@@ -8046,7 +8046,7 @@
 			"burn_dps_units"				"0"
 			"burn_slow"						"20"
 			"burn_duration"					"6"
-			"stun_duration"					"0.5"
+			"stun_duration"					"0"
 			"burn_interval"					"1.0"
 			"land_time"						"0.5"
 			"impact_radius"
