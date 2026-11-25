@@ -20,7 +20,7 @@ import { EXTERNAL_LINK_ICON } from './member/constants';
 const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boolean }[] = [
   {
     heroName: 'npc_dota_hero_morphling',
-    abilityName: 'special_bonus_unique_morphling_upgrade',
+    abilityName: 'morphling_replicate_awaken',
     freeTrial: true,
   },
   {

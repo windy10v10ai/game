@@ -3,7 +3,7 @@ import { AddKeyBind, FindDotaHudElement } from '@utils/utils';
 const notTargetAbilityNames = ['earthshaker_enchant_totem'];
 // 拥有unit target，但是只能对友军释放的技能（特殊情况）
 const unitTargetOnlyFriendlyAbilityNames = ['abyssal_underlord_firestorm'];
-const MORPHLING_AWAKEN_ABILITY = 'special_bonus_unique_morphling_upgrade';
+const MORPHLING_AWAKEN_ABILITY = 'morphling_replicate_awaken';
 let morphlingProgressOffset = 0;
 /** Align the native meter with the shift icons when the ability row grows. */
 function alignMorphlingProgress(panels?: Panel[]): void {

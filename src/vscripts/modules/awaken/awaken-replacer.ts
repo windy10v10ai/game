@@ -15,14 +15,6 @@ function addAbilityAtLevel(
   return added;
 }
 
-/** Remove the exact placeholder because a hero can have several with the same name. */
-function prepareAddedAbilitySlot(hero: CDOTA_BaseNPC_Hero, slot: number): void {
-  const occupant = hero.GetAbilityByIndex(slot);
-  if (occupant?.GetAbilityName() === 'generic_hidden') {
-    hero.RemoveAbilityByHandle(occupant);
-  }
-}
-
 /** 解析替换目标技能名：优先 targetAbility，其次 targetSlot 当前占用的技能 */
 function resolveTargetAbility(
   hero: CDOTA_BaseNPC_Hero,
@@ -130,19 +122,11 @@ export function executeReplacement(
 
   // 纯新增
   if (replacement.targetAbility === undefined && replacement.targetSlot === undefined) {
-    if (replacement.displaySlot !== undefined) {
-      prepareAddedAbilitySlot(hero, replacement.displaySlot);
-    }
-    const added = addAbilityAtLevel(
+    addAbilityAtLevel(
       hero,
       replacement.newAbility,
       resolveNewLevel(hero, replacement, replacement.newLevel),
     );
-    if (added === undefined) return false;
-    if (replacement.displaySlot !== undefined) {
-      added.SetHidden(false);
-      added.SetActivated(true);
-    }
     return true;
   }
 

@@ -1,4 +1,4 @@
-/** Morphling awakening: borrowed agility, agility-to-spell-amp, and a cooldown shared with Replicate. */
+/** Morphling awakening: borrowed agility, agility-to-spell-amp, a cooldown shared with Replicate, and Waveform attacks. */
 import {
   BaseAbility,
   BaseModifier,
@@ -6,7 +6,7 @@ import {
   registerModifier,
 } from '../../utils/dota_ts_adapter';
 
-@registerAbility('special_bonus_unique_morphling_upgrade')
+@registerAbility('morphling_replicate_awaken')
 export class SpecialBonusUniqueMorphlingUpgrade extends BaseAbility {
   GetManaCost(): number {
     return (this.GetCaster().GetMaxMana() * this.GetSpecialValueFor('mana_cost_pct')) / 100;
@@ -62,7 +62,7 @@ export class SpecialBonusUniqueMorphlingUpgrade extends BaseAbility {
   }
 }
 
-@registerModifier('abilities/ts_abilities/special_bonus_unique_morphling_upgrade')
+@registerModifier('abilities/ts_abilities/morphling_replicate_awaken')
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class modifier_morphling_awaken_stats extends BaseModifier {
   agility = 0;
@@ -102,7 +102,7 @@ export class modifier_morphling_awaken_stats extends BaseModifier {
   }
 }
 
-@registerModifier('abilities/ts_abilities/special_bonus_unique_morphling_upgrade')
+@registerModifier('abilities/ts_abilities/morphling_replicate_awaken')
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class modifier_morphling_awaken extends BaseModifier {
   private nativeEnd = 0;
@@ -154,6 +154,9 @@ export class modifier_morphling_awaken extends BaseModifier {
         if (other) this.copyCooldown(source, other);
       });
     }
+    if (name === 'morphling_waveform' && !event.unit.PassivesDisabled()) {
+      event.unit.AddNewModifier(event.unit, ability, modifier_morphling_awaken_waveform.name, {});
+    }
   }
 
   OnIntervalThink(): void {
@@ -178,5 +181,113 @@ export class modifier_morphling_awaken extends BaseModifier {
     const now = GameRules.GetGameTime();
     this.nativeEnd = now + remaining;
     this.awakenEnd = now + remaining;
+  }
+}
+
+/** Vanilla Waveform has no path attack (process_procs only passes attack effects), so the attacks are scripted. */
+@registerModifier('abilities/ts_abilities/morphling_replicate_awaken')
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export class modifier_morphling_awaken_waveform extends BaseModifier {
+  private previous!: Vector;
+  private hit: EntityIndex[] = [];
+  private started = false;
+  private expires = 0;
+  private radius = 0;
+  private attacking = false;
+  private records: Record<number, number> = {};
+
+  IsHidden(): boolean {
+    return true;
+  }
+
+  IsPurgable(): boolean {
+    return false;
+  }
+
+  OnCreated(): void {
+    if (!IsServer()) return;
+    this.begin();
+  }
+
+  OnRefresh(): void {
+    if (!IsServer()) return;
+    this.begin();
+  }
+
+  private begin(): void {
+    const parent = this.GetParent();
+    this.previous = parent.GetAbsOrigin();
+    this.hit = [];
+    this.started = false;
+    this.expires = GameRules.GetGameTime() + 0.2;
+    this.radius = parent.FindAbilityByName('morphling_waveform')?.GetSpecialValueFor('width') ?? 0;
+    this.StartIntervalThink(FrameTime());
+  }
+
+  DeclareFunctions(): ModifierFunction[] {
+    return [
+      ModifierFunction.DAMAGEOUTGOING_PERCENTAGE,
+      ModifierFunction.ON_ATTACK_RECORD,
+      ModifierFunction.ON_ATTACK_RECORD_DESTROY,
+    ];
+  }
+
+  OnAttackRecord(event: ModifierAttackEvent): void {
+    if (event.attacker !== this.GetParent() || !this.attacking) return;
+    const pct = this.GetAbility()?.GetSpecialValueFor('waveform_attack_pct') ?? 100;
+    this.records[event.record] = pct - 100;
+  }
+
+  OnAttackRecordDestroy(event: ModifierAttackEvent): void {
+    delete this.records[event.record];
+  }
+
+  GetModifierDamageOutgoing_Percentage(event: ModifierAttackEvent): number {
+    return this.records[event.record] ?? 0;
+  }
+
+  OnIntervalThink(): void {
+    const parent = this.GetParent();
+    if (!parent.IsAlive()) {
+      this.Destroy();
+      return;
+    }
+    const moving = parent.HasModifier('modifier_morphling_waveform');
+    if (!moving && !this.started) {
+      if (GameRules.GetGameTime() >= this.expires) this.Destroy();
+      return;
+    }
+    this.started = true;
+    const position = parent.GetAbsOrigin();
+    const ability = this.GetAbility();
+    const maxTargets = ability?.GetSpecialValueFor('waveform_max_targets') ?? 0;
+    if (!parent.PassivesDisabled() && (ability?.GetLevel() ?? 0) > 0) {
+      const enemies = FindUnitsInLine(
+        parent.GetTeamNumber(),
+        this.previous,
+        position,
+        undefined,
+        this.radius,
+        UnitTargetTeam.ENEMY,
+        UnitTargetType.HERO + UnitTargetType.BASIC,
+        UnitTargetFlags.MAGIC_IMMUNE_ENEMIES,
+      );
+      for (const enemy of enemies) {
+        if (this.hit.length >= maxTargets) break;
+        if (
+          !enemy.IsAlive() ||
+          enemy.IsBuilding() ||
+          enemy.IsInvulnerable() ||
+          this.hit.includes(enemy.entindex())
+        )
+          continue;
+        this.hit.push(enemy.entindex());
+        this.attacking = true;
+        parent.PerformAttack(enemy, true, true, true, false, false, false, false);
+        this.attacking = false;
+      }
+    }
+    this.previous = position;
+    if (!moving) this.Destroy();
   }
 }

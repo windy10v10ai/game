@@ -9,8 +9,6 @@ export interface AbilityReplacement {
   targetAbility?: string;
   /** 要插入的槽位（与 targetAbility 二选一）；命中非空槽位时执行插入，原技能保留等级重新加回 */
   targetSlot?: number;
-  /** Display a newly added ability in an empty or hidden placeholder slot without rebuilding native abilities. */
-  displaySlot?: number;
   newAbility: string;
   newLevel: number;
   /** 加新技能时改为继承此关联技能的当前等级（用于 LinkedAbility 同步升级的技能初始等级对齐），优先级高于 newLevel */
@@ -23,8 +21,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
   // Morphling awakening
   {
     heroName: 'npc_dota_hero_morphling',
-    displaySlot: 2,
-    newAbility: 'special_bonus_unique_morphling_upgrade',
+    newAbility: 'morphling_replicate_awaken',
     newLevel: 0,
     inheritLevelFrom: 'morphling_replicate',
   },

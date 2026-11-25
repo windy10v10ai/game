@@ -18,7 +18,6 @@ function createFakeHero(opts: {
     SetHidden: (hidden: boolean) => {
       entry.hidden = hidden;
     },
-    SetActivated: () => {},
     // 占位防崩：替换分支实现会调用 GetMaxLevel，运行时由引擎提供真实值
     GetMaxLevel: () => 25,
     SetLevel: (lvl: number) => {
@@ -40,10 +39,6 @@ function createFakeHero(opts: {
     FindAbilityByName: (name: string) => {
       const entry = abilities.find((a) => a.name === name);
       return entry !== undefined ? makeAbility(entry) : undefined;
-    },
-    RemoveAbilityByHandle: (handle: any) => {
-      const idx = abilities.findIndex((a) => a.name === handle.GetAbilityName());
-      if (idx >= 0) abilities.splice(idx, 1);
     },
     RemoveAbility: (name: string) => {
       const idx = abilities.findIndex((a) => a.name === name);
@@ -69,41 +64,6 @@ describe('executeReplacement', () => {
       newLevel: 1,
     });
     expect(f.abilities.map((a) => a.name)).toEqual(['foo', 'special_bonus_unique_zuus_upgrade']);
-  });
-
-  it('displaySlot：纯新增时移除该槽位的 generic_hidden 占位并显示新技能', () => {
-    const f = createFakeHero({
-      abilities: [
-        { name: 'slot0', level: 1 },
-        { name: 'slot1', level: 1 },
-        { name: 'generic_hidden', level: 0 },
-      ],
-    });
-    executeReplacement(f.hero, {
-      heroName: 'npc_dota_hero_morphling',
-      displaySlot: 2,
-      newAbility: 'newPassive',
-      newLevel: 0,
-    });
-    expect(f.abilities.map((a) => a.name)).toEqual(['slot0', 'slot1', 'newPassive']);
-    expect(f.abilities[2]?.hidden).toBe(false);
-  });
-
-  it('displaySlot：槽位被真实技能占用时不移除', () => {
-    const f = createFakeHero({
-      abilities: [
-        { name: 'slot0', level: 1 },
-        { name: 'slot1', level: 1 },
-        { name: 'slot2', level: 1 },
-      ],
-    });
-    executeReplacement(f.hero, {
-      heroName: 'npc_dota_hero_morphling',
-      displaySlot: 2,
-      newAbility: 'newPassive',
-      newLevel: 0,
-    });
-    expect(f.abilities.map((a) => a.name)).toEqual(['slot0', 'slot1', 'slot2', 'newPassive']);
   });
 
   it('分支3 替换：移除旧技能、加新技能', () => {
