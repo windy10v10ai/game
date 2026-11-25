@@ -8076,8 +8076,8 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"15"	// 原版 55
-			"aura_damage"			"60"	// 原版 60
-			"aura_damage_illusions"	"35"	// 原版 35
+			"aura_damage"			"76"	// 原版 60
+			"aura_damage_illusions"	"76"	// 原版 35
 			"upgrade_day_vision"	"500"	// 原版 250
 			"evasion"				"50"	// 原版 25
 			"blind_pct"				"0"	// 原版 0
@@ -8112,7 +8112,7 @@
 			"bonus_armor"			"10"	// 原版 7
 			"bonus_intellect"		"0"	// 原版 0
 			"duration"				"4"	// 原版 5.5，本模组 4
-			"passive_reflection_constant"			"100"	// 原版 10
+			"passive_reflection_constant"			"150"	// 原版 10
 			"passive_reflection_pct"			"15"	// 原版 15
 			"active_reflection_pct"			"85"	// 原版 85
 		}
