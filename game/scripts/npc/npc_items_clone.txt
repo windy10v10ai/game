@@ -261,6 +261,7 @@
 		"ItemRequirements"
 		{
 			"01"                        "item_armlet_pro_max;item_light_part"
+			"02"                        "item_berserkers_sabatons_copy;item_light_part"
 		}
 	}
 	"item_armlet_light"
@@ -303,6 +304,7 @@
 		"ItemRequirements"
 		{
 			"01"                        "item_armlet_pro_max;item_dark_part"
+			"02"                        "item_berserkers_sabatons_copy;item_dark_part"
 		}
 	}
 	"item_armlet_dark"
