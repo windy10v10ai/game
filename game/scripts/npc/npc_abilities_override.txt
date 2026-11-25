@@ -6355,6 +6355,10 @@
 				"value"									"18 16 14 12 10"
 				"special_bonus_unique_morphling_waveform_cooldown"			"-60%"	// -40%
 			}
+			"process_procs"
+			{
+				"special_bonus_unique_morphling_upgrade"	"+1"	// 觉醒后波浪形态沿途攻击
+			}
 		}
 	}
 	// 变体打击敏捷（实际包含力量打击）
@@ -6419,7 +6423,7 @@
 	// 变形
 	"morphling_replicate"
 	{
-		"LinkedAbility"		"morphling_replicat_steal_all"
+		"LinkedAbility"		"special_bonus_unique_morphling_upgrade"
 		"MaxLevel" "4"
 		"AbilityCastRange"				"700 850 1000 1150"
 		"AbilityCooldown"				"120 100 80 60"

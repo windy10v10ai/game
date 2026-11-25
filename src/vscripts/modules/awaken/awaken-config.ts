@@ -24,7 +24,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
   {
     heroName: 'npc_dota_hero_morphling',
     displaySlot: 2,
-    newAbility: 'morphling_replicat_steal_all',
+    newAbility: 'special_bonus_unique_morphling_upgrade',
     newLevel: 0,
     inheritLevelFrom: 'morphling_replicate',
   },

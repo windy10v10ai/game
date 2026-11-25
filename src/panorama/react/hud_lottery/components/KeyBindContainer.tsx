@@ -7,11 +7,10 @@ import { GetLotteryStatus, SubscribeLotteryStatus } from '@utils/net-table';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
 import {
-  bindMorphlingAwakenHotkey,
-  refreshMorphlingAwakenHotkey,
   clearAbilityHotkeyLabels,
   saveInputKeyborard,
   saveInventorySlotHotkeys,
+  startMorphlingProgressAlign,
 } from '../hotkey';
 import { PlayerSetting } from '../../../../vscripts/api/player';
 
@@ -65,23 +64,7 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({
   const [hasHydratedPlayerSetting, setHasHydratedPlayerSetting] = useState(false);
   const lastSyncedSetting = useRef<KeyBindSettingState | null>(null);
 
-  useEffect(() => {
-    let releaseBinding: (() => void) | undefined;
-    const refresh = () => {
-      const available = refreshMorphlingAwakenHotkey();
-      if (available && !releaseBinding) releaseBinding = bindMorphlingAwakenHotkey();
-      if (!available && releaseBinding) {
-        releaseBinding();
-        releaseBinding = undefined;
-      }
-    };
-    refresh();
-    const timer = setInterval(refresh, 250);
-    return () => {
-      clearInterval(timer);
-      releaseBinding?.();
-    };
-  }, []);
+  useEffect(() => startMorphlingProgressAlign(), []);
 
   // 值没变就返回原引用，React 据此跳过重渲染，同步 effect 也不会重发相同设置
   const patchSetting = (patch: Partial<KeyBindSettingState>) => {
