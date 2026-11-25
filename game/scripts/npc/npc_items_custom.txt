@@ -8081,8 +8081,8 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"15"	// 原版 55
-			"aura_damage"			"60"	// 原版 60
-			"aura_damage_illusions"	"35"	// 原版 35
+			"aura_damage"			"76"	// 原版 60
+			"aura_damage_illusions"	"76"	// 原版 35
 			"upgrade_day_vision"	"500"	// 原版 250
 			"evasion"				"50"	// 原版 25
 			"blind_pct"				"0"	// 原版 0
@@ -8117,7 +8117,7 @@
 			"bonus_armor"			"10"	// 原版 7
 			"bonus_intellect"		"0"	// 原版 0
 			"duration"				"4"	// 原版 5.5，本模组 4
-			"passive_reflection_constant"			"100"	// 原版 10
+			"passive_reflection_constant"			"150"	// 原版 10
 			"passive_reflection_pct"			"15"	// 原版 15
 			"active_reflection_pct"			"85"	// 原版 85
 		}
@@ -8470,7 +8470,7 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0"
 		"AbilityCharges"				"2"
-		"AbilityChargeRestoreTime"		"70"
+		"AbilityChargeRestoreTime"		"60"
 		"ItemInitialCharges"			"1"
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
@@ -8484,7 +8484,7 @@
 		"AbilityValues"
 		{
 				"bonus_attack_speed"	"20"	// 原版 40
-				"bonus_gold"			"240"	// 原版 160
+				"bonus_gold"			"320"	// 原版 160
 		}
 
 		"ItemCost"						"1000"	// 原版造价 2200
@@ -8532,7 +8532,7 @@
 			"burn_dps_units"				"0"
 			"burn_slow"						"20"
 			"burn_duration"					"6"
-			"stun_duration"					"0.5"
+			"stun_duration"					"0"
 			"burn_interval"					"1.0"
 			"land_time"						"0.5"
 			"impact_radius"
@@ -8567,8 +8567,8 @@
 		"FightRecapLevel"				"1"
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0.1"
-		"AbilityManaCost"				"900"
+		"AbilityCooldown"				"0.5"
+		"AbilityManaCost"				"800"
 		"ItemCost"						"1000"	// 原版造价 13950
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
@@ -8581,9 +8581,9 @@
 			"bonus_all_stats"			"6"	// 原版 60
 			"bonus_health"				"176"	// 原版 480
 			"bonus_mana"				"176"	// 原版 900
-			"damage"					"600"	// 原版 1600
+			"damage"					"400"	// 原版 1600
 			"damage_delay"				"0"	// 原版 0
-			"mana_cost_tooltip"			"900"	// 原版 1600
+			"mana_cost_tooltip"			"800"	// 原版 1600
 			"cast_range_bonus"			"100"	// 原版 360
 		}
 	}
