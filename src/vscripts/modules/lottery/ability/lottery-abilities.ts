@@ -97,7 +97,6 @@ export const abilityTiersActive: Tier[] = [
       'kunkka_ghostship', // 幽灵船
       'pangolier_gyroshell', // 地雷滚滚
       'tinker_rearm_lua', // 再装填
-      'ringmaster_wheel', // 奇观轮
       'batrider_flaming_lasso', // 燃烧枷锁
       'dazzle_bad_juju', // 邪能
       'omniknight_guardian_angel', // 守护天使
@@ -115,7 +114,6 @@ export const abilityTiersActive: Tier[] = [
       'primal_beast_trample', // 踏
       'mars_gods_rebuke', // 神之遣戒
       'antimage_blink', // 闪烁
-      'ringmaster_tame_the_beasts', // 驯兽术
       'abyssal_underlord_firestorm', // 火焰风暴
       'obsidian_destroyer_objurgation', // 责难
       'magnataur_reverse_polarity', // 两级反转
@@ -204,7 +202,7 @@ export const abilityTiersPassive: Tier[] = [
       'faceless_void_time_lock', // 时间锁定
       'dazzle_good_juju', // 善咒
       'templar_assassin_psi_blades', // 灵能之刃
-      'luna_moon_glaive', // 月刃
+      // 'luna_moon_glaive', // 月刃：与天生一对等交互有 bug 且极卡，已移出抽选池
       'phantom_assassin_coup_de_grace', // 恩赐解脱
       'slardar_bash', // 深海重击
       'clinkz_infernal_shred2', // 克林克兹先天 地狱之裂
@@ -246,7 +244,7 @@ export const abilityTiersPassive: Tier[] = [
       'silencer_glaives_of_wisdom', // 智慧之刃
       'tiny_insurmountable', // 小小 不可逾越
       'drow_ranger_trueshot', // 精准光环
-      'death_prophet_witchcraft', // 死亡先知 巫术精研
+      // 'death_prophet_witchcraft', // 死亡先知 巫术精研 因为卡顿删除
 
       // 法球/开关技能
       'omniknight_hammer_of_purity', // 纯洁之锤
@@ -270,7 +268,6 @@ export const abilityTiersPassive: Tier[] = [
     names: [
       // 被动技能
       'shredder_reactive_armor', // 活性活甲
-      'chaos_knight_fundamental_forging', // 混沌骑士 基本法则锻造
       'nevermore_dark_lord', // 魔王降临
       'nevermore_necromastery', // 影魔 支配死灵
       'tusk_bitter_chill', // 巨牙 严寒

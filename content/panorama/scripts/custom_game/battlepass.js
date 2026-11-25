@@ -1,8 +1,20 @@
 const RESET_PROPERTY_SEASON_POINT_COST = 2000;
-const WEBSITE_URL = 'https://windy10v10ai.com';
+const WEBSITE_URL_MAIN = 'https://windy10v10ai.com';
+const WEBSITE_URL_CN = 'https://cn.windy10v10ai.com';
+
+// Keep in sync with GetWebsiteUrl in src/panorama/utils/utils.ts.
+function GetWebsiteUrl() {
+  const route = CustomNetTables.GetTableValue('api_route', String(Game.GetLocalPlayerID()));
+  if (route) {
+    if (route.country === 'CN') return WEBSITE_URL_CN;
+    if (route.channels === 0 && route.backupChannels > 0) return WEBSITE_URL_CN;
+    if (route.country) return WEBSITE_URL_MAIN;
+  }
+  return $.Language() === 'schinese' ? WEBSITE_URL_CN : WEBSITE_URL_MAIN;
+}
 // 请求失败时 net table 不会更新，超时后也要恢复刷新按钮
 const PLAYER_INFO_REFRESH_TIMEOUT_S = 5;
-// 与 game.ts 中 loading_status 的离线取值一致
+// 与 game.ts 中 loading_status 的离线取值一致：3 为离线
 const LOADING_STATUS_OFFLINE = 3;
 // 没有玩家数据时用它兜底，让页面照常显示而不是整页报错
 const EMPTY_PLAYER = {
@@ -112,6 +124,10 @@ function UpdateOfflineHint() {
   );
   // 刷新要经服务端拉取，离线或还没有玩家数据时点了不会有结果
   $('#PropertyRefreshButton').visible = !offline && GetPlayer() != null;
+  // 离线时点刷新拿不到网站上的改动，要等地图更新
+  $('#PropertyWebsiteNotice').text = $.Localize(
+    offline ? '#website_local_host_notice_offline' : '#website_local_host_notice',
+  );
 }
 
 // --------------------------------------------------------------------------------
@@ -236,7 +252,7 @@ function RedirectLocalHostButton(panel) {
 function OpenPropertyWebsite() {
   $.DispatchEvent(
     'ExternalBrowserGoToURL',
-    `${WEBSITE_URL}/profile/${GetSteamAccountID()}/property`,
+    `${GetWebsiteUrl()}/profile/${GetSteamAccountID()}/property`,
   );
 }
 

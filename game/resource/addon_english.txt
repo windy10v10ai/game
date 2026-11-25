@@ -75,7 +75,7 @@
 		///////////////////////////////////////////////////
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
 		"loading_status_2"				"Online mode. Player data loaded successfully."
-		"loading_status_3"				"Offline mode. Points and stats from this game will not be recorded.\nAttributes, awakening and membership use data as of {date}."
+		"loading_status_3"				"Offline mode: Dota 2 restricts map networking.\nUsing player data as of {date}."
 		"room_status_entering"			"Players connecting: {players}"
 		"room_status_separator"			", "
 		"room_status_waiting"			"Waiting for other players to join"
@@ -95,7 +95,7 @@
 		///////////////////////////////////////////////////
 		// 启动器
 		"launcher_promo_title"			"Late Game Lag? Try the Launcher"
-		"launcher_promo_desc"			"Run a server on your own PC for a smoother late game"
+		"launcher_promo_desc"			"Runs a server on your PC for smoother games"
 		"launcher_promo_platforms"		"Supports Windows and macOS"
 		"launcher_promo_multiplayer"		"Multiplayer"
 		"launcher_download_button"			"Download Launcher"
@@ -103,6 +103,7 @@
 		// 网站
 		"local_host_feature_unsupported_hint"		"To keep account data safe, this cannot be done in game. Click to do it on the website."
 		"website_local_host_notice"		"Manage attributes and awakening on the website, then click Refresh to apply."
+		"website_local_host_notice_offline"		"Manage attributes and awakening on the website. Changes apply after the next map update."
 		"website_open_button"				"Open Website"
 		"website_open_property_button"		"Open Website"
 		"website_open_awaken_button"		"Awaken on Website"
@@ -124,7 +125,7 @@
 		"loading_faq_illusions_summons_question"		"Some illusion and summon abilities have been weakened or removed."
 		"loading_faq_illusions_summons_answer"			"Illusions and large numbers of summons can cause noticeable lag."
 		"loading_faq_launch_mode_question"			"Are points recorded in games started from the arcade?"
-		"loading_faq_launch_mode_answer"				"Yes. Games started from the arcade connect to the server, load the latest data and record match points and daily tasks normally. If the connection occasionally fails, the game runs in offline mode with data from the latest map update and points are not recorded. In that case you can start the game with the launcher, which also lets you host a room for friends."
+		"loading_faq_launch_mode_answer"				"Yes. Points are recorded whether you start from the Arcade or the launcher. If the server can't be reached, the game starts in offline mode with earlier data."
 		"loading_faq_pause_question"				"Can pause time be extended?"
 		"loading_faq_pause_answer"				"Yes, when the game is launched from the Arcade. Games started with the launcher run on a dedicated server, where pauses cannot be extended. For long pauses, launch from the Arcade."
 		"loading_faq_attributes_question"			"When do attribute points take effect?"
@@ -170,7 +171,7 @@
 		"conduct_point_light_penalty_tooltip"	"Conduct <font color='#FFA726'>{0}</font> penalty, points ×0.8"
 		"conduct_point_heavy_penalty_tooltip"	"Conduct <font color='#E87D7D'>{0}</font> penalty, points ×0.5"
 
-		"end_screen_offline_hint"		"Offline mode. Points and stats from this game were not recorded."
+		"end_screen_offline_hint"		"Offline mode: Dota 2 restricts map networking, so points weren't recorded."
 		"ending_status_1"			"Settling…"
 		"ending_status_2"			"Settlement complete"
 		"ending_status_3"			"Settlement submitted"
@@ -1458,7 +1459,7 @@
 
 		// 兽王 野性之斧-觉醒
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>Wild Axes Awakened</font>"
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Beastmaster sends his axes flying and calls them home again, slicing through enemy units and trees along their path. Each axe can hit an enemy once, and amplifies subsequent damage from Beastmaster and his units. Debuff duration is affected by Status Resistance.<br><br><font color='#00CED1'>AUTOCAST:</font> When enabled, throws the axes toward the farthest enemy hero whenever an enemy unit is within cast range.<br><font color='#d000ff'>AWAKENED:</font> Damage amplification lasts longer, the axes travel out and back at extreme speed, and Drums of Slom gains increased damage, healing, and drum stacks from Primal Roar."
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Beastmaster sends his axes flying and calls them home again, slicing through enemy units and trees along their path. Each axe can hit an enemy once, and amplifies subsequent damage from Beastmaster and his units. Debuff duration is affected by Status Resistance.<br><br><font color='#00CED1'>AUTOCAST:</font> When enabled, throws the axes toward the farthest enemy hero whenever an enemy unit is within cast range.<br><font color='#d000ff'>AWAKENED:</font> Damage amplification lasts longer, the axes travel out and back at extreme speed."
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"DAMAGE PER AXE:"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%DAMAGE AMP PER STACK:"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"DEBUFF DURATION:"
@@ -3148,7 +3149,7 @@
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#F74042'>Ultra</font> Bloodthorn"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>Active: Soul Tear</h1> Silences a target for %silence_duration% seconds. At the end of the silence, an additional %silence_damage_percent%%% of all damage taken during the silence will be dealt to the target as magical damage.<br><br>All attacks on the silenced target will deal additional damage equal to %proc_damage_heroes% if the attacker is a hero, and %proc_damage_creeps%, if the attacker is a creep. Provides True Strike for your attacks and attacks from your controlled units against the silenced target.\n\n<h1>Passive: Pierce</h1>Grants each attack a %proc_chance%%% chance to pierce through evasion and deal %passive_proc_damage% bonus magical damage."
+		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>Active: Soul Tear</h1> Silences a target for %silence_duration% seconds. At the end of the silence, an additional %silence_damage_percent%%% of all damage taken during the silence will be dealt to the target as magical damage.<br><br>All attacks on the silenced target will deal additional damage equal to %proc_damage_heroes% if the attacker is a hero, and %proc_damage_creeps%, if the attacker is a creep. Provides True Strike for your attacks and attacks from your controlled units against the silenced target."
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Lore"					"So Spiiicey Ninja Kiwi!"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_intellect"		"+$int"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_attack_speed"		"+$attack"
@@ -3163,7 +3164,7 @@
 
 		// item_devastator_2 Sacred Parasma 神圣斧
 		"DOTA_Tooltip_Ability_item_devastator_2"				"<font color='#87013F'>Sacred Parasma</font>"
-		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>Passive: Witch Blade</h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.\n\n<h1>Passive: Magic Corruption</h1> Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds."
+		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>Passive: Witch Blade</h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second. This attack can affect buildings and deals %building_effectiveness_pct%%% damage to buildings.\n\n<h1>Passive: Magic Corruption</h1> Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %reduction_duration% seconds."
 		"DOTA_Tooltip_ability_item_devastator_2_Lore"						"Warning: There is no antidote if picked up by the wrong end."
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_armor"					"+$armor"
@@ -3234,14 +3235,19 @@
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active"				"Resilient"
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active_Description"	"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%. Attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
+		// 亡魂胸针（7.42 官方改为中立物品，本图恢复为商店装备）
+		"DOTA_Tooltip_Ability_item_revenants_brooch"							"Revenant's Brooch"
+		"DOTA_Tooltip_ability_item_revenants_brooch_Description"				"<h1>Passive: Phantom Critical</h1>Grants each attack a %crit_chance%%% chance to deal an additional %crit_multiplier%%% of the attack's damage as bonus magic damage."
+		"DOTA_Tooltip_Ability_item_revenants_brooch_Note0"						"Counts as a Critical Strike for purposes of stacking with other sources of Critical Strike."
+		"DOTA_Tooltip_Ability_item_revenants_brooch_Note1"						"Phantom Critical does not work against buildings."
+		"DOTA_Tooltip_ability_item_revenants_brooch_Lore"						"The cursed brooch of a fallen guardian who stalks forever between the veil of life and death."
+
 		// 神器魔武双修
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"			"Artifact: Revenant's Brooch"
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Description"				"<h1>Passive: Phantom Critical</h1>Grants each attack a %crit_chance%%% chance to deal an additional %crit_multiplier%%% of the attack's damage as bonus magic damage."
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note0"						"Counts as a Critical Strike for purposes of stacking with other sources of Critical Strike."
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note1"						"Phantom Critical does not work against buildings."
 		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_Lore"						"The cursed brooch of a fallen guardian who stalks forever between the veil of life and death."
-		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_revenants_brooch_ultra_spell_lifesteal"		"%+$spell_lifesteal"
 
 		// 力量法则碎片
 		"DOTA_Tooltip_Ability_item_imp_claw"				"Power Law Fragment"
@@ -3408,9 +3414,8 @@
 
 		// item_guardian_greaves_artifact 神器·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact"						"<font color='#FFFF00'>Artifact</font> Guardian Greaves"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health <font color='#00FF00'>+ %max_health_pct_heal_amount%%% of max health</font> and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration and %aura_mana_regen% mana regeneration to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, their health regeneration is increased to %aura_health_regen_bonus%. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"					"The aura boost only applies to heroes."
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note1"					"Mend does not affect units that have been affected by Mend or Mekansm Restore within Guardian Greaves' cooldown."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health <font color='#00FF00'>+ %max_health_pct_heal_amount%%% of max health</font> and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration and %aura_mana_regen% mana regeneration to allied units.<br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"					"Mend does not affect units that have been affected by Mend or Mekansm Restore within Guardian Greaves' cooldown."
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_movement"			"+$move_speed"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mana"				"+$mana"
@@ -3436,7 +3441,7 @@
 
 		// item_disperser_chaos 混沌·散魂剑
 		"DOTA_Tooltip_ability_item_disperser_chaos"									"<font color='#FF4500'>Chaotic Disperser</font>"
-		"DOTA_Tooltip_ability_item_disperser_chaos_Description"						"<h1>Active: Suppress</h1> Dispels both the wearer and the target. Enemy targets are slowed for %enemy_effect_duration% seconds. Allied targets gain bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0 over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana.<br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions."
+		"DOTA_Tooltip_ability_item_disperser_chaos_Description"						"<h1>Active: Suppress</h1> Dispels both the wearer and the target. Enemy targets are slowed for %enemy_effect_duration% seconds. Allied targets gain bonus movespeed and %slow_resist%%% slow resistance for %ally_effect_duration% seconds. Caster is always granted the ally benefit on cast.<br><br>Both movement speed reduction and increase start at %phase_movement_speed%%% and gradually decrease to 0 over the course of the buff duration.<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana."
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_agility"					"+$agi"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_intellect"					"+$int"
 		"DOTA_Tooltip_ability_item_disperser_chaos_bonus_damage"					"+$damage"

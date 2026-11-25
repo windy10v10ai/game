@@ -19,6 +19,9 @@ export enum CMD {
 
   LOTTERY = '-lottery', // 抽奖
   END = '-end', // 游戏结算：-end [获胜队伍，默认 2]
+  RELAY_SETTLE = '-relaysettle', // 模拟多人结算：-relaysettle <份数，默认 10>，把自己的结算复制成多份并行发出
+  UI_STATE = '-uistate', // 直接设加载与结算状态截图用：-uistate <加载状态 2|3> <专用服 0|1> <结算状态 1|2|3>
+  RELAY_READ = '-relayread', // 并行发 N 条读请求验证代发排队：-relayread <条数，默认 10>
   DISCONNECT = '-dc', // 模拟自己掉线：-dc <已掉线秒数>，负数恢复在线
   TREASURE = '-treasure', // 在 SPAWN_POINTS_INITIAL 刷新一个藏宝箱
   PICK_ITEM = '-pickitem', // 强制触发物品抽奖 UI（跳过宝箱）

@@ -135,6 +135,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["venomancer_plague_ward"] = true,    -- 剧毒术士 瘟疫守卫
     ["shadow_shaman_mass_serpent_ward"] = true, -- 暗影萨满 群蛇守卫
     ["undying_tombstone"] = true,         -- 不朽尸王 墓碑
+    ["lone_druid_spirit_bear"] = true,    -- 德鲁伊 召唤灵熊
 
     -- ========================================
     -- 持续施法/引导类技能

@@ -33,7 +33,7 @@ export const SPECS: ItemSpec[] = [
     condition: CREEP_CONDITION,
   },
   {
-    itemName: 'item_meteor_hammer_2',
+    itemName: 'item_starforge',
     priority: ItemPriority.Damage,
     targetSide: TargetSide.EnemyHero,
     condition: {
@@ -42,13 +42,13 @@ export const SPECS: ItemSpec[] = [
     },
   },
   {
-    itemName: 'item_meteor_hammer_2',
+    itemName: 'item_starforge',
     priority: ItemPriority.Damage,
     targetSide: TargetSide.EnemyBuilding,
     condition: { self: { noEnemyHeroInRange: 1500, friendlyCreepNearby: { count: { gte: 2 } } } },
   },
   {
-    itemName: 'item_meteor_hammer_2',
+    itemName: 'item_starforge',
     priority: ItemPriority.Damage,
     targetSide: TargetSide.EnemyCreep,
     condition: CREEP_CONDITION,

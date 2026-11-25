@@ -75,6 +75,9 @@ export class EventGameStateChange {
     // 初始化游戏
     print(`[EventGameStateChange] OnPreGame`);
 
+    // 英雄出生与技能抽选都在此之后，仍没有玩家数据就直接用离线快照
+    Game.EnsurePlayerData();
+
     // 中路模式：移除上下路建筑
     if (GameRules.Option.midOnlyMode) {
       MidOnlyMode.Apply();

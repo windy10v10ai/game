@@ -33,11 +33,16 @@ npm run perf -- --server tools --scenes <场景> --conditions <条件,...> --swa
 | `dotbench` / `dotbigbench` | 每帧 5 次 15 / 50 点魔法伤害，分别低于与高于共享分发的 20 点门槛 | 高频小额伤害、门槛是否生效 |
 | `creepbench` | 天辉英雄（0 号玩家除外）站在河道己方兵线后，两队各 24 个近战兵单排对砍 | 光环、小兵数量相关开销 |
 
-`--benchAttackers <N>` 限制伤害基准里出手的英雄数，服务器跑满后开销不再随负载线性增长时降负载用。
+`--benchAttackers <N>` 限制伤害基准里出手的英雄数，服务器跑满后开销不再随负载线性增长时降负载用。它取的是按 playerId 排序的前 N 个英雄，不认 `--benchSide`，两者不要一起用来压负载。
+
+- 每次攻击生成实体的技能（如 7.42 死亡先知巫术精研放恶灵）在 `atkbench` 全员出手时会压垮服务器：18 人约 10 秒内实体数涨到 7700+，引擎访问违规崩溃。这类先用 `--benchAttackers 2` 量
+- Dota 崩溃后 `perf.js` 发现不了，只等 `FINISHED` / `BROKEN` 行，会干等满 `timeoutMinutes`。判据：`dota2` 进程消失、日志末行是 `ResetBreakpadAppId`、`game/bin/win64/` 出现新 `.mdmp`，此时手动结束 node 进程
+- 给英雄加技能没有现成条件，要在 `perf-auto.ts` 临时加（`AddAbility` + `SetLevel`，teardown 先删该技能来源的 modifier 再移除技能），测完还原
+- `--itemModifiers` 第一段的物品名只作 modifier 来源，随便取（如 `item_branches`）。在 `--conditions` 里引用这类条件写 `mod_<modifier 名>`
 
 ## 结果可信前先核对场景
 
-- 日志里没有 `Script Runtime Error`，也没有测试自己用的 modifier 出现 `Attempted to create unknown modifier type`：引擎不认的 modifier 仍会产生开销，测出来的数字作废
+- 日志里没有 `Script Runtime Error`，也没有测试自己用的 modifier 出现 `Attempted to create unknown modifier type`：引擎不认的 modifier 仍会产生开销，测出来的数字作废。`modifier_dragon_knight_dragon_tail_intrinsic` 每局开局固定报 10～15 次 unknown，与测试无关
 - 各段的存活英雄数（`[perf] phase=` 行的 `heroes=`）要一致：`atkbench` 里英雄会被打死，加生命的物品让更多英雄活着出手，伤害结算次数变多、读数虚高。某个场景里条件段与基线段的 `heroes=` 对不上，该场景的读数记为不可信
 - 光环类条件看 `creep bench aura` 行：带物品的段里光环 buff 覆盖到全部友方 / 敌方兵，基线段为 0
 - 小兵用 `SetBaseMaxHealth` 放大血量（与出兵加强同一做法，不加 modifier），否则英雄几秒内清光一侧，兵数逐段起伏

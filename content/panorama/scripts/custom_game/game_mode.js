@@ -66,11 +66,23 @@ function ShowLoadingFAQ() {
   $('#LoadingFaqAnswer').text = $.Localize('#' + entryKey + '_answer');
 }
 
-var WEBSITE_URL = 'https://windy10v10ai.com';
+var WEBSITE_URL_MAIN = 'https://windy10v10ai.com';
+var WEBSITE_URL_CN = 'https://cn.windy10v10ai.com';
+
+// Keep in sync with GetWebsiteUrl in src/panorama/utils/utils.ts.
+function GetWebsiteUrl() {
+  var route = CustomNetTables.GetTableValue('api_route', String(Game.GetLocalPlayerID()));
+  if (route) {
+    if (route.country === 'CN') return WEBSITE_URL_CN;
+    if (route.channels === 0 && route.backupChannels > 0) return WEBSITE_URL_CN;
+    if (route.country) return WEBSITE_URL_MAIN;
+  }
+  return $.Language() === 'schinese' ? WEBSITE_URL_CN : WEBSITE_URL_MAIN;
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function OpenWebsiteLaunch() {
-  $.DispatchEvent('ExternalBrowserGoToURL', WEBSITE_URL + '/launch');
+  $.DispatchEvent('ExternalBrowserGoToURL', GetWebsiteUrl() + '/launch');
 }
 
 function CheckForHostPrivileges() {

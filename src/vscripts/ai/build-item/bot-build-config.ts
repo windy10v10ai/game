@@ -922,7 +922,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_arcane_blink_2', // 秘奥闪光
         'item_sheepstick', // 邪恶镰刀
         'item_arcane_octarine_core', // 奥术之心
-        'item_meteor_hammer_2', // 星落
+        'item_starforge', // 锻星炉
         'item_force_staff_3', // 黄金法杖
       ],
       [ItemTier.T4]: [
@@ -979,7 +979,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hydras_breath', // 怪蛇之息
         'item_ethereal_blade', // 虚灵之刃
         'item_shotgun_v2', // 三管霰弹枪
-        'item_meteor_hammer_2', // 星落
+        'item_starforge', // 锻星炉
         'item_mjollnir', // 雷神之锤
         'item_dodo_desolator', // 黯灭头
         'item_devastator', // 圣斧
@@ -1041,7 +1041,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_orb_of_the_brine', // 苍洋魔珠
         'item_aeon_pendant', // 永恒坠饰
         'item_magic_scepter', // 魔云法杖
-        'item_meteor_hammer_2', // 星落
+        'item_starforge', // 锻星炉
         'item_sacred_trident', // 三叉戟
         'item_phylactery', // 灵匣
         'item_arcane_blink_2', // 秘奥闪光
@@ -1277,7 +1277,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_scepter', // 魔云法杖
         'item_revenants_brooch_ultra', // 神器·魔武双修
         'item_aeon_pendant', // 咸鱼之王
-        'item_meteor_hammer_2', // 星落
+        'item_starforge', // 锻星炉
         'item_bloodstone', // 血精神石
         'item_devastator', // 圣斧
         'item_arcane_octarine_core', // 奥术之心
@@ -1340,7 +1340,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_aeon_pendant', // 咸鱼之王
         'item_dagon_5', // 达贡之神力
         'item_magic_scepter', // 魔云法杖
-        'item_meteor_hammer_2', // 星落
+        'item_starforge', // 锻星炉
         'item_arcane_blink_2', // 秘奥闪光
         'item_phylactery', // 灵匣
         'item_arcane_octarine_core', // 奥术之心
@@ -1865,7 +1865,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_blade_mail_2', // 刃甲2
         'item_vladmir_2', // 强袭祭品
         'item_revenants_brooch_ultra', // 神器·魔武双修
-        'item_meteor_hammer_2', // 星落
+        'item_starforge', // 锻星炉
         'item_dodo_desolator', // 黯灭头
         'item_wasp_despotic', // 大核荣耀暴虐
         'item_arcane_octarine_core', // 奥术之心
@@ -2061,7 +2061,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_arcane_blink_2', // 奥术闪烁2
         'item_ethereal_blade', // 虚灵之刃
         'item_arcane_octarine_core', // 奥术之心
-        'item_meteor_hammer_2', // 星落
+        'item_starforge', // 锻星炉
         'item_force_staff_3', // 黄金法杖
       ],
       [ItemTier.T4]: [
@@ -2115,7 +2115,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sheepstick', // 邪恶镰刀
         'item_aeon_pendant', // 永恒坠饰
         'item_magic_scepter', // 魔云法杖
-        'item_meteor_hammer_2', // 星落
+        'item_starforge', // 锻星炉
         'item_sacred_trident', // 三叉戟
         'item_revenants_brooch_ultra', // 神器·魔武双修
         'item_arcane_blink_2', // 秘奥闪光
@@ -2230,7 +2230,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_orb_of_the_brine', // 苍洋魔珠
         'item_sheepstick', // 邪恶镰刀
         'item_magic_scepter', // 魔云法杖
-        'item_meteor_hammer_2', // 星落
+        'item_starforge', // 锻星炉
         'item_aeon_pendant', // 咸鱼之王
         'item_revenants_brooch_ultra', // 神器·魔武双修
         'item_phylactery', // 灵匣
@@ -2293,7 +2293,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sheepstick', // 邪恶镰刀
         'item_phylactery', // 灵匣
         'item_revenants_brooch_ultra', // 神器·魔武双修
-        'item_meteor_hammer_2', // 星落
+        'item_starforge', // 锻星炉
         'item_arcane_octarine_core', // 奥术之心
         'item_force_staff_3', // 黄金法杖
       ],
@@ -2415,7 +2415,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sacred_trident', // 三叉戟
         'item_aeon_pendant', // 咸鱼之王
         'item_radiance_2', // 圣焰之光
-        'item_meteor_hammer_2', // 星落
+        'item_starforge', // 星落
         'item_blade_mail_2', // 刃甲2
         'item_arcane_octarine_core', // 奥术之心
         'item_force_staff_3', // 黄金法杖

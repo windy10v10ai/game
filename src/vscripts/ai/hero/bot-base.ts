@@ -14,6 +14,7 @@ import { ItemRegistry } from '../item/item-registry';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { IS_DEBUG_RUN, PERF_CONFIG } from '../../modules/debug/perf-config';
 import { PerfSampler } from '../../modules/debug/perf-sampler';
+import { ModifierEventHub } from '../../modules/modifier-event/modifier-event-hub';
 import { CachedTowers, TowerAttackRange } from '../team/building-cache';
 import { FORMATION_SPACING } from '../team/formation';
 import { Point } from '../team/lane-geometry';
@@ -24,7 +25,13 @@ import { WardPlacement } from '../ward/ward-placement';
 import { canEngage, canEscape, decideStance, Stance, survivalSeconds } from './engagement';
 import { HeroUtil } from './hero-util';
 import { EngageToward, FindBlinkItem, MoveContext, MoveToward } from './mobility';
-import { ROADSIDE_CHANNELS, RoadsideScope, TryRoadside } from './roadside';
+import {
+  CancelRoadside,
+  ROADSIDE_CHANNELS,
+  RoadsideScope,
+  RoadsideTick,
+  TryRoadside,
+} from './roadside';
 import { canOutlastTower, passesTower, retreatPointFromTowers } from './tower-retreat';
 import { calculateAttackDPS } from '../../utils/damage-calculation';
 
@@ -42,6 +49,9 @@ export class BotBaseAIModifier extends BaseModifier {
   protected continueActionEndTime: number = -60;
   private roadsideUntil = 0;
   private roadsideCheckAt = 0;
+  // 受伤监听按实体编号注销：关服时英雄实体可能先失效，取不到句柄也要能注销
+  private damageHookIndex: EntityIndex | undefined;
+  private initTimer: string | undefined;
 
   // 中立槽修复节奏：间隔与下次校验时间（gameTime）
   protected readonly neutralItemRepairInterval: number = 5;
@@ -116,8 +126,6 @@ export class BotBaseAIModifier extends BaseModifier {
   // 离肉山这么近才指定它打，远处照常赶路，不在半路被引到别处
   protected readonly RoshanAttackRange: number = 1500;
   protected readonly RoadsideCheckInterval: number = 1;
-  // 走去捡东西期间不再下别的移动命令，但最多这么久，路上的情况会变
-  protected readonly RoadsideMaxSeconds: number = 3;
   // 赶去打架或回防时离目的地还有这么远，顺手捡符、点观察者不耽误到场
   protected readonly RoadsideRushDistance: number = 3000;
 
@@ -211,6 +219,11 @@ export class BotBaseAIModifier extends BaseModifier {
     if (config) {
       this.buildState = InitializeHeroBuild(this.hero, config);
     }
+
+    this.damageHookIndex = this.hero.entindex();
+    ModifierEventHub.RegisterDamageByVictim(this.hero, this, (event) =>
+      WardPlacement.OnDamaged(this.hero, event.attacker),
+    );
 
     // 初始化Think
     if (IsInToolsMode()) {
@@ -309,6 +322,10 @@ export class BotBaseAIModifier extends BaseModifier {
       return;
     }
     this.traceTarget = '';
+    // 行动栏几乎每轮都被占满，路过眼位时的瞬发插眼要排在前面，周围没有敌方英雄才插
+    if (this.aroundEnemyHeroes.length === 0) {
+      this.TryWard();
+    }
     const acted = this.ActionStance(task);
     if (IS_DEBUG_RUN) {
       this.TraceDecision(task);
@@ -316,7 +333,20 @@ export class BotBaseAIModifier extends BaseModifier {
     if (acted) {
       return;
     }
-    WardPlacement.Run(this);
+    this.TryWard();
+  }
+
+  /** 同一时刻只发一条插眼命令：绕路插眼的途中不再发路过插眼，路过插眼发了命令这一秒内不再发绕路 */
+  private TryWard(): void {
+    if (this.gameTime < this.roadsideUntil) {
+      return;
+    }
+    if (WardPlacement.Run(this)) {
+      this.roadsideCheckAt = Math.max(
+        this.roadsideCheckAt,
+        this.gameTime + this.RoadsideCheckInterval,
+      );
+    }
   }
 
   private ActionStance(task: Task | undefined): boolean {
@@ -960,9 +990,14 @@ export class BotBaseAIModifier extends BaseModifier {
   private Roadside(task: Task): boolean {
     if (this.aroundEnemyHeroes.length > 0) {
       this.roadsideUntil = 0;
+      CancelRoadside(this.hero);
       return false;
     }
     if (this.gameTime < this.roadsideUntil) {
+      if (!RoadsideTick(this.hero)) {
+        this.roadsideUntil = 0;
+        return false;
+      }
       this.traceTarget = 'roadside';
       return true;
     }
@@ -970,11 +1005,11 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     this.roadsideCheckAt = this.gameTime + this.RoadsideCheckInterval;
-    const seconds = TryRoadside(this.hero, this.RoadsideScopeOf(task), UnitPower);
+    const { seconds, maxSeconds } = TryRoadside(this.hero, this.RoadsideScopeOf(task), UnitPower);
     if (seconds <= 0) {
       return false;
     }
-    this.roadsideUntil = this.gameTime + Math.min(seconds, this.RoadsideMaxSeconds);
+    this.roadsideUntil = this.gameTime + Math.min(seconds, maxSeconds);
     this.traceTarget = 'roadside';
     return true;
   }
@@ -1535,8 +1570,8 @@ export class BotBaseAIModifier extends BaseModifier {
     if (passive !== undefined) {
       UTIL_RemoveImmediate(passive);
     }
-    this.hero.AddItemByName(desiredActive.name).SetLevel(desiredActive.level);
-    this.hero.AddItemByName(desiredPassive.name).SetLevel(desiredPassive.level);
+    NeutralItemManager.GiveToHero(this.hero, desiredActive);
+    NeutralItemManager.GiveToHero(this.hero, desiredPassive);
     return true;
   }
 
@@ -1577,8 +1612,8 @@ export class BotBaseAIModifier extends BaseModifier {
       UTIL_RemoveImmediate(oldEnhancement);
     }
 
-    this.hero.AddItemByName(selectedItem.name).SetLevel(selectedItem.level);
-    this.hero.AddItemByName(selectedEnhancement.name).SetLevel(selectedEnhancement.level);
+    NeutralItemManager.GiveToHero(this.hero, selectedItem);
+    NeutralItemManager.GiveToHero(this.hero, selectedEnhancement);
     this.desiredNeutralActive = { name: selectedItem.name, level: selectedItem.level };
     this.desiredNeutralPassive = {
       name: selectedEnhancement.name,
@@ -1731,9 +1766,24 @@ export class BotBaseAIModifier extends BaseModifier {
 
     const delay = RandomFloat(1, 2);
     // print(`[AI] HeroBase OnCreated delay ${delay}`);
-    Timers.CreateTimer(delay, () => {
+    this.initTimer = Timers.CreateTimer(delay, () => {
+      this.initTimer = undefined;
       this.Init();
     });
+  }
+
+  OnDestroy() {
+    if (!IsServer()) {
+      return;
+    }
+    if (this.initTimer !== undefined) {
+      Timers.RemoveTimer(this.initTimer);
+      this.initTimer = undefined;
+    }
+    if (this.damageHookIndex !== undefined) {
+      ModifierEventHub.UnregisterDamageByVictimIndex(this.damageHookIndex, this);
+      this.damageHookIndex = undefined;
+    }
   }
 
   IsPurgable(): boolean {

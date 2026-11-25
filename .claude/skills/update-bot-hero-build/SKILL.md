@@ -1,9 +1,9 @@
 ---
-name: bot-skill-build
-description: 编写或校验电脑英雄的技能加点（Bot.Build）与天赋档位。
+name: update-bot-hero-build
+description: 更新电脑英雄（update bot hero）的技能加点与天赋档位：编写或校验 `npc_heroes_custom.txt` 里的 Bot.Build。
 ---
 
-# Update Heroes Custom
+# Update Bot Hero Build
 
 校验 `npc_heroes_custom.txt` 的 **`Bot.Build`**，确保天赋名存在且档位正确、技能名在有效槽位内、加点不超 `MaxLevel`、等级键结构合规。
 
@@ -17,7 +17,7 @@ description: 编写或校验电脑英雄的技能加点（Bot.Build）与天赋�
 
 | 数据 | 优先级：高 → 低 |
 |------|----------------|
-| Ability 槽位 | `npc_heroes_custom.txt` 同名键 → `docs/reference/{version}/npc_heroes.txt` |
+| Ability 槽位 | `npc_heroes_custom.txt` 同名键 → `docs/reference/{version}/heroes/npc_dota_hero_<hero>.txt`（7.41f 之前为 `npc_heroes.txt`） |
 | Ability10–17 天赋 | 同上 |
 | MaxLevel | `npc_abilities_override.txt` → `heroes/npc_dota_hero_<hero>.txt` → 推断（大招 3、其余 4） |
 

@@ -306,7 +306,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_revenants_brooch',
     nameCN: '英灵胸针',
     tier: ItemTier.T2,
-    cost: 3300,
+    cost: 2000,
   },
   item_blink: {
     name: 'item_blink',
@@ -743,9 +743,9 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T3,
     cost: 6000,
   },
-  item_meteor_hammer_2: {
-    name: 'item_meteor_hammer_2',
-    nameCN: '星落',
+  item_starforge: {
+    name: 'item_starforge',
+    nameCN: '锻星炉',
     tier: ItemTier.T3,
     cost: 6000,
     baseItems: ['item_meteor_hammer'],
@@ -906,7 +906,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_revenants_brooch_ultra',
     nameCN: '神器·魔武双修',
     tier: ItemTier.T3,
-    cost: 10000,
+    cost: 8700,
     baseItems: ['item_revenants_brooch'],
   },
   item_consecrated_wraps_2: {
@@ -1136,7 +1136,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
       'item_overwhelming_blink_2',
       'item_swift_blink_2',
       'item_arcane_blink',
-      'item_meteor_hammer_2',
+      'item_starforge',
     ],
   },
   item_necronomicon_staff: {

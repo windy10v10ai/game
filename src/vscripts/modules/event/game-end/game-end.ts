@@ -3,6 +3,7 @@ import {
   GameEndGameOptionsDto,
   GameEndPlayerDto,
 } from '../../../api/analytics/dto/game-end-dto';
+import { ApiClient, HttpMethod } from '../../../api/api-client';
 import { GA4 } from '../../../api/analytics/ga4/ga4';
 import { HeroItemUsage } from '../../../api/analytics/hero-item-usage';
 import { GA4DailyTaskTracker } from '../../../api/analytics/ga4/ga4-daily-task-tracker';
@@ -78,7 +79,9 @@ export class GameEnd {
   private static MarkSettled(recorded: boolean): void {
     if (this.settled) return;
     this.settled = true;
-    CustomNetTables.SetTableValue('ending_status', 'ending_status', { status: recorded ? 2 : 3 });
+    CustomNetTables.SetTableValue('ending_status', 'ending_status', {
+      status: recorded ? 2 : 3,
+    });
     // 引擎同时只跑几个 HTTP 请求，统计先发会把结算的重发挤到队尾
     const sendStats = this.pendingStats;
     this.pendingStats = undefined;
@@ -86,6 +89,24 @@ export class GameEnd {
   }
 
   private static pendingStats?: () => void;
+
+  /** 调试用：把自己的结算复制成多份按玩家并行发出，验证代发排队，全用自己的账户 */
+  public static debugSettleCopies(copies: number): void {
+    const dto = this.BuildGameEndDto(DotaTeam.GOODGUYS);
+    const human = dto.players.find((player) => player.steamId > 0);
+    if (!human) return;
+    const players: GameEndPlayerDto[] = [];
+    for (let i = 0; i < copies; i++) players.push(human);
+    ApiClient.sendWithRetry({
+      method: HttpMethod.POST,
+      path: ApiClient.IsLocalhost() ? '/game/end/local' : '/game/end',
+      body: { ...dto, players },
+      timeoutSeconds: 3,
+      validateResponse: (data: string) => data === 'OK',
+      successFunc: (data: string) => print(`[RelaySettle] copies=${copies} result=${data}`),
+      failureFunc: (data: string) => print(`[RelaySettle] copies=${copies} failed=${data}`),
+    });
+  }
 
   public static OnGameEnd(winnerTeamId: DotaTeam, onSettled?: () => void): void {
     if (this.gameEndTriggered) {

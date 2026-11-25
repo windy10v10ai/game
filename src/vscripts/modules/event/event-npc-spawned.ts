@@ -1,11 +1,10 @@
 import { ActionMove } from '../../ai/action/action-move';
+import { Game } from '../../api/game';
 import { Player } from '../../api/player';
-import { PlayerPropertyApi } from '../../api/player-property';
 import { modifier_debug_manual_control } from '../../modifiers/debug/modifier_debug_manual_control';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
-import { AwakenHelper } from '../helper/awaken-helper';
 import { BotAbility } from '../helper/bot-ability';
-import { MemberHelper } from '../helper/member-helper';
+import { HeroPlayerData } from '../helper/hero-player-data';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 
@@ -63,6 +62,7 @@ export class EventNpcSpawned {
 
   constructor() {
     ListenToGameEvent('npc_spawned', (keys) => this.OnNpcSpawned(keys), this);
+    Game.OnPlayerDataLoaded(() => HeroPlayerData.ApplyToExistingHeroes());
     this.rootTime = RandomInt(20, 30);
 
     // 预加载休眠期长度不可预测，无法在出生时算准 duration；改为检测小兵真正开始移动后再补无敌
@@ -209,20 +209,7 @@ export class EventNpcSpawned {
           hero.HeroLevelUp(false);
         }
       }
-      // 设置会员
-      MemberHelper.ApplyMemberModifier(hero);
-      const steamAccountId = PlayerResource.GetSteamAccountID(hero.GetPlayerID());
-      // 积分解锁与限时免费的觉醒
-      AwakenHelper.ApplyUnlockedAwaken(hero, steamAccountId);
-      // 设置新手BUFF
-      const playerSeasonLevel = Player.GetSeasonLevel(steamAccountId);
-      if (playerSeasonLevel <= 5) {
-        ModifierHelper.applyGlobalModifier(hero, 'modifier_global_newbie');
-      } else if (playerSeasonLevel <= 10) {
-        ModifierHelper.applyGlobalModifier(hero, 'modifier_global_newbie_2');
-      }
-      // 设置玩家属性
-      PlayerPropertyApi.SetPlayerProperty(hero);
+      HeroPlayerData.ApplyToHero(hero);
     }
     if (PlayerHelper.IsBotPlayer(hero)) {
       // 机器人

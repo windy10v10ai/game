@@ -13,8 +13,9 @@
 			"increase_aspd"			"10"	// 5
 			"increase_health"		"60"	// 30
 			"increase_armor"		"1"		// 0.5
-			"increase_gold"			"2"		// 1
-			"increase_xp"			"10"	// 5
+			// 7.42 起每次升级只涨最低或最高其中一个，翻倍以保持平均成长不变
+			"increase_gold"			"4"		// 1
+			"increase_xp"			"10"	// 4
 		}
 	}
 

@@ -36,7 +36,7 @@ Windy10v10AI 的一个 issue 怎样变成上线的更新。目标是尽量自动
 | `bot-ability-usage` | bot 何时施法 |
 | `bot-item-usage` | bot 何时用物品 |
 | `bot-ai-tuning` | bot 决策与移动 |
-| `bot-skill-build` | bot 技能加点与天赋 |
+| `update-bot-hero-build` | bot 技能加点与天赋 |
 
 全部 skill 在 [`.claude/skills/`](../.claude/skills/)，[`AGENTS.md`](../AGENTS.md) 为 Claude Code 以外的工具列出了对照表。
 

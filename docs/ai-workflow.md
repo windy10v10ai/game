@@ -36,7 +36,7 @@ The execution spec names one of these. The AI reads it in full and follows its s
 | `bot-ability-usage` | When bots cast a spell |
 | `bot-item-usage` | When bots use an item |
 | `bot-ai-tuning` | Bot decisions and movement |
-| `bot-skill-build` | Bot skill and talent order |
+| `update-bot-hero-build` | Bot skill and talent order |
 
 All skills live in [`.claude/skills/`](../.claude/skills/). [`AGENTS.md`](../AGENTS.md) lists them for tools other than Claude Code.
 

@@ -88,7 +88,7 @@
 <text x="564.5" y="623"><tspan class="code">bot-ability-usage</tspan><tspan class="d" x="702.5">when bots cast a spell</tspan></text>
 <text x="564.5" y="641"><tspan class="code">bot-item-usage</tspan><tspan class="d" x="702.5">when bots use an item</tspan></text>
 <text x="564.5" y="659"><tspan class="code">bot-ai-tuning</tspan><tspan class="d" x="702.5">bot decisions and movement</tspan></text>
-<text x="564.5" y="677"><tspan class="code">bot-skill-build</tspan><tspan class="d" x="702.5">bot skill and talent order</tspan></text>
+<text x="564.5" y="677"><tspan class="code">update-bot-hero-build</tspan><tspan class="d" x="742.5">bot skill order</tspan></text>
 <rect class="na" x="552.5" y="718" width="320" height="76" rx="8"/>
 <text class="t" x="564.5" y="743">Test and play-test</text>
 <text class="d" x="564.5" y="763">jest, lint, build;</text>

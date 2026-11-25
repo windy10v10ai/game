@@ -21,7 +21,13 @@ export function WatchLauncherRoom(): void {
   let failed = false;
   Timers.CreateTimer(0, () => {
     if (GameRules.State_Get() > GameState.CUSTOM_GAME_SETUP) return undefined;
-    CreateHTTPRequestScriptVM('GET', LAUNCHER_ROOM_URL).Send((result) => {
+    const request = CreateHTTPRequestScriptVM('GET', LAUNCHER_ROOM_URL);
+    // 引擎限制了服务端 HTTP 时拿不到请求对象，名单读不到就不再轮询
+    if (!request) {
+      print('[LauncherRoom] http unavailable, roster disabled');
+      return undefined;
+    }
+    request.Send((result) => {
       if (result.StatusCode !== 200) {
         // 读不到名单时选队界面不显示这一条，只记一次日志供排查
         if (!failed) print(`[LauncherRoom] roster unavailable: ${result.StatusCode}`);

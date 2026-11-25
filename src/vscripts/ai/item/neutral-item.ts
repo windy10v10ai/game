@@ -24,29 +24,29 @@ export interface NeutralTierConfig {
 export class NeutralItemManager {
   // 获取各tier开始时间
   private static GetTierStartTimes(): number[] {
-    const baseTimeMin = [0, 5, 10, 15, 20];
+    const baseTimeMin = [0, 5, 10, 15];
     const multiplier = GameRules.Option.direGoldXpMultiplier;
 
-    let addTimeMin = [0, 0, 0, 0, 0];
+    let addTimeMin = [0, 0, 0, 0];
     // 根据multiplier计算tier开始时间
     if (multiplier >= 15) {
       // 立刻获取中立物品
-      addTimeMin = [0, 0, 0, 0, 0];
+      addTimeMin = [0, 0, 0, 0];
     } else if (multiplier >= 10) {
       //延后1分钟
-      addTimeMin = [1, 1, 1, 1, 2];
+      addTimeMin = [1, 1, 1, 1];
     } else if (multiplier >= 8) {
       //延后2分钟
-      addTimeMin = [2, 2, 2, 3, 4];
+      addTimeMin = [2, 2, 2, 3];
     } else if (multiplier >= 6) {
       //延后3分钟
-      addTimeMin = [3, 3, 4, 5, 6];
+      addTimeMin = [3, 3, 4, 5];
     } else if (multiplier >= 4) {
       //延后4分钟
-      addTimeMin = [4, 5, 6, 7, 9];
+      addTimeMin = [4, 5, 6, 7];
     } else {
       // 延后5分钟
-      addTimeMin = [5, 6, 7, 8, 10];
+      addTimeMin = [5, 6, 7, 8];
     }
 
     const baseTime = baseTimeMin.map((time, index) => time * 60 + addTimeMin[index] * 60);
@@ -69,9 +69,10 @@ export class NeutralItemManager {
           { name: 'item_dagger_of_ristul', level: 1 }, // 瑞斯图尔的匕首
           { name: 'item_foragers_kit', level: 1 }, // 采菌套具
           { name: 'item_stonefeather_satchel', level: 1 }, // 石羽小包
-          { name: 'item_safety_bubble', level: 1 }, // 安全泡泡
           { name: 'item_royal_jelly', level: 1 }, // 蜂王浆
           { name: 'item_arcane_ring', level: 1 }, // 奥术指环
+          { name: 'item_red_ledger', level: 1 }, // 红账册
+          { name: 'item_seeds_of_serenity', level: 1 }, // 宁静种籽
         ],
         enhancements: {
           global: [
@@ -101,6 +102,7 @@ export class NeutralItemManager {
       },
       2: {
         items: [
+          { name: 'item_safety_bubble', level: 1 }, // 安全泡泡
           { name: 'item_essence_ring', level: 1 }, // 精华指环
           { name: 'item_mana_draught', level: 1 }, // 魔力药水
           { name: 'item_poor_mans_shield', level: 1 }, // 穷鬼盾
@@ -108,14 +110,20 @@ export class NeutralItemManager {
           { name: 'item_defiant_shell', level: 1 }, // 不羁甲壳
           { name: 'item_crippling_crossbow', level: 1 }, // 致残之弩
           { name: 'item_medallion_of_courage', level: 1 }, // 勇气勋章
-          { name: 'item_seeds_of_serenity', level: 1 }, // 宁静种籽
           { name: 'item_orb_of_destruction', level: 1 }, // 毁灭灵球
           { name: 'item_misericorde', level: 1 }, // 飞贼之刃
+          { name: 'item_brick', level: 1 }, // 砖头
+          { name: 'item_gunpowder_gauntlets', level: 1 }, // 火药手套
+          { name: 'item_jidi_pollen_bag', level: 1 }, // 基迪花粉袋
+          { name: 'item_spellslinger', level: 1 }, // 咏咒之坠
+          { name: 'item_partisans_brand', level: 1 }, // 天游烙印
+          { name: 'item_metamorphic_mandible', level: 1 }, // 变态上颚
+          { name: 'item_imp_claw', level: 1 }, // 力量法则碎片
         ],
         enhancements: {
           global: [
             { name: 'item_enhancement_quickened', level: 2 }, // 迅速 移速
-            { name: 'item_enhancement_greedy', level: 2 }, // 贪婪 工资蓝量 -攻击
+            { name: 'item_enhancement_greedy', level: 1 }, // 贪婪 工资蓝量 -攻击
             { name: 'item_enhancement_vital', level: 2 }, // 活力 生命恢复
             { name: 'item_enhancement_wise', level: 2 }, // 睿智 每分钟经验
             { name: 'item_enhancement_vast', level: 1 }, // 高远 攻击距离
@@ -146,23 +154,27 @@ export class NeutralItemManager {
       3: {
         items: [
           { name: 'item_serrated_shiv', level: 1 }, // 锯齿短刀
-          { name: 'item_gunpowder_gauntlets', level: 1 }, // 火药手套
-          { name: 'item_jidi_pollen_bag', level: 1 }, // 基迪花粉袋
           { name: 'item_unrelenting_eye', level: 1 }, // 不屈之眼
           { name: 'item_cloak_of_flames', level: 1 }, // 火焰斗篷
-          { name: 'item_spellslinger', level: 1 }, // 咏咒之坠
           { name: 'item_stormcrafter', level: 1 }, // 风暴宝器
-          { name: 'item_partisans_brand', level: 1 }, // 天游烙印
-          { name: 'item_spider_legs', level: 1 }, // 网虫腿 原本是5级
+          { name: 'item_spider_legs', level: 1 }, // 网虫腿
           { name: 'item_trickster_cloak', level: 1 }, // 欺诈师斗篷
           { name: 'item_penta_edged_sword', level: 1 }, // 五锋长剑
           { name: 'item_gale_guard', level: 1 }, // 烈风护体
           { name: 'item_princes_knife', level: 1 }, // 亲王短刀
+          { name: 'item_balmhook', level: 1 }, // 提钩
+          { name: 'item_vile_phial', level: 1 }, // 毒剂瓶
+          { name: 'item_rattlecage', level: 1 }, // 回响之笼
+          { name: 'item_idol_of_screeauk', level: 1 }, // 丝奎奥克神像
+          { name: 'item_dandelion_amulet', level: 1 }, // 蒲公英护符
+          { name: 'item_prophets_pendulum', level: 1 }, // 先知灵摆
+          { name: 'item_harmonizer', level: 1 }, // 协和
+          { name: 'item_ceremonial_robe', level: 1 }, // 祭礼长袍
         ],
         enhancements: {
           global: [
             { name: 'item_enhancement_quickened', level: 3 }, // 迅速 移速
-            { name: 'item_enhancement_greedy', level: 3 }, // 贪婪 工资蓝量 -攻击
+            { name: 'item_enhancement_greedy', level: 1 }, // 贪婪 工资蓝量 -攻击
             { name: 'item_enhancement_vast', level: 2 }, // 高远 攻击距离
             { name: 'item_enhancement_vampiric', level: 2 }, // 吸血鬼 双吸血
             { name: 'item_enhancement_evolved', level: 1 }, // 进化 主属性
@@ -193,95 +205,73 @@ export class NeutralItemManager {
       4: {
         items: [
           { name: 'item_giant_maul', level: 1 }, // 巨人之槌
-          { name: 'item_rattlecage', level: 1 }, // 回响之笼
-          { name: 'item_idol_of_screeauk', level: 1 }, // 丝奎奥克神像
           { name: 'item_flayers_bota', level: 1 }, // 剥皮血囊
-          { name: 'item_metamorphic_mandible', level: 1 }, // 变态上颚
-          { name: 'item_dandelion_amulet', level: 1 }, // 蒲公英护符
-          { name: 'item_prophets_pendulum', level: 1 }, // 先知灵摆
           { name: 'item_conjurers_catalyst', level: 1 }, // 咒术师触媒
-          { name: 'item_panic_button', level: 1 }, // 神妙明灯 原本是5级
+          { name: 'item_panic_button', level: 1 }, // 神妙明灯
           { name: 'item_havoc_hammer', level: 1 }, // 浩劫巨锤
-          { name: 'item_imp_claw', level: 1 }, // 力量法则碎片
           { name: 'item_seer_stone', level: 1 }, // 先哲之石
           { name: 'item_repair_kit', level: 1 }, // 维修器具
           { name: 'item_mirror_shield', level: 1 }, // 神镜盾
           { name: 'item_magnifying_monocle', level: 1 }, // 放大单片镜
-        ],
-        enhancements: {
-          global: [
-            { name: 'item_enhancement_quickened', level: 4 }, // 迅速 移速
-            { name: 'item_enhancement_timeless', level: 1 }, // 永恒 负面时间技能增强
-            { name: 'item_enhancement_vampiric', level: 3 }, // 吸血鬼 双吸血
-            { name: 'item_enhancement_boundless', level: 1 }, // 无边 攻击距离施法距离
-            { name: 'item_enhancement_evolved', level: 2 }, // 进化 主属性
-            { name: 'item_enhancement_fierce', level: 1 }, // 凶猛
-            { name: 'item_enhancement_dominant', level: 1 }, // 专横
-            { name: 'item_enhancement_restorative', level: 1 }, // 滋补
-            { name: 'item_enhancement_thick', level: 1 }, // 厚重
-            { name: 'item_mysterious_hat', level: 1 }, // 仙灵饰品
-          ],
-          strength: [
-            { name: 'item_enhancement_brawny', level: 4 }, // 壮实 血量
-            { name: 'item_enhancement_tough', level: 4 }, // 坚强 攻击护甲
-            { name: 'item_enhancement_crude', level: 3 }, // 粗暴 减速抗性攻击间隔 -智力
-          ],
-          agility: [
-            { name: 'item_enhancement_alert', level: 4 }, // 警觉 攻速夜视
-            { name: 'item_enhancement_brawny', level: 4 }, // 壮实 血量
-            { name: 'item_enhancement_nimble', level: 3 }, // 轻快 移速攻击力 -生命回复
-          ],
-          intelligence: [
-            { name: 'item_enhancement_mystical', level: 4 }, // 神秘 回蓝魔抗
-            { name: 'item_enhancement_tough', level: 4 }, // 坚强 攻击护甲
-            { name: 'item_enhancement_keen_eyed', level: 3 }, // 犀利 施法距离回蓝 -最大魔法值
-          ],
-          universal: [
-            { name: 'item_enhancement_alert', level: 4 }, // 警觉 攻速夜视
-            { name: 'item_enhancement_mystical', level: 4 }, // 神秘 回蓝魔抗
-            { name: 'item_enhancement_titanic', level: 3 }, // 巨神 基础攻击状态抗性 -攻击速度
-          ],
-        },
-      },
-      5: {
-        items: [
-          { name: 'item_desolator_2', level: 1 }, // 寂灭
+          { name: 'item_helm_of_the_hivemind', level: 1 }, // 蜂巢头盔
+          { name: 'item_stygian_desolator', level: 1 }, // 寂灭
           { name: 'item_fallen_sky', level: 1 }, // 天崩
           { name: 'item_demonicon', level: 1 }, // 死灵书
           { name: 'item_minotaur_horn', level: 1 }, // 恶牛角
           { name: 'item_riftshadow_prism', level: 1 }, // 影墟棱晶
           { name: 'item_dezun_bloodrite', level: 1 }, // 德尊血式
           { name: 'item_divine_regalia', level: 1 }, // 天赐华冠
-          { name: 'item_harmonizer', level: 1 }, // 协和
           { name: 'item_heavy_blade', level: 1 }, // 行巫之祸
-          { name: 'item_enchanters_bauble', level: 1 }, // 附魔师之椟
           { name: 'item_nemesis_curse', level: 1 }, // 天诛之咒
-          { name: 'item_ceremonial_robe', level: 1 }, // 祭礼长袍
           { name: 'item_ballista', level: 1 }, // 弩炮
           { name: 'item_giants_ring', level: 1 }, // 巨人之戒
           { name: 'item_ex_machina', level: 1 }, // 机械之心
+          { name: 'item_flicker', level: 1 }, // 闪灵
+          { name: 'item_mind_breaker', level: 1 }, // 智灭
+          { name: 'item_enchanters_bauble', level: 1 }, // 附魔师之椟
         ],
         enhancements: {
           global: [
+            { name: 'item_enhancement_quickened', level: 3 }, // 迅速 移速
             { name: 'item_enhancement_timeless', level: 2 }, // 永恒 负面时间技能增强
-            { name: 'item_enhancement_evolved', level: 3 }, // 进化 主属性
-            { name: 'item_enhancement_fleetfooted', level: 1 }, // 捷足 移速
             { name: 'item_enhancement_vampiric', level: 4 }, // 吸血鬼 双吸血
-            { name: 'item_enhancement_titanic', level: 4 }, // 巨神 基础攻击状态抗性 -攻击速度
-            { name: 'item_enhancement_crude', level: 4 }, // 粗暴 减速抗性攻击间隔 -智力
             { name: 'item_enhancement_boundless', level: 2 }, // 无边 攻击距离施法距离
+            { name: 'item_enhancement_evolved', level: 3 }, // 进化 主属性
             { name: 'item_enhancement_fierce', level: 2 }, // 凶猛
             { name: 'item_enhancement_dominant', level: 2 }, // 专横
             { name: 'item_enhancement_restorative', level: 2 }, // 滋补
             { name: 'item_enhancement_thick', level: 2 }, // 厚重
             { name: 'item_mysterious_hat', level: 2 }, // 仙灵饰品
+            { name: 'item_enhancement_fleetfooted', level: 1 }, // 捷足 移速
+            { name: 'item_enhancement_titanic', level: 2 }, // 巨神 基础攻击状态抗性 -攻击速度
+            { name: 'item_enhancement_crude', level: 2 }, // 粗暴 减速抗性攻击间隔 -智力
             { name: 'item_spell_prism', level: 1 }, // 法术棱镜
             { name: 'item_paladin_sword', level: 1 }, // 骑士剑
           ],
-          strength: [{ name: 'item_enhancement_hulking', level: 1 }], // 笨重
-          agility: [{ name: 'item_enhancement_audacious', level: 1 }], // 冒险
-          intelligence: [{ name: 'item_enhancement_feverish', level: 1 }], // 狂热
-          universal: [{ name: 'item_enhancement_manic', level: 1 }], // 癫狂
+          strength: [
+            { name: 'item_enhancement_brawny', level: 3 }, // 壮实 血量
+            { name: 'item_enhancement_tough', level: 3 }, // 坚强 攻击护甲
+            { name: 'item_enhancement_crude', level: 2 }, // 粗暴 减速抗性攻击间隔 -智力
+            { name: 'item_enhancement_hulking', level: 1 }, // 笨重 百分比 生命值 生命值回复 -攻击速度
+          ],
+          agility: [
+            { name: 'item_enhancement_alert', level: 3 }, // 警觉 攻速夜视
+            { name: 'item_enhancement_brawny', level: 3 }, // 壮实 血量
+            { name: 'item_enhancement_nimble', level: 2 }, // 轻快 移速攻击力 -生命回复
+            { name: 'item_enhancement_audacious', level: 1 }, // 冒险 攻速魔法攻击伤害增加承伤
+          ],
+          intelligence: [
+            { name: 'item_enhancement_mystical', level: 3 }, // 神秘 回蓝魔抗
+            { name: 'item_enhancement_tough', level: 3 }, // 坚强 攻击护甲
+            { name: 'item_enhancement_keen_eyed', level: 2 }, // 犀利 施法距离回蓝 -最大魔法值
+            { name: 'item_enhancement_feverish', level: 1 }, // 狂热 冷却减少 蓝耗增加
+          ],
+          universal: [
+            { name: 'item_enhancement_alert', level: 3 }, // 警觉 攻速夜视
+            { name: 'item_enhancement_mystical', level: 3 }, // 神秘 回蓝魔抗
+            { name: 'item_enhancement_titanic', level: 2 }, // 巨神 基础攻击状态抗性 -攻击速度
+            { name: 'item_enhancement_manic', level: 1 }, // 癫狂 攻击间隔 施法速度 -视野
+          ],
         },
       },
     };
@@ -365,7 +355,7 @@ export class NeutralItemManager {
     return map;
   }
 
-  // 根据物品名和 level 查找所在 tier（1-5），未找到返回 undefined
+  // 根据物品名和 level 查找所在 tier（1-4），未找到返回 undefined
   public static GetNeutralItemTier(itemName: string, level: number): number | undefined {
     if (!this.neutralTierMap) this.neutralTierMap = this.BuildNeutralTierMap();
     return this.neutralTierMap.get(`${itemName}:${level}`);
@@ -386,5 +376,15 @@ export class NeutralItemManager {
     }
 
     return items[0];
+  }
+
+  // 等级必须在 AddItem 之前设好：先加后设，modifier 已按 1 级创建，效果不会随等级更新
+  public static GiveToHero(hero: CDOTA_BaseNPC_Hero, config: NeutralItemConfig): void {
+    const item = CreateItem(config.name, undefined, undefined);
+    if (item === undefined) {
+      return;
+    }
+    item.SetLevel(config.level);
+    hero.AddItem(item);
   }
 }
