@@ -8023,7 +8023,7 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0"
 		"AbilityCharges"				"2"
-		"AbilityChargeRestoreTime"		"70"
+		"AbilityChargeRestoreTime"		"60"
 		"ItemInitialCharges"			"1"
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
@@ -8037,7 +8037,7 @@
 		"AbilityValues"
 		{
 				"bonus_attack_speed"	"20"	// 原版 40
-				"bonus_gold"			"240"	// 原版 160
+				"bonus_gold"			"320"	// 原版 160
 		}
 
 		"ItemCost"						"1000"	// 原版造价 2200
