@@ -1508,9 +1508,9 @@
 
 		// 剑圣 觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade"					"<font color='#d000ff'>Джаггернаут: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade_Description"		"Вихрь клинков получает внешний радиус <font color='#FFFFFF'><b>550</b></font>. Враги во внешнем радиусе замедляются на <font color='#FFFFFF'><b>30%</b></font> и при каждом уроне всегда получают критический удар с текущим множителем «Танца клинков».<br>Во время «Вихря клинков» можно атаковать на ходу, нанося <font color='#FFFFFF'><b>50%</b></font> урона от атаки. Суммируется с эффектом скипетра Аганима."
+		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade_Description"		"Blade Fury получает внешний радиус <font color='#FFFFFF'><b>550</b></font>. Враги во внешнем радиусе замедляются на <font color='#FFFFFF'><b>30%</b></font> и при каждом уроне всегда получают критический удар с текущим множителем Blade Dance.<br>Во время Blade Fury можно атаковать на ходу, нанося <font color='#FFFFFF'><b>50%</b></font> урона от атаки. Суммируется с эффектом Aghanim's Scepter."
 		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade"					"<font color='#d000ff'>Джаггернаут: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade_Description"		"Вихрь клинков получает внешний радиус <font color='#FFFFFF'><b>550</b></font>. Враги во внешнем радиусе замедляются на <font color='#FFFFFF'><b>30%</b></font> и при каждом уроне всегда получают критический удар с текущим множителем «Танца клинков».<br>Во время «Вихря клинков» можно атаковать на ходу, нанося <font color='#FFFFFF'><b>50%</b></font> урона от атаки. Суммируется с эффектом скипетра Аганима."
+		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade_Description"		"Blade Fury получает внешний радиус <font color='#FFFFFF'><b>550</b></font>. Враги во внешнем радиусе замедляются на <font color='#FFFFFF'><b>30%</b></font> и при каждом уроне всегда получают критический удар с текущим множителем Blade Dance.<br>Во время Blade Fury можно атаковать на ходу, нанося <font color='#FFFFFF'><b>50%</b></font> урона от атаки. Суммируется с эффектом Aghanim's Scepter."
 
 		// 斧王 无情铁手-觉醒
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Автоматический Отсекающий клинок: пробуждение</font>"

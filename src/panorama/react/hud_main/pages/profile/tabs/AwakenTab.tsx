@@ -32,13 +32,22 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     heroName: 'npc_dota_hero_antimage',
     abilityName: 'special_bonus_unique_antimage_mana_suppression_awaken',
   },
-  { heroName: 'npc_dota_hero_terrorblade', abilityName: 'terrorblade_sunder_awakened_status' },
-  { heroName: 'npc_dota_hero_bounty_hunter', abilityName: 'bounty_hunter_track_awaken' },
+  {
+    heroName: 'npc_dota_hero_terrorblade',
+    abilityName: 'terrorblade_sunder_awakened_status',
+  },
+  {
+    heroName: 'npc_dota_hero_bounty_hunter',
+    abilityName: 'bounty_hunter_track_awaken',
+  },
   {
     heroName: 'npc_dota_hero_nyx_assassin',
     abilityName: 'special_bonus_unique_nyx_assassin_mobile_burrow_awaken',
   },
-  { heroName: 'npc_dota_hero_beastmaster', abilityName: 'beastmaster_wild_axes_awaken' },
+  {
+    heroName: 'npc_dota_hero_beastmaster',
+    abilityName: 'beastmaster_wild_axes_awaken',
+  },
   {
     heroName: 'npc_dota_hero_earthshaker',
     abilityName: 'special_bonus_unique_earthshaker_upgrade',
@@ -58,17 +67,35 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     abilityName: 'special_bonus_unique_abaddon_quickening_awaken',
     freeTrial: true,
   },
-  { heroName: 'npc_dota_hero_skywrath_mage', abilityName: 'special_bonus_unique_skywrath_upgrade' },
-  { heroName: 'npc_dota_hero_dazzle', abilityName: 'special_bonus_unique_dazzle_upgrade' },
-  { heroName: 'npc_dota_hero_elder_titan', abilityName: 'elder_titan_ancestral_spirit_awaken' },
-  { heroName: 'npc_dota_hero_techies', abilityName: 'techies_squees_scope' },
-  { heroName: 'npc_dota_hero_undying', abilityName: 'special_bonus_unique_undying_upgrade' },
+  {
+    heroName: 'npc_dota_hero_skywrath_mage',
+    abilityName: 'special_bonus_unique_skywrath_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_dazzle',
+    abilityName: 'special_bonus_unique_dazzle_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_elder_titan',
+    abilityName: 'elder_titan_ancestral_spirit_awaken',
+  },
+  {
+    heroName: 'npc_dota_hero_techies',
+    abilityName: 'techies_squees_scope',
+  },
+  {
+    heroName: 'npc_dota_hero_undying',
+    abilityName: 'special_bonus_unique_undying_upgrade',
+  },
   {
     heroName: 'npc_dota_hero_lich',
     abilityName: 'special_bonus_unique_lich_upgrade',
     freeTrial: true,
   },
-  { heroName: 'npc_dota_hero_doom_bringer', abilityName: 'doom_bringer_doom_awakened' },
+  {
+    heroName: 'npc_dota_hero_doom_bringer',
+    abilityName: 'doom_bringer_doom_awakened',
+  },
   {
     heroName: 'npc_dota_hero_keeper_of_the_light',
     abilityName: 'special_bonus_unique_keeper_of_the_light_upgrade',
@@ -77,18 +104,39 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     heroName: 'npc_dota_hero_crystal_maiden',
     abilityName: 'special_bonus_unique_crystal_maiden_upgrade',
   },
-  { heroName: 'npc_dota_hero_tiny', abilityName: 'special_bonus_unique_tiny_upgrade' },
-  { heroName: 'npc_dota_hero_legion_commander', abilityName: 'legion_commander_auto_duel' },
-  { heroName: 'npc_dota_hero_phoenix', abilityName: 'special_bonus_unique_phoenix_upgrade' },
-  { heroName: 'npc_dota_hero_warlock', abilityName: 'special_bonus_unique_warlock_upgrade' },
-  { heroName: 'npc_dota_hero_sven', abilityName: 'special_bonus_unique_sven_upgrade' },
+  {
+    heroName: 'npc_dota_hero_tiny',
+    abilityName: 'special_bonus_unique_tiny_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_legion_commander',
+    abilityName: 'legion_commander_auto_duel',
+  },
+  {
+    heroName: 'npc_dota_hero_phoenix',
+    abilityName: 'special_bonus_unique_phoenix_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_warlock',
+    abilityName: 'special_bonus_unique_warlock_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_sven',
+    abilityName: 'special_bonus_unique_sven_upgrade',
+  },
   {
     heroName: 'npc_dota_hero_rattletrap',
     abilityName: 'special_bonus_unique_rattletrap_upgrade',
     freeTrial: true,
   },
-  { heroName: 'npc_dota_hero_windrunner', abilityName: 'windrunner_whirlwind_custom' },
-  { heroName: 'npc_dota_hero_kunkka', abilityName: 'kunkka_torrent_storm' },
+  {
+    heroName: 'npc_dota_hero_windrunner',
+    abilityName: 'windrunner_whirlwind_custom',
+  },
+  {
+    heroName: 'npc_dota_hero_kunkka',
+    abilityName: 'kunkka_torrent_storm',
+  },
   { heroName: 'npc_dota_hero_ogre_magi', abilityName: 'ogre_magi_multicast_lua' },
   {
     heroName: 'npc_dota_hero_winter_wyvern',
