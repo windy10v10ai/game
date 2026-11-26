@@ -6419,6 +6419,7 @@
 	// 变形
 	"morphling_replicate"
 	{
+		"LinkedAbility"		"special_bonus_unique_morphling_upgrade"
 		"MaxLevel" "4"
 		"AbilityCastRange"				"700 850 1000 1150"
 		"AbilityCooldown"				"120 100 80 60"

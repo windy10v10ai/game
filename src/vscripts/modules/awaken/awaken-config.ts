@@ -18,6 +18,13 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 水人 觉醒
+  {
+    heroName: 'npc_dota_hero_morphling',
+    newAbility: 'special_bonus_unique_morphling_upgrade',
+    newLevel: 0,
+    inheritLevelFrom: 'morphling_replicate',
+  },
   // 半人马战行者 觉醒
   {
     heroName: 'npc_dota_hero_centaur',
@@ -310,6 +317,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_morphling', // 水人
   'npc_dota_hero_centaur', // 半人马战行者
   'npc_dota_hero_antimage', // 敌法师
   'npc_dota_hero_terrorblade', // 恐怖利刃
