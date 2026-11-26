@@ -8022,7 +8022,7 @@
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0.5"
-		"AbilityManaCost"				"800"
+		"AbilityManaCost"				"600"
 		"ItemCost"						"1000"	// 原版造价 13950
 		"ItemShopTags"					""
 		"ItemPurchasable"				"0"
@@ -8035,9 +8035,9 @@
 			"bonus_all_stats"			"6"	// 原版 60
 			"bonus_health"				"176"	// 原版 480
 			"bonus_mana"				"176"	// 原版 900
-			"damage"					"400"	// 原版 1600
+			"damage"					"600"	// 原版 1600
 			"damage_delay"				"0"	// 原版 0
-			"mana_cost_tooltip"			"800"	// 原版 1600
+			"mana_cost_tooltip"			"600"	// 原版 1600
 			"cast_range_bonus"			"100"	// 原版 360
 		}
 	}
