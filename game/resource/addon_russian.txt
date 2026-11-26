@@ -1370,9 +1370,9 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_attack_pct"		"%УРОН АТАК WAVEFORM:"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Note0"		"Уровень совпадает с уровнем Morph, без изученного Morph не действует."
 		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"Прибавка ловкости (Morph)"
-		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Временно даёт <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> ловкости, рассчитанной из атрибутов цели в момент применения Morph. Повторное применение заменяет прибавку и обновляет длительность. Эффект исчезает после смерти."
+		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Временно даёт <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> ловкости, рассчитанной из суммы силы, ловкости и интеллекта цели в момент применения Morph. Последующие изменения атрибутов цели на прибавку не влияют. Заимствованная ловкость тоже даёт усиление заклинаний.<br>Повторное применение Morph пересчитывает прибавку по новой цели и обновляет длительность, не суммируясь. Эффект исчезает после смерти."
 		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade"		"Morph: пробуждение"
-		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"Применение Morph на героя временно превращает его атрибуты в ловкость. Ловкость усиливает заклинания, а Waveform атакует врагов на пути."
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"Применение Morph на вражеского героя временно заимствует часть суммы его силы, ловкости и интеллекта и превращает её в ловкость, не уменьшая атрибуты цели. Доля растёт с уровнем Morph.<br>Каждая единица ловкости даёт усиление заклинаний, включая заимствованную ловкость.<br>При применении Waveform герой один раз атакует каждого врага на пути, число целей ограничено.<br>Когда пассивные способности отключены эффектом Break, усиление заклинаний и атаки Waveform не работают."
 
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Двойной клинок: пробуждение</font>"

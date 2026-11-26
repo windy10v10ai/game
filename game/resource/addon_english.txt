@@ -1370,9 +1370,9 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_attack_pct"		"%WAVEFORM ATTACK DAMAGE:"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Note0"		"Follows the level of Morph, and has no effect while Morph is unlearned."
 		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"Morph Agility Bonus"
-		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Temporarily grants <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> Agility, converted from the target's attributes when Morph was cast. Recasting replaces and refreshes the bonus, which is removed on death."
+		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Temporarily grants <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> Agility, converted from the target's combined Strength, Agility and Intelligence when Morph was cast. Later changes to the target's attributes do not affect it. Borrowed Agility also grants spell amplification.<br>Recasting Morph recalculates the bonus from the new target and refreshes the duration without stacking. Removed on death."
 		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade"		"Morph Awakened"
-		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"Casting Morph on a hero temporarily borrows its attributes as Agility. Agility amplifies spells, and Waveform attacks enemies along its path."
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"Casting Morph on an enemy hero temporarily borrows a portion of its combined Strength, Agility and Intelligence as Agility, without reducing the target's attributes. The portion increases with Morph's level.<br>Each point of Agility grants spell amplification, including borrowed Agility.<br>Casting Waveform performs one attack on each enemy along its path, up to a target limit.<br>While passives are disabled by Break, the spell amplification and Waveform attacks do not work."
 
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Double Edge Awakened</font>"
