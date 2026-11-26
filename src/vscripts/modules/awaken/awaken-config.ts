@@ -296,12 +296,11 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_sniper_assassinate_upgrade',
     newLevel: 0,
   },
-  // 剑圣 觉醒剑刃风暴
+  // 剑圣 觉醒（效果由 override 里 juggernaut_blade_fury 的 special_bonus 键实现）
   {
     heroName: 'npc_dota_hero_juggernaut',
-    targetAbility: 'juggernaut_blade_fury',
-    newAbility: 'juggernaut_blade_fury_custom',
-    newLevel: 0,
+    newAbility: 'special_bonus_unique_juggernaut_upgrade',
+    newLevel: 1,
   },
   // 屠夫 觉醒肉钩：把原版 pudge_meat_hook 替换为射程随力量增长的觉醒版
   {
@@ -319,14 +318,15 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
 export const FREE_TRIAL_HEROES: string[] = [
   'npc_dota_hero_morphling', // 水人
   'npc_dota_hero_centaur', // 半人马战行者
-  'npc_dota_hero_antimage', // 敌法师
-  'npc_dota_hero_terrorblade', // 恐怖利刃
-  'npc_dota_hero_bounty_hunter', // 赏金猎人
-  'npc_dota_hero_phantom_assassin', // 幻影刺客
-  'npc_dota_hero_drow_ranger', // 卓尔游侠
-  'npc_dota_hero_kunkka', // 昆卡
   'npc_dota_hero_storm_spirit', // 蓝猫
   'npc_dota_hero_rattletrap', // 发条技师
+  'npc_dota_hero_juggernaut', // 剑圣
+  'npc_dota_hero_abaddon', // 亚巴顿
+  'npc_dota_hero_abyssal_underlord', // 孽主
+  'npc_dota_hero_lich', // 巫妖
+  'npc_dota_hero_lina', // 莉娜
+  'npc_dota_hero_necrolyte', // 瘟疫法师
+  'npc_dota_hero_slark', // 斯拉克
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */

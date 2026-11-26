@@ -2,7 +2,7 @@
 
 `addon_schinese.txt`（简中）、`addon_english.txt`（英）、`addon_russian.txt`（俄）。改完不用重启 Dota Tools，也不用 `script_reload`，运行中的游戏自动热加载新文案。
 
-写自定义文案前 grep 原版说明文本对齐官方术语（路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」），英雄名、物品名、效果名以本项目本地化文件为准。
+写自定义文案前 grep 原版说明文本对齐官方术语（路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」），英雄名、物品名、效果名以本项目本地化文件为准。文案里引用原版技能、物品时照官方文本的叫法，不自译：官方俄文客户端里技能名、物品名保留英文（如 `Blade Fury`、`Morph`、`Aghanim's Scepter`），俄文文案照写英文原名。本项目自制的技能、物品、效果没有官方叫法，三语自行翻译。
 
 ## 文案规约
 
@@ -13,7 +13,7 @@
 - 句间用逗号或句号（不用分号）；中文并列用逗号（不用顿号）；中文用全角标点
 - 译文意思准确即可，不必逐字对应
 - 只写影响玩家决策的边界（如「基础属性最低保留 1 点」），向下取整、保底值、换算精度这类实现细节留在代码里
-- 字面 `%` 写成 `%%`（如 `%active_reflection_pct%%%`），modifier 描述也一样
+- 字面 `%` 写成 `%%`（如 `%active_reflection_pct%%%`）。modifier 描述（`DOTA_Tooltip_modifier_*_Description`）尤其不能漏：单个 `%` 会被吞掉不显示（实机：剑圣觉醒 buff 的「30%」只显示 30），技能描述里单个 `%` 仍能显示。天赋名的 `{s:xxx}%` 照官方写单个 `%`
 - 一个 `AbilityValues` 数值在 `_Description` 里内联 `%xxx%` 和单独成行 `_xxx` 二选一
 - 模块排列：Custom Abilities（自定义技能）→ Awaken Abilities（觉醒技能）→ Heroes Override（原版英雄技能）
 

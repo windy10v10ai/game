@@ -42,7 +42,6 @@ export const abilityTiersActive: Tier[] = [
       'bloodseeker_blood_mist2', // 血魔 血雾
       'ability_trigger_on_active', //紫蝴蝶
       'brewmaster_drunken_boxing', // 酒仙 醉拳
-      'juggernaut_blade_fury_custom', // 剑圣 觉醒剑刃风暴
       'ability_fate_roulette', // 命运轮盘
     ],
   },

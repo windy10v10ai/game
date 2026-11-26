@@ -1523,15 +1523,11 @@
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%DISTANCE AS DAMAGE:"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Lore"						"No need to argue about it anymore."
 
-		// Juggernaut - Blade Fury Awakened
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>Blade Fury Awakened</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, each second dealing magic damage to surrounding enemies equal to base damage plus a percentage of each enemy's max health. Grants <font color='#FFCC66'>debuff immunity</font> and %magic_resistance_bonus%%% magic resistance, and can attack normally but with attack power reduced by %damage_reduction_pct%%%. Performs a strong dispel on himself when the spin ends."
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"RADIUS:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"DURATION:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"BASE DAMAGE:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_health_damage_pct"			"%MAX HEALTH DAMAGE PER SECOND:"
-		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"Blade Fury"
-		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"Magic resistance increased, debuff immune, dealing damage to surrounding enemies."
+		// Juggernaut - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade"					"<font color='#d000ff'>Juggernaut Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade_Description"		"Blade Fury's radius is increased to <font color='#FFFFFF'><b>550</b></font>, and enemies within the storm are slowed by <font color='#FFFFFF'><b>30%%</b></font>. Enemies in the added outer ring always take a critical hit with the current Blade Dance critical multiplier on every damage tick.<br>Can attack while moving during Blade Fury, dealing <font color='#FFFFFF'><b>50%%</b></font> attack damage, or full attack damage with Aghanim's Scepter."
+		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade"					"<font color='#d000ff'>Juggernaut Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade_Description"		"Blade Fury's radius is increased to <font color='#FFFFFF'><b>550</b></font>, and enemies within the storm are slowed by <font color='#FFFFFF'><b>30%%</b></font>. Enemies in the added outer ring always take a critical hit with the current Blade Dance critical multiplier on every damage tick.<br>Can attack while moving during Blade Fury, dealing <font color='#FFFFFF'><b>50%%</b></font> attack damage, or full attack damage with Aghanim's Scepter."
 
 		// Axe - Ruthless Hand Awakened
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Ruthless Hand Awakened</font>"
@@ -1575,7 +1571,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by %spell_amp_ratio_pct%%% of his current Spell Amplification when summoned."
 		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by 50%%% of his current Spell Amplification when summoned."
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by <font color='#FFFFFF'><b>50%%</b></font> of his current Spell Amplification when summoned."
 
 		// Shadow Fiend Requiem Guard - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
