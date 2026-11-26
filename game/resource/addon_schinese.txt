@@ -1361,7 +1361,9 @@
 		// 英雄 水人觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>变形 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"对敌方英雄施放变形时，临时借用其属性转为敏捷，敏捷提升技能增强，波浪形态沿途攻击。"
-		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<font color='#d000ff'>施放变形：</font>对一名敌方英雄施放变形后，临时获得该英雄力量，敏捷和智力合计的一定比例，全部加在敏捷上。再次施放刷新并替换加成，死亡时移除。<br><font color='#d000ff'>被动：</font>每点敏捷提升技能增强。<br><font color='#d000ff'>施放波浪形态：</font>沿途攻击经过的敌人，并触发攻击特效。"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<h1>强化：变形</h1>对一名敌方英雄施放变形后，临时获得该英雄力量，敏捷和智力合计的一定比例，全部加在敏捷上。<br>再次施放刷新并替换加成，死亡时移除。
+<h1>被动：激流</h1>每点敏捷提升技能增强。
+<h1>强化：波浪形态</h1>沿途攻击经过的敌人，并触发攻击特效。"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_inherit_pct"		"%目标三项属性合计折算敏捷："
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_duration"		"持续时间："
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_agility_spell_amp"		"%每点敏捷提供技能增强："
