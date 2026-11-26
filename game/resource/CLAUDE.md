@@ -13,7 +13,7 @@
 - 句间用逗号或句号（不用分号）；中文并列用逗号（不用顿号）；中文用全角标点
 - 译文意思准确即可，不必逐字对应
 - 只写影响玩家决策的边界（如「基础属性最低保留 1 点」），向下取整、保底值、换算精度这类实现细节留在代码里
-- 字面 `%` 写成 `%%`（如 `%active_reflection_pct%%%`），modifier 描述也一样
+- 字面 `%` 写成 `%%`（如 `%active_reflection_pct%%%`）。modifier 描述（`DOTA_Tooltip_modifier_*_Description`）尤其不能漏：单个 `%` 会被吞掉不显示（实机：剑圣觉醒 buff 的「30%」只显示 30），技能描述里单个 `%` 仍能显示。天赋名的 `{s:xxx}%` 照官方写单个 `%`
 - 一个 `AbilityValues` 数值在 `_Description` 里内联 `%xxx%` 和单独成行 `_xxx` 二选一
 - 模块排列：Custom Abilities（自定义技能）→ Awaken Abilities（觉醒技能）→ Heroes Override（原版英雄技能）
 
