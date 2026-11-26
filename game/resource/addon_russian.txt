@@ -1360,9 +1360,10 @@
 
 		// 英雄 水人觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>Morph: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"Применение Morph на героя временно превращает его атрибуты в ловкость, ловкость усиливает заклинания, а Waveform атакует врагов на пути."
-		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<h1>Усиление: Morph</h1>После успешного применения Morph на героя временно получает в виде ловкости часть суммы силы, ловкости и интеллекта этого героя, не уменьшая его атрибуты.<br>Повторное применение заменяет прибавку и обновляет её длительность. Эффект исчезает после смерти.
-<h1>Пассивная: Бурный поток</h1>Текущая ловкость усиливает заклинания.<br>Waveform атакует врагов на своём пути и применяет эффекты атак."
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"Применение Morph на вражеского героя временно превращает его атрибуты в ловкость, ловкость усиливает заклинания, а Waveform атакует врагов на пути."
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<h1>Усиление: Morph</h1>После применения Morph на вражеского героя временно получает в виде ловкости часть суммы силы, ловкости и интеллекта этого героя.<br>Повторное применение заменяет прибавку и обновляет её длительность. Эффект исчезает после смерти.
+<h1>Пассивная: Бурный поток</h1>Каждая единица ловкости даёт усиление заклинаний.
+<h1>Усиление: Waveform</h1>Атакует врагов на пути, применяя эффекты атаки."
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_inherit_pct"		"%ЛОВКОСТЬ ИЗ СУММЫ АТРИБУТОВ ЦЕЛИ:"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_duration"		"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_agility_spell_amp"		"%УСИЛЕНИЕ ЗАКЛИНАНИЙ ЗА ЛОВКОСТЬ:"
@@ -1370,9 +1371,9 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_attack_pct"		"%УРОН АТАК WAVEFORM:"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Note0"		"Уровень совпадает с уровнем Morph, без изученного Morph не действует."
 		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"Прибавка ловкости (Morph)"
-		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Временно даёт <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> ловкости, рассчитанной из суммы силы, ловкости и интеллекта цели в момент применения Morph. Последующие изменения атрибутов цели на прибавку не влияют. Заимствованная ловкость тоже даёт усиление заклинаний.<br>Повторное применение Morph пересчитывает прибавку по новой цели и обновляет длительность, не суммируясь. Эффект исчезает после смерти."
+		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Временно даёт <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> ловкости, рассчитанной из суммы силы, ловкости и интеллекта цели в момент применения Morph.<br>Повторное применение Morph пересчитывает прибавку по новой цели и обновляет длительность, не суммируясь. Эффект исчезает после смерти."
 		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade"		"Morph: пробуждение"
-		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"Применение Morph на вражеского героя временно заимствует часть суммы его силы, ловкости и интеллекта и превращает её в ловкость, не уменьшая атрибуты цели. Доля растёт с уровнем Morph.<br>Каждая единица ловкости даёт усиление заклинаний, включая заимствованную ловкость.<br>При применении Waveform герой один раз атакует каждого врага на пути, число целей ограничено.<br>Когда пассивные способности отключены эффектом Break, усиление заклинаний и атаки Waveform не работают."
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"<font color='#FFFFFF'><b>Morph:</b></font> временно превращает часть суммы силы, ловкости и интеллекта цели в ловкость.<br><font color='#FFFFFF'><b>Пассивно:</b></font> каждая единица ловкости даёт усиление заклинаний.<br><font color='#FFFFFF'><b>Waveform:</b></font> герой один раз атакует каждого врага на пути."
 
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Двойной клинок: пробуждение</font>"
