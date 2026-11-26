@@ -1,4 +1,5 @@
 import { interceptAutoCastShellClick } from './autocast-shell-click';
+import { TREASURED_RECIPE_COMPONENTS } from './treasured-shop';
 
 export const AEON_DISK_BUFF = 'modifier_item_aeon_disk_buff';
 export const IMMORTALITY_MODIFIER = 'modifier_item_helm_of_the_undying_active';
