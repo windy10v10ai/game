@@ -318,6 +318,8 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
 export const FREE_TRIAL_HEROES: string[] = [
   'npc_dota_hero_morphling', // 水人
   'npc_dota_hero_centaur', // 半人马战行者
+  'npc_dota_hero_antimage', // 敌法师
+  'npc_dota_hero_phantom_assassin', // 幻影刺客
   'npc_dota_hero_storm_spirit', // 蓝猫
   'npc_dota_hero_rattletrap', // 发条技师
   'npc_dota_hero_juggernaut', // 剑圣

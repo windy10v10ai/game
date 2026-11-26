@@ -36,6 +36,7 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_antimage',
     abilityName: 'special_bonus_unique_antimage_mana_suppression_awaken',
+    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_terrorblade',
@@ -172,6 +173,7 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_phantom_assassin',
     abilityName: 'special_bonus_unique_phantom_assassin_upgrade',
+    freeTrial: true,
   },
   { heroName: 'npc_dota_hero_zuus', abilityName: 'special_bonus_unique_zuus_upgrade' },
   {
