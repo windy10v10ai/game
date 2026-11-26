@@ -11,7 +11,7 @@ export interface AbilityReplacement {
   targetSlot?: number;
   newAbility: string;
   newLevel: number;
-  /** 加新技能时改为继承此关联技能的当前等级（用于 LinkedAbility 同步升级的技能初始等级对齐），优先级高于 newLevel */
+  /** 加新技能时改为继承此关联技能的当前等级（用于 LinkedAbility 同步升级的技能初始等级对齐），newLevel 作为下限 */
   inheritLevelFrom?: string;
   /** 该标记技能可见期间新技能保持隐藏且不删 targetAbility（如上古巨神丢魂中途不打断原生召回流程） */
   keepHiddenWhile?: string;
@@ -178,11 +178,11 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_warlock_upgrade',
     newLevel: 1,
   },
-  // 斯温 觉醒（与风暴之拳 LinkedAbility 同步升级，初始等级继承风暴之拳）
+  // 斯温 觉醒（与风暴之拳 LinkedAbility 同步升级，初始等级继承风暴之拳，至少 1 级）
   {
     heroName: 'npc_dota_hero_sven',
     newAbility: 'special_bonus_unique_sven_upgrade',
-    newLevel: 0,
+    newLevel: 1,
     inheritLevelFrom: 'sven_storm_bolt',
   },
   // 发条技师 觉醒

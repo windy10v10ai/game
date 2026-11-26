@@ -150,6 +150,19 @@ describe('executeReplacement', () => {
     });
     expect(f.abilities.find((a) => a.name === 'newPassive')?.level).toBe(4);
   });
+
+  it('inheritLevelFrom：关联技能未学时不低于 newLevel', () => {
+    const f = createFakeHero({
+      abilities: [{ name: 'linkedUlt', level: 0 }],
+    });
+    executeReplacement(f.hero, {
+      heroName: 'npc_dota_hero_pudge',
+      newAbility: 'newPassive',
+      newLevel: 1,
+      inheritLevelFrom: 'linkedUlt',
+    });
+    expect(f.abilities.find((a) => a.name === 'newPassive')?.level).toBe(1);
+  });
 });
 
 describe('applyAwakenByHero', () => {
