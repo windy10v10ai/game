@@ -1361,9 +1361,9 @@
 		// 英雄 水人觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>Morph: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"Применение Morph на вражеского героя временно превращает его атрибуты в ловкость, ловкость усиливает заклинания, а Waveform атакует врагов на пути."
-		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<h1>Усиление: Morph</h1>После применения Morph на вражеского героя временно получает в виде ловкости часть суммы силы, ловкости и интеллекта этого героя.<br>Повторное применение заменяет прибавку и обновляет её длительность. Эффект исчезает после смерти.
-<h1>Пассивная: Бурный поток</h1>Каждая единица ловкости даёт усиление заклинаний.
-<h1>Усиление: Waveform</h1>Атакует врагов на пути, применяя эффекты атаки."
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<h1>Morph: пробуждение</h1>После применения Morph на вражеского героя временно получает в виде ловкости часть суммы силы, ловкости и интеллекта этого героя.<br>Повторное применение заменяет прибавку и обновляет её длительность. Эффект исчезает после смерти.
+<h1>Waveform: пробуждение</h1>Атакует врагов на пути, применяя эффекты атаки.
+<h1>Усиление</h1>Каждая единица ловкости даёт усиление заклинаний."
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_inherit_pct"		"%ЛОВКОСТЬ ИЗ СУММЫ АТРИБУТОВ ЦЕЛИ:"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_duration"		"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_agility_spell_amp"		"%УСИЛЕНИЕ ЗАКЛИНАНИЙ ЗА ЛОВКОСТЬ:"

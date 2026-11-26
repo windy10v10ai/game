@@ -56,7 +56,7 @@
 | 自动施法 | Autocast | `#00CED1` | 与警告红色区分 |
 | 觉醒强化 | Awakening Bonus | `#d000ff` | 与技能标题的觉醒标记同色 |
 
-「自动施法：」「觉醒强化：」这类段落标题写成 `<font color='#颜色'>标题：</font>说明文字`，标题与说明同一行（参考 `elder_titan_ancestral_spirit_awaken`、`special_bonus_unique_bristleback_upgrade`）。觉醒的常驻 modifier 说明按效果分段时（「施放变形：」「被动：」这类小标题），小标题同样用觉醒紫 `#d000ff`，不加粗、不用白色或 `<h1>`；技能本身的 `_Description` 仍用 `<h1>强化：…</h1>` / `<h1>被动：…</h1>` 分段（参考 `special_bonus_unique_morphling_upgrade` 及其 modifier）。
+「自动施法：」「觉醒强化：」这类段落标题写成 `<font color='#颜色'>标题：</font>说明文字`，标题与说明同一行（参考 `elder_titan_ancestral_spirit_awaken`、`special_bonus_unique_bristleback_upgrade`）。觉醒的常驻 modifier 说明按效果分段时（「施放变形：」「被动：」这类小标题），小标题同样用觉醒紫 `#d000ff`，不加粗、不用白色或 `<h1>`；技能本身的 `_Description` 仍用 `<h1>` 大标题分段，标题写成「<原技能名>觉醒」，不改原技能的效果段标题写「强化」（参考 `special_bonus_unique_morphling_upgrade` 及其 modifier）。
 
 ## 措辞
 

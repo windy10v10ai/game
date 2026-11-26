@@ -1361,9 +1361,9 @@
 		// 英雄 水人觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>Morph Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"Casting Morph on an enemy hero temporarily borrows its attributes as Agility. Agility amplifies spells, and Waveform attacks enemies along its path."
-		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<h1>Enhanced: Morph</h1>After casting Morph on an enemy hero, temporarily gain a percentage of that hero's combined Strength, Agility and Intelligence as Agility.<br>Recasting replaces and refreshes the bonus, which is removed on death.
-<h1>Passive: Riptide</h1>Each point of Agility grants spell amplification.
-<h1>Enhanced: Waveform</h1>Attacks enemies along the path, applying attack effects."
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<h1>Morph Awakened</h1>After casting Morph on an enemy hero, temporarily gain a percentage of that hero's combined Strength, Agility and Intelligence as Agility.<br>Recasting replaces and refreshes the bonus, which is removed on death.
+<h1>Waveform Awakened</h1>Attacks enemies along the path, applying attack effects.
+<h1>Enhancement</h1>Each point of Agility grants spell amplification."
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_inherit_pct"		"%TARGET TOTAL ATTRIBUTES AS AGILITY:"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_duration"		"DURATION:"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_agility_spell_amp"		"%SPELL AMPLIFICATION PER AGILITY:"
