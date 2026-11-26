@@ -1359,7 +1359,7 @@
 // 					Awaken Abilities 觉醒技能
 
 		// 英雄 水人觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>变形 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>变体精灵 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"对敌方英雄施放变形时，临时借用其属性转为敏捷，敏捷提升技能增强，波浪形态沿途攻击。"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<h1>变形觉醒</h1>对一名敌方英雄施放变形后，临时获得该英雄力量，敏捷和智力合计的一定比例，全部加在敏捷上。<br>再次施放刷新并替换加成，死亡时移除。
 <h1>波浪形态觉醒</h1>沿途攻击经过的敌人，并触发攻击特效。
@@ -1369,11 +1369,11 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_agility_spell_amp"		"%每点敏捷提供技能增强："
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_max_targets"		"波浪形态攻击目标数："
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_attack_pct"		"%波浪形态攻击伤害："
-		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Note0"		"等级跟随变形，未学习变形时不生效。"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Note0"		"等级跟随变形，未学习变形时为 1 级。"
 		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"变形敏捷加成"
 		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"临时获得<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>点敏捷，按施放变形时目标的力量，敏捷和智力合计折算。<br>再次施放变形会按新目标重新折算并刷新持续时间，不叠加。死亡时移除。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>变形 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"<font color='#FFFFFF'><b>变形觉醒</b></font><br>临时借用目标力量，敏捷和智力合计的一定比例，转为自身敏捷。<br><font color='#FFFFFF'><b>波浪形态觉醒</b></font><br>对沿途经过的敌人各发动一次攻击。<br><font color='#FFFFFF'><b>强化</b></font><br>每点敏捷提升技能增强。<br><br><font color='#7D7D7D'>学习变形后生效</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>变体精灵 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"<font color='#FFFFFF'><b>变形觉醒</b></font><br>临时借用目标力量，敏捷和智力合计的一定比例，转为自身敏捷。<br><font color='#FFFFFF'><b>波浪形态觉醒</b></font><br>对沿途经过的敌人各发动一次攻击。<br><font color='#FFFFFF'><b>强化</b></font><br>每点敏捷提升技能增强。"
 
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>双刃剑 觉醒</font>"

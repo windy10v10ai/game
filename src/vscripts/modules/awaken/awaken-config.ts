@@ -22,7 +22,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
   {
     heroName: 'npc_dota_hero_morphling',
     newAbility: 'special_bonus_unique_morphling_upgrade',
-    newLevel: 0,
+    newLevel: 1,
     inheritLevelFrom: 'morphling_replicate',
   },
   // 半人马战行者 觉醒
