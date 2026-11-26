@@ -16,7 +16,7 @@
 		"LinkedAbility"					"morphling_replicate"
 		"AbilityValues"
 		{
-			"inherit_pct"				"6 9 12 15"
+			"inherit_pct"				"9 12 15 18"
 			"agility_spell_amp"			"0.10 0.12 0.14 0.16"
 			"waveform_max_targets"		"5"
 			"waveform_attack_pct"		"100"
