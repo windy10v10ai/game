@@ -202,7 +202,7 @@ export const abilityTiersPassive: Tier[] = [
       'faceless_void_time_lock', // 时间锁定
       'dazzle_good_juju', // 善咒
       'templar_assassin_psi_blades', // 灵能之刃
-      'luna_moon_glaive', // 月刃
+      // 'luna_moon_glaive', // 月刃：与天生一对等交互有 bug 且极卡，已移出抽选池
       'phantom_assassin_coup_de_grace', // 恩赐解脱
       'slardar_bash', // 深海重击
       'clinkz_infernal_shred2', // 克林克兹先天 地狱之裂
