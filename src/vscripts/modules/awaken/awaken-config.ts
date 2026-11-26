@@ -325,9 +325,7 @@ export const FREE_TRIAL_HEROES: string[] = [
   'npc_dota_hero_juggernaut', // 剑圣
   'npc_dota_hero_abaddon', // 亚巴顿
   'npc_dota_hero_abyssal_underlord', // 孽主
-  'npc_dota_hero_lich', // 巫妖
   'npc_dota_hero_lina', // 莉娜
-  'npc_dota_hero_necrolyte', // 瘟疫法师
   'npc_dota_hero_slark', // 斯拉克
 ];
 
