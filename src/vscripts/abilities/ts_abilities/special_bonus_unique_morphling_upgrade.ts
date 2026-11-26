@@ -12,8 +12,27 @@ const WAVEFORM_ABILITY = 'morphling_waveform';
 /** Morphling awakening: Replicate lends the target's attributes as Agility, Agility feeds spell amp, and Waveform attacks along its path. */
 @registerAbility('special_bonus_unique_morphling_upgrade')
 export class SpecialBonusUniqueMorphlingUpgrade extends BaseAbility {
-  GetIntrinsicModifierName(): string {
-    return modifier_special_bonus_unique_morphling_upgrade.name;
+  // Intrinsic modifiers only attach once the ability is leveled, and the level follows Morph, so the
+  // awakened icon would stay missing until level 6. Starting at level 1 instead would drag Morph to
+  // level 1 through the two-way LinkedAbility. Effects still check the level.
+  Spawn(): void {
+    if (!IsServer()) return;
+    this.SetContextThink(
+      'attach_awaken_modifier',
+      () => {
+        const caster = this.GetCaster();
+        if (caster && !caster.HasModifier(modifier_special_bonus_unique_morphling_upgrade.name)) {
+          caster.AddNewModifier(
+            caster,
+            this,
+            modifier_special_bonus_unique_morphling_upgrade.name,
+            {},
+          );
+        }
+        return undefined;
+      },
+      0,
+    );
   }
 }
 

@@ -120,7 +120,7 @@ description: 新增或修改英雄觉醒技能（觉醒石替换技能槽）。
 - **觉醒状态必须在游戏内可见** → 觉醒是玩家花积分换来的永久改造，进游戏后必须能确认自己已觉醒。**技能栏可见**与**常驻 buff 图标**二选一，两者都隐藏 = 玩家零感知，视为未完成：
   - 技能栏可见：`AbilityBehavior` 不加 `DOTA_ABILITY_BEHAVIOR_HIDDEN`。主动技觉醒天然满足（参考 PA `special_bonus_unique_phantom_assassin_upgrade`、军团 `legion_commander_auto_duel`）。
   - 常驻 buff 图标：技能加 `HIDDEN` 不占技能栏，另挂一个**非隐藏**的常驻 modifier —— TS 里 `IsHidden()` 返回 `false`，DataDriven 写 `"IsHidden" "0"`（参考发条 `special_bonus_unique_rattletrap_upgrade`、斯温 `special_bonus_unique_sven_upgrade`）。细节见进阶 6。
-  - **觉醒那一刻就要可见，不能等学了技能才出现**：常驻 buff 是技能栏没有觉醒技能时唯一的说明入口。等级跟随原技能（`inheritLevelFrom` / `LinkedAbility`）的觉醒技能在原技能未学时是 0 级，0 级技能的被动 modifier 不会挂上（实机：水人觉醒在 6 级前看不到 buff）。配置里 `newLevel` 设 `1`，`inheritLevelFrom` 以它为下限，觉醒时至少 1 级，buff 立即挂上，原技能未学时按 1 级生效（参考水人、斯温）。
+  - **觉醒那一刻就要可见，不能等学了技能才出现**：常驻 buff 是技能栏没有觉醒技能时唯一的说明入口。等级跟随原技能（`inheritLevelFrom` + 双向 `LinkedAbility`）的觉醒技能在原技能未学时是 0 级，0 级技能的被动 modifier 不会挂上（实机：水人觉醒在 6 级前看不到 buff）。**不能把觉醒技能直接设成 1 级**：双向 `LinkedAbility` 会把原技能一起带到 1 级，等于白送一级技能（实机：水人开局白得 1 级变形）。做法：觉醒技能保持 0 级，在技能的 `Spawn()` 里用 `SetContextThink` 下一帧 `AddNewModifier` 挂常驻 buff（不再用 `GetIntrinsicModifierName`），效果回调里按技能等级判断是否生效，buff 说明末尾用灰色 `#7D7D7D` 写「学习 X 后生效」（参考水人 `special_bonus_unique_morphling_upgrade`）。还是同一个 modifier，只是提前挂上，没有额外开销。
 
   走 buff 图标这条时 `GetTexture()` 和 `DOTA_Tooltip_modifier_<modifier_name>` / `_Description` 都要补齐，否则图标是紫块、悬停无说明。**只写了 tooltip 文案却把 modifier 设成隐藏**是最容易漏的组合——文案在文件里躺着，游戏里永远看不到。
 

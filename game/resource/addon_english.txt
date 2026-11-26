@@ -1369,11 +1369,11 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_agility_spell_amp"		"%SPELL AMPLIFICATION PER AGILITY:"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_max_targets"		"WAVEFORM ATTACK TARGETS:"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_attack_pct"		"%WAVEFORM ATTACK DAMAGE:"
-		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Note0"		"Follows the level of Morph, and is level 1 while Morph is unlearned."
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Note0"		"Follows the level of Morph, and has no effect while Morph is unlearned."
 		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"Morph Agility Bonus"
 		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Temporarily grants <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> Agility, converted from the target's combined Strength, Agility and Intelligence when Morph was cast.<br>Recasting Morph recalculates the bonus from the new target and refreshes the duration without stacking. Removed on death."
 		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>Morphling Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"<font color='#FFFFFF'><b>Morph Awakened</b></font><br>Temporarily borrows a portion of the target's combined Strength, Agility and Intelligence as Agility.<br><font color='#FFFFFF'><b>Waveform Awakened</b></font><br>Performs one attack on each enemy along the path.<br><font color='#FFFFFF'><b>Enhancement</b></font><br>Each point of Agility grants spell amplification."
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"<font color='#FFFFFF'><b>Morph Awakened</b></font><br>Temporarily borrows a portion of the target's combined Strength, Agility and Intelligence as Agility.<br><font color='#FFFFFF'><b>Waveform Awakened</b></font><br>Performs one attack on each enemy along the path.<br><font color='#FFFFFF'><b>Enhancement</b></font><br>Each point of Agility grants spell amplification.<br><br><font color='#7D7D7D'>Takes effect after learning Morph</font>"
 
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Double Edge Awakened</font>"
