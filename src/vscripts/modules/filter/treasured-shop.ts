@@ -85,5 +85,7 @@ export function publishTreasuredShopRecipes(): void {
     CustomNetTables.SetTableValue('treasured_shop', item.id.toString(), item);
     return item.id;
   }
-  for (const name of affected) publishItem(name);
+  for (const name of affected) {
+    if (recipes[name] !== undefined) publishItem(name);
+  }
 }
