@@ -1,68 +1,23 @@
-/** Morphling awakening: borrowed agility, agility-to-spell-amp, a cooldown shared with Replicate, and Waveform attacks. */
 import {
   BaseAbility,
   BaseModifier,
   registerAbility,
   registerModifier,
 } from '../../utils/dota_ts_adapter';
+import { calculateBorrowedAgility } from './morphling-awaken-math';
 
-@registerAbility('morphling_replicate_awaken')
+const REPLICATE_ABILITY = 'morphling_replicate';
+const WAVEFORM_ABILITY = 'morphling_waveform';
+
+/** Morphling awakening: Replicate lends the target's attributes as Agility, Agility feeds spell amp, and Waveform attacks along its path. */
+@registerAbility('special_bonus_unique_morphling_upgrade')
 export class SpecialBonusUniqueMorphlingUpgrade extends BaseAbility {
-  GetManaCost(): number {
-    return (this.GetCaster().GetMaxMana() * this.GetSpecialValueFor('mana_cost_pct')) / 100;
-  }
-
   GetIntrinsicModifierName(): string {
-    return modifier_morphling_awaken.name;
-  }
-
-  CastFilterResultTarget(target: CDOTA_BaseNPC): UnitFilterResult {
-    if (target === this.GetCaster()) return UnitFilterResult.FAIL_CUSTOM;
-    return UnitFilter(
-      target,
-      UnitTargetTeam.BOTH,
-      UnitTargetType.HERO,
-      UnitTargetFlags.NOT_CREEP_HERO,
-      this.GetCaster().GetTeamNumber(),
-    );
-  }
-
-  GetCustomCastErrorTarget(): string {
-    return '#dota_hud_error_cant_cast_on_self';
-  }
-
-  OnSpellStart(): void {
-    const caster = this.GetCaster() as CDOTA_BaseNPC_Hero;
-    const target = this.GetCursorTarget() as CDOTA_BaseNPC_Hero | undefined;
-    if (!target || target === caster || !target.IsHero()) return;
-    if (target.GetTeamNumber() !== caster.GetTeamNumber() && target.TriggerSpellAbsorb(this))
-      return;
-
-    // Removing the old snapshot also removes any derived attribute scaling from the cap.
-    caster.RemoveModifierByName(modifier_morphling_awaken_stats.name);
-    caster.CalculateStatBonus(true);
-    const targetBuff = target.FindModifierByName(modifier_morphling_awaken_stats.name) as
-      | modifier_morphling_awaken_stats
-      | undefined;
-    // Only agility is granted, so the pool is the target's total of all three attributes.
-    const pool =
-      target.GetStrength() +
-      target.GetAgility() -
-      (targetBuff?.agility ?? 0) +
-      target.GetIntellect(false);
-    const gain = (pool * this.GetSpecialValueFor('inherit_pct')) / 100;
-    const cap = caster.HasScepter()
-      ? gain
-      : (caster.GetAgility() * this.GetSpecialValueFor('cap_pct')) / 100;
-    caster.AddNewModifier(caster, this, modifier_morphling_awaken_stats.name, {
-      duration: this.GetSpecialValueFor('duration'),
-      agility: math.min(gain, cap),
-    });
-    caster.EmitSound('Hero_Morphling.Replicate');
+    return modifier_special_bonus_unique_morphling_upgrade.name;
   }
 }
 
-@registerModifier('abilities/ts_abilities/morphling_replicate_awaken')
+@registerModifier('abilities/ts_abilities/special_bonus_unique_morphling_upgrade')
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class modifier_morphling_awaken_stats extends BaseModifier {
   agility = 0;
@@ -76,7 +31,7 @@ export class modifier_morphling_awaken_stats extends BaseModifier {
   }
 
   GetTexture(): string {
-    return 'morphling_replicate';
+    return REPLICATE_ABILITY;
   }
 
   OnCreated(data: { agility: number }): void {
@@ -94,22 +49,24 @@ export class modifier_morphling_awaken_stats extends BaseModifier {
   }
 
   DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.STATS_AGILITY_BONUS];
+    return [ModifierFunction.STATS_AGILITY_BONUS, ModifierFunction.TOOLTIP];
   }
 
   GetModifierBonusStats_Agility(): number {
     return this.agility;
   }
+
+  OnTooltip(): number {
+    return math.floor(this.agility);
+  }
 }
 
-@registerModifier('abilities/ts_abilities/morphling_replicate_awaken')
+/** Skill bar slot is hidden, so this permanent icon is what tells the player the hero is awakened. */
+@registerModifier('abilities/ts_abilities/special_bonus_unique_morphling_upgrade')
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export class modifier_morphling_awaken extends BaseModifier {
-  private nativeEnd = 0;
-  private awakenEnd = 0;
-
+export class modifier_special_bonus_unique_morphling_upgrade extends BaseModifier {
   IsHidden(): boolean {
-    return true;
+    return false;
   }
 
   IsPurgable(): boolean {
@@ -120,12 +77,8 @@ export class modifier_morphling_awaken extends BaseModifier {
     return false;
   }
 
-  OnCreated(): void {
-    if (!IsServer()) return;
-    const native = this.GetParent().FindAbilityByName('morphling_replicate');
-    const ability = this.GetAbility();
-    if (native && ability) this.copyCooldown(native, ability);
-    this.StartIntervalThink(0.1);
+  GetTexture(): string {
+    return WAVEFORM_ABILITY;
   }
 
   DeclareFunctions(): ModifierFunction[] {
@@ -141,51 +94,45 @@ export class modifier_morphling_awaken extends BaseModifier {
   }
 
   OnAbilityFullyCast(event: ModifierAbilityEvent): void {
-    if (!IsServer() || event.unit !== this.GetParent()) return;
+    const parent = this.GetParent();
+    if (!IsServer() || event.unit !== parent) return;
     const ability = this.GetAbility();
-    if (!ability || ability.GetLevel() === 0 || event.unit.IsIllusion()) return;
+    if (!ability || ability.GetLevel() === 0 || parent.IsIllusion()) return;
     const name = event.ability.GetAbilityName();
-    if (name === 'morphling_replicate' || event.ability === ability) {
-      const source = event.ability;
-      Timers.CreateTimer(FrameTime(), () => {
-        if (this.IsNull() || source.IsNull() || ability.IsNull()) return;
-        const other =
-          source === ability ? this.GetParent().FindAbilityByName('morphling_replicate') : ability;
-        if (other) this.copyCooldown(source, other);
-      });
-    }
-    if (name === 'morphling_waveform' && !event.unit.PassivesDisabled()) {
-      event.unit.AddNewModifier(event.unit, ability, modifier_morphling_awaken_waveform.name, {});
+    if (name === REPLICATE_ABILITY) {
+      this.borrowAgility(ability, event.target);
+    } else if (name === WAVEFORM_ABILITY && !parent.PassivesDisabled()) {
+      parent.AddNewModifier(parent, ability, modifier_morphling_awaken_waveform.name, {});
     }
   }
 
-  OnIntervalThink(): void {
-    const ability = this.GetAbility();
-    const native = this.GetParent().FindAbilityByName('morphling_replicate');
-    if (!ability || !native) return;
-    const now = GameRules.GetGameTime();
-    const nativeEnd = now + native.GetCooldownTimeRemaining();
-    const awakenEnd = now + ability.GetCooldownTimeRemaining();
-    // Track changes to the deadline, not the natural countdown, so refreshes propagate too.
-    if (math.abs(nativeEnd - math.max(now, this.nativeEnd)) > 0.15) {
-      this.copyCooldown(native, ability);
-    } else if (math.abs(awakenEnd - math.max(now, this.awakenEnd)) > 0.15) {
-      this.copyCooldown(ability, native);
-    }
-  }
-
-  private copyCooldown(source: CDOTABaseAbility, target: CDOTABaseAbility): void {
-    const remaining = source.GetCooldownTimeRemaining();
-    target.EndCooldown();
-    if (remaining > 0) target.StartCooldown(remaining);
-    const now = GameRules.GetGameTime();
-    this.nativeEnd = now + remaining;
-    this.awakenEnd = now + remaining;
+  private borrowAgility(ability: CDOTABaseAbility, target: CDOTA_BaseNPC | undefined): void {
+    const caster = this.GetParent() as CDOTA_BaseNPC_Hero;
+    if (!target || target === caster || !target.IsHero()) return;
+    const hero = target as CDOTA_BaseNPC_Hero;
+    // Replacing the old snapshot first keeps recasts from stacking.
+    caster.RemoveModifierByName(modifier_morphling_awaken_stats.name);
+    caster.CalculateStatBonus(true);
+    // Another awakened Morphling's own borrowed Agility is not part of what it can lend.
+    const lent = hero.FindModifierByName(modifier_morphling_awaken_stats.name) as
+      | modifier_morphling_awaken_stats
+      | undefined;
+    const agility = calculateBorrowedAgility(
+      hero.GetStrength(),
+      hero.GetAgility(),
+      hero.GetIntellect(false),
+      lent?.agility ?? 0,
+      ability.GetSpecialValueFor('inherit_pct'),
+    );
+    caster.AddNewModifier(caster, ability, modifier_morphling_awaken_stats.name, {
+      duration: ability.GetSpecialValueFor('duration'),
+      agility,
+    });
   }
 }
 
 /** Vanilla Waveform has no path attack (process_procs only passes attack effects), so the attacks are scripted. */
-@registerModifier('abilities/ts_abilities/morphling_replicate_awaken')
+@registerModifier('abilities/ts_abilities/special_bonus_unique_morphling_upgrade')
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class modifier_morphling_awaken_waveform extends BaseModifier {
   private previous!: Vector;

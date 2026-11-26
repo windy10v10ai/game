@@ -1359,22 +1359,20 @@
 // 					Awaken Abilities 觉醒技能
 
 		// 英雄 水人觉醒
-		"DOTA_Tooltip_ability_morphling_replicate_awaken"		"<font color='#d000ff'>Morph Awakened</font>"
-		"DOTA_Tooltip_ability_morphling_replicate_awaken_SummaryDescription"		"Temporarily borrow another hero's attributes as Agility, convert Agility into spell amplification, and attack enemies along Waveform."
-		"DOTA_Tooltip_ability_morphling_replicate_awaken_Description"		"<h1>Active: Morph</h1>Temporarily gain a percentage of the target hero's combined Strength, Agility and Intelligence as Agility, without reducing the target's attributes. The bonus is capped by a percentage of your own Agility.<br>Shares a cooldown with Morph and follows its level.<br>Uses total attributes at cast time, excluding this ability's previous bonus. Recasting replaces and refreshes the bonus, which is removed on death.
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>Morph Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"Casting Morph on a hero temporarily borrows its attributes as Agility. Agility amplifies spells, and Waveform attacks enemies along its path."
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<h1>Enhanced: Morph</h1>After successfully casting Morph on a hero, temporarily gain a percentage of that hero's combined Strength, Agility and Intelligence as Agility, without reducing the target's attributes.<br>Recasting replaces and refreshes the bonus, which is removed on death.
 <h1>Passive: Riptide</h1>Current Agility grants spell amplification.<br>Waveform attacks enemies along its path and applies attack effects."
-		"DOTA_Tooltip_ability_morphling_replicate_awaken_inherit_pct"		"%TARGET TOTAL ATTRIBUTES AS AGILITY:"
-		"DOTA_Tooltip_ability_morphling_replicate_awaken_cap_pct"		"%OWN AGILITY CAP:"
-		"DOTA_Tooltip_ability_morphling_replicate_awaken_agility_spell_amp"		"%SPELL AMPLIFICATION PER AGILITY:"
-		"DOTA_Tooltip_ability_morphling_replicate_awaken_duration"		"DURATION:"
-		"DOTA_Tooltip_ability_morphling_replicate_awaken_waveform_max_targets"		"WAVEFORM ATTACK TARGETS:"
-		"DOTA_Tooltip_ability_morphling_replicate_awaken_waveform_attack_pct"		"%WAVEFORM ATTACK DAMAGE:"
-		"DOTA_Tooltip_ability_morphling_replicate_awaken_scepter_description"		"Having Aghanim's Scepter when casting completely removes the cap based on your own Agility, without changing the inherited percentage. Gaining or losing Scepter does not affect an existing bonus."
-		"DOTA_Tooltip_ability_morphling_replicate_awaken_Note0"		"Can target other allied or enemy heroes, but not yourself."
-		"DOTA_Tooltip_ability_morphling_replicate_awaken_Note1"		"Costs <font color='#FFFFFF'><b>100%%</b></font> of maximum mana."
-		"DOTA_Tooltip_ability_morphling_replicate_awaken_Note2"		"The active and passive effects are disabled while Morph is unlearned."
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_inherit_pct"		"%TARGET TOTAL ATTRIBUTES AS AGILITY:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_duration"		"DURATION:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_agility_spell_amp"		"%SPELL AMPLIFICATION PER AGILITY:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_max_targets"		"WAVEFORM ATTACK TARGETS:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_attack_pct"		"%WAVEFORM ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Note0"		"Follows the level of Morph, and has no effect while Morph is unlearned."
 		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"Morph Agility Bonus"
-		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Temporarily grants Agility converted from the target hero's attributes. The amount is fixed at cast time. Recasting replaces and refreshes the bonus, which is removed on death."
+		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Temporarily grants <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> Agility, converted from the target's attributes when Morph was cast. Recasting replaces and refreshes the bonus, which is removed on death."
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade"		"Morph Awakened"
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"Casting Morph on a hero temporarily borrows its attributes as Agility. Agility amplifies spells, and Waveform attacks enemies along its path."
 
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Double Edge Awakened</font>"
