@@ -1373,7 +1373,7 @@
 		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"变形敏捷加成"
 		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"临时获得<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>点敏捷，按施放变形时目标的力量，敏捷和智力合计折算。<br>再次施放变形会按新目标重新折算并刷新持续时间，不叠加。死亡时移除。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade"		"变形 觉醒"
-		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"<font color='#d000ff'>施放变形：</font>临时借用目标力量，敏捷和智力合计的一定比例，转为自身敏捷。<br><font color='#d000ff'>被动：</font>每点敏捷提升技能增强。<br><font color='#d000ff'>施放波浪形态：</font>对沿途经过的敌人各发动一次攻击。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"<font color='#d000ff'><b>变形觉醒</b></font><br>临时借用目标力量，敏捷和智力合计的一定比例，转为自身敏捷。<br><font color='#d000ff'><b>波浪形态觉醒</b></font><br>对沿途经过的敌人各发动一次攻击。<br><font color='#d000ff'><b>强化</b></font><br>每点敏捷提升技能增强。"
 
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>双刃剑 觉醒</font>"

@@ -1373,7 +1373,7 @@
 		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"Прибавка ловкости (Morph)"
 		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Временно даёт <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> ловкости, рассчитанной из суммы силы, ловкости и интеллекта цели в момент применения Morph.<br>Повторное применение Morph пересчитывает прибавку по новой цели и обновляет длительность, не суммируясь. Эффект исчезает после смерти."
 		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade"		"Morph: пробуждение"
-		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"<font color='#d000ff'>Morph:</font> временно превращает часть суммы силы, ловкости и интеллекта цели в ловкость.<br><font color='#d000ff'>Пассивно:</font> каждая единица ловкости даёт усиление заклинаний.<br><font color='#d000ff'>Waveform:</font> герой один раз атакует каждого врага на пути."
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"<font color='#d000ff'><b>Morph: пробуждение</b></font><br>Временно превращает часть суммы силы, ловкости и интеллекта цели в ловкость.<br><font color='#d000ff'><b>Waveform: пробуждение</b></font><br>Герой один раз атакует каждого врага на пути.<br><font color='#d000ff'><b>Усиление</b></font><br>Каждая единица ловкости даёт усиление заклинаний."
 
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Двойной клинок: пробуждение</font>"
