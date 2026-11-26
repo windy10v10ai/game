@@ -18,6 +18,7 @@
     "loading_status",
     "launcher_room",
     "server_env",
+    "treasured_shop",
     "ending_status",
     "player_table",
     "point_info",   // 游戏加载时获取积分信息

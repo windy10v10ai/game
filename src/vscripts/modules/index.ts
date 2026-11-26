@@ -28,6 +28,7 @@ import { HeroDebugPanel } from './debug-panel/hero-debug-panel';
 import { Debug } from './debug/Debug';
 import { Event } from './event/event';
 import { DragonWishFilter } from './filter/dragon-wish-filter';
+import { publishTreasuredShopRecipes } from './filter/treasured-shop';
 import { GoldXPFilter } from './filter/gold-xp-filter';
 import { Lottery } from './lottery/lottery';
 import { Option } from './option';
@@ -71,6 +72,7 @@ export function ActivateModules() {
     new PropertyController();
 
     new DragonWishFilter();
+    publishTreasuredShopRecipes();
 
     new VirtualGoldBank();
 

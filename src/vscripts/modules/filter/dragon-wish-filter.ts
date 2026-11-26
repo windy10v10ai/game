@@ -1,21 +1,10 @@
 import { interceptAutoCastShellClick } from './autocast-shell-click';
+import { TREASURED_RECIPE_COMPONENTS } from './treasured-shop';
 
 export const AEON_DISK_BUFF = 'modifier_item_aeon_disk_buff';
 export const IMMORTALITY_MODIFIER = 'modifier_item_helm_of_the_undying_active';
 const CULLING_BLADE = 'axe_culling_blade';
 const SOLAR_CREST = 'item_solar_crest';
-const TREASURED_RECIPE_COMPONENTS = new Set([
-  'item_berserkers_sabatons_copy',
-  'item_bfury_copy',
-  'item_blade_mail_copy',
-  'item_echo_sabre_2_copy',
-  'item_hand_of_midas_copy',
-  'item_heart_copy',
-  'item_hydras_breath_copy',
-  'item_radiance_copy',
-  'item_starforge_copy',
-  'item_ultimate_scepter_copy',
-]);
 
 export class DragonWishFilter {
   constructor() {

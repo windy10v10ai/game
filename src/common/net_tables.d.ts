@@ -59,6 +59,9 @@ declare global {
     server_env: {
       server_env: { is_local_host: number };
     };
+    treasured_shop: {
+      [itemId: string]: TreasuredShopComponent;
+    };
     ending_status: {
       ending_status: { status: number };
       ending_data: { winner_team_id: number };
@@ -136,6 +139,14 @@ declare global {
       [playerId: string]: { taskId: string; value: number };
     };
   }
+}
+
+export interface TreasuredShopComponent {
+  name: string;
+  id: number;
+  cost: number;
+  treasured: number;
+  recipes?: number[][];
 }
 
 export type AlipayOrderStatus =
