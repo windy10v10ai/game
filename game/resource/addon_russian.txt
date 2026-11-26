@@ -1571,7 +1571,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Божественное слово: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"Знахарь взывает к богам: при призыве Смертоносного тотема и тотема превращения их урон от атак повышается пропорционально текущему усилению способностей Знахаря на %spell_amp_ratio_pct%%%."
 		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Божественное слово: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"Знахарь взывает к богам: при призыве Смертоносного тотема и тотема превращения их урон от атак повышается пропорционально текущему усилению способностей Знахаря на 50%%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"Знахарь взывает к богам: при призыве Смертоносного тотема и тотема превращения их урон от атак повышается пропорционально текущему усилению способностей Знахаря на <font color='#FFFFFF'><b>50%%</b></font>."
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Покров Реквием душ: пробуждение</font>"
