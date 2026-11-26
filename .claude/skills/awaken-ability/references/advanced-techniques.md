@@ -18,7 +18,7 @@
    ```
    `resolveNewLevel` 会在加新技能时取该关联技能当前等级作初始等级（在移除任何技能前求值，故 `inheritLevelFrom` 可以正是被插入槽位的技能）。
 
-   `newLevel` 是继承等级的下限。觉醒技能隐藏、靠常驻 buff 显示觉醒状态时，0 级技能的被动 modifier 不挂，开局看不到 buff，这时 `newLevel` 设为 `1`：觉醒时至少 1 级，buff 立即挂上，关联技能未学时按 1 级生效（水人、斯温）。
+   `newLevel` 是继承等级的下限。觉醒技能隐藏、靠常驻 buff 显示觉醒状态时，0 级技能的被动 modifier 不挂，开局看不到 buff：效果只在施放关联技能时触发的（斯温，风暴之拳没学放不出来）把 `newLevel` 设为 `1`，buff 开局就挂上；有被动效果、提前到 1 级会提前生效的，`newLevel` 保持 `0`，改走 SKILL.md「觉醒那一刻就要可见」的 `Spawn()` 写法（水人）。
 
 
 > **不要用 `Innate "1"` + `DependentOnAbility` 替代 `LinkedAbility`**：官方有「新技能比关联技能多一档等级」的场景用这个组合（古辰山 Absolute Zero 先天、玛尔斯 Sidekick），但那些都是英雄出生自带的先天技能槛位。本项目觉醒技能是运行时用觉醒石 `AddAbility()` 动态加上去的，不是原生先天槛位——给它加 `Innate "1"` 实测会导致技能/buff 图标不显示（卓尔游侠裂影箭觉醒踩过，已放弃改回固定等级）。等级关联场景老老实实用上面的 `LinkedAbility` + `inheritLevelFrom`（要求两边 `MaxLevel` 一致）；如果新技能就是想比关联技能多一档，优先考虑改成固定值/不分级，而不是引入 `DependentOnAbility`。
