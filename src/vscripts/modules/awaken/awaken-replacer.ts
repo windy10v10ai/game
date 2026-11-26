@@ -29,7 +29,7 @@ function resolveTargetAbility(
   return undefined;
 }
 
-/** 新技能初始等级：配了 inheritLevelFrom 则继承该关联技能当前等级（不低于 newLevel），否则用 fallback */
+/** 新技能初始等级：配了 inheritLevelFrom 则继承该关联技能当前等级，否则用 fallback */
 function resolveNewLevel(
   hero: CDOTA_BaseNPC_Hero,
   replacement: AbilityReplacement,
@@ -38,8 +38,7 @@ function resolveNewLevel(
   if (replacement.inheritLevelFrom !== undefined) {
     const linked = hero.FindAbilityByName(replacement.inheritLevelFrom);
     if (linked !== undefined) {
-      // A level-0 datadriven passive never attaches its buff, so a floor keeps the awakened icon visible
-      return Math.max(linked.GetLevel(), replacement.newLevel);
+      return linked.GetLevel();
     }
   }
   return fallbackLevel;
