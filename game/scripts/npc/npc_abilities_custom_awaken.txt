@@ -440,54 +440,25 @@
 		}
 	}
 
-	// 剑圣 觉醒剑刃风暴
-	// 通道期间每秒对周围敌人造成 基础伤害 + 目标最大生命% 的魔法伤害，魔免+减益免疫，结束时自我强效驱散
-	"juggernaut_blade_fury_custom"
+	// 剑圣 觉醒
+	// 效果由 npc_abilities_override.txt 中 juggernaut_blade_fury 的 special_bonus 键实现，本技能仅作拥有标记
+	"special_bonus_unique_juggernaut_upgrade"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/juggernaut_blade_fury_custom"
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"juggernaut_blade_fury_immortal_crimson"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"5"
+		"MaxLevel"						"1"
 
-		"precache"
+		"Modifiers"
 		{
-			"particle"		"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury.vpcf"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
-		}
-
-		"AbilityValues"
-		{
-			"radius"
+			"modifier_special_bonus_unique_juggernaut_upgrade"
 			{
-				"value"						"350"	// 260
-				"affected_by_aoe_increase"	"1"
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsPurgable"		"0"
+				"RemoveOnDeath"		"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-			"duration"					"5"
-			"damage"
-			{
-				"value"								"80 160 240 320 400"
-				"special_bonus_unique_juggernaut"	"+240"
-			}
-			"AbilityCooldown"			"20 19 18 17 16"
-			"AbilityManaCost"			"100 105 110 115 120"
-			"health_damage_pct"
-			{
-				"value"							"2"
-				"CalculateSpellDamageTooltip"	"1"
-				"DamageTypeTooltip"				"DAMAGE_TYPE_MAGICAL"
-				"display_type"					"kMagicalDamagePercentage"
-			}
-			"damage_reduction_pct"		"50"
-			"talent_bonus_movespeed"
-			{
-				"value"		"0"
-				"special_bonus_unique_juggernaut_blade_fury_movespeed"	"+100"
-			}
-			"magic_resistance_bonus"	"80"
 		}
 	}
 

@@ -5671,6 +5671,24 @@
 			{
 				"special_bonus_unique_juggernaut_blade_fury_movespeed"		"+100"		// +45
 			}
+			"movement_slow"
+			{
+				"special_bonus_unique_juggernaut_upgrade"	"+30"	// 觉醒：外圈敌人减速
+			}
+			"can_crit"
+			{
+				"special_bonus_unique_juggernaut_upgrade"	"+1"	// 觉醒：外圈敌人每跳按剑舞倍率必定暴击
+			}
+			"blade_fury_outer_radius"
+			{
+				"special_bonus_unique_juggernaut_upgrade"	"+550"	// 觉醒：新增外圈
+			}
+			"scepter_attack_damage_pct"
+			{
+				"value"									"0"
+				"special_bonus_scepter"					"+75"
+				"special_bonus_unique_juggernaut_upgrade"	"+50"	// 觉醒：旋转时可边走边攻击，与神杖叠加
+			}
 		}
 	}
 	// 治疗守卫
