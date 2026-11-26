@@ -1508,9 +1508,9 @@
 
 		// 剑圣 觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade"					"<font color='#d000ff'>剑圣 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade_Description"		"剑刃风暴新增外围范围，半径<font color='#FFFFFF'><b>550</b></font>。外围敌人移动速度减缓<font color='#FFFFFF'><b>30%</b></font>，并且每次受到伤害都必定按剑舞当前的暴击倍率暴击。<br>旋转时可以边移动边攻击，造成<font color='#FFFFFF'><b>50%</b></font>攻击伤害，有阿哈利姆神杖时与神杖效果叠加。"
+		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade_Description"		"剑刃风暴的范围扩大到<font color='#FFFFFF'><b>550</b></font>，风暴范围内的敌人移动速度减缓<font color='#FFFFFF'><b>30%</b></font>。新增的外圈内的敌人，每次受到伤害都必定按剑舞当前的暴击倍率暴击。<br>旋转时可以边移动边攻击，造成<font color='#FFFFFF'><b>50%</b></font>攻击伤害，有阿哈利姆神杖时造成全额攻击伤害。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade"					"<font color='#d000ff'>剑圣 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade_Description"		"剑刃风暴新增外围范围，半径<font color='#FFFFFF'><b>550</b></font>。外围敌人移动速度减缓<font color='#FFFFFF'><b>30%</b></font>，并且每次受到伤害都必定按剑舞当前的暴击倍率暴击。<br>旋转时可以边移动边攻击，造成<font color='#FFFFFF'><b>50%</b></font>攻击伤害，有阿哈利姆神杖时与神杖效果叠加。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade_Description"		"剑刃风暴的范围扩大到<font color='#FFFFFF'><b>550</b></font>，风暴范围内的敌人移动速度减缓<font color='#FFFFFF'><b>30%</b></font>。新增的外圈内的敌人，每次受到伤害都必定按剑舞当前的暴击倍率暴击。<br>旋转时可以边移动边攻击，造成<font color='#FFFFFF'><b>50%</b></font>攻击伤害，有阿哈利姆神杖时造成全额攻击伤害。"
 
 		// 斧王 无情铁手-觉醒
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>无情铁手 觉醒</font>"

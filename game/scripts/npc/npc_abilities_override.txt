@@ -5681,7 +5681,7 @@
 			}
 			"blade_fury_outer_radius"
 			{
-				"special_bonus_unique_juggernaut_upgrade"	"+550"
+				"special_bonus_unique_juggernaut_upgrade"	"+230"
 			}
 			"scepter_attack_damage_pct"
 			{
