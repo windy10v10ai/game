@@ -34,7 +34,7 @@ export function publishTreasuredShopRecipes(): void {
         const row = requirement
           .split(';')
           .filter((name) => name !== '')
-          .map((name) => name.replace('*', ''));
+          .map((name) => name.split('*').join(''));
         if (GetItemCost(recipeName) > 0) row.push(recipeName);
         return row;
       });
@@ -73,7 +73,7 @@ export function publishTreasuredShopRecipes(): void {
             const row = requirement
               .split(';')
               .filter((part) => part !== '')
-              .map((part) => part.replace('*', ''));
+              .map((part) => part.split('*').join(''));
             if (GetItemCost(recipeName) > 0) row.push(recipeName);
             return row;
           });
