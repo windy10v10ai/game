@@ -12,6 +12,10 @@ export class DragonWishFilter {
   }
 
   private filterOrder(args: ExecuteOrderFilterEvent): boolean {
+    if (args.order_type === UnitOrder.PURCHASE_ITEM) {
+      // Recipe navigation requires the shop to treat these components as purchasable.
+      return !TREASURED_RECIPE_COMPONENTS.has(args.shop_item_name);
+    }
     if (interceptAutoCastShellClick(args)) return false;
 
     if (
