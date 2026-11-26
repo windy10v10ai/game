@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="350" viewBox="0 0 960 350">
+<rect width="960" height="350" rx="16" fill="#f5f7fa"/>
+<g font-family="Microsoft YaHei, Noto Sans SC, sans-serif" fill="#192638">
+<text x="36" y="43" font-size="23" font-weight="700">持有珍藏回音战刃，在商店右键购买鱼叉</text>
+<rect x="28" y="67" width="440" height="254" rx="12" fill="#fff5e8" stroke="#d48a36"/>
+<rect x="492" y="67" width="440" height="254" rx="12" fill="#eaf3ff" stroke="#387bbf"/>
+<text x="50" y="103" font-size="21" fill="#a65a13" font-weight="700">修复前</text>
+<text x="514" y="103" font-size="21" fill="#22619d" font-weight="700">修复后</text>
+<text x="50" y="148" font-size="19">商店按普通配方拆成零件</text>
+<text x="50" y="189" font-size="19">购买普通战刃材料和魔龙枪</text>
+<text x="50" y="235" font-size="22" font-weight="700">花费 6325 金币</text>
+<text x="50" y="284" font-size="18">鱼叉合成，珍藏战刃留在背包</text>
+<text x="514" y="148" font-size="19">根据库存计算缺少的材料</text>
+<text x="514" y="189" font-size="19">原生商店购买魔龙枪材料</text>
+<text x="514" y="235" font-size="22" font-weight="700">花费 2000 金币</text>
+<text x="514" y="284" font-size="18">消耗珍藏战刃，合成鱼叉</text>
+</g></svg>
