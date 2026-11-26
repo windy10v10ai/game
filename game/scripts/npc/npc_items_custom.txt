@@ -8130,8 +8130,8 @@
 		"AbilityTextureName"			"heart_copy"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
-		"AbilityCooldown"				"60"
-		"AbilityManaCost"				"250"
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"400"
 		"AbilitySharedCooldown"			"undying"
 
 		"ItemCost"						"1000"
@@ -8141,18 +8141,18 @@
 
 		"AbilityValues"
 		{
-			"bonus_strength"			"75"
-			"hp_regen"					"3.5"
+			"bonus_strength"			"30"
+			"hp_regen"					"5"
 			"missing_health_regen"		"2"
 
-			"bonus_health_passive"		"900"
-			"bonus_evasion"				"15"
+			"bonus_health_passive"		"100"
+			"bonus_evasion"				"25"
 
 			"dur"						"5"
-			"active_hp_regen"			"750"
-			"active_hp_regen_pct"		"3"
-			"buff_hp_regen"				"150"
-			"buff_hp_regen_pct"			"1.5"
+			"active_hp_regen"			"500"
+			"active_hp_regen_pct"		"5"
+			"buff_hp_regen"				"30"
+			"buff_hp_regen_pct"			"1"
 		}
 
 		"Modifiers"
