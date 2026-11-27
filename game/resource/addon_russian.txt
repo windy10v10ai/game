@@ -1358,6 +1358,16 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		"DOTA_Tooltip_ability_special_bonus_unique_clinkz_death_pact_awaken"		"<font color='#d000ff'>Пробуждение Death Pact</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_clinkz_death_pact_awaken_SummaryDescription"		"После пробуждения Death Pact даёт здоровье и урон от атак в зависимости от максимального здоровья цели."
+		"DOTA_Tooltip_ability_special_bonus_unique_clinkz_death_pact_awaken_Description"		"Death Pact даёт дополнительное максимальное здоровье в размере %health_gain_pct%%% от максимального здоровья цели и урон от атак в размере %damage_gain_pct%%%. Талант 15-го уровня добавляет ещё <font color='#FFFFFF'><b>300</b></font> максимального здоровья.<br>На <font color='#FFFFFF'><b>4</b></font>-м уровне Death Pact заряд восстанавливается за <font color='#FFFFFF'><b>35</b></font> секунд."
+		"DOTA_Tooltip_modifier_special_bonus_unique_clinkz_death_pact_awaken"		"<font color='#d000ff'>Пробуждение Death Pact</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_clinkz_death_pact_awaken_Description"		"Death Pact даёт дополнительное максимальное здоровье в размере <font color='#FFFFFF'><b>100%%</b></font> от максимального здоровья цели и урон от атак в размере <font color='#FFFFFF'><b>25%%</b></font>. Талант 15-го уровня добавляет ещё <font color='#FFFFFF'><b>300</b></font> максимального здоровья.<br>На <font color='#FFFFFF'><b>4</b></font>-м уровне Death Pact заряд восстанавливается за <font color='#FFFFFF'><b>35</b></font> секунд."
+		"DOTA_Tooltip_modifier_clinkz_death_pact_custom"		"Death Pact"
+		"DOTA_Tooltip_modifier_clinkz_death_pact_custom_Description"		"Максимальное здоровье увеличено на %dMODIFIER_PROPERTY_EXTRA_HEALTH_BONUS%. Урон от атак увеличен на %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
+		"DOTA_Tooltip_ability_special_bonus_unique_clinkz_death_pact_ancient"		"Death Pact может поглощать древних крипов"
+		"dota_hud_error_clinkz_death_pact_creep_level"		"Слишком высокий уровень крипа"
+
 		// 英雄 水人觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>Морфлинг: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"Применение Morph на вражеского героя временно превращает его атрибуты в ловкость, ловкость усиливает заклинания, а Waveform атакует врагов на пути."
@@ -1674,6 +1684,8 @@
 		// 克林克兹
 		// 死亡契约改说明
 		"DOTA_Tooltip_ability_clinkz_death_pact"										"Смертельный договор (изменено, без стражей)"
+		"DOTA_Tooltip_ability_clinkz_death_pact_Description"		"Поглощает вражеского крипа или союзного скелета-лучника, восстанавливая здоровье Клинкза и увеличивая его максимальное здоровье. После пробуждения бонусы к здоровью и урону от атак зависят от максимального здоровья цели. Не прерывает Skeleton Walk. Повторное применение заменяет и обновляет бонусы."
+		"DOTA_Tooltip_ability_clinkz_death_pact_health_gain"		"ДОП. ЗДОРОВЬЕ ДО ПРОБУЖДЕНИЯ:"
 		// 地狱之裂 A杖效果
 		"DOTA_Tooltip_ability_clinkz_infernal_shred_scepter_Description"	 					"Повышает максимальное пробивание брони врождённой способности «Адский разрыв» до %max_armor_piercing_pct%%%."
 

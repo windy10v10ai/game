@@ -18,6 +18,11 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  {
+    heroName: 'npc_dota_hero_clinkz',
+    newAbility: 'special_bonus_unique_clinkz_death_pact_awaken',
+    newLevel: 1,
+  },
   // 水人 觉醒
   {
     heroName: 'npc_dota_hero_morphling',

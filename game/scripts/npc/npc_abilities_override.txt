@@ -5061,19 +5061,44 @@
 	// 死亡契约
 	"clinkz_death_pact"
 	{
-		"MaxLevel"						"5"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/clinkz_death_pact_custom"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 			"AbilityCharges"
 			{
-				"value"				"1 1 2 2 2"
+				"value"				"1 1 2 2"
+			}
+			"AbilityChargeRestoreTime"
+			{
+				"special_bonus_unique_clinkz_death_pact_recharge"	"=35"
 			}
 			"health_gain"
 			{
-				"value"				"175 250 325 400 475"
+				"value"				"175 250 325 400"
 			}
-			"creep_level"			"4 5 6 6 6"
+			"creep_level"			"4 5 6 6"
+			"awakening_talent_health"
+			{
+				"value"						"0"
+				"special_bonus_unique_clinkz_8"		"+300"
+			}
+			"can_target_ancient"
+			{
+				"value"						"0"
+				"special_bonus_unique_clinkz_death_pact_ancient"	"+1"
+			}
 		}
+	}
+	"special_bonus_unique_clinkz_death_pact_ancient"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 	}
 	// 骨隐步
 	"clinkz_wind_walk"

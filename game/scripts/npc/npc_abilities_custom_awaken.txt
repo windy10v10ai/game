@@ -5,6 +5,48 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	"special_bonus_unique_clinkz_death_pact_awaken"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"clinkz_death_pact"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"health_gain_pct"			"100"
+			"damage_gain_pct"			"25"
+		}
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_clinkz_death_pact_awaken"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"IsPurgable"			"0"
+				"RemoveOnDeath"			"0"
+				"TextureName"			"clinkz_death_pact"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/ts_abilities/clinkz_death_pact_custom"
+						"Function"		"UpdateClinkzAwakenedRecharge"
+					}
+				}
+			}
+		}
+	}
+
+	"special_bonus_unique_clinkz_death_pact_recharge"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
+	}
+
 	// 水人 变形觉醒
 	"special_bonus_unique_morphling_upgrade"
 	{

@@ -1671,7 +1671,7 @@
 	{
 		"Ability5"		"generic_hidden" // Remove 烈焰之军
 		"Ability12"		"special_bonus_attack_range_100"
-		"Ability15"		"special_bonus_hp_400" // 7.42 skeleton talent has no effect here (skeletons removed)
+		"Ability15"		"special_bonus_unique_clinkz_death_pact_ancient"
 	}
 	// 全能骑士
 	"npc_dota_hero_omniknight"

@@ -1358,6 +1358,16 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		"DOTA_Tooltip_ability_special_bonus_unique_clinkz_death_pact_awaken"		"<font color='#d000ff'>死亡契约 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_clinkz_death_pact_awaken_SummaryDescription"		"觉醒后，吞噬目标时获得基于目标最大生命值的额外生命和攻击力。"
+		"DOTA_Tooltip_ability_special_bonus_unique_clinkz_death_pact_awaken_Description"		"死亡契约吞噬目标时，获得等于其最大生命值 %health_gain_pct%%% 的最大生命和 %damage_gain_pct%%% 的攻击力。选择对应的 15 级天赋后，额外获得 <font color='#FFFFFF'><b>300</b></font> 最大生命。<br>死亡契约达到 <font color='#FFFFFF'><b>4</b></font> 级时，每格充能的恢复时间缩短为 <font color='#FFFFFF'><b>35</b></font> 秒。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_clinkz_death_pact_awaken"		"<font color='#d000ff'>死亡契约 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_clinkz_death_pact_awaken_Description"		"死亡契约吞噬目标时，获得等于其最大生命值 <font color='#FFFFFF'><b>100%%</b></font> 的最大生命和 <font color='#FFFFFF'><b>25%%</b></font> 的攻击力。对应的 15 级天赋额外提供 <font color='#FFFFFF'><b>300</b></font> 最大生命。<br>死亡契约达到 <font color='#FFFFFF'><b>4</b></font> 级时，每格充能的恢复时间缩短为 <font color='#FFFFFF'><b>35</b></font> 秒。"
+		"DOTA_Tooltip_modifier_clinkz_death_pact_custom"		"死亡契约"
+		"DOTA_Tooltip_modifier_clinkz_death_pact_custom_Description"		"最大生命提高 %dMODIFIER_PROPERTY_EXTRA_HEALTH_BONUS% 点，攻击力提高 %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 点。"
+		"DOTA_Tooltip_ability_special_bonus_unique_clinkz_death_pact_ancient"		"死亡契约可吞噬远古野怪"
+		"dota_hud_error_clinkz_death_pact_creep_level"		"目标等级过高"
+
 		// 英雄 水人觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>变体精灵 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"对敌方英雄施放变形时，临时借用其属性转为敏捷，敏捷提升技能增强，波浪形态沿途攻击。"
@@ -1674,6 +1684,8 @@
 		// 克林克兹
 		// 死亡契约改说明
 		"DOTA_Tooltip_ability_clinkz_death_pact"										"死亡契约·改（无守卫）"
+		"DOTA_Tooltip_ability_clinkz_death_pact_Description"		"吞噬敌方小兵或友方骷髅弓手，治疗自身并获得最大生命。觉醒后，最大生命和攻击力基于目标的最大生命值。施放不会解除骨隐步隐身，重复施放会替换并刷新已有加成。"
+		"DOTA_Tooltip_ability_clinkz_death_pact_health_gain"		"未觉醒额外生命："
 		// 地狱之裂 A杖效果
 		"DOTA_Tooltip_ability_clinkz_infernal_shred_scepter_Description"	 					"提升先天 地狱之裂的最高护甲穿透至%max_armor_piercing_pct%%%。"
 
