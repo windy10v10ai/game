@@ -146,6 +146,9 @@
 			<Image id="tome_of_intelligence" class="SeqImg" src="file://{images}/items/tome_of_intelligence.png" />
 			<Image id="tome_of_luoshu" class="SeqImg" src="file://{images}/items/tome_of_luoshu.png" />
 			<Image id="tome_of_strength" class="SeqImg" src="file://{images}/items/tome_of_strength.png" />
+			<Image id="treasure_attribute_fragment" class="SeqImg" src="file://{images}/items/treasure_attribute_fragment.png" />
+			<Image id="treasure_inventory_fragment" class="SeqImg" src="file://{images}/items/treasure_inventory_fragment.png" />
+			<Image id="treasure_passive_fragment" class="SeqImg" src="file://{images}/items/treasure_passive_fragment.png" />
 			<Image id="treasure_bottle" class="SeqImg" src="file://{images}/items/treasure_bottle.png" />
 			<Image id="treasure_cheese" class="SeqImg" src="file://{images}/items/treasure_cheese.png" />
 			<Image id="treasure_clarity" class="SeqImg" src="file://{images}/items/treasure_clarity.png" />
