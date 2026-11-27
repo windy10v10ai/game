@@ -5067,12 +5067,11 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
 			"AbilityCharges"
 			{
-				"value"				"1 1 2 2 2"
+				"value"				"1 1 2 2"
 			}
 			"AbilityChargeRestoreTime"
 			{
@@ -5080,9 +5079,9 @@
 			}
 			"health_gain"
 			{
-				"value"				"175 250 325 400 475"
+				"value"				"175 250 325 400"
 			}
-			"creep_level"			"4 5 6 6 6"
+			"creep_level"			"4 5 6 6"
 			"awakening_talent_health"
 			{
 				"value"						"0"
