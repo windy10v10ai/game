@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 880" width="1400" height="880" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1400" height="880" fill="#fcfcfb"/>
+<text x="40.0" y="52.0" font-size="30" font-weight="700" fill="#0b0b0b" text-anchor="start">斗战胜佛普攻触发棒击 · 服务器开销</text>
+<text x="40.0" y="86.0" font-size="18" font-weight="400" fill="#52514e" text-anchor="start">两个场景各自以同局未启用自动棒击的片段为基线（ms/tick）</text>
+<text x="40.0" y="136.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">游戏内最高攻速</text>
+<text x="40.0" y="172.0" font-size="20" font-weight="700" fill="#2a78d6" text-anchor="start">在样本波动内，平均 +0.114 ms/tick</text>
+<rect x="351.9" y="186" width="249.6" height="120" fill="#b4b2a9" fill-opacity="0.25"/>
+<text x="476.7" y="352.0" font-size="14" font-weight="400" fill="#52514e" text-anchor="middle">灰带 = 测量误差范围 ±0.234，带内读作约等于 0</text>
+<line x1="370.0" y1="186" x2="370.0" y2="306" stroke="#e1e0d9"/>
+<text x="370.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−0.2</text>
+<line x1="476.7" y1="186" x2="476.7" y2="306" stroke="#e1e0d9"/>
+<text x="476.7" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="583.3" y1="186" x2="583.3" y2="306" stroke="#e1e0d9"/>
+<text x="583.3" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.2</text>
+<line x1="690.0" y1="186" x2="690.0" y2="306" stroke="#e1e0d9"/>
+<text x="690.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.4</text>
+<line x1="796.7" y1="186" x2="796.7" y2="306" stroke="#e1e0d9"/>
+<text x="796.7" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.6</text>
+<line x1="903.3" y1="186" x2="903.3" y2="306" stroke="#e1e0d9"/>
+<text x="903.3" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.8</text>
+<line x1="1010.0" y1="186" x2="1010.0" y2="306" stroke="#e1e0d9"/>
+<text x="1010.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.0</text>
+<line x1="1116.7" y1="186" x2="1116.7" y2="306" stroke="#e1e0d9"/>
+<text x="1116.7" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.2</text>
+<line x1="1223.3" y1="186" x2="1223.3" y2="306" stroke="#e1e0d9"/>
+<text x="1223.3" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.4</text>
+<line x1="1330.0" y1="186" x2="1330.0" y2="306" stroke="#e1e0d9"/>
+<text x="1330.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.6</text>
+<line x1="476.7" y1="186" x2="476.7" y2="306" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="217.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">仅原有斗战胜佛</text>
+<rect x="476.7" y="194" width="3.0" height="34" rx="4" fill="#eb6834"/>
+<text x="487.7" y="218.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">0.00</text>
+<text x="356.0" y="273.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">普攻触发棒击</text>
+<rect x="476.7" y="250" width="60.8" height="34" rx="4" fill="#2a78d6"/>
+<text x="545.5" y="274.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.11</text>
+<text x="40.0" y="496.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">合成高频压力参考</text>
+<text x="40.0" y="532.0" font-size="20" font-weight="700" fill="#52514e" text-anchor="start">平均 +1.18 ms/tick</text>
+<line x1="370.0" y1="546" x2="370.0" y2="666" stroke="#e1e0d9"/>
+<text x="370.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−0.2</text>
+<line x1="476.7" y1="546" x2="476.7" y2="666" stroke="#e1e0d9"/>
+<text x="476.7" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="583.3" y1="546" x2="583.3" y2="666" stroke="#e1e0d9"/>
+<text x="583.3" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.2</text>
+<line x1="690.0" y1="546" x2="690.0" y2="666" stroke="#e1e0d9"/>
+<text x="690.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.4</text>
+<line x1="796.7" y1="546" x2="796.7" y2="666" stroke="#e1e0d9"/>
+<text x="796.7" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.6</text>
+<line x1="903.3" y1="546" x2="903.3" y2="666" stroke="#e1e0d9"/>
+<text x="903.3" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.8</text>
+<line x1="1010.0" y1="546" x2="1010.0" y2="666" stroke="#e1e0d9"/>
+<text x="1010.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.0</text>
+<line x1="1116.7" y1="546" x2="1116.7" y2="666" stroke="#e1e0d9"/>
+<text x="1116.7" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.2</text>
+<line x1="1223.3" y1="546" x2="1223.3" y2="666" stroke="#e1e0d9"/>
+<text x="1223.3" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.4</text>
+<line x1="1330.0" y1="546" x2="1330.0" y2="666" stroke="#e1e0d9"/>
+<text x="1330.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.6</text>
+<line x1="476.7" y1="546" x2="476.7" y2="666" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="577.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">仅原有斗战胜佛</text>
+<rect x="476.7" y="554" width="3.0" height="34" rx="4" fill="#eb6834"/>
+<text x="487.7" y="578.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">0.00</text>
+<text x="356.0" y="633.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">普攻触发棒击</text>
+<rect x="476.7" y="610" width="630.9" height="34" rx="4" fill="#2a78d6"/>
+<text x="1115.6" y="634.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+1.18</text>
+<text x="40.0" y="858.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="start">最高攻速为实测 4.375 次/秒，6 个存活目标。合成压力组约 62 次普攻事件/秒，仅供参考。</text>
+</svg>
