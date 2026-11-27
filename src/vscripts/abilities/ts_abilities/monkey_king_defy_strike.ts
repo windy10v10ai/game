@@ -7,7 +7,7 @@ const DEFY_MODIFIER = 'modifier_monkey_king_defy';
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class modifier_monkey_king_defy_strike extends BaseModifier {
   private readonly triggeredRecords = new Set<number>();
-  private striking = false;
+  private readonly strikeState = { resolving: false };
 
   IsHidden(): boolean {
     return true;
@@ -34,7 +34,7 @@ export class modifier_monkey_king_defy_strike extends BaseModifier {
       event.attacker !== caster ||
       event.no_attack_cooldown ||
       event.inflictor !== undefined ||
-      this.striking ||
+      this.strikeState.resolving ||
       this.triggeredRecords.has(event.record) ||
       !caster.IsAlive() ||
       !caster.HasModifier(DEFY_MODIFIER) ||
@@ -49,29 +49,53 @@ export class modifier_monkey_king_defy_strike extends BaseModifier {
     if (!strike || strike.IsNull() || strike.IsHidden() || strike.GetLevel() === 0) return;
 
     this.triggeredRecords.add(event.record);
-    this.strikeAt(caster, strike, target.GetAbsOrigin());
-  }
-
-  private strikeAt(caster: CDOTA_BaseNPC, strike: CDOTABaseAbility, position: Vector): void {
     const origin = caster.GetAbsOrigin();
-    const facing = caster.GetForwardVector();
-    const cursor = caster.GetCursorPosition();
-    const altCast = strike.GetAltCastState();
+    const position = target.GetAbsOrigin();
     const direction = Vector(position.x - origin.x, position.y - origin.y, 0);
+    const state = this.strikeState;
 
-    this.striking = true;
-    const [ok, error] = pcall(() => {
-      // Boundless Strike reads the caster's facing even with a valid cursor position.
-      if (direction.Length2D() > 0) caster.SetForwardVector(direction.Normalized());
-      caster.SetCursorPosition(position);
-      if (altCast) strike.SetAltCastState(false);
-      strike.OnSpellStart();
+    // The native strike can change attack buffs or kill targets during attack resolution.
+    Timers.CreateTimer(0, () => {
+      if (
+        caster.IsNull() ||
+        !caster.IsAlive() ||
+        strike.IsNull() ||
+        strike.IsHidden() ||
+        strike.GetLevel() === 0 ||
+        caster.FindAbilityByName(BOUNDLESS_STRIKE) !== strike
+      ) {
+        return;
+      }
+
+      state.resolving = true;
+      strikeAt(caster, strike, position, direction);
+      state.resolving = false;
     });
-    if (altCast) strike.SetAltCastState(true);
+  }
+}
+
+function strikeAt(
+  caster: CDOTA_BaseNPC,
+  strike: CDOTABaseAbility,
+  position: Vector,
+  direction: Vector,
+): void {
+  const facing = caster.GetForwardVector();
+  const cursor = caster.GetCursorPosition();
+  const altCast = strike.GetAltCastState();
+
+  const [ok, error] = pcall(() => {
+    // Boundless Strike reads the caster's facing even with a valid cursor position.
+    if (direction.Length2D() > 0) caster.SetForwardVector(direction.Normalized());
+    caster.SetCursorPosition(position);
+    if (altCast) strike.SetAltCastState(false);
+    strike.OnSpellStart();
+  });
+  if (altCast && !strike.IsNull()) strike.SetAltCastState(true);
+  if (!caster.IsNull()) {
     caster.SetCursorPosition(cursor);
     caster.SetForwardVector(facing);
-    this.striking = false;
-
-    if (!ok) print(`[monkey-king-defy] Boundless Strike failed: ${error}`);
   }
+
+  if (!ok) print(`[monkey-king-defy] Boundless Strike failed: ${error}`);
 }
