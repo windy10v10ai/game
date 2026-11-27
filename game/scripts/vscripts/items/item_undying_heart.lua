@@ -37,9 +37,12 @@ function UndyingHeartOnSpellStart(keys)
     local fx = ParticleManager:CreateParticle("particles/items3_fx/warmage.vpcf", PATTACH_ABSORIGIN, caster)
     ParticleManager:ReleaseParticleIndex(fx)
 
-    ApplyItemDataDrivenModifier(nil, caster, caster, BUFF_MODIFIER, {
-        duration = ability:GetSpecialValueFor("dur"),
-    })
+    local duration = ability:GetSpecialValueFor("dur")
+    if keys.modifier then
+        ability:ApplyDataDrivenModifier(caster, caster, keys.modifier, { duration = duration })
+    else
+        ApplyItemDataDrivenModifier(nil, caster, caster, BUFF_MODIFIER, { duration = duration })
+    end
 
     local healAmount = ability:GetSpecialValueFor("active_hp_regen")
         + caster:GetMaxHealth() * ability:GetSpecialValueFor("active_hp_regen_pct") / 100

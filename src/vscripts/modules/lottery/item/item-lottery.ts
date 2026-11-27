@@ -6,54 +6,93 @@ import { reloadable } from '../../../utils/tstl-utils';
 import { PlayerHelper } from '../../helper/player-helper';
 import { ItemLotteryHelper, ItemLotteryPool } from './item-lottery-helper';
 
-/**
- * 物品抽奖：触发后弹 4 选 1，倒计时由客户端驱动，归零自动随机选 1。
- * 触发源（藏宝箱 / 未来 boss / 商店开箱）调 onTriggered 即可，本模块不关心来源。
- */
+type ItemLotteryState = CustomNetTableDeclarations['lottery_item'][string];
+type ItemLotteryRound = Pick<ItemLotteryState, 'candidates' | 'poolType' | 'isAttributeTome'>;
+
+const ATTRIBUTE_TOME_CHOICES: LotteryDto[] = [
+  { name: 'item_tome_of_strength', level: 0 },
+  { name: 'item_tome_of_agility', level: 0 },
+  { name: 'item_tome_of_intelligence', level: 0 },
+];
+
+const TREASURE_FRAGMENTS = new Set([
+  'item_treasure_attribute_fragment',
+  'item_treasure_inventory_fragment',
+  'item_treasure_passive_fragment',
+]);
+
 @reloadable
 export class ItemLottery {
   static readonly CANDIDATE_COUNT = 4;
   readonly paidRefreshCosts = [10, 20, 30, 50];
   readonly maxPaidRefreshCount = 5;
 
+  private readonly queuedRounds = new Map<PlayerID, ItemLotteryRound[]>();
+  private roundId = 0;
+
   constructor() {
     CustomGameEventManager.RegisterListener('lottery_pick_item', (_userId, event) => {
       this.pickItem(event.PlayerID, event);
     });
     CustomGameEventManager.RegisterListener('lottery_refresh_item', (_userId, event) => {
-      this.refreshItem(event.PlayerID);
+      this.refreshItem(event.PlayerID, event.roundId);
     });
   }
 
-  /**
-   * 触发一次抽奖。opener 非人类（bot/中立）直接返回，奖励丢失。
-   */
   onTriggered(
     opener: CDOTA_BaseNPC | undefined,
     pool: ItemLotteryPool = ItemLotteryPool.DEFAULT,
   ): void {
-    if (!PlayerHelper.IsHumanPlayer(opener)) {
-      return;
-    }
+    if (!PlayerHelper.IsHumanPlayer(opener)) return;
+
     const playerId = opener!.GetPlayerOwnerID();
     if (playerId < 0) return;
 
-    const candidates = ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT, pool);
-    CustomNetTables.SetTableValue('lottery_item', playerId.toString(), {
-      candidates,
-      isRefreshed: false,
-      paidRefreshCount: 0,
+    const round: ItemLotteryRound = {
+      candidates: ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT, pool),
       poolType: pool,
-    });
+      isAttributeTome: 0,
+    };
+    const active = CustomNetTables.GetTableValue('lottery_item', playerId.toString());
+    if (active?.isAttributeTome === 1 || GameRules.Lottery.PassiveTome.isShowing(playerId)) {
+      this.queueRound(playerId, round);
+    } else {
+      this.publish(playerId, round);
+    }
   }
 
-  pickItem(playerId: PlayerID, event: LotteryPickItemEventData): void {
-    const raw = CustomNetTables.GetTableValue('lottery_item', playerId.toString());
-    if (!raw) {
-      print('[ItemLottery] no pending lottery for player ' + playerId);
-      return;
+  onAttributeTomeUsed(playerId: PlayerID): void {
+    const round: ItemLotteryRound = {
+      candidates: ATTRIBUTE_TOME_CHOICES,
+      poolType: ItemLotteryPool.DEFAULT,
+      isAttributeTome: 1,
+    };
+    if (this.isShowing(playerId) || GameRules.Lottery.PassiveTome.isShowing(playerId)) {
+      this.queueRound(playerId, round);
+    } else {
+      this.publish(playerId, round);
     }
-    // TSTL 把 array 编码成 object 同步给客户端，读回时也是 object，按值列出
+  }
+
+  isShowing(playerId: PlayerID): boolean {
+    const active = CustomNetTables.GetTableValue('lottery_item', playerId.toString());
+    return Object.values(active?.candidates ?? {}).length > 0;
+  }
+
+  /** 窗口空出来后显示排队中的下一轮，没有排队则返回 false */
+  showQueued(playerId: PlayerID): boolean {
+    const queue = this.queuedRounds.get(playerId);
+    const nextRound = queue?.shift();
+    if (queue?.length === 0) this.queuedRounds.delete(playerId);
+    if (!nextRound) return false;
+    this.publish(playerId, nextRound);
+    return true;
+  }
+
+  pickItem(playerId: PlayerID, event: LotteryItemPickEventData): void {
+    const raw = CustomNetTables.GetTableValue('lottery_item', playerId.toString());
+    if (!raw || raw.roundId !== event.roundId) return;
+
     const candidates = Object.values(raw.candidates ?? {}) as unknown as LotteryDto[];
     const matched = candidates.find((c) => c.name === event.name && c.level === event.level);
     if (!matched) {
@@ -67,52 +106,55 @@ export class ItemLottery {
       return;
     }
 
-    // CreateItem 时 purchaser 传 undefined 避免引擎按"刚购买"处理（能立即使用、半价出售）
+    // Avoid the purchase restrictions applied by CreateItem when given a purchaser.
     const item = CreateItem(matched.name, undefined, undefined);
-    if (item !== undefined) {
-      hero.AddItem(item);
-    }
-    print('[ItemLottery] player ' + playerId + ' picked ' + matched.name);
-
-    // 清空候选（写空数组，客户端 candidates.length === 0 → UI collapse）。
-    // 不能传 nil：Dota 引擎对 SetTableValue 传 nil 是 noop，不会删除行。
-    CustomNetTables.SetTableValue('lottery_item', playerId.toString(), {
-      candidates: [],
-      isRefreshed: false,
-      paidRefreshCount: 0,
-      poolType: ItemLotteryPool.DEFAULT,
-    });
-
-    GA4PickItemTracker.SendPick(playerId, matched.name, matched.level);
-
-    // 英雄有同名可叠加物品，添加后item会消失，必须判定非 undefined 才能 SetPurchaser
-    if (item !== undefined) {
-      // 防止属性书等物品无法合成
+    if (!item) return;
+    const isFragment = TREASURE_FRAGMENTS.has(matched.name);
+    if (isFragment) {
+      // Inventory insertion can consume the fragment immediately when a recipe completes.
       item.SetPurchaser(hero);
+    }
+    hero.AddItem(item);
+    if (!isFragment && IsValidEntity(item) && !item.IsNull()) {
+      item.SetPurchaser(hero);
+    }
+
+    if (!this.showQueued(playerId)) {
+      this.publish(playerId, {
+        candidates: [],
+        poolType: ItemLotteryPool.DEFAULT,
+        isAttributeTome: 0,
+      });
+      // 物品窗口已关，轮到排队的被动技能书
+      GameRules.Lottery.PassiveTome.showQueued(playerId);
+    }
+
+    print('[ItemLottery] player ' + playerId + ' picked ' + matched.name);
+    if (raw.isAttributeTome !== 1) {
+      GA4PickItemTracker.SendPick(playerId, matched.name, matched.level);
     }
   }
 
-  refreshItem(playerId: PlayerID): void {
+  refreshItem(playerId: PlayerID, roundId: number): void {
+    const raw = CustomNetTables.GetTableValue('lottery_item', playerId.toString());
+    if (
+      !raw ||
+      raw.roundId !== roundId ||
+      raw.isAttributeTome === 1 ||
+      Object.values(raw.candidates ?? {}).length === 0
+    ) {
+      return;
+    }
+
     const steamAccountID = PlayerResource.GetSteamAccountID(playerId);
     if (Player.GetMemberLevel(steamAccountID) < MemberLevel.PREMIUM) {
       print('[ItemLottery] refresh denied, not PREMIUM, player ' + playerId);
       return;
     }
-    const raw = CustomNetTables.GetTableValue('lottery_item', playerId.toString());
-    if (!raw) {
-      print('[ItemLottery] refresh denied, no pending lottery, player ' + playerId);
-      return;
-    }
-    // 同 lottery_status：boolean 写入后引擎可能同步为 0/1，宽松匹配两种值
-    const refreshed = raw.isRefreshed as unknown as boolean | number;
-    const currentCandidates = Object.values(raw.candidates ?? {}) as unknown as LotteryDto[];
-    if (currentCandidates.length === 0) {
-      print('[ItemLottery] refresh denied, already picked or empty, player ' + playerId);
-      return;
-    }
 
+    const refreshed = raw.isRefreshed as unknown as boolean | number;
+    let paidRefreshCount = raw.paidRefreshCount ?? 0;
     if (refreshed === true || refreshed === 1) {
-      const paidRefreshCount = raw.paidRefreshCount ?? 0;
       if (paidRefreshCount >= this.maxPaidRefreshCount) {
         print('[ItemLottery] paid refresh denied, refresh limit reached, player ' + playerId);
         return;
@@ -124,17 +166,39 @@ export class ItemLottery {
       }
       Player.DeductUseableMemberPoint(steamAccountID, cost);
       PlayerMemberPointApi.UseMemberPoint(steamAccountID, cost, 'lottery_refresh_item');
+      paidRefreshCount++;
     }
 
     const pool = (raw.poolType as ItemLotteryPool) ?? ItemLotteryPool.DEFAULT;
     const candidates = ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT, pool);
-    CustomNetTables.SetTableValue('lottery_item', playerId.toString(), {
-      candidates,
-      isRefreshed: true,
-      paidRefreshCount: refreshed === true || refreshed === 1 ? (raw.paidRefreshCount ?? 0) + 1 : 0,
-      poolType: pool,
-    });
+    this.publish(
+      playerId,
+      { candidates, poolType: pool, isAttributeTome: 0 },
+      true,
+      paidRefreshCount,
+    );
     print('[ItemLottery] refreshed for player ' + playerId);
+  }
+
+  private queueRound(playerId: PlayerID, round: ItemLotteryRound): void {
+    const queue = this.queuedRounds.get(playerId) ?? [];
+    queue.push(round);
+    this.queuedRounds.set(playerId, queue);
+  }
+
+  private publish(
+    playerId: PlayerID,
+    round: ItemLotteryRound,
+    isRefreshed = false,
+    paidRefreshCount = 0,
+  ): void {
+    this.roundId++;
+    CustomNetTables.SetTableValue('lottery_item', playerId.toString(), {
+      ...round,
+      roundId: this.roundId,
+      isRefreshed,
+      paidRefreshCount,
+    });
   }
 
   private getPaidRefreshCost(paidCount: number): number {

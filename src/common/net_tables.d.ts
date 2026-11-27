@@ -59,6 +59,9 @@ declare global {
     server_env: {
       server_env: { is_local_host: number };
     };
+    treasured_shop: {
+      [itemId: string]: TreasuredShopComponent;
+    };
     ending_status: {
       ending_status: { status: number };
       ending_data: { winner_team_id: number };
@@ -81,10 +84,11 @@ declare global {
     lottery_status: {
       [steamAccountID: string]: LotteryStatusDto;
     };
-    // 物品抽奖（藏宝箱触发，瞬时事件，key = playerId）
     lottery_item: {
       [playerId: string]: {
         candidates: LotteryDto[];
+        roundId: number;
+        isAttributeTome: 0 | 1;
         isRefreshed: boolean;
         // 已使用会员积分刷新的次数；每个藏宝箱单独计算，新藏宝箱从 0 开始。
         paidRefreshCount: number;
@@ -136,6 +140,14 @@ declare global {
       [playerId: string]: { taskId: string; value: number };
     };
   }
+}
+
+export interface TreasuredShopComponent {
+  name: string;
+  id: number;
+  cost: number;
+  treasured: number;
+  recipes?: number[][];
 }
 
 export type AlipayOrderStatus =

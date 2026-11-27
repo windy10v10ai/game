@@ -51,6 +51,8 @@
 | 物理伤害护盾 | Physical Damage Barrier | `#B94512` | |
 | 魔法伤害护盾 / 法术护盾 | Magic Damage Barrier / Spell Shield | `#1278B9` | |
 | 阿哈利姆神杖 / 魔晶 | Aghanim's Scepter / Shard | `#92ACF5` | |
+| 珍藏· | Treasured | `#B87333` | 宝箱与馈赠中的珍藏物品名前缀 |
+| 神· | Divine | `#818CFF` | 宝箱强化物品的完整名称 |
 | 警告或负面属性变动 | — | `#E03E2E` | 「无法丢弃」、属性被削减的数值 |
 | 灰色补充说明 | — | `#7D7D7D` | 圆括号内补充，如「（仅对远程有效）」 |
 | 自动施法 | Autocast | `#00CED1` | 与警告红色区分 |

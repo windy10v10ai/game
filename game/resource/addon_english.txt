@@ -309,6 +309,8 @@
 		"lottery_tooltip_ability_reset_not_picked"				"No ability picked for this row"
 
 		"lottery_item_header"									"Pick Your Treasure"
+		"lottery_item_attribute_header"				"Choose an Attribute Tome"
+		"dota_hud_error_treasure_attribute_tome_invalid_caster"				"Only your own hero can use this item"
 		"lottery_passive_tome_header"							"Choose a Passive Ability"
 		"lottery_forget_passive_tome_header"					"Choose a Passive Ability to Forget"
 		"lottery_forget_passive_tome_cancel"					"Cancel"
@@ -2468,9 +2470,11 @@
 
 		// wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Wings of Haste"
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_copy"							"Treasured Speedster's Gift"
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% bonus movement speed, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration."
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_copy_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% bonus movement speed, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration."
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"Wings of Haste"
-		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>Use: Hasten</h1> Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, %bonus_health_regen% health regeneration, and %bonus_mana_regen% mana regeneration.\nThis item may be used on allied heroes who have not consumed this item yet."
+		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>Use: Hasten</h1> Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, %bonus_health_regen% health regeneration, and %bonus_mana_regen% mana regeneration.\nCan be used on an allied hero. Each hero can consume Wings of Haste only once, and using the Treasured Speedster's Gift also counts."
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_attack_speed"			"+$attack"
@@ -2678,6 +2682,14 @@
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_mana"							"+$mana"
 
+		// item_echo_sabre_2_copy
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy"						"<font color='#B87333'>Treasured Echo Sabre</font>"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Description"		"<h1>Passive: Echo Strike</h1> Causes melee attacks to attack twice in quick succession. The double attacks apply a %movement_slow%%% movement slow for %slow_duration% seconds on each strike.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways."
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Lore"			"A deceptively swift blade imbued with resonant magic."
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_strength"		"+$str"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_mana_regen"		"+$mana_regen"
+
 		// item_echo_sabre_2 回音刀2
 		"DOTA_Tooltip_Ability_item_echo_sabre_2"				"<font color='#67188B'>Upgraded</font> Echo Sabre"
 		"DOTA_Tooltip_Ability_item_echo_sabre_2_Description"			        "<h1>Passive: Echo Strike</h1> Causes melee attacks to attack twice in quick succession. The double attacks apply a %movement_slow%%% movement slow for %slow_duration% seconds on each strike."
@@ -2757,7 +2769,15 @@
 		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_mana"			"+$mana"
 
-		// hydras_breath_2 九头蛇神之息
+		// item_hydras_breath_copy
+		"DOTA_Tooltip_ability_item_hydras_breath_copy"						"<font color='#B87333'>Treasured Hydra's Breath</font>"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_Description"		"<h1>Passive: Miasma</h1>Attacks poison enemies, dealing %poison_damage_per_second%%% of the target's Max HP as Magical Damage per second for %poison_duration% seconds.\n\n<h1>Passive: Polycephaly</h1>Ranged attacks have a %proc_chance%%% chance to fire additional projectiles at up to %count% nearby enemies with %secondary_target_range_bonus% extra range and within a %secondary_target_angle% degree angle in front of the attacker. The additional projectiles deal %base_proc_dmg% + %proc_dmg_pct%%% damage of a normal attack and do not trigger on hit effects except for Miasma. The primary attack deals %base_proc_dmg% + %proc_dmg_pct_primary_tooltip%%% damage of a normal attack.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways."
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_Note0"			"Attack Range bonuses from Monkey King Bar and Dragon Lance and its upgrades do not stack."
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_strength"		"+$str"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_agility"		"+$agi"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_base_attack_range"		"+$attack_range"
+
 		"DOTA_Tooltip_Ability_item_hydras_breath_2"				"<font color='#e03e2e'>Artifact: Millennial Hydra's Breath</font>"
 		"DOTA_Tooltip_Ability_item_hydras_breath_2_strength"				"+$str"
 		"DOTA_Tooltip_Ability_item_hydras_breath_2_agility"				"+$agi"
@@ -3025,9 +3045,25 @@
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"Necronomicon Blast"
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"Your true self is revealed. Cannot attack, cast spells, or use items. Reduce magic resistance (flat)."
 
-		// 小鸡臂章
-		"DOTA_Tooltip_Ability_item_armlet_plus"				"Armlet of Mordiggian Plus"
-		"DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_Description"						"<h1>Toggle: Mordiggian's Oath</h1> While active, grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% Strength, and +%unholy_bonus_armor% armor, and lets you move through units and turn more quickly with %phase_movement_speed%%% increased movement speed. Also grants up to %unholy_bonus_slow_resistance%%% slow resistance, scaling down with your current health percentage. Drains %unholy_health_drain_per_second% health per second.\n\nYou cannot die from the health drain, nor from the strength loss when deactivated. Movement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_bonus_movement_speed_melee"						"+Move Speed"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_bonus_movement_speed_ranged"						""
+
+		// item_berserkers_sabatons_copy 珍藏·护足
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy"										"<font color='#B87333'>Treasured Sabatons</font>"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Description"							"<h1>Toggle: Mordiggian's Oath</h1> While active, grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% Strength, and +%unholy_bonus_armor% armor, and lets you move through units and turn more quickly with %phase_movement_speed%%% increased movement speed. Also grants up to %unholy_bonus_slow_resistance%%% slow resistance, scaling down with your current health percentage. Drains %unholy_health_drain_per_second% health per second.\n\nYou cannot die from the health drain, nor from the strength loss when deactivated. Movement speed bonuses from multiple pairs of boots do not stack.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways, and it can be used to skip upgrade tiers when combining."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Lore"									"These sabatons draw on the wearer’s life force to carry them through enemy ranks."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Note0"									"The strength change will affect both maximum and current HP, but you cannot die from the change."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Note1"									"The strength change occurs over 0.6 seconds."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_movement_speed_melee"				"+Move Speed"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_attack_speed"						"+$attack"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_health_regen"						"+$hp_regen"
+
+		// 小鸡护足
+		"DOTA_Tooltip_Ability_item_armlet_plus"				"Berserker's Sabatons Plus"
+		"DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>Toggle: Mordiggian's Oath</h1> While active, grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% Strength, and +%unholy_bonus_armor% armor, and lets you move through units and turn more quickly with %phase_movement_speed%%% increased movement speed. Also grants up to %unholy_bonus_slow_resistance%%% slow resistance, scaling down with your current health percentage. Drains %unholy_health_drain_per_second% health per second.\n\nYou cannot die from the health drain, nor from the strength loss when deactivated. Movement speed bonuses from multiple pairs of boots do not stack."
 		"DOTA_Tooltip_ability_item_armlet_plus_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
 		"DOTA_Tooltip_ability_item_armlet_plus_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
 		"DOTA_Tooltip_ability_item_armlet_plus_Note1"								"The strength change occurs over 0.6 seconds."
@@ -3037,9 +3073,10 @@
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_movement_speed_melee"			"+Move Speed"
 
-		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"Armlet of Mordiggian Plus Pro Max"
-		"DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"Berserker's Sabatons Pro Max"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>Toggle: Mordiggian's Oath</h1> While active, grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% Strength, and +%unholy_bonus_armor% armor, and lets you move through units and turn more quickly with %phase_movement_speed%%% increased movement speed. Also grants up to %unholy_bonus_slow_resistance%%% slow resistance, scaling down with your current health percentage. Drains %unholy_health_drain_per_second% health per second.\n\nYou cannot die from the health drain, nor from the strength loss when deactivated. Movement speed bonuses from multiple pairs of boots do not stack."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note1"								"The strength change occurs over 0.6 seconds."
@@ -3049,6 +3086,7 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_movement_speed_melee"			"+Move Speed"
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"Awakening Stone"
@@ -3059,6 +3097,65 @@
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"Passive Skill Tome"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Higher chance of strong abilities. Choose one passive ability to learn from 4 random options.\nEach player can use this up to 2 times per game, choices can be rerolled, shareable with teammates.\nCan be bought in the shop but cannot be sold. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"Open it, and the power distilled by those before you becomes yours."
+
+		// item_treasure_passive_skill_tome 被动技能书
+		"DOTA_Tooltip_ability_item_treasure_passive_skill_tome"				"Passive Skill Tome"
+		"DOTA_Tooltip_ability_item_treasure_passive_skill_tome_Description"				"<h1>Use: Learn a Passive Skill</h1>Choose one of 4 random passive skills, with a higher chance of finding stronger skills.<br><br>Each player can use up to 2 tomes per game, shared with Passive Skill Tomes from other sources. Choices can be refreshed. Can be shared with teammates."
+
+		// item_treasure_attribute_fragment 属性书碎片
+		"DOTA_Tooltip_ability_item_treasure_attribute_fragment"				"Attribute Tome Fragment"
+		"DOTA_Tooltip_ability_item_treasure_attribute_fragment_Description"				"Collect 4 fragments to automatically combine them into an Attribute Tome. Can be shared with teammates."
+
+		// item_treasure_inventory_fragment 扩容之书碎片
+		"DOTA_Tooltip_ability_item_treasure_inventory_fragment"				"Tome of Expansion Fragment"
+		"DOTA_Tooltip_ability_item_treasure_inventory_fragment_Description"				"Collect 3 fragments to automatically combine them into a Tome of Expansion. Can be shared with teammates."
+
+		// item_treasure_passive_fragment 被动技能书碎片
+		"DOTA_Tooltip_ability_item_treasure_passive_fragment"				"Passive Skill Tome Fragment"
+		"DOTA_Tooltip_ability_item_treasure_passive_fragment_Description"				"Collect 4 fragments to automatically combine them into a Passive Skill Tome. Can be shared with teammates."
+
+		// item_treasure_attribute_tome 属性之书
+		"DOTA_Tooltip_ability_item_treasure_attribute_tome"				"Attribute Tome"
+		"DOTA_Tooltip_ability_item_treasure_attribute_tome_Description"				"Use to choose a Tome of Strength, Agility, or Intelligence."
+
+		// item_treasure_slot_machine 老虎机
+		"DOTA_Tooltip_ability_item_treasure_slot_machine"				"Slot Machine"
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_Description"				"Consumed on use. Drops a gold bag any hero can pick up. All slot machines share a cooldown for each player.<br><br>Drop chance and gold<br>%chance_1%%%: %gold_1%<br>%chance_2%%%: %gold_2%<br>%chance_3%%%: %gold_3%<br>%chance_4%%%: %gold_4%<br>%chance_5%%%: %gold_5%"
+
+		// item_treasure_slot_machine_gold_bag 老虎机钱袋
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag"				"Slot Machine Gold Bag"
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag_Description"				"Collect the gold inside upon pickup."
+
+		// item_treasure_salve 神·治疗药膏
+		"DOTA_Tooltip_Ability_item_treasure_salve"						"<font color='#818CFF'>Divine Healing Salve</font>"
+		"DOTA_Tooltip_ability_item_treasure_salve_Description"			"<h1>Use: Salve</h1>The target restores %health_regen% health per second for %buff_duration% seconds.<br><br>The effect persists through damage and is immune to dispels."
+		"DOTA_Tooltip_modifier_item_treasure_salve"						"<font color='#818CFF'>Divine Healing Salve</font>"
+		"DOTA_Tooltip_modifier_item_treasure_salve_Description"			"Restoring %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health per second."
+
+		// item_treasure_clarity 神·净化药水
+		"DOTA_Tooltip_Ability_item_treasure_clarity"					"<font color='#818CFF'>Divine Clarity</font>"
+		"DOTA_Tooltip_ability_item_treasure_clarity_Description"		"<h1>Use: Replenish</h1>The target restores %mana_regen% mana per second for %buff_duration% seconds.<br><br>The effect persists through damage."
+		"DOTA_Tooltip_modifier_item_treasure_clarity"					"<font color='#818CFF'>Divine Clarity</font>"
+		"DOTA_Tooltip_modifier_item_treasure_clarity_Description"		"Restoring %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana per second."
+
+		// item_treasure_mango 神·魔法芒果
+		"DOTA_Tooltip_Ability_item_treasure_mango"						"<font color='#818CFF'>Divine Enchanted Mango</font>"
+		"DOTA_Tooltip_ability_item_treasure_mango_Description"			"<h1>Use: Eat Mango</h1>Instantly restores %replenish_amount% mana."
+		"DOTA_Tooltip_ability_item_treasure_mango_Note0"				"Hold Ctrl to use on a nearby allied hero."
+		"DOTA_Tooltip_ability_item_treasure_mango_hp_regen"				"+$hp_regen"
+
+		// item_treasure_raindrop 神·凝魂之露
+		"DOTA_Tooltip_Ability_item_treasure_raindrop"					"<font color='#818CFF'>Divine Infused Raindrops</font>"
+		"DOTA_Tooltip_ability_item_treasure_raindrop_Description"		"<h1>Passive: Magical Damage Block</h1>Consumes a charge to block up to %magic_damage_block% damage from a hit that deals more than %min_damage% <font color='#05CAFF'>magic damage</font>.<br><br>Starts with %initial_charges% charges. The item disappears when all charges are spent."
+		"DOTA_Tooltip_ability_item_treasure_raindrop_mana_regen"		"+$mana_regen"
+
+		// item_treasure_bottle 神·魔瓶
+		"DOTA_Tooltip_Ability_item_treasure_bottle"						"<font color='#818CFF'>Divine Bottle</font>"
+		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>Use: Regenerate</h1>Consumes a charge to restore %health_restore% health and %mana_restore% mana over %restore_time% seconds. Also restores %health_regen_pct_tooltip%%% of max health and %mana_regen_pct_tooltip%%% of max mana per second. Taking damage does not interrupt regeneration.<br><br>Refills to %max_charges% charges at the allied fountain.<br><br>Hold Ctrl to use on an allied hero.\n\n<h1>Passive: Store Rune</h1>Right-click a rune to store it. Stored runes activate automatically after %rune_expire_time% seconds."
+
+		// item_treasure_cheese 神·奶酪
+		"DOTA_Tooltip_Ability_item_treasure_cheese"						"<font color='#818CFF'>Divine Cheese</font>"
+		"DOTA_Tooltip_ability_item_treasure_cheese_Description"			"<h1>Use: Fondue</h1>Instantly restores %health_restore% health and %mana_restore% mana.<br><br>Can be used 5 times and given to teammates."
 
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"Saint White Lotus"
@@ -3079,6 +3176,14 @@
 		"DOTA_Tooltip_Ability_item_candy_candy"							"Diana Candy"
 		"DOTA_Tooltip_ability_item_candy_candy_Description"             "Eat this candy, you are a fan of Diana.<br/>Grants the effects of all Power Runes for %duration% seconds (except Shield)."
 		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "Diana, I love you so much! For you, I'm going to listen to Cat Addiction!"
+
+		// item_hand_of_midas_copy
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy"						"<font color='#B87333'>Treasured Hand of Midas</font>"
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Description"		"<h1>Active: Transmute</h1> Kills a non-hero target for %bonus_gold% gold. Killing a neutral creep additionally grants a madstone bundle. <br><br> Cannot be used on Ancient creeps.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways, and it can be used to skip upgrade tiers when combining."
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Lore"			"Preserved through unknown magical means, the Hand of Midas is a weapon of greed, sacrificing animals to line the owner's pockets."
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Note0"			"The gold given is unreliable gold (you do not get the normal creep bounty)."
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Note1"			"Experience gained by using Transmute is not shared."
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_bonus_attack_speed"		"+$attack"
 
 		// 团队之手
 	    "DOTA_Tooltip_ability_item_hand_of_group"										"Hand of Team"
@@ -3145,6 +3250,63 @@
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_health_regen"		"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_mana_regen"		"+$mana_regen"
 
+		// item_bfury_copy
+		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#B87333'>Treasured Battle Fury</font>"
+		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"<h1>Active: Chop Tree</h1> Destroy a target tree. \n\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %quelling_bonus% for melee heroes, and %quelling_bonus_ranged% for ranged. \n\n<h1>Passive: Cleave</h1> Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. Deals %cleave_damage_percent_creep%%% against creeps. (Melee Only)\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways, and it can be used to skip upgrade tiers when combining."
+		"DOTA_Tooltip_ability_item_bfury_copy_Lore"			"The bearer of this mighty axe gains the ability to cut down swaths of enemies at once."
+		"DOTA_Tooltip_ability_item_bfury_copy_Note0"			"Cleave damage goes through spell immunity."
+		"DOTA_Tooltip_ability_item_bfury_copy_Note1"			"If multiple sources of Cleave are present, each Cleave's damage is applied separately."
+		"DOTA_Tooltip_ability_item_bfury_copy_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_bfury_copy_bonus_health_regen"		"+$hp_regen"
+		"DOTA_Tooltip_ability_item_bfury_copy_bonus_mana_regen"		"+$mana_regen"
+
+		// item_haste_moon_bundle Treasured Speedster's Gift
+		"DOTA_Tooltip_ability_item_haste_moon_bundle"						"<font color='#B87333'>Treasured Speedster's Gift</font>"
+		"DOTA_Tooltip_ability_item_haste_moon_bundle_Description"		"<h1>Use: Permanent Upgrade</h1>Permanently gain Wings of Haste's %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, %bonus_health_regen% health regeneration, and %bonus_mana_regen% mana regeneration, plus Moon Shard's %consumed_bonus% attack speed and %consumed_bonus_night_vision% night vision. If the hero has already consumed one of them, only the other is gained. Cannot be used when both are already consumed. Can be given to teammates.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways."
+		"DOTA_Tooltip_ability_item_haste_moon_bundle_Lore"			"Everything a speedster needs, wrapped in one chest."
+
+		// item_ultimate_scepter_copy
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy"						"<font color='#B87333'>Treasured Aghanim's Scepter</font>"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>Passive: Ability Upgrade</h1>Upgrades the ultimate, and some abilities, of all heroes.\n\n<h1>Passive: Antique</h1>Obtained by opening Treasured Aghanim's Gift. Over time, its stats and effects have changed in unusual ways."
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Lore"			"The scepter of a wizard with demigod-like powers."
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_health"		"+$health"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_mana"		"+$mana"
+
+		// item_aghanim_bundle Treasured Aghanim's Gift
+		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>Treasured Aghanim's Gift</font>"
+		"DOTA_Tooltip_ability_item_aghanim_bundle_Description"		"Grants Aghanim's Scepter and Aghanim's Shard when used. If you already own one of them, only the other is granted.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways."
+		"DOTA_Tooltip_ability_item_aghanim_bundle_Lore"			"Aghanim bundled both of his gifts so you would not have to wish twice."
+
+		// item_radiance_copy
+		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#B87333'>Treasured Radiance</font>"
+		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways, and it can be used to skip upgrade tiers when combining."
+		"DOTA_Tooltip_ability_item_radiance_copy_Lore"			"A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
+		"DOTA_Tooltip_ability_item_radiance_copy_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_radiance_copy_evasion"		"%+$evasion"
+
+		// item_blade_mail_copy
+		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#B87333'>Treasured Blade Mail</font>"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"<h1>Active: Damage Return</h1>For %duration% seconds, return all incoming damage, increasing the percentage by %active_reflection_pct%%%.\n\n<h1>Passive: Damage Return</h1>Everytime you are attacked, you return %passive_reflection_constant% damage plus %passive_reflection_pct%%% of the attack damage dealt to you.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways, and it can be used to skip upgrade tiers when combining."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Lore"			"A razor-sharp coat of mail, it is the choice of selfless martyrs in combat."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Note0"			"Damage Return is calculated before any kind of reduction."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Note1"			"Returned damage type is the same as it was received."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Note2"			"Damage done by this item is considered reflected damage. Reflected damage does not provide any lifesteal and cannot be reflected."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_bonus_armor"		"+$armor"
+
+		// item_heart_copy
+		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#B87333'>Treasured Undying Heart</font>"
+		"DOTA_Tooltip_ability_item_heart_copy_Description"							"<h1><font color='#FFFF00'>Active: Draconic Recovery</font></h1>Heal %active_hp_regen% + %active_hp_regen_pct%%% of max health and applies a dispel, then receive %buff_hp_regen% + %buff_hp_regen_pct%%% max health as health regeneration for %dur% seconds afterward.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Behemoth's Blood</h1>Your health regeneration is increased by %missing_health_regen%%% of your missing health.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways, and it can be used to skip upgrade tiers when combining."
+		"DOTA_Tooltip_ability_item_heart_copy_Lore"			"Preserved heart of an extinct monster, it bolsters the bearer's fortitude."
+		"DOTA_Tooltip_ability_item_heart_copy_Note0"			"Multiple instances of Behemoth's Blood do not stack."
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_strength"		"+$str"
+		"DOTA_Tooltip_ability_item_heart_copy_hp_regen"		"%+Max Health Regen"
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_health_passive"							"+$health"
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_evasion"							"%+$evasion"
+		"DOTA_Tooltip_modifier_item_heart_copy_buff"									"Draconic Recovery"
+		"DOTA_Tooltip_modifier_item_heart_copy_buff_Description"						"Regenerating health at a rapid rate based on your max HP."
+
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#F74042'>Ultra</font> Bloodthorn"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>Active: Soul Tear</h1> Silences a target for %silence_duration% seconds. At the end of the silence, an additional %silence_damage_percent%%% of all damage taken during the silence will be dealt to the target as magical damage.<br><br>All attacks on the silenced target will deal additional damage equal to %proc_damage_heroes% if the attacker is a hero, and %proc_damage_creeps%, if the attacker is a creep. Provides True Strike for your attacks and attacks from your controlled units against the silenced target."
@@ -3207,6 +3369,16 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+Cast Speed Bonus"
+
+		// item_starforge_copy 珍藏·锻星炉
+		"DOTA_Tooltip_ability_item_starforge_copy"	"<font color='#B87333'>Treasured Starforge</font>"
+		"DOTA_Tooltip_ability_item_starforge_copy_Description"	"<h1>Active: Meteor Hammer</h1>After channeling for %max_duration%s, summons a meteor that lands after %land_time%s and strikes enemies within a %impact_radius% radius.<br><br>Non-building units take %impact_damage_units% impact damage plus %impact_damage_units_pct_health%%% of their max health and are slowed by %burn_slow%%% for %burn_duration%s.<br><br>Buildings take %building_damage_pct%%% of the base impact damage.\n\n<h1>Passive: Celestial Flare</h1>After one of your disables ends on an enemy, they burn for %burn_per_second% damage per second and are slowed by %slow_pct%%% for %passive_debuff_duration%s.<br>Your abilities and items can both trigger Celestial Flare.<br>Celestial Flare stacks with Meteor Hammer’s burn.\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways, and it can be used to skip upgrade tiers when combining."
+		"DOTA_Tooltip_ability_item_starforge_copy_Note0"	"Stuns, hexes, hypnosis, cyclones, taunts, fear, sleep, and banishment can trigger Celestial Flare."
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_strength"	"+$str"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_agility"	"+$agi"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_intellect"	"+$int"
+		"DOTA_Tooltip_ability_item_starforge_copy_spell_amp"	"%+Spell Amplification"
+		"DOTA_Tooltip_ability_item_starforge_copy_mana_regen_multiplier"	"%+Mana Regen Amplification"
 
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>Asteroid Hammer</font>"
@@ -3371,9 +3543,9 @@
 		"DOTA_Tooltip_Ability_item_dark_part_Lore"				"Drops randomly when killing Roshan and neutral creeps during the night."
 		"DOTA_Tooltip_Ability_item_dark_part_bonus_spell_amp"	"%+$spell_amp"
 
-		// item_armlet_light 圣光·臂章
-		"DOTA_Tooltip_ability_item_armlet_light"				"<font color='#FFFF00'>Light</font> Armlet of Mordiggian"
-		"DOTA_Tooltip_ability_item_armlet_light_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		// item_armlet_light 圣光·护足
+		"DOTA_Tooltip_ability_item_armlet_light"				"<font color='#FFFF00'>Light</font> Berserker's Sabatons"
+		"DOTA_Tooltip_ability_item_armlet_light_Description"							"<h1>Toggle: Mordiggian's Oath</h1> While active, grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% Strength, and +%unholy_bonus_armor% armor, and lets you move through units and turn more quickly with %phase_movement_speed%%% increased movement speed. Also grants up to %unholy_bonus_slow_resistance%%% slow resistance, scaling down with your current health percentage. Drains %unholy_health_drain_per_second% health per second.\n\nYou cannot die from the health drain, nor from the strength loss when deactivated. Movement speed bonuses from multiple pairs of boots do not stack."
 		"DOTA_Tooltip_ability_item_armlet_light_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
 		"DOTA_Tooltip_ability_item_armlet_light_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
 		"DOTA_Tooltip_ability_item_armlet_light_Note1"								"The strength change occurs over 0.6 seconds."
@@ -3382,10 +3554,11 @@
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_light_bonus_movement_speed_melee"			"+Move Speed"
 
-		// item_armlet_dark 暗影·臂章
-		"DOTA_Tooltip_ability_item_armlet_dark"				"<font color='#8A2BE2'>Dark</font> Armlet of Mordiggian"
-		"DOTA_Tooltip_ability_item_armlet_dark_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		// item_armlet_dark 暗影·护足
+		"DOTA_Tooltip_ability_item_armlet_dark"				"<font color='#8A2BE2'>Dark</font> Berserker's Sabatons"
+		"DOTA_Tooltip_ability_item_armlet_dark_Description"							"<h1>Toggle: Mordiggian's Oath</h1> While active, grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% Strength, and +%unholy_bonus_armor% armor, and lets you move through units and turn more quickly with %phase_movement_speed%%% increased movement speed. Also grants up to %unholy_bonus_slow_resistance%%% slow resistance, scaling down with your current health percentage. Drains %unholy_health_drain_per_second% health per second.\n\nYou cannot die from the health drain, nor from the strength loss when deactivated. Movement speed bonuses from multiple pairs of boots do not stack."
 		"DOTA_Tooltip_ability_item_armlet_dark_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
 		"DOTA_Tooltip_ability_item_armlet_dark_Note0"								"The strength change will affect both maximum and current HP, but you cannot die from the change."
 		"DOTA_Tooltip_ability_item_armlet_dark_Note1"								"The strength change occurs over 0.6 seconds."
@@ -3394,10 +3567,11 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_dark_bonus_movement_speed_melee"			"+Move Speed"
 
-		// item_armlet_artifact 神器·光暗臂章
-		"DOTA_Tooltip_ability_item_armlet_artifact"									"<font color='#e03e2e'>Artifact</font> Armlet of Mordiggian"
-		"DOTA_Tooltip_ability_item_armlet_artifact_Description"						"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		// item_armlet_artifact 神器·光暗护足
+		"DOTA_Tooltip_ability_item_armlet_artifact"									"<font color='#e03e2e'>Artifact</font> Sabatons of Light and Dark"
+		"DOTA_Tooltip_ability_item_armlet_artifact_Description"						"<h1>Toggle: Mordiggian's Oath</h1> While active, grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% Strength, and +%unholy_bonus_armor% armor, and lets you move through units and turn more quickly with %phase_movement_speed%%% increased movement speed. Also grants up to %unholy_bonus_slow_resistance%%% slow resistance, scaling down with your current health percentage. Drains %unholy_health_drain_per_second% health per second.\n\nYou cannot die from the health drain, nor from the strength loss when deactivated. Movement speed bonuses from multiple pairs of boots do not stack."
 		"DOTA_Tooltip_ability_item_armlet_artifact_Lore"								"Light and darkness, perfectly fused — the bearer gains the best of both worlds."
 		"DOTA_Tooltip_ability_item_armlet_artifact_Note0"							"The strength change will affect both maximum and current HP, but you cannot die from the change."
 		"DOTA_Tooltip_ability_item_armlet_artifact_Note1"							"The strength change occurs over 0.6 seconds."
@@ -3406,6 +3580,7 @@
 		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_armor"						"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_health_regen"				"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_movement_speed_melee"			"+Move Speed"
 
 		// Updated Armlet tooltip (now shows slow resist on active)
 		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%.\nStrength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%.\nArmor increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nSlow resistance increased by %dMODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING%%%.\nLosing %dMODIFIER_PROPERTY_TOOLTIP% health per second."
@@ -3425,6 +3600,17 @@
 		"DOTA_Tooltip_Ability_item_force_field_ultra_Lore"					"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"%+$spell_resist"
+
+		// item_dagon_ultra_copy
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy"						"<font color='#B87333'>Treasured Thousand Strikes</font>"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Description"		"<h1>Active: Watch My Speed</h1> Unleashes a burst of magical damage at an enemy target unit.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%\n\n<h1>Passive: Antique</h1>Can only be obtained from treasure chests. Over time, its stats and effects have changed in unusual ways."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Lore"			"The faster your hands, the higher the damage, as long as you have mana."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Note0"			"Instantly destroys illusions."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Note1"			"Cast Range bonuses from Aether Lens and Dagon do not stack."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_health"		"+$health"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_mana"		"+$mana"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_cast_range_bonus"		"+$cast_range"
 
 		// 神器 一瞬千击
 		"DOTA_Tooltip_Ability_item_dagon_ultra"										"<font color='#e03e2e'>Artifact: Thousand Strikes</font>"

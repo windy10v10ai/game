@@ -264,7 +264,7 @@ export class Treasure {
   }
 
   static mapToLotteryPool(openCount: number): ItemLotteryPool {
-    if (openCount <= 1) return ItemLotteryPool.INITIAL;
+    if (openCount <= 1) return ItemLotteryPool.TREASURED;
     if (openCount >= 10) return ItemLotteryPool.ULTRA;
     if (openCount >= 5) return ItemLotteryPool.PREMIUM;
     return ItemLotteryPool.DEFAULT;
@@ -273,6 +273,8 @@ export class Treasure {
   // 非开箱者奖励降一档，INITIAL 已是最低档保持不变
   static lowerPoolByOne(pool: ItemLotteryPool): ItemLotteryPool {
     switch (pool) {
+      case ItemLotteryPool.TREASURED:
+        return pool;
       case ItemLotteryPool.ULTRA:
         return ItemLotteryPool.PREMIUM;
       case ItemLotteryPool.PREMIUM:

@@ -1,6 +1,7 @@
 #base "npc_items_modifier.txt"
 #base "npc_items_artifact.txt"
 #base "npc_items_clone.txt"
+#base "npc_items_treasure.txt"
 
 "DOTAAbilities"
 {
@@ -138,6 +139,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_ultimate_scepter"
+			"02"						"item_ultimate_scepter_copy"
 		}
 	}
 	"item_ultimate_scepter_2"
@@ -406,6 +408,7 @@
 
 				"TextureName"		"item_wings_of_haste"
 
+				// 设定：吃掉后只保留这 4 项加成，全属性只在持有时生效
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"100"
@@ -4000,6 +4003,9 @@
 			"01"						"item_overwhelming_blink_2;item_starforge"
 			"02"						"item_swift_blink_2;item_starforge"
 			"03"						"item_arcane_blink;item_starforge"
+			"04"						"item_overwhelming_blink_2;item_starforge_copy"
+			"05"						"item_swift_blink_2;item_starforge_copy"
+			"06"						"item_arcane_blink;item_starforge_copy"
 		}
 	}
 	"item_jump_jump_jump"
@@ -4600,7 +4606,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1025"
+		"ItemCost"						"100"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4609,7 +4615,7 @@
 		"ItemResult"					"item_armlet_plus"
 		"ItemRequirements"
 		{
-			"01"						"item_helm_of_iron_will;item_armlet"
+			"01"						"item_helm_of_iron_will;item_berserkers_sabatons"
 		}
 	}
 	"item_armlet_plus"
@@ -4627,7 +4633,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5000"
+		"ItemCost"						"5125"
 		"ItemShopTags"					"damage;attack_speed;armor;regen_health;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"armlet of mordiggian"
@@ -4638,14 +4644,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"bonus_movement_speed_ranged"	"50"
+			"bonus_movement_speed_melee"	"50"
+			"phase_movement_speed"	"20"
+			"phase_movement_speed_range"	"20"
 			"bonus_damage"			"30"
 			"bonus_attack_speed"	"35"
 			"bonus_armor"			"12"
 			"bonus_health_regen"	"10"
-			"bonus_movement_speed_ranged"	"0"	// 本体不是鞋子，不提供常驻移速
-			"bonus_movement_speed_melee"	"0"
-			"phase_movement_speed"	"20"		// 开启时相位移速
-			"phase_movement_speed_range"	"10"
 			"unholy_bonus_damage"	"45"
 			"unholy_bonus_strength"	"50"
 			"unholy_bonus_armor"	"8"
@@ -4668,7 +4674,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1025"
+		"ItemCost"						"100"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4695,7 +4701,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6500"
+		"ItemCost"						"6200"
 		"ItemShopTags"					"damage;attack_speed;armor;regen_health;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"armlet of mordiggian"
@@ -4706,14 +4712,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"bonus_movement_speed_ranged"	"50"
+			"bonus_movement_speed_melee"	"50"
+			"phase_movement_speed"	"20"
+			"phase_movement_speed_range"	"20"
 			"bonus_damage"			"45"
 			"bonus_attack_speed"	"45"
 			"bonus_armor"			"18"
 			"bonus_health_regen"	"15"
-			"bonus_movement_speed_ranged"	"0"	// 本体不是鞋子，不提供常驻移速
-			"bonus_movement_speed_melee"	"0"
-			"phase_movement_speed"	"25"		// 开启时相位移速
-			"phase_movement_speed_range"	"12"
 			"unholy_bonus_damage"	"55"
 			"unholy_bonus_strength"	"75"
 			"unholy_bonus_armor"	"12"
@@ -6481,6 +6487,7 @@
 		"ItemRequirements"
 		{
 			"01"					"item_aeon_pendant;item_undying_heart;item_guardian_greaves_artifact;item_fusion_life"
+			"02"					"item_aeon_pendant;item_heart_copy;item_guardian_greaves_artifact;item_fusion_life"
 		}
 	}
 
@@ -6860,6 +6867,7 @@
 		"ItemRequirements"
 		{
 			"01"					"item_hand_of_group;item_armlet_artifact;item_mjollnir_2;item_fusion_agile"
+			"02"					"item_hand_of_midas_copy;item_armlet_artifact;item_mjollnir_2;item_fusion_agile"
 		}
 	}
 
@@ -7232,6 +7240,9 @@
 		"ItemRequirements"
 		{
 			"01"					"item_blade_mail_2;item_saint_orb;item_radiance_2;item_shivas_guard_2;item_fusion_beast"
+			"02"					"item_blade_mail_copy;item_saint_orb;item_radiance_2;item_shivas_guard_2;item_fusion_beast"
+			"03"					"item_blade_mail_2;item_saint_orb;item_radiance_copy;item_shivas_guard_2;item_fusion_beast"
+			"04"					"item_blade_mail_copy;item_saint_orb;item_radiance_copy;item_shivas_guard_2;item_fusion_beast"
 		}
 	}
 
@@ -7454,6 +7465,7 @@
 		"ItemRequirements"
 		{
 			"01"					"item_skadi_2;item_bfury_ultra;item_infernal_desolator;item_fusion_magic"
+			"02"					"item_skadi_2;item_bfury_copy;item_infernal_desolator;item_fusion_magic"
 		}
 	}
 	"item_magic_sword"
@@ -8006,4 +8018,562 @@
 		}
 	}
 
+
+	//=================================================================================================================
+	// 珍藏版：属性同原版，只能由藏宝箱开出，只作上位装备的合成材料
+	//=================================================================================================================
+	"item_bfury_copy"
+	{
+		"ID"							"10471"
+		"BaseClass"						"item_bfury"
+		"AbilityTextureName"			"bfury_copy"
+		"ItemCost"						"1000"	// 原版造价 3900
+		"ItemShopTags"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"3.0"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"			"5"	// 原版 50
+			"bonus_health_regen"	"15"	// 原版 7.5
+			"bonus_mana_regen"		"5.5"	// 原版 2.75
+			"cleave_damage_percent"	"50"	// 原版 60
+			"cleave_damage_percent_creep"	"50"	// 原版 40
+			"quelling_bonus"			"40"	// 原版 10
+			"quelling_bonus_ranged"	"20"	// 原版 5
+			"cleave_starting_width"
+			{
+			"value"	"150"	// 原版 360
+			"affected_by_aoe_increase"	"1"	// 原版 1
+			}
+			"cleave_ending_width"
+			{
+			"value"	"360"	// 原版 360
+			"affected_by_aoe_increase"	"1"	// 原版 1
+			}
+			"cleave_distance"			"650"	// 原版 650
+			"upgraded_cleave_bonus"			"25"	// 原版 25
+			"upgraded_damage_bonus"			"15"	// 原版 15
+		}
+	}
+
+	"item_radiance_copy"
+	{
+		"ID"							"10472"
+		"BaseClass"						"item_radiance"
+		"AbilityTextureName"			"radiance_copy"
+		"ItemCost"						"1000"	// 原版造价 4700
+		"ItemShopTags"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_DONT_PROC_OTHER_ABILITIES | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"			"15"	// 原版 55
+			"aura_damage"			"76"	// 原版 60
+			"aura_damage_illusions"	"76"	// 原版 35
+			"upgrade_day_vision"	"500"	// 原版 250
+			"evasion"				"50"	// 原版 25
+			"blind_pct"				"0"	// 原版 0
+			"aura_radius"
+			{
+			"value"		"650"	// 原版 650
+			"affected_by_aoe_increase"	"1"	// 原版 1
+			}
+			"illusion_multiplier_pct"	"100"	// 原版 100
+		}
+	}
+
+	"item_blade_mail_copy"
+	{
+		"ID"							"10473"
+		"BaseClass"						"item_blade_mail"
+		"AbilityTextureName"			"blade_mail_copy"
+		"AbilitySharedCooldown"			"blade_mail"
+		"ItemCost"						"1000"	// 原版造价 2350
+		"ItemShopTags"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCooldown"				"25.0"
+		"AbilityManaCost"				"25"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"			"25"	// 原版 15
+			"bonus_armor"			"10"	// 原版 7
+			"bonus_intellect"		"0"	// 原版 0
+			"duration"				"4"	// 原版 5.5，本模组 4
+			"passive_reflection_constant"			"150"	// 原版 10
+			"passive_reflection_pct"			"15"	// 原版 15
+			"active_reflection_pct"			"85"	// 原版 85
+		}
+	}
+
+	"item_heart_copy"
+	{
+		"BaseClass"						"item_datadriven"
+		"ID"							"10474"
+		"AbilityTextureName"			"heart_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"400"
+		"AbilitySharedCooldown"			"undying"
+
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+
+		"AbilityValues"
+		{
+			"bonus_strength"			"30"
+			"hp_regen"					"5"
+			"missing_health_regen"		"2"
+
+			"bonus_health_passive"		"100"
+			"bonus_evasion"				"25"
+
+			"dur"						"5"
+			"active_hp_regen"			"500"
+			"active_hp_regen_pct"		"5"
+			"buff_hp_regen"				"30"
+			"buff_hp_regen_pct"			"1"
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_heart_copy"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health_passive"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"%bonus_evasion"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_undying_heart"
+						"Function"		"UndyingHeartOnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_undying_heart"
+						"Function"		"UndyingHeartOnDestroy"
+					}
+				}
+			}
+			"modifier_item_heart_copy_buff"
+			{
+				"IsBuff"					"1"
+				"IsPurgable"				"1"
+				"TextureName"				"item_heart_copy"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%buff_hp_regen"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%buff_hp_regen_pct"
+				}
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_undying_heart"
+				"Function"		"UndyingHeartOnSpellStart"
+				"modifier"			"modifier_item_heart_copy_buff"
+			}
+		}
+	}
+
+
+	//=================================================================================================================
+	// 珍藏·阿哈利姆的馈赠：使用后得到阿哈利姆神杖与魔晶
+	//=================================================================================================================
+	"item_aghanim_bundle"
+	{
+		"ID"							"10475"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"aghanim_bundle"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_loot_bundle"
+				"Function"			"LootBundleOnSpell"
+				"loot_1"			"item_ultimate_scepter_copy"
+				"skip_loot_1_if"	"modifier_item_ultimate_scepter modifier_item_ultimate_scepter_consumed"
+				"loot_2"			"item_aghanims_shard"
+				"skip_loot_2_if"	"modifier_item_aghanims_shard"
+			}
+		}
+	}
+
+
+	//=================================================================================================================
+	// 珍藏·快男的馈赠：使用后直接永久获得急速之翼与银月之晶的吞噬加成，不发物品
+	//=================================================================================================================
+	"item_haste_moon_bundle"
+	{
+		"ID"							"10476"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"haste_moon_bundle"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+
+		"AbilityValues"
+		{
+			"bonus_movement_speed"			"100"
+			"bonus_attack_speed"			"25"
+			"bonus_health_regen"			"8"
+			"bonus_mana_regen"				"5"
+			"consumed_bonus"				"60"
+			"consumed_bonus_night_vision"	"200"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_loot_bundle"
+				"Function"			"HasteMoonBundleOnSpell"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_wings_of_haste_consumed_copy"
+			{
+				"IsBuff"			"1"
+				"IsPurgable"		"0"
+				// 可以被幻象继承
+				"AllowIllusionDuplicate"		"1"
+
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"TextureName"		"item_wings_of_haste"
+
+				// 设定：吃掉后只保留这 4 项加成，全属性只在持有时生效
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"		"100"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"25"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"				"8"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"					"5"
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// 阿哈利姆神杖复制品：效果与原版一致，只能由宝箱开出，卖价更低
+	//=================================================================================================================
+	"item_ultimate_scepter_copy"
+	{
+		"ID"							"10477"
+		"BaseClass"						"item_ultimate_scepter"
+		"AbilityTextureName"			"ultimate_scepter_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_all_stats"					"5"	// 原版 10
+			"bonus_health"					"50"	// 原版 175
+			"bonus_mana"					"500"	// 原版 175
+		}
+
+		"ItemCost"						"1000"	// 原版造价 4200
+		"ItemShopTags"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+	}
+
+	//=================================================================================================================
+	// Treasured Sabatons
+	//=================================================================================================================
+	"item_berserkers_sabatons_copy"
+	{
+		"ID"							"10481"
+		"BaseClass"						"item_berserkers_sabatons"
+		"AbilityTextureName"			"berserkers_sabatons_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityValues"
+		{
+			"bonus_movement_speed_ranged"	"50"
+			"bonus_movement_speed_melee"		"50"
+			"bonus_damage"					"20"
+			"bonus_attack_speed"			"30"
+			"bonus_armor"					"8"
+			"bonus_health_regen"			"8"
+			"phase_movement_speed"			"20"
+			"phase_movement_speed_range"	"20"
+			"unholy_bonus_damage"			"30"
+			"unholy_bonus_strength"			"35"
+			"unholy_bonus_armor"			"6"
+			"unholy_bonus_slow_resistance"	"35"
+			"unholy_health_drain_per_second"	"40"
+			"unholy_health_drain_pct_per_second"	"0"
+			"toggle_cooldown"				"0.036"
+		}
+	}
+
+	//=================================================================================================================
+	// 珍藏·音速战刃：属性同音速战刃，只能由宝箱开出，可合成鱼叉
+	//=================================================================================================================
+	"item_echo_sabre_2_copy"
+	{
+		"ID"							"10480"
+		"BaseClass"						"item_echo_sabre"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"2.5"
+		"AbilitySharedCooldown"			"echo_sabre"
+		"AbilityTextureName"			"echo_sabre_2_copy"
+		"AbilityManaCost"				"0"
+		"ItemCost"						"1000"	// 原版造价 4325
+		"ItemShopTags"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage"					"50"	// 原版 50
+			"bonus_strength"				"30"	// 原版 30
+			"bonus_mana_regen"				"2.0"	// 原版 1.75
+			"movement_slow"					"100"	// 原版 100
+			"slow_duration"					"0.5"	// 原版 0.8
+		}
+	}
+
+	//=================================================================================================================
+	// 珍藏·怪蛇之息：属性同怪蛇之息，只能由宝箱开出，可合成怪蛇之息2
+	//=================================================================================================================
+	"item_hydras_breath_copy"
+	{
+		"ID"							"10482"
+		"BaseClass"						"item_hydras_breath"
+		"AbilityTextureName"			"hydras_breath_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCooldown"				"0"
+		"AbilityCastRange"				"0"
+		"AbilityManaCost"				"0"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"strength"						"10"	// 原版 15
+			"agility"						"20"	// 原版 30
+			"damage"						"15"	// 原版 25
+			"base_count"					"0"	// 原版 0
+			"count"							"4"	// 原版 3
+			"secondary_target_range_bonus"	"75"	// 原版 150
+			"secondary_target_angle"		"120"	// 原版 120
+			"proc_chance"					"90"	// 原版 30
+			"proc_dmg_pct"					"30"	// 原版 75
+			"proc_dmg_pct_primary_tooltip"	"100"	// 原版 100
+			"base_proc_dmg"					"20"	// 原版 20
+			"base_attack_range"				"75"	// 原版 150
+
+			"poison_duration"
+			{
+				"value"				"3"	// 原版 3
+			}
+			"poison_base_damage"			"0"	// 原版 0
+			"poison_damage_per_second"		"2.5"	// 原版 2.5
+		}
+		"ItemCost"						"1000"	// 原版造价 5900
+		"ItemShopTags"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+	}
+
+	//=================================================================================================================
+	// item_hand_of_midas_copy：属性同item_hand_of_midas，只能由宝箱开出
+	//=================================================================================================================
+	"item_hand_of_midas_copy"
+	{
+		"ID"							"10483"
+		"BaseClass"						"item_hand_of_midas"
+		"AbilityTextureName"			"hand_of_midas_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityCastRange"				"80000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityCharges"				"2"
+		"AbilityChargeRestoreTime"		"60"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"1"
+		"SpeciallyBannedFromNeutralSlot"		"1"
+		"AbilityManaCost"				"0"
+		"ItemQuality"					"common"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"AbilityValues"
+		{
+				"bonus_attack_speed"	"20"	// 原版 40
+				"bonus_gold"			"320"	// 原版 160
+		}
+
+		"ItemCost"						"1000"	// 原版造价 2200
+		"ItemShopTags"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+	}
+
+	//=================================================================================================================
+	// Treasured Starforge
+	//=================================================================================================================
+	"item_starforge_copy"
+	{
+		"ID"							"10484"
+		"BaseClass"						"item_starforge"
+		"AbilityTextureName"			"starforge_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityChannelTime"			"1.5"
+		"AbilityCastRange"				"900"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"200"
+		"AbilitySharedCooldown"			"meteor"
+		"ItemQuality"					"epic"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"ItemCost"						"1000"
+		"ItemShopTags"					""
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityValues"
+		{
+			"bonus_strength"				"18"
+			"bonus_agility"					"18"
+			"bonus_intellect"				"28"
+			"spell_amp"						"10"
+			"mana_regen_multiplier"			"40"
+			"burn_dps_units"				"0"
+			"burn_slow"						"20"
+			"burn_duration"					"6"
+			"stun_duration"					"0"
+			"burn_interval"					"1.0"
+			"land_time"						"0.5"
+			"impact_radius"
+			{
+				"value"							"400"
+				"affected_by_aoe_increase"		"1"
+			}
+			"max_duration"					"1.5"
+			"impact_damage_units"			"100"
+			"impact_damage_units_pct_health"	"10"
+			"building_damage_pct"			"200"
+			"enemy_particles_visible"		"0"
+			"passive_debuff_duration"		"5.0"
+			"slow_pct"						"15"
+			"burn_per_second"				"300"
+			"passive_burn_interval"			"1.0"
+		}
+	}
+
+	//=================================================================================================================
+	// 珍藏·一瞬千击：属性同神器·一瞬千击，只能由宝箱开出（达贡系列终阶，没有更高配方）
+	//=================================================================================================================
+	"item_dagon_ultra_copy"
+	{
+		"ID"							"10485"
+		"BaseClass"						"item_dagon_5"
+		"AbilityTextureName"			"dagon_ultra_copy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.5"
+		"AbilityManaCost"				"600"
+		"ItemCost"						"1000"	// 原版造价 13950
+		"ItemShopTags"					""
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"AbilityValues"
+		{
+			"bonus_all_stats"			"6"	// 原版 60
+			"bonus_health"				"176"	// 原版 480
+			"bonus_mana"				"176"	// 原版 900
+			"damage"					"600"	// 原版 1600
+			"damage_delay"				"0"	// 原版 0
+			"mana_cost_tooltip"			"600"	// 原版 1600
+			"cast_range_bonus"			"100"	// 原版 360
+		}
+	}
 }

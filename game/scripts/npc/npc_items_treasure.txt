@@ -1,0 +1,478 @@
+"DOTAAbilities"
+{
+	"item_treasure_salve"
+	{
+		"ID"							"10486"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"treasure_salve"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityCastRange"				"250"
+		"AbilityCastPoint"				"0"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"Model"							"models/props_gameplay/salve.vmdl"
+		"ItemQuality"					"consumable"
+		"ItemCost"						"0"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemStackable"					"1"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"5"
+		"IsTempestDoubleClonable"		"0"
+		"SpeciallyBannedFromNeutralSlot"	"1"
+		"ShowGiveIndicatorOnTargetCast"	"1"
+
+		"AbilityValues"
+		{
+			"health_regen"				"200"
+			"buff_duration"				"30"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"				"TARGET"
+				"ModifierName"			"modifier_item_treasure_salve"
+				"Duration"				"%buff_duration"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"items/item_treasure_consumables"
+				"Function"				"TreasureConsumableSpendCharge"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_treasure_salve"
+			{
+				"IsBuff"				"1"
+				"IsPurgable"			"0"
+				"TextureName"			"item_treasure_salve"
+				"EffectName"			"particles/items_fx/healing_flask.vpcf"
+				"EffectAttachType"		"follow_origin"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen"
+				}
+			}
+		}
+	}
+
+	"item_treasure_clarity"
+	{
+		"ID"							"10487"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"treasure_clarity"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityCastRange"				"250"
+		"AbilityCastPoint"				"0"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"Model"							"models/props_gameplay/clarity.vmdl"
+		"ItemQuality"					"consumable"
+		"ItemCost"						"0"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemStackable"					"1"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"5"
+		"IsTempestDoubleClonable"		"0"
+		"SpeciallyBannedFromNeutralSlot"	"1"
+		"ShowGiveIndicatorOnTargetCast"	"1"
+
+		"AbilityValues"
+		{
+			"mana_regen"				"150"
+			"buff_duration"				"30"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"				"TARGET"
+				"ModifierName"			"modifier_item_treasure_clarity"
+				"Duration"				"%buff_duration"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"items/item_treasure_consumables"
+				"Function"				"TreasureConsumableSpendCharge"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_treasure_clarity"
+			{
+				"IsBuff"				"1"
+				"IsPurgable"			"1"
+				"TextureName"			"item_treasure_clarity"
+				"EffectName"			"particles/items_fx/healing_clarity.vpcf"
+				"EffectAttachType"		"follow_origin"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%mana_regen"
+				}
+			}
+		}
+	}
+
+	"item_treasure_mango"
+	{
+		"BaseClass"						"item_enchanted_mango"
+		"AbilityTextureName"			"treasure_mango"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0"
+		"Model"							"models/props_gameplay/mango.vmdl"
+		"ItemQuality"					"consumable"
+		"ItemCost"						"0"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"6"
+		"ItemInitialCharges"			"1"
+		"ItemPermanent"					"0"
+		"IsTempestDoubleClonable"		"0"
+		"SpeciallyBannedFromNeutralSlot"	"1"
+		"ShowGiveIndicatorOnTargetCast"	"1"
+
+		"AbilityValues"
+		{
+			"hp_regen"					"76"
+			"replenish_amount"			"80000"
+		}
+	}
+
+	"item_treasure_raindrop"
+	{
+		"BaseClass"						"item_infused_raindrop"
+		"AbilityTextureName"			"treasure_raindrop"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCooldown"				"0.5"
+		"AbilityCastPoint"				"0"
+		"ItemQuality"					"component"
+		"ItemCost"						"0"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"50"
+		"ItemHideCharges"				"0"
+		"UIPickupSound"					"Item.PickUpRingShop"
+		"UIDropSound"					"Item.DropRingShop"
+		"WorldDropSound"				"Item.DropRingWorld"
+
+		"AbilityValues"
+		{
+			"mana_regen"				"37.6"
+			"magic_damage_block"		"80000"
+			"min_damage"				"800"
+			"initial_charges"			"50"
+		}
+	}
+
+	"item_treasure_bottle"
+	{
+		"BaseClass"						"item_bottle"
+		"AbilityTextureName"			"treasure_bottle"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityCooldown"				"0.5"
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0"
+		"Model"							"models/props_gameplay/bottle_blue.vmdl"
+		"ModelAlternate"				"models/props_gameplay/bottle_empty.vmdl"
+		"FightRecapLevel"				"1"
+		"ItemQuality"					"common"
+		"ItemCost"						"0"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemStackable"					"0"
+		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
+		"ItemPermanent"					"1"
+		"ItemInitialCharges"			"5"
+		"ItemDisplayCharges"			"1"
+		"IsTempestDoubleClonable"		"0"
+		"SpeciallyBannedFromNeutralSlot"	"1"
+		"ShowGiveIndicatorOnTargetCast"	"1"
+
+		"AbilityValues"
+		{
+			"health_restore"			"700"
+			"mana_restore"				"525"
+			"health_restore_pct"		"0"
+			"mana_restore_pct"			"0"
+			"health_regen_pct_tooltip"	"5"
+			"mana_regen_pct_tooltip"		"6"
+			"restore_time"				"3.5"
+			"max_charges"				"5"
+			"break_on_hero_damage"		"0"
+			"rune_expire_time"			"120"
+		}
+	}
+
+	"item_treasure_cheese"
+	{
+		"ID"							"10488"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"treasure_cheese"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"30"
+		"Model"							"models/props_gameplay/cheese.vmdl"
+		"FightRecapLevel"				"2"
+		"ItemQuality"					"consumable"
+		"ItemCost"						"0"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemStackable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"5"
+		"ItemDisplayCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"ItemContributesToNetWorthWhenDropped"	"0"
+		"IsTempestDoubleClonable"		"0"
+		"SpeciallyBannedFromNeutralSlot"	"1"
+		"ItemAllowCombineFromGround"	"0"
+
+		"AbilityValues"
+		{
+			"health_restore"			"20000"
+			"mana_restore"				"10000"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"items/item_treasure_consumables"
+				"Function"				"TreasureCheeseOnSpell"
+			}
+		}
+	}
+
+	"item_treasure_attribute_fragment"
+	{
+		"ID"									"10489"
+		"BaseClass"							"item_datadriven"
+		"AbilityTextureName"					"treasure_attribute_fragment"
+		"Model"								"models/gameplay/attrib_tome_xp.vmdl"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"							"0"
+		"ItemPurchasable"					"0"
+		"ItemSellable"						"0"
+		"ItemDroppable"						"1"
+		"ItemKillable"						"0"
+		"ItemShareability"					"ITEM_FULLY_SHAREABLE"
+		"IsTempestDoubleClonable"			"0"
+		"ItemStackable"						"1"
+		"ItemStackableMax"					"4"
+		"ItemInitialCharges"					"1"
+		"ItemPermanent"						"0"
+	}
+
+	"item_treasure_inventory_fragment"
+	{
+		"ID"									"10490"
+		"BaseClass"							"item_datadriven"
+		"AbilityTextureName"					"treasure_inventory_fragment"
+		"Model"								"models/gameplay/attrib_tome_xp.vmdl"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"							"0"
+		"ItemPurchasable"					"0"
+		"ItemSellable"						"0"
+		"ItemDroppable"						"1"
+		"ItemKillable"						"0"
+		"ItemShareability"					"ITEM_FULLY_SHAREABLE"
+		"IsTempestDoubleClonable"			"0"
+		"ItemStackable"						"1"
+		"ItemStackableMax"					"3"
+		"ItemInitialCharges"					"1"
+		"ItemPermanent"						"0"
+	}
+
+	"item_treasure_passive_fragment"
+	{
+		"ID"									"10491"
+		"BaseClass"							"item_datadriven"
+		"AbilityTextureName"					"treasure_passive_fragment"
+		"Model"								"models/gameplay/attrib_tome_xp.vmdl"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"							"0"
+		"ItemPurchasable"					"0"
+		"ItemSellable"						"0"
+		"ItemDroppable"						"1"
+		"ItemKillable"						"0"
+		"ItemShareability"					"ITEM_FULLY_SHAREABLE"
+		"IsTempestDoubleClonable"			"0"
+		"ItemStackable"						"1"
+		"ItemStackableMax"					"4"
+		"ItemInitialCharges"					"1"
+		"ItemPermanent"						"0"
+	}
+
+	"item_treasure_attribute_tome"
+	{
+		"ID"									"10492"
+		"BaseClass"							"item_lua"
+		"ScriptFile"							"items/ts_items/item_treasure_attribute_tome"
+		"AbilityTextureName"					"tome_of_knowledge"
+		"Model"								"models/gameplay/attrib_tome_xp.vmdl"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"ItemCost"							"0"
+		"ItemPurchasable"					"0"
+		"ItemSellable"						"0"
+		"ItemDroppable"						"1"
+		"ItemKillable"						"0"
+		"ItemShareability"					"ITEM_FULLY_SHAREABLE"
+		"IsTempestDoubleClonable"			"0"
+		"ItemPermanent"						"0"
+		"ItemCanBeUsedWithoutInventory"	"1"
+		"ItemQuality"						"consumable"
+	}
+
+	"item_recipe_treasure_attribute_tome"
+	{
+		"ID"									"10493"
+		"BaseClass"							"item_datadriven"
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"ItemCost"							"0"
+		"ItemPurchasable"					"0"
+		"ItemSellable"						"0"
+		"ItemRecipe"							"1"
+		"ItemResult"							"item_treasure_attribute_tome"
+		"ItemRecipeConsumesCharges"			"1"
+		"ItemRequirements"
+		{
+			"01"									"item_treasure_attribute_fragment;item_treasure_attribute_fragment;item_treasure_attribute_fragment;item_treasure_attribute_fragment"
+		}
+	}
+
+	"item_recipe_inventory_slot_unlock"
+	{
+		"ID"									"10494"
+		"BaseClass"							"item_datadriven"
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"ItemCost"							"0"
+		"ItemPurchasable"					"0"
+		"ItemSellable"						"0"
+		"ItemRecipe"							"1"
+		"ItemResult"							"item_inventory_slot_unlock"
+		"ItemRecipeConsumesCharges"			"1"
+		"ItemRequirements"
+		{
+			"01"									"item_treasure_inventory_fragment;item_treasure_inventory_fragment;item_treasure_inventory_fragment"
+		}
+	}
+
+	"item_treasure_passive_skill_tome"
+	{
+		"ID"									"10498"
+		"BaseClass"							"item_lua"
+		"ScriptFile"							"items/ts_items/item_passive_skill_tome"
+		"AbilityTextureName"					"passive_skill_tome"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCooldown"					"1.0"
+		"ItemCost"							"0"
+		"ItemPurchasable"					"0"
+		"ItemSellable"						"0"
+		"ItemDroppable"						"1"
+		"ItemKillable"						"0"
+		"ItemPermanent"						"0"
+		"ItemShareability"					"ITEM_FULLY_SHAREABLE"
+		"ItemCanBeUsedWithoutInventory"		"1"
+		"ItemQuality"						"consumable"
+	}
+
+	"item_recipe_treasure_passive_skill_tome"
+	{
+		"ID"									"10495"
+		"BaseClass"							"item_datadriven"
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"ItemCost"							"0"
+		"ItemPurchasable"					"0"
+		"ItemSellable"						"0"
+		"ItemRecipe"							"1"
+		"ItemResult"							"item_treasure_passive_skill_tome"
+		"ItemRecipeConsumesCharges"			"1"
+		"ItemRequirements"
+		{
+			"01"									"item_treasure_passive_fragment;item_treasure_passive_fragment;item_treasure_passive_fragment;item_treasure_passive_fragment"
+		}
+	}
+
+	"item_treasure_slot_machine"
+	{
+		"ID"							"10496"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/ts_items/item_treasure_slot_machine"
+		"AbilityTextureName"			"hand_of_midas_ogre_arcana"
+		"Model"							"models/props_gameplay/treasure_chest_gold.vmdl"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"90"
+		"ItemCost"						"0"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemQuality"					"consumable"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+
+		"precache"
+		{
+			"particle"					"particles/econ/items/ogre_magi/ogre_magi_jackpot/ogre_magi_jackpot_multicast.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"gold_1"					"1000"
+			"chance_1"					"60"
+			"gold_2"					"2000"
+			"chance_2"					"25"
+			"gold_3"					"4000"
+			"chance_3"					"10"
+			"gold_4"					"8000"
+			"chance_4"					"4"
+			"gold_5"					"16000"
+			"chance_5"					"1"
+		}
+	}
+
+	"item_treasure_slot_machine_gold_bag"
+	{
+		"ID"							"10497"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/ts_items/item_treasure_slot_machine"
+		"AbilityTextureName"			"furion_gold_bag"
+		"Model"							"models/props_gameplay/gold_bag.vmdl"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityCastPoint"				"0.0"
+		"ItemCost"						"0"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemQuality"					"consumable"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemCastOnPickup"				"1"
+		"ItemCanBeUsedWithoutInventory"	"1"
+	}
+}

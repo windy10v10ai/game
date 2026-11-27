@@ -1,4 +1,4 @@
-﻿"lang"
+"lang"
 {
 	"Language"		"Russian"
 	"Tokens"
@@ -309,6 +309,8 @@
 		"lottery_tooltip_ability_reset_not_picked"				"В этой строке ещё не выбрана способность"
 
 		"lottery_item_header"									"Сундук открыт! Выберите награду"
+		"lottery_item_attribute_header"				"Выберите том характеристик"
+		"dota_hud_error_treasure_attribute_tome_invalid_caster"				"Предмет может использовать только ваш герой"
 		"lottery_passive_tome_header"							"Выберите пассивную способность"
 		"lottery_forget_passive_tome_header"					"Выберите пассивный навык для забвения"
 		"lottery_forget_passive_tome_cancel"					"Отмена"
@@ -2470,9 +2472,11 @@
 
 		// wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Крылья спешки"
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_copy"							"Драгоценный Speedster's Gift"
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Навсегда даёт %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% к скорости передвижения, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% к скорости атаки, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% к восстановлению здоровья и %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% к восстановлению маны."
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_copy_Description"			"Навсегда даёт %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% к скорости передвижения, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% к скорости атаки, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% к восстановлению здоровья и %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% к восстановлению маны."
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"Крылья спешки"
-		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>Применение: Постоянное улучшение</h1>Поглощает Крылья спешки, навсегда давая %bonus_movement_speed% к скорости передвижения, %bonus_attack_speed% к скорости атаки, %bonus_health_regen% к восстановлению здоровья и %bonus_mana_regen% к восстановлению маны."
+		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>Применение: Постоянное улучшение</h1>Поглощает Крылья спешки, навсегда давая %bonus_movement_speed% к скорости передвижения, %bonus_attack_speed% к скорости атаки, %bonus_health_regen% к восстановлению здоровья и %bonus_mana_regen% к восстановлению маны.\nМожно использовать на союзного героя. Каждый герой может поглотить Крылья спешки только один раз, использование Драгоценного Speedster's Gift тоже считается."
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Крылья, дарующие скорое возмездие в бою."
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_attack_speed"			"+$attack"
@@ -2680,6 +2684,14 @@
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_mana"							"+$mana"
 
+		// item_echo_sabre_2_copy
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy"						"<font color='#B87333'>Драгоценный Echo Sabre</font>"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Description"		"<h1>Пассивное: Звуковой удар</h1>Атаки ближнего боя проводятся дважды подряд. Каждая из двух атак замедляет скорость передвижения на %movement_slow%%% на %slow_duration% сек.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились."
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Lore"			"Если бить достаточно быстро, противник просто не успеет заметить удар."
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_strength"		"+$str"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_mana_regen"		"+$mana_regen"
+
 		// item_echo_sabre_2 回音刀2
 		"DOTA_Tooltip_Ability_item_echo_sabre_2"				"Echo Sabre 2"
 		"DOTA_Tooltip_Ability_item_echo_sabre_2_Description"			        "<h1>Пассивное: Звуковой удар</h1>Атаки ближнего боя проводятся дважды подряд. Каждая из двух атак замедляет скорость передвижения на %movement_slow%%% на %slow_duration% сек."
@@ -2759,7 +2771,15 @@
 		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_mana"			"+$mana"
 
-		// hydras_breath_2 九头蛇神之息
+		// item_hydras_breath_copy
+		"DOTA_Tooltip_ability_item_hydras_breath_copy"						"<font color='#B87333'>Драгоценный Hydra's Breath</font>"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_Description"		"<h1>Пассивное: Miasma</h1>Атаки отравляют врагов, каждую секунду нанося им магический урон в размере %poison_damage_per_second%%% от их максимального здоровья на протяжении %poison_duration% сек.\n\n<h1>Пассивное: Polycephaly</h1>С вероятностью в %proc_chance%%% каждая атака дальнего боя может поразить ещё до %count% целей в радиусе атаки + %secondary_target_range_bonus%. Дополнительные цели должны находиться в %secondary_target_angle%-градусном конусе перед владельцем, получают %base_proc_dmg% базового урона + %proc_dmg_pct%%% урона от атак, и на них не срабатывают эффекты атаки, кроме Miasma. Основная цель получает %base_proc_dmg% базового урона + %proc_dmg_pct_primary_tooltip%%% урона от атак.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились."
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_Note0"			"Бонусы к дальности атаки от нескольких Monkey King Bar или предметов на основе Dragon Lance не складываются."
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_strength"		"+$str"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_agility"		"+$agi"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_base_attack_range"		"+$attack_range"
+
 		"DOTA_Tooltip_Ability_item_hydras_breath_2"				"<font color='#e03e2e'>Артефакт: Дыхание тысячелетней гидры</font>"
 		"DOTA_Tooltip_Ability_item_hydras_breath_2_strength"				"+$str"
 		"DOTA_Tooltip_Ability_item_hydras_breath_2_agility"				"+$agi"
@@ -3027,10 +3047,26 @@
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"Удар Некрономикона"
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"Вы превращены в овцу. Нельзя атаковать, применять способности и использовать предметы. Сопротивление магии снижено (фиксированное значение)."
 
-		// 小鸡臂章
-		"DOTA_Tooltip_Ability_item_armlet_plus"				"Куриный Armlet Plus"
-		"DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>Переключение: Unholy Strength</h1>Во включённом состоянии даёт +%unholy_bonus_damage% урона от атак, +%unholy_bonus_strength% силы, +%unholy_bonus_slow_resistance%%% к сопротивлению замедлениям и +%unholy_bonus_armor% брони, но отнимает %unholy_health_drain_per_second% здоровья в секунду.<br><br>Вы не можете умереть ни от потери здоровья при включении Unholy Strength, ни от спада силы при его выключении."
-		"DOTA_Tooltip_ability_item_armlet_plus_Lore"									"А вы знаете, что такое Куриный Armlet?"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_Description"						"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а даёт %phase_movement_speed%%% к скорости передвижения. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_bonus_movement_speed_melee"						"+ к скорости передвижения"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_bonus_movement_speed_ranged"						""
+
+		// item_berserkers_sabatons_copy 珍藏·护足
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy"										"<font color='#B87333'>Драгоценные сабатоны</font>"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Description"							"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а даёт %phase_movement_speed%%% к скорости передвижения. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились, и при сборке оно позволяет пропускать ступени улучшения."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Lore"									"Эти сабатоны питаются жизненной силой владельца, позволяя ему пройти сквозь ряды врагов."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Note0"									"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Note1"									"Изменение силы происходит спустя 0,6 секунды."
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_movement_speed_melee"				"+ к скорости передвижения"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_attack_speed"						"+$attack"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_health_regen"						"+$hp_regen"
+
+		// 小鸡护足
+		"DOTA_Tooltip_Ability_item_armlet_plus"				"Куриные сабатоны Plus"
+		"DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а даёт %phase_movement_speed%%% к скорости передвижения. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются."
+		"DOTA_Tooltip_ability_item_armlet_plus_Lore"									"А вы знаете, что такое Куриные сабатоны?"
 		"DOTA_Tooltip_ability_item_armlet_plus_Note0"								"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
 		"DOTA_Tooltip_ability_item_armlet_plus_Note1"								"Изменение силы происходит спустя 0,6 секунды."
 		"DOTA_Tooltip_ability_item_armlet_plus_Note2"								"Включение и выключение Unholy Strength не останавливает прерываемые заклинания."
@@ -3039,9 +3075,10 @@
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_movement_speed_melee"			"+ к скорости передвижения"
 
-		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"Куриный Armlet Pro Max"
-		"DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>Переключение: Unholy Strength</h1>Во включённом состоянии даёт +%unholy_bonus_damage% урона от атак, +%unholy_bonus_strength% силы, +%unholy_bonus_slow_resistance%%% к сопротивлению замедлениям и +%unholy_bonus_armor% брони, но отнимает %unholy_health_drain_per_second% здоровья в секунду.<br><br>Вы не можете умереть ни от потери здоровья при включении Unholy Strength, ни от спада силы при его выключении."
+		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"Куриные сабатоны Pro Max"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а даёт %phase_movement_speed%%% к скорости передвижения. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Lore"									"Куриный Armlet вообще-то не должен отнимать здоровье каждую секунду, но мы снизили потери чисто символически."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note0"								"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note1"								"Изменение силы происходит спустя 0,6 секунды."
@@ -3051,6 +3088,7 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_movement_speed_melee"			"+ к скорости передвижения"
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"Камень пробуждения"
@@ -3061,6 +3099,65 @@
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"Том пассивного навыка"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Применение: Изучить пассивный навык</h1> Повышенный шанс получить сильную способность: выберите один из 4 случайных пассивных навыков.\nКаждый игрок может использовать предмет не более 2 раз за игру, варианты можно обновить, предмет можно передавать союзникам.\nМожно купить в магазине, нельзя продать. Может выпасть из сундуков с сокровищами."
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"Откройте его — и сила, накопленная предшественниками, станет вашей."
+
+		// item_treasure_passive_skill_tome 被动技能书
+		"DOTA_Tooltip_ability_item_treasure_passive_skill_tome"				"Том пассивного навыка"
+		"DOTA_Tooltip_ability_item_treasure_passive_skill_tome_Description"				"<h1>Использование: изучение пассивного навыка</h1>Позволяет изучить один из 4 случайных пассивных навыков с повышенным шансом получить сильный навык.<br><br>Каждый игрок может использовать до 2 томов за матч. Лимит общий с томами пассивного навыка из других источников. Варианты можно обновить, а том можно передать союзнику."
+
+		// item_treasure_attribute_fragment 属性书碎片
+		"DOTA_Tooltip_ability_item_treasure_attribute_fragment"				"Фрагмент тома характеристик"
+		"DOTA_Tooltip_ability_item_treasure_attribute_fragment_Description"				"4 фрагмента автоматически объединяются в том характеристик. Фрагменты можно передавать союзникам."
+
+		// item_treasure_inventory_fragment 扩容之书碎片
+		"DOTA_Tooltip_ability_item_treasure_inventory_fragment"				"Фрагмент тома расширения"
+		"DOTA_Tooltip_ability_item_treasure_inventory_fragment_Description"				"3 фрагмента автоматически объединяются в том расширения. Фрагменты можно передавать союзникам."
+
+		// item_treasure_passive_fragment 被动技能书碎片
+		"DOTA_Tooltip_ability_item_treasure_passive_fragment"				"Фрагмент тома пассивного навыка"
+		"DOTA_Tooltip_ability_item_treasure_passive_fragment_Description"				"4 фрагмента автоматически объединяются в том пассивного навыка. Фрагменты можно передавать союзникам."
+
+		// item_treasure_attribute_tome 属性之书
+		"DOTA_Tooltip_ability_item_treasure_attribute_tome"				"Том характеристик"
+		"DOTA_Tooltip_ability_item_treasure_attribute_tome_Description"				"Выберите том силы, ловкости или интеллекта."
+
+		// item_treasure_slot_machine 老虎机
+		"DOTA_Tooltip_ability_item_treasure_slot_machine"				"Игровой автомат"
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_Description"				"Расходуется при использовании. На землю падает мешок золота, который может подобрать любой герой. У всех автоматов одного игрока общая перезарядка.<br><br>Шанс выпадения и количество золота<br>%chance_1%%%: %gold_1%<br>%chance_2%%%: %gold_2%<br>%chance_3%%%: %gold_3%<br>%chance_4%%%: %gold_4%<br>%chance_5%%%: %gold_5%"
+
+		// item_treasure_slot_machine_gold_bag 老虎机钱袋
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag"				"Мешок золота из игрового автомата"
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag_Description"				"Подберите мешок, чтобы получить золото."
+
+		// item_treasure_salve 神·治疗药膏
+		"DOTA_Tooltip_Ability_item_treasure_salve"						"<font color='#818CFF'>Божественная лечебная мазь</font>"
+		"DOTA_Tooltip_ability_item_treasure_salve_Description"			"<h1>Применение: Лечение</h1>Цель восстанавливает %health_regen% здоровья в секунду в течение %buff_duration% сек.<br><br>Эффект сохраняется при получении урона и защищён от развеивания."
+		"DOTA_Tooltip_modifier_item_treasure_salve"						"<font color='#818CFF'>Божественная лечебная мазь</font>"
+		"DOTA_Tooltip_modifier_item_treasure_salve_Description"			"Восстанавливает %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% здоровья в секунду."
+
+		// item_treasure_clarity 神·净化药水
+		"DOTA_Tooltip_Ability_item_treasure_clarity"					"<font color='#818CFF'>Божественное зелье ясности</font>"
+		"DOTA_Tooltip_ability_item_treasure_clarity_Description"		"<h1>Применение: Восстановление маны</h1>Цель восстанавливает %mana_regen% маны в секунду в течение %buff_duration% сек.<br><br>Эффект сохраняется при получении урона."
+		"DOTA_Tooltip_modifier_item_treasure_clarity"					"<font color='#818CFF'>Божественное зелье ясности</font>"
+		"DOTA_Tooltip_modifier_item_treasure_clarity_Description"		"Восстанавливает %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% маны в секунду."
+
+		// item_treasure_mango 神·魔法芒果
+		"DOTA_Tooltip_Ability_item_treasure_mango"						"<font color='#818CFF'>Божественное зачарованное манго</font>"
+		"DOTA_Tooltip_ability_item_treasure_mango_Description"			"<h1>Применение: Съесть манго</h1>Мгновенно восстанавливает %replenish_amount% маны."
+		"DOTA_Tooltip_ability_item_treasure_mango_Note0"				"Удерживайте Ctrl, чтобы применить на ближайшего союзного героя."
+		"DOTA_Tooltip_ability_item_treasure_mango_hp_regen"				"+$hp_regen"
+
+		// item_treasure_raindrop 神·凝魂之露
+		"DOTA_Tooltip_Ability_item_treasure_raindrop"					"<font color='#818CFF'>Божественные зачарованные капли</font>"
+		"DOTA_Tooltip_ability_item_treasure_raindrop_Description"		"<h1>Пассивно: Блок магического урона</h1>Когда владелец получает больше %min_damage% единиц <font color='#05CAFF'>магического урона</font> за раз, расходуется заряд и блокируется до %magic_damage_block% урона.<br><br>Изначально имеет %initial_charges% зарядов. Предмет исчезает, когда все заряды израсходованы."
+		"DOTA_Tooltip_ability_item_treasure_raindrop_mana_regen"		"+$mana_regen"
+
+		// item_treasure_bottle 神·魔瓶
+		"DOTA_Tooltip_Ability_item_treasure_bottle"						"<font color='#818CFF'>Божественная бутылка</font>"
+		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>Применение: Восстановление</h1>Расходует заряд и за %restore_time% сек. восстанавливает %health_restore% здоровья и %mana_restore% маны. Каждую секунду дополнительно восстанавливает %health_regen_pct_tooltip%%% от максимального здоровья и %mana_regen_pct_tooltip%%% от максимальной маны. Получение урона не прерывает восстановление.<br><br>У союзного фонтана пополняется до %max_charges% зарядов.<br><br>Удерживайте Ctrl, чтобы применить на союзного героя.\n\n<h1>Пассивно: Хранение руны</h1>Нажмите на руну правой кнопкой мыши, чтобы сохранить её. Хранящаяся руна активируется автоматически через %rune_expire_time% сек."
+
+		// item_treasure_cheese 神·奶酪
+		"DOTA_Tooltip_Ability_item_treasure_cheese"						"<font color='#818CFF'>Божественный сыр</font>"
+		"DOTA_Tooltip_ability_item_treasure_cheese_Description"			"<h1>Применение: Фондю</h1>Мгновенно восстанавливает %health_restore% здоровья и %mana_restore% маны.<br><br>Можно использовать 5 раз и передавать союзникам."
 
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"Белый лотос святой"
@@ -3081,6 +3178,14 @@
 		"DOTA_Tooltip_Ability_item_candy_candy"							"Конфета Дианы"
 		"DOTA_Tooltip_ability_item_candy_candy_Description"             "Съешьте эту конфету — и вы уже фанат Дианы.<br/>Даёт эффекты всех усиливающих рун на %duration% сек."
 		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "Диана, ты мне так нравишься! Ради тебя я готов слушать «Кошачью зависимость»!"
+
+		// item_hand_of_midas_copy
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy"						"<font color='#B87333'>Драгоценная Hand of Midas</font>"
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Description"		"<h1>Активное: Transmute</h1> Убивает выбранную цель (но не героя) и даёт за неё %bonus_gold% золота. При применении на нейтрального крипа гарантирует получение безумрудов, если не все из них получены.<br><br>Не действует на древних крипов.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились, и при сборке оно позволяет пропускать ступени улучшения."
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Lore"			"Эта перчатка, сохранившаяся благодаря неведомой магии, служит жадности владельца, наполняя его карманы золотом в обмен на жизни животных."
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Note0"			"Получаемое золото считается ненадёжным (при этом стандартная награда за убийство крипа не даётся)."
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Note1"			"Опыт от убитого крипа не делится с другими героями."
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_bonus_attack_speed"		"+$attack"
 
 		// 团队之手
 	    "DOTA_Tooltip_ability_item_hand_of_group"										"Рука команды"
@@ -3147,6 +3252,63 @@
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_health_regen"		"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_mana_regen"		"+$mana_regen"
 
+		// item_bfury_copy
+		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#B87333'>Драгоценный Battle Fury</font>"
+		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"<h1>Активное: Chop Tree</h1> Срубает выбранное дерево.\n\n<h1>Пассивное: Quell</h1> Увеличивает урон от атак по существам, не являющимися героями, на %quelling_bonus% для героев ближнего боя и на %quelling_bonus_ranged% — для дальнего. \n\n<h1>Пассивное: Cleave</h1> Атаки героя прорубают жертву, нанося врагам в радиусе %cleave_distance% вокруг неё физический урон (только в ближнем бою).<br><br>• Урон героям: %cleave_damage_percent%%%<br>• Урон крипам: %cleave_damage_percent_creep%%%\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились, и при сборке оно позволяет пропускать ступени улучшения."
+		"DOTA_Tooltip_ability_item_bfury_copy_Lore"			"Владелец этого могучего топора может выкашивать врагов целыми рядами."
+		"DOTA_Tooltip_ability_item_bfury_copy_Note0"			"Прорубающий урон проходит сквозь невосприимчивость к магии."
+		"DOTA_Tooltip_ability_item_bfury_copy_Note1"			"Каждый предмет или способность, дарующие прорубающую атаку, наносят урон отдельно друг от друга."
+		"DOTA_Tooltip_ability_item_bfury_copy_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_bfury_copy_bonus_health_regen"		"+$hp_regen"
+		"DOTA_Tooltip_ability_item_bfury_copy_bonus_mana_regen"		"+$mana_regen"
+
+		// item_haste_moon_bundle Драгоценный Speedster's Gift
+		"DOTA_Tooltip_ability_item_haste_moon_bundle"						"<font color='#B87333'>Драгоценный Speedster's Gift</font>"
+		"DOTA_Tooltip_ability_item_haste_moon_bundle_Description"		"<h1>Применение: Постоянное улучшение</h1>Навсегда даёт %bonus_movement_speed% к скорости передвижения, %bonus_attack_speed% к скорости атаки, %bonus_health_regen% к восстановлению здоровья и %bonus_mana_regen% к восстановлению маны от Wings of Haste, а также %consumed_bonus% к скорости атаки и %consumed_bonus_night_vision% к обзору ночью от Moon Shard. Если герой уже поглотил один из предметов, даётся только второй. Если поглощены оба, использовать нельзя. Можно передать союзнику.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились."
+		"DOTA_Tooltip_ability_item_haste_moon_bundle_Lore"			"Всё, что нужно скороходу, в одном сундуке."
+
+		// item_ultimate_scepter_copy
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy"						"<font color='#B87333'>Драгоценный Aghanim's Scepter</font>"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>Пассивное: Ability Upgrade</h1>Улучшает ульт и некоторые способности.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить из набора «Драгоценный Aghanim's Gift». От времени его характеристики и эффекты необычно изменились."
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Lore"			"Скипетр колдуна, мощью сходного с полубогами."
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_health"		"+$health"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_mana"		"+$mana"
+
+		// item_aghanim_bundle Драгоценный Aghanim's Gift
+		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>Драгоценный Aghanim's Gift</font>"
+		"DOTA_Tooltip_ability_item_aghanim_bundle_Description"		"При использовании даёт Aghanim's Scepter и Aghanim's Shard. Если один из них уже есть, выдаётся только второй.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились."
+		"DOTA_Tooltip_ability_item_aghanim_bundle_Lore"			"Аghanim упаковал оба дара вместе, чтобы не пришлось загадывать дважды."
+
+		// item_radiance_copy
+		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#B87333'>Драгоценный Radiance</font>"
+		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"<h1>Переключаемое: Burn</h1> Если включена, каждую секунду наносит наносит противникам вокруг %aura_damage% магического урона. На иллюзиях наносит %aura_damage_illusions% магического урона в секунду.<br><br>Радиус: %aura_radius%\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились, и при сборке оно позволяет пропускать ступени улучшения."
+		"DOTA_Tooltip_ability_item_radiance_copy_Lore"			"Божественный меч, окружающий владельца ярким сиянием, которое обращает в пепел всех врагов вокруг."
+		"DOTA_Tooltip_ability_item_radiance_copy_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_radiance_copy_evasion"		"%+$evasion"
+
+		// item_blade_mail_copy
+		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#B87333'>Драгоценная Blade Mail</font>"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"<h1>Активное: Damage Return</h1>Увеличивает долю возвращаемого урона на %active_reflection_pct%%% и делает так, что владелец отражает любой получаемый урон. Длится %duration% сек.\n\n<h1>Пассивное: Damage Return</h1>Возвращает %passive_reflection_constant% + %passive_reflection_pct%%% урона от каждой атаки атакующим вас существам.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились, и при сборке оно позволяет пропускать ступени улучшения."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Lore"			"Острый, как лезвие бритвы, панцирь — выбор самоотверженных мучеников."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Note0"			"Урон возвращается в изначальном количестве, до его уменьшения."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Note1"			"Возвращаемый урон имеет тот же тип, что и полученный."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Note2"			"Урон от заклинаний этого предмета считается отражённым. Его нельзя отразить вновь, и от него не срабатывает вампиризм."
+		"DOTA_Tooltip_ability_item_blade_mail_copy_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_bonus_armor"		"+$armor"
+
+		// item_heart_copy
+		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#B87333'>Драгоценное сердце бессмертия</font>"
+		"DOTA_Tooltip_ability_item_heart_copy_Description"							"<h1><font color='#FFFF00'>Активное: Драконье возрождение</font></h1>Мгновенно восстанавливает %active_hp_regen% + %active_hp_regen_pct%%% от максимального здоровья и накладывает на владельца нормальное развеивание.<br>Даёт дополнительный эффект восстановления здоровья на %dur% сек., восстанавливая %buff_hp_regen% + %buff_hp_regen_pct%%% от максимального здоровья в секунду.\n\n<h1>Пассивное: Behemoth's Blood</h1>Восстановление здоровья увеличивается на %missing_health_regen%%% от недостающего здоровья.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились, и при сборке оно позволяет пропускать ступени улучшения."
+		"DOTA_Tooltip_ability_item_heart_copy_Lore"			"Сохранившееся сердце вымершего монстра, которое укрепляет стойкость владельца."
+		"DOTA_Tooltip_ability_item_heart_copy_Note0"			"Эффекты от нескольких заклинаний Behemoth's Blood не складываются."
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_strength"		"+$str"
+		"DOTA_Tooltip_ability_item_heart_copy_hp_regen"		"%+макс. здоровья в секунду"
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_health_passive"							"+$health"
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_evasion"							"%+$evasion"
+		"DOTA_Tooltip_modifier_item_heart_copy_buff"									"Драконье возрождение"
+		"DOTA_Tooltip_modifier_item_heart_copy_buff_Description"						"Очень быстро восстанавливает здоровье."
+
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#e03e2e'>Ультра Bloodthorn</font>"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>Активное: Разрыв души</h1>Заставляет цель замолчать на %silence_duration% сек. По окончании немоты наносит цели магический урон в размере %silence_damage_percent%%% от урона, полученного за время действия.<br><br>Атаки героев дополнительно наносят цели %proc_damage_heroes% урона, а атаки существ, не являющихся героями, — %proc_damage_creeps%. Кроме того, владелец и подконтрольные ему существа не могут промахнуться по цели."
@@ -3209,6 +3371,16 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+Скорость применения"
+
+		// item_starforge_copy 珍藏·锻星炉
+		"DOTA_Tooltip_ability_item_starforge_copy"	"<font color='#B87333'>Драгоценная Звёздная кузница</font>"
+		"DOTA_Tooltip_ability_item_starforge_copy_Description"	"<h1>Активное: Метеоритный молот</h1>После применения в течение %max_duration% сек. призывает метеорит, который падает через %land_time% сек. и поражает врагов в радиусе %impact_radius%.<br><br>Враги, кроме построек, получают %impact_damage_units% урона от удара плюс %impact_damage_units_pct_health%%% от их максимального здоровья и замедляются на %burn_slow%%% на %burn_duration% сек.<br><br>Постройки получают %building_damage_pct%%% базового урона от удара.\n\n<h1>Пассивное: Звёздная вспышка</h1>Когда наложенный вами эффект контроля заканчивается, враг получает %burn_per_second% урона в секунду и замедляется на %slow_pct%%% в течение %passive_debuff_duration% сек.<br>Звёздную вспышку могут вызвать ваши способности и предметы.<br>Звёздная вспышка складывается с горением от метеоритного молота.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились, и при сборке оно позволяет пропускать ступени улучшения."
+		"DOTA_Tooltip_ability_item_starforge_copy_Note0"	"Звёздную вспышку могут вызвать оглушение, превращение, гипноз, циклон, провокация, страх, сон и изгнание."
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_strength"	"+$str"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_agility"	"+$agi"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_intellect"	"+$int"
+		"DOTA_Tooltip_ability_item_starforge_copy_spell_amp"	"%+к урону от заклинаний"
+		"DOTA_Tooltip_ability_item_starforge_copy_mana_regen_multiplier"	"%+к усилению восстановления маны"
 
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>Падение звезды</font>"
@@ -3373,9 +3545,9 @@
 		"DOTA_Tooltip_Ability_item_dark_part_Lore"				"С некоторым шансом выпадает при убийстве Рошана и нейтральных существ ночью."
 		"DOTA_Tooltip_Ability_item_dark_part_bonus_spell_amp"	"%+$spell_amp"
 
-		// item_armlet_light 圣光·臂章
-		"DOTA_Tooltip_ability_item_armlet_light"				"<font color='#FFFF00'>Светлый Armlet of Mordiggian</font>"
-		"DOTA_Tooltip_ability_item_armlet_light_Description"							"<h1>Переключение: Unholy Strength</h1>Когда включено, Unholy Strength даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе, +%unholy_bonus_slow_resistance%%% к сопротивлению замедлениям и +%unholy_bonus_armor% к броне, но отнимает %unholy_health_drain_per_second% здоровья в секунду.<br><br>Вы не можете умереть ни от потери здоровья при включении Unholy Strength, ни от спада бонуса к силе после его выключения."
+		// item_armlet_light 圣光·护足
+		"DOTA_Tooltip_ability_item_armlet_light"				"<font color='#FFFF00'>Светлые сабатоны</font>"
+		"DOTA_Tooltip_ability_item_armlet_light_Description"							"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а даёт %phase_movement_speed%%% к скорости передвижения. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются."
 		"DOTA_Tooltip_ability_item_armlet_light_Lore"									"Это оружие, горячо любимое дикарями, забирает жизненные силы владельца, взамен наделяя его безмерной силой и мощью."
 		"DOTA_Tooltip_ability_item_armlet_light_Note0"								"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
 		"DOTA_Tooltip_ability_item_armlet_light_Note1"								"Изменение силы происходит в течение 0,6 секунды."
@@ -3384,10 +3556,11 @@
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_light_bonus_movement_speed_melee"			"+ к скорости передвижения"
 
-		// item_armlet_dark 暗影·臂章
-		"DOTA_Tooltip_ability_item_armlet_dark"				"<font color='#8A2BE2'>Тёмный Armlet of Mordiggian</font>"
-		"DOTA_Tooltip_ability_item_armlet_dark_Description"							"<h1>Переключение: Unholy Strength</h1>Когда включено, Unholy Strength даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе, +%unholy_bonus_slow_resistance%%% к сопротивлению замедлениям и +%unholy_bonus_armor% к броне, но отнимает %unholy_health_drain_per_second% здоровья в секунду.<br><br>Вы не можете умереть ни от потери здоровья при включении Unholy Strength, ни от спада бонуса к силе после его выключения."
+		// item_armlet_dark 暗影·护足
+		"DOTA_Tooltip_ability_item_armlet_dark"				"<font color='#8A2BE2'>Тёмные сабатоны</font>"
+		"DOTA_Tooltip_ability_item_armlet_dark_Description"							"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а даёт %phase_movement_speed%%% к скорости передвижения. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются."
 		"DOTA_Tooltip_ability_item_armlet_dark_Lore"									"Это оружие, горячо любимое дикарями, забирает жизненные силы владельца, взамен наделяя его безмерной силой и мощью."
 		"DOTA_Tooltip_ability_item_armlet_dark_Note0"								"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
 		"DOTA_Tooltip_ability_item_armlet_dark_Note1"								"Изменение силы происходит в течение 0,6 секунды."
@@ -3396,10 +3569,11 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_dark_bonus_movement_speed_melee"			"+ к скорости передвижения"
 
-		// item_armlet_artifact 神器·光暗臂章
-		"DOTA_Tooltip_ability_item_armlet_artifact"									"<font color='#e03e2e'>Артефакт: Armlet света и тьмы</font>"
-		"DOTA_Tooltip_ability_item_armlet_artifact_Description"						"<h1>Переключение: Unholy Strength</h1>Когда включено, Unholy Strength даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе, +%unholy_bonus_slow_resistance%%% к сопротивлению замедлениям и +%unholy_bonus_armor% к броне, но отнимает %unholy_health_drain_per_second% здоровья в секунду.<br><br>Вы не можете умереть ни от потери здоровья при включении Unholy Strength, ни от спада бонуса к силе после его выключения."
+		// item_armlet_artifact 神器·光暗护足
+		"DOTA_Tooltip_ability_item_armlet_artifact"									"<font color='#e03e2e'>Артефакт: сабатоны света и тьмы</font>"
+		"DOTA_Tooltip_ability_item_armlet_artifact_Description"						"<h1>Переключение: Клятва Мордиджиана</h1>Включённый предмет даёт +%unholy_bonus_damage% к урону, +%unholy_bonus_strength% к силе и +%unholy_bonus_armor% к броне, позволяет проходить сквозь юнитов и быстрее поворачиваться, а даёт %phase_movement_speed%%% к скорости передвижения. Также даёт до %unholy_bonus_slow_resistance%%% сопротивления замедлениям, которое уменьшается пропорционально текущему запасу здоровья. Отнимает %unholy_health_drain_per_second% здоровья в секунду.\n\nОт потери здоровья нельзя умереть, а при выключении предмета нельзя умереть от потери силы. Бонусы к скорости передвижения от нескольких сапог не складываются."
 		"DOTA_Tooltip_ability_item_armlet_artifact_Lore"								"Свет и тьма, слитые в совершенстве, — владелец постигает вершины обоих."
 		"DOTA_Tooltip_ability_item_armlet_artifact_Note0"							"Изменение силы действует и на текущий, и на максимальный уровень здоровья, но от него нельзя умереть."
 		"DOTA_Tooltip_ability_item_armlet_artifact_Note1"							"Изменение силы происходит в течение 0,6 секунды."
@@ -3408,6 +3582,7 @@
 		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_armor"						"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_health_regen"				"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_movement_speed_melee"			"+ к скорости передвижения"
 
 		// Updated Armlet tooltip (now shows slow resist on active)
 		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"Урон увеличен на %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%.\nСила увеличена на %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%.\nБроня увеличена на %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nСопротивление замедлениям увеличено на %dMODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING%%%.\nКаждую секунду теряет %dMODIFIER_PROPERTY_TOOLTIP% здоровья"
@@ -3427,6 +3602,17 @@
 		"DOTA_Tooltip_Ability_item_force_field_ultra_Lore"					"Общая гибель на всю толпу, парень."
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"%+$spell_resist"
+
+		// item_dagon_ultra_copy
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy"						"<font color='#B87333'>Драгоценный Тысяча ударов</font>"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Description"		"<h1>Активное: Смотри на мою скорость рук</h1> Выпускает всплеск энергии, наносящий магический урон выбранному вражескому существу.<br><br>Урон: %damage%<br>Расход маны: %mana_cost_tooltip%\n\n<h1>Пассивное: Антиквариат</h1>Можно получить только из сундуков с сокровищами. От времени его характеристики и эффекты необычно изменились."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Lore"			"Чем быстрее руки, тем выше урон, лишь бы хватило маны."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Note0"			"Мгновенно убивает иллюзии."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Note1"			"Бонусы к дальности применения заклинаний от Aether Lens и Dagon не складываются."
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_health"		"+$health"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_mana"		"+$mana"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_cast_range_bonus"		"+$cast_range"
 
 		// 神器 一瞬千击
 		"DOTA_Tooltip_Ability_item_dagon_ultra"										"<font color='#e03e2e'>Артефакт: Тысяча ударов</font>"

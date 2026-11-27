@@ -1,4 +1,5 @@
 import { interceptAutoCastShellClick } from './autocast-shell-click';
+import { TREASURED_RECIPE_COMPONENTS } from './treasured-shop';
 
 export const AEON_DISK_BUFF = 'modifier_item_aeon_disk_buff';
 export const IMMORTALITY_MODIFIER = 'modifier_item_helm_of_the_undying_active';
@@ -11,6 +12,10 @@ export class DragonWishFilter {
   }
 
   private filterOrder(args: ExecuteOrderFilterEvent): boolean {
+    if (args.order_type === UnitOrder.PURCHASE_ITEM) {
+      // Recipe navigation requires the shop to treat these components as purchasable.
+      return !TREASURED_RECIPE_COMPONENTS.has(args.shop_item_name);
+    }
     if (interceptAutoCastShellClick(args)) return false;
 
     if (

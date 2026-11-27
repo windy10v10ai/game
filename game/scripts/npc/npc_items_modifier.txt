@@ -42,6 +42,9 @@
 			"item_undying_heart_buff_hp_regen"	"200"
 			"item_undying_heart_buff_hp_regen_pct"	"2"
 
+			"item_treasure_bottle_health_regen_pct"	"5"
+			"item_treasure_bottle_mana_regen_pct"	"6"
+
 			"item_aeon_amulet_guard_mana_regen"	"500"
 			"item_aeon_amulet_guard_mana_regen_pct"	"5"
 			"item_aeon_amulet_guard_damage_reduction"	"-50"
@@ -437,6 +440,17 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%item_undying_heart_buff_hp_regen"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%item_undying_heart_buff_hp_regen_pct"
+				}
+			}
+			"modifier_item_treasure_bottle_regen"
+			{
+				"IsHidden"				"1"
+				"IsBuff"				"1"
+				"IsPurgable"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%item_treasure_bottle_health_regen_pct"
+					"MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE"	"%item_treasure_bottle_mana_regen_pct"
 				}
 			}
 			// 枯木逢春 主动 buff，持续时间由脚本传入

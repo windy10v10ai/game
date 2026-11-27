@@ -309,6 +309,8 @@
 		"lottery_tooltip_ability_reset_not_picked"				"技能尚未选择"
 
 		"lottery_item_header"									"宝箱开启！选择你的奖励"
+		"lottery_item_attribute_header"				"选择一本属性书"
+		"dota_hud_error_treasure_attribute_tome_invalid_caster"				"只能由自己的英雄使用"
 		"lottery_passive_tome_header"							"选择一个被动技能"
 		"lottery_forget_passive_tome_header"					"选择要遗忘的被动技能"
 		"lottery_forget_passive_tome_cancel"					"取消"
@@ -2470,9 +2472,11 @@
 
 		// wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"急速之翼"
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_copy"							"珍藏·快男的馈赠"
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE%移动速度，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度，%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%生命恢复和%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%魔法恢复加成。"
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_copy_Description"			"永久获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE%移动速度，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度，%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%生命恢复和%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%魔法恢复加成。"
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"急速之翼"
-		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>使用：永久升级</h1>消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。"
+		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>使用：永久升级</h1>消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。\n可以对友方英雄使用。每名英雄只能吞噬一次急速之翼，用过珍藏·快男的馈赠也算吞噬过。"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_attack_speed"			"+$attack"
@@ -2680,6 +2684,14 @@
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_skadi_2_bonus_mana"							"+$mana"
 
+		// item_echo_sabre_2_copy
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy"						"<font color='#B87333'>珍藏·音速战刃</font>"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Description"		"<h1>被动：音速连击</h1>近战攻击可以快速攻击两次。两次攻击都将减缓%movement_slow%%%移动速度，每次持续%slow_duration%秒。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化。"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_Lore"			"只要我出手够快，你就捕捉不到我的动作。"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_strength"		"+$str"
+		"DOTA_Tooltip_ability_item_echo_sabre_2_copy_bonus_mana_regen"		"+$mana_regen"
+
 		// item_echo_sabre_2 回音刀2
 		"DOTA_Tooltip_Ability_item_echo_sabre_2"				"音速战刃"
 		"DOTA_Tooltip_Ability_item_echo_sabre_2_Description"			        "<h1>被动：音速连击</h1>近战攻击可以快速攻击两次。两次攻击都将减缓%movement_slow%%%移动速度，每次持续%slow_duration%秒。"
@@ -2759,7 +2771,15 @@
 		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_mana"			"+$mana"
 
-		// hydras_breath_2 九头蛇神之息
+		// item_hydras_breath_copy
+		"DOTA_Tooltip_ability_item_hydras_breath_copy"						"<font color='#B87333'>珍藏·怪蛇之息</font>"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_Description"		"<h1>被动：瘴毒</h1>攻击会使目标中毒，每秒造成目标%poison_damage_per_second%%%最大生命值的魔法伤害，持续%poison_duration%秒。\n\n<h1>被动：多头一体</h1>远程攻击有%proc_chance%%%的概率向非原攻击目标的前方%secondary_target_angle%度角内、攻击距离+%secondary_target_range_bonus%距离内的最多%count%个附近敌人发射额外弹道。额外弹道造成%base_proc_dmg% + %proc_dmg_pct%%%普通攻击伤害，并且不会触发瘴毒除外的击中效果。主攻击造成%base_proc_dmg% + %proc_dmg_pct_primary_tooltip%%%普通攻击伤害。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化。"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_Note0"			"来自金箍棒、魔龙枪和升级物品的攻击距离加成不会叠加。"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_strength"		"+$str"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_agility"		"+$agi"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_hydras_breath_copy_base_attack_range"		"+$attack_range"
+
 		"DOTA_Tooltip_Ability_item_hydras_breath_2"				"<font color='#e03e2e'>神器·千年毒蛟之息</font>"
 		"DOTA_Tooltip_Ability_item_hydras_breath_2_strength"				"+$str"
 		"DOTA_Tooltip_Ability_item_hydras_breath_2_agility"				"+$agi"
@@ -3027,10 +3047,26 @@
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"死灵冲击"
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"变成一只羊。不能攻击，释放技能或使用物品。降低魔法抗性（固定值）。"
 
-		// 小鸡臂章
-		"DOTA_Tooltip_Ability_item_armlet_plus"				"小鸡臂章Plus"
-		"DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量，+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
-		"DOTA_Tooltip_ability_item_armlet_plus_Lore"									"你知道什么是小鸡臂章吗？"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_Description"						"<h1>开关：莫尔迪基安之誓</h1>开启后将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，并且可以穿过单位，转身速度更快，额外提升%phase_movement_speed%%%移动速度。另外提供最多%unholy_bonus_slow_resistance%%%减速抗性，随当前生命值的百分比减少而下降。每秒失去%unholy_health_drain_per_second%点生命值。\n\n生命流失并不会导致死亡，关闭后力量降低也不会导致死亡。多个鞋类物品提供的移动速度加成不叠加。"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_bonus_movement_speed_melee"						"+移动速度"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_bonus_movement_speed_ranged"						""
+
+		// item_berserkers_sabatons_copy 珍藏·护足
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy"										"<font color='#B87333'>珍藏·护足</font>"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Description"							"<h1>开关：莫尔迪基安之誓</h1>开启后将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，并且可以穿过单位，转身速度更快，额外提升%phase_movement_speed%%%移动速度。另外提供最多%unholy_bonus_slow_resistance%%%减速抗性，随当前生命值的百分比减少而下降。每秒失去%unholy_health_drain_per_second%点生命值。\n\n生命流失并不会导致死亡，关闭后力量降低也不会导致死亡。多个鞋类物品提供的移动速度加成不叠加。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化，并且可以做到跨级合成。"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Lore"									"这些战靴汲取持有者的生命，让他踏破敌阵。"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Note0"									"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_Note1"									"力量的增加将在0.6秒内完成。"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_movement_speed_melee"				"+移动速度"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_attack_speed"						"+$attack"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_berserkers_sabatons_copy_bonus_health_regen"						"+$hp_regen"
+
+		// 小鸡护足
+		"DOTA_Tooltip_Ability_item_armlet_plus"				"小鸡护足 Plus"
+		"DOTA_Tooltip_ability_item_armlet_plus_Description"							"<h1>开关：莫尔迪基安之誓</h1>开启后将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，并且可以穿过单位，转身速度更快，额外提升%phase_movement_speed%%%移动速度。另外提供最多%unholy_bonus_slow_resistance%%%减速抗性，随当前生命值的百分比减少而下降。每秒失去%unholy_health_drain_per_second%点生命值。\n\n生命流失并不会导致死亡，关闭后力量降低也不会导致死亡。多个鞋类物品提供的移动速度加成不叠加。"
+		"DOTA_Tooltip_ability_item_armlet_plus_Lore"									"你知道什么是小鸡护足吗？"
 		"DOTA_Tooltip_ability_item_armlet_plus_Note0"								"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
 		"DOTA_Tooltip_ability_item_armlet_plus_Note1"								"力量的增加将在0.6秒内完成。"
 		"DOTA_Tooltip_ability_item_armlet_plus_Note2"								"开启或关闭邪恶之力并不会打断持续施法。"
@@ -3039,10 +3075,11 @@
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_plus_bonus_movement_speed_melee"			"+移动速度"
 
-		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"小鸡臂章Pro Max"
-		"DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量，+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
-		"DOTA_Tooltip_ability_item_armlet_pro_max_Lore"									"小鸡臂章本应该不会让你每秒损失血量，但是咱们少扣点意思意思。"
+		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"小鸡护足 Pro Max"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>开关：莫尔迪基安之誓</h1>开启后将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，并且可以穿过单位，转身速度更快，额外提升%phase_movement_speed%%%移动速度。另外提供最多%unholy_bonus_slow_resistance%%%减速抗性，随当前生命值的百分比减少而下降。每秒失去%unholy_health_drain_per_second%点生命值。\n\n生命流失并不会导致死亡，关闭后力量降低也不会导致死亡。多个鞋类物品提供的移动速度加成不叠加。"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_Lore"									"小鸡护足本应该不会让你每秒损失血量，但是咱们少扣点意思意思。"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note0"								"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note1"								"力量的增加将在0.6秒内完成。"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Note2"								"开启或关闭邪恶之力并不会打断持续施法。"
@@ -3051,6 +3088,7 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_movement_speed_melee"			"+移动速度"
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
@@ -3061,6 +3099,65 @@
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"被动技能书"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 有更高概率获得强力技能，从 4 个随机被动技能中任选其一学习。\n每名玩家整局最多使用 2 次，可刷新候选，可分享给队友\n可在商店购买，不可出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"翻开它，便能习得前人沉淀的力量。"
+
+		// item_treasure_passive_skill_tome 被动技能书
+		"DOTA_Tooltip_ability_item_treasure_passive_skill_tome"				"被动技能书"
+		"DOTA_Tooltip_ability_item_treasure_passive_skill_tome_Description"				"<h1>使用：学习被动技能</h1>从 4 个随机被动技能中选择一个学习，更容易获得强力技能。<br><br>每名玩家整局最多使用 2 本，与其他来源的被动技能书共用上限。可刷新候选，可分享给队友。"
+
+		// item_treasure_attribute_fragment 属性书碎片
+		"DOTA_Tooltip_ability_item_treasure_attribute_fragment"				"属性书碎片"
+		"DOTA_Tooltip_ability_item_treasure_attribute_fragment_Description"				"集齐 4 枚后自动合成一本属性之书。可以分享给队友。"
+
+		// item_treasure_inventory_fragment 扩容之书碎片
+		"DOTA_Tooltip_ability_item_treasure_inventory_fragment"				"扩容之书碎片"
+		"DOTA_Tooltip_ability_item_treasure_inventory_fragment_Description"				"集齐 3 枚后自动合成一本扩容之书。可以分享给队友。"
+
+		// item_treasure_passive_fragment 被动技能书碎片
+		"DOTA_Tooltip_ability_item_treasure_passive_fragment"				"被动技能书碎片"
+		"DOTA_Tooltip_ability_item_treasure_passive_fragment_Description"				"集齐 4 枚后自动合成一本被动技能书。可以分享给队友。"
+
+		// item_treasure_attribute_tome 属性之书
+		"DOTA_Tooltip_ability_item_treasure_attribute_tome"				"属性之书"
+		"DOTA_Tooltip_ability_item_treasure_attribute_tome_Description"				"使用后从力量之书、敏捷之书和智力之书中选择一本。"
+
+		// item_treasure_slot_machine 老虎机
+		"DOTA_Tooltip_ability_item_treasure_slot_machine"				"老虎机"
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_Description"				"使用后消耗，在脚下掉落一个任意英雄都能拾取的钱袋。每名玩家的老虎机共享冷却。<br><br>掉落概率和金币数<br>%chance_1%%%：%gold_1%<br>%chance_2%%%：%gold_2%<br>%chance_3%%%：%gold_3%<br>%chance_4%%%：%gold_4%<br>%chance_5%%%：%gold_5%"
+
+		// item_treasure_slot_machine_gold_bag 老虎机钱袋
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag"				"老虎机钱袋"
+		"DOTA_Tooltip_ability_item_treasure_slot_machine_gold_bag_Description"				"拾取后获得袋内金币。"
+
+		// item_treasure_salve 神·治疗药膏
+		"DOTA_Tooltip_Ability_item_treasure_salve"						"<font color='#818CFF'>神·治疗药膏</font>"
+		"DOTA_Tooltip_ability_item_treasure_salve_Description"			"<h1>使用：药膏</h1>目标每秒恢复%health_regen%点生命，持续%buff_duration%秒。<br><br>受到伤害后仍会持续，免疫驱散。"
+		"DOTA_Tooltip_modifier_item_treasure_salve"						"<font color='#818CFF'>神·治疗药膏</font>"
+		"DOTA_Tooltip_modifier_item_treasure_salve_Description"			"每秒恢复%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点生命。"
+
+		// item_treasure_clarity 神·净化药水
+		"DOTA_Tooltip_Ability_item_treasure_clarity"					"<font color='#818CFF'>神·净化药水</font>"
+		"DOTA_Tooltip_ability_item_treasure_clarity_Description"		"<h1>使用：回魔</h1>目标每秒恢复%mana_regen%点魔法，持续%buff_duration%秒。<br><br>受到伤害后仍会持续。"
+		"DOTA_Tooltip_modifier_item_treasure_clarity"					"<font color='#818CFF'>神·净化药水</font>"
+		"DOTA_Tooltip_modifier_item_treasure_clarity_Description"		"每秒恢复%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%点魔法。"
+
+		// item_treasure_mango 神·魔法芒果
+		"DOTA_Tooltip_Ability_item_treasure_mango"						"<font color='#818CFF'>神·魔法芒果</font>"
+		"DOTA_Tooltip_ability_item_treasure_mango_Description"			"<h1>使用：吞食芒果</h1>立即恢复%replenish_amount%点魔法。"
+		"DOTA_Tooltip_ability_item_treasure_mango_Note0"				"按住Ctrl键点击附近友方英雄可以对其使用。"
+		"DOTA_Tooltip_ability_item_treasure_mango_hp_regen"				"+$hp_regen"
+
+		// item_treasure_raindrop 神·凝魂之露
+		"DOTA_Tooltip_Ability_item_treasure_raindrop"					"<font color='#818CFF'>神·凝魂之露</font>"
+		"DOTA_Tooltip_ability_item_treasure_raindrop_Description"		"<h1>被动：魔法伤害格挡</h1>受到超过%min_damage%点的<font color='#05CAFF'>魔法伤害</font>时消耗一层能量，最多格挡%magic_damage_block%点伤害。<br><br>初始有%initial_charges%层能量，耗尽后物品消失。"
+		"DOTA_Tooltip_ability_item_treasure_raindrop_mana_regen"		"+$mana_regen"
+
+		// item_treasure_bottle 神·魔瓶
+		"DOTA_Tooltip_Ability_item_treasure_bottle"						"<font color='#818CFF'>神·魔瓶</font>"
+		"DOTA_Tooltip_ability_item_treasure_bottle_Description"			"<h1>使用：恢复</h1>每次使用消耗一口，在%restore_time%秒内共恢复%health_restore%点生命和%mana_restore%点魔法，期间每秒额外恢复%health_regen_pct_tooltip%%%最大生命值和%mana_regen_pct_tooltip%%%最大魔法值。受到伤害不会打断恢复。<br><br>靠近友方泉水时补满至%max_charges%口。<br><br>按住Ctrl键可以对友方英雄使用。\n\n<h1>被动：储存神符</h1>右键点击神符可将其存入魔瓶，超过%rune_expire_time%秒后自动激活。"
+
+		// item_treasure_cheese 神·奶酪
+		"DOTA_Tooltip_Ability_item_treasure_cheese"						"<font color='#818CFF'>神·奶酪</font>"
+		"DOTA_Tooltip_ability_item_treasure_cheese_Description"			"<h1>使用：干酪</h1>立即恢复%health_restore%点生命和%mana_restore%点魔法。<br><br>可以使用5次，也可交给队友。"
 
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"圣女白莲"
@@ -3081,6 +3178,14 @@
 		"DOTA_Tooltip_Ability_item_candy_candy"							"嘉心糖"
 		"DOTA_Tooltip_ability_item_candy_candy_Description"             "吃了这颗糖，就是一嘉人了。<br/>可以获得所有强化神符的加成效果，持续%duration%秒。"
 		"DOTA_Tooltip_Ability_item_candy_candy_Lore"                    "嘉然，我好喜欢你啊！为了你，我要听猫中毒！"
+
+		// item_hand_of_midas_copy
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy"						"<font color='#B87333'>珍藏·迈达斯之手</font>"
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Description"		"<h1>主动：炼金</h1>立刻炼化一个普通单位，获得%bonus_gold%金钱。对中立生物使用时，在允许的情况下会掉落一包狂石。<br><br>无法用于远古单位。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化，并且可以做到跨级合成。"
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Lore"			"以未知的魔法手段维持着的迈达斯之手，是件贪婪的武器，通过炼化生灵来装满持有者的腰包。"
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Note0"			"获得的金钱属于不可靠金钱（不会得到击杀该单位的正常金钱）。"
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_Note1"			"使用炼金获得的经验不会与他人共享。"
+		"DOTA_Tooltip_ability_item_hand_of_midas_copy_bonus_attack_speed"		"+$attack"
 
 		// 团队之手
 	    "DOTA_Tooltip_ability_item_hand_of_group"										"团队之手"
@@ -3147,6 +3252,63 @@
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_health_regen"		"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_mana_regen"		"+$mana_regen"
 
+		// item_bfury_copy
+		"DOTA_Tooltip_ability_item_bfury_copy"						"<font color='#B87333'>珍藏·狂战斧</font>"
+		"DOTA_Tooltip_ability_item_bfury_copy_Description"		"<h1>主动：砍伐</h1>砍伐一根指定树木。\n\n<h1>被动：压制</h1>对非英雄单位进行物理攻击会造成额外伤害，近战英雄为%quelling_bonus%点，远程英雄为%quelling_bonus_ranged%点。\n\n<h1>被动：分裂</h1>普通攻击时对目标周围最远%cleave_distance%距离的锥形区域内敌人造成%cleave_damage_percent%%%物理伤害。对非英雄单位造成%cleave_damage_percent_creep%%%物理伤害。（仅近战有效）\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化，并且可以做到跨级合成。"
+		"DOTA_Tooltip_ability_item_bfury_copy_Lore"			"握着这把强大的斧头可以一次砍倒一片敌人。"
+		"DOTA_Tooltip_ability_item_bfury_copy_Note0"			"分裂伤害无视减益免疫。"
+		"DOTA_Tooltip_ability_item_bfury_copy_Note1"			"如果存在多个分裂效果，每个分裂的伤害都会单独计算。"
+		"DOTA_Tooltip_ability_item_bfury_copy_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_bfury_copy_bonus_health_regen"		"+$hp_regen"
+		"DOTA_Tooltip_ability_item_bfury_copy_bonus_mana_regen"		"+$mana_regen"
+
+		// item_haste_moon_bundle 珍藏·快男的馈赠
+		"DOTA_Tooltip_ability_item_haste_moon_bundle"						"<font color='#B87333'>珍藏·快男的馈赠</font>"
+		"DOTA_Tooltip_ability_item_haste_moon_bundle_Description"		"<h1>使用：永久升级</h1>使用后永久获得急速之翼的 %bonus_movement_speed% 移动速度，%bonus_attack_speed% 攻击速度，%bonus_health_regen% 生命恢复，%bonus_mana_regen% 魔法恢复，以及银月之晶的 %consumed_bonus% 攻击速度和 %consumed_bonus_night_vision% 夜间视野。已经吞噬过其中一种的只获得另一种，两种都吞噬过时无法使用。可以交给队友使用。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化。"
+		"DOTA_Tooltip_ability_item_haste_moon_bundle_Lore"			"快男必备，捡到就停不下来。"
+
+		// item_ultimate_scepter_copy
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy"						"<font color='#B87333'>珍藏·阿哈利姆神杖</font>"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Description"		"<h1>被动：技能升级</h1>提升所有英雄的终极技能或基础技能效果。\n\n<h1>被动：古董</h1>使用珍藏·阿哈利姆的馈赠获得。因为年代久远，属性和效果发生了一些奇特的变化。"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_Lore"			"这把权杖属于拥有半神之力的法师。"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_health"		"+$health"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_mana"		"+$mana"
+
+		// item_aghanim_bundle 珍藏·阿哈利姆的馈赠
+		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>珍藏·阿哈利姆的馈赠</font>"
+		"DOTA_Tooltip_ability_item_aghanim_bundle_Description"		"使用后获得阿哈利姆神杖与阿哈利姆魔晶。已拥有其中一件时只补另一件。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化。"
+		"DOTA_Tooltip_ability_item_aghanim_bundle_Lore"			"阿哈利姆把两样宝贝打了个包，省得你分两次许愿。"
+
+		// item_radiance_copy
+		"DOTA_Tooltip_ability_item_radiance_copy"						"<font color='#B87333'>珍藏·辉耀</font>"
+		"DOTA_Tooltip_ability_item_radiance_copy_Description"		"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害。幻象每秒造成%aura_damage_illusions%点魔法伤害。<br><br>作用范围：%aura_radius%\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化，并且可以做到跨级合成。"
+		"DOTA_Tooltip_ability_item_radiance_copy_Lore"			"一把神圣的武器，剑身的耀眼光芒能将敌人化为灰烬。"
+		"DOTA_Tooltip_ability_item_radiance_copy_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_radiance_copy_evasion"		"%+$evasion"
+
+		// item_blade_mail_copy
+		"DOTA_Tooltip_ability_item_blade_mail_copy"						"<font color='#B87333'>珍藏·刃甲</font>"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Description"		"<h1>主动：伤害反弹</h1>%duration%秒内会反弹所有来源的伤害，百分比提升%active_reflection_pct%%%。\n\n<h1>被动：伤害反弹</h1>每次受到攻击时，反弹%passive_reflection_constant% + 所受攻击伤害的%passive_reflection_pct%%%。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化，并且可以做到跨级合成。"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Lore"			"覆盖着尖锐剃刀的盔甲，战斗中可以用来做出不顾自身安危的烈士行为。"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Note0"			"反弹的均为减免前的伤害。"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Note1"			"反弹伤害的类型与受到时相同。"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_Note2"			"这个技能造成的伤害被视为反弹伤害。反弹伤害不提供任何吸血，而且无法反弹。"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_bonus_damage"		"+$damage"
+		"DOTA_Tooltip_ability_item_blade_mail_copy_bonus_armor"		"+$armor"
+
+		// item_heart_copy
+		"DOTA_Tooltip_ability_item_heart_copy"						"<font color='#B87333'>珍藏·不朽之心</font>"
+		"DOTA_Tooltip_ability_item_heart_copy_Description"							"<h1><font color='#FFFF00'>主动：巨龙复苏</font></h1>立刻回复 %active_hp_regen%+%active_hp_regen_pct%%%最大生命值 的血量，对自身施加弱驱散效果。<br>获得持续 %dur% 秒的额外回血buff，每秒恢复 %buff_hp_regen%+%buff_hp_regen_pct%%%最大生命值 的血量。\n\n<h1>被动：巨兽之血</h1>生命恢复提升缺失生命值的%missing_health_regen%%%。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化，并且可以做到跨级合成。"
+		"DOTA_Tooltip_ability_item_heart_copy_Lore"			"保存完好的心脏，来自早已绝种的怪兽，能提升携带者的耐久力。"
+		"DOTA_Tooltip_ability_item_heart_copy_Note0"			"多个巨兽之血的效果不会叠加。"
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_strength"		"+$str"
+		"DOTA_Tooltip_ability_item_heart_copy_hp_regen"		"%+最大生命值恢复"
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_health_passive"							"+$health"
+		"DOTA_Tooltip_ability_item_heart_copy_bonus_evasion"							"%+$evasion"
+		"DOTA_Tooltip_modifier_item_heart_copy_buff"									"巨龙复苏"
+		"DOTA_Tooltip_modifier_item_heart_copy_buff_Description"						"以极快的速度恢复生命值。"
+
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#e03e2e'>变态辣</font>"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>主动：灵魂撕裂</h1>使目标沉默%silence_duration%秒，沉默结束后其间所受伤害的%silence_damage_percent%%%将以额外魔法伤害的形式结算。<br><br>英雄/非英雄对目标发动攻击会分别额外造成%proc_damage_heroes% / %proc_damage_creeps%点伤害。另外，自身和控制单位对目标发动的所有攻击都拥有克敌机先效果。"
@@ -3209,6 +3371,16 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+施法速度加成"
+
+		// item_starforge_copy 珍藏·锻星炉
+		"DOTA_Tooltip_ability_item_starforge_copy"	"<font color='#B87333'>珍藏·锻星炉</font>"
+		"DOTA_Tooltip_ability_item_starforge_copy_Description"	"<h1>主动：陨星锤</h1>持续施法 %max_duration% 秒后召唤一颗陨石，经过 %land_time% 秒落下，击中 %impact_radius% 范围内的敌人。<br><br>非建筑单位受到 %impact_damage_units% 点加最大生命值 %impact_damage_units_pct_health%%% 的冲击伤害，移动速度降低 %burn_slow%%%，持续 %burn_duration% 秒。<br><br>对建筑的冲击伤害为基础冲击伤害的 %building_damage_pct%%%。\n\n<h1>被动：星焰</h1>你对敌人施加的控制效果结束后，敌人每秒受到 %burn_per_second% 点伤害，移动速度降低 %slow_pct%%%，持续 %passive_debuff_duration% 秒。<br>你的技能和物品均可触发星焰。<br>星焰与陨星锤的烧灼叠加。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化，并且可以做到跨级合成。"
+		"DOTA_Tooltip_ability_item_starforge_copy_Note0"	"眩晕、妖术、催眠、吹风、嘲讽、恐惧、睡眠和放逐可以触发星焰。"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_strength"	"+$str"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_agility"	"+$agi"
+		"DOTA_Tooltip_ability_item_starforge_copy_bonus_intellect"	"+$int"
+		"DOTA_Tooltip_ability_item_starforge_copy_spell_amp"	"%+技能增强"
+		"DOTA_Tooltip_ability_item_starforge_copy_mana_regen_multiplier"	"%+魔法恢复增强"
 
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>星落</font>"
@@ -3373,9 +3545,9 @@
 		"DOTA_Tooltip_Ability_item_dark_part_Lore"				"在夜间击杀肉山和中立生物时，有几率随机掉落。"
 		"DOTA_Tooltip_Ability_item_dark_part_bonus_spell_amp"	"%+$spell_amp"
 
-		// item_armlet_light 圣光·臂章
-		"DOTA_Tooltip_ability_item_armlet_light"				"<font color='#FFFF00'>圣光·臂章</font>"
-		"DOTA_Tooltip_ability_item_armlet_light_Description"							"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量，+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
+		// item_armlet_light 圣光·护足
+		"DOTA_Tooltip_ability_item_armlet_light"				"<font color='#FFFF00'>圣光·护足</font>"
+		"DOTA_Tooltip_ability_item_armlet_light_Description"							"<h1>开关：莫尔迪基安之誓</h1>开启后将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，并且可以穿过单位，转身速度更快，额外提升%phase_movement_speed%%%移动速度。另外提供最多%unholy_bonus_slow_resistance%%%减速抗性，随当前生命值的百分比减少而下降。每秒失去%unholy_health_drain_per_second%点生命值。\n\n生命流失并不会导致死亡，关闭后力量降低也不会导致死亡。多个鞋类物品提供的移动速度加成不叠加。"
 		"DOTA_Tooltip_ability_item_armlet_light_Lore"									"暴徒们首选的武器，持有者牺牲自己的生命能量来获得巨大力量。"
 		"DOTA_Tooltip_ability_item_armlet_light_Note0"								"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
 		"DOTA_Tooltip_ability_item_armlet_light_Note1"								"力量的增加将在0.6秒内完成。"
@@ -3384,10 +3556,11 @@
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_light_bonus_movement_speed_melee"			"+移动速度"
 
-		// item_armlet_dark 暗影·臂章
-		"DOTA_Tooltip_ability_item_armlet_dark"				"<font color='#8A2BE2'>暗影·臂章</font>"
-		"DOTA_Tooltip_ability_item_armlet_dark_Description"							"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量，+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
+		// item_armlet_dark 暗影·护足
+		"DOTA_Tooltip_ability_item_armlet_dark"				"<font color='#8A2BE2'>暗影·护足</font>"
+		"DOTA_Tooltip_ability_item_armlet_dark_Description"							"<h1>开关：莫尔迪基安之誓</h1>开启后将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，并且可以穿过单位，转身速度更快，额外提升%phase_movement_speed%%%移动速度。另外提供最多%unholy_bonus_slow_resistance%%%减速抗性，随当前生命值的百分比减少而下降。每秒失去%unholy_health_drain_per_second%点生命值。\n\n生命流失并不会导致死亡，关闭后力量降低也不会导致死亡。多个鞋类物品提供的移动速度加成不叠加。"
 		"DOTA_Tooltip_ability_item_armlet_dark_Lore"									"暴徒们首选的武器，持有者牺牲自己的生命能量来获得巨大力量。"
 		"DOTA_Tooltip_ability_item_armlet_dark_Note0"								"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
 		"DOTA_Tooltip_ability_item_armlet_dark_Note1"								"力量的增加将在0.6秒内完成。"
@@ -3396,10 +3569,11 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_dark_bonus_movement_speed_melee"			"+移动速度"
 
-		// item_armlet_artifact 神器·光暗臂章
-		"DOTA_Tooltip_ability_item_armlet_artifact"									"<font color='#e03e2e'>神器·光暗臂章</font>"
-		"DOTA_Tooltip_ability_item_armlet_artifact_Description"						"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量，+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
+		// item_armlet_artifact 神器·光暗护足
+		"DOTA_Tooltip_ability_item_armlet_artifact"									"<font color='#e03e2e'>神器·光暗护足</font>"
+		"DOTA_Tooltip_ability_item_armlet_artifact_Description"						"<h1>开关：莫尔迪基安之誓</h1>开启后将提供+%unholy_bonus_damage%点攻击力、+%unholy_bonus_strength%点力量和+%unholy_bonus_armor%点护甲，并且可以穿过单位，转身速度更快，额外提升%phase_movement_speed%%%移动速度。另外提供最多%unholy_bonus_slow_resistance%%%减速抗性，随当前生命值的百分比减少而下降。每秒失去%unholy_health_drain_per_second%点生命值。\n\n生命流失并不会导致死亡，关闭后力量降低也不会导致死亡。多个鞋类物品提供的移动速度加成不叠加。"
 		"DOTA_Tooltip_ability_item_armlet_artifact_Lore"								"光明与黑暗，完美融合——持有者同时掌握两者之巅。"
 		"DOTA_Tooltip_ability_item_armlet_artifact_Note0"							"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
 		"DOTA_Tooltip_ability_item_armlet_artifact_Note1"							"力量的增加将在0.6秒内完成。"
@@ -3408,6 +3582,7 @@
 		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_armor"						"+$armor"
 		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_health_regen"				"+$hp_regen"
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_movement_speed_melee"			"+移动速度"
 
 		// Updated Armlet tooltip (now shows slow resist on active)
 		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"攻击力提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点。\n力量增加%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点。\n护甲提升%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。\n减速抗性提升%dMODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING%%%。\n每秒损失%dMODIFIER_PROPERTY_TOOLTIP%点生命值"
@@ -3427,6 +3602,17 @@
 		"DOTA_Tooltip_Ability_item_force_field_ultra_Lore"					"群体天地同寿，小子。"
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"%+$spell_resist"
+
+		// item_dagon_ultra_copy
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy"						"<font color='#B87333'>珍藏·一瞬千击</font>"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Description"		"<h1>主动：看我手速</h1> 释放爆发性的魔法伤害冲击敌方目标单位。<br><br>伤害：%damage%<br>魔法消耗：%mana_cost_tooltip%\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化。"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Lore"			"手速越快，伤害越高，只要你有蓝"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Note0"			"立刻消灭幻象。"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_Note1"			"以太透镜和达贡之神力提供的施法距离加成不会叠加。"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_health"		"+$health"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_bonus_mana"		"+$mana"
+		"DOTA_Tooltip_ability_item_dagon_ultra_copy_cast_range_bonus"		"+$cast_range"
 
 		// 神器 一瞬千击
 		"DOTA_Tooltip_Ability_item_dagon_ultra"										"<font color='#e03e2e'>神器·一瞬千击</font>"

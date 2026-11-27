@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽奖。游戏逻辑 VScripts 用 TypeScript 经 TSTL 编译为 Lua，UI 用 Panorama（React 16.14 + TypeScript，Webpack 构建），两层经 Custom Net Tables 与 Custom Game Events 通信。
+Windy10v10AI：PVE Dota 2 自定义游戏，10v10 对战、AI 对手、技能抽奖。真人玩家只在天辉，夜魇全是电脑：写逻辑与审查时按「只有天辉有真人」处理，不为双方都有真人的情况设计或报问题。游戏逻辑 VScripts 用 TypeScript 经 TSTL 编译为 Lua，UI 用 Panorama（React 16.14 + TypeScript，Webpack 构建），两层经 Custom Net Tables 与 Custom Game Events 通信。
 
 ## 语言与回复风格
 

@@ -79,14 +79,16 @@ const getTierGlow = (level: number): string => {
   return `0 0 2px 1px ${map[level] ?? colors.tier1}`;
 };
 
-function pickItem(candidate: LotteryDto) {
+function pickItem(candidate: LotteryDto, roundId: number) {
   GameEvents.SendCustomGameEventToServer('lottery_pick_item', {
+    roundId,
     name: candidate.name,
     level: candidate.level,
   });
 }
 
 interface RefreshIconButtonProps {
+  roundId: number;
   isPremium: boolean;
   isRefreshed: boolean;
   paidRefreshCount: number;
@@ -94,6 +96,7 @@ interface RefreshIconButtonProps {
 }
 
 function RefreshIconButton({
+  roundId,
   isPremium,
   isRefreshed,
   paidRefreshCount,
@@ -138,7 +141,7 @@ function RefreshIconButton({
     if (isPaidRefreshLimitReached) {
       return;
     }
-    GameEvents.SendCustomGameEventToServer('lottery_refresh_item', {});
+    GameEvents.SendCustomGameEventToServer('lottery_refresh_item', { roundId });
   };
 
   return (
@@ -159,6 +162,8 @@ function ItemLottery() {
   // 引擎把 boolean 同步为 0/1
   const isRefreshed = Boolean(raw?.isRefreshed);
   const paidRefreshCount = raw?.paidRefreshCount ?? 0;
+  const roundId = raw?.roundId ?? 0;
+  const isAttributeTome = raw?.isAttributeTome === 1;
 
   const isPremium = isPremiumMember(player?.member);
   const useableMemberPoint = player?.useableMemberPoint ?? 0;
@@ -181,7 +186,7 @@ function ItemLottery() {
       if (left <= 0) {
         clearInterval(id);
         const randIndex = Math.floor(Math.random() * candidates.length);
-        pickItem(candidates[randIndex]);
+        pickItem(candidates[randIndex], roundId);
       }
     }, TICK_INTERVAL_MS);
     return () => clearInterval(id);
@@ -198,27 +203,37 @@ function ItemLottery() {
       style={{ ...containerStyle, visibility: isOpen ? 'visible' : 'collapse' }}
       hittest={true}
     >
-      <Label style={titleStyle} text={$.Localize('#lottery_item_header')} />
+      <Label
+        style={titleStyle}
+        text={$.Localize(
+          isAttributeTome ? '#lottery_item_attribute_header' : '#lottery_item_header',
+        )}
+      />
       <Panel style={rowStyle}>
         {candidates.map((c, i) => (
           <DOTAItemImage
             key={`item-lottery-${i}-${c.name}`}
             itemname={c.name}
             showtooltip={true}
-            onactivate={() => pickItem(c)}
+            onactivate={() => pickItem(c, roundId)}
             className="BrightHover"
             style={{
               ...itemStyle,
-              boxShadow: getTierGlow(c.level),
+              boxShadow: isAttributeTome ? undefined : getTierGlow(c.level),
             }}
           />
         ))}
-        <RefreshIconButton
-          isPremium={isPremium}
-          isRefreshed={isRefreshed}
-          paidRefreshCount={paidRefreshCount}
-          useableMemberPoint={useableMemberPoint}
-        />
+        <Panel
+          style={{ visibility: isAttributeTome ? 'collapse' : 'visible', verticalAlign: 'center' }}
+        >
+          <RefreshIconButton
+            roundId={roundId}
+            isPremium={isPremium}
+            isRefreshed={isRefreshed}
+            paidRefreshCount={paidRefreshCount}
+            useableMemberPoint={useableMemberPoint}
+          />
+        </Panel>
       </Panel>
       <Panel style={progressTrackStyle}>
         <Panel style={{ ...progressFillStyle, width: `${progressPct}%` }} />

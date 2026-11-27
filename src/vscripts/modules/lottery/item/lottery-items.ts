@@ -1,106 +1,81 @@
 import { Tier } from '../shared/tier';
 
-/**
- * 物品抽奖池，Tier 7-1。配合 POOL_RATES 累计阈值使用（见 item-lottery-helper）。
- */
+export const treasuredItems = [
+  'item_bfury_copy',
+  'item_radiance_copy',
+  'item_blade_mail_copy',
+  'item_heart_copy',
+  'item_aghanim_bundle',
+  'item_haste_moon_bundle',
+  'item_berserkers_sabatons_copy',
+  'item_echo_sabre_2_copy',
+  'item_hydras_breath_copy',
+  'item_hand_of_midas_copy',
+  'item_starforge_copy',
+  'item_dagon_ultra_copy',
+];
+
 export const itemTiers: Tier[] = [
-  // 超高价值成长/通用资源
   {
     level: 7,
-    names: [
-      'item_tome_of_luoshu', // 洛书
-      'item_passive_skill_tome', // 被动技能书
-    ],
+    names: ['item_tome_of_luoshu', 'item_passive_skill_tome'],
   },
-  // 特殊物品
   {
     level: 6,
-    names: [
-      'item_awaken_stone', // 觉醒石
-      'item_inventory_slot_unlock', // 扩容之书
-    ],
+    names: ['item_awaken_stone', 'item_inventory_slot_unlock'],
   },
-  // 终极物品
   {
     level: 5,
     names: [
-      'item_fusion_hawkeye', // 鹰眼符文
-      'item_fusion_forbidden', // 禁忌符文
-      'item_fusion_brutal', // 暴虐符文
-      'item_fusion_beast', // 兽化符文
-      'item_fusion_life', // 生命符文
-      'item_fusion_shadow', // 暗影符文
-      'item_fusion_magic', // 魔化符文
-      'item_fusion_agile', // 灵动符文
+      'item_fusion_hawkeye',
+      'item_fusion_forbidden',
+      'item_fusion_brutal',
+      'item_fusion_beast',
+      'item_fusion_life',
+      'item_fusion_shadow',
+      'item_fusion_magic',
+      'item_fusion_agile',
+      'item_treasure_cheese',
     ],
   },
-  // 特殊物品
   {
     level: 4,
     names: [
-      'item_tome_of_ability_reset', // 技能重选书
-      'item_tome_of_agility', // 敏捷之书
-      'item_tome_of_intelligence', // 智力之书
-      'item_tome_of_strength', // 力量之书
-      'item_ultimate_scepter_2', // 真·阿哈利姆神杖
-      'item_hydras_breath', // 怪蛇之息
-      'item_roshans_banner', // 肉山的战旗
-      'item_light_part', // 圣光组件
-      'item_dark_part', // 暗影组件
-      'item_veil_of_discord_2', // 赫拉的神秘面纱
+      'item_tome_of_ability_reset',
+      'item_tome_of_agility',
+      'item_tome_of_intelligence',
+      'item_tome_of_strength',
+      'item_roshans_banner',
+      'item_treasure_bottle',
+      'item_treasure_passive_fragment',
     ],
   },
-  // 3~5k
   {
     level: 3,
     names: [
-      'item_consumable_gem', // 幻影宝石
-      'item_candy_candy', // 嘉心糖
-
-      'item_force_staff_2', // 黄金法杖
-      'item_sange_and_yasha', // 散夜对剑
-      'item_kaya_and_sange', // 散慧对剑
-      'item_yasha_and_kaya', // 慧夜对剑
-      'item_bfury', // 狂战斧
-      'item_solar_crest', // 炎阳纹章
-      'item_aether_lens_2', // 以太之镜
-      'item_wings_of_haste', // 急速之翼
-      'item_crellas_crozier', // 克莱拉牧杖
-      'item_specialists_array', // 行家阵列
-      'item_hand_of_group', // 团队之手
-      'item_horn_of_battle_greater', // 大战角
+      'item_consumable_gem',
+      'item_candy_candy',
+      'item_horn_of_battle_greater',
+      'item_treasure_inventory_fragment',
     ],
   },
-  // 2k
   {
     level: 2,
     names: [
-      'item_tome_of_knowledge', // 知识之书
-      'item_aghanims_shard', // 阿哈利姆魔晶
-      'item_great_famango', // 大疗伤莲花
-      'item_hand_of_midas', // 点金手
-      'item_force_staff', // 原力法杖
-      'item_glimmer_cape', // 微光披风
-      'item_essence_distiller', // 精之灵器
-      'item_ancient_janggo', // 韧鼓
-      'item_holy_locket', // 圣洁吊坠
-      'item_consecrated_wraps', // 圣化护服
-      'item_veil_of_discord', // 纷争面纱
+      'item_tome_of_knowledge',
+      'item_great_famango',
+      'item_treasure_attribute_fragment',
+      'item_treasure_slot_machine',
     ],
   },
-  // 1k
   {
     level: 1,
     names: [
-      'item_bracer', // 护腕
-      'item_wraith_band', // 系带
-      'item_null_talisman', // 挂件
-      'item_infused_raindrop', // 凝魂之露
-      'item_magic_wand', // 魔棒
-      'item_bottle', // 魔瓶
-      'item_arcane_boots', // 秘法鞋
-      'item_phase_boots', // 相位鞋
-      'item_power_treads', // 动力鞋
+      ...treasuredItems,
+      'item_treasure_salve',
+      'item_treasure_clarity',
+      'item_treasure_mango',
+      'item_treasure_raindrop',
     ],
   },
 ];

@@ -10,6 +10,7 @@
 			<Image id="aeon_amulet" class="SeqImg" src="file://{images}/items/aeon_amulet.png" />
 			<Image id="aeon_pendant" class="SeqImg" src="file://{images}/items/aeon_pendant.png" />
 			<Image id="aether_lens_2" class="SeqImg" src="file://{images}/items/aether_lens_2.png" />
+			<Image id="aghanim_bundle" class="SeqImg" src="file://{images}/items/aghanim_bundle.png" />
 			<Image id="anyingcaijue" class="SeqImg" src="file://{images}/items/anyingcaijue.png" />
 			<Image id="arcane_blink_2" class="SeqImg" src="file://{images}/items/arcane_blink_2.png" />
 			<Image id="arcane_octarine_core" class="SeqImg" src="file://{images}/items/arcane_octarine_core.png" />
@@ -20,10 +21,15 @@
 			<Image id="armlet_pro_max" class="SeqImg" src="file://{images}/items/armlet_pro_max.png" />
 			<Image id="awaken_stone" class="SeqImg" src="file://{images}/items/awaken_stone.png" />
 			<Image id="beast_shield" class="SeqImg" src="file://{images}/items/beast_shield.png" />
+			<Image id="berserkers_sabatons_active" class="SeqImg" src="file://{images}/items/berserkers_sabatons_active.png" />
+			<Image id="berserkers_sabatons_copy" class="SeqImg" src="file://{images}/items/berserkers_sabatons_copy.png" />
+			<Image id="berserkers_sabatons_custom" class="SeqImg" src="file://{images}/items/berserkers_sabatons_custom.png" />
 			<Image id="bfury_2" class="SeqImg" src="file://{images}/items/bfury_2.png" />
+			<Image id="bfury_copy" class="SeqImg" src="file://{images}/items/bfury_copy.png" />
 			<Image id="bfury_ultra" class="SeqImg" src="file://{images}/items/bfury_ultra.png" />
 			<Image id="black_king_bar_2" class="SeqImg" src="file://{images}/items/black_king_bar_2.png" />
 			<Image id="blade_mail_2" class="SeqImg" src="file://{images}/items/blade_mail_2.png" />
+			<Image id="blade_mail_copy" class="SeqImg" src="file://{images}/items/blade_mail_copy.png" />
 			<Image id="blessing_of_dragon" class="SeqImg" src="file://{images}/items/blessing_of_dragon.png" />
 			<Image id="blessing_of_dragon_1" class="SeqImg" src="file://{images}/items/blessing_of_dragon_1.png" />
 			<Image id="blessing_of_dragon_2" class="SeqImg" src="file://{images}/items/blessing_of_dragon_2.png" />
@@ -40,6 +46,7 @@
 			<Image id="consumable_gem" class="SeqImg" src="file://{images}/items/consumable_gem.png" />
 			<Image id="crellas_crozier_2" class="SeqImg" src="file://{images}/items/crellas_crozier_2.png" />
 			<Image id="dagon_ultra" class="SeqImg" src="file://{images}/items/dagon_ultra.png" />
+			<Image id="dagon_ultra_copy" class="SeqImg" src="file://{images}/items/dagon_ultra_copy.png" />
 			<Image id="dark_part" class="SeqImg" src="file://{images}/items/dark_part.png" />
 			<Image id="devastator_2" class="SeqImg" src="file://{images}/items/devastator_2.png" />
 			<Image id="disperser_chaos" class="SeqImg" src="file://{images}/items/disperser_chaos.png" />
@@ -52,6 +59,7 @@
 			<Image id="dragon_ball_6" class="SeqImg" src="file://{images}/items/dragon_ball_6.png" />
 			<Image id="dragon_ball_7" class="SeqImg" src="file://{images}/items/dragon_ball_7.png" />
 			<Image id="echo_sabre_2" class="SeqImg" src="file://{images}/items/echo_sabre_2.png" />
+			<Image id="echo_sabre_2_copy" class="SeqImg" src="file://{images}/items/echo_sabre_2_copy.png" />
 			<Image id="essence_distiller_2" class="SeqImg" src="file://{images}/items/essence_distiller_2.png" />
 			<Image id="excalibur" class="SeqImg" src="file://{images}/items/excalibur.png" />
 			<Image id="exchange" class="SeqImg" src="file://{images}/items/exchange.png" />
@@ -72,9 +80,13 @@
 			<Image id="gungir_2" class="SeqImg" src="file://{images}/items/gungir_2.png" />
 			<Image id="hallowed_scepter" class="SeqImg" src="file://{images}/items/hallowed_scepter.png" />
 			<Image id="hand_of_group" class="SeqImg" src="file://{images}/items/hand_of_group.png" />
+			<Image id="hand_of_midas_copy" class="SeqImg" src="file://{images}/items/hand_of_midas_copy.png" />
+			<Image id="haste_moon_bundle" class="SeqImg" src="file://{images}/items/haste_moon_bundle.png" />
 			<Image id="hawkeye_turret" class="SeqImg" src="file://{images}/items/hawkeye_turret.png" />
+			<Image id="heart_copy" class="SeqImg" src="file://{images}/items/heart_copy.png" />
 			<Image id="heavens_halberd_v2" class="SeqImg" src="file://{images}/items/heavens_halberd_v2.png" />
 			<Image id="hurricane_pike_2" class="SeqImg" src="file://{images}/items/hurricane_pike_2.png" />
+			<Image id="hydras_breath_copy" class="SeqImg" src="file://{images}/items/hydras_breath_copy.png" />
 			<Image id="hydras_breath_2" class="SeqImg" src="file://{images}/items/hydras_breath_2.png" />
 			<Image id="infernal_desolator" class="SeqImg" src="file://{images}/items/infernal_desolator.png" />
 			<Image id="insight_armor" class="SeqImg" src="file://{images}/items/insight_armor.png" />
@@ -103,6 +115,7 @@
 			<Image id="quelling_blade_2_datadriven" class="SeqImg" src="file://{images}/items/quelling_blade_2_datadriven.png" />
 			<Image id="radiance_2" class="SeqImg" src="file://{images}/items/radiance_2.png" />
 			<Image id="radiance_2_inactive" class="SeqImg" src="file://{images}/items/radiance_2_inactive.png" />
+			<Image id="radiance_copy" class="SeqImg" src="file://{images}/items/radiance_copy.png" />
 			<Image id="rapier_ultra" class="SeqImg" src="file://{images}/items/rapier_ultra.png" />
 			<Image id="refresh_core" class="SeqImg" src="file://{images}/items/refresh_core.png" />
 			<Image id="revenants_brooch_2" class="SeqImg" src="file://{images}/items/revenants_brooch_2.png" />
@@ -126,13 +139,24 @@
 			<Image id="skadi_2" class="SeqImg" src="file://{images}/items/skadi_2.png" />
 			<Image id="skill_remover" class="SeqImg" src="file://{images}/items/skill_remover.png" />
 			<Image id="sphere_2" class="SeqImg" src="file://{images}/items/sphere_2.png" />
+			<Image id="starforge_copy" class="SeqImg" src="file://{images}/items/starforge_copy.png" />
 			<Image id="swift_blink_2" class="SeqImg" src="file://{images}/items/swift_blink_2.png" />
 			<Image id="swift_glove" class="SeqImg" src="file://{images}/items/swift_glove.png" />
 			<Image id="tome_of_agility" class="SeqImg" src="file://{images}/items/tome_of_agility.png" />
 			<Image id="tome_of_intelligence" class="SeqImg" src="file://{images}/items/tome_of_intelligence.png" />
 			<Image id="tome_of_luoshu" class="SeqImg" src="file://{images}/items/tome_of_luoshu.png" />
 			<Image id="tome_of_strength" class="SeqImg" src="file://{images}/items/tome_of_strength.png" />
+			<Image id="treasure_attribute_fragment" class="SeqImg" src="file://{images}/items/treasure_attribute_fragment.png" />
+			<Image id="treasure_inventory_fragment" class="SeqImg" src="file://{images}/items/treasure_inventory_fragment.png" />
+			<Image id="treasure_passive_fragment" class="SeqImg" src="file://{images}/items/treasure_passive_fragment.png" />
+			<Image id="treasure_bottle" class="SeqImg" src="file://{images}/items/treasure_bottle.png" />
+			<Image id="treasure_cheese" class="SeqImg" src="file://{images}/items/treasure_cheese.png" />
+			<Image id="treasure_clarity" class="SeqImg" src="file://{images}/items/treasure_clarity.png" />
+			<Image id="treasure_mango" class="SeqImg" src="file://{images}/items/treasure_mango.png" />
+			<Image id="treasure_raindrop" class="SeqImg" src="file://{images}/items/treasure_raindrop.png" />
+			<Image id="treasure_salve" class="SeqImg" src="file://{images}/items/treasure_salve.png" />
 			<Image id="ultimate_regalia" class="SeqImg" src="file://{images}/items/ultimate_regalia.png" />
+			<Image id="ultimate_scepter_copy" class="SeqImg" src="file://{images}/items/ultimate_scepter_copy.png" />
 			<Image id="undying_heart" class="SeqImg" src="file://{images}/items/undying_heart.png" />
 			<Image id="veil_of_discord_2" class="SeqImg" src="file://{images}/items/veil_of_discord_2.png" />
 			<Image id="vladmir_2" class="SeqImg" src="file://{images}/items/vladmir_2.png" />

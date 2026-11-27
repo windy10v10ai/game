@@ -371,6 +371,14 @@ export class HeroDebugPanel {
   }
 
   private onSpawnTreasure(event: StrEventData): void {
+    if (event.str.trim() === '') {
+      const hero = this.getSelectedHero(event.PlayerID);
+      if (!hero) return;
+      const target = hero.GetAbsOrigin().__add(hero.GetForwardVector().__mul(150));
+      target.z = GetGroundHeight(target, undefined);
+      GameRules.Treasure.debugSpawnAt(target);
+      return;
+    }
     const point = this.parseVectorStr(event.str);
     if (!point) return;
     GameRules.Treasure.debugSpawnAt(point);

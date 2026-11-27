@@ -10,7 +10,7 @@
 |---|---|---|
 | `npc_abilities_custom.txt` | `npc_abilities_custom_lottery.txt`<br>`npc_abilities_custom_awaken.txt` | 全新自定义技能。入口本体放单位/英雄专属技能，lottery 放抽奖池技能，awaken 放觉醒技能 |
 | `npc_abilities_override.txt` | `npc_items_override.txt`<br>`npc_items_override_neutral.txt`<br>`npc_items_override_neutral_passive.txt`<br>`npc_abilities_creep.txt` | 对原版技能/物品写**差分**覆盖（缺失键由引擎合并原版值）。creep 放小兵野怪技能 |
-| `npc_items_custom.txt` | `npc_items_modifier.txt`<br>`npc_items_artifact.txt`<br>`npc_items_clone.txt` | 自制物品。modifier 放物品间共享的 DataDriven modifier（`item_apply_modifiers` 引用），artifact 放神器，clone 放原版物品的倍率克隆 |
+| `npc_items_custom.txt` | `npc_items_modifier.txt`<br>`npc_items_artifact.txt`<br>`npc_items_clone.txt`<br>`npc_items_treasure.txt` | 自制物品。modifier 放物品间共享的 DataDriven modifier（`item_apply_modifiers` 引用），artifact 放神器，clone 放原版物品的倍率克隆，treasure 放宝箱专属的强化消耗品、碎片与老虎机 |
 | `npc_units_custom.txt` | `npc_units_building.txt`<br>`npc_units_creep.txt`<br>`npc_units_neutral.txt` | 自定义单位 |
 
 其余独立文件：`npc_heroes_custom.txt`（英雄覆盖与 `Bot.Build` 加点，改加点前先调用 `update-bot-hero-build` skill，哪些等级没有技能点、每级最多几点都在那里）、`herolist.txt`（可选英雄开关）、`neutral_items.txt`（中立物品掉落表，改动需同步 `src/vscripts/ai/item/neutral-item.ts` 的 `GetDefaultConfig`）、`portraits_custom.txt`（自定义模型头像）。
@@ -31,13 +31,13 @@
 |---|---|---|
 | 10000–10099 | `npc_items_modifier.txt` | 10000–10003 |
 | 10100–10299 | `npc_items_artifact.txt` | 10100–10121 |
-| 10300–10999 | `npc_items_custom.txt` | 10300–10464 |
+| 10300–10999 | `npc_items_custom.txt`、`npc_items_treasure.txt` | 10300–10498 |
 
 新增条目取所属号段**已用区间的下一个数**，段内连续，不要跳号也不要复用被删条目的号。段尾留有空位，用尽再向后扩段。
 
 ### 何时可以不写 ID
 
-`"ID"` 字段是可选的，不写引擎自动分配（`npc_items_clone.txt` 全部如此）。自定义技能（lottery / awaken / custom）一律不写 ID。**只有本目录三个物品文件沿用手写 ID**，新增物品跟随所在文件的既有做法即可。
+`"ID"` 字段是可选的，不写引擎自动分配（`npc_items_clone.txt` 全部如此）。自定义技能（lottery / awaken / custom）一律不写 ID。自制物品沿用所在文件的手写 ID。宝箱原版物品克隆由引擎自动分配 ID。
 
 ### 冲突自检
 
@@ -62,6 +62,24 @@ comm -12 /tmp/ours.txt /tmp/valve.txt   # 有输出即冲突
 技能射程、伤害值及其他可调参数一律从 KV 文件**动态读取**，不要在 TS/Lua 里硬编码已存在于 KV 中的数值。
 
 - **让 tooltip 计入技能增强**：某条 `AbilityValues` 数值想在游戏中按住 ALT 时显示「被技能增强放大后」的值，在该数值块内加 `"CalculateSpellDamageTooltip" "1"`（**不是** `affected_by_spell_amplify`，没有这个字段）。原版默认多为 `"0"`（不计入）。配套字段：`"DamageTypeTooltip"`（伤害类型）、`"display_type"`（如 `kMagicalDamagePercentage` 百分比显示）
+
+## 珍藏装备和馈赠
+
+做珍藏装备时优先将 `BaseClass` 指向对应的原版物品。宝箱直接抽取馈赠，馈赠里的物品通过馈赠发放。调整馈赠的 `loot_*` 时同步检查首箱和常规宝箱的物品池。
+
+有上位配方的珍藏材料用 `ItemPurchasable "1"` 启用原生右键「在商店中显示」，通过 `DragonWishFilter` 拒绝购买指令。验收时分别检查右键入口、上位配方和购买拦截。
+
+## BaseClass 继承范围
+
+`"BaseClass" "<原版物品名>"` 能继承原版物品的**引擎侧行为**：`item_ultimate_scepter_copy` 设 `BaseClass "item_ultimate_scepter"`，放进背包就有 A杖效果，不需要脚本再挂 `modifier_item_ultimate_scepter`（实测）。
+
+**不继承的是数值**：`AbilityValues` 要写进自己的物品块，否则 `GetSpecialValueFor` 一律返回 0，属性与 tooltip 都是空的（实测）。
+
+原版主动效果还需要在珍藏物品块中声明 `AbilityBehavior` 和适用的目标字段。
+
+祈求者的原生神杖选择框按物品名识别神杖。馈赠给祈求者发放 `item_ultimate_scepter`，并关闭这件赠品的出售。
+
+自制物品（`BaseClass` 是 `item_datadriven` / `item_lua`）的 `Modifiers` 块和 `OnSpellStart` 脚本属于它自己的块，做它的复制品时按自己的块重写，不靠 `BaseClass` 继承，参考 `item_haste_moon_bundle` 里的 `modifier_item_wings_of_haste_consumed_copy`。
 
 ## 预载入资源
 

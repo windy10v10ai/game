@@ -94,13 +94,14 @@ end)
 - **客户端代发链路在 Tools 里连不上本地 API**：网页控件请求 `http://localhost`、`http://127.0.0.1` 与本机局域网 IP 一律超时，后端预热过、curl 能秒回也一样，开局请求也会因此转成离线模式。验代发链路用真实域名：`api-client.local.ts` 的 `GetApiTarget()` 改返回 `'direct'`，同时 `GetForceProxy()` 返回 `true`，网页控件就能请求到 `api.windy10v10ai.com`。用户已授权往开发者自己的账户写数据，结算类写入也可以验，账户冷却内回包是 `{"recorded":false}`，仍算代发成功。测完两处都还原（文件带 skip-worktree，按内容确认）。结算流程用 `npm run dota:check -- <空检查脚本> --keep-open` 开局后，`npm run dota:cmd -- "say -end"` 触发。验界面就关掉强制代发，让服务端直连
 - **computer-use 授权一次要齐**：`request_access` 同时申请「Dota 2」「Steam」和 `dota2.exe`。只写开始菜单里的「Dota 2」只授权到 Steam 启动链接，实际窗口仍被遮成色块。`dota2.exe` 必须进程已在运行才能申请，否则请求不会弹给用户，所以先把 Dota 起起来再申请。授权弹窗只有用户本人能点，用户说要离开时，在离开前一次问齐，不要事后补问。被拒或没得到答复时，主会话按用户的派活约定改交能无人值守操作界面的执行者，不等用户
 - **窗口焦点**：系统常驻的「Windows 输入体验」（`TextInputHost.exe`，承载表情面板、剪贴板历史、输入法候选框）偶尔挂着不可见窗口抢走前台，computer-use 因前台不是已授权应用而拒绝操作。不是用户开了什么，也关不掉（系统常驻，结束后自动重启）。被挡时 computer-use 在点击前就拒绝，点 Dota 窗口、`WScript.Shell.AppActivate` 都抢不回来。`textinputhost.exe` 被策略永久拒绝，无法授权，不要申请。被挡时点击走不通，改走 `references/screenshots.md`「不点击出界面」，或请用户本人点一下 Dota 窗口
+- **computer-use 一条消息只发一个动作**：同一条消息里的连续点击、按键或整批 `computer_batch` 常被以「user interrupt」拒绝，单个动作能过。快捷键（如 F4）按不出来时改用点界面或控制台命令
 - **同一时间只能有一个 Dota 客户端**：客户端运行中再触发任何启动（`Start-Process`、`open_application "Dota 2"`、Steam 链接）都会弹 `Source2 - Warning: Only one instance of the game can be running at one time`，弹框抢走前台、后续操作全被拒。`-dedicated` 专用服可以和一个客户端同时跑。切语言或重启时按自己起的进程号关（`Stop-Process -Id <PID>`），不按进程名关，别的会话可能开着专用服；拉回窗口只用点击，不调用 `open_application`。交接里照抄这一条
 - **游廊建房要从 Steam 或启动器启动 Dota**：直接运行 `dota2.exe`（带 `-netconport` 等参数）后在游廊创建自定义房间，会弹「VAC 无法验证机器是否处于安全状态」，无法线上开局。Tools 与本地开局不受影响
 - **只回报观察**：哪几行出现了、时间戳是多少、断在哪一步。诊断和改代码留给主会话
 - **开工先查端口**，没起的自己起——上一轮的后台进程不一定还活着
-- **不收尾**：关不关由主会话决定，见第 6 步
+- **不收尾**：测完关不关由主会话决定，见第 6 步（测试中卡死重启不算收尾，直接做）
 - **PR 截图派主力档**：要审排版，最便宜档判断不了，规则见 `create-pr` 的 `references/screenshots.md`
-- **串行派多个子代理时写明授权**：上一个子代理留着的 Dota，下一个子代理的交接里写「用户已授权关闭遗留的 dota2」，否则它按「已开着就拒绝」停下回报，白费一轮
+- **测试用的 Dota 归测试方完全控制**（用户 2026-11-27 定）：为测试启动的 Dota（主会话或任一子代理起的，含上一轮验证留下的）在测试中可以随时关掉、重启、重载，卡死直接按进程号关掉重开，不用问用户。交接里写明这个 Dota 的进程号，并写「这是测试启动的 Dota，可直接关掉重启」，否则下一个子代理按「已开着就拒绝」停下回报，白费一轮。用户自己开的 Dota（不是测试启动的）仍然不碰
 
 拿到这份 skill 的子代理从第 1 步开始，不再往下派。
 
@@ -130,7 +131,7 @@ $dota = "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\win6
 
 要以指定英雄测试时改用 `npm run launch -- --hero <英雄名>`（不带 `npc_dota_hero_` 前缀），开局直接为玩家选定该英雄；不带 `--hero` 启动会清掉上次的指定。没有中途换英雄的命令：替换英雄不预载资源，也不会重建各模块记录的英雄状态。
 
-完成判据：`console.log` 出现且体积在涨。
+完成判据：`console.log` 出现且体积在涨。`-conclearlog` 要等引擎启动到一定阶段才清空，刚启动时文件里还是上一局的内容（含旧的 `GAME_IN_PROGRESS`），判断开局要核对行首时间戳晚于这次启动时间。
 
 ### 4. 触发要验的流程
 
@@ -139,7 +140,7 @@ $dota = "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\win6
 需要再跑一遍时有两种重开方式：
 
 - **重启进程**，参数同上。慢一两分钟，任何环境都能用。
-- **VConsole 命令框**输入 `dota_launch_custom_game windy10v10ai dota`，几秒钟重新加载。需要能操作窗口，即桌面应用的 computer-use MCP；Claude Code CLI 里没有这套工具。
+- **VConsole 命令框**输入 `dota_launch_custom_game windy10v10ai dota`，几秒钟重新加载。需要能操作窗口，即桌面应用的 computer-use MCP；Claude Code CLI 里没有这套工具。经远程控制台（`dota:cmd`）发这条命令曾让开了一个多小时的 Tools 进程挂死：日志停在 `[VConComm] Connection in progress...`，`Get-Process dota2` 的 `Responding` 持续为 False，`dota:cmd` 只是超时、不报错。发之前先确认进程有响应，发完 30 秒仍无新日志且不响应就按挂死处理，按进程号关掉重启（见「测试用的 Dota 归测试方完全控制」）
 
 重开前记下当前行数（`wc -l < console.log`），之后用 `awk 'NR>N'` 只看新增部分。
 
@@ -166,7 +167,7 @@ grep -n "ApiHtmlProxy\|GameStartProxy" "C:/Program Files (x86)/Steam/steamapps/c
 
 ### 6. 收尾
 
-**关不关由主会话决定，子代理一律不关**——中途关掉，下一轮还要重起一遍。三种情况：
+**测完关不关由主会话决定，子代理测完不关**——中途关掉，下一轮还要重起一遍。三种情况：
 
 - 全部验证结束 → 关
 - 还要再验一轮 → 留着
