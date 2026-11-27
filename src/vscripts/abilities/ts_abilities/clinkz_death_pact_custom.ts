@@ -94,7 +94,9 @@ export class ClinkzDeathPactCustom extends BaseAbility {
       damage: bonus.damage,
     });
     if (caster.IsRealHero()) caster.CalculateStatBonus(true);
-    caster.SetHealth(math.min(caster.GetMaxHealth(), currentHealth + bonus.health));
+    // Stat recalculation can rescale current health before the heal is applied.
+    caster.SetHealth(math.min(caster.GetMaxHealth(), currentHealth));
+    caster.Heal(bonus.health, this);
   }
 }
 
