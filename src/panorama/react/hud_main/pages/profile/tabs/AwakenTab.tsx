@@ -21,7 +21,6 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_clinkz',
     abilityName: 'special_bonus_unique_clinkz_death_pact_awaken',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_morphling',

@@ -321,7 +321,6 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
-  'npc_dota_hero_clinkz',
   'npc_dota_hero_morphling', // 水人
   'npc_dota_hero_centaur', // 半人马战行者
   'npc_dota_hero_antimage', // 敌法师
