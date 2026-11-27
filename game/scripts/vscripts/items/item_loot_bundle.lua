@@ -48,7 +48,8 @@ function LootBundleOnSpell(keys)
 end
 
 -- 馈赠直接给永久加成，不发物品：急速之翼的加成用自带的数据驱动 modifier，
--- 银月之晶用原版吞噬 modifier，两者的互斥判断与单件物品共用同一批 modifier 名
+-- 银月之晶让原版物品自己施放（原版 modifier 只认原版物品当 ability，其他挂法都出不了属性），
+-- 两者的互斥判断与单件物品共用同一批 modifier 名
 function HasteMoonBundleOnSpell(keys)
 	local ability = keys.ability
 	local hero = keys.caster
@@ -56,22 +57,34 @@ function HasteMoonBundleOnSpell(keys)
 		return
 	end
 
-	local granted = false
-	if not hero:HasModifier("modifier_item_wings_of_haste_consumed") and not hero:HasModifier("modifier_item_wings_of_haste_consumed_copy") then
-		ability:ApplyDataDrivenModifier(hero, hero, "modifier_item_wings_of_haste_consumed_copy", {})
-		granted = true
-	end
-	if not hero:HasModifier("modifier_item_moon_shard_consumed") then
-		-- 原版 modifier 只在以原版银月物品为 ability 时才出属性，所以借一件临时银月挂上再删掉
-		local moonShard = CreateItem("item_moon_shard", hero, hero)
-		hero:AddNewModifier(hero, moonShard, "modifier_item_moon_shard_consumed", {})
-		UTIL_Remove(moonShard)
-		granted = true
-	end
-	if not granted then
+	local needsWings = not hero:HasModifier("modifier_item_wings_of_haste_consumed") and not hero:HasModifier("modifier_item_wings_of_haste_consumed_copy")
+	local needsMoon = not hero:HasModifier("modifier_item_moon_shard_consumed")
+	if not needsWings and not needsMoon then
 		return
 	end
 
+	if needsWings then
+		ability:ApplyDataDrivenModifier(hero, hero, "modifier_item_wings_of_haste_consumed_copy", {})
+	end
 	hero:EmitSound("Hero_Alchemist.Scepter.Cast")
 	UTIL_Remove(ability)
+
+	if needsMoon then
+		local moonShard = CreateItem("item_moon_shard", hero, hero)
+		hero:AddItem(moonShard)
+		-- 备用栏的物品不能施放，临时换进主栏，施放后原物品换回
+		local slot = moonShard:GetItemSlot()
+		local swappedSlot = nil
+		if slot > DOTA_ITEM_SLOT_6 then
+			hero:SwapItems(slot, DOTA_ITEM_SLOT_6)
+			swappedSlot = slot
+		end
+		hero:CastAbilityOnTarget(hero, moonShard, hero:GetPlayerOwnerID())
+		if swappedSlot ~= nil then
+			hero:SwapItems(DOTA_ITEM_SLOT_6, swappedSlot)
+		end
+		if not moonShard:IsNull() then
+			UTIL_Remove(moonShard)
+		end
+	end
 end
