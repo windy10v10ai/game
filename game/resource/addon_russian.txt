@@ -1360,6 +1360,23 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 英雄 水人觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>Морфлинг: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"Применение Morph на вражеского героя временно превращает его атрибуты в ловкость, ловкость усиливает заклинания, а Waveform атакует врагов на пути."
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<h1>Morph: пробуждение</h1>После применения Morph на вражеского героя временно получает в виде ловкости часть суммы силы, ловкости и интеллекта этого героя.<br>Повторное применение заменяет прибавку и обновляет её длительность. Эффект исчезает после смерти.
+<h1>Waveform: пробуждение</h1>Атакует врагов на пути, применяя эффекты атаки.
+<h1>Усиление</h1>Каждая единица ловкости даёт усиление заклинаний."
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_inherit_pct"		"%ЛОВКОСТЬ ИЗ СУММЫ АТРИБУТОВ ЦЕЛИ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_duration"		"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_agility_spell_amp"		"%УСИЛЕНИЕ ЗАКЛИНАНИЙ ЗА ЛОВКОСТЬ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_max_targets"		"ЦЕЛИ АТАК WAVEFORM:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_attack_pct"		"%УРОН АТАК WAVEFORM:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Note0"		"Уровень совпадает с уровнем Morph, без изученного Morph не действует."
+		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"Прибавка ловкости (Morph)"
+		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Временно даёт <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> ловкости, рассчитанной из суммы силы, ловкости и интеллекта цели в момент применения Morph.<br>Повторное применение Morph пересчитывает прибавку по новой цели и обновляет длительность, не суммируясь. Эффект исчезает после смерти."
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>Морфлинг: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"<font color='#FFFFFF'><b>Morph: пробуждение</b></font><br>Временно превращает часть суммы силы, ловкости и интеллекта цели в ловкость.<br><font color='#FFFFFF'><b>Waveform: пробуждение</b></font><br>Герой один раз атакует каждого врага на пути.<br><font color='#FFFFFF'><b>Усиление</b></font><br>Каждая единица ловкости даёт усиление заклинаний.<br><br><font color='#7D7D7D'>Действует после изучения Morph</font>"
+
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Двойной клинок: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade_Description"		"Урон от врагов, полученный Centaur Warrunner за последние %damage_window% сек., накапливается как Сила отпора, не более %stored_damage_cap_pct%%% обычного урона Двойного клинка.<br>Когда Двойной клинок попадает по врагу, вся Сила отпора расходуется и увеличивает урон этого применения, а %shield_pct%%% израсходованного значения превращается в щит от любого урона на %shield_duration% сек.<br>Урон Двойного клинка по самому кентавру тоже растёт."
@@ -1508,15 +1525,11 @@
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%УРОН ЗА ПРОЙДЕННОЕ РАССТОЯНИЕ:"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Lore"						"Теперь можно и не ссориться."
 
-		// 剑圣 剑刃风暴-觉醒
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>Танец клинков: пробуждение</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Джаггернаут превращается в вихрь клинков и ежесекундно наносит окружающим врагам магический урон, складывающийся из базового урона и процента от максимального здоровья цели. На время действия он получает <font color='#FFCC66'>невосприимчивость к дебаффам</font> и %magic_resistance_bonus%%% сопротивления магии, может атаковать, но его урон от атак снижен на %damage_reduction_pct%%%. По окончании вихря на себя накладывается сильное развеивание."
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"РАДИУС:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"ДЛИТЕЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"БАЗОВЫЙ УРОН:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_health_damage_pct"			"%УРОН ОТ МАКС. ЗДОРОВЬЯ В СЕКУНДУ:"
-		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"Танец клинков"
-		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"Повышенное сопротивление магии, невосприимчивость к дебаффам и урон окружающим врагам."
+		// 剑圣 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade"					"<font color='#d000ff'>Джаггернаут: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade_Description"		"Радиус Blade Fury увеличен до <font color='#FFFFFF'><b>550</b></font>, враги в зоне бури замедляются на <font color='#FFFFFF'><b>30%%</b></font>. Враги в добавленном внешнем кольце при каждом уроне всегда получают критический удар с текущим множителем Blade Dance.<br>Во время Blade Fury можно атаковать на ходу, нанося <font color='#FFFFFF'><b>50%%</b></font> урона от атаки, а с Aghanim's Scepter — полный урон от атаки."
+		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade"					"<font color='#d000ff'>Джаггернаут: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade_Description"		"Радиус Blade Fury увеличен до <font color='#FFFFFF'><b>550</b></font>, враги в зоне бури замедляются на <font color='#FFFFFF'><b>30%%</b></font>. Враги в добавленном внешнем кольце при каждом уроне всегда получают критический удар с текущим множителем Blade Dance.<br>Во время Blade Fury можно атаковать на ходу, нанося <font color='#FFFFFF'><b>50%%</b></font> урона от атаки, а с Aghanim's Scepter — полный урон от атаки."
 
 		// 斧王 无情铁手-觉醒
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Автоматический Отсекающий клинок: пробуждение</font>"
@@ -1560,7 +1573,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Божественное слово: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"Знахарь взывает к богам: при призыве Смертоносного тотема и тотема превращения их урон от атак повышается пропорционально текущему усилению способностей Знахаря на %spell_amp_ratio_pct%%%."
 		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Божественное слово: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"Знахарь взывает к богам: при призыве Смертоносного тотема и тотема превращения их урон от атак повышается пропорционально текущему усилению способностей Знахаря на 50%%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"Знахарь взывает к богам: при призыве Смертоносного тотема и тотема превращения их урон от атак повышается пропорционально текущему усилению способностей Знахаря на <font color='#FFFFFF'><b>50%%</b></font>."
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Покров Реквием душ: пробуждение</font>"

@@ -68,7 +68,40 @@ describe('分阵营取点', () => {
   });
 });
 
+describe('区数', () => {
+  it.each([
+    ['radiant', 46, 26],
+    ['dire', 50, 22],
+  ] as const)('%s 假眼 %i 个区，真眼 %i 个区', (side, observers, sentries) => {
+    expect(OBSERVER_WARD_CONFIG.sides[side].zones.length).toBe(observers);
+    expect(SENTRY_WARD_CONFIG.sides[side].zones.length).toBe(sentries);
+  });
+});
+
 describe('配置数据自检', () => {
+  // These reviewed spots are kept on purpose: within sameWardRadius they act as one location, so only one of each pair holds a ward at a time.
+  const CLOSE_PAIRS: ReadonlyArray<readonly [string, string, string, string]> = [
+    ['radiant', 'obs', 'lane_mid_0', 'r-upper-stone'],
+    ['radiant', 'obs', 'r-south-flank', 'river02'],
+    ['radiant', 'obs', 'camp24', 'd-lower-road'],
+    ['radiant', 'obs', 'd-upper-lane', 'p4-d-upper-high'],
+    ['radiant', 'sentry', 'p4-lower-river-sentry', 'r-lower-stone-sentry'],
+    ['radiant', 'sentry', 'mid-river-sentry', 'p4-mid-river-sentry-b'],
+    ['dire', 'obs', 'r-edge-south', 'r-push-mid'],
+    ['dire', 'obs', 'r-lower-mid', 'r-push-mid'],
+    ['dire', 'obs', 'r-edge-north', 'r-push-mid-b'],
+    ['dire', 'obs', 'r-south-flank', 'river02'],
+    ['dire', 'obs', 'lane_top_3', 'n-jungle-west-b'],
+    ['dire', 'sentry', 'p4-lower-river-sentry', 'r-lower-stone-sentry'],
+    ['dire', 'sentry', 'mid-river-sentry', 'p4-mid-river-sentry-b'],
+  ];
+  const isClosePair = (side: string, kind: string, a: string, b: string): boolean =>
+    CLOSE_PAIRS.some(
+      ([s, k, x, y]) => s === side && k === kind && ((x === a && y === b) || (x === b && y === a)),
+    );
+  const kindOf = (config: WardTypeConfig): string =>
+    config === OBSERVER_WARD_CONFIG ? 'obs' : 'sentry';
+
   // 眼落地后按备选点到眼的距离判占用，落点带偏移，不同区的备选点要隔开去重半径加偏移才不会互相挤占
   const MIN_ZONE_GAP = OBSERVER_WARD_CONFIG.sameWardRadius + POSITION_JITTER;
 
@@ -84,7 +117,7 @@ describe('配置数据自检', () => {
           if (b.id <= a.id) continue;
           for (const x of a.spots) {
             for (const y of b.spots) {
-              if (dist(x, y) < MIN_ZONE_GAP) {
+              if (dist(x, y) < MIN_ZONE_GAP && !isClosePair(side, kindOf(config), a.id, b.id)) {
                 violations.push(`${a.id}-${b.id}:${Math.round(dist(x, y))}`);
               }
             }
@@ -103,6 +136,24 @@ describe('配置数据自检', () => {
             expect(dist(a, b)).toBeLessThanOrEqual(1100);
           }
         }
+      }
+    });
+
+    it.each(sides)('%s 每个区只有一个点', (side) => {
+      for (const item of zonesOf(side)) {
+        expect(item.spots.length).toBe(1);
+      }
+    });
+
+    it.each(sides)('%s 例外清单里的每一对确实距离不足', (side) => {
+      const zones = zonesOf(side);
+      const pairs = CLOSE_PAIRS.filter(([s, k]) => s === side && k === kindOf(config));
+      for (const [, , a, b] of pairs) {
+        const za = zones.find((item) => item.id === a);
+        const zb = zones.find((item) => item.id === b);
+        expect(za).toBeDefined();
+        expect(zb).toBeDefined();
+        expect(dist(za!.spots[0], zb!.spots[0])).toBeLessThan(MIN_ZONE_GAP);
       }
     });
 

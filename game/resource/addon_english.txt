@@ -1360,6 +1360,23 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 英雄 水人觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>Morphling Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"Casting Morph on an enemy hero temporarily borrows its attributes as Agility. Agility amplifies spells, and Waveform attacks enemies along its path."
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<h1>Morph Awakened</h1>After casting Morph on an enemy hero, temporarily gain a percentage of that hero's combined Strength, Agility and Intelligence as Agility.<br>Recasting replaces and refreshes the bonus, which is removed on death.
+<h1>Waveform Awakened</h1>Attacks enemies along the path, applying attack effects.
+<h1>Enhancement</h1>Each point of Agility grants spell amplification."
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_inherit_pct"		"%TARGET TOTAL ATTRIBUTES AS AGILITY:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_duration"		"DURATION:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_agility_spell_amp"		"%SPELL AMPLIFICATION PER AGILITY:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_max_targets"		"WAVEFORM ATTACK TARGETS:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_attack_pct"		"%WAVEFORM ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Note0"		"Follows the level of Morph, and has no effect while Morph is unlearned."
+		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"Morph Agility Bonus"
+		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"Temporarily grants <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> Agility, converted from the target's combined Strength, Agility and Intelligence when Morph was cast.<br>Recasting Morph recalculates the bonus from the new target and refreshes the duration without stacking. Removed on death."
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>Morphling Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"<font color='#FFFFFF'><b>Morph Awakened</b></font><br>Temporarily borrows a portion of the target's combined Strength, Agility and Intelligence as Agility.<br><font color='#FFFFFF'><b>Waveform Awakened</b></font><br>Performs one attack on each enemy along the path.<br><font color='#FFFFFF'><b>Enhancement</b></font><br>Each point of Agility grants spell amplification.<br><br><font color='#7D7D7D'>Takes effect after learning Morph</font>"
+
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>Double Edge Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade_Description"		"Enemy damage Centaur Warrunner takes within the last %damage_window% seconds is stored as Counter Force, up to %stored_damage_cap_pct%%% of normal Double Edge damage.<br>When Double Edge hits an enemy, all Counter Force is consumed to increase that cast's damage, and %shield_pct%%% of the amount consumed becomes an all-damage shield lasting %shield_duration% seconds.<br>The damage Double Edge deals to Centaur himself rises accordingly."
@@ -1508,15 +1525,11 @@
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%DISTANCE AS DAMAGE:"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Lore"						"No need to argue about it anymore."
 
-		// Juggernaut - Blade Fury Awakened
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>Blade Fury Awakened</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, each second dealing magic damage to surrounding enemies equal to base damage plus a percentage of each enemy's max health. Grants <font color='#FFCC66'>debuff immunity</font> and %magic_resistance_bonus%%% magic resistance, and can attack normally but with attack power reduced by %damage_reduction_pct%%%. Performs a strong dispel on himself when the spin ends."
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"RADIUS:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"DURATION:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"BASE DAMAGE:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_health_damage_pct"			"%MAX HEALTH DAMAGE PER SECOND:"
-		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"Blade Fury"
-		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"Magic resistance increased, debuff immune, dealing damage to surrounding enemies."
+		// Juggernaut - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade"					"<font color='#d000ff'>Juggernaut Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade_Description"		"Blade Fury's radius is increased to <font color='#FFFFFF'><b>550</b></font>, and enemies within the storm are slowed by <font color='#FFFFFF'><b>30%%</b></font>. Enemies in the added outer ring always take a critical hit with the current Blade Dance critical multiplier on every damage tick.<br>Can attack while moving during Blade Fury, dealing <font color='#FFFFFF'><b>50%%</b></font> attack damage, or full attack damage with Aghanim's Scepter."
+		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade"					"<font color='#d000ff'>Juggernaut Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade_Description"		"Blade Fury's radius is increased to <font color='#FFFFFF'><b>550</b></font>, and enemies within the storm are slowed by <font color='#FFFFFF'><b>30%%</b></font>. Enemies in the added outer ring always take a critical hit with the current Blade Dance critical multiplier on every damage tick.<br>Can attack while moving during Blade Fury, dealing <font color='#FFFFFF'><b>50%%</b></font> attack damage, or full attack damage with Aghanim's Scepter."
 
 		// Axe - Ruthless Hand Awakened
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Ruthless Hand Awakened</font>"
@@ -1560,7 +1573,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by %spell_amp_ratio_pct%%% of his current Spell Amplification when summoned."
 		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by 50%%% of his current Spell Amplification when summoned."
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by <font color='#FFFFFF'><b>50%%</b></font> of his current Spell Amplification when summoned."
 
 		// Shadow Fiend Requiem Guard - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
