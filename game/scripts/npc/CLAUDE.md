@@ -75,11 +75,11 @@ comm -12 /tmp/ours.txt /tmp/valve.txt   # 有输出即冲突
 
 **不继承的是数值**：`AbilityValues` 要写进自己的物品块，否则 `GetSpecialValueFor` 一律返回 0，属性与 tooltip 都是空的（实测）。
 
-原版主动效果还需要在珍藏物品块中声明 `AbilityBehavior` 和适用的目标字段。珍藏银月之晶补齐这些字段后可走原生吞噬效果。
+原版主动效果还需要在珍藏物品块中声明 `AbilityBehavior` 和适用的目标字段。
 
 祈求者的原生神杖选择框按物品名识别神杖。馈赠给祈求者发放 `item_ultimate_scepter`，并关闭这件赠品的出售。
 
-自制物品（`BaseClass` 是 `item_datadriven` / `item_lua`）的 `Modifiers` 块和 `OnSpellStart` 脚本属于它自己的块，做它的复制品时按自己的块重写，不靠 `BaseClass` 继承，参考 `item_wings_of_haste_copy`。
+自制物品（`BaseClass` 是 `item_datadriven` / `item_lua`）的 `Modifiers` 块和 `OnSpellStart` 脚本属于它自己的块，做它的复制品时按自己的块重写，不靠 `BaseClass` 继承，参考 `item_haste_moon_bundle` 里的 `modifier_item_wings_of_haste_consumed_copy`。
 
 ## 预载入资源
 

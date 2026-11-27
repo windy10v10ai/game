@@ -2472,9 +2472,11 @@
 
 		// wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"急速之翼"
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_copy"							"珍藏·快男的馈赠"
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE%移动速度，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度，%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%生命恢复和%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%魔法恢复加成。"
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_copy_Description"			"永久获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE%移动速度，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度，%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%生命恢复和%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%魔法恢复加成。"
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"急速之翼"
-		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>使用：永久升级</h1>消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。\n可以对友方英雄使用。每名英雄只能吞噬一次急速之翼，普通版和珍藏版共用这一次。"
+		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>使用：永久升级</h1>消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。\n可以对友方英雄使用。每名英雄只能吞噬一次急速之翼，用过珍藏·快男的馈赠也算吞噬过。"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_attack_speed"			"+$attack"
@@ -3262,7 +3264,7 @@
 
 		// item_haste_moon_bundle 珍藏·快男的馈赠
 		"DOTA_Tooltip_ability_item_haste_moon_bundle"						"<font color='#B87333'>珍藏·快男的馈赠</font>"
-		"DOTA_Tooltip_ability_item_haste_moon_bundle_Description"		"使用后获得急速之翼与银月之晶。两件都是消耗后永久提升属性的物品。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化。"
+		"DOTA_Tooltip_ability_item_haste_moon_bundle_Description"		"<h1>使用：永久升级</h1>使用后永久获得急速之翼的 %bonus_movement_speed% 移动速度，%bonus_attack_speed% 攻击速度，%bonus_health_regen% 生命恢复，%bonus_mana_regen% 魔法恢复，以及银月之晶的 %consumed_bonus% 攻击速度和 %consumed_bonus_night_vision% 夜间视野。已经吞噬过其中一种的只获得另一种，两种都吞噬过时无法使用。可以交给队友使用。\n\n<h1>被动：古董</h1>只能从宝箱中获得。因为年代久远，属性和效果发生了一些奇特的变化。"
 		"DOTA_Tooltip_ability_item_haste_moon_bundle_Lore"			"快男必备，捡到就停不下来。"
 
 		// item_ultimate_scepter_copy
@@ -3272,23 +3274,6 @@
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_health"		"+$health"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_copy_bonus_mana"		"+$mana"
-
-		// item_wings_of_haste_copy
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"<font color='#B87333'>珍藏·急速之翼</font>"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>使用：永久升级</h1>消耗急速之翼后，永久获得 %bonus_movement_speed% 移动速度，%bonus_attack_speed% 攻击速度，8 生命恢复，5 魔法恢复。\n可以对友方英雄使用。每名英雄只能吞噬一次急速之翼，普通版和珍藏版共用这一次。\n\n<h1>被动：古董</h1>使用珍藏·快男的馈赠获得。因为年代久远，属性和效果发生了一些奇特的变化。"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Lore"			"Wings that grant swift retribution in battle."
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_movement_speed"		"+$move_speed"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_attack_speed"		"+$attack"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_all_stats"		"+$all"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_health_regen"		"+$hp_regen"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_mana_regen"		"+$mana_regen"
-
-		// item_moon_shard_copy
-		"DOTA_Tooltip_ability_item_moon_shard_copy"						"<font color='#B87333'>珍藏·银月之晶</font>"
-		"DOTA_Tooltip_ability_item_moon_shard_copy_Description"		"<h1>使用：吞噬</h1> 吞噬银月之晶，永久获得%consumed_bonus%攻击速度和%consumed_bonus_night_vision%夜间视野加成。最多使用1次。\n\n<h1>被动：月夜之视</h1>提供额外夜间视野。\n\n<h1>被动：古董</h1>使用珍藏·快男的馈赠获得。因为年代久远，属性和效果发生了一些奇特的变化。"
-		"DOTA_Tooltip_ability_item_moon_shard_copy_Lore"			"相传这是月之女神赛莉蒙妮流下的一滴眼泪。"
-		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_attack_speed"		"+$attack"
-		"DOTA_Tooltip_ability_item_moon_shard_copy_bonus_night_vision"		"+额外夜间视野"
 
 		// item_aghanim_bundle 珍藏·阿哈利姆的馈赠
 		"DOTA_Tooltip_ability_item_aghanim_bundle"						"<font color='#B87333'>珍藏·阿哈利姆的馈赠</font>"

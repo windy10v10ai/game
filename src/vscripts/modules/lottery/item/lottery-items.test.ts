@@ -21,8 +21,6 @@ const BUNDLE_CONTENTS = [
   'item_ultimate_scepter',
   'item_ultimate_scepter_copy',
   'item_aghanims_shard',
-  'item_wings_of_haste_copy',
-  'item_moon_shard_copy',
 ];
 
 function namesOf(level: number): string[] {
