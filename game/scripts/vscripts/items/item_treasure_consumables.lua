@@ -7,4 +7,5 @@ function TreasureCheeseOnSpell(keys)
     local ability = keys.ability
     caster:Heal(ability:GetSpecialValueFor("health_restore"), ability)
     caster:GiveMana(ability:GetSpecialValueFor("mana_restore"))
+    ability:SpendCharge(1)
 end
