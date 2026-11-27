@@ -574,7 +574,7 @@ const OBSERVER_DIRE: WardSideData = {
       id: 'd-upper-jungle',
       group: '夜魇上野入口线/obs',
       tier: 'defend',
-      tower: 'badguys_tower2_top',
+      tower: 'badguys_tower3_top',
       spots: [[3275, 4600]],
     },
     {
