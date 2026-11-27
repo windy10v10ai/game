@@ -1358,6 +1358,16 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		"DOTA_Tooltip_ability_special_bonus_unique_clinkz_death_pact_awaken"		"<font color='#d000ff'>Death Pact Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_clinkz_death_pact_awaken_SummaryDescription"		"Death Pact grants bonus health and attack damage based on the consumed target's maximum health."
+		"DOTA_Tooltip_ability_special_bonus_unique_clinkz_death_pact_awaken_Description"		"Death Pact grants %health_gain_pct%%% of the target's maximum health as bonus max health and %damage_gain_pct%%% as bonus attack damage. The level 15 Death Pact talent adds <font color='#FFFFFF'><b>300</b></font> more max health."
+		"DOTA_Tooltip_modifier_special_bonus_unique_clinkz_death_pact_awaken"		"<font color='#d000ff'>Death Pact Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_clinkz_death_pact_awaken_Description"		"Death Pact grants <font color='#FFFFFF'><b>100%%</b></font> of the target's maximum health as bonus max health and <font color='#FFFFFF'><b>25%%</b></font> as bonus attack damage. The level 15 Death Pact talent adds <font color='#FFFFFF'><b>300</b></font> more max health."
+		"DOTA_Tooltip_modifier_clinkz_death_pact_custom"		"Death Pact"
+		"DOTA_Tooltip_modifier_clinkz_death_pact_custom_Description"		"Max health increased by %dMODIFIER_PROPERTY_EXTRA_HEALTH_BONUS%. Attack damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
+		"DOTA_Tooltip_ability_special_bonus_unique_clinkz_death_pact_ancient"		"Death Pact Can Consume Ancient Creeps"
+		"dota_hud_error_clinkz_death_pact_creep_level"		"Target creep level is too high"
+
 		// 英雄 水人觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>Morphling Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"Casting Morph on an enemy hero temporarily borrows its attributes as Agility. Agility amplifies spells, and Waveform attacks enemies along its path."
@@ -1674,6 +1684,8 @@
 		// 克林克兹
 		//死亡契约改说明
 		"DOTA_Tooltip_ability_clinkz_death_pact"										"Death Pact (No Skeleton Archers)"
+		"DOTA_Tooltip_ability_clinkz_death_pact_Description"		"Consumes an enemy creep or a friendly Skeleton Archer, healing Clinkz and granting bonus max health. When awakened, max health and bonus attack damage are based on the target's maximum health. Does not break Skeleton Walk. Recasting replaces and refreshes the bonus."
+		"DOTA_Tooltip_ability_clinkz_death_pact_health_gain"		"BONUS HEALTH BEFORE AWAKENING:"
 		// 地狱之裂 A杖效果
 		"DOTA_Tooltip_ability_clinkz_infernal_shred_scepter_Description"	 					"Increases Infernal Shred's maximum armor piercing to %max_armor_piercing_pct%%%."
 
