@@ -62,7 +62,10 @@ function HasteMoonBundleOnSpell(keys)
 		granted = true
 	end
 	if not hero:HasModifier("modifier_item_moon_shard_consumed") then
-		hero:AddNewModifier(hero, ability, "modifier_item_moon_shard_consumed", {})
+		-- 原版 modifier 只在以原版银月物品为 ability 时才出属性，所以借一件临时银月挂上再删掉
+		local moonShard = CreateItem("item_moon_shard", hero, hero)
+		hero:AddNewModifier(hero, moonShard, "modifier_item_moon_shard_consumed", {})
+		UTIL_Remove(moonShard)
 		granted = true
 	end
 	if not granted then

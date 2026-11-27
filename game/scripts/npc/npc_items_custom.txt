@@ -8262,7 +8262,7 @@
 			"bonus_health_regen"			"8"
 			"bonus_mana_regen"				"5"
 			"consumed_bonus"				"60"
-			"consumed_bonus_night_vision"	"400"
+			"consumed_bonus_night_vision"	"200"
 		}
 
 		"OnSpellStart"
