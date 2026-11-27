@@ -80,7 +80,7 @@ export class ClinkzDeathPactCustom extends BaseAbility {
             target,
             awaken.GetSpecialValueFor('health_gain_pct'),
             awaken.GetSpecialValueFor('damage_gain_pct'),
-            fixedHealth - this.GetLevelSpecialValueNoOverride('health_gain', this.GetLevel() - 1),
+            this.GetSpecialValueFor('awakening_talent_health'),
           )
         : { health: fixedHealth, damage: 0 };
 
