@@ -96,17 +96,11 @@ export class PassiveTomeLottery {
       return;
     }
 
-    const picked = AbilityLotteryHelper.resolveConflictingPick(
-      hero,
-      matched,
-      abilityTiersPassive,
-      state.candidates.map((c) => c.name),
-    );
-    hero.AddAbility(picked.name);
+    hero.AddAbility(matched.name);
     const owned = this.ownedAbilities.get(playerId) ?? [];
-    owned.push(picked.name);
+    owned.push(matched.name);
     this.ownedAbilities.set(playerId, owned);
-    print('[PassiveTomeLottery] player ' + playerId + ' picked ' + picked.name);
+    print('[PassiveTomeLottery] player ' + playerId + ' picked ' + matched.name);
 
     // 清空候选（写空数组，客户端 candidates.length === 0 → UI collapse）。
     // 不能传 nil：Dota 引擎对 SetTableValue 传 nil 是 noop，不会删除行。

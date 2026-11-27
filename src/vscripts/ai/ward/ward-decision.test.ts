@@ -1,14 +1,29 @@
 import {
   countHeldWards,
   HeldItem,
+  isZoneEnabled,
+  canPlaceInZone,
+  detourRange,
   isZoneFree,
-  pickDetourSpot,
-  pickPassingSpot,
+  regularCapReached,
+  wardUnits,
+  groupUsed,
+  pickNearestTarget,
   pickWardBuyer,
+  resolveTargets,
+  ResolveTargetsInput,
   shouldDropSentry,
+  TargetPick,
+  WardTier,
   WardZone,
 } from './ward-decision';
-import { OBSERVER_WARD_CONFIG, SENTRY_WARD_CONFIG, WardZoneData } from './ward-position-config';
+import {
+  OBSERVER_WARD_CONFIG,
+  POSITION_JITTER,
+  SENTRY_WARD_CONFIG,
+  WardTypeConfig,
+  WardZoneData,
+} from './ward-position-config';
 
 /** 判定只用到 __sub 与 Length2D，构造最小替身即可 */
 function vec(x: number, y: number, z = 0): Vector {
@@ -27,154 +42,465 @@ function sequence(...values: number[]): (n: number) => number {
   return (n) => values[i++ % values.length] % n;
 }
 
-const zoneA: WardZone = { id: 'a', spots: [vec(0, 0), vec(600, 0), vec(0, 700)] };
-const zoneB: WardZone = { id: 'b', spots: [vec(3000, 0)] };
+function zone(id: string, group: string, x: number, tier: WardTier = 'always', tower?: string) {
+  const result: WardZone = { id, group, tier, tower, spots: [vec(x, 0), vec(x + 100, 0)] };
+  return result;
+}
 
 /** 配置里是原始坐标，自检直接按坐标算，不依赖引擎的 Vector */
-type Spot = readonly [number, number, number];
+type Spot = readonly [number, number];
 const dist = (a: Spot, b: Spot) => Math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2);
-const spotsOf = (zones: readonly WardZoneData[]): Spot[] =>
-  zones.flatMap((zone) => [...zone.spots]);
 const sides = ['radiant', 'dire'] as const;
+const configs: ReadonlyArray<readonly [string, WardTypeConfig]> = [
+  ['假眼', OBSERVER_WARD_CONFIG],
+  ['真眼', SENTRY_WARD_CONFIG],
+];
 
 describe('分阵营取点', () => {
   it('天辉与夜魇各有自己的点位', () => {
-    const { radiant, dire } = OBSERVER_WARD_CONFIG.zones;
-    expect(radiant.length).toBeGreaterThan(0);
-    expect(dire.length).toBeGreaterThan(0);
-    expect(radiant).not.toBe(dire);
-    expect(spotsOf(radiant)).not.toEqual(spotsOf(dire));
+    for (const [, config] of configs) {
+      const { radiant, dire } = config.sides;
+      expect(radiant.zones.length).toBeGreaterThan(0);
+      expect(dire.zones.length).toBeGreaterThan(0);
+      expect(radiant.zones).not.toBe(dire.zones);
+      expect(radiant.zones.map((item) => item.id)).not.toEqual(dire.zones.map((item) => item.id));
+    }
+  });
+});
+
+describe('区数', () => {
+  it.each([
+    ['radiant', 46, 26],
+    ['dire', 50, 22],
+  ] as const)('%s 假眼 %i 个区，真眼 %i 个区', (side, observers, sentries) => {
+    expect(OBSERVER_WARD_CONFIG.sides[side].zones.length).toBe(observers);
+    expect(SENTRY_WARD_CONFIG.sides[side].zones.length).toBe(sentries);
   });
 });
 
 describe('配置数据自检', () => {
-  it.each(sides)('%s 假眼点位两两距离不小于 600', (side) => {
-    const spots = spotsOf(OBSERVER_WARD_CONFIG.zones[side]);
-    for (let i = 0; i < spots.length; i++) {
-      for (let j = i + 1; j < spots.length; j++) {
-        expect(dist(spots[i], spots[j])).toBeGreaterThanOrEqual(600);
-      }
-    }
-  });
+  // These reviewed spots are kept on purpose: within sameWardRadius they act as one location, so only one of each pair holds a ward at a time.
+  const CLOSE_PAIRS: ReadonlyArray<readonly [string, string, string, string]> = [
+    ['radiant', 'obs', 'lane_mid_0', 'r-upper-stone'],
+    ['radiant', 'obs', 'r-south-flank', 'river02'],
+    ['radiant', 'obs', 'camp24', 'd-lower-road'],
+    ['radiant', 'obs', 'd-upper-lane', 'p4-d-upper-high'],
+    ['radiant', 'sentry', 'p4-lower-river-sentry', 'r-lower-stone-sentry'],
+    ['radiant', 'sentry', 'mid-river-sentry', 'p4-mid-river-sentry-b'],
+    ['dire', 'obs', 'r-edge-south', 'r-push-mid'],
+    ['dire', 'obs', 'r-lower-mid', 'r-push-mid'],
+    ['dire', 'obs', 'r-edge-north', 'r-push-mid-b'],
+    ['dire', 'obs', 'r-south-flank', 'river02'],
+    ['dire', 'obs', 'lane_top_3', 'n-jungle-west-b'],
+    ['dire', 'sentry', 'p4-lower-river-sentry', 'r-lower-stone-sentry'],
+    ['dire', 'sentry', 'mid-river-sentry', 'p4-mid-river-sentry-b'],
+  ];
+  const isClosePair = (side: string, kind: string, a: string, b: string): boolean =>
+    CLOSE_PAIRS.some(
+      ([s, k, x, y]) => s === side && k === kind && ((x === a && y === b) || (x === b && y === a)),
+    );
+  const kindOf = (config: WardTypeConfig): string =>
+    config === OBSERVER_WARD_CONFIG ? 'obs' : 'sentry';
 
-  it.each(sides)('%s 同一区域的备选点互相都在去重半径内，不同区域互不影响', (side) => {
-    const zones = OBSERVER_WARD_CONFIG.zones[side];
-    const radius = OBSERVER_WARD_CONFIG.sameWardRadius;
-    for (const zone of zones) {
-      expect(zone.spots.length).toBeGreaterThan(0);
-      for (const a of zone.spots) {
-        for (const b of zone.spots) {
-          expect(dist(a, b)).toBeLessThanOrEqual(radius);
-        }
-      }
-      for (const other of zones) {
-        if (other === zone) continue;
-        for (const a of zone.spots) {
-          for (const b of other.spots) {
-            expect(dist(a, b)).toBeGreaterThan(radius);
+  // 眼落地后按备选点到眼的距离判占用，落点带偏移，不同区的备选点要隔开去重半径加偏移才不会互相挤占
+  const MIN_ZONE_GAP = OBSERVER_WARD_CONFIG.sameWardRadius + POSITION_JITTER;
+
+  describe.each(configs)('%s', (_name, config) => {
+    const zonesOf = (side: (typeof sides)[number]): readonly WardZoneData[] =>
+      config.sides[side].zones;
+
+    it.each(sides)('%s 不同区的备选点两两距离不小于去重半径加偏移', (side) => {
+      const zones = zonesOf(side);
+      const violations: string[] = [];
+      for (const a of zones) {
+        for (const b of zones) {
+          if (b.id <= a.id) continue;
+          for (const x of a.spots) {
+            for (const y of b.spots) {
+              if (dist(x, y) < MIN_ZONE_GAP && !isClosePair(side, kindOf(config), a.id, b.id)) {
+                violations.push(`${a.id}-${b.id}:${Math.round(dist(x, y))}`);
+              }
+            }
           }
         }
       }
-    }
-  });
+      expect(violations).toEqual([]);
+    });
 
-  it.each(sides)('%s 真眼点位离任一假眼点位不小于 300', (side) => {
-    const observers = spotsOf(OBSERVER_WARD_CONFIG.zones[side]);
-    for (const sentry of spotsOf(SENTRY_WARD_CONFIG.zones[side])) {
-      for (const observer of observers) {
-        expect(dist(sentry, observer)).toBeGreaterThanOrEqual(300);
+    // 区占用按「任一备选点附近有眼」整区判，备选点相距略超去重半径也不会重复插
+    it.each(sides)('%s 同一区的备选点互相都在 1100 内', (side) => {
+      for (const item of zonesOf(side)) {
+        expect(item.spots.length).toBeGreaterThan(0);
+        for (const a of item.spots) {
+          for (const b of item.spots) {
+            expect(dist(a, b)).toBeLessThanOrEqual(1100);
+          }
+        }
       }
-    }
-  });
+    });
 
-  it('两方点位数量相差不超过 2', () => {
-    const { radiant, dire } = OBSERVER_WARD_CONFIG.zones;
-    expect(Math.abs(spotsOf(radiant).length - spotsOf(dire).length)).toBeLessThanOrEqual(2);
+    it.each(sides)('%s 每个区只有一个点', (side) => {
+      for (const item of zonesOf(side)) {
+        expect(item.spots.length).toBe(1);
+      }
+    });
+
+    it.each(sides)('%s 例外清单里的每一对确实距离不足', (side) => {
+      const zones = zonesOf(side);
+      const pairs = CLOSE_PAIRS.filter(([s, k]) => s === side && k === kindOf(config));
+      for (const [, , a, b] of pairs) {
+        const za = zones.find((item) => item.id === a);
+        const zb = zones.find((item) => item.id === b);
+        expect(za).toBeDefined();
+        expect(zb).toBeDefined();
+        expect(dist(za!.spots[0], zb!.spots[0])).toBeLessThan(MIN_ZONE_GAP);
+      }
+    });
+
+    it.each(sides)('%s 区 id 唯一，每个区的组都有上限', (side) => {
+      const zones = zonesOf(side);
+      expect(new Set(zones.map((item) => item.id)).size).toBe(zones.length);
+      for (const item of zones) {
+        expect(config.sides[side].groupLimits[item.group]).toBeGreaterThanOrEqual(1);
+      }
+    });
+
+    it.each(sides)('%s 每个组的上限不超过组内区数', (side) => {
+      const { groupLimits } = config.sides[side];
+      for (const [group, limit] of Object.entries(groupLimits)) {
+        const count = zonesOf(side).filter((item) => item.group === group).length;
+        expect(limit).toBeLessThanOrEqual(count);
+      }
+    });
+
+    it.each([
+      ['radiant', 'goodguys_tower', 'badguys_tower'],
+      ['dire', 'badguys_tower', 'goodguys_tower'],
+    ] as const)('%s defend 绑己方塔，push 绑敌方塔', (side, own, enemy) => {
+      for (const item of zonesOf(side)) {
+        if (item.tier === 'defend') {
+          expect(item.tower).toMatch(new RegExp(`^${own}[123]_(top|mid|bot)$`));
+        } else if (item.tier === 'push') {
+          expect(item.tower).toMatch(new RegExp(`^${enemy}[123]_(top|mid|bot)$`));
+        } else {
+          expect(item.tower).toBeUndefined();
+        }
+      }
+    });
   });
 });
 
-const never = () => false;
+describe('档位启用条件', () => {
+  const alive = ['npc_dota_badguys_tower3_mid', 'npc_dota_goodguys_tower1_top'];
 
-describe('区域取点', () => {
-  it('区域里已有己方眼时整个区域不再选', () => {
+  it.each(['always', 'attack'] as const)('%s 随时启用，不看塔', (tier) => {
+    expect(isZoneEnabled(zone('a', 'g', 0, tier), alive)).toBe(true);
+    expect(isZoneEnabled(zone('a', 'g', 0, tier), [])).toBe(true);
+  });
+
+  it('defend 绑的己方塔活着不启用，塔倒后启用，别的塔活着不影响', () => {
+    const defend = zone('a', 'g', 0, 'defend', 'goodguys_tower1_top');
+    expect(isZoneEnabled(defend, alive)).toBe(false);
+    expect(isZoneEnabled(defend, ['npc_dota_badguys_tower3_mid'])).toBe(true);
+    // An empty list means the tower cache is not ready, not that every tower is dead.
+    expect(isZoneEnabled(defend, [])).toBe(false);
+  });
+
+  it('push 绑的敌方塔活着不启用，塔倒后启用', () => {
+    const push = zone('a', 'g', 0, 'push', 'badguys_tower3_mid');
+    expect(isZoneEnabled(push, alive)).toBe(false);
+    expect(isZoneEnabled(push, ['npc_dota_goodguys_tower1_top'])).toBe(true);
+  });
+});
+
+describe('区占用', () => {
+  const zoneA = zone('a', 'g', 0);
+
+  it('区里已有己方眼时整个区都算占用', () => {
     expect(isZoneFree(zoneA, [vec(650, 100)], 800)).toBe(false);
     expect(isZoneFree(zoneA, [vec(5000, 0)], 800)).toBe(true);
   });
 
-  it('多次取点能选到每一个够得着的备选点', () => {
-    const picked = new Set<number>();
+  it('备选点相距超过去重半径时，任一点旁有眼整个区也算占用', () => {
+    const wide: WardZone = {
+      id: 'w',
+      group: 'g',
+      tier: 'always',
+      spots: [vec(0, 0), vec(1050, 0)],
+    };
+    expect(isZoneFree(wide, [vec(0, 40)], 900)).toBe(false);
+    expect(isZoneFree(wide, [vec(1050, 40)], 900)).toBe(false);
+    expect(isZoneFree(wide, [vec(5000, 0)], 900)).toBe(true);
+  });
+});
+
+describe('分组抽区', () => {
+  const base = (patch: Partial<ResolveTargetsInput>): ResolveTargetsInput => ({
+    zones: [],
+    groupLimits: {},
+    aliveTowerNames: [],
+    wards: [],
+    claims: [],
+    sameWardRadius: 900,
+    now: 0,
+    ttl: 90,
+    picks: new Map<string, TargetPick>(),
+    stateKeyPrefix: 't|',
+    random: sequence(0),
+    ...patch,
+  });
+  // 一组 3 个区，间隔 2000，彼此不挤占
+  const group = [zone('a', 'g', 0), zone('b', 'g', 2000), zone('c', 'g', 4000)];
+  const one = { g: 1 };
+
+  it('同一组的区等概率抽到：固定随机序列能覆盖组内每个区与每个备选点', () => {
+    const zones = new Set<string>();
+    const spots = new Set<number>();
     for (let i = 0; i < 3; i++) {
-      const pick = pickPassingSpot(vec(300, 300), [zoneA], 1000, [], 800, never, sequence(i));
-      picked.add(pick!.spot.x * 10000 + pick!.spot.y);
+      for (let j = 0; j < 2; j++) {
+        const [target] = resolveTargets(
+          base({ zones: group, groupLimits: one, random: sequence(i, j) }),
+        );
+        zones.add(target.zoneId);
+        spots.add(target.spot.x);
+      }
     }
-    expect(picked.size).toBe(3);
+    expect([...zones].sort()).toEqual(['a', 'b', 'c']);
+    expect(spots.size).toBe(6);
   });
 
-  it('够不着的备选点不选', () => {
-    for (const i of [0, 1, 2]) {
-      expect(pickPassingSpot(vec(0, 0), [zoneA], 300, [], 800, never, sequence(i))?.spot).toBe(
-        zoneA.spots[0],
+  it('抽区不看离谁近：随机数落在远处的区就是远处的区', () => {
+    const [target] = resolveTargets(
+      base({ zones: group, groupLimits: one, random: sequence(2, 0) }),
+    );
+    expect(target.zoneId).toBe('c');
+  });
+
+  it('每个有空槽的组各出一个目标', () => {
+    const zones = [...group, zone('x', 'h', 8000), zone('y', 'h', 10000)];
+    const targets = resolveTargets(base({ zones, groupLimits: { g: 1, h: 1 } }));
+    expect(targets.map((item) => item.group)).toEqual(['g', 'h']);
+  });
+
+  it('组已满不再抽，哪怕还有启用的空区', () => {
+    const picks = new Map<string, TargetPick>();
+    const targets = resolveTargets(
+      base({ zones: group, groupLimits: one, wards: [vec(0, 0)], picks }),
+    );
+    expect(targets).toEqual([]);
+    expect(picks.size).toBe(0);
+  });
+
+  it('上限为 2 时占 1 个还有空槽，抽的是别的区，占满 2 个才停', () => {
+    const half = resolveTargets(base({ zones: group, groupLimits: { g: 2 }, wards: [vec(0, 0)] }));
+    expect(half).toHaveLength(1);
+    expect(half[0].zoneId).not.toBe('a');
+    const full = resolveTargets(
+      base({ zones: group, groupLimits: { g: 2 }, wards: [vec(0, 0), vec(2000, 0)] }),
+    );
+    expect(full).toEqual([]);
+  });
+
+  it('只从启用的区里抽：defend 塔活着的区不会被抽到', () => {
+    const zones = [
+      zone('a', 'g', 0, 'defend', 'goodguys_tower1_top'),
+      zone('b', 'g', 2000, 'defend', 'goodguys_tower1_bot'),
+    ];
+    for (let i = 0; i < 4; i++) {
+      const [target] = resolveTargets(
+        base({
+          zones,
+          groupLimits: one,
+          aliveTowerNames: ['npc_dota_goodguys_tower1_top'],
+          random: sequence(i, i),
+        }),
       );
+      expect(target.zoneId).toBe('b');
     }
+    const bothAlive = ['npc_dota_goodguys_tower1_top', 'npc_dota_goodguys_tower1_bot'];
+    expect(resolveTargets(base({ zones, groupLimits: one, aliveTowerNames: bothAlive }))).toEqual(
+      [],
+    );
   });
 
-  it('区域已被占用时路过也不插', () => {
+  it('push 对敌塔同理：塔倒后才有目标', () => {
+    const zones = [zone('p', 'g', 0, 'push', 'badguys_tower3_mid')];
+    const alive = ['npc_dota_badguys_tower3_mid'];
+    expect(resolveTargets(base({ zones, groupLimits: one, aliveTowerNames: alive }))).toEqual([]);
+    const other = ['npc_dota_goodguys_tower1_top'];
     expect(
-      pickPassingSpot(vec(0, 0), [zoneA], 1000, [vec(0, 600)], 800, never, sequence(0)),
-    ).toBeUndefined();
+      resolveTargets(base({ zones, groupLimits: one, aliveTowerNames: other }))[0].zoneId,
+    ).toBe('p');
+    expect(resolveTargets(base({ zones, groupLimits: one }))).toEqual([]);
   });
 
-  it('已被认领的区域路过也不插', () => {
+  it('目标抽定后保留，期间别的随机数不改变它，超时才重抽', () => {
+    const picks = new Map<string, TargetPick>();
+    const first = resolveTargets(
+      base({ zones: group, groupLimits: one, picks, random: sequence(1, 1) }),
+    );
+    const later = resolveTargets(
+      base({ zones: group, groupLimits: one, picks, now: 60, random: sequence(2, 0) }),
+    );
+    expect(later[0]).toEqual(first[0]);
+    const expired = resolveTargets(
+      base({ zones: group, groupLimits: one, picks, now: 91, random: sequence(2, 0) }),
+    );
+    expect(expired[0].zoneId).toBe('c');
+  });
+
+  it('目标区被占用后重抽别的区', () => {
+    const picks = new Map<string, TargetPick>();
+    const limit = { g: 2 };
+    resolveTargets(base({ zones: group, groupLimits: limit, picks, random: sequence(0, 0) }));
+    const next = resolveTargets(
+      base({
+        zones: group,
+        groupLimits: limit,
+        picks,
+        wards: [vec(0, 0)],
+        random: sequence(0, 0),
+      }),
+    );
+    expect(next[0].zoneId).toBe('b');
+  });
+
+  it('两队各有自己的状态键，互不影响', () => {
+    const picks = new Map<string, TargetPick>();
+    resolveTargets(base({ zones: group, groupLimits: one, picks, stateKeyPrefix: 'r|' }));
+    resolveTargets(
+      base({
+        zones: group,
+        groupLimits: one,
+        picks,
+        stateKeyPrefix: 'd|',
+        random: sequence(2, 0),
+      }),
+    );
+    expect([...picks.keys()].sort()).toEqual(['d|g', 'r|g']);
+  });
+});
+
+describe('tower state', () => {
+  it('push and defend stay closed while the tower list is empty', () => {
+    expect(isZoneEnabled(zone('a', 'g', 0, 'push', 'badguys_tower3_mid'), [])).toBe(false);
+    expect(isZoneEnabled(zone('a', 'g', 0, 'defend', 'goodguys_tower1_top'), [])).toBe(false);
+  });
+
+  it('they open only once the tower is gone from a non-empty list', () => {
+    const alive = ['npc_dota_badguys_tower3_top'];
+    expect(isZoneEnabled(zone('a', 'g', 0, 'push', 'badguys_tower3_mid'), alive)).toBe(true);
+  });
+
+  it('a defend or push zone without a tower field never opens', () => {
+    expect(isZoneEnabled(zone('a', 'g', 0, 'push'), ['npc_dota_x'])).toBe(false);
+  });
+});
+
+describe('group quota counts ward entities', () => {
+  const near = zone('near', 'g', 0);
+  const next = zone('next', 'g', 1000);
+  const zones = [near, next];
+
+  it('one ward covering two zones takes one slot', () => {
+    expect(groupUsed(zones, [vec(550, 0)], 900)).toBe(1);
+  });
+
+  it('two wards in one zone take two slots', () => {
+    expect(groupUsed(zones, [vec(0, 0), vec(50, 0)], 900)).toBe(2);
+  });
+
+  it('a ward that blocks both zones still leaves a limit-2 group open for a third zone', () => {
+    const far = zone('far', 'g', 5000);
+    const targets = resolveTargets({
+      zones: [near, next, far],
+      groupLimits: { g: 2 },
+      aliveTowerNames: [],
+      wards: [vec(550, 0)],
+      claims: [],
+      sameWardRadius: 900,
+      now: 0,
+      ttl: 90,
+      picks: new Map<string, TargetPick>(),
+      stateKeyPrefix: 't|',
+      random: sequence(0),
+    });
+    expect(targets.map((item) => item.zoneId)).toEqual(['far']);
+  });
+
+  it('a claim next to a landed ward is not counted twice', () => {
+    expect(wardUnits([vec(0, 0)], [vec(30, 0)], 900)).toHaveLength(1);
+    expect(wardUnits([vec(0, 0)], [vec(3000, 0)], 900)).toHaveLength(2);
+  });
+});
+
+describe('re-check before casting', () => {
+  const zones = [zone('a', 'g', 0), zone('b', 'g', 3000)];
+  const input = (wards: Vector[], claims: Vector[] = []) => ({
+    groupLimits: { g: 1 },
+    aliveTowerNames: [],
+    wards,
+    claims,
+    sameWardRadius: 900,
+  });
+
+  it('allows an open zone', () => {
+    expect(canPlaceInZone(zones, 'a', input([]))).toBe(true);
+  });
+
+  it('gives up when the zone was taken after it was drawn', () => {
+    expect(canPlaceInZone(zones, 'a', input([vec(100, 0)]))).toBe(false);
+  });
+
+  it('gives up when the group filled up through another zone', () => {
+    expect(canPlaceInZone(zones, 'a', input([vec(3000, 0)]))).toBe(false);
+  });
+
+  it('gives up when the tower is not confirmed gone', () => {
+    const gated = [zone('a', 'g', 0, 'push', 'badguys_tower3_mid')];
+    expect(canPlaceInZone(gated, 'a', input([]))).toBe(false);
+  });
+});
+
+describe('detour range', () => {
+  it('stays short until the ward has been carried long enough, then widens', () => {
+    expect(detourRange(100, 120, 2500, 3500, 45)).toBe(2500);
+    expect(detourRange(100, 145, 2500, 3500, 45)).toBe(3500);
+  });
+
+  it('a widened range reaches a remote target the short range misses', () => {
+    const targets = [{ zoneId: 'far', group: 'g', spot: vec(3000, 0) }];
     expect(
-      pickPassingSpot(vec(0, 0), [zoneA], 1000, [], 800, (id) => id === 'a', sequence(0)),
+      pickNearestTarget(vec(0, 0), targets, detourRange(0, 10, 2500, 3500, 45)),
     ).toBeUndefined();
+    expect(pickNearestTarget(vec(0, 0), targets, detourRange(0, 50, 2500, 3500, 45))?.zoneId).toBe(
+      'far',
+    );
+  });
+});
+
+describe('regular sentry cap', () => {
+  it('stops regular spots one short of the team quota', () => {
+    expect(regularCapReached(2, [vec(0, 0)], [], 900)).toBe(false);
+    expect(regularCapReached(2, [vec(0, 0)], [vec(5000, 0)], 900)).toBe(true);
+    expect(regularCapReached(undefined, [vec(0, 0), vec(5000, 0)], [], 900)).toBe(false);
   });
 });
 
 describe('顺路选点', () => {
-  it('范围内有两个空区域时选近的', () => {
-    const pick = pickDetourSpot(vec(2500, 0), [zoneA, zoneB], 3000, [], 800, never, sequence(0));
-    expect(pick?.zoneId).toBe('b');
-  });
+  const targets = [
+    { zoneId: 'near', group: 'g', spot: vec(500, 0) },
+    { zoneId: 'far', group: 'h', spot: vec(2000, 0) },
+  ];
 
-  it('区域里已有己方眼时不选', () => {
-    const pick = pickDetourSpot(
-      vec(2500, 0),
-      [zoneA, zoneB],
-      3000,
-      [vec(3100, 0)],
-      800,
-      never,
-      sequence(0),
-    );
-    expect(pick?.zoneId).toBe('a');
-  });
-
-  it('只在区域里够得着的备选点里随机，范围外的备选点不会被抽到', () => {
-    // 英雄在 (0,0)，范围 650：区域 A 只有 (0,0) 与 (600,0) 够得着，(0,700) 够不着
-    for (const i of [0, 1, 2, 3]) {
-      const pick = pickDetourSpot(vec(0, 0), [zoneA], 650, [], 800, never, sequence(i));
-      expect(zoneA.spots.slice(0, 2)).toContain(pick!.spot);
-    }
+  it('范围内选最近的目标', () => {
+    expect(pickNearestTarget(vec(1800, 0), targets, 3000)?.zoneId).toBe('far');
+    expect(pickNearestTarget(vec(0, 0), targets, 3000)?.zoneId).toBe('near');
   });
 
   it('范围外不选', () => {
-    expect(pickDetourSpot(vec(9000, 0), [zoneA, zoneB], 1500, [], 800, never, sequence(0))).toBe(
-      undefined,
-    );
-  });
-
-  it('被别的电脑认领的区域不选', () => {
-    const pick = pickDetourSpot(
-      vec(2500, 0),
-      [zoneA, zoneB],
-      3000,
-      [],
-      800,
-      (id) => id === 'b',
-      sequence(0),
-    );
-    expect(pick?.zoneId).toBe('a');
+    expect(pickNearestTarget(vec(9000, 0), targets, 1500)).toBeUndefined();
+    expect(pickNearestTarget(vec(0, 0), [], 1500)).toBeUndefined();
   });
 });
 

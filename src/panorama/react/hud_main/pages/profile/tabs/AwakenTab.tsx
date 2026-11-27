@@ -19,6 +19,11 @@ import { EXTERNAL_LINK_ICON } from './member/constants';
 // freeTrial 与 vscripts awaken-config 的 FREE_TRIAL_HEROES 对应，同样需手动同步
 const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boolean }[] = [
   {
+    heroName: 'npc_dota_hero_morphling',
+    abilityName: 'special_bonus_unique_morphling_upgrade',
+    freeTrial: true,
+  },
+  {
     heroName: 'npc_dota_hero_centaur',
     abilityName: 'special_bonus_unique_centaur_upgrade',
     freeTrial: true,
@@ -36,12 +41,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_terrorblade',
     abilityName: 'terrorblade_sunder_awakened_status',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_bounty_hunter',
     abilityName: 'bounty_hunter_track_awaken',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_nyx_assassin',
@@ -58,14 +61,17 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_abyssal_underlord',
     abilityName: 'special_bonus_unique_underlord_demons_reach_awaken',
+    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_slark',
     abilityName: 'special_bonus_unique_slark_permanent_essence_awaken',
+    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_abaddon',
     abilityName: 'special_bonus_unique_abaddon_quickening_awaken',
+    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_skywrath_mage',
@@ -135,7 +141,6 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_kunkka',
     abilityName: 'kunkka_torrent_storm',
-    freeTrial: true,
   },
   { heroName: 'npc_dota_hero_ogre_magi', abilityName: 'ogre_magi_multicast_lua' },
   {
@@ -146,7 +151,11 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     heroName: 'npc_dota_hero_monkey_king',
     abilityName: 'special_bonus_unique_monkey_king_upgrade',
   },
-  { heroName: 'npc_dota_hero_lina', abilityName: 'special_bonus_unique_lina_upgrade' },
+  {
+    heroName: 'npc_dota_hero_lina',
+    abilityName: 'special_bonus_unique_lina_upgrade',
+    freeTrial: true,
+  },
   {
     heroName: 'npc_dota_hero_bristleback',
     abilityName: 'special_bonus_unique_bristleback_upgrade',
@@ -154,7 +163,6 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_drow_ranger',
     abilityName: 'special_bonus_unique_drow_ranger_upgrade',
-    freeTrial: true,
   },
   { heroName: 'npc_dota_hero_nevermore', abilityName: 'special_bonus_unique_nevermore_upgrade' },
   {
@@ -167,13 +175,20 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     freeTrial: true,
   },
   { heroName: 'npc_dota_hero_zuus', abilityName: 'special_bonus_unique_zuus_upgrade' },
-  { heroName: 'npc_dota_hero_necrolyte', abilityName: 'necrolyte_heartstopper_aura_datadriven' },
+  {
+    heroName: 'npc_dota_hero_necrolyte',
+    abilityName: 'necrolyte_heartstopper_aura_datadriven',
+  },
   { heroName: 'npc_dota_hero_axe', abilityName: 'axe_auto_culling_blade' },
   {
     heroName: 'npc_dota_hero_sniper',
     abilityName: 'special_bonus_unique_sniper_assassinate_upgrade',
   },
-  { heroName: 'npc_dota_hero_juggernaut', abilityName: 'juggernaut_blade_fury_custom' },
+  {
+    heroName: 'npc_dota_hero_juggernaut',
+    abilityName: 'special_bonus_unique_juggernaut_upgrade',
+    freeTrial: true,
+  },
   { heroName: 'npc_dota_hero_pudge', abilityName: 'pudge_meat_hook_lua' },
 ];
 

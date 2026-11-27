@@ -1358,6 +1358,23 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 英雄 水人觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>变体精灵 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_SummaryDescription"		"对敌方英雄施放变形时，临时借用其属性转为敏捷，敏捷提升技能增强，波浪形态沿途攻击。"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Description"		"<h1>变形觉醒</h1>对一名敌方英雄施放变形后，临时获得该英雄力量，敏捷和智力合计的一定比例，全部加在敏捷上。<br>再次施放刷新并替换加成，死亡时移除。
+<h1>波浪形态觉醒</h1>沿途攻击经过的敌人，并触发攻击特效。
+<h1>强化</h1>每点敏捷提升技能增强。"
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_inherit_pct"		"%目标三项属性合计折算敏捷："
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_duration"		"持续时间："
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_agility_spell_amp"		"%每点敏捷提供技能增强："
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_max_targets"		"波浪形态攻击目标数："
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_waveform_attack_pct"		"%波浪形态攻击伤害："
+		"DOTA_Tooltip_ability_special_bonus_unique_morphling_upgrade_Note0"		"等级跟随变形，未学习变形时不生效。"
+		"DOTA_Tooltip_modifier_morphling_awaken_stats"		"变形敏捷加成"
+		"DOTA_Tooltip_modifier_morphling_awaken_stats_Description"		"临时获得<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>点敏捷，按施放变形时目标的力量，敏捷和智力合计折算。<br>再次施放变形会按新目标重新折算并刷新持续时间，不叠加。死亡时移除。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade"		"<font color='#d000ff'>变体精灵 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_morphling_upgrade_Description"		"<font color='#FFFFFF'><b>变形觉醒</b></font><br>临时借用目标力量，敏捷和智力合计的一定比例，转为自身敏捷。<br><font color='#FFFFFF'><b>波浪形态觉醒</b></font><br>对沿途经过的敌人各发动一次攻击。<br><font color='#FFFFFF'><b>强化</b></font><br>每点敏捷提升技能增强。<br><br><font color='#7D7D7D'>学习变形后生效</font>"
+
 		// 英雄 半人马战行者觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade"		"<font color='#d000ff'>双刃剑 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_centaur_upgrade_Description"		"半人马战行者最近%damage_window%秒内受到的敌方伤害会积蓄为反击之力，最多为双刃剑伤害的%stored_damage_cap_pct%%%。<br>双刃剑命中敌人时消耗全部反击之力，提高这次双刃剑的伤害，并将消耗量的%shield_pct%%%转化为全伤害护盾，持续%shield_duration%秒。<br>双刃剑对自身的伤害也会随之提高。"
@@ -1506,15 +1523,11 @@
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%行进距离伤害："
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Lore"						"这下总不用吵架了吧"
 
-		// 剑圣 剑刃风暴-觉醒
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>剑刃风暴 觉醒</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，每秒对周围敌人造成基础伤害加目标最大生命百分比的魔法伤害。期间获得<font color='#FFCC66'>减益免疫</font>和%magic_resistance_bonus%%%魔法抗性，可以正常攻击但攻击力降低%damage_reduction_pct%%%。旋转结束时对自身施加强效驱散。"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"作用范围："
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"持续时间："
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"基础伤害："
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_health_damage_pct"			"%每秒最大生命伤害："
-		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"剑刃风暴"
-		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"魔抗增加、减益免疫，对周围敌人造成伤害。"
+		// 剑圣 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade"					"<font color='#d000ff'>剑圣 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_juggernaut_upgrade_Description"		"剑刃风暴的范围扩大到<font color='#FFFFFF'><b>550</b></font>，风暴范围内的敌人移动速度减缓<font color='#FFFFFF'><b>30%%</b></font>。新增的外圈内的敌人，每次受到伤害都必定按剑舞当前的暴击倍率暴击。<br>旋转时可以边移动边攻击，造成<font color='#FFFFFF'><b>50%%</b></font>攻击伤害，有阿哈利姆神杖时造成全额攻击伤害。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade"					"<font color='#d000ff'>剑圣 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_juggernaut_upgrade_Description"		"剑刃风暴的范围扩大到<font color='#FFFFFF'><b>550</b></font>，风暴范围内的敌人移动速度减缓<font color='#FFFFFF'><b>30%%</b></font>。新增的外圈内的敌人，每次受到伤害都必定按剑舞当前的暴击倍率暴击。<br>旋转时可以边移动边攻击，造成<font color='#FFFFFF'><b>50%%</b></font>攻击伤害，有阿哈利姆神杖时造成全额攻击伤害。"
 
 		// 斧王 无情铁手-觉醒
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>无情铁手 觉醒</font>"
@@ -1558,7 +1571,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医沟通神明，死亡守卫与变身术守卫被召唤时，攻击力按巫医当前技能增强的%spell_amp_ratio_pct%%%等比提升。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医沟通神明，死亡守卫与变身术守卫被召唤时，攻击力按巫医当前技能增强的50%%%等比提升。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医沟通神明，死亡守卫与变身术守卫被召唤时，攻击力按巫医当前技能增强的<font color='#FFFFFF'><b>50%%</b></font>等比提升。"
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
@@ -3136,7 +3149,7 @@
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#e03e2e'>变态辣</font>"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>主动：灵魂撕裂</h1>使目标沉默%silence_duration%秒，沉默结束后其间所受伤害的%silence_damage_percent%%%将以额外魔法伤害的形式结算。<br><br>英雄/非英雄对目标发动攻击会分别额外造成%proc_damage_heroes% / %proc_damage_creeps%点伤害。另外，自身和控制单位对目标发动的所有攻击都拥有克敌机先效果。\n\n<h1>被动：穿刺</h1>每次攻击有%proc_chance%%%几率无视闪避并造成额外%passive_proc_damage%点魔法伤害。"
+		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Description"			"<h1>主动：灵魂撕裂</h1>使目标沉默%silence_duration%秒，沉默结束后其间所受伤害的%silence_damage_percent%%%将以额外魔法伤害的形式结算。<br><br>英雄/非英雄对目标发动攻击会分别额外造成%proc_damage_heroes% / %proc_damage_creeps%点伤害。另外，自身和控制单位对目标发动的所有攻击都拥有克敌机先效果。"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Lore"					"辣死你辣死你"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_intellect"		"+$int"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_attack_speed"		"+$attack"
@@ -3151,7 +3164,7 @@
 
 		// item_devastator_2 Sacred Parasma 神圣斧
 		"DOTA_Tooltip_Ability_item_devastator_2"				"神圣斧"
-		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>被动：巫师之刃</h1>使下次攻击具有克敌机先效果，并且会施加毒素，持续%slow_duration%秒，减缓%slow%%%移动速度，并且每秒造成%int_damage_multiplier%倍智力值的伤害。\n\n<h1>被动：法力腐蚀</h1>攻击会降低敌人%active_mres_reduction%%%魔法抗性，持续%passive_cooldown%秒。"
+		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>被动：巫师之刃</h1>使下次攻击具有克敌机先效果，并且会施加毒素，持续%slow_duration%秒，减缓%slow%%%移动速度，并且每秒造成%int_damage_multiplier%倍智力值的伤害。该攻击可作用于建筑，对建筑造成%building_effectiveness_pct%%%伤害。\n\n<h1>被动：法力腐蚀</h1>攻击会降低敌人%active_mres_reduction%%%魔法抗性，持续%reduction_duration%秒。"
 		"DOTA_Tooltip_ability_item_devastator_2_Lore"						"极具毁灭性。"
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_armor"					"+$armor"

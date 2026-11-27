@@ -3,9 +3,14 @@
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { CachedOutposts } from '../team/building-cache';
-import { pickDetourSpot } from '../ward/ward-decision';
-import { WardPlacement } from '../ward/ward-placement';
-import { OBSERVER_WARD_CONFIG, WARD_DETOUR_RANGE } from '../ward/ward-position-config';
+import { detourRange, pickNearestTarget } from '../ward/ward-decision';
+import { WardClaim, WardPlacement } from '../ward/ward-placement';
+import {
+  OBSERVER_WARD_CONFIG,
+  WARD_DETOUR_RANGE,
+  WARD_LONG_DETOUR_AFTER,
+  WARD_LONG_DETOUR_RANGE,
+} from '../ward/ward-position-config';
 
 const RUNE_RANGE = 800;
 const DROP_RANGE = 800;
@@ -43,7 +48,10 @@ export type RoadsideScope = 'all' | 'quick' | 'drops';
 // 走去捡东西期间不再下别的移动命令，但最多这么久，路上的情况会变
 const ROADSIDE_MAX_SECONDS = 3;
 // 插眼绕路更远，单独放宽，其余几类不变
-const WARD_ROADSIDE_MAX_SECONDS = 8;
+const WARD_ROADSIDE_MAX_SECONDS = 12;
+// Paths are longer than the straight line, and a shorter window lets other orders override the cast walk.
+const WARD_PATH_FACTOR = 1.5;
+const wardHeldSince = new Map<EntityIndex, number>();
 
 export interface RoadsideResult {
   /** 下了命令时走过去要的秒数，这段时间内英雄不再下别的移动命令；没事可做为 0 */
@@ -52,11 +60,51 @@ export interface RoadsideResult {
   maxSeconds: number;
 }
 
+interface PendingWard {
+  claim: WardClaim;
+  zoneId: string;
+  spot: Vector;
+  rechecked: boolean;
+}
+const pendingWards = new Map<EntityIndex, PendingWard>();
+// Re-check from this far out, before the cast can fire at cast range.
+const WARD_RECHECK_MARGIN = 300;
+
+/** Frees the ward claim of an interrupted detour so the zone is not held for nothing. */
+export function CancelRoadside(hero: CDOTA_BaseNPC_Hero): void {
+  const index = hero.GetEntityIndex();
+  const pending = pendingWards.get(index);
+  if (pending) {
+    WardPlacement.ReleaseClaim(pending.claim);
+    pendingWards.delete(index);
+  }
+}
+
+/** Called while a roadside walk is under way. Returns false when the ward detour was dropped. */
+export function RoadsideTick(hero: CDOTA_BaseNPC_Hero): boolean {
+  const pending = pendingWards.get(hero.GetEntityIndex());
+  if (!pending || pending.rechecked) {
+    return true;
+  }
+  const config = OBSERVER_WARD_CONFIG;
+  if (hero.GetAbsOrigin().__sub(pending.spot).Length2D() > config.castRange + WARD_RECHECK_MARGIN) {
+    return true;
+  }
+  pending.rechecked = true;
+  if (WardPlacement.CanPlace(hero.GetTeamNumber(), config, pending.zoneId, pending.claim)) {
+    return true;
+  }
+  CancelRoadside(hero);
+  hero.Stop();
+  return false;
+}
+
 export function TryRoadside(
   hero: CDOTA_BaseNPC_Hero,
   scope: RoadsideScope,
   powerOf: (hero: CDOTA_BaseNPC_Hero) => number,
 ): RoadsideResult {
+  CancelRoadside(hero);
   const pickup = TryPickups(hero, scope, powerOf);
   if (pickup > 0) {
     return { seconds: pickup, maxSeconds: ROADSIDE_MAX_SECONDS };
@@ -142,32 +190,40 @@ function TryPickups(
   return 0;
 }
 
-/** 手里有假眼就去最近的本方空眼位插：认领期内同一区域不派第二个人，成功后区域有眼自然不再选。 */
+/** 手里有假眼就去最近的当前目标点插：认领期内同一区域不派第二个人，成功后区域有眼自然不再是目标。 */
 function WardDetour(hero: CDOTA_BaseNPC_Hero, team: DotaTeam): number {
   const config = OBSERVER_WARD_CONFIG;
   const item = WardPlacement.FindUsableWard(hero, config);
+  const index = hero.GetEntityIndex();
   if (!item) {
+    wardHeldSince.delete(index);
     return 0;
   }
-  const existing = WardPlacement.FindFriendlyWards(
-    hero,
-    config,
-    WARD_DETOUR_RANGE + 2 * config.sameWardRadius,
-  );
+  const now = GameRules.GetGameTime();
+  const heldSince = wardHeldSince.get(index) ?? now;
+  wardHeldSince.set(index, heldSince);
   const origin = hero.GetAbsOrigin();
-  const pick = pickDetourSpot(
-    origin,
-    WardPlacement.ZonesOf(hero, config),
+  const range = detourRange(
+    heldSince,
+    now,
     WARD_DETOUR_RANGE,
-    existing,
-    config.sameWardRadius,
-    (zoneId) => WardPlacement.IsClaimed(team, zoneId),
-    (n) => RandomInt(0, n - 1),
+    WARD_LONG_DETOUR_RANGE,
+    WARD_LONG_DETOUR_AFTER,
   );
+  const pick = pickNearestTarget(origin, WardPlacement.TargetsOf(team, config), range);
   if (!pick) {
     return 0;
   }
-  WardPlacement.Claim(team, pick.zoneId);
+  if (!WardPlacement.CanPlace(team, config, pick.zoneId)) {
+    return 0;
+  }
+  const claim = WardPlacement.Claim(team, config, pick.spot);
+  pendingWards.set(hero.GetEntityIndex(), {
+    claim,
+    zoneId: pick.zoneId,
+    spot: pick.spot,
+    rechecked: origin.__sub(pick.spot).Length2D() <= config.castRange + WARD_RECHECK_MARGIN,
+  });
   WardPlacement.CastWard(hero, item, pick.spot, `detour:${pick.zoneId}`);
   if (IS_DEBUG_RUN) {
     print(
@@ -175,7 +231,7 @@ function WardDetour(hero: CDOTA_BaseNPC_Hero, team: DotaTeam): number {
     );
   }
   const gap = Math.max(pick.spot.__sub(origin).Length2D() - config.castRange, 0);
-  return gap / Math.max(hero.GetIdealSpeed(), 1) + 1;
+  return (gap * WARD_PATH_FACTOR) / Math.max(hero.GetIdealSpeed(), 1) + 1;
 }
 
 /**

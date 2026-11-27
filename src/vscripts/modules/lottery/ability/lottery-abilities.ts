@@ -42,7 +42,6 @@ export const abilityTiersActive: Tier[] = [
       'bloodseeker_blood_mist2', // 血魔 血雾
       'ability_trigger_on_active', //紫蝴蝶
       'brewmaster_drunken_boxing', // 酒仙 醉拳
-      'juggernaut_blade_fury_custom', // 剑圣 觉醒剑刃风暴
       'ability_fate_roulette', // 命运轮盘
     ],
   },
@@ -202,7 +201,7 @@ export const abilityTiersPassive: Tier[] = [
       'faceless_void_time_lock', // 时间锁定
       'dazzle_good_juju', // 善咒
       'templar_assassin_psi_blades', // 灵能之刃
-      'luna_moon_glaive', // 月刃
+      // 'luna_moon_glaive', // 月刃：与天生一对等交互有 bug 且极卡，已移出抽选池
       'phantom_assassin_coup_de_grace', // 恩赐解脱
       'slardar_bash', // 深海重击
       'clinkz_infernal_shred2', // 克林克兹先天 地狱之裂

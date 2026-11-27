@@ -10,23 +10,38 @@ export function hasPointWithin(center: Vector, points: readonly Vector[], radius
   return false;
 }
 
+export type WardTier = 'always' | 'defend' | 'attack' | 'push';
+
 export interface WardZone {
   id: string;
-  /** 同一区域的备选点：互相都够近，区域里已有己方眼时整个区域视为占用 */
+  group: string;
+  tier: WardTier;
+  /** Unit-name fragment of the tower a defend (own) or push (enemy) zone waits on. */
+  tower?: string;
   spots: readonly Vector[];
 }
 
-/** 取 [0, n) 的整数，测试时换成固定序列 */
+/**
+ * defend and push zones open only once their tower is confirmed gone. An empty tower list means
+ * the tower cache is not ready, which must not read as "all towers dead".
+ */
+export function isZoneEnabled(zone: WardZone, aliveTowerNames: readonly string[]): boolean {
+  if (zone.tier !== 'defend' && zone.tier !== 'push') {
+    return true;
+  }
+  const tower = zone.tower;
+  if (tower === undefined || aliveTowerNames.length === 0) {
+    return false;
+  }
+  return !aliveTowerNames.some((name) => name.includes(tower));
+}
+
 export type RandomIndex = (n: number) => number;
 
-/** 区域内没有任何己方同类眼：判定半径内有眼就算占用，哪怕是玩家插的 */
-export function isZoneFree(
-  zone: WardZone,
-  existingWards: readonly Vector[],
-  sameWardRadius: number,
-): boolean {
+/** A ward anywhere near any spot counts, including ones placed by players. */
+export function isZoneFree(zone: WardZone, units: readonly Vector[], radius: number): boolean {
   for (const spot of zone.spots) {
-    if (hasPointWithin(spot, existingWards, sameWardRadius)) {
+    if (hasPointWithin(spot, units, radius)) {
       return false;
     }
   }
@@ -34,66 +49,171 @@ export function isZoneFree(
 }
 
 /**
- * 路过时能直接插的点：空闲且没被认领的区域里 reach 内的全部备选点，随机取一个。
- * 先汇总再随机，避免眼位表靠前的点总被优先选中。
+ * Placed wards plus claims that have not landed yet. A claim next to a placed ward is that ward
+ * landing, so it is not counted twice.
  */
-export function pickPassingSpot(
-  heroPos: Vector,
-  zones: readonly WardZone[],
-  reach: number,
-  existingWards: readonly Vector[],
-  sameWardRadius: number,
-  isClaimed: (zoneId: string) => boolean,
-  random: RandomIndex,
-): DetourPick | undefined {
-  const reachable: DetourPick[] = [];
-  for (const zone of zones) {
-    if (!isZoneFree(zone, existingWards, sameWardRadius) || isClaimed(zone.id)) {
-      continue;
-    }
-    for (const spot of spotsWithin(heroPos, zone, reach)) {
-      reachable.push({ zoneId: zone.id, spot });
+export function wardUnits(
+  wards: readonly Vector[],
+  claims: readonly Vector[],
+  radius: number,
+): Vector[] {
+  const units = [...wards];
+  for (const claim of claims) {
+    if (!hasPointWithin(claim, wards, radius)) {
+      units.push(claim);
     }
   }
-  return reachable.length > 0 ? reachable[random(reachable.length)] : undefined;
+  return units;
 }
 
-function spotsWithin(heroPos: Vector, zone: WardZone, range: number): Vector[] {
-  return zone.spots.filter((spot) => spot.__sub(heroPos).Length2D() <= range);
+/** Regular spots may use at most `cap` wards team-wide, the rest stay free for emergencies. */
+export function regularCapReached(
+  cap: number | undefined,
+  wards: readonly Vector[],
+  claims: readonly Vector[],
+  radius: number,
+): boolean {
+  return cap !== undefined && wardUnits(wards, claims, radius).length >= cap;
 }
 
-export interface DetourPick {
+/** Each ward counts once however many zones of the group it covers. */
+export function groupUsed(zones: readonly WardZone[], units: readonly Vector[], radius: number) {
+  let used = 0;
+  for (const unit of units) {
+    if (zones.some((zone) => hasPointWithin(unit, zone.spots, radius))) {
+      used++;
+    }
+  }
+  return used;
+}
+
+export interface WardTarget {
   zoneId: string;
+  group: string;
   spot: Vector;
 }
 
-/** 绕路去插：range 内最近的空闲、没被认领的区域，只在该区域 range 内的备选点里随机一个。 */
-export function pickDetourSpot(
-  heroPos: Vector,
+export interface TargetPick {
+  zoneId: string;
+  spotIndex: number;
+  until: number;
+}
+
+export interface ResolveTargetsInput {
+  zones: readonly WardZone[];
+  /** Missing groups default to 1. */
+  groupLimits: Readonly<Record<string, number>>;
+  aliveTowerNames: readonly string[];
+  wards: readonly Vector[];
+  claims: readonly Vector[];
+  sameWardRadius: number;
+  now: number;
+  ttl: number;
+  /** Keyed by stateKeyPrefix + group, updated in place. */
+  picks: Map<string, TargetPick>;
+  stateKeyPrefix: string;
+  random: RandomIndex;
+}
+
+const groupIndex = new WeakMap<readonly WardZone[], Map<string, WardZone[]>>();
+
+function groupsOf(zones: readonly WardZone[]): Map<string, WardZone[]> {
+  let groups = groupIndex.get(zones);
+  if (!groups) {
+    groups = new Map<string, WardZone[]>();
+    for (const zone of zones) {
+      const list = groups.get(zone.group);
+      if (list) {
+        list.push(zone);
+      } else {
+        groups.set(zone.group, [zone]);
+      }
+    }
+    groupIndex.set(zones, groups);
+  }
+  return groups;
+}
+
+/**
+ * One target per group with a free slot, drawn uniformly over its enabled free zones and then
+ * over the zone's spots. Distance to heroes must not enter the draw, or near zones always win.
+ */
+export function resolveTargets(input: ResolveTargetsInput): WardTarget[] {
+  const units = wardUnits(input.wards, input.claims, input.sameWardRadius);
+  const targets: WardTarget[] = [];
+  for (const [group, zones] of groupsOf(input.zones)) {
+    const key = input.stateKeyPrefix + group;
+    const full = groupUsed(zones, units, input.sameWardRadius) >= (input.groupLimits[group] ?? 1);
+    const candidates = full
+      ? []
+      : zones.filter(
+          (zone) =>
+            isZoneFree(zone, units, input.sameWardRadius) &&
+            isZoneEnabled(zone, input.aliveTowerNames),
+        );
+    if (candidates.length === 0) {
+      input.picks.delete(key);
+      continue;
+    }
+    const old = input.picks.get(key);
+    let zone =
+      old && old.until > input.now ? candidates.find((item) => item.id === old.zoneId) : undefined;
+    let spotIndex = old?.spotIndex ?? 0;
+    if (!zone) {
+      zone = candidates[input.random(candidates.length)];
+      spotIndex = input.random(zone.spots.length);
+      input.picks.set(key, { zoneId: zone.id, spotIndex, until: input.now + input.ttl });
+    }
+    targets.push({ zoneId: zone.id, group, spot: zone.spots[spotIndex] });
+  }
+  return targets;
+}
+
+/** Fresh check before casting: the cached draw is not a permission to cast. */
+export function canPlaceInZone(
   zones: readonly WardZone[],
+  zoneId: string,
+  input: Omit<ResolveTargetsInput, 'zones' | 'picks' | 'stateKeyPrefix' | 'random' | 'now' | 'ttl'>,
+): boolean {
+  const zone = zones.find((item) => item.id === zoneId);
+  if (!zone) {
+    return false;
+  }
+  const units = wardUnits(input.wards, input.claims, input.sameWardRadius);
+  const groupZones = groupsOf(zones).get(zone.group) ?? [zone];
+  return (
+    isZoneEnabled(zone, input.aliveTowerNames) &&
+    isZoneFree(zone, units, input.sameWardRadius) &&
+    groupUsed(groupZones, units, input.sameWardRadius) < (input.groupLimits[zone.group] ?? 1)
+  );
+}
+
+/** Detour range: widens once the bot has carried a ward for `after` seconds without placing it. */
+export function detourRange(
+  heldSince: number,
+  now: number,
+  base: number,
+  extended: number,
+  after: number,
+): number {
+  return now - heldSince >= after ? extended : base;
+}
+
+export function pickNearestTarget(
+  heroPos: Vector,
+  targets: readonly WardTarget[],
   range: number,
-  existingWards: readonly Vector[],
-  sameWardRadius: number,
-  isClaimed: (zoneId: string) => boolean,
-  random: RandomIndex,
-): DetourPick | undefined {
-  let best: { zone: WardZone; spots: Vector[] } | undefined;
+): WardTarget | undefined {
+  let best: WardTarget | undefined;
   let bestGap = Infinity;
-  for (const zone of zones) {
-    if (!isZoneFree(zone, existingWards, sameWardRadius) || isClaimed(zone.id)) {
-      continue;
-    }
-    const spots = spotsWithin(heroPos, zone, range);
-    if (spots.length === 0) {
-      continue;
-    }
-    const gap = Math.min(...spots.map((spot) => spot.__sub(heroPos).Length2D()));
-    if (gap < bestGap) {
-      best = { zone, spots };
+  for (const target of targets) {
+    const gap = target.spot.__sub(heroPos).Length2D();
+    if (gap <= range && gap < bestGap) {
+      best = target;
       bestGap = gap;
     }
   }
-  return best ? { zoneId: best.zone.id, spot: best.spots[random(best.spots.length)] } : undefined;
+  return best;
 }
 
 export interface SentryTriggerInput {

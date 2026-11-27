@@ -2,21 +2,9 @@
 
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { IS_DEBUG_RUN } from '../../modules/debug/perf-config';
-import {
-  countHeldWards,
-  HeldItem,
-  pickDetourSpot,
-  pickWardBuyer,
-  WardBuyer,
-  WardKind,
-} from './ward-decision';
+import { countHeldWards, HeldItem, pickWardBuyer, WardBuyer, WardKind } from './ward-decision';
 import { WardPlacement } from './ward-placement';
-import {
-  OBSERVER_WARD_CONFIG,
-  SENTRY_WARD_CONFIG,
-  WARD_DETOUR_RANGE,
-  WardTypeConfig,
-} from './ward-position-config';
+import { OBSERVER_WARD_CONFIG, SENTRY_WARD_CONFIG, WardTypeConfig } from './ward-position-config';
 
 const CHECK_SECONDS = 10;
 // 有玩家的队伍给玩家留几个，不让 bot 把商店买空
@@ -31,8 +19,8 @@ interface SupplySpec {
   teamCap: number;
   /** 每个 bot 身上最多带几个 */
   perBotCap: number;
-  /** 只给身边有空眼位区域的电脑买：假眼靠顺路绕行插出去，买给离眼位很远的电脑只会囤在身上 */
-  needsNearbyZone: boolean;
+  /** Buy only while the team has an open target, so wards are not stockpiled with no place to go. */
+  needsOpenTarget: boolean;
 }
 
 // 假眼靠路过和绕路插，手里攒太多也插不出去。真眼只留给反隐与少数肉山、神符点
@@ -43,7 +31,7 @@ const SUPPLIES: readonly SupplySpec[] = [
     config: OBSERVER_WARD_CONFIG,
     teamCap: 4,
     perBotCap: 2,
-    needsNearbyZone: true,
+    needsOpenTarget: true,
   },
   {
     item: 'item_ward_sentry',
@@ -51,7 +39,7 @@ const SUPPLIES: readonly SupplySpec[] = [
     config: SENTRY_WARD_CONFIG,
     teamCap: 3,
     perBotCap: 1,
-    needsNearbyZone: false,
+    needsOpenTarget: false,
   },
 ];
 
@@ -81,11 +69,9 @@ function SupplyOne(
   spec: SupplySpec,
 ): void {
   let owned = 0;
-  const placedAt: Vector[] = [];
   for (const ward of Entities.FindAllByClassname(spec.config.wardClassName) as CBaseEntity[]) {
     if (ward.GetTeamNumber() === team) {
       owned++;
-      placedAt.push(ward.GetAbsOrigin());
       if (IS_DEBUG_RUN && !loggedWards.has(ward.GetEntityIndex())) {
         loggedWards.add(ward.GetEntityIndex());
         const position = ward.GetAbsOrigin();
@@ -123,16 +109,18 @@ function SupplyOne(
     }
     const roomed = held.total < spec.perBotCap;
     const slotted = held.canStack || slotsUsed < FIELD_SLOTS;
-    const zoned = !spec.needsNearbyZone || HasFreeZoneNearby(hero, spec.config, placedAt);
     buyers.push({
       id: hero.GetEntityIndex(),
       power: powerOf(hero),
       gold: hero.GetGold(),
-      hasRoom: roomed && slotted && zoned,
+      hasRoom: roomed && slotted,
       holdsOtherKind: held.holdsOtherKind,
     });
   }
   if (buyers.length === 0) {
+    return;
+  }
+  if (spec.needsOpenTarget && WardPlacement.TargetsOf(team, spec.config).length === 0) {
     return;
   }
   if (IS_DEBUG_RUN) {
@@ -176,22 +164,4 @@ function SupplyOne(
       `[bot-ai] team=${team} ward_buy=${spec.item}:${hero.GetUnitName().replace('npc_dota_hero_', '')} owned=${owned} stock=${stock}`,
     );
   }
-}
-
-function HasFreeZoneNearby(
-  hero: CDOTA_BaseNPC_Hero,
-  config: WardTypeConfig,
-  placedAt: readonly Vector[],
-): boolean {
-  return (
-    pickDetourSpot(
-      hero.GetAbsOrigin(),
-      WardPlacement.ZonesOf(hero, config),
-      WARD_DETOUR_RANGE,
-      placedAt,
-      config.sameWardRadius,
-      () => false,
-      () => 0,
-    ) !== undefined
-  );
 }
