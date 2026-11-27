@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" role="img" aria-label="克林克兹 · 死亡契约">
+<rect width="800" height="260" rx="16" fill="#f7f8fa"/>
+<text x="34" y="49" fill="#233043" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="25" font-weight="700">克林克兹 · 死亡契约</text>
+<rect x="35" y="75" width="351" height="155" rx="12" fill="#fff2e6" stroke="#d69355"/>
+<rect x="414" y="75" width="351" height="155" rx="12" fill="#e8f2fb" stroke="#81a8cf"/>
+<g font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="16" fill="#293745">
+<text x="55" y="104" fill="#8c471c" font-weight="700">改动前</text>
+<text x="434" y="104" fill="#1e587e" font-weight="700">改动后</text>
+<text x="55" y="133">选择普通目标</text>
+<text x="55" y="156">按技能等级获得固定生命</text>
+<text x="55" y="179">20 级该侧天赋提供 400 生命</text>
+<text x="434" y="133">选择吞噬目标</text>
+<text x="434" y="156">觉醒后按目标最大生命</text>
+<text x="434" y="179">获得 100% 生命和 25% 攻击</text>
+<text x="434" y="202">20 级天赋解锁远古野怪</text>
+</g></svg>
