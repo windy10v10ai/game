@@ -131,7 +131,7 @@ $dota = "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\win6
 
 要以指定英雄测试时改用 `npm run launch -- --hero <英雄名>`（不带 `npc_dota_hero_` 前缀），开局直接为玩家选定该英雄；不带 `--hero` 启动会清掉上次的指定。没有中途换英雄的命令：替换英雄不预载资源，也不会重建各模块记录的英雄状态。
 
-完成判据：`console.log` 出现且体积在涨。
+完成判据：`console.log` 出现且体积在涨。`-conclearlog` 要等引擎启动到一定阶段才清空，刚启动时文件里还是上一局的内容（含旧的 `GAME_IN_PROGRESS`），判断开局要核对行首时间戳晚于这次启动时间。
 
 ### 4. 触发要验的流程
 
