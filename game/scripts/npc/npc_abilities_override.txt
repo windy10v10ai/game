@@ -5074,6 +5074,10 @@
 			{
 				"value"				"1 1 2 2 2"
 			}
+			"AbilityChargeRestoreTime"
+			{
+				"special_bonus_unique_clinkz_death_pact_recharge"	"=35"
+			}
 			"health_gain"
 			{
 				"value"				"175 250 325 400 475"

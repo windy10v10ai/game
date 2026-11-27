@@ -9,9 +9,34 @@ import { calculateDeathPactBonus, canConsumeDeathPactCreep } from './clinkz-deat
 const DEATH_PACT_TEXTURE = 'clinkz_death_pact';
 const AWAKENING = 'special_bonus_unique_clinkz_death_pact_awaken';
 const SKELETON_ARCHER = 'npc_dota_clinkz_skeleton_archer';
+const RECHARGE_BONUS = 'special_bonus_unique_clinkz_death_pact_recharge';
+
+function updateAwakenedRecharge(pact: CDOTABaseAbility): void {
+  const caster = pact.GetCaster();
+  const bonus = caster.FindAbilityByName(RECHARGE_BONUS);
+  if (pact.GetLevel() >= 4) {
+    if (bonus === undefined) caster.AddAbility(RECHARGE_BONUS)?.SetLevel(1);
+  } else if (bonus !== undefined) {
+    caster.RemoveAbility(RECHARGE_BONUS);
+  }
+}
+
+const scriptEnv = getfenv() as {
+  UpdateClinkzAwakenedRecharge: (this: void, event: { caster: CDOTA_BaseNPC }) => void;
+};
+scriptEnv.UpdateClinkzAwakenedRecharge = ({ caster }) => {
+  const pact = caster.FindAbilityByName('clinkz_death_pact');
+  if (pact !== undefined) updateAwakenedRecharge(pact);
+};
 
 @registerAbility('clinkz_death_pact')
 export class ClinkzDeathPactCustom extends BaseAbility {
+  OnUpgrade(): void {
+    if (IsServer() && this.GetCaster().FindAbilityByName(AWAKENING) !== undefined) {
+      updateAwakenedRecharge(this);
+    }
+  }
+
   CastFilterResultTarget(target: CDOTA_BaseNPC): UnitFilterResult {
     const team = this.GetCaster().GetTeamNumber();
     const friendly = target.GetTeamNumber() === team;

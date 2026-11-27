@@ -28,8 +28,23 @@
 				"RemoveOnDeath"			"0"
 				"TextureName"			"clinkz_death_pact"
 				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/ts_abilities/clinkz_death_pact_custom"
+						"Function"		"UpdateClinkzAwakenedRecharge"
+					}
+				}
 			}
 		}
+	}
+
+	"special_bonus_unique_clinkz_death_pact_recharge"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
 	}
 
 	// 水人 变形觉醒
