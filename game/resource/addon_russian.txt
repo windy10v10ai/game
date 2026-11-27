@@ -1597,9 +1597,9 @@
 
 		// 齐天大圣-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>Сунь Укун: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"Дополнительный урон Беспредельного удара повышен на <font color='#FFFFFF'><b>200</b></font>, дальность применения — на <font color='#FFFFFF'><b>700</b></font>.<br>Воинство Вуконга можно применять под контролем.<br>При применении Воинства Вуконга даётся эффект <font color='#FFCC66'>Чёрного короля</font> до конца действия ультимейта."
+		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"Дополнительный урон Boundless Strike повышен на <font color='#FFFFFF'><b>200</b></font>, дальность применения — на <font color='#FFFFFF'><b>700</b></font>.<br>Непокорность можно применять под контролем.<br>При применении Непокорности даётся эффект <font color='#FFCC66'>Black King Bar</font> до конца действия ультимейта.<br>Во время действия Непокорности каждая обычная атака вызывает Boundless Strike в направлении цели."
 		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>Сунь Укун: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"Дополнительный урон Беспредельного удара повышен на <font color='#FFFFFF'><b>200</b></font>, дальность применения — на <font color='#FFFFFF'><b>700</b></font>.<br>Воинство Вуконга можно применять под контролем.<br>При применении Воинства Вуконга даётся эффект <font color='#FFCC66'>Чёрного короля</font> до конца действия ультимейта."
+		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"Дополнительный урон Boundless Strike повышен на <font color='#FFFFFF'><b>200</b></font>, дальность применения — на <font color='#FFFFFF'><b>700</b></font>.<br>Непокорность можно применять под контролем.<br>При применении Непокорности даётся эффект <font color='#FFCC66'>Black King Bar</font> до конца действия ультимейта.<br>Во время действия Непокорности каждая обычная атака вызывает Boundless Strike в направлении цели."
 
 		// 寒冬飞龙-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>Зимнее проклятие: пробуждение</font>"

@@ -1597,9 +1597,9 @@
 
 		// Monkey King Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>Monkey King Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains the <font color='#FFCC66'>Black King Bar</font> effect until the ability ends."
+		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains the <font color='#FFCC66'>Black King Bar</font> effect until the ability ends.<br>During Defy, each basic attack triggers Boundless Strike toward its target."
 		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>Monkey King Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains the <font color='#FFCC66'>Black King Bar</font> effect until the ability ends."
+		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains the <font color='#FFCC66'>Black King Bar</font> effect until the ability ends.<br>During Defy, each basic attack triggers Boundless Strike toward its target."
 
 		// Winter Wyvern Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>Winter's Curse Awakened</font>"

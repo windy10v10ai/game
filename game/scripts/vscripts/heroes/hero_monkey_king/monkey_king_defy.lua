@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_monkey_king_defy", "heroes/hero_monkey_king/monkey_king_defy", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_monkey_king_defy_strike", "abilities/ts_abilities/monkey_king_defy_strike", LUA_MODIFIER_MOTION_NONE)
 
 monkey_king_defy = class({})
 
@@ -17,11 +18,14 @@ function monkey_king_defy:OnSpellStart()
     self.caster:EmitSound('Hero_MonkeyKing.FurArmy.Channel')
     -- 施放时强驱散自身减益（含控制效果）
     self.caster:Purge(false, true, false, true, true)
-    -- 觉醒：大招期间获得技能免疫（不顶替更长的真 BKB），持续到大招结束
-    if self:GetSpecialValueFor('awaken_enabled') >= 1 then
+    local awakened = self:GetSpecialValueFor('awaken_enabled') >= 1
+    if awakened then
         ApplyAwakenMagicImmunity(self.caster, self, self.duration)
     end
     self.caster:AddNewModifier(self.caster, self, "modifier_monkey_king_defy", { duration = self.duration })
+    if awakened and self.caster:IsRealHero() and not self.caster:IsIllusion() then
+        self.caster:AddNewModifier(self.caster, self, "modifier_monkey_king_defy_strike", { duration = self.duration })
+    end
 end
 
 modifier_monkey_king_defy = class({})
@@ -73,4 +77,7 @@ function modifier_monkey_king_defy:OnRefresh(table)
 end
 
 function modifier_monkey_king_defy:OnDestroy()
+    if IsServer() then
+        self:GetParent():RemoveModifierByName("modifier_monkey_king_defy_strike")
+    end
 end
