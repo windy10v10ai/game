@@ -54,6 +54,9 @@ global.PlayerResource = {
 };
 global.IsValidEntity = jest.fn(() => true);
 
+const itemLotteryStub = { isShowing: jest.fn(() => false), showQueued: jest.fn(() => false) };
+global.GameRules = { Lottery: { Item: itemLotteryStub } };
+
 let mockPoints = 0;
 const mockDeductUseableMemberPoint = jest.fn();
 jest.mock('../../../api/player', () => ({
@@ -86,8 +89,43 @@ describe('PassiveTomeLottery', () => {
     mockUseMemberPoint.mockClear();
     mockPoints = 1000;
     heroAbilityPoints = 0;
+    itemLotteryStub.isShowing.mockReturnValue(false);
+    itemLotteryStub.showQueued.mockClear();
     global.RandomInt = jest.fn((min: number, _max: number) => min);
     lottery = new PassiveTomeLottery();
+  });
+
+  describe('shared window with item lottery', () => {
+    const pickFirst = () => {
+      const entry = netTable['lottery_passive_tome']['3'];
+      lottery.pickAbility(3 as PlayerID, { ...entry.candidates[0] });
+    };
+
+    it('queues the tome while the item window is open and shows it after', () => {
+      itemLotteryStub.isShowing.mockReturnValue(true);
+      lottery.onTriggered(mockHero as any);
+      expect(netTable['lottery_passive_tome']?.['3']).toBeUndefined();
+
+      itemLotteryStub.isShowing.mockReturnValue(false);
+      expect(lottery.showQueued(3 as PlayerID)).toBe(true);
+      expect(lottery.isShowing(3 as PlayerID)).toBe(true);
+      expect(lottery.showQueued(3 as PlayerID)).toBe(false);
+    });
+
+    it('queues a second tome until the first is picked, then shows it', () => {
+      lottery.onTriggered(mockHero as any);
+      lottery.onTriggered(mockHero as any);
+      pickFirst();
+      expect(lottery.isShowing(3 as PlayerID)).toBe(true);
+      expect(itemLotteryStub.showQueued).not.toHaveBeenCalled();
+    });
+
+    it('hands the window to the item lottery when nothing of its own is queued', () => {
+      lottery.onTriggered(mockHero as any);
+      pickFirst();
+      expect(lottery.isShowing(3 as PlayerID)).toBe(false);
+      expect(itemLotteryStub.showQueued).toHaveBeenCalledWith(3);
+    });
   });
 
   describe('onTriggered', () => {

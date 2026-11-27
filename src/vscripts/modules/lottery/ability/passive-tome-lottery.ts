@@ -25,6 +25,8 @@ export class PassiveTomeLottery {
 
   private readonly usageCount = new Map<PlayerID, number>();
   private readonly ownedAbilities = new Map<PlayerID, string[]>();
+  // 已使用但因其他选择窗在显示而排队的次数，窗口空出后才抽候选并开始倒计时
+  private readonly queuedCount = new Map<PlayerID, number>();
   private readonly pendingForgetItem = new Map<PlayerID, CDOTA_Item>();
 
   constructor() {
@@ -63,6 +65,30 @@ export class PassiveTomeLottery {
     if (playerId < 0) return;
 
     this.usageCount.set(playerId, (this.usageCount.get(playerId) ?? 0) + 1);
+    if (this.isShowing(playerId) || GameRules.Lottery.Item.isShowing(playerId)) {
+      this.queuedCount.set(playerId, (this.queuedCount.get(playerId) ?? 0) + 1);
+      return;
+    }
+    this.show(hero, playerId);
+  }
+
+  isShowing(playerId: PlayerID): boolean {
+    return (this.read(playerId)?.candidates.length ?? 0) > 0;
+  }
+
+  /** 窗口空出来后显示排队中的下一次，没有排队则返回 false */
+  showQueued(playerId: PlayerID): boolean {
+    const count = this.queuedCount.get(playerId) ?? 0;
+    if (count <= 0) return false;
+    const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+    if (!hero) return false;
+    if (count === 1) this.queuedCount.delete(playerId);
+    else this.queuedCount.set(playerId, count - 1);
+    this.show(hero, playerId);
+    return true;
+  }
+
+  private show(hero: CDOTA_BaseNPC_Hero, playerId: PlayerID): void {
     const candidates = AbilityLotteryHelper.getRandomAbilities(
       abilityTiersPassive,
       PassiveTomeLottery.CANDIDATE_COUNT,
@@ -74,7 +100,7 @@ export class PassiveTomeLottery {
       candidates,
       isRefreshed: false,
       paidRefreshCount: 0,
-      forgetting: false,
+      forgetting: this.read(playerId)?.forgetting ?? false,
     });
   }
 
@@ -110,6 +136,9 @@ export class PassiveTomeLottery {
       paidRefreshCount: 0,
       forgetting: state.forgetting,
     });
+    if (!this.showQueued(playerId)) {
+      GameRules.Lottery.Item.showQueued(playerId);
+    }
   }
 
   refreshAbility(playerId: PlayerID): void {

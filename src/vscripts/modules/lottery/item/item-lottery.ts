@@ -54,7 +54,7 @@ export class ItemLottery {
       isAttributeTome: 0,
     };
     const active = CustomNetTables.GetTableValue('lottery_item', playerId.toString());
-    if (active?.isAttributeTome === 1) {
+    if (active?.isAttributeTome === 1 || GameRules.Lottery.PassiveTome.isShowing(playerId)) {
       this.queueRound(playerId, round);
     } else {
       this.publish(playerId, round);
@@ -67,12 +67,26 @@ export class ItemLottery {
       poolType: ItemLotteryPool.DEFAULT,
       isAttributeTome: 1,
     };
-    const active = CustomNetTables.GetTableValue('lottery_item', playerId.toString());
-    if (Object.values(active?.candidates ?? {}).length > 0) {
+    if (this.isShowing(playerId) || GameRules.Lottery.PassiveTome.isShowing(playerId)) {
       this.queueRound(playerId, round);
     } else {
       this.publish(playerId, round);
     }
+  }
+
+  isShowing(playerId: PlayerID): boolean {
+    const active = CustomNetTables.GetTableValue('lottery_item', playerId.toString());
+    return Object.values(active?.candidates ?? {}).length > 0;
+  }
+
+  /** 窗口空出来后显示排队中的下一轮，没有排队则返回 false */
+  showQueued(playerId: PlayerID): boolean {
+    const queue = this.queuedRounds.get(playerId);
+    const nextRound = queue?.shift();
+    if (queue?.length === 0) this.queuedRounds.delete(playerId);
+    if (!nextRound) return false;
+    this.publish(playerId, nextRound);
+    return true;
   }
 
   pickItem(playerId: PlayerID, event: LotteryItemPickEventData): void {
@@ -105,13 +119,15 @@ export class ItemLottery {
       item.SetPurchaser(hero);
     }
 
-    const queue = this.queuedRounds.get(playerId);
-    const nextRound = queue?.shift();
-    if (queue?.length === 0) this.queuedRounds.delete(playerId);
-    this.publish(
-      playerId,
-      nextRound ?? { candidates: [], poolType: ItemLotteryPool.DEFAULT, isAttributeTome: 0 },
-    );
+    if (!this.showQueued(playerId)) {
+      this.publish(playerId, {
+        candidates: [],
+        poolType: ItemLotteryPool.DEFAULT,
+        isAttributeTome: 0,
+      });
+      // 物品窗口已关，轮到排队的被动技能书
+      GameRules.Lottery.PassiveTome.showQueued(playerId);
+    }
 
     print('[ItemLottery] player ' + playerId + ' picked ' + matched.name);
     if (raw.isAttributeTome !== 1) {

@@ -94,8 +94,13 @@ describe('ItemLottery', () => {
   const pick = (round = activeRound()) =>
     lottery.pickItem(3 as PlayerID, { ...round.candidates[0], roundId: round.roundId });
 
+  const passiveTomeStub = { isShowing: jest.fn(() => false), showQueued: jest.fn(() => false) };
+
   beforeEach(() => {
     for (const k of Object.keys(netTable)) delete netTable[k];
+    passiveTomeStub.isShowing.mockReturnValue(false);
+    passiveTomeStub.showQueued.mockClear();
+    global.GameRules.Lottery = { PassiveTome: passiveTomeStub };
     mockHero.AddItem.mockClear();
     mockGetMemberLevel.mockReturnValue(1); // 默认 NORMAL
     mockGetUseableMemberPoint.mockReturnValue(0);
@@ -351,6 +356,43 @@ describe('ItemLottery', () => {
       const second = activeRound();
       pick(first);
       expect(activeRound()).toBe(second);
+    });
+  });
+
+  describe('shared window with passive tome', () => {
+    it('queues the attribute tome while the passive tome window is open', () => {
+      passiveTomeStub.isShowing.mockReturnValue(true);
+      lottery.onAttributeTomeUsed(3 as PlayerID);
+      expect(activeRound()).toBeUndefined();
+      expect(lottery.isShowing(3 as PlayerID)).toBe(false);
+
+      passiveTomeStub.isShowing.mockReturnValue(false);
+      expect(lottery.showQueued(3 as PlayerID)).toBe(true);
+      expect(activeRound().isAttributeTome).toBe(1);
+      expect(lottery.showQueued(3 as PlayerID)).toBe(false);
+    });
+
+    it('queues a chest round while the passive tome window is open', () => {
+      passiveTomeStub.isShowing.mockReturnValue(true);
+      lottery.onTriggered(humanOpener);
+      expect(activeRound()).toBeUndefined();
+      expect(lottery.showQueued(3 as PlayerID)).toBe(true);
+      expect(activeRound().candidates).toHaveLength(ItemLottery.CANDIDATE_COUNT);
+    });
+
+    it('hands the window to the passive tome once its own queue is empty', () => {
+      lottery.onAttributeTomeUsed(3 as PlayerID);
+      pick();
+      expect(passiveTomeStub.showQueued).toHaveBeenCalledWith(3);
+      expect(activeRound().candidates).toEqual([]);
+    });
+
+    it('does not call the passive tome while its own queue still has rounds', () => {
+      lottery.onAttributeTomeUsed(3 as PlayerID);
+      lottery.onAttributeTomeUsed(3 as PlayerID);
+      pick();
+      expect(passiveTomeStub.showQueued).not.toHaveBeenCalled();
+      expect(lottery.isShowing(3 as PlayerID)).toBe(true);
     });
   });
 
