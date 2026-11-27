@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 880" width="1400" height="880" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1400" height="880" fill="#fcfcfb"/>
+<text x="40.0" y="52.0" font-size="30" font-weight="700" fill="#0b0b0b" text-anchor="start">死亡契约增益 · 原生与改版开销</text>
+<text x="40.0" y="86.0" font-size="18" font-weight="400" fill="#52514e" text-anchor="start">两个场景各自相对同局无增益基线，服务器计算时间（ms/tick）</text>
+<text x="40.0" y="136.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">20 份增益同时生效</text>
+<text x="40.0" y="172.0" font-size="20" font-weight="700" fill="#52514e" text-anchor="start">相对原生增加 +2.92 ms/tick</text>
+<line x1="370.0" y1="186" x2="370.0" y2="306" stroke="#e1e0d9"/>
+<text x="370.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−0.5</text>
+<line x1="490.0" y1="186" x2="490.0" y2="306" stroke="#e1e0d9"/>
+<text x="490.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="610.0" y1="186" x2="610.0" y2="306" stroke="#e1e0d9"/>
+<text x="610.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.5</text>
+<line x1="730.0" y1="186" x2="730.0" y2="306" stroke="#e1e0d9"/>
+<text x="730.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.0</text>
+<line x1="850.0" y1="186" x2="850.0" y2="306" stroke="#e1e0d9"/>
+<text x="850.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.5</text>
+<line x1="970.0" y1="186" x2="970.0" y2="306" stroke="#e1e0d9"/>
+<text x="970.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.0</text>
+<line x1="1090.0" y1="186" x2="1090.0" y2="306" stroke="#e1e0d9"/>
+<text x="1090.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.5</text>
+<line x1="1210.0" y1="186" x2="1210.0" y2="306" stroke="#e1e0d9"/>
+<text x="1210.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+3.0</text>
+<line x1="1330.0" y1="186" x2="1330.0" y2="306" stroke="#e1e0d9"/>
+<text x="1330.0" y="330.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+3.5</text>
+<line x1="490.0" y1="186" x2="490.0" y2="306" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="217.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">原生死亡契约</text>
+<rect x="490.0" y="194" width="21.6" height="34" rx="4" fill="#eb6834"/>
+<text x="519.6" y="218.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.09</text>
+<text x="356.0" y="273.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">改版死亡契约</text>
+<rect x="490.0" y="250" width="722.4" height="34" rx="4" fill="#2a78d6"/>
+<text x="1220.4" y="274.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+3.01</text>
+<text x="40.0" y="496.0" font-size="24" font-weight="700" fill="#0b0b0b" text-anchor="start">2 份改版增益</text>
+<text x="40.0" y="532.0" font-size="20" font-weight="700" fill="#2a78d6" text-anchor="start">低于 1 ms/tick，平均 +0.21</text>
+<line x1="370.0" y1="546" x2="370.0" y2="666" stroke="#e1e0d9"/>
+<text x="370.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">−0.5</text>
+<line x1="490.0" y1="546" x2="490.0" y2="666" stroke="#e1e0d9"/>
+<text x="490.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">0.0</text>
+<line x1="610.0" y1="546" x2="610.0" y2="666" stroke="#e1e0d9"/>
+<text x="610.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+0.5</text>
+<line x1="730.0" y1="546" x2="730.0" y2="666" stroke="#e1e0d9"/>
+<text x="730.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.0</text>
+<line x1="850.0" y1="546" x2="850.0" y2="666" stroke="#e1e0d9"/>
+<text x="850.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+1.5</text>
+<line x1="970.0" y1="546" x2="970.0" y2="666" stroke="#e1e0d9"/>
+<text x="970.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.0</text>
+<line x1="1090.0" y1="546" x2="1090.0" y2="666" stroke="#e1e0d9"/>
+<text x="1090.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+2.5</text>
+<line x1="1210.0" y1="546" x2="1210.0" y2="666" stroke="#e1e0d9"/>
+<text x="1210.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+3.0</text>
+<line x1="1330.0" y1="546" x2="1330.0" y2="666" stroke="#e1e0d9"/>
+<text x="1330.0" y="690.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="middle">+3.5</text>
+<line x1="490.0" y1="546" x2="490.0" y2="666" stroke="#898781" stroke-width="2"/>
+<text x="356.0" y="577.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">无增益（基线）</text>
+<rect x="490.0" y="554" width="3.0" height="34" rx="4" fill="#eb6834"/>
+<text x="501.0" y="578.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">0.00</text>
+<text x="356.0" y="633.0" font-size="17" font-weight="700" fill="#0b0b0b" text-anchor="end">改版死亡契约</text>
+<rect x="490.0" y="610" width="50.4" height="34" rx="4" fill="#2a78d6"/>
+<text x="548.4" y="634.0" font-size="18" font-weight="700" fill="#0b0b0b" text-anchor="start">+0.21</text>
+<text x="40.0" y="858.0" font-size="15" font-weight="400" fill="#52514e" text-anchor="start">每个条件测两轮。每个 20 份条件均确认 20 份增益活到采样结束。</text>
+</svg>
