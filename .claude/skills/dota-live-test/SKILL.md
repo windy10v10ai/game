@@ -140,7 +140,7 @@ $dota = "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\win6
 需要再跑一遍时有两种重开方式：
 
 - **重启进程**，参数同上。慢一两分钟，任何环境都能用。
-- **VConsole 命令框**输入 `dota_launch_custom_game windy10v10ai dota`，几秒钟重新加载。需要能操作窗口，即桌面应用的 computer-use MCP；Claude Code CLI 里没有这套工具。
+- **VConsole 命令框**输入 `dota_launch_custom_game windy10v10ai dota`，几秒钟重新加载。需要能操作窗口，即桌面应用的 computer-use MCP；Claude Code CLI 里没有这套工具。经远程控制台（`dota:cmd`）发这条命令曾让开了一个多小时的 Tools 进程挂死：日志停在 `[VConComm] Connection in progress...`，`Get-Process dota2` 的 `Responding` 持续为 False，`dota:cmd` 只是超时、不报错。发之前先确认进程有响应，发完 30 秒仍无新日志且不响应就按挂死处理，向主会话报告，由用户决定是否关掉重启
 
 重开前记下当前行数（`wc -l < console.log`），之后用 `awk 'NR>N'` 只看新增部分。
 
