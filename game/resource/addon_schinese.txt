@@ -2474,7 +2474,7 @@
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"急速之翼"
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"永久获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE%移动速度，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度，%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%生命恢复和%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%魔法恢复加成。"
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"急速之翼"
-		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>使用：永久升级</h1>消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。"
+		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>使用：永久升级</h1>消耗急速之翼永久获得 %bonus_movement_speed% 移动速度, %bonus_attack_speed% 攻击速度, %bonus_health_regen% 生命恢复, %bonus_mana_regen% 魔法恢复。\n可以对友方英雄使用。每名英雄只能吞噬一次急速之翼，普通版和珍藏版共用这一次。"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_attack_speed"			"+$attack"
@@ -3275,7 +3275,7 @@
 
 		// item_wings_of_haste_copy
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"<font color='#B87333'>珍藏·急速之翼</font>"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>使用：永久升级</h1>消耗急速之翼后，永久获得 %bonus_movement_speed% 移动速度，%bonus_attack_speed% 攻击速度，8 生命恢复，5 魔法恢复。\n\n<h1>被动：古董</h1>使用珍藏·快男的馈赠获得。因为年代久远，属性和效果发生了一些奇特的变化。"
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>使用：永久升级</h1>消耗急速之翼后，永久获得 %bonus_movement_speed% 移动速度，%bonus_attack_speed% 攻击速度，8 生命恢复，5 魔法恢复。\n可以对友方英雄使用。每名英雄只能吞噬一次急速之翼，普通版和珍藏版共用这一次。\n\n<h1>被动：古董</h1>使用珍藏·快男的馈赠获得。因为年代久远，属性和效果发生了一些奇特的变化。"
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Lore"			"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_movement_speed"		"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_attack_speed"		"+$attack"

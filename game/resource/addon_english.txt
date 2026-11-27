@@ -2472,7 +2472,7 @@
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Wings of Haste"
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% bonus movement speed, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration."
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"Wings of Haste"
-		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>Use: Hasten</h1> Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, %bonus_health_regen% health regeneration, and %bonus_mana_regen% mana regeneration.\nThis item may be used on allied heroes who have not consumed this item yet."
+		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>Use: Hasten</h1> Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, %bonus_health_regen% health regeneration, and %bonus_mana_regen% mana regeneration.\nCan be used on an allied hero. Each hero can consume Wings of Haste only once, shared between the regular and Treasured versions."
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_attack_speed"			"+$attack"
@@ -3273,7 +3273,7 @@
 
 		// item_wings_of_haste_copy
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"<font color='#B87333'>Treasured Wings of Haste</font>"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>Use: Hasten</h1> Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, 8 health regeneration, and 5 mana regeneration.\nThis item may be used on allied heroes who have not consumed this item yet.\n\n<h1>Passive: Antique</h1>Obtained by opening Treasured Speedster's Gift. Over time, its stats and effects have changed in unusual ways."
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>Use: Hasten</h1> Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, 8 health regeneration, and 5 mana regeneration.\nCan be used on an allied hero. Each hero can consume Wings of Haste only once, shared between the regular and Treasured versions.\n\n<h1>Passive: Antique</h1>Obtained by opening Treasured Speedster's Gift. Over time, its stats and effects have changed in unusual ways."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Lore"			"Wings that grant swift retribution in battle."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_movement_speed"		"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_attack_speed"		"+$attack"

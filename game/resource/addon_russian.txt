@@ -2474,7 +2474,7 @@
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Крылья спешки"
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Навсегда даёт %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% к скорости передвижения, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% к скорости атаки, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% к восстановлению здоровья и %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% к восстановлению маны."
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"Крылья спешки"
-		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>Применение: Постоянное улучшение</h1>Поглощает Крылья спешки, навсегда давая %bonus_movement_speed% к скорости передвижения, %bonus_attack_speed% к скорости атаки, %bonus_health_regen% к восстановлению здоровья и %bonus_mana_regen% к восстановлению маны."
+		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>Применение: Постоянное улучшение</h1>Поглощает Крылья спешки, навсегда давая %bonus_movement_speed% к скорости передвижения, %bonus_attack_speed% к скорости атаки, %bonus_health_regen% к восстановлению здоровья и %bonus_mana_regen% к восстановлению маны.\nМожно использовать на союзного героя. Каждый герой может поглотить Крылья спешки только один раз, обычная и Драгоценная версии делят этот раз."
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Крылья, дарующие скорое возмездие в бою."
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_attack_speed"			"+$attack"
@@ -3275,7 +3275,7 @@
 
 		// item_wings_of_haste_copy
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy"						"<font color='#B87333'>Драгоценные Крылья спешки</font>"
-		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>Применение: Постоянное улучшение</h1>Поглощает Крылья спешки, навсегда давая %bonus_movement_speed% к скорости передвижения, %bonus_attack_speed% к скорости атаки, 8 к восстановлению здоровья и 5 к восстановлению маны.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить из набора «Драгоценный Speedster's Gift». От времени его характеристики и эффекты необычно изменились."
+		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Description"		"<h1>Применение: Постоянное улучшение</h1>Поглощает Крылья спешки, навсегда давая %bonus_movement_speed% к скорости передвижения, %bonus_attack_speed% к скорости атаки, 8 к восстановлению здоровья и 5 к восстановлению маны.\nМожно использовать на союзного героя. Каждый герой может поглотить Крылья спешки только один раз, обычная и Драгоценная версии делят этот раз.\n\n<h1>Пассивное: Антиквариат</h1>Можно получить из набора «Драгоценный Speedster's Gift». От времени его характеристики и эффекты необычно изменились."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_Lore"			"Крылья, дарующие скорое возмездие в бою."
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_movement_speed"		"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_copy_bonus_attack_speed"		"+$attack"
