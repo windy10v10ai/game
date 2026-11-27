@@ -3155,7 +3155,7 @@
 
 		// item_treasure_cheese 神·奶酪
 		"DOTA_Tooltip_Ability_item_treasure_cheese"						"<font color='#818CFF'>Divine Cheese</font>"
-		"DOTA_Tooltip_ability_item_treasure_cheese_Description"			"<h1>Use: Fondue</h1>Instantly restores %health_restore% health and %mana_restore% mana.<br><br>Can be used 3 times and given to teammates."
+		"DOTA_Tooltip_ability_item_treasure_cheese_Description"			"<h1>Use: Fondue</h1>Instantly restores %health_restore% health and %mana_restore% mana.<br><br>Can be used 5 times and given to teammates."
 
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"Saint White Lotus"
