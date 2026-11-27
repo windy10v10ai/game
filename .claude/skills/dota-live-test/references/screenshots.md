@@ -4,6 +4,8 @@
 
 Dota 窗口先最大化：引擎截图的分辨率等于窗口分辨率，小窗口截出来的 tooltip 字太小。
 
+截图只走远程控制台：Lua 里 `SendToConsole("screenshot")` 不出图。要卡准时间点（如倒计时第 N 秒）时直接 `node src/scripts/dota-cmd.js --settle 300 "screenshot"`，`npm run dota:cmd` 每次多等约 6 秒启动开销。
+
 只要画面、不需要点击时，引擎命令连 computer-use 都不用。它只截游戏画面，桌面上的其他窗口（Claude、聊天软件）不会进图；也不需要 computer-use 授权，权限模式自动拒绝授权弹窗时照样能用。
 
 不要用 PowerShell `CopyFromScreen` 截 Dota 窗口区域：Dota 被别的窗口盖住时，截到的是盖在上面的窗口，会把用户别的会话内容带进图里。
