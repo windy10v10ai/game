@@ -266,7 +266,7 @@
 	{
 		"ID"									"10489"
 		"BaseClass"							"item_datadriven"
-		"AbilityTextureName"					"tome_of_knowledge"
+		"AbilityTextureName"					"treasure_attribute_fragment"
 		"Model"								"models/gameplay/attrib_tome_xp.vmdl"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"							"0"
@@ -286,7 +286,7 @@
 	{
 		"ID"									"10490"
 		"BaseClass"							"item_datadriven"
-		"AbilityTextureName"					"inventory_slot_unlock"
+		"AbilityTextureName"					"treasure_inventory_fragment"
 		"Model"								"models/gameplay/attrib_tome_xp.vmdl"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"							"0"
@@ -306,7 +306,7 @@
 	{
 		"ID"									"10491"
 		"BaseClass"							"item_datadriven"
-		"AbilityTextureName"					"passive_skill_tome"
+		"AbilityTextureName"					"treasure_passive_fragment"
 		"Model"								"models/gameplay/attrib_tome_xp.vmdl"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"							"0"
