@@ -99,9 +99,9 @@ end)
 - **游廊建房要从 Steam 或启动器启动 Dota**：直接运行 `dota2.exe`（带 `-netconport` 等参数）后在游廊创建自定义房间，会弹「VAC 无法验证机器是否处于安全状态」，无法线上开局。Tools 与本地开局不受影响
 - **只回报观察**：哪几行出现了、时间戳是多少、断在哪一步。诊断和改代码留给主会话
 - **开工先查端口**，没起的自己起——上一轮的后台进程不一定还活着
-- **不收尾**：关不关由主会话决定，见第 6 步
+- **不收尾**：测完关不关由主会话决定，见第 6 步（测试中卡死重启不算收尾，直接做）
 - **PR 截图派主力档**：要审排版，最便宜档判断不了，规则见 `create-pr` 的 `references/screenshots.md`
-- **串行派多个子代理时写明授权**：上一个子代理留着的 Dota，下一个子代理的交接里写「用户已授权关闭遗留的 dota2」，否则它按「已开着就拒绝」停下回报，白费一轮
+- **测试用的 Dota 归测试方完全控制**（用户 2026-11-27 定）：为测试启动的 Dota（主会话或任一子代理起的，含上一轮验证留下的）在测试中可以随时关掉、重启、重载，卡死直接按进程号关掉重开，不用问用户。交接里写明这个 Dota 的进程号，并写「这是测试启动的 Dota，可直接关掉重启」，否则下一个子代理按「已开着就拒绝」停下回报，白费一轮。用户自己开的 Dota（不是测试启动的）仍然不碰
 
 拿到这份 skill 的子代理从第 1 步开始，不再往下派。
 
@@ -140,7 +140,7 @@ $dota = "C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\bin\win6
 需要再跑一遍时有两种重开方式：
 
 - **重启进程**，参数同上。慢一两分钟，任何环境都能用。
-- **VConsole 命令框**输入 `dota_launch_custom_game windy10v10ai dota`，几秒钟重新加载。需要能操作窗口，即桌面应用的 computer-use MCP；Claude Code CLI 里没有这套工具。经远程控制台（`dota:cmd`）发这条命令曾让开了一个多小时的 Tools 进程挂死：日志停在 `[VConComm] Connection in progress...`，`Get-Process dota2` 的 `Responding` 持续为 False，`dota:cmd` 只是超时、不报错。发之前先确认进程有响应，发完 30 秒仍无新日志且不响应就按挂死处理，向主会话报告，由用户决定是否关掉重启
+- **VConsole 命令框**输入 `dota_launch_custom_game windy10v10ai dota`，几秒钟重新加载。需要能操作窗口，即桌面应用的 computer-use MCP；Claude Code CLI 里没有这套工具。经远程控制台（`dota:cmd`）发这条命令曾让开了一个多小时的 Tools 进程挂死：日志停在 `[VConComm] Connection in progress...`，`Get-Process dota2` 的 `Responding` 持续为 False，`dota:cmd` 只是超时、不报错。发之前先确认进程有响应，发完 30 秒仍无新日志且不响应就按挂死处理，按进程号关掉重启（见「测试用的 Dota 归测试方完全控制」）
 
 重开前记下当前行数（`wc -l < console.log`），之后用 `awk 'NR>N'` 只看新增部分。
 
@@ -167,7 +167,7 @@ grep -n "ApiHtmlProxy\|GameStartProxy" "C:/Program Files (x86)/Steam/steamapps/c
 
 ### 6. 收尾
 
-**关不关由主会话决定，子代理一律不关**——中途关掉，下一轮还要重起一遍。三种情况：
+**测完关不关由主会话决定，子代理测完不关**——中途关掉，下一轮还要重起一遍。三种情况：
 
 - 全部验证结束 → 关
 - 还要再验一轮 → 留着
